@@ -1,0 +1,93 @@
+# An Empirical Sub-Poissonian Constant for Goldbach Representation Fluctuations, with Numerical Evidence That It Equals ln 2
+
+**Status: numerical/exploratory research note — no theorems about the constant are proven here.**
+*Produced in a human–AI exploratory session (2026-08-03). All code and logs available; 15 documented self-corrections. Expert scrutiny is explicitly requested; overlap with existing literature is possible and pointers are welcome.*
+
+---
+
+## Abstract
+
+Let g(n) denote the number of unordered representations of an even integer n as a sum of two primes, and let HL(n) be the first-order Hardy–Littlewood prediction. We study the fluctuations of z(n) = g(n)/HL(n) with a fixed ("canonical") estimator: dyadic windows, residue class n ≡ 2 (mod 6), removal of the linear drift in ln n, and the normalized dispersion r = σ(z)·⟨HL⁻¹ᐟ²⟩⁻¹-type ratio calibrated so that an independent (Bernoulli/Cramér) model gives 1. Across 18 dyadic windows up to 5.4×10⁸ we measure a monotone approach of r to a limit; a weighted least-squares fit gives
+
+**r∞ = 0.6931 ± 0.0061 (stat), to be compared with ln 2 = 0.69315.**
+
+Two further independent constructions — a "Hardy–Littlewood null" comparison world (wheel-structured Bernoulli), and the plateau of a wheel-modulus scan with an interaction-complete regression basis — give variance-ratio values 0.468 ± 0.010 and 0.472 ± 0.010, consistent with (ln 2)² = 0.4805. The dispersion is invariant under changing the window shape ratio from 1.3 to 6 (ruling out a window artifact). We conjecture that the canonical suppression constant equals ln 2 exactly.
+
+We further present evidence that the constant is **invisible to two-point statistics**: permuting the sequence of prime gaps (globally, or locally in blocks of 8), which preserves the entire gap multiset, destroys the suppression completely (ratio returns to 1.000 ± 0.007); an elementary calculation with Montgomery-type pair-correlation input yields only O(1/log) corrections. If correct, the constant is an invariant of **additive correlations of order ≥ 3** of the primes — an object beyond GUE pair-correlation phenomenology.
+
+---
+
+## 1. Setup and definitions
+
+- P = set of primes. For even n, g(n) = #{(p,q): p ≤ q, p+q = n, p,q ∈ P}.
+- First-order Hardy–Littlewood: HL(n) = C₂·𝔖₀(n)·n/ln²n with C₂ = 0.6601618…, 𝔖₀(n) = ∏_{p|n, p>2} (p−1)/(p−2).
+- **Canonical estimator.** For a dyadic window W = [2^k, 2^{k+1}) restricted to n ≡ 2 (mod 6):
+  1. z(n) = g(n)/HL(n);
+  2. subtract the best linear fit of z against ln n over W (drift removal);
+  3. r(W) = std(residual)·[mean(HL⁻¹ᐟ²)]⁻¹ — i.e., the dispersion measured in units of the "Poisson" scale HL⁻¹ᐟ².
+- **Null calibration.** In matched independent models (odd sites m carrying "prime" with probability 2/ln m, all structure identical in expectation), the same pipeline returns r ≈ 1 (verified; see §4 for the refined null).
+
+All prime data computed by sieve; g(n) via FFT convolution of prime indicators (exact integer counts, cross-checked against direct summation at 10⁻⁹ relative error).
+
+## 2. Main empirical result
+
+Dyadic-window dispersion values (pure-fluctuation variant; windows 2¹² … 2²⁸, the last four measured on 8000-point subsamples with per-point exact g):
+
+r rises monotonically 0.506 → 0.595 over 17 octaves. Fitting r = a + b/ln n:
+
+| fit range | a (limit) |
+|---|---|
+| all 18 octaves, weighted | **0.6931 ± 0.0061** |
+| tail 10 | 0.6864–0.6903 |
+| tail 8 | 0.6898–0.6928 |
+
+ln 2 = 0.693147. The successive fitted limits over growing data ranges were 0.633 → 0.665 → 0.677 → 0.684/0.695 — a monotone march toward ln 2 (consistent with a fit that underestimates in the presence of higher-order corrections).
+
+**Window-shape invariance.** At fixed central scale 4×10⁶, changing the window ratio r_w ∈ {1.3, 1.5, 2, 3, 4, 6} changes the measured dispersion only from 0.5650 to 0.5824 (a scale-mixing drift), while ln r_w varies by a factor 6.8. The constant is not an artifact of octave (ln 2-wide) windows.
+
+**Conjecture 1 (ln 2 conjecture).** For the canonical estimator, r∞ = ln 2 (equivalently, the variance ratio tends to (ln 2)² = 0.4805).
+
+## 3. Two further independent constructions
+
+**(a) Hardy–Littlewood null world.** Comparing the real primes against wheel-structured Bernoulli worlds (sites coprime to 30, density boosted accordingly) under an *identical* projection estimator whose regression basis spans both worlds' arithmetic structure (polynomial × singular-series interactions plus per-prime indicator columns), the Fano-type variance ratio is **0.4680 ± 0.0100**.
+
+**(b) Wheel-modulus scan.** Extending the null family to wheels of modulus z ∈ {3,5,7,11,13} with an interaction-complete basis (products of indicator columns; without them a spurious dip appears at z = 7 and is fully explained by unspanned joint-residue-class structure), the ratio forms a plateau **0.472 ± 0.010** at z = 11–13.
+
+Both agree with (ln 2)² = 0.4805 within ~1σ. We emphasize a caution learned repeatedly: with *incorrectly specified nulls or bases*, the measured constant can land anywhere in ≈0.16–0.52; the three constructions above are the ones whose null/basis specification we can defend, and they agree.
+
+## 4. Structural results (verified; provable or conditional-standard)
+
+1. **Decomposition identity** (exact algebra, machine-verified to 10⁻⁸): with Λ the von Mangoldt function and e = Λ − 1, R = Λ⋆Λ (additive convolution) satisfies R(n) = (n−1) + 2[ψ(n−1) − (n−1)] + (e⋆e)(n). The fluctuation is dominated (99.8% of variance) by the pair term.
+2. **Conditional pair singular series** (elementary derivation + numerical verification at the 1% level on totals, 3–15% pointwise): in the band n ≡ 2 (mod 6) the admissible lower primes are p ≡ 1 (mod 6), forcing pair distances d ≡ 0 (mod 6), with conditional pair factor κ(d) = C₅·∏_{q≥5, q|d} (q−1)/(q−2), C₅ = ∏_{q≥5}(1 − (q−1)⁻²) = 0.88022.
+3. **Spectral profile = interval-variance (Goldston–Montgomery) function.** The structure-subtracted spectrum of a prime-indicator window, band-averaged off the rationals, follows φ(λ) ≈ 1 − ln λ / ln x across ~4 decades of wavelength λ (checked at multiple scales). This is the GUE/pair-correlation interval-variance profile appearing as the frequency-resolved content of the prime indicator.
+4. **Whitening.** After band-restriction on an arithmetic progression (step 6) and low-rank regression, the residual field is spectrally white (flat ratio across all λ; kurtosis 3.14; no autocorrelation): the estimator "bakes in" the constant globally. Consequently the constant is formed where the dense arithmetic (rational spikes and their tails) meets its low-rank *coherent* subtraction — sharp masking of arcs is impossible (they are dense), and eight attempted shortcut routes all converged to this same obstruction (documented).
+
+## 5. Evidence that the constant is beyond pair correlations
+
+- **Gap-permutation surrogates.** Randomly permuting the sequence of prime gaps (globally: preserves the exact gap multiset; or locally within blocks of 8 gaps) yields dispersion ratio 0.999 ± 0.007 — the suppression vanishes although all two-point/interval statistics of the process are (essentially) preserved.
+- **Matched-spectrum Gaussian worlds** (random phases with the correct zero-density power spectrum on RH scaling) show *no* suppression (ratio ≈ 1.28–1.39, consistent with the Beta-function geometry constant 2 ln 2 of the additive convolution).
+- **Elementary pair-input calculation.** Feeding Montgomery/Goldston-type pair correlation into the variance of Σ_p 1_P(n−p) gives corrections of size O(1/ln) — no O(1) suppression (session-grade derivation; the corresponding numerical check requires full residue-conditioning machinery and is left open).
+
+**Conjecture 2 (beyond-pair).** The constant of Conjecture 1 is determined by connected additive correlations of the primes of order ≥ 3 (plausibly the 4-point function under the constraint p₁+p₂ = p₃+p₄ = n), and is not a functional of the pair correlation alone. Equivalently, it lives in the same regime as minor-arc fourth-moment control of exponential sums over primes.
+
+## 6. Proof program and obstruction map (for the interested analyst)
+
+The full internal roadmap (lemmas established, two remaining computations "Theorem A: closed form of the canonical estimator's spectral measure" and "Theorem B: the GM-profile integral equals (ln 2)²"), together with a list of **15 documented pitfalls** (parity of sampling bands; circular-convolution artifacts; collision-thinning in jitter surrogates; ordered/unordered singular-series factors; aliasing of spiky fields under block averaging; sharp arc masks being (N,Q)-crossings rather than constants; window overlap; density of arcs; etc.) is available in the repository (PROOF_PROGRAM.md, E4_PROGRESS.md — 28 dated increments).
+
+A geometric identity we note for interest: [∫_{1/2}^{1} dv/v]² = (ln 2)² — the squared logarithmic measure of the Goldbach partner half-range [n/2, n]; a stationary-phase analysis of the zero double-sum localizes at the midpoint p ≈ q ≈ n/2, but we could not (yet) turn this into a derivation.
+
+## 7. Limitations and honest caveats
+
+- **Nothing about the constant is proven.** Conjectures 1–2 rest on numerical evidence up to 5.4×10⁸ (dispersion series), 1.34×10⁸ (per-point subsamples), auxiliary experiments at 2×10⁶–1.7×10⁷, plus a Goldbach verification sweep to 10¹¹ (no counterexamples; consistent with prior published verifications to 4×10¹⁸).
+- **Estimator dependence.** Different estimator frames (different structure models/nulls) yield different constants (observed 0.26–0.52). The ln 2 claim is specifically about the canonical estimator of §1; its distinguished status is argued (HL-normalization only; null-calibrated; window-invariant) but a frame-independent formulation is part of the open program.
+- **Extrapolation risk.** The limit is a fitted asymptote of a slowly converging sequence; the fitted value moved from 0.633 to 0.693 as data grew. We report this drift openly; it is consistent with (and was predicted by) a 1/ln n approach, but larger computations would strengthen or refute the claim. Falsification condition: the fitted limit departing from ln 2 with more data.
+- **Literature.** We have not performed a systematic literature comparison; variance of Goldbach representations has been studied (e.g., in the ψ-weighted setting, and conditionally under RH), and the constant may exist in some form in prior work. Corrections and references are welcome.
+- **Provenance.** The work was carried out in an AI-assisted exploratory session; despite the documented self-correction discipline, undetected errors are possible. All claims are tied to runnable scripts.
+
+## 8. Reproducibility
+
+All experiments are plain Python (numpy only): sieve + FFT convolutions; largest run ≈ 20 minutes on a desktop. Key scripts: series (e4_dense_sample.py, e4_octave27/28.py), window invariance (e4_window_test.py), HL-null and wheel scan (e4_wheelnull.py, e4_zscan3.py), gap surrogates (e4_gapshuffle.py), spectral profile (e4_phi_profile.py), decomposition/whitening (q3d_decompose.py, e4_A_exact.py), κ(d) verification (e4_breakthrough.py). Logs: E4_PROGRESS.md (28 increments), HYPOTHESES.md, Q3_DERIVATION.md.
+
+## Acknowledgment / request
+
+If you are an analytic number theorist: we would be grateful for (i) pointers to prior work containing this constant or refuting it, (ii) an opinion on Conjecture 2, and (iii) whether the two remaining computations of the proof program are tractable under standard conjectures (RH, pair correlation, moment hypotheses for S(α)).
