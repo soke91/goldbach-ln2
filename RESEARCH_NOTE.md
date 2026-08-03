@@ -203,11 +203,16 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   candidates at 10⁶, the worst s is 0.5962 — only 3.5σ below the mean (less
   than the ~4.5σ a Gaussian sample of this size would produce), and above the
   asymptotic mean 0.5906.
-- **Arithmetic signature of the worst cases.** Low-s n concentrate in
-  singular-series-poor ("thin") classes (𝔖₀ = 1.069 vs 1.128 population;
-  n mod 30 ∈ {14, 8} dominate) — the same habitat law we observed for
-  minimal-partner champions. The hardest cases are structurally localized,
-  suggesting class-conditioned attacks.
+- **No arithmetic signature: the ratio has already quotiented out structure.**
+  A full regression over all 30,000 candidates shows corr(s, 𝔖₀) = +0.004 —
+  the singular series explains 0.0% of the variance of s (an earlier
+  small-sample "thin-class habitat" reading did not survive this test). This
+  is consistent with the hyper-concentration mechanism: g and S share their
+  arithmetic mode, so s = g/S cancels it. Residues mod 30 shift class means
+  by only ~0.2% relative; the one real effect is that classes with 5 | n are
+  ~10% tighter in σ. The remaining fluctuation of s is a single,
+  structure-free channel — class-conditioning offers no reduction, and the
+  target becomes a tail bound on that universal channel.
 - **Open route.** Injecting a parity-sensitive invariant (such as the
   fluctuation channel of Conjecture 1) into weighted sieves — unexplored.
 
