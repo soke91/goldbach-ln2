@@ -72,7 +72,7 @@ Both agree with (ln 2)² = 0.4805 within ~1σ. We emphasize a caution learned re
 
 ## 6. Proof program and obstruction map (for the interested analyst)
 
-The full internal roadmap (lemmas established, two remaining computations "Theorem A: closed form of the canonical estimator's spectral measure" and "Theorem B: the GM-profile integral equals (ln 2)²"), together with a list of **15 documented pitfalls** (parity of sampling bands; circular-convolution artifacts; collision-thinning in jitter surrogates; ordered/unordered singular-series factors; aliasing of spiky fields under block averaging; sharp arc masks being (N,Q)-crossings rather than constants; window overlap; density of arcs; etc.) is available in the repository (PROOF_PROGRAM.md, E4_PROGRESS.md — 28 dated increments).
+The full internal roadmap (lemmas established, two remaining computations "Theorem A: closed form of the canonical estimator's spectral measure" and "Theorem B: the GM-profile integral equals (ln 2)²"), together with a list of **15 documented pitfalls** (parity of sampling bands; circular-convolution artifacts; collision-thinning in jitter surrogates; ordered/unordered singular-series factors; aliasing of spiky fields under block averaging; sharp arc masks being (N,Q)-crossings rather than constants; window overlap; density of arcs; etc.) exists as dated internal session logs (in Korean, 30+ increments); available on request via an issue.
 
 A geometric identity we note for interest: [∫_{1/2}^{1} dv/v]² = (ln 2)² — the squared logarithmic measure of the Goldbach partner half-range [n/2, n]; a stationary-phase analysis of the zero double-sum localizes at the midpoint p ≈ q ≈ n/2, but we could not (yet) turn this into a derivation.
 
@@ -86,7 +86,7 @@ A geometric identity we note for interest: [∫_{1/2}^{1} dv/v]² = (ln 2)² —
 
 ## 8. Reproducibility
 
-All experiments are plain Python (numpy only): sieve + FFT convolutions; largest run ≈ 20 minutes on a desktop. Key scripts: series (e4_dense_sample.py, e4_octave27/28.py), window invariance (e4_window_test.py), HL-null and wheel scan (e4_wheelnull.py, e4_zscan3.py), gap surrogates (e4_gapshuffle.py), spectral profile (e4_phi_profile.py), decomposition/whitening (q3d_decompose.py, e4_A_exact.py), κ(d) verification (e4_breakthrough.py). Logs: E4_PROGRESS.md (28 increments), HYPOTHESES.md, Q3_DERIVATION.md.
+All experiments are plain Python (numpy only): sieve + FFT convolutions; largest run ≈ 20 minutes on a desktop. Key scripts: series (e4_dense_sample.py, e4_octave27/28.py), window invariance (e4_window_test.py), HL-null and wheel scan (e4_wheelnull.py, e4_zscan3.py), gap surrogates (e4_gapshuffle.py), spectral profile (e4_phi_profile.py), decomposition/whitening (q3d_decompose.py, e4_A_exact.py), κ(d) verification (e4_breakthrough.py), parity ratio & concentration (p2_ratio_theorem.py, p2_concentration.py). Internal session logs (Korean) available on request.
 
 ## Addendum A: the parity-barrier ratio equals 1 : ln 2 (derived & verified)
 
@@ -115,6 +115,10 @@ binomial (independent-sampling) prediction √(s(1−s)/S). The all-P2 event
 917σ away, the distance growing like √(n/ln²n). Together with Addendum A this
 gives a quantitative form of the parity-barrier defense:
 the ratio is pinned at 1/(1+ln 2) with sub-binomial fluctuations.
+A 1500-sample run at 10⁷ gives sub-binomial ratio 0.8174 ± 0.0149
+(within ~1σ of √(ln 2) = 0.8326 — noted as a curiosity only, given the
+risk of constant-hunting), and the sample-minimum of s sits a routine
+2.7σ below the mean (Gaussian-consistent tail).
 
 ## Addendum B: first-pass related literature
 

@@ -1,4 +1,4 @@
-# goldbach-ln2
+﻿# goldbach-ln2
 
 **An empirical sub-Poissonian constant for Goldbach representation fluctuations,
 with numerical evidence that it equals ln 2.**
@@ -28,8 +28,7 @@ invariant of **additive prime correlations of order ≥ 3**, beyond
 pair-correlation/GUE phenomenology.
 
 Full write-up: [RESEARCH_NOTE.md](RESEARCH_NOTE.md).
-Proof roadmap + 15-pitfall obstruction map: [docs/PROOF_PROGRAM.md](docs/PROOF_PROGRAM.md).
-Complete session logs: [docs/](docs/).
+Internal session logs (Korean, 30+ dated increments) available on request via an issue.
 
 ## Reproduce (Python + numpy only; minutes on a laptop)
 
@@ -63,8 +62,7 @@ python q3p_L.py
 
 Scripts print all reported numbers to stdout. `code/goldbach/` is the small
 shared library (sieve + Hardy–Littlewood utilities). Some scripts use paths or
-constants tuned during the session; see docs/E4_PROGRESS.md for the exact
-provenance of every reported figure.
+constants tuned during the session; provenance of every figure is tracked in internal logs (available on request).
 
 ## What is claimed / not claimed
 
@@ -86,3 +84,4 @@ dependence, extrapolation risk, possible literature overlap).
 ## License
 
 Code: MIT (or your preferred license — set before publishing). Text: CC BY 4.0.
+
