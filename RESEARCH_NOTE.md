@@ -154,6 +154,15 @@ sub-binomial ratio. Measurements:
    it requires the same multi-decade fitted-limit treatment as the main
    dispersion series. (A recurring lesson of this project: apparent constant
    matches at single scales are unreliable; only fitted limits count.)
+7. **First fitted-limit table (7 scales, 10⁶–6.4×10⁷, 12,750 samples).**
+   All three Fanos drift upward; weighted 1/ln n fits give limits
+   F_g → 0.43, F_S → 0.21, F_P2 → 0.63 (long extrapolations; ±0.05–0.1).
+   Suggestive ordering near ((ln 2)², ·, ln 2) — recorded as direction, not
+   claim; a comet-grade multi-decade campaign would be needed to settle them.
+   Separately, F_S is *window-invariant* at fixed scale (0.137 ± 0.002 across
+   window ratios 1.15–2.2 — the same invariance signature as Conjecture 1),
+   while a GM interval-variance-at-window-scale explanation is excluded by
+   that very invariance (its sharp prediction 0.19→0.06 fails).
 
 Together with Addendum A (s̄ = 1/(1+ln 2)): the parity ratio is pinned at an
 elementary constant, fluctuates *less* than independence allows, and the
