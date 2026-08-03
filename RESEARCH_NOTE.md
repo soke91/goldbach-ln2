@@ -186,7 +186,7 @@ elementary constant, fluctuates *less* than independence allows, and the
 counterexample-enabling collapse recedes as √S/ln 2·(1/r_sb); dynamically, the
 barrier is a *conservation law with anti-correlated parity exchange*.
 
-## Addendum D: an attack map for the sharpened target s(n) > 0
+## Addendum D: an attack map for the sharpened target s(n) > 0 (v2)
 
 Theorem 1 + concentration reduce Goldbach (via the parity barrier) to proving
 s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
@@ -213,8 +213,55 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   ~10% tighter in σ. The remaining fluctuation of s is a single,
   structure-free channel — class-conditioning offers no reduction, and the
   target becomes a tail bound on that universal channel.
-- **Open route.** Injecting a parity-sensitive invariant (such as the
-  fluctuation channel of Conjecture 1) into weighted sieves — unexplored.
+- **Sub-binomial variance is a finite-scale effect (protocol v3).** The
+  cross-n variance ratio R² = Var(s)/Var_binomial sits below 1 at every
+  accessible scale, but a clean measurement required three rounds of
+  artifact removal: (i) a window-fixed sieve limit y = X^{1/3} admits
+  n-dependent P3 contamination (widening the window at 10⁷ moved R² from
+  0.71 to 2.24); (ii) even with per-n roughness, a prime-cube boundary
+  q³ inside the window steps s by 1–2σ when q activates; the final protocol
+  places windows inside cube gaps (q₁³, q₂³) with drift removal. The clean
+  curve rises monotonically, R² = 0.47 → 0.80 over 10⁵–10⁸, with
+  (1 − R²)·ln x ≈ 5 roughly constant — consistent with **R² → 1 and a
+  suppression amplitude decaying like ~5/ln x**. We therefore do not claim
+  any nontrivial limiting constant; prime sampling among survivors appears
+  asymptotically binomial in this statistic. (Honest note: the typical
+  χ²/dof below also rises slightly with scale, 0.515 → 0.539, so whether
+  its sub-Poisson constant persists asymptotically is likewise open; the
+  measured worst-case margin in σ units nevertheless grows.)
+- **Roughness-interpolation map and the feasibility profile.** Writing
+  y = x^θ and u = 1/θ, the prime share among y-rough survivors is
+  1/(u·ω(u)) (Buchstab ω; Theorem 1 is the u = 3 section, since
+  ω(3) = (1+ln 2)/3). Against the linear-sieve lower bound f(1/(2θ))
+  (level x^{1/2}), the win condition "upper-bound the composite survivors
+  within a factor U_req(θ) = f(1/(2θ))·(1 − 1/(u·ω(u)))⁻¹ of truth" has a
+  feasibility profile peaking at **θ ≈ 1/8 with U_req ≈ 1.26**; θ ≥ 1/4 is
+  an impossibility region (U_req < 1). The parity barrier, in these
+  coordinates, is a 26%-margin upper-bound problem at roughness x^{1/8}.
+- **Fiber decomposition of the enemy.** Splitting composite survivors at
+  θ = 1/3 into fibers F_q (semiprimes divisible by q): a rank-1 common mode
+  (the computable singular-series structure) carries 93.8% of fiber
+  variance; after removing it, fibers exchange budget (residual total
+  variance = 0.44 of the independent-fiber sum) and each fiber is
+  sub-Poisson (Fano ≈ 0.59). The enemy total fluctuates at about half the
+  σ of independent-Poisson bookkeeping — a first quantification of what
+  fiber-independent sieve bounds discard.
+- **Exhaustive χ² envelope (strongest individual-n datum).** Define
+  χ²(n) = Σ_q (F_q − E_q)²/E_q against the universal fiber profile
+  (self-normalized within n). Over all 30,000 candidates at 10⁶:
+  χ²/(dof) = 0.515 ± 0.062, **worst case 0.796 — every single n stays
+  below the Poisson value 1**, with the deepest excursion (4.55σ) matching
+  the Gaussian expectation exactly. At 10⁷ (3000 samples) the typical value
+  is 0.539 and the margin to 1 grows from 7.8σ to 10.7σ. Unlike variance
+  statements, χ²(n) is defined within a single n, so this is empirically
+  the exact *shape* of statement a proof would need.
+- **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
+  with some K < 1" — anchored near Barban–Davenport–Halberstam /
+  Montgomery–Hooley mean-square theory, with the fixed-residue (single
+  a = n mod q per modulus) obstacle; (ii) keep the switching loss (dropping
+  the cofactor-primality condition) under the 26% margin at θ = 1/8;
+  (iii) assemble via Cauchy–Schwarz into an individual-n bound on the
+  composite-survivor total.
 
 ## Addendum B: first-pass related literature
 
