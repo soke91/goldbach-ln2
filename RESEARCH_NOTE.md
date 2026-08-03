@@ -186,6 +186,31 @@ elementary constant, fluctuates *less* than independence allows, and the
 counterexample-enabling collapse recedes as √S/ln 2·(1/r_sb); dynamically, the
 barrier is a *conservation law with anti-correlated parity exchange*.
 
+## Addendum D: an attack map for the sharpened target s(n) > 0
+
+Theorem 1 + concentration reduce Goldbach (via the parity barrier) to proving
+s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
+
+- **Price tag of classical sieves.** The proven population ratio S : P2 =
+  (1+ln 2) : ln 2 = 2.443 : 1 means classical upper/lower sieve bounds close
+  the gap iff their combined loss factor is < 2.443; standard linear-sieve
+  losses (~2× each side) exceed this — a compact numerical statement of what
+  the parity barrier costs, and of what any improvement must achieve.
+- **Variance route ceiling.** Mean (Theorem 1) + conditional second moments +
+  Chebyshev yield only exceptional-set bounds ("almost all n") — the known
+  ceiling; individual n is out of reach on this route.
+- **Exhaustive envelope is sub-Gaussian-tame.** Over 30,000 consecutive
+  candidates at 10⁶, the worst s is 0.5962 — only 3.5σ below the mean (less
+  than the ~4.5σ a Gaussian sample of this size would produce), and above the
+  asymptotic mean 0.5906.
+- **Arithmetic signature of the worst cases.** Low-s n concentrate in
+  singular-series-poor ("thin") classes (𝔖₀ = 1.069 vs 1.128 population;
+  n mod 30 ∈ {14, 8} dominate) — the same habitat law we observed for
+  minimal-partner champions. The hardest cases are structurally localized,
+  suggesting class-conditioned attacks.
+- **Open route.** Injecting a parity-sensitive invariant (such as the
+  fluctuation channel of Conjecture 1) into weighted sieves — unexplored.
+
 ## Addendum B: first-pass related literature
 
 Averages of Goldbach representations and their connection to zeta zeros are
