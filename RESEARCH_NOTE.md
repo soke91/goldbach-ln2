@@ -145,12 +145,15 @@ sub-binomial ratio. Measurements:
    near-primes *trade places under a nearly conserved survivor total*.
    The variance budget Var(S) = Var(g)+Var(P2)+2Cov closes to first order
    (0.17 vs 0.14 with a first-order structure model for P2).
-6. **The frame's constant table (scale-stable across 3×10⁶–3×10⁷).**
-   F̃_g = 0.274(4), F̃_S = 0.14(1), and **F̃_P2 = 0.481 ± 0.008 — coinciding
-   with (ln 2)² = 0.4805 to 0.2%** across all three scales. We flag this as an
-   open observation (not a conjecture) given our constant-hunting discipline,
-   but note it is the same constant as in Conjecture 1, now appearing as the
-   Fano factor of the *semiprime* count fluctuations.
+6. **The frame's constant table.** F̃_g ≈ 0.27–0.29, F̃_S ≈ 0.13–0.14, and
+   F̃_P2 = 0.457(9) at 3×10⁶ rising to 0.490(14) at 10⁷ (7500-sample runs).
+   An earlier smaller-sample scan suggested F̃_P2 = (ln 2)² to 0.2%; tighter
+   statistics reveal a finite-size upward drift instead (self-correction #17),
+   so the correct statement is: F̃_P2 is scale-drifting toward an asymptote in
+   the 0.48–0.50 range, *compatible with (ln 2)² but unconfirmed* — settling
+   it requires the same multi-decade fitted-limit treatment as the main
+   dispersion series. (A recurring lesson of this project: apparent constant
+   matches at single scales are unreliable; only fitted limits count.)
 
 Together with Addendum A (s̄ = 1/(1+ln 2)): the parity ratio is pinned at an
 elementary constant, fluctuates *less* than independence allows, and the
