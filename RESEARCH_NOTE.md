@@ -145,6 +145,12 @@ sub-binomial ratio. Measurements:
    near-primes *trade places under a nearly conserved survivor total*.
    The variance budget Var(S) = Var(g)+Var(P2)+2Cov closes to first order
    (0.17 vs 0.14 with a first-order structure model for P2).
+6. **The frame's constant table (scale-stable across 3×10⁶–3×10⁷).**
+   F̃_g = 0.274(4), F̃_S = 0.14(1), and **F̃_P2 = 0.481 ± 0.008 — coinciding
+   with (ln 2)² = 0.4805 to 0.2%** across all three scales. We flag this as an
+   open observation (not a conjecture) given our constant-hunting discipline,
+   but note it is the same constant as in Conjecture 1, now appearing as the
+   Fano factor of the *semiprime* count fluctuations.
 
 Together with Addendum A (s̄ = 1/(1+ln 2)): the parity ratio is pinned at an
 elementary constant, fluctuates *less* than independence allows, and the
