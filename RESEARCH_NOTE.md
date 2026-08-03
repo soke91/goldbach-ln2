@@ -136,10 +136,20 @@ sub-binomial ratio. Measurements:
 4. **Gaussian tails.** Over 1500 samples the minimum of s sits a routine 2.7σ
    below the mean — no anomalous left tail.
 
+5. **Conservation + parity trade-off (the dynamical structure).** Measuring
+   structure-normalized Fano factors of the three counts at 10⁷:
+   F̃_g = 0.296 (matching the canonical Goldbach dispersion of Conjecture 1 in
+   this scale range — the two phenomena connect), F̃_S = **0.136** (the sieve-
+   survivor *total* is hyper-rigid — a new rigidity object), F̃_P2 = 0.440,
+   and, after common-mode removal, **corr(ẽ_g, ẽ_P2) = −0.52**: primes and
+   near-primes *trade places under a nearly conserved survivor total*.
+   The variance budget Var(S) = Var(g)+Var(P2)+2Cov closes to first order
+   (0.17 vs 0.14 with a first-order structure model for P2).
+
 Together with Addendum A (s̄ = 1/(1+ln 2)): the parity ratio is pinned at an
-elementary constant, fluctuates *less* than independence allows by the factor
-√(ln 2), and the counterexample-enabling collapse recedes as √S/ln 2 — the
-entire portrait of the parity-barrier defense is expressed through ln 2.
+elementary constant, fluctuates *less* than independence allows, and the
+counterexample-enabling collapse recedes as √S/ln 2·(1/r_sb); dynamically, the
+barrier is a *conservation law with anti-correlated parity exchange*.
 
 ## Addendum B: first-pass related literature
 
