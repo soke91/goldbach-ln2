@@ -263,6 +263,19 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   (0.80 → 0.73 → 0.69) and the margin to Poisson grows to 12.1σ. The
   within-n fiber-uniformity advantage thus appears to persist at constant
   order exactly where the cross-n variance advantage dies out.
+- **Exact structure law at the target roughness (θ = 1/8 zone).** Using a
+  segmented-sieve scanner (no full sieve array; feasible up to ~10¹²), the
+  prime share s(n) among n^{1/8}-rough survivors at n ~ 10¹⁰ obeys, to
+  measurement precision (3–4 decimals in a controlled per-q experiment),
+  **s(n) = s₀(x) · ∏_{q | n, q > y} (q−1)/(q−2)** — the twin-type boost
+  from each unsieved prime factor of n, while sieved prime factors cancel
+  exactly (ratio 1.000; an accidental A/B test with the boundary prime
+  confirmed both regimes). After this deterministic factor, residual
+  fluctuation returns to binomial level. Strategically this tames the
+  target zone: the boost only raises s, so the worst case for s(n) > 0 is
+  the smooth class (no medium factors, factor product = 1), whose
+  fluctuation is binomial-tame — the individual-n problem at θ = 1/8
+  reduces to controlling s₀(x) for one structureless class.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
