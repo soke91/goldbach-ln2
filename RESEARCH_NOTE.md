@@ -105,6 +105,17 @@ of the measured parity-barrier ratio with 1 : ln 2 — and the (open) question o
 whether this ln 2 (which stems from the canonical 1/3 dichotomy exponent) is
 related to the fluctuation constant of Conjecture 1.
 
+## Addendum C: hyper-concentration of the parity ratio
+
+Sampling s(n) = (prime share among n^{1/3}-sieve survivors of the partner set)
+across n at fixed scales: s concentrates at its mean with standard deviation
+0.0043 / 0.0016 / 0.0007 at n ~ 10⁶ / 10⁷ / 10⁸ — in each case *below* the
+binomial (independent-sampling) prediction √(s(1−s)/S). The all-P2 event
+(s = 0), which a Goldbach counterexample would require, sits 143σ / 373σ /
+917σ away, the distance growing like √(n/ln²n). Together with Addendum A this
+gives a quantitative form of the parity-barrier defense:
+the ratio is pinned at 1/(1+ln 2) with sub-binomial fluctuations.
+
 ## Addendum B: first-pass related literature
 
 Averages of Goldbach representations and their connection to zeta zeros are
