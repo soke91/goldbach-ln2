@@ -88,22 +88,39 @@ A geometric identity we note for interest: [∫_{1/2}^{1} dv/v]² = (ln 2)² —
 
 All experiments are plain Python (numpy only): sieve + FFT convolutions; largest run ≈ 20 minutes on a desktop. Key scripts: series (e4_dense_sample.py, e4_octave27/28.py), window invariance (e4_window_test.py), HL-null and wheel scan (e4_wheelnull.py, e4_zscan3.py), gap surrogates (e4_gapshuffle.py), spectral profile (e4_phi_profile.py), decomposition/whitening (q3d_decompose.py, e4_A_exact.py), κ(d) verification (e4_breakthrough.py), parity ratio & concentration (p2_ratio_theorem.py, p2_concentration.py). Internal session logs (Korean) available on request.
 
-## Addendum A: the parity-barrier ratio equals 1 : ln 2 (derived & verified)
+## Addendum A: the parity-barrier ratio equals 1 : ln 2 — a theorem with proof
 
-The measured ≈60:40 prime:P2 split among n^{1/3}-sieve survivors (§ our earlier
-logs) has a closed form. For m ~ x with no prime factor ≤ x^{1/3}, the smaller
-factor of a P2 is q = x^u with u ∈ (1/3, 1/2], and the density integral is
-∫_{1/3}^{1/2} du/[u(1−u)] = ln 2. Hence asymptotically
+**Theorem 1 (the 1/(1+ln 2) law).** Let A(x) = {2 < m ≤ x : every prime factor
+of m exceeds x^{1/3}}. Then every element of A(x) is either a prime or a
+product of exactly two primes (each > x^{1/3}), and as x → ∞ the proportion of
+primes in A(x) tends to **1/(1 + ln 2) = 0.59064…** (so the semiprime share
+tends to ln 2/(1+ln 2) = 0.40936…).
 
-**prime share = 1/(1+ln 2) = 0.59064…, P2 share = ln 2/(1+ln 2) = 0.40936…**
+*Proof.* If m ∈ A(x) had three prime factors (with multiplicity), then
+m > (x^{1/3})³ = x, a contradiction; so A(x) consists of primes in
+(x^{1/3}, x] and semiprimes qr with x^{1/3} < q ≤ r. By the Prime Number
+Theorem the prime count is π(x) − π(x^{1/3}) = (1+o(1))·x/ln x. The semiprime
+count is Σ_{x^{1/3} < q ≤ x^{1/2}} (π(x/q) − π(q) + O(1)); since q ≤ x^{1/2}
+implies ln(x/q) ≥ ½ ln x, the PNT applies uniformly, giving
+(1+o(1))·Σ_q x/(q ln(x/q)) + O(x^{1/2+ε}). Writing q = x^u and using Mertens'
+theorem (Σ_{q≤t} 1/q = ln ln t + M + O(1/ln t)) with partial summation,
+Σ_{x^{1/3}<q≤x^{1/2}} 1/(q ln(x/q)) = (1+o(1))·(1/ln x)·∫_{1/3}^{1/2}
+du/(u(1−u)) = (1+o(1))·ln 2/ln x, since ∫ du/(u(1−u)) = [ln(u/(1−u))] gives
+ln 1 − ln(1/2) = ln 2. Hence semiprimes number (1+o(1))·(ln 2)·x/ln x, and the
+prime share tends to 1/(1+ln 2). ∎
 
-Verified: unconditioned random odd m near 10⁸ give 0.5967 (finite-size);
-Goldbach partners m = n−p give 0.6054, the excess (+0.0087) being the expected
-pair-correlation boost. The derivation is classical sieve density computation
-(surely known to specialists); the observation we record is the identification
-of the measured parity-barrier ratio with 1 : ln 2 — and the (open) question of
-whether this ln 2 (which stems from the canonical 1/3 dichotomy exponent) is
-related to the fluctuation constant of Conjecture 1.
+(The statement is classical in character — counts of almost-primes with
+restricted factors are standard — but we include the proof for completeness,
+as this constant is the measured "parity-barrier ratio" of our experiments.)
+Numerically the error decays faster than 1/ln x: share − limit =
+0.0402 / 0.0144 / 0.0061 at x = 10⁶/10⁷/10⁸.
+
+**Conditional corollary (Goldbach partners).** For partner sets m = n − p the
+measured share is boosted (+0.0087 at 10⁸) as predicted qualitatively by
+prime pair-correlation (Hardy–Littlewood) weighting; a quantitative version is
+conditional on the pair-correlation conjecture. Whether this ln 2 (from the
+canonical 1/3 dichotomy exponent) is related to the fluctuation constant of
+Conjecture 1 remains open.
 
 ## Addendum C: the parity-barrier portrait (concentration, closed forms)
 
