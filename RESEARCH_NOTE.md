@@ -255,14 +255,20 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   the Gaussian expectation exactly. At 10⁷ (3000 samples) the typical value
   is 0.539 and the margin to 1 grows from 7.8σ to 10.7σ. Unlike variance
   statements, χ²(n) is defined within a single n, so this is empirically
-  the exact *shape* of statement a proof would need. Scale behaviour
-  (typical 0.515 → 0.539 → 0.546 at 10⁶/10⁷/10⁸) is decelerating with a
-  growing amplitude (1 − χ̄²)·ln x = 6.7 → 7.4 → 8.4 — the opposite pattern
-  to the variance ratio above, consistent with a limit strictly below 1
-  rather than convergence to Poisson; sampled worst cases fall
-  (0.80 → 0.73 → 0.69) and the margin to Poisson grows to 12.1σ. The
-  within-n fiber-uniformity advantage thus appears to persist at constant
-  order exactly where the cross-n variance advantage dies out.
+  the exact *shape* of statement a proof would need. Scale behaviour, on
+  standardized fiber ranges (y, 10y] and cube-gap windows, is a slow
+  near-linear rise in ln x: typical values 0.515 → 0.530 → 0.546 → 0.560
+  at 10⁶/10⁷/10⁸/10⁹ (slope ≈ 0.0068 per e-fold). A pre-registered
+  three-model test at 10⁹ measured 0.5603 ± 0.0014: the
+  Poisson-convergence path 1 − c/ln x (predicting 0.597) is rejected at
+  26σ, a saturating-limit fit (0.550) at 7σ, while the linear-in-ln x
+  description hits within 1.2σ. Extrapolating the linear rate, Poisson
+  level would not be reached before x ~ 10³⁷; sampled worst cases fall
+  with scale (0.80 → 0.73 → 0.69 → 0.65). The within-n fiber-uniformity
+  advantage thus persists at every practically accessible scale — exactly
+  where the cross-n variance advantage dies out — though its ultimate
+  asymptote (saturation below 1 versus astronomically slow approach to 1)
+  remains open.
 - **Exact structure law at the target roughness (θ = 1/8 zone).** Using a
   segmented-sieve scanner (no full sieve array; feasible up to ~10¹²), the
   prime share s(n) among n^{1/8}-rough survivors at n ~ 10¹⁰ obeys, to
@@ -275,7 +281,11 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   target zone: the boost only raises s, so the worst case for s(n) > 0 is
   the smooth class (no medium factors, factor product = 1), whose
   fluctuation is binomial-tame — the individual-n problem at θ = 1/8
-  reduces to controlling s₀(x) for one structureless class.
+  reduces to controlling s₀(x) for one structureless class. The law holds
+  unchanged at y = 19/23/31 (x = 10¹⁰/10¹¹/10¹²; e.g. q = 101 ratio
+  1.0099 vs predicted 1.0101 at 10¹²), fully y-smooth extremes
+  (2^a·5^c·…·19^h) show no downward deviation, and s₀ marches
+  0.2544 → 0.2421 → 0.2379 toward the Buchstab value 1/(8ω(8)) = 0.2226.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
