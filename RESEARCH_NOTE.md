@@ -113,11 +113,20 @@ sub-binomial ratio. Measurements:
 
 1. **Hyper-concentration (sub-binomial).** std(s) = 0.0043 / 0.0016 / 0.0007
    at n ~ 10⁶ / 10⁷ / 10⁸ — below the binomial prediction at every scale.
-2. **The sub-binomial ratio approaches √(ln 2).** Multi-scale precision runs
-   (9800 samples total): r_sb = 0.7985(89), 0.7994(113) at 10⁶, 3×10⁶ and
-   **0.8323(118), 0.8384(210) at 10⁷, 3×10⁷**, vs √(ln 2) = 0.8326.
-   *Tentative Conjecture 3*: r_sb → √(ln 2); the small-scale deficit is a
-   finite-size effect. (Flagged tentative — constant-hunting risk noted.)
+2. **The sub-binomial ratio is ≈ 0.85 ± 0.04 (systematics included).**
+   Across several sampling designs (windows, detrending, class restriction)
+   r_sb ranges 0.80–0.88; design-consistent runs give 0.836(17)/0.884(20)/
+   0.845(27) at 3×10⁶/10⁷/3×10⁷. Sub-binomiality (r_sb < 1) is firm at ≥4σ;
+   the specific value √(ln 2) = 0.8326 is *compatible but unconfirmed*
+   (methodology-sensitive at the ±0.04 level — recorded as an open question,
+   not a conjecture).
+   **Mechanism of the hyper-concentration (established):** s(n) = g(n)/S(n)
+   identically (numerator = the Goldbach count itself), and g, P2, S all carry
+   the same multiplicative singular-series profile — measured correlation
+   corr(g, P2) = +0.9989 — so the ratio cancels the giant common mode; the
+   sub-binomial residual is what remains after this cancellation. A component
+   identity r_sb² = (1−s̄)F_g + s̄F_P2 − 2Cov(g,P2)/S̄ is verified numerically
+   (0.632 predicted vs 0.637 direct).
 3. **Closed-form defense distance.** Since s̄ = 1/(1+ln 2) gives
    s̄/(1−s̄) = 1/ln 2 algebraically, the σ-distance from the all-P2 collapse
    (s = 0, which a Goldbach counterexample would require) is
