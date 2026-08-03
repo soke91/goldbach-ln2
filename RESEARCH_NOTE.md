@@ -286,6 +286,12 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   1.0099 vs predicted 1.0101 at 10¹²), fully y-smooth extremes
   (2^a·5^c·…·19^h) show no downward deviation, and s₀ marches
   0.2544 → 0.2421 → 0.2379 toward the Buchstab value 1/(8ω(8)) = 0.2226.
+  Fiber uniformity also transfers to the target zone: for 25 structureless
+  n at 10¹⁰ with fibers q ∈ (19, 300], χ²/dof = 0.485 ± 0.069 (worst
+  0.615) — sub-Poisson at θ = 1/8, slightly stronger than at θ = 1/3. The
+  three ingredients of the program — the 26% feasibility margin, the exact
+  structure law with its identified worst class, and sub-Poisson fiber
+  uniformity — now coexist at the same roughness.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
