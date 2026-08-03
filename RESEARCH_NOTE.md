@@ -228,10 +228,8 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   R² ≈ 0.75 and measured 0.740 ± 0.061 — a direct hit across four decades.
   We therefore do not claim any nontrivial limiting constant; prime
   sampling among survivors appears asymptotically binomial in this
-  statistic. (Honest note: the typical
-  χ²/dof below also rises slightly with scale, 0.515 → 0.539, so whether
-  its sub-Poisson constant persists asymptotically is likewise open; the
-  measured worst-case margin in σ units nevertheless grows.)
+  statistic. (The within-n χ² statistic
+  below behaves differently — see its scale analysis.)
 - **Roughness-interpolation map and the feasibility profile.** Writing
   y = x^θ and u = 1/θ, the prime share among y-rough survivors is
   1/(u·ω(u)) (Buchstab ω; Theorem 1 is the u = 3 section, since
@@ -257,7 +255,14 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   the Gaussian expectation exactly. At 10⁷ (3000 samples) the typical value
   is 0.539 and the margin to 1 grows from 7.8σ to 10.7σ. Unlike variance
   statements, χ²(n) is defined within a single n, so this is empirically
-  the exact *shape* of statement a proof would need.
+  the exact *shape* of statement a proof would need. Scale behaviour
+  (typical 0.515 → 0.539 → 0.546 at 10⁶/10⁷/10⁸) is decelerating with a
+  growing amplitude (1 − χ̄²)·ln x = 6.7 → 7.4 → 8.4 — the opposite pattern
+  to the variance ratio above, consistent with a limit strictly below 1
+  rather than convergence to Poisson; sampled worst cases fall
+  (0.80 → 0.73 → 0.69) and the margin to Poisson grows to 12.1σ. The
+  within-n fiber-uniformity advantage thus appears to persist at constant
+  order exactly where the cross-n variance advantage dies out.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
