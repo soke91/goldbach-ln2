@@ -88,6 +88,35 @@ A geometric identity we note for interest: [∫_{1/2}^{1} dv/v]² = (ln 2)² —
 
 All experiments are plain Python (numpy only): sieve + FFT convolutions; largest run ≈ 20 minutes on a desktop. Key scripts: series (e4_dense_sample.py, e4_octave27/28.py), window invariance (e4_window_test.py), HL-null and wheel scan (e4_wheelnull.py, e4_zscan3.py), gap surrogates (e4_gapshuffle.py), spectral profile (e4_phi_profile.py), decomposition/whitening (q3d_decompose.py, e4_A_exact.py), κ(d) verification (e4_breakthrough.py). Logs: E4_PROGRESS.md (28 increments), HYPOTHESES.md, Q3_DERIVATION.md.
 
+## Addendum A: the parity-barrier ratio equals 1 : ln 2 (derived & verified)
+
+The measured ≈60:40 prime:P2 split among n^{1/3}-sieve survivors (§ our earlier
+logs) has a closed form. For m ~ x with no prime factor ≤ x^{1/3}, the smaller
+factor of a P2 is q = x^u with u ∈ (1/3, 1/2], and the density integral is
+∫_{1/3}^{1/2} du/[u(1−u)] = ln 2. Hence asymptotically
+
+**prime share = 1/(1+ln 2) = 0.59064…, P2 share = ln 2/(1+ln 2) = 0.40936…**
+
+Verified: unconditioned random odd m near 10⁸ give 0.5967 (finite-size);
+Goldbach partners m = n−p give 0.6054, the excess (+0.0087) being the expected
+pair-correlation boost. The derivation is classical sieve density computation
+(surely known to specialists); the observation we record is the identification
+of the measured parity-barrier ratio with 1 : ln 2 — and the (open) question of
+whether this ln 2 (which stems from the canonical 1/3 dichotomy exponent) is
+related to the fluctuation constant of Conjecture 1.
+
+## Addendum B: first-pass related literature
+
+Averages of Goldbach representations and their connection to zeta zeros are
+classical and active: Fujii's formula and refinements
+(arXiv:1601.06902, arXiv:1712.00737), oscillation sizes for R(n) − n𝔖(n)
+(arXiv:2006.14742), Goldbach in arithmetic progressions vs zeros of Dirichlet
+L-functions (arXiv:1704.06103), RH-conditional second-moment results
+(Languasco–Perelli and others). Our zero-detection experiments (§ logs)
+reproduce this known theory numerically. We did not find, in a first-pass
+search, a prior statement of the normalized dispersion constant of Conjecture 1
+or the gap-permutation (beyond-pair) observation; pointers welcome.
+
 ## Acknowledgment / request
 
 If you are an analytic number theorist: we would be grateful for (i) pointers to prior work containing this constant or refuting it, (ii) an opinion on Conjecture 2, and (iii) whether the two remaining computations of the proof program are tractable under standard conjectures (RH, pair correlation, moment hypotheses for S(α)).
