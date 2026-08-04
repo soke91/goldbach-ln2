@@ -343,6 +343,20 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   shifted primes sift exactly like random integers** — verified to 10⁻⁴
   across the blind zone and two decades of x. Goldbach for large n is
   this one sentence plus classical assembly.
+- **The minimal breakthrough target (P_loc).** At θ = 1/3 the identity
+  g = S − P2 is exact (Theorem 1), so for an individual n it suffices to
+  know just two aggregates — the survivor total S(n) and the semiprime
+  total P2(n) — each to ~12% relative accuracy asymptotically (≈ 60% at
+  x = 10⁸ where the prime share is still 0.60). A 3000-sample scan at
+  10⁸ against a self-calibrating model puts the worst combined deviation
+  at 0.0048 versus the 0.6048 threshold — a factor-125 margin — while
+  classical sieve theory cannot certify even the 60% requirement (the
+  lower-bound function vanishes at s = 1.5). Two numbers per n, a
+  50-fold-too-weak requirement met by nature with 125-fold slack, and no
+  proof technique that can see it: this is the parity barrier in its
+  sharpest portrait. (Caveat: the self-calibrating model anchors on the
+  window mean, so this measures the anchor-plus-transfer architecture,
+  whose rigorization is exactly the open obligation.)
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
