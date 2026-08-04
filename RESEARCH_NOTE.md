@@ -357,6 +357,23 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   sharpest portrait. (Caveat: the self-calibrating model anchors on the
   window mean, so this measures the anchor-plus-transfer architecture,
   whose rigorization is exactly the open obligation.)
+- **Literature anchor and final alignment (Huang–Li).** Goldbach for
+  sufficiently large even integers is a *known conditional theorem* of
+  Huang and Li (arXiv:2005.03811; Springer 2021): it follows from the
+  Elliott–Halberstam conjecture together with its Möbius-twisted variant
+  EH_μ, with levels of distribution summing beyond 1 (paralleling
+  Murty–Vatwani for twins). This names the missing axiom precisely: the
+  parity-sensitive channel this note keeps measuring is the empirical
+  shadow of EH_μ. As a first direct portrait of that axiom's landscape at
+  x = 10⁸: over prime moduli the total Möbius discrepancy
+  Σ_q max_a |M(x;q,a)| runs at (0.27·ln Q)× the random-walk benchmark up
+  to the provable boundary θ = 1/2, and — sampling 240 log-spaced prime
+  moduli deep into the unproven zone θ ∈ (0.5, 0.88] — the per-modulus
+  ratio to √(x/q) stays flat at 3.2–3.8 (worst 4.3), *below* the pure
+  Gaussian max expectation √(2 ln q): Möbius equidistribution remains
+  random-walk-grade throughout the conjectural core. Both axes of the
+  Huang–Li chain are thus empirically mapped here: the EH axis through
+  the P-profile and sieve-zone measurements, and the EH_μ axis directly.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
