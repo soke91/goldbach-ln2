@@ -305,6 +305,22 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   θ-invariant. The program thus condenses the entire parity content into
   one classical open problem, with the fluctuation terms measured to be
   negligible (~2% of the margin) and every structural ingredient tamed.
+- **Closure: Conjecture P.** Tracing six independent bookkeeping routes
+  (fiber decomposition, complement identity, spf map, uniform-y sieving,
+  χ² assembly, and three majorant families — classical Λ², data-oracle
+  Λ², and a spectral-LP cover, whose measured floors all sit near the
+  parity factor 2), the unknown always migrates into one equivalent spot:
+  the asymptotics of small-s sifted counts over primes. We register this
+  as **Conjecture P**: sifted-prime counts at fixed small sifting
+  parameter s sit at the Buchstab-random location (1+o(1))·model inside
+  the sieve-permitted interval [f(s), F(s)]. Then: Goldbach for large n
+  follows from Conjecture P plus classical assembly (the Theorem-M
+  route); every other link is Chen-grade standard technology. The entire
+  measurement corpus of this note — the sub-Poisson χ² ladder, the exact
+  structure law, the smooth-class envelopes, the s₀ march, the GM
+  spectral profile and the ln 2 channel — constitutes quantitative
+  evidence for P, and the ln 2 derivation program is exactly the
+  analytic groundwork for it.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
