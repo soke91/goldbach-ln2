@@ -292,6 +292,19 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   three ingredients of the program — the 26% feasibility margin, the exact
   structure law with its identified worst class, and sub-Poisson fiber
   uniformity — now coexist at the same roughness.
+- **Anatomy of the chain: the wall localized.** Decomposing the composite
+  survivors by smallest prime factor spf = x^α, the upper-bound loss is
+  the integral ∫F((1/2−α)/α)·w(α)dα (linear-sieve F, Buchstab weight w),
+  ≈ 4.08 classically at u = 8 versus the required 1.26. The mid-zone
+  α ∈ [1/8, 1/3] (mass 0.65) has surviving sieve levels and is where the
+  measured fiber uniformity lives — the plausibly classical part. The
+  core α ∈ [1/3, 1/2] (mass 0.35) consists of semiprimes with both
+  factors large (the cofactor is automatically prime); meeting the budget
+  there requires a **binary-count upper constant below 2** (best known
+  ≈ 3.9), itself a parity-breaking statement, and this requirement is
+  θ-invariant. The program thus condenses the entire parity content into
+  one classical open problem, with the fluctuation terms measured to be
+  negligible (~2% of the margin) and every structural ingredient tamed.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
