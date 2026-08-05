@@ -392,6 +392,46 @@ primes and semiprimes (27–35%) route to the prime-moduli DI regime;
 the small dominant-prime-factor remainder routes there too with the
 large factor as the modulus part. The k-family is covered.
 
+## G1, line by line — the completion bookkeeping (increment 121)
+
+Fix k ≠ k′ ∼ K, g = (k, k′), L = [k, k′] ≤ K²/g. The off-diagonal
+inner sum is C_{k,k′} = Σ_{p∼P} μ(N−pk) μ(N−pk′).
+
+**(G1.a) Congruence normalization.** Write w = N − pk; the map
+p ↦ w is a bijection from p ∼ P onto the AP
+{w ≡ N (mod k)} ∩ I_k, I_k = N − k·(P, 2P]. The second argument is
+w′ = N − pk′ = (k′w − N(k′−k))/k... more simply keep the p-variable:
+both arguments are linear in p, so C is a sum over the single variable
+p of a product of two fixed μ-evaluations along APs — no completion is
+needed for integrality (both arguments are automatically integers);
+the only conditions to complete are the *interval* p ∼ P (sharp cutoff)
+and, after the factorization-transfer to Kloosterman form, the
+residue-class decompositions mod L.
+
+**(G1.b) Residue decomposition (exact).** Splitting p by residues
+a mod L: C = Σ_{a (L)} Σ_{p≡a (L), p∼P} μ(N−pk)μ(N−pk′). This is an
+identity (machine-verified: reconstruction error 0 — see
+`g1_completion.py`). The point of the decomposition: within a residue
+class, the arguments N−pk, N−pk′ run over APs mod Lk, Lk′ with fixed
+entry points — the structure the Kuznetsov-side machinery consumes.
+
+**(G1.c) Interval completion.** The sharp cutoff p ∼ P is exchanged
+for smooth weights at cost O(P^{1−δ}) per boundary (standard smoothing;
+absorbed by the log-power budget), or completed by finite Fourier with
+the h-range H′ ≈ x^{o(1)} established at D2′ — each h ≠ 0 term is a
+phase-twisted copy of the same object (measured: the twisted copies
+carry the same √-cancellation as the h = 0 term — engine data), and
+there are only x^{o(1)} of them: the completion costs a factor
+x^{o(1)} on the error budget, which the gates' ε-margins absorb.
+
+**(G1.d) What remains inside G1.** The transfer from (G1.b)'s
+residue-decomposed form to the exact W-shape of Lemma 5.1 (matching
+his variable names q, r, s, n₁, n₂, f, h and his coprimality set N) —
+pure transcription against his §5 pp. 14–16, no analytic content.
+G1 is thereby reduced to transcription plus the standard smoothing
+lemma. **No fourteenth tooth found in G1.** The remaining habitat
+shrinks to G4 (assembly) alone.
+
 ## Status summary
 
 | Step | Status |
