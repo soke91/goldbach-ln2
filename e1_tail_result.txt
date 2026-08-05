@@ -1,0 +1,38 @@
+mu ready 10s
+500/6000  t=10s
+1000/6000  t=10s
+1500/6000  t=10s
+2000/6000  t=11s
+2500/6000  t=11s
+3000/6000  t=11s
+3500/6000  t=11s
+4000/6000  t=11s
+4500/6000  t=11s
+5000/6000  t=11s
+5500/6000  t=11s
+6000/6000  t=11s
+=== ALL ===
+  all                          n= 6000  r1=0.323  m2=0.374  kurt=6.78
+=== (a) by gcd(k,k') ===
+  g = 1                        n= 3673  r1=0.405  m2=0.471  kurt=5.31
+  g in [2,10]                  n= 2001  r1=0.181  m2=0.209  kurt=13.08
+  g > 10                       n=  326  r1=0.267  m2=0.285  kurt=7.76
+=== (b) by gcd(kk', N) ===
+  gN = 1                       n=  504  r1=0.740  m2=0.872  kurt=3.12
+  gN in [2,10]                 n= 3161  r1=0.345  m2=0.401  kurt=6.22
+  gN > 10                      n= 2335  r1=0.203  m2=0.230  kurt=10.76
+=== (c) by reduced height max(k/g, k'/g) ===
+  height <= 2843               n= 3002  r1=0.241  m2=0.274  kurt=9.29
+  height > 2843                n= 2998  r1=0.405  m2=0.474  kurt=5.33
+  height <= 567 (10%)          n=  601  r1=0.262  m2=0.289  kurt=9.05
+=== (d) by 100-smooth part of (k/g)(k'/g) ===
+  smooth <= 1800               n= 3000  r1=0.339  m2=0.396  kurt=6.52
+  smooth > 1800                n= 3000  r1=0.307  m2=0.352  kurt=7.05
+  smooth > 352284 (top10%)     n=  600  r1=0.257  m2=0.312  kurt=8.86
+=== tail (|C|/sqrt(n_p) > 1.0) composition ===
+  tail fraction: 0.1242
+  g>1          base=0.388  in-tail=0.219  lift=0.56
+  gN>1         base=0.916  in-tail=0.803  lift=0.88
+  height<=q10  base=0.100  in-tail=0.072  lift=0.72
+  smooth>q90   base=0.100  in-tail=0.077  lift=0.77
+DONE
