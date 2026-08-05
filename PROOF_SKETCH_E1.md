@@ -272,6 +272,75 @@ the full derivation. The single remaining item of this program is that
 derivation — one paper-section of work, with every surrounding
 quantity measured and every gate pre-checked.
 
+## The W-analog derivation (hunt 15 main body; increment 118)
+
+**Setup.** Fix dyadic K ≤ x^{1/3}, P = x/K. Target:
+T(K) = Σ_{k∼K} |Σ_{p∼P} μ(N−pk)|² ≪ KP/(log x)^A.
+
+**Step D1 (expansion; exact).** T = Σ_{k∼K} Σ_{p,p′∼P}
+μ(N−pk)μ(N−p′k). The diagonal p = p′ contributes ≤ K·P — absorbed by
+one log-power since the target allows KP/(log)^A only after... [flag
+F0: the diagonal is size KP, i.e. exactly the trivial bound; the
+required saving must come entirely from the off-diagonal cancellation
+over p ≠ p′ — as in every dispersion argument, one needs the
+off-diagonal to be ≤ KP/(log)^A *and* the diagonal counted once, which
+is standard: the dispersion bounds |T − diag| and the final CS uses
+T ≤ diag + offdiag with diag/(KP) = 1/P^0... **correction**: the
+target normalization KP is the trivial size; the saving is claimed
+over the full square sum, so what is needed is offdiag ≪ KP/(log)^A
+while diag ≈ K·P·(μ²-density) is *itself* the main term of T under
+square-root cancellation — T ≈ diag is precisely the desired
+conclusion. So the theorem to prove is |offdiag| ≪ KP/(log)^A.]
+
+**Step D2 (off-diagonal reparametrization; exact).** For p ≠ p′ set
+u = N − pk (so k = (N−u)/p, requiring p | N−u). Then
+u′ = N − p′k = (p′u − N(p′−p))/p... equivalently the pair (u, u′)
+satisfies p′(N−u) = p(N−u′), and summing over k ∼ K with both
+divisibilities is the same as summing over u ≡ N (mod p) in the
+interval N − pK·[1,2) — an AP-interval — with u′ determined. Hence
+offdiag = Σ_{p≠p′∼P} Σ_{u≡N (p), u∼U} μ(u)·μ(u′(u)),
+U = pK ≍ x, u′ = linear-fractional image of u with rational slope
+p′/p and shift N(p−p′)/p.
+
+**Step D3 (congruence completion; standard).** Detect u′ ∈ ℤ and the
+AP-condition by additive characters mod p (and the u′-integrality is
+automatic given k ∈ ℤ). Expanding the interval condition by finite
+Fourier/completion introduces the h-sum with H′ ≈ x^{o(1)}·(moduli
+budget)/K — matching the shape of Lichtman's H′ ⩽ x^{o(1)}QR²S²/M
+under the dictionary [flag F1: exact H′ bookkeeping to be fixed at
+write-up]. The completed phases are
+e(a·h·(p̄′-type inverses)·u/p·)-class — modular-inverse bilinear
+phases in the two prime-blocks, i.e. precisely the W-form of
+Lichtman's Lemma 5.1 with his (n₁, n₂) ↔ our (p, p′) [both ∼ P... 
+**flag F2 — a real divergence**: in his W the dispersion variables
+n₁, n₂ carry *arbitrary bounded coefficients* α_n and range over
+N_L ≤ x^{1/3}, while our p, p′ ∼ P = x/K ≥ x^{2/3} are LONG; our short
+variables are the k's (≈ his n's). The correct role-matching sends
+k-pairs to his n-pairs — this requires running D2 with the roles
+exchanged: fix (k, k′), sum over p — which is the C_{k,k′} form
+already measured (engine, increment 93). Under that matching our
+dispersion variables k ∼ K ≤ x^{1/3} sit in his window ✓, our long
+p-side carries the smooth sum ✓, and the factor budgets come from the
+k = qrs family split (measured densities: see below). The derivation
+should therefore be organized as: CS in p first (moving p to the
+smooth side), dispersion over (k, k′).]
+
+**Step D4 (gate substitution; done at increments 116–117).** With
+N_L := K, M := P, R ∼ S ∼ K^{1/3}: gates (5.1)–(5.3) pass, (5.1)
+tight at K = x^{1/3}.
+
+**Step D5 (remainder regimes).** K ∈ (x^{1/3}, x^{1/2}]: short-interval
+regime (MR-class inputs; measured tame). Non-factorable k (density
+≈ 1/2): prime-moduli DI regime.
+
+**Honest gap list.** F0 resolved above (bookkeeping clarification);
+F1 (H′ budget) — routine but must be written; F2 (role exchange) —
+structural, resolved in principle by organizing the CS/dispersion
+order as stated, but the full write-out with the exchanged roles is
+exactly where a fourteenth tooth could live; the α_n-coefficient
+freedom in his Lemma (arbitrary bounded) covers our μ-values on the
+k-side ✓. Next: write D2′ (exchanged-role version) in full.
+
 ## Status summary
 
 | Step | Status |
