@@ -1,0 +1,10 @@
+mu ready 10s
+real lambda_max = 36.76
+  wishart null 4/16  t=10s
+  wishart null 8/16  t=11s
+  wishart null 12/16  t=11s
+  wishart null 16/16  t=11s
+wishart null lambda_max = 36.89 +- 0.68  range [35.79, 38.11]
+real vs wishart null: z = -0.19
+(iid-entry null was 32.23 +- 0.50 -- category error check)
+DONE

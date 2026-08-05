@@ -127,6 +127,17 @@ prediction 0.798·√s_pred matches the measured |C|/√n_p to 1.5%
 (`code/e1_mask_model.py`). The mask is an algorithm, not an
 observation.
 
+**Matrix-level closure (with correction #26)**: the full 400×400
+C-matrix on a k-band has spectral norm 36.76 vs the correct
+factorization null (random-sign rows on the real support pattern,
+Gram pipeline) 36.89 ± 0.68 — z = −0.19, dead center; entry mean
+0.006 ± 0.005 (no singular-series main term); top eigenvectors
+delocalized. An earlier z = 9 "gap" was a null-design category error
+(iid-entry Wigner null applied to a Gram matrix; corrected the same
+day, before publication) (`code/e1_spectral.py`,
+`code/e1_wishart_null.py`). The law therefore holds at every level
+measured: pair statistics, cell statistics, and spectral norm.
+
 **Retroactive corrections this law forces**: every "sub-half-normal /
 stronger-than-random" reading earlier in this document (the 0.738
 thin stamp of §5, the 0.35 dispersion means of §6) is mask

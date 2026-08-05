@@ -100,6 +100,32 @@ for _ in range(20):
 rows.append(("이음새 대역 (20쌍)", f"평균 r={np.mean(rr2):.3f} (반정규 0.80)"))
 print(rows[-1], flush=True)
 
+# V5: 인수분해 법칙 (144~154차분) — 자유-클래스 가우시안 + 마스크 블라인드
+from math import gcd
+K0f, K1f = 2000, 4000
+P0f = N // (2 * K1f)
+ps_f = np.nonzero(pm[P0f:2 * P0f])[0] + P0f
+m2s = []
+n_free = 0
+tries = 0
+while n_free < 400 and tries < 20000:
+    tries += 1
+    k1 = int(rng.integers(K0f, K1f)); k2 = int(rng.integers(K0f, K1f))
+    if k1 == k2 or gcd(k1 * k2, N) != 1:
+        continue
+    ppf = ps_f[ps_f <= (N - 2) // max(k1, k2)]
+    if len(ppf) < 200:
+        continue
+    t = mu[N - ppf * k1].astype(np.int64) * mu[N - ppf * k2]
+    nz = int(np.count_nonzero(t))
+    if nz > 50:
+        m2s.append(float(t.sum()) ** 2 / nz)
+        n_free += 1
+m2f = float(np.mean(m2s))
+rows.append(("인수분해 법칙: 자유-클래스 분산비",
+             f"m2_eff={m2f:.3f} (기준 1.0 ± 0.1, {n_free}쌍)"))
+print(rows[-1], flush=True)
+
 print("\n===== 종합검증 요약 =====")
 for name, res in rows:
     print(f"  {name}: {res}")
