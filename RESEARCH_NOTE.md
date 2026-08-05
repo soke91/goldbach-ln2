@@ -405,7 +405,15 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   moduli (the BFI/Zhang-type family where well-factorable methods
   operate), the fixed-residue discrepancy of c(n) is exactly as healthy
   as over prime moduli (means 0.64–0.74 through θ = 0.69). Both ends of
-  the named technical question are thus supported by data.
+  the named technical question are thus supported by data. The T(N)
+  half-normal law is scale-stable (mean ratio 0.746 at 10⁹ over 120 N,
+  matching 0.751 at 10⁸); and decomposing T(N) by Vaughan's identity
+  (U = V = N^{1/3}), every piece — including the type II bilinear piece
+  where the parity obstruction is presumed to live — individually
+  exhibits square-root cancellation (0.4–2.0× benchmark), with partial
+  cancellation between pieces: no rogue term exists anywhere in the
+  decomposition. The wall, at final resolution, is one unproven
+  ordinary cancellation.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
