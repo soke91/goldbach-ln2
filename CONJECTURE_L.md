@@ -40,7 +40,7 @@ matrix.
 | Matrix | λ_max at the Wishart null dead center (z = −0.19) |
 | Integer field | no mean field (0.00017 ± 0.00024), LOO r1 = 0.800 |
 | Seam band | naive 0.450 vs predicted 0.798×(1−0.434) = 0.452 |
-| Scale 10⁹, blind | m2 1.037 (pred 1.00±0.04), kurt 2.89 (3.0±0.3), r1 0.823 (+1.6σ, marginal) |
+| Scale 10⁹, blind | 6000 pairs: m2 1.025 (pred 1.00±0.04 ✓), r1 0.810 (0.798±0.02 ✓), kurt 2.88 (3.0±0.3 ✓) — the 1500-pair marginal r1 resolved on enlargement |
 
 Every historically "sub-random" reading of this program
 (0.29–0.74 across all families and bands) is explained by **M**
