@@ -101,6 +101,38 @@ $Q_{\mathrm{gate}} := x^{1/2+\delta}$ and $\theta \le 7/32$:
 (5.3) totals $x^{1.76+\delta}$ --- all pass for $\delta < 0.17$.
 \end{proposition}
 
+\subsection{T5.1 in detail: the explicit second layer}
+
+Apply Vaughan's identity with $U = V = x^{1/3}$ to $\mu(w)$ for
+$w = N - pk \asymp x$ inside $C_{k,k'}$:
+\[
+\mu(w) = -\!\!\sum_{\substack{d \le U\\ d \mid w}}\!\mu(d)\,
+a_1(w/d) \;-\!\!\sum_{\substack{de \le UV\\ de \mid w}}\!\mu(d)\mu(e)\,
+a_2(w/de) \;+\; \Sigma_{II}(w),
+\]
+where $a_1, a_2$ are bounded explicit coefficients and $\Sigma_{II}$
+carries the bilinear range $w = m_2 n_2$, $m_2 \in (U, x/V)$, with
+bounded coefficients on both factors. Substituting into $C_{k,k'}$:
+the type~I pieces reduce, after the residue decomposition (T3), to
+M\"obius/unit sums along APs with moduli $d[k,k'] \le x^{1/3}K^2
+\le x$ --- controlled on average by M\"obius--BV within its level for
+$d[k,k'] \le x^{1/2-\epsilon}$, and routed to the boundary-band
+technology otherwise; the type~II piece becomes the double-bilinear
+object in which the $(k,k')$-pair (short, $\le x^{1/3}$) is the
+dispersion pair and the $m_2$- or $n_2$-block (adjustable within
+$(x^{1/3}, x^{2/3})$) supplies the smooth long side demanded by the
+$W$-machinery --- with both coefficient sequences bounded, matching
+the arbitrary-coefficient hypothesis of Lemma~5.1. The gate-relevant
+quantities are unchanged (T5.1); the extra dyadic decomposition in
+$(d, e, m_2)$ costs $O(\log^3 x)$ boxes.
+
+\emph{Line-work remaining in this subsection:} the explicit
+coprimality bookkeeping between $d, e, [k,k']$ and the $q$-layer
+(finitely many gcd cases, each geometric), and the verification that
+the type~I moduli excess $d[k,k'] > x^{1/2-\epsilon}$ mass is within
+the boundary-band budget (an integral over the measured/Dickman
+densities --- the same computation as T7's, shifted by $d$).
+
 \section{Family split (T7)}
 
 \begin{proposition}[T7: coverage of the $k$-family]
