@@ -36,7 +36,14 @@ This repository measures that landscape (and everything feeding it):
 | Loss anatomy | Classical upper-bound loss integral 4.08 vs required 1.26 at u = 8; all parity content condenses into the P2 core / small-s sifted asymptotics |
 
 Full write-up: [RESEARCH_NOTE.md](RESEARCH_NOTE.md) (self-contained, with
-methods, corrections, and honest caveats).
+methods, corrections, and honest caveats). Current single-page state:
+[STATUS.md](STATUS.md). The proof program for the final bound:
+[PROOF_SKETCH_E1.md](PROOF_SKETCH_E1.md) →
+[paper/e1_proof.tex](paper/e1_proof.tex) (ten certified/adjudicated
+rows; the sole remainder is the **SEAM Conjecture** — family-averaged
+thin-progression Möbius cancellation at pair-moduli x^0.6–x^(2/3),
+stated formally in the paper with its full resistance profile and
+three closing routes).
 
 ## What is claimed / not claimed
 
