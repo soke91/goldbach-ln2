@@ -69,6 +69,15 @@ exactly Gaussian (22 exceedances of 3σ vs 27 expected)
 - Cross-scale entropy channel: corr(dual(k), dual(pk)) =
   −0.24/−0.40/−0.23/−0.16 for p = 2/3/5/7, controls ≈ 0
   (`code/e1_dilation.py`).
+- Corrected-normalization ledger (post-REVIEW_VERDICT): for the
+  prime-indexed correlations C_{k,k′} = Σ_{p∼P} μ(N−pk)μ(N−pk′)
+  (2 values of N × 2 K-bands × 1500 pairs): mean |C|/√n_p =
+  0.348–0.370 (BELOW half-normal 0.798 — stronger than random),
+  variance ratio E|C|²/n_p = 0.36–0.40, kurtosis of C = 5.3–5.8
+  (heavy-tailed relative to its own variance — mixture structure).
+  Against the correctly normalized requirement
+  Σ|C| ≪ K²P(log)^{−2A}, nature over-delivers by a factor √P
+  (`code/e1_corrected_norm.py`).
 
 ## 7. The ln 2 constant (where this program began)
 
