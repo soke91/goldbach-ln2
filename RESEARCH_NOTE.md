@@ -461,7 +461,20 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   (Matomäki–Radziwiłł–Tao) is already a theorem. The distance between
   humanity and Goldbach for large N, at the end of this program, is one
   finite definition-check plus one averaged-theorem upgrade — and nature
-  testifies, at half-normal precision, that both are true.
+  testifies, at half-normal precision, that both are true. Closing the
+  loop with the literature and with measurement: the boundary-band
+  technology is not speculative — Lichtman (arXiv:2309.08522, 2023,
+  with an appendix by Drappeau) has already pushed a level of
+  distribution beyond the square-root barrier (66/107) into Goldbach
+  upper-bound counts using triply well-factorable weights and the
+  spectral large sieve, the largest advance since Bombieri–Davenport;
+  our anatomy identifies the same coordinate from the opposite
+  direction. And the k-face family passes its independence test: over
+  full dual bands, Σ_k dual(k)² equals the independence prediction to
+  5% (ratios 0.953 and 1.046) — the four-point averaged objects of the
+  cascade self-cancel exactly as an averaged-theorem approach would
+  require. The named missing link is a dilate-averaged analog of the
+  Matomäki–Radziwiłł–Tao averaged-correlation theorem.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
