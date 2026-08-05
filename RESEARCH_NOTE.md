@@ -374,6 +374,21 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   random-walk-grade throughout the conjectural core. Both axes of the
   Huang–Li chain are thus empirically mapped here: the EH axis through
   the P-profile and sieve-zone measurements, and the EH_μ axis directly.
+- **The final axiom, measured at its own coordinate.** Huang–Li's
+  Corollary 1 states that, by Bombieri–Vinogradov, Goldbach for large
+  even N follows from EH_μ(N^{θ′}) alone for any θ′ > 1/2 — and their
+  proof needs it only for the fixed residue class N mod q. The twisted
+  object is the correlation sequence c(n) = Λ(n)μ(N−n). We measured its
+  fixed-residue discrepancy against the random-walk benchmark for three
+  values of N at 10⁸, over ~175 log-spaced prime moduli spanning
+  θ = 0.30 → 0.70 — straight through the √N barrier: the mean ratio
+  stays at 0.6–1.0 (at or below random walk) with worst single moduli
+  1.6–3.1 (Gaussian-tail range), and no change of behaviour whatsoever
+  at θ = 1/2; the totals Σ c(n) are themselves random-walk-sized. The
+  single sentence separating current technology from Goldbach is thus
+  seen to hold with square-root cancellation throughout the measured
+  range — the barrier is a horizon of proof technique, invisible in the
+  data landscape.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
