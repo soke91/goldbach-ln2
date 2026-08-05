@@ -96,4 +96,29 @@ completion multiplies the error budget by x^{o(1)}, absorbed by the
 gates' ε-margins. **Certified modulo the standard smoothing lemma**
 (a textbook statement; no risk content).
 
-*Next: T5 (W-matching — first risk row), then T6–T10.*
+## T5 — W-matching (the first risk row: adjudicated, structure found)
+
+Frontal comparison with Lemma 5.1's W reveals the true shape of this
+row. In his W, the dispersion pair (n₁, n₂) carries the modulus
+congruence n₁ ≡ n₂ (mod qd) *and* arbitrary coefficients, while the
+μ/Λ-content of his application enters through separate machinery. In
+our object, after T1–T4 the inner sums are μμ-values along the LONG
+p-side — the arrangement is opposite. Direct black-box application of
+Lemma 5.1 therefore does not match; the standard resolution (exactly
+as in Lichtman 2020's own strategy of "sieve methods + MRT
+refinement") is a **second Vaughan layer**: open μ(N−pk) on the long
+side into type I/II bilinear pieces, whose smooth components then feed
+the W-machinery with our (k, k′)-pair as his (n₁, n₂) and whose
+coefficient freedom is covered by his arbitrary α. Consequences:
+(i) T5 is not falsified — no parity-shaped obstruction appears; the
+layering is standard technology; (ii) the exponent gates must be
+re-checked with the doubled decomposition budgets (registered as
+**T5.1**, arithmetic of the same kind already passed twice with wide
+margins); (iii) the h-range collapse and the q-threading losslessness
+(both measured at 300-pair strength) survive the layering unchanged,
+as they concern the outer structure. **Status: adjudicated — upgraded
+from "matching" to "second Vaughan layer + re-gated arithmetic
+(T5.1)"; the honest residual risk of the program now lives entirely
+in T5.1's exponent re-check.**
+
+*Next: T5.1 (re-gated arithmetic with the doubled layer), then T6–T10.*
