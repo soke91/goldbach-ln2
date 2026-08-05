@@ -384,6 +384,14 @@ None of G1–G4 has the shape of a parity obstruction; all four are
 finite derivational labor. **The fourteenth tooth, if it exists, must
 live inside G1's error terms or G4's assembly — and nowhere else.**
 
+**Family coverage (measured, increment 120).** The gate-region
+admissible density among k is 0.561/0.579/0.605 at K = 10⁴/10⁵/10⁶ —
+*rising* with K (in contrast to the falling balanced-budget density:
+the region flexibility resolves the budget concern empirically);
+primes and semiprimes (27–35%) route to the prime-moduli DI regime;
+the small dominant-prime-factor remainder routes there too with the
+large factor as the modulus part. The k-family is covered.
+
 ## Status summary
 
 | Step | Status |
