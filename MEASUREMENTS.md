@@ -117,6 +117,16 @@ kurtosis 3.03–3.05, non-squarefree gcd = predicted annihilation; the
 raw 0.581 splits exactly as 0.782·√(support 0.607)
 (`code/e1_thin_closure.py`).
 
+**Blind verification of the mask** (a priori, no fitting): computing
+the mask by exact enumeration over the units mod q² for q ≤ 50 plus
+the tail factor ∏_{q>50}(1 − 2/q²) = 0.99228, then testing on 4000
+fresh pairs: corr(predicted, observed support) = 1.0000, max error
+0.027, bucket agreement exact (predicted 0.835 → observed 0.835;
+predicted annihilation → observed annihilation), and the amplitude
+prediction 0.798·√s_pred matches the measured |C|/√n_p to 1.5%
+(`code/e1_mask_model.py`). The mask is an algorithm, not an
+observation.
+
 **Retroactive corrections this law forces**: every "sub-half-normal /
 stronger-than-random" reading earlier in this document (the 0.738
 thin stamp of §5, the 0.35 dispersion means of §6) is mask
