@@ -157,6 +157,26 @@ tracks the entropy rate, which is what the Huang–Li assembly requires.
 
 ---
 
+## Cascade addendum (increments 107–110)
+
+Attempting the port yielded four quantitative discoveries: (i) the
+sampling pattern (p | m) is deterministic in our coordinates — Tao's
+central obstacle (block–graph dependence), and hence the entropy
+section itself, has no analog here; (ii) the naive Turán–Kubilius
+one-step expansion fails exactly at the predicted 1/√L noise scale —
+reproducing the reason for the triple-exponential parameter hierarchy;
+(iii) with *regressed* weights the ladder sum explains **68%** of the
+L² energy per step at wide prime windows (corr(D, S) = +0.83,
+c* ≈ −0.39 vs naive 0.54); and (iv) this efficiency is
+**scale-stationary** (R² = 0.681 → 0.656, c* = −0.39 → −0.41 on a
+3×-deeper band) — the necessary condition for iterating the cascade,
+suggesting geometric residual decay (≈ 0.33 per step) and a possible
+collapse of the parameter hierarchy to ~log log N steps. Remaining for
+the proof: an a-priori weight design achieving the regressed transfer
+(second-order TK corrections are the natural candidate), the iterated
+bookkeeping with collision terms, and vigilance for parity re-entry in
+the iteration — the twelfth and, if the cascade closes, final watch.
+
 ## Status summary
 
 | Step | Status |
