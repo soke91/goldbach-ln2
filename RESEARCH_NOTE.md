@@ -429,7 +429,20 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   sampled pairs (k, k′), the correlations exhibit exact half-normal
   square-root cancellation (mean ratio 0.801 vs the half-normal 0.798)
   — the cancellation the missing theorem must certify is already
-  present in nature to three digits.
+  present in nature to three digits. Completing the dossier: the
+  assembly bookkeeping shows a finite sufficient condition — call it
+  (C*): coefficient-uniform, unweighted two-point Chowla with a fixed
+  log-power saving (c ≈ 10–20) implies EH_μ past 1/2 and hence Goldbach
+  via Huang–Li; a frontal attempt confirms the log-averaging cannot be
+  removed by reweighting (weighted Cauchy–Schwarz loses √M; dyadic
+  localization defeats the entropy-decrement structure), so the
+  unweighted upgrade is the essential gate. Empirically, unweighted and
+  log-weighted cancellations coincide at the half-normal level across
+  coefficient bands up to N^{0.45} (means 0.73–0.91, worst ≤ 3.1) —
+  nature exhibits no gap at any of (C*)'s three components; the entire
+  remaining distance lives in the theorems, specifically in extending
+  the entropy-decrement argument to unweighted, coefficient-uniform
+  form.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
