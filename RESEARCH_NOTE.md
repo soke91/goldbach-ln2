@@ -414,6 +414,22 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   cancellation between pieces: no rogue term exists anywhere in the
   decomposition. The wall, at final resolution, is one unproven
   ordinary cancellation.
+- **A technique blueprint, with its engine measured.** Expanding the
+  type II piece by the dispersion method, the off-diagonal reduces to
+  two-point Möbius correlations along non-proportional linear forms
+  C_{k,k′} = Σ_m μ(N−mk)μ(N−mk′) — the territory of the two-point
+  logarithmic Chowla theorem (Tao 2015), now quantitative at
+  (log x)^{1−c} savings (Pilatte 2023) — and, crucially, the demand
+  side (EH_μ) also requires only log-power savings: supply and demand
+  speak the same currency. The reduction escapes the parity-conservation
+  loop observed in every previous route because μ·μ is parity-even. The
+  missing synthesis is three named engineering strengthenings: removing
+  the logarithmic averaging, coefficient uniformity up to N^{1/2}, and
+  a larger log-exponent. Measuring the engine directly: over ~500
+  sampled pairs (k, k′), the correlations exhibit exact half-normal
+  square-root cancellation (mean ratio 0.801 vs the half-normal 0.798)
+  — the cancellation the missing theorem must certify is already
+  present in nature to three digits.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
