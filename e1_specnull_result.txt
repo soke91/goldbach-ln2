@@ -1,0 +1,9 @@
+mu ready 10s
+real lambda_max = 36.76
+  null draws 6/24  t=11s
+  null draws 12/24  t=11s
+  null draws 18/24  t=11s
+  null draws 24/24  t=11s
+null lambda_max = 32.23 +- 0.50  range [31.25, 33.36]
+real vs null: z = 9.03
+DONE
