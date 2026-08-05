@@ -82,6 +82,46 @@ native language of the Matomäki–Radziwiłł machine, applied to a
 shifted-multiplicative sequence. This names the missing lemma at
 maximal concreteness.
 
+### Draft bookkeeping for port (a) — the k-averaged entropy argument
+
+*Hypothesis for contradiction.* Σ_{k∼K} |D(k)|² ≥ δ² Σ_k M_k for all
+dyadic K in [K₋, K₊] with log K₊/K₋ ≍ log N.
+
+1. *Ladder expansion.* By Step 1 (exact) and Step 2 (TK-averaged over
+   p ∈ P = [P, P^{1+η}]), the hypothesis transfers: for most p ∈ P the
+   dilated shells [pK, 2pK] also carry δ′-energy, δ′ ≫ δ − O(1/√log P).
+2. *Random model.* Draw k uniformly from [K, 2K]; the random variables
+   are the μ-block B_k = (μ(N−mk))_{m∼M} and the sampling pattern
+   S_k = (k mod p)_{p∈P}. The bilinear expression to control is the
+   analog of Tao's (1.5): (1/|P|) Σ_{p∈P} D-terms coupled through
+   1_{p|·-structure} in the dilated shells.
+3. *Entropy decrement.* Shannon subadditivity over the nested scales
+   pK: either the mutual information I(B_k ; S_k) drops below ε at some
+   shell (good case), or entropy decreases by ≥ ε per shell — which can
+   happen at most H(B)/ε ≪ M/ε times; with ≍ log N shells available,
+   a good shell exists for ε ≍ M/log N. [This is the step whose
+   quantitative port must be carried out carefully; the shell structure
+   is *multiplicatively nested* (K, pK, pp′K, …) exactly as in Tao's
+   n-aspect, and no range correction is needed — the k-average absorbs
+   it.]
+4. *Concentration.* At the good shell, Hoeffding replaces the sampling
+   pattern by its mean: 1_{p | ·} → 1/p, uniformly over the block —
+   yielding the *deterministically averaged* expression
+   (1/|P|) Σ_p (1/p) Σ_{k∼pK} |D(k)|²-type sums.
+5. *Contradiction input.* The averaged expression is a plain Möbius
+   equidistribution statement in the k-aspect over moduli p ∈ P —
+   controlled unconditionally by Möbius–Bombieri–Vinogradov / MRT-type
+   inputs, forcing the averaged expression to be o(δ²)-small — 
+   contradicting the propagated largeness. □ (modulo step 3's
+   quantitative bookkeeping)
+
+*Honest flags.* (i) Step 3's information-theoretic bookkeeping must be
+re-derived in dilate coordinates — the shape matches Tao's but the
+conditional-entropy chain rule applications need explicit re-doing;
+(ii) step 5's reduction to μ-BV must confirm no hidden binary object
+reappears (parity's known trick — checked empirically here: the
+averaged objects measured half-normal throughout this repository).
+
 ### Original port framing (kept for the record)
 
 This is the dilate-analog of the entropy-decrement step in Tao's proof of
