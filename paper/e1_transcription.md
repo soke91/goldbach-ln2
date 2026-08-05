@@ -38,3 +38,40 @@ exact coordinate of the true obstruction, which is itself the
 program's deliverable in that branch.
 
 *Opened at increment 123. To be filled row by row.*
+
+---
+
+## T1 — Expansion and diagonal (certified)
+
+Let ξ_k ∈ {±1} realize the absolute values in the EH_μ-shape. Then
+|Σ_{k∼K} ξ_k D(k)|² ≤ K · Σ_{k∼K} |D(k)|² (Cauchy–Schwarz), and
+Σ_k |D(k)|² = Σ_k Σ_{p,p′∼P} μ(N−pk)μ(N−p′k)
+= Σ_k Σ_{p∼P} μ²(N−pk) + OffDiag
+with Σ_k Σ_p μ² ≤ KP and OffDiag = Σ_{p≠p′} Σ_k (·). Both steps are
+identities/trivial inequalities. The target reduces to
+|OffDiag| ≪ KP(log x)^{−A}. **Certified** (no analytic content).
+
+## T2 — Reparametrization (certified modulo one named convention)
+
+For fixed p ≠ p′ ∼ P: the k-sum Σ_{k∼K} μ(N−pk)μ(N−p′k) is, upon the
+role exchange of D2′ (dispersion over short (k,k′), smooth long p),
+organized instead as: for fixed k ≠ k′ ∼ K,
+C_{k,k′} = Σ_{p∼P} μ(N−pk)μ(N−pk′).
+Both arguments are integer-linear in p (no integrality completion
+needed — G1.a). Writing w = N − pk: w runs over
+{w ≡ N (mod k)} ∩ (N − 2Pk, N − Pk], and
+w′ = N − pk′ = (k′(N − w)... = (k′ w + N(k − k′))/k — wait: from
+w = N − pk we get p = (N − w)/k and
+w′ = N − pk′ = N − (N − w)k′/k = (kN − k′N + k′w)/k
+= (k′ w − N(k′ − k))/k. Integrality of w′ given w ≡ N (mod k):
+k | k′w − N(k′−k) ⟺ k′w ≡ N(k′−k) (mod k) ⟺ (since w ≡ N)
+k′N ≡ Nk′ − Nk ≡ ... — check: k′w − N(k′−k) ≡ k′N − Nk′ + Nk ≡ Nk ≡ 0
+(mod k) ✓ — **integrality is automatic**, confirming G1.a; the slope
+is k′/k with numerator and denominator ≤ 2K ≤ 2x^{1/3}. Convention
+fixed: the (k, k′)-dispersion form is the canonical one; the p-form is
+its Cauchy–Schwarz preimage. **Certified** (algebraic verification
+above; machine confirmation in `entropy_ladder.py`/`g1_completion.py`
+with identity error 0).
+
+*Next rows: T3 (residue decomposition — exact, machine-stamped),
+T4 (completion), T5 (W-matching — first naive-dictionary risk row).*
