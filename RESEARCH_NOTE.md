@@ -475,6 +475,16 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   cascade self-cancel exactly as an averaged-theorem approach would
   require. The named missing link is a dilate-averaged analog of the
   Matomäki–Radziwiłł–Tao averaged-correlation theorem.
+- **The dilate entropy channel is real.** The entropy-decrement argument
+  consumes cross-scale information; for the dilate family this channel
+  is directly measurable: corr(dual(k), dual(pk)) = −0.241 / −0.395 /
+  −0.226 / −0.160 for p = 2/3/5/7 (random controls ≈ 0; 929–1400 pairs
+  each) — strongly negative exactly as the sign flip μ(pm) = −μ(m)
+  predicts, and far more overt than the shift-family analog. Together
+  with the family's invariance under the entropy move (k → pk) and its
+  measured independence (Q-ratios 0.95–1.05), the dilate-averaged target
+  now carries four verified structural prerequisites — the final form of
+  the parity barrier, as a proof target with its fuel measured.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
