@@ -75,6 +75,10 @@ python s1_chi2_envelope.py
 
 # The original ln 2 dispersion series
 python e4_dense_sample.py
+
+# One-shot reproducibility suite (mu sanity, ladder identity, dispersion,
+# seam band — all four stamps in ~15 min)
+python verify_all.py
 ```
 
 Each script prints its reported numbers to stdout. `code/goldbach/` is the
