@@ -44,6 +44,7 @@ matrix.
 | Fresh N, v₂(N)=2, combined blind | annihilation 0.458 vs 0.458 predicted (exact); an apparent viable-class dip (0.917, −2.4σ at 1600 pairs) resolved to 1.003 / kurt 2.96 at 6539 pairs; per-cell support fractions (0.831 / 0.417 / 0) match the mask's hand-derived densities exactly |
 | E1 itself at 10⁹ | dyadic-band ratio Σ\|D(k)\|²/Σ support = 0.966 / 0.950 / 0.922 over K ~ 10³ / 3·10³ / 10⁴ (predicted ~1.0, all within 1σ) — no growth; the chain's consumable sits inside the unit-Gaussian budget |
 | E1 across N (robustness) | four N (v₂ = 1 and 2), three bands each: all unit-consistent after high-power settlement — an apparent +3.7σ band at one N regressed to 1.078 ± 0.072 (bootstrap, 600 k); its candidate mechanism (parity aliasing) directly refuted (corr(D_even, D_odd) = +0.06) |
+| E1 definitive grid | 4 N (v₂ ∈ {1,2}, v₃ ∈ {0,4}) × 2 bands × 300 k with bootstrap SE: mean z = +0.02 (globally unbiased), 7/8 cells within 1.25σ; the one suspect cell settled by near-census (800 of the band's 1000 k): 0.896, which is z ≈ −1.5 against the law's own μ-randomness budget — within budget; grid closed with no violation (`code/e1_grid_final.py`, `code/e1_settle_900.py`) |
 
 **Challenge ledger** (all raised by our own measurements, all resolved
 before publication): a −2.4σ viable-class dip (sampling, resolved at

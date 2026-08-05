@@ -40,6 +40,22 @@ This repository contains:
 - NOT claimed (withdrawn at increment 143): "gates pass", "remainder
   = one 1/30-wide seam", "the rest is transcription".
 
+## The factorization law (increments 144–169)
+
+After the refutation, the measurement campaign converged on one
+formal conjecture — **Conjecture L** (CONJECTURE_L.md): every μ-family
+this program probed factorizes as (deterministic local mask,
+computable by finite modular enumeration) × (exactly Gaussian
+fluctuation on the surviving support). The mask is blind-verified
+(corr 1.0000; annihilation fractions predicted exactly at fresh N);
+the Gaussian half holds at pair, cell, matrix, and E1-ratio level
+across 10⁸–2×10⁹ and four N-structures; five self-raised challenges
+(including one of our own null-design errors) all resolved without
+modifying the law. Every "sub-random" reading in the program's
+history is mask accounting. The single unproven statement feeding the
+Goldbach chain is the amplitude half: square-root cancellation of a
+fluctuation that is featureless in every measurement.
+
 ## How to continue
 
 - **Entry point**: MEASUREMENTS.md, then `python code/verify_all.py`.

@@ -126,6 +126,19 @@ rows.append(("인수분해 법칙: 자유-클래스 분산비",
              f"m2_eff={m2f:.3f} (기준 1.0 ± 0.1, {n_free}쌍)"))
 print(rows[-1], flush=True)
 
+# V6: E1 비율 미니 도장 (100 k, 대역 [3000,4000))
+ks6 = rng.choice(np.arange(3000, 4000), size=100, replace=False)
+S2 = 0.0; SS = 0.0
+for k6 in ks6:
+    k6 = int(k6)
+    ms6 = np.arange(SQ + 1, N // k6 + 1, dtype=np.int64)
+    t6 = mu[ms6].astype(np.int64) * mu[N - k6 * ms6]
+    S2 += float(t6.sum()) ** 2
+    SS += int(np.count_nonzero(t6))
+rows.append(("E1 비율 (100k, 참고용 — 실SE ~0.15)",
+             f"{S2/SS:.3f} (기준 1.0, [0.7,1.4] 2σ-호환)"))
+print(rows[-1], flush=True)
+
 print("\n===== 종합검증 요약 =====")
 for name, res in rows:
     print(f"  {name}: {res}")
