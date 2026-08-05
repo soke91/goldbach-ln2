@@ -341,6 +341,49 @@ exactly where a fourteenth tooth could live; the α_n-coefficient
 freedom in his Lemma (arbitrary bounded) covers our μ-values on the
 k-side ✓. Next: write D2′ (exchanged-role version) in full.
 
+## D2′ — the exchanged-role dispersion (increment 119)
+
+Organize the estimate with Cauchy–Schwarz in the long variable first:
+|Σ_k ξ_k Σ_p μ(N−pk)|² ≤ P · Σ_p |Σ_{k∼K} ξ_k μ(N−pk)|²
+= P · Σ_{k,k′∼K} ξ_k ξ_{k′} C_{k,k′},
+C_{k,k′} = Σ_{p∼P} μ(N−pk) μ(N−pk′).
+The dispersion now runs over the SHORT pairs (k, k′) ∼ K ≤ x^{1/3} —
+Lichtman's window — with arbitrary bounded coefficients ξ (his α_n
+freedom covers this). Diagonal k = k′: ≤ K·P·(density), the main term.
+Off-diagonal: for k ≠ k′, write w = N − pk (so p = (N−w)/k, k | N−w),
+w′ = N − pk′ with k′w − kw′ = N(k′−k): the p-sum becomes a sum over
+w ≡ N (mod k), w ∼ pK-interval, of μ(w)μ(w′(w)) with w′ the
+linear-fractional image of slope k′/k — rational slope with SMALL
+numerator/denominator (≤ K ≤ x^{1/3}), unlike D2's large-slope
+version. Completion of the AP-interval condition mod k and of the
+integrality mod k′ introduces additive characters with moduli
+[k, k′] ≤ K² ≤ x^{2/3} and an h-range H′ ≈ x^{o(1)}K²/P — for
+K ≤ x^{1/3}: H′ ≈ x^{o(1)}·K³/x ≤ x^{o(1)} — **the h-sum is
+essentially bounded (O(x^{o(1)}) terms), a dramatic simplification
+versus the generic case.** The completed phases carry modular inverses
+mod [k,k′] evaluated on the μ-argument w — Kloosterman-class with
+modulus ≤ x^{2/3} and factorable (k = qrs available on the
+gate-region subfamily; prime-moduli regime otherwise) — the exact
+input class of Lichtman §10 with, additionally, a short h-range.
+Gates re-checked under this shape at increments 116–117 (pass; (5.1)
+tight at K = x^{1/3}).
+
+**Remaining to certify (the honest last list):**
+(G1) the completion bookkeeping (finite Fourier of the interval and
+integrality conditions) with its error terms — routine but must be
+written line by line;
+(G2) the μ(w)μ(w′)-to-|W-sum| reduction: the coefficients on the
+w-side are μ-values (bounded ✓) but *fixed* (not freely chosen) —
+Lichtman's W allows arbitrary bounded α_n, so this direction is
+covered ✓;
+(G3) the treatment of gcd conditions (k, k′) > 1 and the N-set
+coprimality structure of his Lemma — bookkeeping;
+(G4) summing the dyadic K-bands and the two regimes into the final
+EH_μ-shape with the fixed residue N mod q — assembly.
+None of G1–G4 has the shape of a parity obstruction; all four are
+finite derivational labor. **The fourteenth tooth, if it exists, must
+live inside G1's error terms or G4's assembly — and nowhere else.**
+
 ## Status summary
 
 | Step | Status |
