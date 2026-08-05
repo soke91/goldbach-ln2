@@ -1,0 +1,28 @@
+mu ready 10s
+3000/30000  t=10s
+6000/30000  t=11s
+9000/30000  t=11s
+12000/30000  t=11s
+15000/30000  t=11s
+18000/30000  t=12s
+21000/30000  t=12s
+24000/30000  t=12s
+27000/30000  t=12s
+30000/30000  t=13s
+--- exact (v2 unordered pair, v3 = (0,0)) ---
+  v2=(0,0) v3-free           n=  3415  m2_eff=1.028  r1_eff=0.808  kurt_eff=2.96
+  v2=(0,1) v3-free           n=  3299  m2_eff=nan  r1_eff=nan  kurt_eff=nan
+  v2=(0,2) v3-free           n=  3372  m2_eff=1.028  r1_eff=0.802  kurt_eff=3.14
+  v2=(1,1) v3-free           n=   804  m2_eff=nan  r1_eff=nan  kurt_eff=nan
+  v2=(1,2) v3-free           n=  1664  m2_eff=nan  r1_eff=nan  kurt_eff=nan
+  v2=(2,2) v3-free           n=   852  m2_eff=1.064  r1_eff=0.827  kurt_eff=2.89
+--- exact (v3 unordered pair, v2 = (0,0)) ---
+  v3=(0,0) v2-free           n=  3415  m2_eff=1.028  r1_eff=0.808  kurt_eff=2.96
+  v3=(0,1) v2-free           n=  2271  m2_eff=0.991  r1_eff=0.791  kurt_eff=2.95
+  v3=(0,2) v2-free           n=  1068  m2_eff=nan  r1_eff=nan  kurt_eff=nan
+  v3=(1,1) v2-free           n=   361  m2_eff=1.044  r1_eff=0.826  kurt_eff=2.81
+  v3=(1,2) v2-free           n=   370  m2_eff=nan  r1_eff=nan  kurt_eff=nan
+  v3=(2,2) v2-free           n=    80  m2_eff=nan  r1_eff=nan  kurt_eff=nan
+--- joint worst cells ---
+  both v2min>=1 & v3max>=1   n=  4240  m2_eff=1.031  r1_eff=0.815  kurt_eff=2.94
+DONE

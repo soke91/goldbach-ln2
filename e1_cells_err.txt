@@ -1,0 +1,6 @@
+C:\Users\AHS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\numpy\_core\fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+C:\Users\AHS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\numpy\_core\_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+Z:\업무\소수증명\goldbach-ln2\code\e1_exact_cells.py:96: RuntimeWarning: invalid value encountered in scalar divide
+  z = 1 - (nz[mask].sum() / (mask.sum() * np.mean(nz[mask] / (1 - 0))))  # not used
