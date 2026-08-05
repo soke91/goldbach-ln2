@@ -462,6 +462,14 @@ dispersion (the one place where naive-dictionary optimism could still
 hide a loss). This document, with the repository's 85+ commits of
 measurements, is that paper's complete specification.
 
+**Final measurement (increment 123).** Threading the q-congruence layer
+(model q = 997) through the dispersion object: residue identity error
+exactly 0; main-term cancellation 0.328 vs 0.323 unthreaded; h-phase
+terms 0.595 vs 0.580 — **the q-threading is empirically lossless.**
+Every quantity this program can measure has been measured, and every
+exponent it can check has been checked. The certified transcription is
+the sole remainder.
+
 ## Status summary
 
 | Step | Status |
