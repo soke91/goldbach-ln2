@@ -1,0 +1,14 @@
+mu ready 10s
+K = 400, n_p = 2753
+rows 0/400  t=10s
+rows 100/400  t=10s
+rows 200/400  t=10s
+rows 300/400  t=10s
+live entries 0.441, entry var v = 1.004
+lambda_max = 36.76  GOE pred = 26.63  ratio = 1.380
+  eig    36.76  PR/K = 0.232 (GOE ~ 0.33, localized ~ 1/K)
+  eig    36.00  PR/K = 0.235 (GOE ~ 0.33, localized ~ 1/K)
+  eig    35.34  PR/K = 0.252 (GOE ~ 0.33, localized ~ 1/K)
+control lambda_max = 31.92  real/control = 1.152
+random-sign bilinear max (2000 draws) = 1170.6  vs K*lambda_max = 14705.3
+DONE
