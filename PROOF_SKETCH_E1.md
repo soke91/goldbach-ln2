@@ -207,6 +207,28 @@ the Goldbach chain thus sit on the natural extension of one active
 research line — and every object in the chain has been measured here
 to obey exactly the cancellation the missing theorems assert.
 
+## Substitution analysis (increment 113): the hinges match the key
+
+Reading Lichtman 2020's proof: the strategy restricts to typical n with
+prime factors in prescribed windows, handles the sparse complement by
+sieves, and uses the shift-average through a congruence coupling — a
+medium prime p₁ divides n = p + h iff h ≡ −p (mod p₁), equidistributed
+over the averaged variable; the analytic inputs are MRT Fourier
+uniformity and the Vinogradov–Korobov zero-free region. In the dilate
+family the coupling is *isomorphic*: p₁ | N − pk iff
+k ≡ N p^{-1} (mod p₁) — again a congruence on the averaged variable —
+and the argument N − pk lives in arithmetic progressions mod k, so the
+additive-character inputs apply unchanged; his Theorem 1.8 (general
+non-pretentious f, H = X^θ, via Fourier uniformity) offers a second
+route. **No structural obstacle is in sight.** The remaining
+differences are finite bookkeeping: (R1) the inner range M_k = N/k is
+k-dependent (dyadic decomposition expected to handle it — to be
+checked), and (R2) our L² versus his L¹ (one Cauchy–Schwarz). The
+thirteenth parity watch is posted at R1's dyadic boundaries. If R1–R2
+check out, the chain closes: k-averaged Möbius-on-shifted-primes ⟹
+the residual core ⟹ E1 ⟹ (with the m-face and boundary bands) EH_μ
+past 1/2 ⟹ Goldbach for large even N.
+
 ## Status summary
 
 | Step | Status |
