@@ -1,0 +1,19 @@
+building full mu to N...
+  mu segment 200M
+  mu segment 400M
+  mu segment 600M
+  mu segment 800M
+  mu segment 1000M
+  mu segment 1200M
+  mu segment 1400M
+  mu segment 1600M
+  mu segment 1800M
+  mu segment 2000M
+mu ready 90s
+  band[3000,4000) 50/120  t=91s
+  band[3000,4000) 100/120  t=92s
+BAND K in [3000,4000): E1_ratio = 0.911  (pred ~1.0)  mean r1 = 0.709  (120 k)
+  band[10000,20000) 50/120  t=92s
+  band[10000,20000) 100/120  t=92s
+BAND K in [10000,20000): E1_ratio = 0.729  (pred ~1.0)  mean r1 = 0.581  (120 k)
+DONE
