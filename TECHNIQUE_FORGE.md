@@ -36,7 +36,7 @@ measure is to Tao's average, T must be to the k-average.
 
 | # | Design | Kill-test (fast, numeric) | Status |
 |---|---|---|---|
-| K1 | **Multiplicative Fejér kernel on the ladder orbit**: represent D(k) as an optimally weighted combination of its orbit {D(sk) : s squarefree, s \| 30030} via A1; if the representation is near-exact, orbit-overlap across k linearizes the k-average | Full-orbit least-squares R² of D(k) on {D(sk)}: R² → 1 = alive; R² saturates < 0.9 = dead (cascade already suggests death; this is the definitive orbit-level version) | RUNNING (`code/e1_forge_kt1.py`) |
+| K1 | **Multiplicative Fejér kernel on the ladder orbit**: represent D(k) as an optimally weighted combination of its orbit {D(sk) : s squarefree, s \| 30030} via A1; if the representation is near-exact, orbit-overlap across k linearizes the k-average | Full-orbit least-squares R² of D(k) on {D(sk)}: R² → 1 = alive; R² saturates < 0.9 = dead (cascade already suggests death; this is the definitive orbit-level version) | **DEAD** — full 63-divisor orbit R² = 0.466 (one-layer 0.442); residual energy = 0.499 of the unit-Gaussian budget. Half of D(k)'s energy is invisible to its entire multiplicative orbit: the exact ladder transfers sub-sums, but the p-coprime core it leaves behind is itself half the field at every orbit depth. Consistent with (and stronger than) the cascade death. Closed (`code/e1_forge_kt1.py`) |
 | K2 | **Determinant/Kloosterman route with manufactured congruence**: impose an artificial pair congruence k ≡ k′ (mod d) by splitting the k-average into progressions — recovers the conductor-collapse mechanism at cost d; question is whether some d-average wins a log-power | Measure the conductor-collapsed correlation strength as a function of d: does Σ_{k≡k′ (d)} C_{k,k′} gain more than the d-splitting cost? | queued |
 | K3 | **Wishart/operator route**: E1 needs only the band ratio; the C-matrix is measured Wishart-clean. Design: prove the ratio bound from a moment-method bound on the Gram spectrum of the row family {μ(N−pk)}_p — rows are deterministic, but row-inner-products are the SAME correlations (circularity check needed at 4th-moment level) | Compute trace-moment ratios tr((RRᵀ)^j)/Wishart-prediction for j = 2,3,4: exact match = the moment method consumes only lower-order correlations (alive); deviation or circular dependence = dead | queued |
 | K4 | **N-average descent**: the N-averaged theorem is provable (adjudication 5-(2)); design a descent that trades the N-average for a k-average within a single N via the ladder's N-independence | Identify the exact point where the N-average is consumed in Lichtman Lem 6.1 and test numerically whether the k-orbit supplies the same decorrelation | queued |
@@ -51,3 +51,9 @@ paragraph in this table, closed, never re-litigated.
 ## Ledger
 
 - (increment 171) K1 kill-test launched.
+- (increment 172) **K1 DEAD** by pre-registered threshold: full-orbit
+  R² = 0.466 < 0.9. The ladder is an exact identity but not a
+  spanning one — the multiplicative orbit sees only half the field's
+  energy. Design lesson: any viable T must couple to the p-coprime
+  core directly, not through divisibility sub-sums. Next candidate on
+  resume: K2 (manufactured congruence / determinant route).
