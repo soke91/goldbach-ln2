@@ -1,0 +1,107 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{definition}
+\newtheorem{measurement}{Measurement}
+
+\title{An Empirical Map of the Goldbach Conditional Chain:\\
+from a Sub-Poissonian Constant to a Direct Portrait\\
+of the M\"obius-Twisted Elliott--Halberstam Axiom}
+\author{[author]\thanks{AI-assisted exploratory program, 2026.
+Code and full logs: \url{https://github.com/soke91/goldbach-ln2}}}
+\date{Draft — \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+By a theorem of Huang and Li (continuing Pan), the binary Goldbach
+conjecture for large even $N$ follows from the Bombieri--Vinogradov
+theorem together with a single unproven statement: the M\"obius-twisted
+Elliott--Halberstam hypothesis $EH_\mu(N^{\theta'})$ for some
+$\theta' > 1/2$, needed only for the fixed residue class $N \bmod q$,
+whose object is the correlation sequence $c(n) = \Lambda(n)\mu(N-n)$.
+We present a systematic empirical program measuring this landscape and
+everything feeding it: (i) the fixed-residue discrepancy of $c(n)$ is
+random-walk-sized straight through the $\sqrt N$ barrier
+($\theta = 0.30 \to 0.70$, two scales, five values of $N$);
+(ii) the innermost sum $T(N) = \sum_n \Lambda(n)\mu(N-n)$ --- whose
+$o(N)$ bound is itself beyond unconditional technology --- follows a
+textbook half-normal law over hundreds of values of $N$; (iii) sifted
+prime counts sit on the Buchstab curve $e^\gamma\omega(u)$ to
+$\pm 2\cdot 10^{-4}$ throughout the sieve-blind zone (``Conjecture P'');
+(iv) an exact structure law
+$s(n) = s_0(x)\prod_{q \mid n,\, q > y}(q-1)/(q-2)$ holds to 3--4
+decimals at roughness $x^{1/8}$ across three scales; and (v) the
+fluctuation of Goldbach counts against the Hardy--Littlewood prediction
+carries a canonical dispersion constant equal to $\ln 2$ within
+$0.9\%$, an invariant of additive prime correlations of order $\ge 3$.
+Twenty-four documented self-corrections and three pre-registered blind
+extrapolation tests (all hits) accompany the program. No theorem toward
+Goldbach is claimed; the contribution is a reproducible, falsifiable
+measurement corpus locating the entire parity obstruction in one named
+technical question.
+\end{abstract}
+
+\section{Introduction}
+% Frame: Chen -> parity -> Huang-Li reduction; what measurement can and
+% cannot contribute; honesty protocol (corrections, blind tests).
+[Draft: import from RESEARCH\_NOTE.md intro + Closure paragraphs.]
+
+\section{The conditional chain and the final axiom}
+% Huang-Li Theorem 1 / Corollary 1; Pan decomposition f_0..f_3;
+% how EH_mu is consumed (mu(d) log d weighted modulus sums).
+[Draft: import from FINAL\_BOSS \S5--\S7 (translated).]
+
+\section{Direct measurements of the axiom's landscape}
+\subsection{Fixed-residue discrepancy of $c(n)$ through the barrier}
+% Tables: theta 0.30-0.70, N at 1e8 (x3) and 1e9 (x2); R_c stats.
+\subsection{The innermost sum $T(N)$}
+% 220 N at 1e8 (+ ladder at 1e9): half-normal statistics.
+\subsection{Smooth (well-factorable-type) moduli}
+% 479 squarefree smooth moduli: equal health.
+\subsection{Plain M\"obius landscape to $\theta = 0.88$}
+
+\section{Conjecture P: sifted primes on the Buchstab curve}
+% P-profile: R_P = 1.0000(2) in the blind zone; fine structure =
+% omega oscillation; 1/log z finite-size law; scale stability.
+
+\section{Structure laws at the target roughness}
+% theta = 1/8 exact law; worst class; chi^2 fiber uniformity ladder
+% (1e6 -> 1e12); pre-registered test killing Poisson convergence at 26 sigma.
+
+\section{The $\ln 2$ dispersion constant}
+% Canonical estimator; 18-octave fitted limit 0.6931(61); three
+% independent constructions; gap-permutation kill test (>= 3-point).
+
+\section{Loss anatomy and the minimal target}
+% U_req(theta) profile; loss integral 4.08 vs 1.26; P_loc: two
+% aggregates per n, factor-125 slack; positivity-propagation remarks.
+
+\section{Methods, corrections, and falsification}
+% 24 corrections list; blind-test protocol; window systematics saga;
+% reproducibility (script table).
+
+\section*{Acknowledgements}
+% Huang-Li, Pan, and the literature that anchors the frame.
+
+\begin{thebibliography}{9}
+\bibitem{HL} J.-J.~Huang, H.~Li, \emph{On the connection between the
+Goldbach conjecture and the Elliott--Halberstam conjecture},
+arXiv:2005.03811; in: Combinatorial and Additive Number Theory IV,
+Springer (2021).
+\bibitem{Pan} C.~D.~Pan, \emph{A new attempt on Goldbach conjecture},
+Chin.\ Ann.\ Math.\ 3 (1982).
+\bibitem{MV} M.~R.~Murty, A.~Vatwani, \emph{Twin primes and the parity
+problem}, J.\ Number Theory 180 (2017).
+\bibitem{Chen} J.~R.~Chen, \emph{On the representation of a larger even
+integer as the sum of a prime and the product of at most two primes},
+Sci.\ Sinica 16 (1973).
+\end{thebibliography}
+
+\end{document}
