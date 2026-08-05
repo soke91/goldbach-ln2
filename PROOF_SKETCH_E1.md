@@ -175,7 +175,21 @@ collapse of the parameter hierarchy to ~log log N steps. Remaining for
 the proof: an a-priori weight design achieving the regressed transfer
 (second-order TK corrections are the natural candidate), the iterated
 bookkeeping with collision terms, and vigilance for parity re-entry in
-the iteration — the twelfth and, if the cascade closes, final watch.
+the iteration — the twelfth watch.
+
+**Iteration verdict (honest).** The direct two-step test kills the
+geometric-decay hypothesis: regressing the residual field on *its own*
+ladder yields R²₂ = 0.191 (vs 0.681 at step one; cumulative transfer
+plateaus near 0.74). The first ladder removes an easy correlated
+component; the hard core resists its ladder — the twelfth observed
+instance of the parity-conservation pattern, now localized in the
+residual field of the dilation cascade. Consequence: no collapse of the
+parameter hierarchy; the port's value reverts to its structural
+simplification (the entropy section is removable, the sampling is
+deterministic) with Tao-scale window economics intact. The residual
+field R(k) — 32% of the energy, ladder-orthogonal — is the sharpest
+localization of the parity core this program has produced: whoever
+characterizes it characterizes the barrier.
 
 ## Status summary
 
