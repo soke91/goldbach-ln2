@@ -147,6 +147,20 @@ proof-relevant content is now maximally distilled: all arithmetic
 structure is classical local bookkeeping; the single unproven
 statement is square-root cancellation of the Gaussian part.
 
+**Complete historical closure** (increments 155–157): the law also
+explains, with no additional channels, (i) the integer-indexed field
+— E1's actual object D(k) and its pair version — no mean field
+(per-term mean 0.00017 ± 0.00024), no k-class structure,
+leave-one-out r1 = 0.800; (ii) the SEAM band, the program's deepest
+apparent anomaly: 43.4% of its pairs are deterministically
+annihilated, predicting a naive average of 0.798 × 0.566 = 0.452 vs
+0.450 measured; the viable pairs read exactly half-normal
+(0.795, variance ratio 1.004). Every sub-random reading in this
+program's history (0.29–0.74, all families, all bands) is now
+explained by the single factorization law
+(`code/e1_integer_field.py`, `code/e1_pair_local.py`,
+`code/e1_seam_law.py`).
+
 ## 8. The ln 2 constant (where this program began)
 
 Dispersion of g/HL under a fixed canonical estimator: fitted limit
