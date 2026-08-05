@@ -25,9 +25,12 @@ This is an identity (μ(pm') = −μ(m′) for $p \nmid m'$; $p^2 \mid m$ terms
 vanish). The dilate family $\{D(k)\}$ is **closed** under this move: the
 scale-$k$ object maps exactly onto the scale-$pk$ object. (Contrast: for
 shift correlations the analogous move distorts the shift $h \to ph$.)
-Numerical check: identity error 0; cross-scale correlation
-corr$(D(k), D(pk)) = -0.24/-0.40/-0.23/-0.16$ for $p = 2/3/5/7$ —
-the ladder is real and strong (`entropy_ladder.py`, `e1_dilation.py`).
+Numerical check (40 values of $k$, $p = 2/3/5$): **identity error
+exactly 0** in every case; the sub-sum-to-dilate transfer is
+near-deterministic, corr$(A_p(k), D(pk)) = -0.60/-0.88/-0.87$, with
+fuel ratios $|A_p|/|D| = 0.41/3.13/0.95$; the aggregate cross-scale
+correlations corr$(D(k), D(pk)) = -0.24/-0.40/-0.23/-0.16$ for
+$p = 2/3/5/7$ (`entropy_ladder.py`, `e1_dilation.py`).
 
 ## Step 2 — Averaged self-similarity (status: routine bookkeeping)
 
