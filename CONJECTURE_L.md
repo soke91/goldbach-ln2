@@ -82,6 +82,19 @@ in its purest measured form.
   marginal reading (r1 at 10⁹, +1.6σ) are recorded honestly, not
   averaged away.
 
+## Coverage adjudication (increment 170)
+
+A fresh-context adjudication against the source papers' lemma
+hypotheses (AMPLITUDE_ADJUDICATION.md) found: all five candidate
+routes (shift→dilate substitution, entropy decrement, technique
+rerun, Dirichlet-polynomial mean values, partial slices) are blocked
+at named-lemma level; the only provable E1-shaped statement is the
+N-averaged version (exceptional-set territory, not consumable by
+Huang–Li); and the common obstruction is that the bilinear pair
+constraint of μ(m)μ(N−mk) is diagonalized by no additive or
+multiplicative character family, while the k-average supplies no
+linearizing invariance.
+
 *If Conjecture L (or just its amplitude half) is known, provable, or
 refutable by current technology, the authors of this repository would
 be grateful for a pointer — see paper/contact_drafts.md.*
