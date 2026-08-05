@@ -50,7 +50,39 @@ with $\delta' \gg \delta / \log^{o(1)}$. The per-band $L^2$ budgets
 $\sum_{k \sim K} |D(k)|^2 \lesssim \sum_k M_k$ hold empirically at the
 independence level (measured ratios 0.953–1.046).
 
-## Step 4 — Entropy decrement (status: OPEN — the engine; a port, not an invention)
+## Step 4 — The engine (status: OPEN, with two concrete port shapes)
+
+**Key structural discovery (from Tao 2016's own strategy section).**
+The *only* role of the logarithmic averaging in the shift-Chowla proof
+is that "the logarithmic averaging allows us to leave the constraint
+n ≤ x unchanged" under the dilation n → pn. In our setting this crutch
+is unnecessary: the ladder move acts as k → pk on the *spectator*
+variable, and the target is already an average over k — **the k-average
+natively absorbs the range dilation that forced Tao's log-weights.**
+The obstruction that keeps unweighted two-point Chowla open (no
+averaging direction) is absent here by construction: E1 belongs to the
+difficulty class of *averaged* Chowla (Matomäki–Radziwiłł — a theorem),
+not fixed-shift Chowla.
+
+**Port shape (a) — entropy decrement with k-averaging.** Run Tao's
+contradiction scheme with the (k, pk) ladder in place of (n, n+h) →
+(pn, pn+ph): largeness of Σ_k |D(k)|² propagates through the exact
+ladder (Step 1) to all dilated shells; the entropy decrement selects a
+scale range where the μ-blocks decouple from the p-sampling; Hoeffding
+replaces 1_{p|·} by 1/p; the contradiction input is Möbius
+equidistribution in progressions *in the k-aspect* — where unconditional
+theorems (Möbius BV) exist.
+
+**Port shape (b) — the Mellin route.** Dilations are multiplicative
+translations, so Σ_k |D(k)|² has a Dirichlet-polynomial fourth-moment
+expression (the Mellin analog of MRT's Fourier computation for averaged
+shift-Chowla). The required engine becomes a mean value theorem for
+Dirichlet polynomials with *shifted-Möbius* coefficients μ(N−u) — the
+native language of the Matomäki–Radziwiłł machine, applied to a
+shifted-multiplicative sequence. This names the missing lemma at
+maximal concreteness.
+
+### Original port framing (kept for the record)
 
 This is the dilate-analog of the entropy-decrement step in Tao's proof of
 the two-point logarithmic Chowla conjecture (Forum Math. Pi, 2016). There,
