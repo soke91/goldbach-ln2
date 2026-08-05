@@ -1,87 +1,93 @@
-﻿# goldbach-ln2
+# goldbach-ln2
 
-**An empirical sub-Poissonian constant for Goldbach representation fluctuations,
-with numerical evidence that it equals ln 2.**
+**An empirical program on the Goldbach conjecture: from a sub-Poissonian
+fluctuation constant (≈ ln 2) to a complete empirical map of the
+Huang–Li conditional chain — including a direct measurement of the final
+axiom (EH_μ) at its own coordinate.**
 
-> Status: **numerical / exploratory — a conjecture, not a theorem.**
-> Produced in an AI-assisted exploratory session (2026-08-03), with 15 documented
-> self-corrections. Expert scrutiny and literature pointers are explicitly welcome —
-> if this constant is already known (or wrong), please open an issue.
+> Status: **numerical / exploratory — measurements and conjectures, not
+> theorems.** Produced in AI-assisted exploratory sessions (2026-08-03 → 05)
+> with 24 documented self-corrections and three pre-registered blind
+> extrapolation tests (all hits). Expert scrutiny is explicitly welcome —
+> if anything here is known, wrong, or provable, please open an issue.
 
-## TL;DR
+## The program in one picture
 
-Let g(n) be the number of unordered prime pairs with p+q = n, and HL(n) the
-first-order Hardy–Littlewood prediction. Measuring the dispersion of
-z = g/HL with a fixed canonical estimator (dyadic windows, n ≡ 2 mod 6,
-log-drift removal, Poisson-scale normalization), across 18 dyadic windows
-up to 5.4×10⁸:
+By a known conditional theorem (Huang–Li 2022, continuing Pan 1982;
+arXiv:2005.03811), Goldbach for large even N follows from
+Bombieri–Vinogradov **plus one sentence**:
 
-**fitted limit of the dispersion ratio = 0.6931 ± 0.0061 ≈ ln 2 = 0.69315**
+> **EH_μ(N^{θ′}) for some θ′ > 1/2**: the correlation sequence
+> c(n) = Λ(n)·μ(N−n) equidistributes in arithmetic progressions with
+> moduli past the √N barrier — needed only for the fixed residue class
+> N mod q.
 
-Confirmed by two independent constructions (Hardy–Littlewood-structured null
-worlds: variance ratios 0.468 ± 0.010 and 0.472 ± 0.010 vs (ln 2)² = 0.4805)
-and invariant under window-shape changes (ratio 1.3 → 6).
+This repository measures that landscape (and everything feeding it):
 
-Additional finding: permuting prime gaps (which preserves all two-point
-statistics) destroys the suppression entirely — evidence the constant is an
-invariant of **additive prime correlations of order ≥ 3**, beyond
-pair-correlation/GUE phenomenology.
+| Result | Measurement |
+|---|---|
+| **Final axiom, directly** | Fixed-residue discrepancy of c(n): mean 0.6–1.0× random walk through θ = 0.30 → **0.70** (3 values of N at 10⁸) — **no visible change at the √N barrier** |
+| Möbius landscape | Discrepancy = (0.27 ln Q) × random walk to θ = 1/2; flat 3.2–3.8×√(x/q) deep into the unproven zone θ ≤ 0.88 |
+| **Conjecture P** (sifted primes) | Sifted-prime counts sit on the Buchstab curve e^γω(u) to ±0.0002 through the sieve-blind zone, fine structure reproducing across a decade |
+| Minimal target (P_loc) | Two aggregates per n (S, P2) to ~60% accuracy suffice for g > 0 at 10⁸; nature delivers 0.48% worst-case (**factor-125 slack** over 3000 n) while classical lower bounds are blind |
+| Structure law at θ = 1/8 | s(n) = s₀(x)·∏_{q|n, q>y}(q−1)/(q−2) to 3–4 decimals at three scales; worst class identified (smooth n), no downward anomalies |
+| χ² fiber uniformity | Sub-Poisson (0.49–0.57) from 10⁶ to 10¹²; Poisson-convergence rejected at 26σ in a pre-registered test |
+| The ln 2 constant | Canonical dispersion ratio of g/HL → 0.6931 ± 0.0061 ≡ ln 2 (18 octaves, 3 independent constructions); a ≥3-point additive-correlation invariant |
+| Loss anatomy | Classical upper-bound loss integral 4.08 vs required 1.26 at u = 8; all parity content condenses into the P2 core / small-s sifted asymptotics |
 
-Full write-up: [RESEARCH_NOTE.md](RESEARCH_NOTE.md).
-Internal session logs (Korean, 30+ dated increments) available on request via an issue.
+Full write-up: [RESEARCH_NOTE.md](RESEARCH_NOTE.md) (self-contained, with
+methods, corrections, and honest caveats).
 
-## Reproduce (Python + numpy only; minutes on a laptop)
+## What is claimed / not claimed
+
+- **Claimed (facts)**: the computed values and verifications; the exact
+  identities used (Theorem-1 dichotomy, Buchstab bookkeeping); the
+  documented reductions.
+- **Conjectured**: the ln 2 constant; Conjecture P; the empirical structure
+  laws.
+- **Not claimed**: any theorem toward Goldbach. The conditional frame
+  (Goldbach ⟸ BV + EH_μ) is Huang–Li's theorem, not ours; our contribution
+  on that axis is measurement.
+
+## Reproduce (Python + numpy; laptop-scale)
 
 ```bash
 pip install -r requirements.txt
 cd code
 
-# Main dispersion series (high octaves via exact per-point sampling; ~10-30 min)
+# Final axiom landscape (c(n) = Lambda*mu(N-n) fixed-residue discrepancy)
+python ehmu_final.py
+
+# Mobius-in-APs landscape to theta = 0.88
+python ehmu_probe2.py && python ehmu_beyond.py
+
+# Conjecture P profile (sifted primes vs Buchstab through the blind zone)
+python p_profile.py
+
+# P_loc slack ledger (two aggregates per n vs the winning threshold)
+python ploc_scan.py
+
+# Structure law at theta = 1/8 (segmented sieve, controlled per-q experiment)
+python s_th18_qlaw.py
+
+# chi2 fiber uniformity ladder
+python s1_chi2_envelope.py
+
+# The original ln 2 dispersion series
 python e4_dense_sample.py
-
-# Window-shape invariance test
-python e4_window_test.py
-
-# Hardy–Littlewood null world comparison / wheel-modulus scan
-python e4_wheelnull.py
-python e4_zscan3.py
-
-# Gap-permutation surrogates (beyond-pair evidence)
-python e4_gapshuffle.py
-
-# Spectral profile phi(lambda) ~ Goldston–Montgomery function
-python e4_phi_profile.py
-
-# kappa(d) conditional singular-series verification
-python e4_breakthrough.py
-
-# Bonus: detect Riemann & Dirichlet L-zeros inside Goldbach data
-python q3p_spectroscopy.py
-python q3p_L.py
 ```
 
-Scripts print all reported numbers to stdout. `code/goldbach/` is the small
-shared library (sieve + Hardy–Littlewood utilities). Some scripts use paths or
-constants tuned during the session; provenance of every figure is tracked in internal logs (available on request).
-
-## What is claimed / not claimed
-
-- Claimed (facts): the computed values, verifications (Goldbach to 10¹¹ here;
-  known literature: 4×10¹⁸), and elementary lemmas (κ(d) formula etc.).
-- Conjectured: the canonical suppression constant equals ln 2; it is a ≥3-point
-  additive invariant.
-- **Not claimed**: any progress on the Goldbach conjecture itself; any theorem
-  about the constant.
+Each script prints its reported numbers to stdout. `code/goldbach/` is the
+shared sieve library. ~40 scripts document every measurement in the note.
 
 ## Falsification
 
-The claim dies if: (a) the fitted limit departs from ln 2 with larger
-computations, or (b) an estimator-theoretic account reproduces the constant
-from pair correlations alone, or (c) the constant is shown to be
-frame-artifactual. Section 7 of the note lists caveats honestly (estimator
-dependence, extrapolation risk, possible literature overlap).
+Each claim carries its own kill condition in the note: fitted limits that
+drift, structure that fails at the next scale, or a classical account of any
+constant. Three campaigns in this program died exactly this way (R² → ln 2,
+thin-class habitat, Λ²-family headroom) and are documented as corrections —
+the surviving claims are the ones that passed.
 
 ## License
 
-Code: MIT (or your preferred license — set before publishing). Text: CC BY 4.0.
-
+Code: MIT. Text: CC BY 4.0.
