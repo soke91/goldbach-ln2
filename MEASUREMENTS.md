@@ -87,6 +87,16 @@ exactly Gaussian (22 exceedances of 3σ vs 27 expected)
   C_{k,k′} = (local factor determined by gcd with N) × Gaussian —
   the θ=1/8 structure law reappearing at dispersion level
   (`code/e1_tail_anatomy.py`).
+- Zero-accounting (12,000 pairs × 2 N, per-pair zero terms counted
+  directly): the free class closes COMPLETELY — after removing the
+  forced μ=0 terms (q | N, q | k forces q | N−pk; q² | N kills
+  entirely, observed z = 1.000), gcd-free pairs give
+  E|C|²/support = 0.97–1.02 with kurtosis 2.99–3.03: exactly
+  Gaussian. Honest correction to the "stronger than random" reading:
+  roughly half the suppression is forced-zero bookkeeping (classical,
+  computable); the remainder — shared classes keep m2_eff = 0.13–0.67
+  on their nonzero support — is a genuine negative correlation among
+  surviving terms (`code/e1_zero_account.py`).
 
 ## 7. The ln 2 constant (where this program began)
 
