@@ -251,6 +251,27 @@ foreseeable strength, control the dilate decoupling's bilinear phases?
 Nature's answer is measured throughout this repository; the proof's
 answer is where the field now stands.
 
+## Gate arithmetic (increments 116–117): all three gates pass at the naive dictionary
+
+Splitting the k-range dyadically: for K ≤ x^{1/3} the dispersion sits
+exactly in Lichtman 2023's critical window (dictionary N_L := K,
+M := x/K, matching his NM ≍ x frame; factor budgets R ~ S ~ K^{1/3}
+from the k = qrs family factorization, measured density 47% with the
+prime-moduli remainder in the classical DI regime); for
+K ∈ (x^{1/3}, x^{1/2}] the inner ranges shorten into the
+Matomäki–Radziwiłł short-interval home ground (upper-band mass
+measured 0.0023N at half-normal 0.84). Substituting into his gates:
+(5.1) reads K³ ≤ x — **tight exactly at the regime boundary x^{1/3}**,
+a consistency signal that the two-regime split is the gate geometry
+itself; (5.2) gives x^{7/32}·K^{13/3} = x^{1.66} < x²; (5.3) gives
+K^{4.77} = x^{1.59} < x². **All three gates pass.** Honest caveats:
+the arithmetic presumes the naive dictionary (that the W-analog
+derivation lands in his exact form); the h- and a-parameter roles need
+precise correspondence; a fourteenth tooth could appear only inside
+the full derivation. The single remaining item of this program is that
+derivation — one paper-section of work, with every surrounding
+quantity measured and every gate pre-checked.
+
 ## Status summary
 
 | Step | Status |
