@@ -98,7 +98,35 @@ exactly Gaussian (22 exceedances of 3σ vs 27 expected)
   on their nonzero support — is a genuine negative correlation among
   surviving terms (`code/e1_zero_account.py`).
 
-## 7. The ln 2 constant (where this program began)
+## 7. The factorization law (unifying stamp, increments 144–149)
+
+Every family this program probed — dilated shifted-prime correlations
+C_{k,k′} = Σ_p μ(N−pk)μ(N−pk′) and thin-progression Möbius sums —
+obeys one measured law:
+
+> **μ-field = (deterministic local mask, computable by finite modular
+> enumeration) × (exactly Gaussian fluctuation at half-normal scale).**
+
+Evidence chain: (i) every viable exact (v₂, v₃)-cell of the dispersion
+field gives variance ratio 0.99–1.06 and kurtosis 2.8–3.1 on its
+nonzero support, including the worst joint cell (n = 4240:
+1.031/2.94); annihilated cells are predicted deterministically
+(v_q(N) = 1 ∧ v_q(k) = 1 ⟹ μ ≡ 0) (`code/e1_exact_cells.py`);
+(ii) thin progressions, zero-accounted: all classes 0.957–0.960 with
+kurtosis 3.03–3.05, non-squarefree gcd = predicted annihilation; the
+raw 0.581 splits exactly as 0.782·√(support 0.607)
+(`code/e1_thin_closure.py`).
+
+**Retroactive corrections this law forces**: every "sub-half-normal /
+stronger-than-random" reading earlier in this document (the 0.738
+thin stamp of §5, the 0.35 dispersion means of §6) is mask
+accounting, not super-random cancellation. On its nonzero support
+nothing we measured beats a coin; nothing loses to one either. The
+proof-relevant content is now maximally distilled: all arithmetic
+structure is classical local bookkeeping; the single unproven
+statement is square-root cancellation of the Gaussian part.
+
+## 8. The ln 2 constant (where this program began)
 
 Dispersion of g/HL under a fixed canonical estimator: fitted limit
 0.6931 ± 0.0061 ≡ ln 2 (18 octaves), two independent null

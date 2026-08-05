@@ -1,0 +1,19 @@
+mu ready 11s
+1000/8000  t=11s
+2000/8000  t=11s
+3000/8000  t=11s
+4000/8000  t=11s
+5000/8000  t=11s
+6000/8000  t=11s
+7000/8000  t=11s
+8000/8000  t=11s
+--- thin progressions, zero-accounted (target 0.798/1.0/3.0) ---
+  all                        n=  8000  r1_eff=0.781  m2_eff=0.959  kurt_eff=3.04
+  gcd(r,L)=1                 n=  4835  r1_eff=0.782  m2_eff=0.960  kurt_eff=3.05
+  gcd>1 squarefree           n=  2546  r1_eff=0.779  m2_eff=0.957  kurt_eff=3.03
+  gcd non-squarefree         n=   619  r1_eff=nan  m2_eff=nan  kurt_eff=nan
+--- raw normalization (inc-141 style, |S|/sqrt(#terms)) ---
+  all (vs inc-141: 0.738)    n=  8000  r1_raw=0.581  support_frac=0.607
+  gcd(r,L)=1                 n=  4835  r1_raw=0.654  support_frac=0.704
+  gcd(r,L)>1                 n=  3165  r1_raw=0.468  support_frac=0.457
+DONE
