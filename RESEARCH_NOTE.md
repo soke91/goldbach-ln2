@@ -388,7 +388,16 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   single sentence separating current technology from Goldbach is thus
   seen to hold with square-root cancellation throughout the measured
   range — the barrier is a horizon of proof technique, invisible in the
-  data landscape.
+  data landscape. The same measurement repeated at N ~ 10⁹ (two values
+  of N, segmented Möbius computation, θ = 0.35 → 0.70) reproduces the
+  picture exactly: mean ratios 0.6–1.1, worst moduli ≤ 3.4, no barrier
+  signature — a two-scale portrait of the final axiom. On the technique
+  side, mining Huang–Li's proof shows EH_μ is consumed through
+  μ(d)·log d-weighted modulus sums in Pan's f₃ term; with
+  well-factorable-weight results for μ known at level 3/5, the last
+  technical question this program can name is whether f₃ admits a
+  well-factorable rearrangement and whether such levels extend to the
+  correlation sequence itself.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
