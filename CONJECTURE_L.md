@@ -1,0 +1,75 @@
+# Conjecture L — the factorization law (the program's final conjecture)
+
+*Crystallized at increments 144–158, after the adversarial refutation
+of the proof-program sketch (REVIEW_VERDICT.md). This document states
+the one conjecture the measurement corpus now supports, its exact
+relation to the Goldbach chain, and what is and is not evidence.*
+
+## Statement
+
+For an even integer N and the families probed in this repository —
+
+- prime-indexed dilate pairs:
+  C_{k,k′} = Σ_{p∼P} μ(N−pk) μ(N−pk′),
+- integer-indexed dilates and their pairs:
+  D(k) = Σ_m μ(m) μ(N−mk), T = Σ_m μ(N−k₁m) μ(N−k₂m),
+- Möbius sums over thin progressions (moduli L > √y) —
+
+**Conjecture L.** Each field factorizes as
+
+> field = **M** × **G**,
+
+where **M** is the deterministic local mask — the support pattern
+computed exactly by finite modular enumeration (forced μ = 0 at
+densities determined by the v_q-data of (N, k, k′); total
+annihilation when the forced valuation reaches 2) — and **G** is,
+on the surviving support, a fluctuation that is **exactly Gaussian
+at half-normal scale**: |Σ|/√(support) → half-normal with mean
+0.798, variance ratio 1, kurtosis 3, no mean field, no class
+structure, and Wishart-consistent spectral behavior of the pair
+matrix.
+
+## Measured support (all in `code/`, one-shot subset in
+`verify_all.py` V5)
+
+| Level | Stamp |
+|---|---|
+| Pair statistics | free class 0.97–1.02 / kurt 2.99–3.03 (two N) |
+| Exact cells | every viable (v₂,v₃)-cell 0.99–1.06 / 2.8–3.1 |
+| Mask, blind | corr(pred, obs) = 1.0000, max err 0.027, amplitude 1.5% |
+| Matrix | λ_max at the Wishart null dead center (z = −0.19) |
+| Integer field | no mean field (0.00017 ± 0.00024), LOO r1 = 0.800 |
+| Seam band | naive 0.450 vs predicted 0.798×(1−0.434) = 0.452 |
+| Scale 10⁹, blind | m2 1.037 (pred 1.00±0.04), kurt 2.89 (3.0±0.3), r1 0.823 (+1.6σ, marginal) |
+
+Every historically "sub-random" reading of this program
+(0.29–0.74 across all families and bands) is explained by **M**
+alone; no measurement anywhere detects structure in **G**.
+
+## Relation to Goldbach
+
+By Huang–Li (arXiv:2005.03811) + this repository's reduction chain,
+binary Goldbach for large even N needs only a (log-power saving)
+**amplitude bound on G** for the dilate family — i.e., a provable
+form of "G does not conspire across k". Conjecture L is *stronger*
+than needed (it asserts exact Gaussianity; the chain needs only
+square-root cancellation on average). What is missing is not
+knowledge of the structure — the mask is an algorithm, and G is
+featureless in every measurement — but a *proof technique* for the
+amplitude of a featureless object: the binary-correlation difficulty
+in its purest measured form.
+
+## What this is not
+
+- Not a theorem, and not evidence-by-authority: the adversarial
+  review (REVIEW_VERDICT.md) refuted this program's earlier attempt
+  to route the amplitude bound through existing dispersion machinery;
+  that verdict stands.
+- Measurements at 10⁸–10⁹ cannot exclude a conspiracy that onsets
+  beyond the measured range; three blind extrapolation hits and one
+  marginal reading (r1 at 10⁹, +1.6σ) are recorded honestly, not
+  averaged away.
+
+*If Conjecture L (or just its amplitude half) is known, provable, or
+refutable by current technology, the authors of this repository would
+be grateful for a pointer — see paper/contact_drafts.md.*
