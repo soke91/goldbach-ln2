@@ -1,0 +1,26 @@
+N = 999999996  tail factor = 0.99228
+mask 500/3000  t=1s
+mask 1000/3000  t=2s
+mask 1500/3000  t=3s
+mask 2000/3000  t=4s
+mask 2500/3000  t=5s
+mask 3000/3000  t=6s
+=== PRE-REGISTERED (no mu accessed) ===
+  P1 annihilation fraction = 0.458
+  P2 naive mean r1        = 0.349
+  P3 viable r1_eff        = 0.798
+  P4 viable m2_eff        = 1.00
+building mu window [200207984,625003006) (425M)...
+mu ready t=24s
+measure 500/3000  t=24s
+measure 1000/3000  t=24s
+measure 1500/3000  t=24s
+measure 2000/3000  t=24s
+measure 2500/3000  t=24s
+measure 3000/3000  t=25s
+=== OBSERVED ===
+  P1 annihilation fraction = 0.458  (pred 0.458)
+  P2 naive mean r1        = 0.413  (pred 0.349)
+  P3 viable r1_eff        = 0.762  (pred 0.798)
+  P4 viable m2_eff        = 0.917  (pred 1.00)
+DONE
