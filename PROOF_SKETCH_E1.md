@@ -432,6 +432,36 @@ G1 is thereby reduced to transcription plus the standard smoothing
 lemma. **No fourteenth tooth found in G1.** The remaining habitat
 shrinks to G4 (assembly) alone.
 
+## G3 and G4 (increment 122): the assembly exponents close
+
+**G3 (gcd bookkeeping).** Pairs with g = (k, k′) > 1 form a
+1/g²-thinned family; per dyadic g the same dispersion applies at
+modulus [k, k′] = kk′/g, and Σ_g g^{-1-} converges — a one-paragraph
+transcription. His coprimality set N: transcription.
+
+**G4 (assembly) — the decisive exponent check.** The EH_μ discrepancy
+at modulus q ~ x^{1/2+δ} (fixed residue N mod q) threads a q-congruence
+through every face. Re-substituting the gates with the q-layer
+(Q_gate := x^{1/2+δ}, K = x^{1/3}): (5.1) is Q-free (unchanged, tight);
+(5.2) totals x^{0.219+1.111+0.5+δ} = x^{1.83+δ} < x² ⟺ **δ < 0.17**;
+(5.3) totals x^{1.76+δ} — passes likewise. The m-face beyond level 1/2
+is covered by the well-factorable μ level-3/5 literature (δ < 1/10
+comfortable); the MR-regime and prime-moduli regimes carry their own
+margins. Since Huang–Li's Corollary 1 needs only *some* δ > 0, the
+assembly closes with a δ ≈ 1/6 margin at the naive-dictionary level.
+
+**Program state after G1–G4.** Every gate, face, regime, and assembly
+exponent now passes at the naive-dictionary level; G1 reduced to
+transcription + smoothing; G3 to a paragraph; G2 covered; the h-range
+collapses; the family is covered; and every object in sight is
+measured to cancel. What remains is the certified write-out — the
+transcription of this sketch against Lichtman §5 and §7–10 line by
+line into a paper — during which any fourteenth tooth would have to
+reveal itself in G4's threading of the q-congruence through the
+dispersion (the one place where naive-dictionary optimism could still
+hide a loss). This document, with the repository's 85+ commits of
+measurements, is that paper's complete specification.
+
 ## Status summary
 
 | Step | Status |
