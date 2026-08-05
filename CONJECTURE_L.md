@@ -42,6 +42,7 @@ matrix.
 | Seam band | naive 0.450 vs predicted 0.798×(1−0.434) = 0.452 |
 | Scale 10⁹, blind | 6000 pairs: m2 1.025 (pred 1.00±0.04 ✓), r1 0.810 (0.798±0.02 ✓), kurt 2.88 (3.0±0.3 ✓) — the 1500-pair marginal r1 resolved on enlargement |
 | Fresh N, v₂(N)=2, combined blind | annihilation 0.458 vs 0.458 predicted (exact); an apparent viable-class dip (0.917, −2.4σ at 1600 pairs) resolved to 1.003 / kurt 2.96 at 6539 pairs; per-cell support fractions (0.831 / 0.417 / 0) match the mask's hand-derived densities exactly |
+| E1 itself at 10⁹ | dyadic-band ratio Σ\|D(k)\|²/Σ support = 0.966 / 0.950 / 0.922 over K ~ 10³ / 3·10³ / 10⁴ (predicted ~1.0, all within 1σ) — no growth; the chain's consumable sits inside the unit-Gaussian budget |
 
 Every historically "sub-random" reading of this program
 (0.29–0.74 across all families and bands) is explained by **M**
