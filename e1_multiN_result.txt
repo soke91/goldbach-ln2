@@ -1,0 +1,57 @@
+=== N = 899999998 ===
+building full mu to N...
+  mu segment 200M
+  mu segment 400M
+  mu segment 600M
+  mu segment 800M
+mu ready 40s
+  band[1000,2000) 50/150  t=41s
+  band[1000,2000) 100/150  t=42s
+  band[1000,2000) 150/150  t=42s
+BAND K in [1000,2000): E1_ratio = 0.877  (pred ~1.0)  mean r1 = 0.742  (150 k)
+  band[3000,4000) 50/150  t=43s
+  band[3000,4000) 100/150  t=43s
+  band[3000,4000) 150/150  t=43s
+BAND K in [3000,4000): E1_ratio = 0.835  (pred ~1.0)  mean r1 = 0.741  (150 k)
+  band[10000,20000) 50/150  t=43s
+  band[10000,20000) 100/150  t=43s
+  band[10000,20000) 150/150  t=43s
+BAND K in [10000,20000): E1_ratio = 0.930  (pred ~1.0)  mean r1 = 0.794  (150 k)
+=== N = 799999996 ===
+building full mu to N...
+  mu segment 200M
+  mu segment 400M
+  mu segment 600M
+  mu segment 800M
+mu ready 78s
+  band[1000,2000) 50/150  t=79s
+  band[1000,2000) 100/150  t=79s
+  band[1000,2000) 150/150  t=80s
+BAND K in [1000,2000): E1_ratio = 1.202  (pred ~1.0)  mean r1 = 0.685  (150 k)
+  band[3000,4000) 50/150  t=81s
+  band[3000,4000) 100/150  t=81s
+  band[3000,4000) 150/150  t=81s
+BAND K in [3000,4000): E1_ratio = 1.424  (pred ~1.0)  mean r1 = 0.726  (150 k)
+  band[10000,20000) 50/150  t=81s
+  band[10000,20000) 100/150  t=81s
+  band[10000,20000) 150/150  t=81s
+BAND K in [10000,20000): E1_ratio = 1.153  (pred ~1.0)  mean r1 = 0.656  (150 k)
+=== N = 699999994 ===
+building full mu to N...
+  mu segment 200M
+  mu segment 400M
+  mu segment 600M
+mu ready 112s
+  band[1000,2000) 50/150  t=112s
+  band[1000,2000) 100/150  t=113s
+  band[1000,2000) 150/150  t=113s
+BAND K in [1000,2000): E1_ratio = 1.024  (pred ~1.0)  mean r1 = 0.794  (150 k)
+  band[3000,4000) 50/150  t=114s
+  band[3000,4000) 100/150  t=114s
+  band[3000,4000) 150/150  t=114s
+BAND K in [3000,4000): E1_ratio = 1.099  (pred ~1.0)  mean r1 = 0.819  (150 k)
+  band[10000,20000) 50/150  t=114s
+  band[10000,20000) 100/150  t=114s
+  band[10000,20000) 150/150  t=114s
+BAND K in [10000,20000): E1_ratio = 0.970  (pred ~1.0)  mean r1 = 0.805  (150 k)
+DONE
