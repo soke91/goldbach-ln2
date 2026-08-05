@@ -126,12 +126,20 @@ the arbitrary-coefficient hypothesis of Lemma~5.1. The gate-relevant
 quantities are unchanged (T5.1); the extra dyadic decomposition in
 $(d, e, m_2)$ costs $O(\log^3 x)$ boxes.
 
-\emph{Line-work remaining in this subsection:} the explicit
-coprimality bookkeeping between $d, e, [k,k']$ and the $q$-layer
-(finitely many gcd cases, each geometric), and the verification that
-the type~I moduli excess $d[k,k'] > x^{1/2-\epsilon}$ mass is within
-the boundary-band budget (an integral over the measured/Dickman
-densities --- the same computation as T7's, shifted by $d$).
+\emph{Coprimality bookkeeping (enumerated).} The nontrivial gcd cases
+are: $(d, k)$, $(d, k')$, $(e, k)$, $(e, k')$, $(de, q)$, and
+$(q, [k,k'])$. In each case, a common factor $g > 1$ (i) thins the
+respective family by a factor $\ll 1/g$ (divisibility density), and
+(ii) shrinks the effective modulus by $g$, so the case re-enters the
+main estimate with parameters improved on one side and a density
+weight $1/g$ on the other; summing $g$ dyadically gives a geometric
+series dominated by the $g = 1$ case. The case $(q, [k,k'])>1$
+occurs for $\ll K^2/q$ of the $K^2$ pairs, density $1/q \le
+x^{-1/2}$ --- negligible outright. This disposes of the gcd half of
+the remaining line-work; what is left is the single Dickman-type
+integral verifying that the type~I moduli excess
+$d[k,k'] > x^{1/2-\epsilon}$ carries mass within the boundary-band
+budget (T7's computation shifted by $d$).
 
 \section{Family split (T7)}
 
