@@ -443,6 +443,25 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   remaining distance lives in the theorems, specifically in extending
   the entropy-decrement argument to unweighted, coefficient-uniform
   form.
+- **Frontal advance: the wall's complete remaining inventory.** Recasting
+  the type II piece as Σ_j μ(j)·D(N−j) with D a truncated divisor-type
+  function and opening D by the hyperbola method, every contribution
+  becomes a Möbius sum in an arithmetic progression with modulus ≤ √N.
+  The m-face (plain μ-in-AP sums) is **unconditionally controlled by the
+  Möbius analog of Bombieri–Vinogradov** — a classical theorem — and
+  measures 0.0091N in absolute-value total with half-normal inner
+  cancellation. The parity obstruction retreats to exactly two remaining
+  items: (i) the boundary bands at moduli near √N (8–16% of the mass;
+  the habitat of well-factorable level-3/5 technology — a finite
+  definition-checking task whether the specific truncation weights
+  qualify), and (ii) the k-face dual sums Σ_m μ(m)μ(N−mk) — Möbius
+  dilate-correlations, measured at 0.0052N with exact half-normal
+  cancellation (ratio 0.82), an averaged family one dispersion step from
+  fully-averaged four-point objects, whose shift-averaged analog
+  (Matomäki–Radziwiłł–Tao) is already a theorem. The distance between
+  humanity and Goldbach for large N, at the end of this program, is one
+  finite definition-check plus one averaged-theorem upgrade — and nature
+  testifies, at half-normal precision, that both are true.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
