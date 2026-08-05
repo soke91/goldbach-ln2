@@ -37,13 +37,18 @@ This repository measures that landscape (and everything feeding it):
 
 Full write-up: [RESEARCH_NOTE.md](RESEARCH_NOTE.md) (self-contained, with
 methods, corrections, and honest caveats). Current single-page state:
-[STATUS.md](STATUS.md). The proof program for the final bound:
-[PROOF_SKETCH_E1.md](PROOF_SKETCH_E1.md) →
-[paper/e1_proof.tex](paper/e1_proof.tex) (ten certified/adjudicated
-rows; the sole remainder is the **SEAM Conjecture** — family-averaged
-thin-progression Möbius cancellation at pair-moduli x^0.6–x^(2/3),
-stated formally in the paper with its full resistance profile and
-three closing routes).
+[STATUS.md](STATUS.md). Measurement-only condensed document:
+[MEASUREMENTS.md](MEASUREMENTS.md).
+
+**Proof-program attempt (refuted).** The repository also contains a
+proof-program attempt for the final bound
+([PROOF_SKETCH_E1.md](PROOF_SKETCH_E1.md) →
+[paper/e1_proof.tex](paper/e1_proof.tex)). An independent adversarial
+review **refuted its core reductions** — see
+[REVIEW_VERDICT.md](REVIEW_VERDICT.md) before reading the sketch. The
+exact identities and all measurements survive; the documents are
+retained as a record of the attempt and its precise failure
+coordinates.
 
 ## What is claimed / not claimed
 

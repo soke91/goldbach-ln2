@@ -1,9 +1,11 @@
 # Measurements — the empirical core of this repository
 
 *This document contains only reproducible measurements and exact,
-machine-verified identities. No proof-program claims. For those (with
-their own honesty flags), see PROOF_SKETCH_E1.md; they are secondary
-to what follows.*
+machine-verified identities. No proof-program claims. The repository's
+proof-program attempt (PROOF_SKETCH_E1.md) was refuted in its core
+reductions by an independent adversarial review — see
+REVIEW_VERDICT.md. Nothing in this document depends on it; the review
+explicitly affirmed the measurement corpus.*
 
 ## 1. The final-axiom landscape (likely novel numerics)
 

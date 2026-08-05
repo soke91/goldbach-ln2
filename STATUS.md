@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Last updated: increment 139 (2026-08-05). 117 commits, 6 days.*
+*Last updated: increment 143 (2026-08-05). 125 commits, 6 days.*
 
 ## Where things stand
 
@@ -8,45 +8,48 @@
 chain) to one measurable object: the dilate-averaged Möbius bound E1.
 This repository contains:
 
-1. **A complete proof program for E1** (PROOF_SKETCH_E1.md +
-   paper/e1_proof.tex + paper/e1_transcription.md): ten transcription
-   rows, all adjudicated; gates checked with margin δ < 0.17; every
-   identity machine-verified (error exactly 0); every cancellation
-   measured half-normal (three N values, moduli to 2×10⁷, 1200+ pairs).
+1. **The measurement corpus** (~50 scripts, the primary artifact —
+   MEASUREMENTS.md): the ln 2 constant, Conjecture P / Buchstab
+   profile, structure laws, χ² ladders, the final-axiom landscape
+   through the √N barrier, the thin-progression stamps (10,000
+   classes, sub-half-normal with exactly Gaussian tail), and the full
+   engine stamps. One-shot reproduction: `python code/verify_all.py`.
 
-2. **One remaining seam**: K ∈ (x^{0.3}, x^{1/3}] for the second-layer
-   type I piece — exponent width 1/30. Its object is measured
-   half-normal at two scales; its resistance is fully profiled (below
-   3/5 unconditional, below 5/8 Selberg, GRH-√y weaker than trivial in
-   its thin-progression regime); its interval shadow is already a
-   theorem (zero-density). Three closing routes are named in
-   paper/e1_proof.tex.
+2. **A proof-program attempt for E1, now refuted in its core
+   reductions** (PROOF_SKETCH_E1.md + paper/e1_proof.tex +
+   paper/e1_transcription.md, retained as a record). An independent
+   adversarial review (REVIEW_VERDICT.md) found the gate arithmetic
+   vacuous (Q-slot premise violated; the claimed δ < 0.17 exceeds the
+   source paper's own optimum — an independent proof of invalidity),
+   the role-exchange into the dispersion lemma unfounded (no pair
+   congruence, hence no conductor collapse), and the SEAM
+   formalization over-normalized and falsified by our own data. The
+   exact identities (T2, T3) and every measurement survive.
 
-3. **The measurement corpus** (~50 scripts): the ln 2 constant,
-   Conjecture P / Buchstab profile, structure laws, χ² ladders, the
-   final-axiom landscape through the √N barrier, and the full engine
-   stamps. One-shot reproduction: `python code/verify_all.py`.
+3. **The honest open problem, restated**: off-diagonal dispersion of
+   C_{k,k′} = Σ_p μ(N−pk)μ(N−pk′) over the whole range K ≤ x^{1/3},
+   without a conductor-collapse mechanism — the binary-correlation
+   difficulty, now with a precise map of why each attempted route
+   fails (15 documented "teeth", 25 corrections).
 
 ## What is and is not claimed
 
 - No theorem toward Goldbach is claimed.
-- Claimed: the reductions (following published theorems), the exact
-  identities, the measurements, and the gate arithmetic — all public
-  and reproducible.
-- The honest distance to a certified E1: expand the stated proof
-  scopes line by line (transcription against Lichtman §5–§10), and
-  close the 1/30-wide seam by one of its three routes.
+- Claimed: the measurements (all reproducible, affirmed by the
+  adversarial review), the exact identities, and the failure map.
+- NOT claimed (withdrawn at increment 143): "gates pass", "remainder
+  = one 1/30-wide seam", "the rest is transcription".
 
 ## How to continue
 
-- **Expert entry point**: paper/e1_proof.tex (the target theorem, the
-  certified propositions, the seam's profile).
-- **Verification entry point**: code/verify_all.py, then any engine.
-- **History**: 139 dated increments with 24+ corrections and 14
-  documented "teeth" (failure coordinates) — the map of every route
-  that died, so no one repeats them.
+- **Entry point**: MEASUREMENTS.md, then `python code/verify_all.py`.
+- **The verdict**: REVIEW_VERDICT.md — read before the sketch.
+- **History**: 143 dated increments with 25 corrections and 15
+  documented teeth — the map of every route that died, so no one
+  repeats them.
 
-*The wall, at final resolution, is one thin-progression cancellation
-that nature performs everywhere we can measure and no current
-technique can certify. It has an address, a profile, three roads, and
-a complete reproducible dossier. — the program*
+*The wall, at final resolution, is a binary correlation that nature
+cancels everywhere we can measure and no current technique — including
+the routes this program invented and then refuted — can certify. The
+dossier of measurements and failure coordinates is the deliverable.
+— the program*

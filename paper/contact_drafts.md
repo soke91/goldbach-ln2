@@ -33,10 +33,14 @@ benchmark with an exactly Gaussian tail.
 Everything regenerates from ~50 short numpy scripts in a public
 repository (github.com/soke91/goldbach-ln2 — see MEASUREMENTS.md, with
 one-shot reproduction via verify_all.py). The repository also contains
-a speculative proof-program sketch that attempts to route the k-face
-of the Vaughan decomposition through the dispersion machinery of your
-2309.08522; I would ask you to ignore or discount that part unless it
-amuses you — my specific questions are about the measurements:
+a proof-program sketch that attempted to route the k-face of the
+Vaughan decomposition through the dispersion machinery of your
+2309.08522; an internal adversarial review has since REFUTED its core
+reductions (the verdict is published in the repo as REVIEW_VERDICT.md
+— in short: our substitution violated Lemma 5.1's Q-premise, and our
+pairs lack the congruence that powers your conductor collapse), so
+please disregard it entirely — my questions are only about the
+measurements:
 
 1. Are direct numerics of the EH_mu object's discrepancy landscape
    (through the barrier, fixed residue) known in the literature?
@@ -78,7 +82,10 @@ literature:
   half-normal, Gaussian tail, 10,000 classes.
 
 Everything is reproducible from short scripts (repo linked; one-shot
-verify script included; AI-assisted provenance disclosed).
+verify script included; AI-assisted provenance disclosed). The repo
+also contains a proof-program sketch whose core reductions were
+refuted by an internal adversarial review (verdict published in the
+repo); this question concerns only the measurements.
 
 Questions: (1) Are such numerics known/published? (2) Is the
 thin-progression sub-half-normal behaviour folklore? (3) Is there a
@@ -92,6 +99,11 @@ literature and known obstructions, not a claim.)
 ---
 
 *Recommended order: send Draft A first; post Draft B only if no reply
-in ~2 weeks. Do not send either before the adversarial internal review
-returns its verdict on the sketch (so any error found can be fixed or
-the sketch further de-emphasized).*
+in ~2 weeks.*
+
+*Update (increment 143): the adversarial internal review returned its
+verdict — the sketch's core reductions are refuted (REVIEW_VERDICT.md).
+Both drafts have been updated to disclose this. The measurements are
+unaffected (the review explicitly affirmed the numerics), so the
+question-framed contact remains appropriate; the drafts now carry zero
+implied claim about the sketch.*

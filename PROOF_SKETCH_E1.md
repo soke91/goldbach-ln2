@@ -1,3 +1,10 @@
+> **⚠ ADVERSARIAL REVIEW VERDICT (increment 143): the core reductions
+> of this document (T5, T5.1, T6, the SEAM formalization, the h-range
+> collapse under the q-layer) were REFUTED by an independent
+> adversarial review — see REVIEW_VERDICT.md at the repository root.
+> The exact identities (T2, T3) and all measurements survive. This
+> document is retained as a record of the attempt.**
+
 # A Proof Program for the Dilate-Averaged Möbius Correlation Bound
 
 **Target (E1).** For $N$ even, $D(k) := \sum_{\sqrt N < m \le N/k} \mu(m)\,\mu(N-mk)$,
