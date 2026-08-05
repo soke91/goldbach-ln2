@@ -229,6 +229,28 @@ check out, the chain closes: k-averaged Möbius-on-shifted-primes ⟹
 the residual core ⟹ E1 ⟹ (with the m-face and boundary bands) EH_μ
 past 1/2 ⟹ Goldbach for large even N.
 
+## R1 section-by-section check (increment 114): the thirteenth tooth located
+
+Carrying Lichtman 2020 §2 through the dilate substitution: the
+typical-set restriction and sieve bounds (his (2.6)–(2.7)) port cleanly
+under dyadic k-ranges. The structural divergence appears exactly at the
+decoupling engine (his Lemma 2.1): the shift equation m − n = m′ − n′
+resolves by orthogonality into *linear* phases e(nα) — feeding the MRT
+short-interval input — whereas the dilate equation
+p′(N − u) = p(N − u′) resolves into **bilinear** phases (products p·u
+in the exponent). The key Fourier estimate for the dilate family is
+therefore a *bilinear-phase short-sum bound* — Kloosterman-class input
+rather than MRT-linear. This is where the thirteenth parity tooth
+lives; and the technology for exactly this input class is the
+Deshouillers–Iwaniec spectral large sieve as refined in Lichtman 2023.
+**The two remaining items of the Goldbach chain — the boundary bands
+and the core's decoupling — thus merge into one toolbox at the live
+frontier.** The final open question of this program, at maximal
+resolution: does the spectral large-sieve toolbox, at its current or
+foreseeable strength, control the dilate decoupling's bilinear phases?
+Nature's answer is measured throughout this repository; the proof's
+answer is where the field now stands.
+
 ## Status summary
 
 | Step | Status |
