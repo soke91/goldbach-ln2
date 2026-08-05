@@ -1,0 +1,28 @@
+mu ready 5s
+500/6000  t=6s
+1000/6000  t=8s
+1500/6000  t=9s
+2000/6000  t=11s
+2500/6000  t=13s
+3000/6000  t=15s
+3500/6000  t=17s
+4000/6000  t=18s
+4500/6000  t=20s
+5000/6000  t=22s
+5500/6000  t=23s
+6000/6000  t=25s
+--- all ---
+  all (V3-style benchmark 0.688)     n= 6000  r1_eff=0.796  m2_eff=0.990
+--- progressive conditioning ---
+  dsmall=1, gN>1                     n= 1016  r1_eff=0.779  m2_eff=0.931
+  dsmall>1, gN=1                     n= 1028  r1_eff=0.812  m2_eff=0.986
+  dsmall>1, gN>1                     n= 3956  r1_eff=0.796  m2_eff=1.006
+--- by dsmall factor ---
+  q=2 | (k1-k2)                      n= 3000  r1_eff=0.802  m2_eff=1.003
+  q=3 | (k1-k2)                      n= 1943  r1_eff=0.790  m2_eff=0.961
+  q=5 | (k1-k2)                      n= 1250  r1_eff=0.794  m2_eff=0.976
+  q=7 | (k1-k2)                      n=  878  r1_eff=0.769  m2_eff=0.958
+  dsmall = 2 exactly                 n=  947  r1_eff=0.799  m2_eff=1.017
+  dsmall = 6 exactly                 n=  395  r1_eff=0.775  m2_eff=0.907
+  dsmall > 30                        n= 1803  r1_eff=0.779  m2_eff=0.957
+DONE
