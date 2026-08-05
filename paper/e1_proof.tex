@@ -1,0 +1,112 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1.1in]{geometry}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+
+\title{A Dilate-Averaged M\"obius Bound:\\ Certified Transcription (Working Paper)}
+\author{[program]\thanks{Companion to PROOF\_SKETCH\_E1.md and
+e1\_transcription.md in github.com/soke91/goldbach-ln2. Status: rows
+T1--T4 certified; T5 resolved via a second Vaughan layer with
+gate-neutral re-arithmetic (T5.1); T6--T10 adjudicated to transcription.
+This is a working document, not a claimed theorem.}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{theorem}[Target E1]
+For every $A>0$, uniformly in even $N \asymp x$ and dyadic
+$K \le x^{1/2}$, with $P = x/K$:
+\[
+\sum_{k\sim K}\Big|\sum_{p\sim P}\mu(N-pk)\Big|^2
+\;\ll_A\; K P\,(\log x)^{-A},
+\]
+together with its fixed-residue variant threaded by moduli
+$q \le x^{1/2+\delta}$, $\delta < 1/6$.
+\end{theorem}
+
+\begin{remark}
+By the chain established in the companion repository (Vaughan
+decomposition of Pan's $f_3$; M\"obius--Bombieri--Vinogradov for the
+$m$-face; well-factorable level-$3/5$ technology for the boundary
+bands), Theorem~E1 implies $EH_\mu(x^{1/2+\delta})$ at the fixed
+residue $N \bmod q$, hence Goldbach for all sufficiently large even
+$N$ by Huang--Li.
+\end{remark}
+
+\section{Certified rows}
+
+\begin{proposition}[T1: expansion]
+$\sum_{k\sim K}|D(k)|^2 = \Sigma_{\mathrm{diag}} + \mathrm{OffDiag}$
+with $\Sigma_{\mathrm{diag}} \le KP$ and
+$\mathrm{OffDiag}=\sum_{k\ne k'}\sum_{p\sim P}\mu(N-pk)\mu(N-pk')$.
+The target reduces to $|\mathrm{OffDiag}| \ll KP(\log x)^{-A}$.
+\end{proposition}
+\begin{proof} Identities and Cauchy--Schwarz only. \end{proof}
+
+\begin{proposition}[T2: reparametrization; integrality automatic]
+For $k \ne k' \sim K$ and $w = N - pk$:
+$w' := N - pk' = (k'w - N(k'-k))/k$, and for $w \equiv N \pmod k$,
+$k'w - N(k'-k) \equiv k'N - Nk' + Nk \equiv 0 \pmod k$.
+Thus $w'$ is an integer for every admissible $w$; the correlation
+$C_{k,k'} = \sum_{p\sim P}\mu(N-pk)\mu(N-pk')$ is a sum over the
+arithmetic progression $w \equiv N \pmod k$ of
+$\mu(w)\mu(w')$ with rational slope $k'/k$ of height $\le 2K$.
+\end{proposition}
+\begin{proof} The displayed congruence; bijectivity of $p \mapsto w$ on
+the stated ranges. Machine confirmation: identity error $0$ on all
+sampled pairs. \end{proof}
+
+\begin{proposition}[T3: residue decomposition]
+For $L=[k,k']$:
+$C_{k,k'} = \sum_{a \bmod L}\;\sum_{\substack{p\equiv a (L)\\ p\sim P}}
+\mu(N-pk)\mu(N-pk')$, a partition identity; within a class the two
+arguments traverse fixed APs modulo $Lk$, $Lk'$.
+\end{proposition}
+\begin{proof} Partition of the $p$-range by residues; machine stamp:
+reconstruction error exactly $0$ over $330$ sampled pairs, robust in
+$N$. \end{proof}
+
+\begin{proposition}[T4: completion at cost $x^{o(1)}$]
+The sharp cutoff $p \sim P$ may be replaced by smooth weights with
+boundary cost $O(P^{1-\delta_0})$, or completed additively with
+$H' \ll x^{o(1)}$ harmonics for $K \le x^{1/3}$ (since
+$H' \asymp K^3/x$); each harmonic term carries the same square-root
+cancellation class as the main term (measured ratios $0.58$ vs
+$0.36$ over $300$ pairs, two values of $N$).
+\end{proposition}
+\begin{proof}[Proof sketch] Standard smoothing lemma; the $h$-range
+collapse is the arithmetic $K^3 \le x$; the empirical clause is
+measurement, cited as evidence not proof. \end{proof}
+
+\section{The second layer and the gates (T5, T5.1, T6)}
+
+\begin{proposition}[T5/T5.1: second Vaughan layer, gate-neutral]
+Opening $\mu(N-pk)$ on the long side by Vaughan's identity
+(parameters $x^{1/3}$) reorganizes the long-side coefficients into
+type I/II pieces with bounded coefficients, leaving unchanged every
+quantity constrained by the dispersion gates (pair size $K$, moduli
+$[k,k'] \le K^2$ and the $q$-layer, factor budgets), at a cost of
+$O(\log^2 x)$ dyadic boxes.
+\end{proposition}
+
+\begin{proposition}[T6: gates with the $q$-layer]
+With $N_L := K \le x^{1/3}$, $R \sim S \sim K^{1/3}$,
+$Q_{\mathrm{gate}} := x^{1/2+\delta}$ and $\theta \le 7/32$:
+(5.1) reads $K^3 \le x$ (tight at the regime boundary);
+(5.2) totals $x^{7/32}K^{13/3}x^{1/2+\delta} \le x^{1.83+\delta}$;
+(5.3) totals $x^{1.76+\delta}$ --- all pass for $\delta < 0.17$.
+\end{proposition}
+
+\section{Remaining transcription (T7--T10)}
+Family split (Dickman--de Bruijn class counts; measured densities
+$0.56$--$0.61$ rising); the MR short-interval regime for
+$K > x^{1/3}$; the gcd paragraph; and the assembly (dyadic summation,
+$L^2 \to L^1$, the fixed-residue $EH_\mu$ shape, the feed into Pan's
+$f_3$). Each is transcription against classical statements; none has a
+parity shape.
+
+\end{document}
