@@ -41,6 +41,7 @@ matrix.
 | Integer field | no mean field (0.00017 ± 0.00024), LOO r1 = 0.800 |
 | Seam band | naive 0.450 vs predicted 0.798×(1−0.434) = 0.452 |
 | Scale 10⁹, blind | 6000 pairs: m2 1.025 (pred 1.00±0.04 ✓), r1 0.810 (0.798±0.02 ✓), kurt 2.88 (3.0±0.3 ✓) — the 1500-pair marginal r1 resolved on enlargement |
+| Fresh N, v₂(N)=2, combined blind | annihilation 0.458 vs 0.458 predicted (exact); an apparent viable-class dip (0.917, −2.4σ at 1600 pairs) resolved to 1.003 / kurt 2.96 at 6539 pairs; per-cell support fractions (0.831 / 0.417 / 0) match the mask's hand-derived densities exactly |
 
 Every historically "sub-random" reading of this program
 (0.29–0.74 across all families and bands) is explained by **M**
