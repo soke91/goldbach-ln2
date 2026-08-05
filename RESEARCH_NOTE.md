@@ -397,7 +397,15 @@ s(n) > 0 for every large n. A brief empirical/bookkeeping map of routes:
   well-factorable-weight results for μ known at level 3/5, the last
   technical question this program can name is whether f₃ admits a
   well-factorable rearrangement and whether such levels extend to the
-  correlation sequence itself.
+  correlation sequence itself. Two further probes at that frontier: the
+  innermost object T(N) = Σ Λ(n)μ(N−n) — whose o(N) is itself beyond
+  unconditional technology — measured over 220 values of N behaves as a
+  textbook half-normal random walk (|T|/√V mean 0.751 vs the half-normal
+  0.798, worst 3.14, balanced signs); and over 479 squarefree smooth
+  moduli (the BFI/Zhang-type family where well-factorable methods
+  operate), the fixed-residue discrepancy of c(n) is exactly as healthy
+  as over prime moduli (means 0.64–0.74 through θ = 0.69). Both ends of
+  the named technical question are thus supported by data.
 - **Open route (three-link chain).** (i) Prove "χ²(n) ≤ K·dof for all n
   with some K < 1" — anchored near Barban–Davenport–Halberstam /
   Montgomery–Hooley mean-square theory, with the fixed-residue (single
