@@ -128,6 +128,19 @@ claimed beyond the shape]
    (what is actually proved, in which uniformity).
 5. **T-S4**: fresh-context adversarial review of the whole tree.
 
+## T-S0 record
+
+- (increment 186) First run INVALID by self-audit: 9/240 pairs
+  survived a miscalibrated oscillation filter — verdict suspended.
+- (increment 187) **T-S0b, corrected sampling (240/240 pairs)**:
+  mean r = 0.871 ∈ [0.6, 1.0], max 2.026 < 4; all three oscillation
+  bands healthy (0.827 / 0.886 / 0.913 — a consistent 9–14% above
+  half-normal, no runaway band, no heavy tail). **HEALTHY** — nature
+  supplies square-root cancellation to Lemma S's object uniformly
+  over the sampled dual ranges. Theory tasks proceed; the mild
+  above-half-normal constant is noted for the budget arithmetic
+  (T-S2), not assumed away.
+
 *Opened at increment 186. The draft's value even in failure: §2's
 one-sided tree and §4's Lemma S give the spectral-side failure
 coordinate this program's map lacked.*
