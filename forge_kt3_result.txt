@@ -1,0 +1,11 @@
+mu ready 10s
+real: tr(M^2)=70766  tr(M^3)=361411  tr(M^4)=39608543
+  null 4/12  t=10s
+  null 8/12  t=11s
+  null 12/12  t=11s
+tr(M^2): real=70766  null=70982 +- 453  z=-0.48
+tr(M^3): real=361411  null=356228 +- 12311  z=+0.42
+tr(M^4): real=39608543  null=39626820 +- 632180  z=-0.03
+=== K3 KILL-TEST ===
+verdict: DEAD (cycle moments match the null -- the moment route is circular: tr(M^{2j}) consumes 2j-fold mu-correlations with no extra structure to exploit)
+DONE
