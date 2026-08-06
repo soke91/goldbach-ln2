@@ -316,6 +316,39 @@ three terms. Below it the single negative term stands alone — 17 975
 primes at one N — and above it the positive sum overwhelms. At depth the
 one-term class is 26× further from balance than at a typical N.
 
+### Where this leaves the grouping
+
+Summing P.7 over p with the `log p` weight gives
+
+> `Σ_p log p·D_p = −Σ_p Λ(N−p) + Σ_{p,q} log p·Λ(N−qp)/log(pq) + ⋯`
+
+— the `ω = 1` class against the `ω = 2` class. That is session 8's
+alternating series in `ω(v)`, reached from the other side: **the
+p-grouping and the ω-grouping are the same sum grouped two ways.**
+Verified to 6·10⁻¹⁰ against a third, independent computation of
+`Σ_{v≥2} μ(v)Λ(N−v)` (`code/lab_p_vs_omega.py`).
+
+And the grouping does almost nothing where the demand lives:
+
+| | T₁ | T₂ | T₃ | T₄ | alternating sum | share of demand from p with ≤2 terms |
+|---|---|---|---|---|---|---|
+| N = 600600, depth 5 | 251880 | 286866 | 51404 | 272 | −16146 (6.4% of T₁) | **0.5412** |
+| N = 899998, depth 1 | 103727 | 266139 | 226507 | 75452 | +4285 (4.1%) | **0.7775** |
+
+**Between half and three quarters of P.4's demand comes from p whose
+`D_p` has at most two terms**, and by P.7 those are one negative term,
+or one negative and one positive. So for the bulk of the demand the
+"cancellation inside the group" that motivated the design rule of §3 is
+a comparison of at most two numbers, and the whole apparatus reduces to
+the `ω = 1` versus `ω = 2` balance — which is the parity obstruction in
+another coordinate.
+
+That is the honest closing statement on transform P. It is a genuine
+reformulation with a lossless split (P.2), a proved grouping asymmetry
+(P.3), a derived floor and ceiling (P.5–P.6) and a forced sign structure
+(P.7); and at the scale that carries its mass it is the ω-alternation,
+which is where the campaign already stood.
+
 ## 5. The ceiling: what transform P can and cannot deliver
 
 Grouping by dyadic ranges `R = [P, 2P)` rather than by single primes

@@ -459,6 +459,17 @@ single number to the whole profile, or by computing the null first.
 
 6. **A step that silently does not run, while the record says it did.**
    The most dangerous of the six, because nothing looks wrong. Two
+   **A third form: a check that cannot fail.** Increment 272's
+   identity test printed a "C(N) − Λ(N−1)" line built by rearranging
+   the very quantity it was meant to confirm, so it agreed to all
+   digits by algebra and verified nothing. It also compared
+   `Σ_p log p D_p` (weight 1) against ω-classes built with a `1/log v`
+   weight — two different objects, and the mismatch showed up as a
+   1.5·10⁴ "failure" of a true identity. Both fixed; with the weights
+   matched and a genuinely independent third computation the identity
+   holds to 6·10⁻¹⁰. Rule: **a verification must be able to come out
+   false.**
+
    instances: a pre-registered control prime dropped by an `n ≥ 12`
    guard that printed nothing (increment 243), and a document rewrite
    whose script raised `AssertionError` on a string that did not match
