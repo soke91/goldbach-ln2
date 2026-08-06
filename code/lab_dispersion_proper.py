@@ -161,6 +161,7 @@ def main():
     print("    #w is the number of squarefree w the one-parameter fit")
     print("    sees. Where it is small the fit interpolates and the")
     print("    reported var-expl of 1.0000 means overfitting, not a")
+    # verdict-ok: structural: overfitting at small #w, independent of the numbers
     print("    good model -- those rows prove nothing.")
 
     print("\n(B) the verdict -- does the dispersion method leave margin?")

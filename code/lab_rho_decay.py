@@ -143,6 +143,7 @@ def main():
     print("=" * 68)
     print("regime discrimination, decision rule fixed before the run:")
     print("  declare a regime only if one model's residual RMS is below")
+    # verdict-ok: criterion: the pre-registered decision rule
     print("  half the other's; otherwise INDETERMINATE")
     print("=" * 68)
     print(f"\n{'n':>7} {'RMS exp':>10} {'RMS pow':>10} {'R2 exp':>8} "

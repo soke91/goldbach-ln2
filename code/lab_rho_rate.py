@@ -172,29 +172,29 @@ def main():
     print("    positive; a is what M2 has to fit and H_W does not.")
 
     print("")
+    # verdict-ok: heading only, asserts no outcome
     print("what this settles and what it does not")
-    print("    The pre-registered rule REJECTED H_W. The closing text")
-    print("    of the first draft said the opposite: it was written")
-    print("    before the run and asserted the result it expected.")
-    print("    Corrected here rather than left standing.")
-    print("")
-    print("    REJECTED, and what that means. Fixing the intercept at")
-    print(f"    1 costs 34% in RMS against M2 free, whose intercept is")
-    print(f"    a = {pb[1]:.5f} -- above 1, and WALKING DOWN: 1.174,")
-    print("    1.088, 1.063, 1.070, 1.054, 1.039 across the window. So")
-    print("    the data have not arrived at 1, and fixing it there is")
-    print("    premature at this size rather than wrong. Proposition W")
-    print("    predicts the limit, not how fast a finite window")
-    print("    reaches it.")
-    print("")
-    print("    WHAT SURVIVES is the RATE, and it is the part with")
-    print(f"    content. b = {bW:.4f} under H_W, refitted on the first j")
-    print("    bands: 2.7297, 2.7218, 2.7115, 2.6885, 2.6819, 2.6817 --")
-    print("    a drift of 0.048 over the whole window, settling. That")
-    print("    is a measured coefficient. Contrast a, which moves 0.13")
-    print("    over the same bands and is still going. So the 1/log N")
-    print("    rate is supported and the limit is not yet reached by")
-    print("    the data; rho -> 1 remains an inference from Chowla.")
+    # Correction #100: every clause below is derived from the numbers.
+    # The first draft typed out "the one-parameter model is not worse",
+    # which the run then rejected. Nothing here is composed in advance.
+    verdict = "PREFERRED" if ok else "REJECTED"
+    cost = 100.0 * (rW / best2 - 1.0)
+    aj = [float(np.polyfit(1.0 / L[:j], rho[:j], 1)[1])
+          for j in range(3, len(L) + 1)]
+    bj = [float(np.dot(1.0 / L[:j], 1.0 - rho[:j])
+                / np.dot(1.0 / L[:j], 1.0 / L[:j]))
+          for j in range(3, len(L) + 1)]
+    da = max(aj) - min(aj)
+    db = max(bj) - min(bj)
+    print(f"    H_W is {verdict} by the pre-registered rule, at {cost:+.0f}%")
+    print(f"    in RMS against the best two-parameter fit.")
+    print(f"    M2 free intercept a = {aj[-1]:.5f}, {"above" if aj[-1] > 1 else "below"} 1,")
+    print(f"    moving {da:.3f} across the window: {", ".join(f"{v:.3f}" for v in aj)}")
+    print(f"    b = {bj[-1]:.4f}, moving {db:.3f}: {", ".join(f"{v:.4f}" for v in bj)}")
+    which = "b" if db < da else "a"
+    print(f"    The steadier coefficient is {which} ({min(da, db):.3f} against {max(da, db):.3f}),")
+    print(f"    so what the window measures is the {"rate" if which == "b" else "limit"}, and the")
+    print(f"    {"limit" if which == "b" else "rate"} is the inference from Chowla.")
     print("DONE")
 
 

@@ -147,6 +147,7 @@ def main():
               f"   measured |E3| = {abs(vals[4])*N:.3e}"
               f"   ratio = {abs(vals[4])*N/pred:.3f}")
 
+    # verdict-ok: criterion: states the rule in advance
     print("\nPre-registered: CONFIRMED if |E3-R|/N <= 0.05 with no")
     print("systematic drift in K; PROBLEM otherwise.")
     print("DONE")

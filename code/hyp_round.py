@@ -132,6 +132,7 @@ def main():
     mu2, lam2, phi2, primes2, spf2 = sieve(X)
     h2(mu2, lam2, spf2, X)
 
+    # verdict-ok: criterion: states the rule in advance, must be fixed text
     print("\nPre-registered: H1 ALIVE if some weight <= 0.3; H2 ALIVE "
           "if bin sd ratio >= 2; H3 ALIVE if P <= 0.15.")
     print("DONE")

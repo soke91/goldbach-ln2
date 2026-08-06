@@ -150,10 +150,21 @@ def main():
     else:
         verdict = "ALIVE -- the data do not demand a positive limit"
     print("\nverdict:", verdict)
-    print("what IS settled: the exponent is not -1/2. The measured")
-    print(f"decay is (log N)^-{b3:.3f}, FASTER than the square-root-")
-    print("per-p prediction, so P.4's budget is met with more room")
-    print("than predicted, not less.")
+    # The claim here used to be typed out -- "the exponent is not
+    # -1/2 ... FASTER than predicted" -- with only the number
+    # interpolated. Had b3 come out at or below 0.5 the sentence would
+    # have contradicted its own figure. Correction #100: the verdict
+    # text is computed from the outcome, not composed alongside it.
+    diff = b3 - 0.5
+    rel = ("FASTER" if diff > 0 else "SLOWER" if diff < 0 else "EQUAL")
+    room = ("more room than predicted" if diff > 0 else
+            "less room than predicted" if diff < 0 else
+            "exactly the predicted room")
+    print(f"what IS settled: the measured decay is (log N)^-{b3:.3f}, "
+          f"{rel}")
+    print(f"than the square-root-per-p prediction (log N)^-0.500 by "
+          f"{abs(diff):.3f},")
+    print(f"so P.4's budget is met with {room}.")
     print("DONE")
 
 

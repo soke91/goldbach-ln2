@@ -236,6 +236,7 @@ def main():
     print("    numbers in two parametrisations, and beta = 0.5 +")
     print("    (alpha/2)(D loglog/D log) holds to the extent that both")
     print("    regressions are linear. An agreement to 1e-3 below is")
+    # verdict-ok: structural: the identity is algebraically forced
     print("    therefore expected BY CONSTRUCTION and confirms nothing")
     print("    -- this program has shipped four checks that could not")
     print("    come out false and this would have been the fifth.")

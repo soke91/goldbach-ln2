@@ -1,0 +1,13 @@
+(0) self-test
+    composed verdict             flags   as expected
+    computed verdict            passes   as expected
+    verdict in a branch         passes   as expected
+    criterion, marked           passes   as expected
+    criterion, unmarked          flags   as expected
+    SELF-TEST OK
+
+(1) composed verdicts in code/
+
+    0 unmarked composed verdict(s)
+all clear
+DONE

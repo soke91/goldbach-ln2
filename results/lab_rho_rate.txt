@@ -32,26 +32,12 @@ stability of b, refitted on the first j bands
     positive; a is what M2 has to fit and H_W does not.
 
 what this settles and what it does not
-    The pre-registered rule REJECTED H_W. The closing text
-    of the first draft said the opposite: it was written
-    before the run and asserted the result it expected.
-    Corrected here rather than left standing.
-
-    REJECTED, and what that means. Fixing the intercept at
-    1 costs 34% in RMS against M2 free, whose intercept is
-    a = 1.03947 -- above 1, and WALKING DOWN: 1.174,
-    1.088, 1.063, 1.070, 1.054, 1.039 across the window. So
-    the data have not arrived at 1, and fixing it there is
-    premature at this size rather than wrong. Proposition W
-    predicts the limit, not how fast a finite window
-    reaches it.
-
-    WHAT SURVIVES is the RATE, and it is the part with
-    content. b = 2.6817 under H_W, refitted on the first j
-    bands: 2.7297, 2.7218, 2.7115, 2.6885, 2.6819, 2.6817 --
-    a drift of 0.048 over the whole window, settling. That
-    is a measured coefficient. Contrast a, which moves 0.13
-    over the same bands and is still going. So the 1/log N
-    rate is supported and the limit is not yet reached by
-    the data; rho -> 1 remains an inference from Chowla.
+    H_W is REJECTED by the pre-registered rule, at +34%
+    in RMS against the best two-parameter fit.
+    M2 free intercept a = 1.03947, above 1,
+    moving 0.134 across the window: 1.174, 1.088, 1.063, 1.070, 1.054, 1.039
+    b = 2.6817, moving 0.048: 2.7297, 2.7218, 2.7115, 2.6885, 2.6819, 2.6817
+    The steadier coefficient is b (0.048 against 0.134),
+    so what the window measures is the rate, and the
+    limit is the inference from Chowla.
 DONE

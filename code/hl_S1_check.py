@@ -103,6 +103,7 @@ def main():
           "CONSISTENT with (13)" if ok else
           "NOT CLEARLY CONSISTENT -- see the numbers against the band")
     print("Note: at these N the (log N)^{-A} band is wide, so this can")
+    # verdict-ok: structural: a limitation of the method, true of any data
     print("detect a gross failure of (13) but cannot confirm the")
     print("exponent A.")
     print("DONE")
