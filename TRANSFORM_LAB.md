@@ -370,6 +370,111 @@ the second factor needs. Third time this session a verification script
 under-enforced an identity's hypotheses; the rule is now explicit —
 when checking an identity with side conditions, enforce all of them.)*
 
+## Session 6 — the prime-factor split: the first candidate with margin
+
+The three-clause test is a filter, and the point of a filter is to run
+candidates through it. Here is one that passes.
+
+**The transform.** μ vanishes off the squarefree numbers, so *on the
+support of μ* the identity `log v = Σ_{p|v} log p` is exact — there are
+no higher prime powers to account for. Feeding it into the wall:
+
+> **Transform P.**  `C_log(N) := Σ_{v<N} μ(v)Λ(N−v) log v = Σ_p log p · D_p(N)`,
+> where `D_p(N) := Σ_{v<N, p|v} μ(v)Λ(N−v)`.
+
+An exact identity, no error term. Equivalently, with `v = pw`
+(`p ∤ w` automatic on the support of μ), `D_p(N) = −Σ_w μ(w)Λ(N−pw)`:
+the Möbius variable is dilated and the additive form becomes `N − pw`,
+i.e. **Λ restricted to the progression N mod p**.
+
+**It passes all three clauses.** Not a divisor switch, so no pencil
+vertex moves. The restriction `p | v` is intrinsic to v, not one we
+inserted — the problem supplies the prime factors. And only μ is
+dilated; Λ is *redirected to a progression* rather than asked to
+transform. Session 5's stake said a viable transform must handle two
+factors with different transformation behaviour: this one does, by not
+transforming the second factor at all.
+
+**It is lossless.** `Σ_p log p M_p = Σ_v μ²(v)Λ(N−v) log v` exactly,
+where `M_p := Σ_{v<N, p|v} μ²(v)Λ(N−v)` is the trivial mass of `D_p`
+(verified to 1.5·10⁻¹⁶). The split neither gains nor loses at the
+trivial scale — it redistributes the same mass over p. Both closed
+classes lost here; this one does not.
+
+### The measurement: does it leave room?
+
+Lossless is necessary, not sufficient. The decisive quantity is the
+**absolute aggregate** `S_abs(N) = Σ_p log p |D_p(N)|`, which uses *no
+cancellation across p whatsoever*. Beside it, the random-sign null:
+`D_p` runs over ≈ `M_p/log N` prime-power terms of size ≈ log N, so
+`null_p = √(M_p log N)` and `S_null = Σ_p log p √(M_p log N)`.
+
+| N | S_abs/triv | S_null/triv | **S_abs/S_null** | S_abs/(N log N) |
+|---|---|---|---|---|
+| 5·10⁴ | 0.4459 | 0.5380 | **0.8287** | 0.3162 |
+| 10⁵ | 0.4200 | 0.5097 | **0.8239** | 0.3029 |
+| 2·10⁵ | 0.4033 | 0.4872 | **0.8277** | 0.2916 |
+| 4·10⁵ | 0.3828 | 0.4615 | **0.8294** | 0.2784 |
+
+Two things, and the second is the one that matters.
+
+1. `S_abs/triv` **decays** — the fraction of the trivial bound that
+   survives without any p-cancellation is falling.
+2. `S_abs/S_null` is **flat to three digits across a factor 8 in N**
+   (0.8287 → 0.8294). The measured aggregate sits at a constant 0.83 of
+   its own random-sign prediction. The per-p cancellation is exactly
+   square-root strength, neither better nor worse, and stably so.
+
+Asymptotically `M_p ≈ cN/p` gives `S_null ≈ √(cN log N)·Σ_{p<N} log p/√p
+≈ 2√c·N√(log N)`, so `S_null/(N log N) ≈ const/√(log N) → 0`.
+
+> **Square-root cancellation per p suffices, with √(log N) to spare,
+> and no cancellation across p is needed at all.**
+
+That is a positive margin. Theorem D found the divisor switch tight to
+zero slack; Proposition E found the circle method with zero margin.
+This is the first transform in the campaign where the budget closes
+with room left over.
+
+*Stated with its limit.* Over N ∈ [5·10⁴, 4·10⁵] the factor √(log N)
+moves by 9%, so the fitted exponents (−0.851 measured, −0.862 null)
+separate "decaying" from "flat" and nothing finer; they are not a
+confirmation of −1/2. The finding that carries weight is the flatness
+of S_abs/S_null, which needs no extrapolation.
+
+### Where the difficulty actually sits (dyadic profile, N = 4·10⁵)
+
+| p range | mass frac | abs frac | mean ρ_p | null ρ_p |
+|---|---|---|---|---|
+| 2–4 | 0.0370 | **0.0006** | 0.0158 | 0.0101 |
+| 32–64 | 0.0482 | 0.0007 | 0.0147 | 0.0438 |
+| 1024–2048 | 0.0587 | 0.0079 | 0.1350 | 0.2402 |
+| 32768–65536 | 0.0615 | 0.0488 | 0.7937 | 0.9223 |
+| 131072–262144 | 0.0630 | 0.0625 | 0.9929 | 1.0359 |
+| 262144–4·10⁵ | 0.0638 | **0.0638** | **1.0000** | 1.0968 |
+
+The trivial mass is spread almost perfectly evenly over dyadic ranges
+(≈0.06 each, as `Σ log p/p` demands). The *surviving* mass is not: it
+climbs monotonically from 0.0006 to 0.0638. **All the difficulty is at
+large p**, and for the top range `ρ_p = 1.0000` exactly — those `D_p`
+are one-term sums, where cancellation is not merely hard but
+unavailable. That region carries mass ≈ 1/log N and vanishes, slowly.
+
+### What this hands the next session
+
+For `p > √N` the sum is `D_p = Σ_{w<N/p} μ(w)Λ(N−pw)` with `w` short
+and `p` long. Reorganised by the short variable, the hard part of the
+wall is
+
+> `Σ_{w<√N} μ(w)·G_w(N)`,  `G_w(N) = Σ_p log p · Λ(N − wp)`,
+
+a **μ-average of binary problems**: each `G_w` counts `N = wp + n` in
+primes and is positive with main term `≈ 𝔖_w(N)·N/w`. So the large-p
+part of the wall is not a cancellation-in-Λ question at all — it asks
+whether **`Σ_w μ(w)𝔖_w(N)/w` cancels**, an Euler product over a
+multiplicative-in-w singular series. That is computable, and it is the
+next measurement.
+
 ### Not yet read
 
 MRT's *averaged* form of Chowla (`arxiv_1503.05121`) is stated
