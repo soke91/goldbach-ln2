@@ -397,7 +397,7 @@ on a *correct* null but a wrong model is untouched by it — and several
 E1 verdicts use Conjecture L's own iid model as the null, which is
 circular by construction and already recorded as such in `sweep_B`.
 
-## The five hazards this campaign actually suffers from
+## The six hazards this campaign actually suffers from
 
 Both are about **stating a criterion that does not match the thing
 being tested**, and both are caught the same way — by widening from a
@@ -457,6 +457,17 @@ single number to the whole profile, or by computing the null first.
    last point has the power to reject it.** Quote the power, not the
    trend.
 
+6. **A step that silently does not run, while the record says it did.**
+   The most dangerous of the six, because nothing looks wrong. Two
+   instances: a pre-registered control prime dropped by an `n ≥ 12`
+   guard that printed nothing (increment 243), and a document rewrite
+   whose script raised `AssertionError` on a string that did not match
+   while the surrounding shell went on to commit a message describing
+   the rewrite as done (increment 254, corrected at 255). Rule:
+   **chain the edit to the commit so a failure aborts both, and make
+   every skipped branch print the fact that it skipped.** A control
+   that does not announce its own absence is worse than no control.
+
 Every closure in this repository predating these rules was re-checked
 against them; the ones that survived are the ones whose criteria were
 "is there any signal at all", which is threshold-free.
@@ -480,6 +491,7 @@ get there is listed here.
 | 33 | null for the singular-series average: `A(W) ~ c/log W` from the Euler product 1 − f(q)/q ~ 1 − 1/q | `A(W)` tracks `Σ_{w≤W} μ(w)/w`, PNT-strength — measured ~10⁻³ against 1/log W ≈ 0.09. The Euler reading describes the smooth-truncated product, not the Möbius sum |
 | 34 | null for the w-grouping residual: `Σ_w|E_w| ~ √2·N log N`, so the ratio to trivial should be ≈1 and flat | the data-driven second-moment null `Σ_w √(Σ_p t_p²)`; measured ratio 1.18–1.26, flat, and 0.26 of trivial and falling. The heuristic overshot by a factor 7 |
 | 35 | the criterion "does `S_abs/N → 0`?" tested as `(log N)^{−1/2}` **against** `c + b/log N`, returning DEAD | the right comparison is free-exponent (→0) against `c + b/log N` (→c). Rejecting the *rate* −1/2 is not evidence for a positive *limit*. Corrected verdict at N ≤ 6.4·10⁶: **UNDECIDED** — the two fit equally well (resid sd 0.00081 vs 0.00083) and separate by 0.0035 at N ≈ 5·10⁸, below the noise. What *is* settled: the exponent is ≈ **0.773**, i.e. **faster** decay than the square-root-per-p prediction |
+| 46 | MEASUREMENTS §13: the off-diagonal of the wall's variance identity is **positive and comparable**, "about half the variance of C(N) is genuine shifted-Möbius correlation" | **it is negative.** The reading rested on X = 2000 and 4000. Reproduced there (0.554, 0.498) and then continued: `off/LHS` = **0.077** at 10⁵, **−0.144** at 10⁶, **−0.208** at 4·10⁶, crossing zero near X ≈ 3·10⁵. The shifted-Möbius correlation **removes ~14% of the diagonal** rather than supplying half the total. Separately, the same identity's diagonal measures `diag/(n·N·log N)` = 0.751 → 0.806 → A(N), so §13 **already implied** `Var C ≍ N log N` while §12 asserted `𝔖(N)·N`: the document contained its own refutation for fifty increments (see #36) |
 | 45 | MEASUREMENTS §12: sweep_B's five flags are "all what a 𝔖-dependent **scale** predicts", so "the mask is **√𝔖**", with the leftover **mean drift** "already insignificant at N ≈ 9·10⁵" | **four of the five are scale; the fifth is location.** A scale mask cannot correlate C with 𝔖. At full power (n = 1.95·10⁶ against sweep_B's 1500) `corr(C,𝔖) = −0.1386, z = −193.5`, and sweep_B's own fix `C/√𝔖` still reads **z = −137.4**; exact scale removal `C/√V` leaves **−211.8**. Dividing by √V flattens the sd across 𝔖 bands (0.88–0.94) while the mean runs 0.012 → **−1.682** — pure location. **The campaign had the location mask in hand three times at sweep_B** — the 𝔖-correlation, the "mean drift", and the 3\|N mean split of §11 — and read all three as decaying residuals of a scale law. §12 rewritten |
 | 44 | the mask should appear as an **observable excess** in the Goldbach count, since Theorem C gives `r̃(N) − 𝔖(N)N ≈ −𝔖(N)C(N)` | **it does not — E₃ absorbs it.** The relation is real (corr `+0.701`, slope `+1.263` against a predicted 1, permuted corr `+0.0001`), but resolved by depth the slope falls 2.15 → 1.67 → 1.40 → 0.91 → 0.43 → **0.18**: exactly where the mask is largest it is least visible. Since `R = P + E₃` by definition, a slope of 0.18 means `cov(E₃,P)/var(P) = −0.82`, i.e. **E₃ cancels 82% of the mask's contribution**. Consistent with `rms E₃/rms 𝔖C` growing 1.02 → 1.36 and `E₃ ∼ N^0.65` against the mask's `N^0.5`. The mask is a real second-order term of C(N) and **not** an observable bias in r̃ |
 | 43 | the wall's location mask should have an analogue on the **supply side**, since `q\|k, q∤N` forces `N−mk` coprime to q | **refuted.** No group of k shows a mean shift (all \|z\| < 1.2; prime-by-prime max 1.65 against a permuted control reaching 1.66). The reason is structural: the wall's mask comes from **Λ** forcing v coprime to rad(N), a *primality* constraint, whereas both factors of D(k) are μ, which imposes squarefreeness. The analogue is therefore a **support** mask, not a location shift: `q²\|gcd(k,N)` ⟹ `q²\|N−mk` for every m ⟹ **D(k) = 0 identically**. All 1212 predicted zeros observed. En route, `P(D>0) = 0.346` looked like a z = −12.7 refutation of Conjecture L's Gaussian half; it was the atom at zero, and excluding zeros gives 0.5044, z = +0.46 |

@@ -400,11 +400,21 @@ dilate-averaging of §everything-else.
 
 Two readings, one of which corrects a prediction of ours.
 
-- **The off-diagonal does not cancel; it adds.** We predicted it would
-  have to cancel a log X against the diagonal. Measured, it is
-  **positive and comparable**: 0.545 and 0.475 of the total at
-  X = 2000 and 4000. So about half the variance of C(N) is genuine
-  shifted-Möbius correlation rather than diagonal mass.
+- **The off-diagonal is negative, and small.** Measured over a proper
+  range (`code/lab_offdiagonal_reaudit.py`), `off/LHS` reads 0.554 at
+  X = 2000 and 0.498 at X = 4000 — reproducing the first reading —
+  then **0.077 at 10⁵, −0.144 at 10⁶ and −0.208 at 4·10⁶**. It falls
+  through zero at X ≈ 3·10⁵. On upper halves, where the asymptotics
+  are cleaner, the same sequence is 0.475, 0.076, −0.097, −0.146. So
+  the shifted-Möbius correlation does not supply half the variance; it
+  **removes about 14% of the diagonal**, and the earlier reading was
+  an artefact of X ≤ 4000.
+- **The diagonal alone already sets the scale.** `diag/(n·N·log N)`
+  measures 0.751, 0.787, 0.800, 0.806 across the same windows,
+  converging on `A(N) = 0.787`. So this identity, correctly evaluated,
+  implies `Var C(N) ≍ N log N` on its own — and §12's `𝔖(N)·N` was
+  short by a log. **The document carried its own refutation** and the
+  contradiction went unnoticed for fifty increments (correction #36).
 - **The gap to MRT is a factor X, not a log power.** MRT gives
   Σ_{|h|≤H}|S(h)| = o(HX), an average saving of o(1) per shift against
   the trivial |S(h)| ≤ X; pinning the identity to the precision a
