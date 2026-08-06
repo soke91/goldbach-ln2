@@ -34,7 +34,8 @@ is a triple (B, P, L):
 
 | # | Question | Pre-registered decision | Status |
 |---|---|---|---|
-| C1 | Does the abelian spectrum of the field exceed the mask? FFT of t_m at fixed k; rational-peak energy (q ≤ 32) real vs mask-null (same support, random signs), 8 draws, multiple k | Excess z ≥ 4 at two k's → C-I alive (handle found); else C-I closes and the construction goes non-abelian (C-II/III/IV) | RUNNING (`code/e1_constr_c1.py`) |
+| C1 | Does the abelian spectrum of the field exceed the mask? FFT of t_m at fixed k; rational-peak energy (q ≤ 32) real vs mask-null (same support, random signs), 8 draws, multiple k | Excess z ≥ 4 at two k's → C-I alive (handle found); else C-I closes and the construction goes non-abelian (C-II/III/IV) | **C-I CLOSED** — 0/6 hits; rational-peak energy consistent with the mask-null at every k (E_rat/E_tot ≈ 0.001, z ∈ [−4.9, +1.3]). One deficit outlier (k=3499, z=−4.86) noted-not-pursued: 8-draw null SE is imprecise and a deficit is not a handle. The abelian spectrum is mask-exact; the representation must be non-abelian (`code/e1_constr_c1.py`) |
+| C2 | **Modular-inverse domain visibility** (threshold test for C-II): re-index the row field by p ↦ p̄ (mod k) and FFT over residue classes: h_k(r) = Σ_{p̄≡r} μ(N−pk), ĝ_k(a) = FFT(h). Kloosterman territory begins exactly where inverse-domain frequencies carry structure. Real profile vs mask-null (random signs, same p-support): special-a excess and profile-shape divergence | Excess z ≥ 4 at ≥ 2 of 300 k (Bonferroni-aware: threshold set for family size), or systematic profile divergence → C-II alive at row level; else C-II's row-level shadow is absent | RUNNING (`code/e1_constr_c2.py`) |
 
 ## Ledger
 
