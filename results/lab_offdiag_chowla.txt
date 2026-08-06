@@ -1,0 +1,45 @@
+sieve  t=2s
+two autocorrelations  t=3s
+
+(A) is the Moebius autocorrelation at the square-root floor?
+    M(0) = 2431736  (= count of squarefree n <= X, 6X/pi^2 = 2431708)
+       shift range     rms M(h)    floor      ratio
+         [1, 1000)       1193.7     1135.9   1.0509
+     [1000, 10000)       1196.1     1135.2   1.0536
+   [10000, 100000)       1202.7     1128.2   1.0660
+ [100000, 1000000)       1125.6     1055.0   1.0668
+[1000000, 2000000)        959.3      898.1   1.0682
+    joint-squarefree density prod(1-2/q^2) = 0.32264; floor = sqrt(0.3226(X-h))
+    pre-registered: within a factor 2 of 1  ->  PASS
+
+(B)+(C) does that floor account for the measured rho - 1?
+    reconstructed off-diagonal  Sum_h c(h)M(h)/X = -5.5380e+06
+    V(X) = Sum_v mu^2 Lambda^2                   = +5.6771e+07
+    reconstructed (rho - 1)                      = -0.09755
+    measured (rho - 1) at this scale (inc. 288)  = -0.19 to -0.17
+    |ratio| to the measured 0.18 = 0.542
+    (B) within a factor 3  ->  PASS
+    (C) sign negative      ->  PASS
+
+    what fails here would refute the identification, so the
+    three lines above are the content; the decomposition
+    itself is an identity and checking it would be a check
+    that cannot come out false (correction #71).
+
+where the off-diagonal mass sits, by shift
+    NOTE: the ranges CANCEL heavily, so a share of the net
+    total would be misleading. Gross mass and the net are
+    both shown.
+       shift range   contribution   |share|
+         [1, 1000)     4.9581e+11     1.1%
+     [1000, 10000)    -1.3347e+12     3.0%
+   [10000, 100000)    -1.0224e+13    23.1%
+ [100000, 1000000)    -2.1620e+13    48.9%
+[1000000, 4000001)     1.0531e+13    23.8%
+    net -2.2152e+13 against gross 4.4205e+13 -- cancellation factor 2.0x
+    Small shifts, where Chowla is hardest and the averaged
+    theorem weakest, carry the LEAST gross mass. The wall
+    leans on large shifts, where that theorem is strongest.
+
+ALL THREE PASS
+DONE

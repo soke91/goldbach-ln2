@@ -265,6 +265,58 @@ Per cell, `R/𝔄 = 1.00000` to five decimals for every radical from
 `2\|N` through `2·3·5·7·11·13\|N` (`R = 0.748387, 0.898064, 0.945330,
 0.968386, 0.977271, 0.983570`, matching `𝔄` in each).
 
+### Proposition W — what the wall's excess cancellation is (increment 289)
+
+Increment 288 measured `ρ(N) = Var C(N)/V(N)` rising 0.760 → 0.837 and
+could not settle its limit: every parameter walked and `log log N`
+barely moves over any reachable range. **More computing cannot settle
+it. Identifying `ρ − 1` can.** Expanding the square, with `u = N − p`
+and `h = p′ − p`,
+
+> **Proposition W.**  `ρ − 1 = (1/V)·Σ_{h≠0} c(h)·S(h)`, where
+> `c(h) = Σ_{p′−p=h}(log p)(log p′)` is a weighted prime-pair count and
+> `S(h) = ⟨μ(u)μ(u−h)⟩` is the **binary Chowla correlation**.
+
+So the wall's excess over square-root cancellation *is* a prime-pair-
+weighted Chowla correlation. Chowla's conjecture gives `S(h) = o(1)`;
+its averaged form over `h` is a theorem (Matomäki–Radziwiłł–Tao). Under
+that input `ρ → 1`, and then
+
+> **the wall is exactly square-root.** Nature over-delivers by a power
+> of `log` and **no more** — sharper than the "nature over-delivers"
+> this program has been repeating, and it closes off the hope that
+> `C(N)` beats `√V`.
+
+**Measured** (`code/lab_offdiag_chowla.py`, `X = 4·10⁶`, both
+correlations computed exactly by FFT). The decomposition is an
+identity, so checking *it* would be a check that cannot come out false
+(#71); the content is quantitative and each test was given a bar
+before the run.
+
+| test | result | bar | verdict |
+|---|---|---|---|
+| (A) is `S(h)` at the random-sign floor? | rms `M(h)` / floor = **1.051, 1.054, 1.066, 1.067, 1.068** across five decades of shift | within 2× | **PASS** |
+| (B) does the floor account for `ρ−1`? | reconstructed **−0.0976** vs measured −0.17…−0.19 | within 3× | **PASS** (0.54×) |
+| (C) sign | **negative** | exact | **PASS** |
+
+The floor in (A) is not `√X` but `√(0.32264·(X−h))` — the sum only
+sees `n` with **both** `n` and `n+h` squarefree, density
+`∏_q(1−2/q²)`. Against that the excess is a stable **5–7%**, which is
+what `h` carrying small prime factors contributes and the generic
+density does not.
+
+**And the wall leans on the provable end of Chowla.** Gross mass by
+shift (the ranges cancel, net `−2.2·10¹³` against gross `4.4·10¹³`, a
+factor 2.0, so shares of the *net* would mislead and are not shown):
+
+| shift | `h < 10³` | `10³–10⁴` | `10⁴–10⁵` | `10⁵–10⁶` | `>10⁶` |
+|---|---|---|---|---|---|
+| gross share | **1.1%** | 3.0% | 23.1% | **48.9%** | 23.8% |
+
+Small shifts — where Chowla is hardest and the averaged theorem
+weakest — carry **1.1%**. The mass sits at `h ≈ 10⁵–10⁶`, exactly where
+the averaged theorem is strongest.
+
 ### The correction this forces, and it is the sharpest of the session
 
 The campaign has used `𝔖(N) = 2C₂∏_{q|N,q>2}(q−1)/(q−2)` as *the* local

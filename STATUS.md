@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 288 (2026-08-07). 5 days, 85 recorded corrections,
+*Increment 289 (2026-08-07). 5 days, 86 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -98,6 +98,18 @@ mid N}(1-1/(q(q-1)))$ (Mirsky 1949).
   (`paper/defect_report_18.md`, not sent).
 
 ### 2. The supply side — mapped, not closed
+
+**And what that excess IS** (inc. 289, **Proposition W**): expanding
+$C(N)^2$ gives $\rho-1=(1/V)\sum_{h\ne0}c(h)S(h)$ with $c(h)$ a
+weighted prime-pair count and $S(h)$ the **binary Chowla correlation**.
+So the wall's excess over square-root is a prime-pair-weighted Chowla
+correlation, and Chowla-type input forces $\rho\to1$: **the wall is
+exactly square-root, over-delivering by a power of $\log$ and no more.**
+Measured: $M(h)$ sits at $1.051$–$1.068$ times the random-sign floor
+$\sqrt{0.32264(X-h)}$ across five decades of shift; the reconstruction
+gives $\rho-1=-0.0976$ against a measured $-0.18$; the sign is negative.
+**The wall leans on the provable end of Chowla** — shifts $h<10^3$ carry
+1.1% of the gross mass, 48.9% sits at $h\approx10^5$–$10^6$.
 
 **How much cancellation nature actually delivers, measured at last**
 (inc. 288). Proposition V makes $\rho(N):=\operatorname{Var}C(N)/V(N)$
