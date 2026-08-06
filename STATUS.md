@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 250 (2026-08-06). 4 days, 31 recorded corrections,
+*Increment 251 (2026-08-06). 4 days, 31 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth".*
 
 **What is trusted, and what is not: `DEPENDENCY_AUDIT.md`.** The
@@ -199,6 +199,9 @@ slope 1 — remains unexamined because nobody knows how to build it.
   for what has been withdrawn and why.
 - **Entry point**: MEASUREMENTS.md, then `python code/verify_all.py`.
 - **The theorems**: THEOREM_A.md → `paper/theorem_A.tex`.
+- **The wall's deterministic term**: LOCATION_MASK.md — C(N) is not
+  mean-zero. Propositions M.1–M.3, the derivation and where it stops,
+  and the seven corrections that came out of finding it.
 - **The live construction**: TRANSFORM_P.md — the prime-factor split,
   the first transform here with positive margin (Props. P.1–P.4), with
   TRANSFORM_LAB.md as the notebook it came out of.
