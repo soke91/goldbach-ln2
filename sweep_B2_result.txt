@@ -1,0 +1,16 @@
+n = 1500   sd(c) = 3.0200   sd(c/S) = 1.6601
+S range [1.320, 4.856]
+
+  [raw  ] kurtosis  4.446 z= +11.43   corr(.,S) -0.2075 z=  -8.04
+  [raw  ] omega<=3   sd ratio 0.806 z=  -5.22   mean z=  +1.82
+  [raw  ] omega>=5   sd ratio 1.408 z=  +6.37   mean z=  -7.07
+  [raw  ] N=0 mod 5  sd ratio 1.261 z=  +5.71   mean z=  -2.34
+
+  [÷S(N)] kurtosis  3.889 z=  +7.03   corr(.,S) -0.0812 z=  -3.15
+  [÷S(N)] omega<=3   sd ratio 1.287 z=  +7.72   mean z=  -1.04
+  [÷S(N)] omega>=5   sd ratio 0.708 z=  -4.56   mean z=  -5.25
+  [÷S(N)] N=0 mod 5  sd ratio 0.820 z=  -3.94   mean z=  +0.08
+
+flags |z|>=4:  raw 5/5   after ÷S(N) 3/5
+verdict: PARTIAL -- S(N) explains some of the structure
+DONE

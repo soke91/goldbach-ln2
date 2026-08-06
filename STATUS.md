@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 213 (2026-08-06). 4 days, 31 recorded corrections,
+*Increment 215 (2026-08-06). 4 days, 31 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth".*
 
 **Consolidated working paper: `paper/negative_map.tex`.**
@@ -138,6 +138,22 @@ $\mathfrak S(N)N$ is dominated by $R$ rather than by $\mathfrak S C$:
 **the ln 2 comet corpus and the final-boss scalar are not the same
 object**, a hypothesis raised and refuted here by its own
 pre-registered criterion.
+
+A twenty-hypothesis sweep (MEASUREMENTS §12) then pinned the scalar's
+law. Ten hypotheses on the local structure of $D(k)$ returned **0
+flags out of ~22 statistics**; five variants of $C(N)$ are all
+square-root sized, so there is no softer target; and seven hypotheses
+on $C(N)$ itself fired five flags which resolve into one statement:
+
+> **$C(N) = \sqrt{\mathfrak S(N)\,N}\cdot G(N)$**, with $G$ of unit
+> variance and Gaussian (kurtosis $\to 3$), plus a mean drift decaying
+> with $N$.
+
+The mask is the **square root** of the singular series — dividing by
+$\mathfrak S$ itself overshoots, and the exponent solves to
+$0.497, 0.539, 0.460$ across three independent splits. **Conjecture L
+therefore extends to the final object of the whole chain**, which the
+campaign had never checked.
 
 ### 4. The measurement corpus — the primary artifact
 

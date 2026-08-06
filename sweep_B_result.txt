@@ -1,0 +1,21 @@
+N in [500000, 502998] even, n = 1500
+mean c = -0.2165  sd c = 3.0200
+
+  B1 lag 1   r=+0.0039  z= +0.15 
+  B1 lag 2   r=-0.0016  z= -0.06 
+  B1 lag 3   r=+0.0028  z= +0.11 
+  B1 lag 4   r=+0.0118  z= +0.46 
+  B2 skewness -0.2466 (null 0)  z= -3.90 
+  B3 kurtosis 4.4462 (null 3)  z=+11.43 <<<
+  B4 P(C>0)  0.4800 (null 0.5)  z= -1.55 
+  B5 corr(c,S) -0.2075 (null 0)  z= -8.04 <<<
+
+  B6-B7 splits:
+  B6 omega(N)<=3           n=  892/608   mean z= +1.82  sd ratio=0.806 (z= -5.22) <<<
+  B6 omega(N)>=5           n=  134/1366  mean z= -7.07  sd ratio=1.408 (z= +6.37) <<<
+  B7 N=2 mod 8             n=  375/1125  mean z= +0.07  sd ratio=0.961 (z= -0.92) 
+  B7 N=0 mod 8             n=  375/1125  mean z= -1.31  sd ratio=1.049 (z= +1.15) 
+  B7 N=0 mod 5             n=  300/1200  mean z= -2.34  sd ratio=1.261 (z= +5.71) <<<
+
+SWEEP B: 5 flags at |z| >= 4
+DONE

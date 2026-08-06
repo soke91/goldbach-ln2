@@ -290,6 +290,55 @@ explicit: **compute the null value of the statistic before choosing
 the threshold, and state it in the pre-registration.** Every test in
 §11 carries its null in the same line as its criterion.
 
+## 12. A twenty-hypothesis sweep, and a law for the wall's own scalar
+
+Twenty hypotheses, run in three parallel sweeps, each criterion
+carrying its null on the same line (`code/sweep_A.py`, `sweep_B.py`,
+`sweep_C.py`, `sweep_B2.py`, `sweep_B3.py`).
+
+**Sweep A — ten hypotheses on the local structure of D(k)**, over
+n = 2861 values of k at N = 10⁷: splits by gcd(k,N), ω(k), v₂(k),
+smoothness, k mod 3 and mod 4; skewness, kurtosis, a runs test, lags
+1–8, and two long lags. **0 flags at |z| ≥ 4 out of ~22 statistics**,
+with mean|d| = 0.7890 against the half-normal null 0.798. The dilate
+field has no local structure at any coordinate tested.
+
+**Sweep C — five variants of the scalar**, exponent fitted over four
+octaves: pure Möbius pair Σμ(n)μ(N−n) gives α = 0.495, primes-only
+0.537, twisted 0.535, against C(N)'s own 0.503; the mask-only object
+Σ Λ(n)(μ²(N−n) − 6/π²) gives α = 0.999, linear as it must. **No
+softer target**: every relative of C(N) that fluctuates is
+square-root sized. (Two design faults recorded: the Mertens
+calibration line is unusable because M(N) varies too slowly for
+averaging over consecutive N, and the (−1)ⁿ twist is nearly a global
+sign flip, so C5 duplicates C2 rather than testing anything.)
+
+**Sweep B — seven hypotheses on C(N), and this one fired.** Five flags
+at |z| ≥ 4: kurtosis 4.446 (z +11.4), corr(c, 𝔖) −0.208 (z −8.0), sd
+ratio 1.408 for ω(N) ≥ 5 (z +6.4), 0.806 for ω(N) ≤ 3 (z −5.2), and
+1.261 for N ≡ 0 mod 5 (z +5.7). All five are what a 𝔖-dependent scale
+predicts. Dividing by 𝔖 **overshoots** (the ratios invert to 0.708,
+1.287, 0.820), and solving R = (S₁/S₂)^β across the three splits gives
+β = 0.497, 0.539, 0.460. So the mask is **√𝔖**, and dividing by it:
+
+| after ÷√𝔖 | N₀ = 2·10⁵ | 5·10⁵ | 9·10⁵ |
+|---|---|---|---|
+| sd ratio, ω≤3 | 0.997 | 1.040 | 1.047 |
+| sd ratio, ω≥5 | 1.145 | 0.998 | 0.966 |
+| sd ratio, N≡0(5) | 1.083 | 1.007 | 0.961 |
+| kurtosis | 3.333 | 3.397 | **2.983** |
+| corr(·, 𝔖) | −0.194 | −0.138 | **−0.070** |
+
+> **C(N) = √(𝔖(N)·N) · G(N)**, with G of unit variance and Gaussian
+> (kurtosis → 3 at the largest window), plus a mean drift that decays
+> with N and is already insignificant at N ≈ 9·10⁵.
+
+This extends Conjecture L to the wall's own scalar, which the campaign
+had never done: the final object of the whole chain is itself
+mask × Gaussian, with the mask the square root of the singular series.
+It also explains the decaying 3 | N mean split of §11 as the residual
+drift of the same law.
+
 ## One-shot reproduction
 
 ```bash
