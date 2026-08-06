@@ -12,4 +12,14 @@ N = 210210,  rad(N) = [2, 3, 5, 7, 11, 13]
   P.7 forced signs: -1 at m=1, +1 at m prime     PASS   0 violations
 
 ALL PASS
+
+sensitivity check: perturb one side by 1e-3, expect FAIL
+    M.2  perturbed |lhs-rhs| = 10.9508  tol = 0.011   flips to FAIL (good)
+    P.1  perturbed |lhs-rhs| = 10.9508  tol = 0.011   flips to FAIL (good)
+    P.2  perturbed |lhs-rhs| = 206.53  tol = 0.207   flips to FAIL (good)
+   P.3a  perturbed |lhs-rhs| = 206.53  tol = 0.207   flips to FAIL (good)
+   P.3b  perturbed |lhs-rhs| = 10.9508  tol = 0.011   flips to FAIL (good)
+  counting checks (M.1, M.3, P.5, P.7) test 'violations == 0', so a single injected violation flips them by construction
+
+SENSITIVITY OK
 DONE

@@ -206,6 +206,28 @@ def main():
         allok &= bool(ok)
         print(f"{name:>44} {'PASS' if ok else 'FAIL':>8}   {ev}")
     print(f"\n{'ALL PASS' if allok else 'SOMETHING FAILED'}")
+
+    # --- sensitivity: a check that cannot come out false is not a
+    # check. Four times in this run a verification was shipped or
+    # nearly shipped that could not fail (increments 259, 272, 274,
+    # 275). Asserting that these can fail is worth nothing; showing it
+    # is worth something. Each identity is re-evaluated with one side
+    # perturbed by 1 part in 1000, and must flip to FAIL.
+    print("\nsensitivity check: perturb one side by 1e-3, expect FAIL")
+    pairs = [("M.2", alt, Cdirect), ("P.1", lhs, rhs),
+             ("P.2", l2, r2), ("P.3a", Gabs, r2), ("P.3b", -Gsig, rhs)]
+    sens_ok = True
+    for nm, L, Rr in pairs:
+        tol = 1e-6 * max(1.0, abs(Rr))
+        flips = abs(L * (1 + 1e-3) - Rr) >= tol
+        sens_ok &= flips
+        print(f"  {nm:>5}  perturbed |lhs-rhs| = "
+              f"{abs(L*(1+1e-3)-Rr):.6g}  tol = {tol:.3g}   "
+              f"{'flips to FAIL (good)' if flips else 'STILL PASSES (BAD)'}")
+    print(f"  counting checks (M.1, M.3, P.5, P.7) test "
+          f"'violations == 0', so a single injected violation flips "
+          f"them by construction")
+    print(f"\n{'SENSITIVITY OK' if sens_ok else 'A CHECK CANNOT FAIL'}")
     print("DONE")
 
 
