@@ -146,6 +146,34 @@ divisor switch with zero slack and Proposition E found the circle
 method with zero margin; this is the first transform in the campaign
 whose budget closes with room left over.
 
+**⚠ These are averages over all even N, and P.4 is a statement about
+every N.** Split by how deep N sits in the location mask
+(`code/lab_transformP_demask.py`, N ≈ 10⁶):
+
+| group | S_abs/N |
+|---|---|
+| shallow, `N = 2q` | 0.2576 |
+| **all even N** | **≈0.30** |
+| deep, `N = k·30030` | **0.7773** |
+
+The demand for deep N is **three times** the figure §4 reports, and the
+all-N average sits near the shallow end because deep N are rare. It is
+not a new obstruction — within the deep group the demand declines at
+the same relative rate (0.8137, 0.7695, 0.7488 across a factor 3 in N,
+against the all-N law `(log N)^{−0.77}`) — but the margin claimed above
+is the margin at a typical N, not at the hardest ones, and every
+measurement of P.4 before increment 263 averaged over all N.
+
+**De-masking does not help.** Since the location mask is computable, a
+weaker sufficient condition would replace `Σ_p log p|D_p|` by
+`|Σ_p log p·m_p| + Σ_p log p|D_p − m_p|`, the first term being the mask
+and therefore free. Measured with a split estimate (mean from one half
+of the group, applied to the other) it makes the demand **worse**:
+1.7677 against a raw 0.7773, with a permuted floor of 1.1114. By band
+the picture is sharp — the reduction is real at `p ≤ 8192` (0.42 to
+0.68) and negative above it (down to −0.66), while the mass sits at
+large p. **The mask and the difficulty are in different places.**
+
 **Where the difficulty sits.** The trivial mass spreads almost evenly
 over dyadic p-ranges (≈0.06 each, as `Σ log p/p` demands), but the
 surviving mass climbs monotonically from 0.0006 at p ∈ [2,4) to 0.0598
