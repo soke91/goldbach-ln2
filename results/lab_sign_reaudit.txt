@@ -1,0 +1,31 @@
+convolution t=3s
+
+(A) B4 redone at full power
+                             group         n    P(C>0)        SE         z
+      all even N  [B4's statistic]   1950001   0.49853   0.00036     -4.12
+    3 | N        [predicted < 1/2]    650000   0.44153   0.00062    -94.28
+    3 not| N     [predicted > 1/2]   1300001   0.52703   0.00044     61.63
+  sweep_B's original reading was P = 0.4800, z = -1.55 on
+  about 1500 values -- an SE of 1.3e-2 against 3.6e-4 here
+
+(B) the gap between the two, and its own null
+  P(3|N) - P(3 not|N) = -0.08550   SE 0.00076   z = -112.56
+  null 0 (no difference between the two populations)
+
+(C) by depth -- how many small primes divide N
+                             group         n    P(C>0)        SE         z
+             0 of {3..23} divide N    637987   0.50194   0.00063      3.10
+             1 of {3..23} divide N    806146   0.52022   0.00056     36.31
+             2 of {3..23} divide N    392339   0.49435   0.00080     -7.08
+             3 of {3..23} divide N     98311   0.36352   0.00159    -85.59
+             4 of {3..23} divide N     13938   0.19336   0.00424    -72.40
+             5 of {3..23} divide N      1222   0.10884   0.01430    -27.35
+
+(D) completeness -- after removing the enumerated mask
+                             group         n    P(C>0)        SE         z
+          all even N, mask removed   1950001   0.49949   0.00036     -1.43
+          3 | N,      mask removed    650000   0.50299   0.00062      4.83
+          3 not| N,   mask removed   1300001   0.49773   0.00044     -5.17
+  if these return to 1/2 the enumerated mask is the whole
+  of the deterministic part; if not, something is left
+DONE
