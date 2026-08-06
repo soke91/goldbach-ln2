@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 293 (2026-08-07). 5 days, 92 recorded corrections,
+*Increment 294 (2026-08-07). 5 days, 95 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -246,7 +246,18 @@ have lines at the ordinates. Binned on a uniform $\log N$ grid and tested
 against a **local** null: **7 of 10** of the first ordinates clear their
 local 99th percentile ($\gamma_2$ at $2.85\times$), while a phase-randomised
 surrogate gives **0 of 10**. First detection of the zeta zeros anywhere
-in this program's data (#91, #92).
+in this program's data (#91, #92). Recalibrated at increment 294 by a
+**permutation test** — the local-percentile null of 293 could not be
+estimated from a window holding only ~6.5 independent frequencies — and
+it survives: $E/\sqrt N$ gives $z=+12.4$, $p\le0.005$ (#95).
+
+**The wall carries them too** (inc. 294). $C(N)$ de-masked and
+$\sqrt V$-standardised scores $z=+13.9$ against the permutation null, with
+$M(N)/\sqrt N$ — a known zero sum — as positive control at $z=+15.8$. So
+the wall's fluctuation is **Gaussian in distribution but not phase-random
+in $\log N$**: those are different statements and only the first had ever
+been tested (#94). And the wall is **not** the Mertens function —
+$\mathrm{corr}(C,M)\approx0.06$, flat, despite exponents agreeing to 0.013 (#93).
 
 Sizes, with the log powers solved for rather than left inside an
 effective exponent: $|E|\sim\sqrt N(\log N)^{1.51}$,
