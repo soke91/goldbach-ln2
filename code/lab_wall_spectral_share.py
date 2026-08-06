@@ -18,7 +18,7 @@ the first ten ordinates, and report R^2. Exact, no fitting choices.
 
   * CHANCE LEVEL. For 20 basis functions and n points, a phase-random
     series gives R^2 ~ 20/n = 2.5e-6 here. It is not assumed: the same
-    regression is run on 100 phase-randomised surrogates and their R^2
+    regression is run on 200 phase-randomised surrogates and their R^2
     distribution IS the null. This is the calibrated design that
     correction #95 forced.
   * LOWER BOUND, and stated as one. The zeros do not stop at the
@@ -35,7 +35,7 @@ the first ten ordinates, and report R^2. Exact, no fitting choices.
 PRE-REGISTRATION. The share is whatever it is; no threshold is set on
 it, because the interesting output is a number and not a verdict, and
 inventing a bar after seeing it would be hazard 2. The one pass/fail
-is on the null: R^2 must exceed the 100-surrogate maximum, else the
+is on the null: R^2 must exceed the 200-surrogate maximum, else the
 component is not established at all.
 """
 import math
@@ -149,7 +149,7 @@ def main():
     rng = np.random.default_rng(295)
     null = []
     namp = []
-    for _ in range(100):
+    for _ in range(200):
         p = rng.permutation(n)
         rr, aa = solve(Z[p])
         null.append(rr)
@@ -160,7 +160,7 @@ def main():
     print(f"\n(1) share of the wall's variance in the first ten zeros")
     print(f"    R^2 measured          {r2:.6e}   ({100*r2:.4f}% of Var Z)")
     print(f"    surrogate mean        {null.mean():.6e}")
-    print(f"    surrogate max of 100  {null.max():.6e}")
+    print(f"    surrogate max of 200  {null.max():.6e}")
     print(f"    ratio to surrogate mean  {r2/null.mean():.1f}x")
     ok = r2 > null.max()
     print(f"    pre-registered: R^2 above the surrogate maximum  ->  "

@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 295 (2026-08-07). 5 days, 96 recorded corrections,
+*Increment 295 (2026-08-07). 5 days, 97 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -258,7 +258,7 @@ the wall's fluctuation is **Gaussian in distribution but not phase-random
 in $\log N$**: those are different statements and only the first had ever
 been tested (#94). **Its size** (inc. 295): regressing on the first ten
 ordinates gives $R^2 = 3.9\cdot10^{-3}$, i.e. **0.39% of the variance**,
-against a surrogate maximum of $4.2\cdot10^{-6}$ — 1571$\times$ chance, every
+against a 200-surrogate maximum of $5.1\cdot10^{-6}$ — 1566$\times$ chance, every
 ordinate at $z\ge23$. ⚠️ That is a **floor**, not the share: the zeros do
 not stop at the tenth. The component is real and **subdominant**, so the
 Gaussian half survives with a spectral term named, not replaced (#96). And the wall is **not** the Mertens function —

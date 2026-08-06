@@ -175,7 +175,7 @@ zero sum — as positive control at `z = +15.8`. Regressing on
 `cos(γ log N), sin(γ log N)` for the first ten ordinates:
 
 > **`R² = 3.896·10⁻³`** (0.39% of the variance) against a surrogate mean
-> of `2.48·10⁻⁶` and a 100-surrogate maximum of `4.16·10⁻⁶` — **1571×
+> of `2.49·10⁻⁶` and a 200-surrogate maximum of `5.09·10⁻⁶` — **1566×
 > chance**, and every ordinate individually at `z ≥ 23.4` (`γ₁` at 209.5).
 
 ⚠️ **This does not overturn point 2.** Gaussian *in distribution* and
