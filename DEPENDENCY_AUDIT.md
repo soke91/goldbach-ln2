@@ -61,6 +61,35 @@ it is worth the effort:
 Until that is done, the honest labels are: **our theorems, verified
 here; their frame, used but unverified.**
 
+## Re-derivation, first pass (increment 221)
+
+Walked the chain in our own bookkeeping and checked every step by
+brute force at N = 2000, 4000, 6000 (`code/hl_rederive.py`).
+
+| step | statement | verdict |
+|---|---|---|
+| 1 | Λ(u) = −Σ_{d\|u} μ(d) log d for u > 1 | **exact**, 0 mismatches |
+| 2 | r(N) = S₁(α) + S₂(α) after splitting the divisor sum at α | **exact**, diff ≤ 2·10⁻¹¹ |
+| 3 | the μ² insertion | **legitimate**, cost 164 / 18 / 248 against a budget √N log²N of 2584 / 4351 / 5862 |
+| 4 | the switch on squarefree u, k = u/d | **exact**, diff ≤ 10⁻¹² |
+
+**A false alarm of ours, recorded.** The first version of step 3
+applied μ² to S₂ *after* the split and reported a non-squarefree part
+larger than S₂ itself — which would have been a second defect. It is
+not. Reading their §3 shows the μ² goes into the **product**
+Λ(n)Λ(N−n) *before* the split, and there it is justified because
+Λ(N−n) is supported on prime powers, so Λ(N−n)(1 − μ²(N−n)) survives
+only on N−n = p^ℓ with ℓ ≥ 2, of which there are O(√N log N). Our
+misreading, not their error — and exactly why one checks before
+claiming.
+
+**Status of the re-derivation.** The skeleton — inversion, split, μ²
+insertion, switch — is now verified independently and holds. What is
+*not* yet re-derived is the analytic half: the evaluation of S₁ under
+EH (their §3.1), the treatment of E₃ and E₄ under EH_μ, and the
+assembly with the Δ-repair. Until those are done, the frame stays
+labelled "used but unverified", with the skeleton exempted.
+
 ## Not to be confused
 
 This is not a claim that Huang–Li is wrong. It is a statement about

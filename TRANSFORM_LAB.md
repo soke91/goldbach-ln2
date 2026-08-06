@@ -205,6 +205,48 @@ quantitative statement about what the *chain* needs does, and none of
 those has been independently derived here. Treat "③ needs about
 (log N)^{−6}" as provisional.
 
+## Session 3 — sub-question 2, and why only the N-average has free shifts
+
+**Sub-question 2 was: is there a form of the wall in which both factors
+are Möbius at additively related points?** There is, and grouping by
+the shift makes it explicit. In the L² off-diagonal put d = m′ − m and
+h = dk; then N − m′k = (N − mk) − h, so with v = N − mk,
+
+> Σ_{k∼K}|D(k)|² − (diagonal)
+>  = Σ_{k} Σ_{d≠0} Σ_m μ(m)μ(m+d)·**μ(v)μ(v−h)**, v = N−mk, h = dk.
+
+So both factors are Möbius at points differing by exactly h — a genuine
+shifted correlation. **But the shift is h = dk, a multiple of k, while
+v runs over the progression N mod k.** Rescaling the progression by k
+therefore returns μ(N−mk)μ(N−(m−d)k), the dilate object we started
+from. This is the increment-201 circularity again, now visible as a
+property of the grouping rather than of one parametrisation.
+
+Contrast the second moment over N (MEASUREMENTS §13):
+Σ_{N∈W}|C(N)|² = Σ_h r(h)S(h). There the shift h = n − n′ runs over
+prime differences with **no tie to any modulus**, and v runs over a
+full interval — which is why that one is genuinely shift-averaged, and
+why it is the only coordinate where MRT-type technology applies. Its
+price is the passage to almost-all-N.
+
+> **Answer to sub-question 2.** Yes at fixed N, but every fixed-N form
+> has its shift locked to the modulus of the progression the other
+> variable runs over, so rescaling undoes it. Free shifts appear only
+> when the average over N is taken, and that average is exactly what
+> costs the exceptional set.
+
+That is a sharper statement of the exceptional-set barrier than
+"N-averaging is provable but not consumable": it says *why* — the
+N-average is the only place the shift decouples from the modulus.
+
+**Sub-question 3, which this raises.** Is there an averaging cheaper
+than the full N-average that still decouples the shift from the
+modulus? An average over a short window of N, over a sub-progression
+of N, or over an auxiliary parameter not yet in the problem. K4 killed
+the N-average *descent* (trading the N-average for a k-average within
+one N); this is a different question — not descent, but a smaller
+average that still buys decoupling.
+
 ### Not yet read
 
 MRT's *averaged* form of Chowla (`arxiv_1503.05121`) is stated

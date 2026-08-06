@@ -1,0 +1,25 @@
+N = 2000, alpha = sqrt(N) = 44.7
+  step 1  Lambda = -sum mu(d)log d : mismatches 0   OK
+  step 2  r = S1 + S2 : r = 3422.9935, S1+S2 = 3422.9935, diff = 2.19e-12   OK
+  step 3  mu^2 inserted in the PRODUCT before the split: r = 3422.9935 vs 3259.2714, cost 163.7221  (budget sqrt(N)log^2 N = 2584)   OK
+  step 4  switch on squarefree u: lhs 522.9782 vs rhs 522.9782, diff 2.27e-13   OK
+
+N = 4000, alpha = sqrt(N) = 63.2
+  step 1  Lambda = -sum mu(d)log d : mismatches 0   OK
+  step 2  r = S1 + S2 : r = 6804.0114, S1+S2 = 6804.0114, diff = 6.03e-12   OK
+  step 3  mu^2 inserted in the PRODUCT before the split: r = 6804.0114 vs 6786.0310, cost 17.9804  (budget sqrt(N)log^2 N = 4351)   OK
+  step 4  switch on squarefree u: lhs 899.8431 vs rhs 899.8431, diff 1.02e-12   OK
+
+N = 6000, alpha = sqrt(N) = 77.5
+  step 1  Lambda = -sum mu(d)log d : mismatches 0   OK
+  step 2  r = S1 + S2 : r = 21211.4705, S1+S2 = 21211.4705, diff = 1.82e-11   OK
+  step 3  mu^2 inserted in the PRODUCT before the split: r = 21211.4705 vs 20963.8772, cost 247.5933  (budget sqrt(N)log^2 N = 5862)   OK
+  step 4  switch on squarefree u: lhs 9189.5983 vs rhs 9189.5983, diff 7.28e-12   OK
+
+Reading: all four steps check out. Step 3 is legitimate
+because the mu^2 is inserted into the PRODUCT before the
+split, where Lambda(N-n) is prime-power supported, so the
+cost is only the l >= 2 prime powers. An earlier version of
+this script applied mu^2 to S2 AFTER the split and reported
+a large discrepancy -- that was our misreading, not a defect.
+DONE
