@@ -39,7 +39,7 @@ measure is to Tao's average, T must be to the k-average.
 | K1 | **Multiplicative Fejér kernel on the ladder orbit**: represent D(k) as an optimally weighted combination of its orbit {D(sk) : s squarefree, s \| 30030} via A1; if the representation is near-exact, orbit-overlap across k linearizes the k-average | Full-orbit least-squares R² of D(k) on {D(sk)}: R² → 1 = alive; R² saturates < 0.9 = dead (cascade already suggests death; this is the definitive orbit-level version) | **DEAD** — full 63-divisor orbit R² = 0.466 (one-layer 0.442); residual energy = 0.499 of the unit-Gaussian budget. Half of D(k)'s energy is invisible to its entire multiplicative orbit: the exact ladder transfers sub-sums, but the p-coprime core it leaves behind is itself half the field at every orbit depth. Consistent with (and stronger than) the cascade death. Closed (`code/e1_forge_kt1.py`) |
 | K2 | **Determinant/Kloosterman route with manufactured congruence**: impose an artificial pair congruence k ≡ k′ (mod d) by splitting the k-average into progressions — recovers the conductor-collapse mechanism at cost d; question is whether some d-average wins a log-power | Measure the conductor-collapsed correlation strength as a function of d: does Σ_{k≡k′ (d)} C_{k,k′} gain more than the d-splitting cost? | **DEAD** — 10 h-values (1…210), 0 pre-registered flags: means ≤ 1.8z, variance deviations ≤ 1.6σ, autocorrelations ≤ 0.128 mixed-sign. Congruent pairs are statistically h-blind, exactly as pure Conjecture L predicts; the manufactured congruence buys nothing against the factor-d cost. Closed (`code/e1_forge_kt2.py`) |
 | K3 | **Wishart/operator route**: E1 needs only the band ratio; the C-matrix is measured Wishart-clean. Design: prove the ratio bound from a moment-method bound on the Gram spectrum of the row family {μ(N−pk)}_p — rows are deterministic, but row-inner-products are the SAME correlations (circularity check needed at 4th-moment level) | Compute trace-moment ratios tr((RRᵀ)^j)/Wishart-prediction for j = 2,3,4: sub-Wishart 4-cycle cancellation = alive; match = dead (circular) | **DEAD** — tr(M²)/tr(M³)/tr(M⁴) all dead-center on the Wishart null (z = −0.48 / +0.42 / −0.03). No sub-Wishart cancellation to exploit; the moment route consumes 2j-fold μ-correlations with nothing gained. Side product: Conjecture L re-confirmed at 4-cycle moment level. Closed (`code/e1_forge_kt3.py`) |
-| K4 | **N-average descent**: the N-averaged theorem is provable (adjudication 5-(2)); design a descent that trades the N-average for a k-average within a single N via the ladder's N-independence | Identify the exact point where the N-average is consumed in Lichtman Lem 6.1 and test numerically whether the k-orbit supplies the same decorrelation | queued |
+| K4 | **N-average descent**: the N-averaged theorem is provable (adjudication 5-(2)); design a descent that trades the N-average for a k-average within a single N via the ladder's N-independence | Does the k-averaged dual field T(m, δ) retain, within one N, the shift-structure the N-average exploits (coherence / m-autocorrelation)? | **DEAD** — 0/8 flags (coherence z ≤ 1.22, autocorr ≤ 0.051, m2 ≈ 1 across four δ). The N-average is load-bearing; the k-average supplies no substitute decorrelation. Closed (`code/e1_forge_kt4.py`) |
 
 ## Escalation rule
 
@@ -67,3 +67,39 @@ paragraph in this table, closed, never re-litigated.
   SUB-Wishart cancellation, i.e., exploitable structure beyond pair
   independence; a mere match confirms L but leaves the moment route
   circular, since tr(M^{2j}) consumes 2j-fold μ-correlations).
+- (increment 175) **K3 DEAD**: all trace moments dead-center on the
+  Wishart null. No sub-Wishart cancellation; the moment route is
+  circular. (Side product: L confirmed at 4-cycle level.)
+- (increment 176) **K4 DEAD**: the dual field is δ-blind and
+  m-uncorrelated; the N-average's linearization has no within-N
+  substitute.
+
+## Round-1 synthesis (increment 177)
+
+Four designs, four clean deaths, four constraints on any viable T:
+
+1. **(from K1)** T cannot act through divisibility sub-sums — the
+   multiplicative orbit spans only half the field's energy; T must
+   couple to the p-coprime core directly.
+2. **(from K2)** T cannot manufacture its congruence externally —
+   collapse structure pays only when it arises inside an intrinsic
+   average that is already present.
+3. **(from K3)** T cannot bootstrap from the field's own moments —
+   every moment consumes higher μ-correlations and the field carries
+   no sub-Wishart surplus to fund the exchange.
+4. **(from K4)** T cannot descend from the N-average — its
+   linearization is load-bearing and the k-average holds no shadow of
+   it.
+
+**Round-1 conclusion.** The four internal resources of the dilate
+family — its multiplicative orbit, its congruence classes, its Gram
+spectrum, and its N-family embedding — are each *exactly as flat as
+Conjecture L predicts*: the field's internal statistics contain no
+lever. Any linearizing invariance T must therefore import
+cancellation from OUTSIDE the μμ-correlation universe (zeros of
+L-functions consumed in a new way, automorphic spectra attached to
+the determinant structure by a construction not yet in the
+literature, or an algebraic identity of a kind the ladder is not).
+This is the forge's honest round-1 boundary: the technique to be
+created is not an assembly of the family's own parts. Round-2
+designs must begin from an external cancellation source.

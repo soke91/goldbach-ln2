@@ -1,0 +1,12 @@
+mu ready 10s
+delta=  1  n= 466  coher_z=-0.35  m2=1.058  rho1=+0.010
+  t=10s
+delta=  2  n= 466  coher_z=+0.65  m2=0.928  rho1=+0.015
+  t=10s
+delta=  6  n= 467  coher_z=-0.04  m2=0.980  rho1=-0.051
+  t=10s
+delta= 30  n= 466  coher_z=-1.22  m2=0.943  rho1=+0.049
+  t=11s
+=== K4 KILL-TEST: 0 flags ===
+verdict: DEAD (the N-average is load-bearing; the k-average supplies no substitute decorrelation)
+DONE
