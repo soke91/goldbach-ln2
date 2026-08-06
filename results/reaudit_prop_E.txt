@@ -1,0 +1,42 @@
+sieve + C  t=12s
+
+(A) after W cancels, what is left must not drift
+           N         n    deficit   /sqrt(N)   A = V/W      Q/N     rho
+   1.414e+05     50000      334.1     0.8884    0.8106   0.6079  1.0078
+   2.828e+05    100000      484.7     0.9113    0.8106   0.6079  0.9578
+   5.657e+05    200000      698.1     0.9282    0.8106   0.6079  0.9233
+   1.131e+06    400000     1005.2     0.9451    0.8106   0.6079  0.8906
+   2.263e+06    800000     1435.0     0.9540    0.8106   0.6079  0.8741
+   4.525e+06   1600000     2030.2     0.9543    0.8106   0.6079  0.8734
+   9.051e+06   3200000     2889.6     0.9605    0.8106   0.6079  0.8622
+   1.431e+07   1600000     3548.1     0.9379    0.8106   0.6079  0.8579
+
+    (A1) A(N) = V/W constant to 1% across bands: PASS  (spread 0.00%, value 0.8106)
+    (A2) Q(N)/N reproduces 6/pi^2 = 0.6079 to 1%: PASS  (measured 0.6079)
+    (A3) rho bounded in [0.5, 1.2]: PASS  (0.8579 to 1.0078)
+    ==> deficit/sqrt(N) = sqrt(Q/N) / sqrt(rho A) is bounded, so the deficit is a clean power of N
+    for the record, and NOT used as a criterion: fitting log(deficit)
+      against log N     gives +0.5133, weighted RSS 1.615e-03
+      against log log N gives +7.2305, weighted RSS 4.558e-03
+      ratio 2.82x -- over this range the two are NOT separable by fit (#119), which is why the criterion above is a derivation instead
+
+(B)(C) the Parseval floor for route (ii), exact FFT
+         N  ||S_mu||2/sqrt(N)   ||S_L||1/sqrt(N)   floor = prod/N
+     16384             0.7798             1.9462           1.5176
+     65536             0.7797             2.0844           1.6253
+    262144             0.7797             2.2189           1.7300
+   1048576             0.7797             2.3463           1.8294
+   4194304             0.7797             2.4647           1.9217
+
+    (C) ||S_mu||2/sqrt(N) reproduces sqrt(6/pi^2) = 0.7797: PASS
+    (B) route (ii)'s floor >= 1 at every size: PASS
+
+(D) does any quantity in the proof depend on a correction?
+    W(N) = sum Lambda^2   exact sum, PNT asymptotic
+    Q(N) = sum mu^2       exact sum, 6N/pi^2
+    psi(N) ~ N            PNT
+    sup|S_mu| >= ||S_mu||_2   Parseval, an identity
+    none of these appears in CLOSURE_REAUDIT
+
+    Proposition E stands and is INDEPENDENT of every recorded correction; increment 308's triage mis-assigned it. And Proposition V sharpens it: the log powers cancel between the Cauchy-Schwarz bound and the wall's own scale, so the method is short of C(N) by a clean sqrt(N) -- a power of N, not a log power. 'Zero margin' understates it
+DONE

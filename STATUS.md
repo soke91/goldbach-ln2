@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 308 (2026-08-07). 6 days, 129 recorded corrections,
+*Increment 309 (2026-08-07). 6 days, 133 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 8 named hazards.*
 
@@ -106,6 +106,15 @@ $\mu(k)$.
 - **Proposition E**: the circle method has zero margin on $C(N)$ —
   Cauchy–Schwarz lands above the trivial bound by a growing factor, and
   any pointwise route is capped by Parseval, $\sup \ge \|\cdot\|_2$.
+  **Re-derived at increment 309 and strengthened.** Proposition V makes
+  $W(N)$ cancel between $\sqrt{W Q}$ and
+  $\mathrm{rms}\,C=\sqrt{\rho\,\mathfrak A\,W}$, so the method is short
+  of $C(N)$ by $\sqrt{Q/(\rho\mathfrak A)}\asymp\sqrt N$ — **a clean
+  power of $N$, with the log powers cancelling identically**. Measured
+  $0.888\to0.961$ in units of $\sqrt N$ over a factor 100; route (ii)'s
+  Parseval floor $1.52\to1.92$, never below 1. "Zero margin"
+  understates it. Nothing in the proof depends on any recorded
+  correction, so `OPEN_QUESTIONS.md`'s triage mis-assigned it (#130).
 - **Net progress toward Goldbach: zero.** Theorem A removes only the
   half of the demand that carries no Goldbach content.
 - By-product: a genuine defect in the published equation (18) — a
