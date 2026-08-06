@@ -1,0 +1,19 @@
+mu ready, M = 17916  t=2s
+
+(F1)(F2)(F3) C4 with 40 null draws per level instead of 6
+  Q     real  null mean   null sd   thresh  T in sd  meas in sd  noise<T
+  1    3.178      3.323     1.344    1.662    -1.24       -0.11    14.3%
+  2   insufficient grid
+  3   insufficient grid
+  4    3.287      2.999     1.280    1.500    -1.17       +0.23     9.7%
+  5    4.843      2.851     0.990    1.425    -1.44       +2.01     3.2%
+  6    1.017      2.932     1.108    1.466    -1.32       -1.73     8.6%  ALIVE
+
+    (F1) reduced replication returns C4's verdict (0 alive levels): FAIL  (1 alive)
+    (F2) false-ALIVE rate on pure noise below 5%: FAIL  (8.80% of 125 null draws)
+    (F3) the threshold sits -1.29 sd from the null on average;
+         the measurement sits +0.10 sd, range -1.73 to +2.01
+    C4's criterion is a 1.3-sigma test and pure noise satisfies it 8.8% of the time. Over six levels the chance of at least one spurious ALIVE is 42%, so the original's '0 alive of 6' had probability 58% under pure noise and is unremarkable. This run flagged 1 of 4 usable levels, exactly what that rate predicts -- so (F1)'s failure is (F2)'s consequence, not an infidelity. The DEAD direction is not undermined -- a trigger-happy test that did not trigger is still evidence of absence -- but the closure's STATED basis is wrong: it must rest on the measurement (+0.10 sd on average, never systematically below the null) and not on '0 of 6 levels flagged'
+
+    ⚠️ 2 of 6 levels were unusable at reduced N ('insufficient grid'), so the reduction is partial and the per-level numbers are the deliverable, not the count
+DONE
