@@ -127,6 +127,8 @@ prediction 0.798·√s_pred matches the measured |C|/√n_p to 1.5%
 (`code/e1_mask_model.py`). The mask is an algorithm, not an
 observation.
 
+✅ **Re-tested at increment 284 on 285,050 pairs** (against the ~12,000 behind the original stamp): excess kurtosis **−0.0034 (z = −0.4)**, `E|Z|/sd = 0.79760` against `√(2/π) = 0.79788` (**z = −0.2**), variance ratio 0.99781, and **no class structure** — `gcd(k,N)` splits give `|z| ≤ 2.5` with variance ratios 0.978–1.020. **This half of the law holds at 26× the precision it was recorded with.** M.3 is exact in both directions on 401,000 pairs: 115,950 predicted zeros, 115,950 observed, none predicted-but-nonzero and **none unpredicted** — so there is no second annihilation mechanism. ⚠️ And the reason this half was safe: repeating it with a *band-mean* support instead of the exact per-`k` count gives excess kurtosis **+0.4645 (z = +50.6)**, because support varies **40.4%** across `k`. §7 counted directly and stepped over the trap that §12's `𝔖N`-based scale fell into (`code/lab_conjL_original_audit.py`).
+
 **Matrix-level closure (with correction #26)**: the full 400×400
 C-matrix on a k-band has spectral norm 36.76 vs the correct
 factorization null (random-sign rows on the real support pattern,

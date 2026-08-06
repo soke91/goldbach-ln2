@@ -126,6 +126,42 @@ with `𝔖N` anyway.
 > **Corrected form**: `C(N) = m(N) + √(V(N))·G(N)`, `G` Gaussian,
 > `V(N) = Σ_v μ²(v)Λ(N−v)²`, `m(N)` the location mask.
 
+### The original half, re-tested at that precision (increment 283 → 284)
+
+The claim above was corrected for the **extension** to `C(N)`. The
+**original** claim — for the μ-families `D(k) = Σ_m μ(m)μ(N−mk)` — was
+stamped at "kurtosis 2.99–3.03" on ~12,000 pairs, i.e. `±0.045`. Retested
+on **285,050** pairs (401 even `N`, 1000 values of `k`),
+`code/lab_conjL_original_audit.py`:
+
+| statistic | measured | Gaussian | z |
+|---|---|---|---|
+| excess kurtosis | **−0.0034** | 0 | **−0.4** |
+| skewness | −0.0075 | 0 | −1.6 |
+| `E\|Z\|/sd` | **0.79760** | 0.79788 | **−0.2** |
+| variance ratio `E[D²]/support` | 0.99781 | 1 | — |
+
+**It holds.** Exactly Gaussian at half-normal scale, now to `±0.009` in
+excess kurtosis rather than `±0.045`. And **no class structure**, as
+claimed: splitting by `gcd(k,N)` gives `|z| ≤ 2.5` across four classes
+and variance ratios 0.978–1.020, a spread consistent with sampling.
+
+**Why this half was safe and the other was not.** The same trap was
+available here and the original work stepped over it. Repeating the
+test with a **band-mean** support in place of the exact per-`k` count:
+
+| normaliser | excess kurtosis | z | `E\|X\|/sd` z |
+|---|---|---|---|
+| exact per-`k` support (what §7 used) | −0.0034 | −0.4 | −0.2 |
+| band-mean support — the stand-in | **+0.4645** | **+50.6** | **−13.1** |
+
+Support varies by **40.4%** across `k` (range [416, 4619]), so a
+constant stand-in manufactures a mixture exactly as `𝔖N` did for the
+wall. **§7 counted the zero terms directly and was right; the `C(N)`
+extension used a fitted `𝔖N`-based scale and was wrong at z = 98.** One
+program, both halves, and the difference is whether the exact quantity
+was available *and used*.
+
 with `m(N)` a **location** mask — a deterministic mean indexed by
 which small primes divide N, reaching 9 standard deviations below zero
 for primorial N — and `√𝔖(N)` a **scale** mask. Both are finite

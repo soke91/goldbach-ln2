@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 283 (2026-08-07). 5 days, 75 recorded corrections,
+*Increment 284 (2026-08-07). 5 days, 77 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -103,7 +103,12 @@ of it.
   only under the **exact** second moment $V(N)=\sum_v\mu^2(v)\Lambda(N-v)^2$
   (excess kurtosis $-0.0005$, $z=-0.3$); under the $\mathfrak S N$-based
   scale this program displays it **fails at $z=98$** (inc. 283). Every "sub-random" reading in this program's history
-  is mask accounting.
+  is mask accounting. The **original** half (the $\mu$-families
+  $D(k)$) was re-tested at increment 284 on 285,050 pairs and **holds**:
+  excess kurtosis $-0.0034$ ($z=-0.4$), $E|Z|/\mathrm{sd} = 0.79760$
+  against $0.79788$, no class structure. M.3 is **exact in both
+  directions** on 401,000 pairs (115,950 predicted zeros, 115,950
+  observed, none unpredicted).
 - **Five routes adjudicated** against the source papers' verbatim lemma
   hypotheses: all blocked structurally. The common obstruction is that
   the bilinear pair constraint of $\mu(m)\mu(N-mk)$ is diagonalized by

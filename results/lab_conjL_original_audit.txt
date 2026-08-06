@@ -1,0 +1,44 @@
+sieve  t=2s
+401 values of N, 1000 values of k, 401000 pairs
+field built  t=35s
+
+zero-support k: 115950 of 401000 (28.915%) -- M.3's predicted
+annihilations, excluded below and counted here.
+  M.3 check: predicted 115950, observed 115950, predicted-but-nonzero 0, unpredicted zeros 0
+  M.3 EXACT
+  NOTE ON THE SAMPLE: every N here is divisible by 4 (3e6 and the step 2500 both are), so 4 | gcd(k,N) alone
+  annihilates a quarter of the k. That is a property of this N-grid, not of the field; it is stated because a
+  29% zero rate would otherwise read as a general fact.
+
+                   set         n     skew       z  exc.kurt        z   E|X|/sd        z
+         exact support    285050  -0.0075    -1.6   -0.0034     -0.4   0.79764     -0.2
+    Gaussian: 0, 0, 0.79788
+    variance ratio E[D^2]/support = 0.99781
+    pre-registered rule |z_kurt| < 3: SURVIVES
+
+(B) class structure by gcd(k, N) -- the conjecture says none
+                   set         n     skew       z  exc.kurt        z   E|X|/sd        z
+               gcd = 1    135366  -0.0092    -1.4   -0.0100     -0.8   0.79784     -0.0
+               gcd = 2     67778  -0.0101    -1.1   -0.0403     -2.1   0.79885      0.4
+               gcd = 3     15215   0.0060     0.3   -0.0168     -0.4   0.79863      0.2
+              gcd >= 5     66691  -0.0050    -0.5    0.0467      2.5   0.79578     -0.9
+    variance ratio E[D^2]/support by class:
+      gcd =   1: 0.99504   (n = 135366)
+      gcd =   2: 0.99437   (n = 67778)
+      gcd =   3: 0.97776   (n = 15215)
+      gcd =   5: 0.98930   (n = 27198)
+      gcd =   6: 0.99670   (n = 7434)
+      gcd =  10: 1.01950   (n = 13446)
+    spread across classes: 0.04174
+
+(C) the normaliser test: exact per-k support versus a
+    band-mean stand-in -- increment 283's question, asked
+    of the other half of the conjecture
+                   set         n     skew       z  exc.kurt        z   E|X|/sd        z
+         exact support    285050  -0.0075    -1.6   -0.0034     -0.4   0.79764     -0.2
+     band-mean support    285050  -0.0060    -1.3    0.4645     50.6   0.78304    -13.1
+    support varies: mean 1728.2, sd 698.8 (40.4%), range [416, 4619]
+
+(D) half-normal scale: E|Z| against section 7's 0.798
+    E|Z|/sd = 0.79760   half-normal 0.79788   z = -0.2
+DONE
