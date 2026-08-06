@@ -1,0 +1,41 @@
+sieving to 1200000 ...
+
+N = 399998   C/N = -0.00138   r/(S N) = 1.00871   R/N = +0.00967
+   theta        K       E3/N   (E3-R)/N
+    0.30       47    0.00609   -0.00358
+    0.40      174   -0.01893   -0.02860
+    0.50      632   -0.06103   -0.07070
+    0.56     1371   -0.12515   -0.13482
+    0.62     2973   -0.28838   -0.29805
+    0.70     8345   -0.87608   -0.88574
+  spread over theta>=0.5: 0.81505   max |E3-R|/N there: 0.88574
+  identity check at K=2973: sum_k mu(k)*AP = -16339.1354, sum_k sum_m mu(m)Lam(N-mk) = -16339.1354, diff = 7.276e-12
+  predicted |E3| ~ 2 sqrt(NK) log K = 5.516e+05   measured |E3| = 1.154e+05   ratio = 0.209
+
+N = 799998   C/N = +0.00705   r/(S N) = 0.98904   R/N = -0.01039
+   theta        K       E3/N   (E3-R)/N
+    0.30       59   -0.02070   -0.01031
+    0.40      229   -0.10828   -0.09788
+    0.50      894   -0.32887   -0.31847
+    0.56     2021   -0.65320   -0.64281
+    0.62     4569   -1.23498   -1.22458
+    0.70    13556   -2.64769   -2.63730
+  spread over theta>=0.5: 2.31883   max |E3-R|/N there: 2.63730
+  identity check at K=4569: sum_k mu(k)*AP = -147141.5761, sum_k sum_m mu(m)Lam(N-mk) = -147141.5761, diff = 0.000e+00
+  predicted |E3| ~ 2 sqrt(NK) log K = 1.019e+06   measured |E3| = 9.880e+05   ratio = 0.970
+
+N = 1199998   C/N = -0.00118   r/(S N) = 0.99964   R/N = -0.00203
+   theta        K       E3/N   (E3-R)/N
+    0.30       66    0.00692    0.00895
+    0.40      270   -0.01428   -0.01224
+    0.50     1095   -0.03761   -0.03558
+    0.56     2537   -0.08537   -0.08334
+    0.62     5876   -0.22374   -0.22171
+    0.70    18006   -0.73664   -0.73461
+  spread over theta>=0.5: 0.69903   max |E3-R|/N there: 0.73461
+  identity check at K=5876: sum_k mu(k)*AP = -33053.1107, sum_k sum_m mu(m)Lam(N-mk) = -33053.1107, diff = 1.455e-11
+  predicted |E3| ~ 2 sqrt(NK) log K = 1.458e+06   measured |E3| = 2.685e+05   ratio = 0.184
+
+Pre-registered: CONFIRMED if |E3-R|/N <= 0.05 with no
+systematic drift in K; PROBLEM otherwise.
+DONE

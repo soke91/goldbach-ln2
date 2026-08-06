@@ -147,6 +147,42 @@ code: `code/thmA_audit.py`, `thmA_scale.py`, `thmA_logw.py`,
 `thmA_mtlog.py`, `thmA_fix.py`, `thmA_E3.py`,
 `thmA_density_check.py`.*
 
+## Theorem C is not numerically testable below ~10¹³ (increment 209)
+
+Worth stating next to the theorem, because the obvious check fails and
+a reader could mistake that for evidence against it.
+
+Theorem C's right-hand side R(N) := r(N) − 𝔖(N)(N − C(N)) is
+**α-free**, so the theorem predicts E₃(α) is α-independent up to its
+error term. Sweeping θ ∈ [0.30, 0.70] with K = N^θ at
+N = 4·10⁵, 8·10⁵, 1.2·10⁶ (`code/thmC_alpha_scan.py`), E₃/N instead
+drifts monotonically — at N = 8·10⁵ from −0.021 to −2.648 — and
+|E₃−R|/N reaches 2.64 against a pre-registered tolerance of 0.05.
+**The test returns PROBLEM, and the diagnosis is that it has no power
+here, not that the identity is in doubt.**
+
+The reason is exact. For squarefree k,
+μ(k)·μ(mk) = μ(m)μ(k)² = μ(m), so
+
+> **Σ_{k<K} μ(k)·[AP sum at k] = Σ_{k<K} Σ_{(m,k)=1} μ(m)Λ(N−mk)**
+
+— verified to machine precision (differences 7·10⁻¹², 0, 1.5·10⁻¹¹).
+The k-weight in E₃ is therefore **log k with no sign**: E₃ gets no
+cancellation in k. That is the μ(k)² = 1 mechanism of Theorem A
+appearing a third time, here working against us. The resulting scale
+is |E₃| ≲ 2√(NK)·log K, which bounds the measurements in all three
+cases (ratios 0.21, 0.97, 0.18), so
+
+> E₃/N ≍ N^{−(1−θ)/2}·log K.
+
+This tends to 0 — Theorem C's error term is fine asymptotically, since
+N^{(1+θ)/2} ≪_A N(log N)^{−A} — but only as a small power of N. At
+θ = 0.7 one needs **N ≳ 10¹³** for E₃/N < 0.05. So the identity
+cannot be confirmed or refuted by computation in the accessible range,
+and increment 191's checks were of the constituent constants
+(B(K) → −𝔖(N), the density identity) rather than of the identity
+itself — which is the right thing to have checked.
+
 ## Theorem D — the demand side is empty (increment 195)
 
 Theorems A and C treat the two weights that occur in Huang–Li,
