@@ -1,0 +1,15 @@
+N = 210210,  rad(N) = [2, 3, 5, 7, 11, 13]
+
+                                 proposition  verdict   evidence
+            M.1 forcing: v coprime to rad(N)     PASS   18620 live v, 0 violations, 44 stated exceptions
+              M.2 identity C = (Sum T_j) R_A     PASS   grouped -10950.810211 vs direct -10950.810211
+    M.3 support mask: q^2|gcd(k,N) => D(k)=0     PASS   9 such k, 0 nonzero
+                          P.1 split identity     PASS   -10950.810211 vs -10950.810211
+                            P.2 losslessness     PASS   206530.219202 vs 206530.219202
+     P.3a  Sum_w mu^2(w) G_w = trivial bound     PASS   206530.219202 vs 206530.219202
+ P.3b  -Sum_w mu(w) G_w = C(N) - Lambda(N-1)     PASS   -10950.810211 vs -10950.810211
+         P.5 effective terms: (m, rad N) = 1     PASS   14627 terms, 0 violations, 28 exceptions
+  P.7 forced signs: -1 at m=1, +1 at m prime     PASS   0 violations
+
+ALL PASS
+DONE

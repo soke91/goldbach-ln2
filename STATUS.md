@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 274 (2026-08-06). 4 days, 60 recorded corrections,
+*Increment 275 (2026-08-06). 4 days, 60 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -198,7 +198,10 @@ slope 1 — remains unexamined because nobody knows how to build it.
 
 - **Read first**: `paper/negative_map.tex`; then `CLOSURE_REAUDIT.md`
   for what has been withdrawn and why.
-- **Entry point**: MEASUREMENTS.md, then `python code/verify_all.py`.
+- **Entry point**: MEASUREMENTS.md, then `python code/verify_all.py`
+  for the measurement corpus, and `python code/verify_propositions.py`
+  for the proved statements — M.1–M.3 and P.1–P.7, nine exact checks
+  in seconds, every one written so that it can come out false.
 - **The theorems**: THEOREM_A.md → `paper/theorem_A.tex`.
 - **The wall's deterministic term**: LOCATION_MASK.md — C(N) is not
   mean-zero. Propositions M.1–M.3, the derivation and where it stops,
