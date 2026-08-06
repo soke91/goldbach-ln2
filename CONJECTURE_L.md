@@ -84,53 +84,92 @@ permuted control reaching 1.66). What `D(k)` carries instead is a pure
 `q² | N−mk` for every m, hence `D(k) = 0` identically — 1212 predicted
 zeros, all observed.
 
-**Outside it, the extension made in MEASUREMENTS §12 was wrong in two
-places** (corrections #36, #45) and its corrected form needs three
-masks, not one:
+**Outside it, the extension to `C(N)` is a different statement, and the
+form below is the current one.** Its history — five superseded versions
+between increments 236 and 289 — is in `CLOSURE_REAUDIT.md` (#36, #45,
+#67, #68, #74, #75, #83, #84, #86, #87) and nowhere else.
 
-> `C(N) = m(N) + √(κ·𝔖(N)·N·log N) · G(N)`,  κ ≈ 0.465,
+> **The wall's law.**  `C(N) = m(N) + √(V(N))·G(N)`
 >
-> ⚠️ the `log N` and the `κ` are **assumed shape, not measurement** —
-> increment 280 shows the exponent still walking with the fitting window
-> and a pure power of `N` fitting as well; only `α ≠ 0` is established
+> - `V(N) = Σ_{v<N} μ²(v)Λ(N−v)²`, the **exact** second moment
+> - `m(N)`, the **location mask**, a deterministic term indexed by
+>   which small primes divide `N`
+> - `G(N)`, Gaussian — in the bulk **and in the tail**
 
-⚠️ **And that normaliser does not deliver the Gaussianity this
-conjecture claims** (increment 283, `code/lab_gaussian_half_audit.py`).
-Tested on every even `N ≤ 1.6·10⁷`, cell means removed, band
-standardised:
+Four things are now known about it, all measured on every even
+`N ≤ 1.6·10⁷` with the mask removed by finite modular enumeration.
 
-| normaliser | excess kurtosis | z | `E\|X\|/sd − √(2/π)` | z |
-|---|---|---|---|---|
-| `√(κ𝔖(N)N log N)` — **as displayed above** | **+0.1704** | **98.1** | −0.00619 | −29.0 |
-| `√(V(N))`, `V = Σ_v μ²(v)Λ(N−v)²` — exact | **−0.0005** | −0.3 | −0.00018 | −0.8 |
+**1. The scale is closed-form** (Proposition V, increment 287).
+`Λ(w)²` lives on prime powers with weight `(log p)²`, so `V(N)` is a
+`(log p)²`-weighted count of **squarefree shifted primes**. Its local
+density is `1` at `q | N` (there `q²|(N−p)` forces `p = q`) and
+`1 − 1/(q(q−1))` at `q ∤ N` (a unit class mod `q²`). Hence, with
+`W(N) = Σ_{w<N}Λ(w)²` — a prefix sum independent of `N`'s
+factorisation —
 
-**The Gaussian half is true, and truer than ever measured — under the
-right normaliser.** With `V(N)` the fluctuation is Gaussian to
-`−0.0005 ± 0.0017` in excess kurtosis on 6.3·10⁶ values, and removing
-cell *means* alone suffices. Under the displayed `𝔖N`-based scale it
-fails at **z = 98**.
+> `V(N) = W(N)·𝔄(N)·(1+o(1))`,
+> `𝔄(N) = ∏_{q∤N}(1 − 1/(q(q−1)))`, so `V(N) ~ 𝔄(N)·N·log N`.
 
-The two are not interchangeable: `(𝔖N)/V` has mean 0.165, sd 0.049 and
-range [0.113, 0.488], and **93.7% of that variance is explained by the
-same divisibility cells**. So `κ𝔖(N)N log N` matches `V` in the *mean*
-at reachable `N` (`κ log N ≈ 6.5` against `V/(𝔖N) ≈ 6.05`) and gets its
-*fluctuation* wrong.
+Mirsky 1949 plus partial summation; recalled, not claimed. Verified to
+`1.000000 ± 0.000145`, and per radical cell to five decimals.
 
-**This also dissolves increment 280's puzzle.** `α` was unidentifiable
-because `κ𝔖N(log N)^α` is a **fitted stand-in for an exact quantity**;
-there is no true `α` to identify. The wall's scale is `V(N)`, which
-needs no fit, and increment 238 said so — `"the normaliser that needs no
-fitting is the exact second moment"` — before the conjecture was written
-with `𝔖N` anyway.
+**The local factor is `𝔄`, not `𝔖`.** Rescaled so only shape in `N` is
+judged, the residual sd is **0.000323** for `𝔄` against **0.245235**
+for `𝔖` — a factor of 760. `𝔖` is Hardy–Littlewood's, correct for the
+Goldbach *count*; the *noise* has a different local factor, and the two
+are both products over `q | N`, which is why the substitution survived
+so long.
 
-> **Corrected form**: `C(N) = m(N) + √(V(N))·G(N)`, `G` Gaussian,
-> `V(N) = Σ_v μ²(v)Λ(N−v)²`, `m(N)` the location mask.
+**2. The bulk is Gaussian, under that scale and no other**
+(increment 283). Excess kurtosis **−0.0005 (z = −0.3)**, `E|X|/sd`
+short of `√(2/π)` by 0.00018 (z = −0.8), on 6.3·10⁶ values, needing
+cell **means** alone. Under an `𝔖N`-based scale the same data give
+**+0.1704 at z = 98** — a normaliser that manufactures a heavy tail.
 
-**And `V(N)` is not opaque** (increment 287, **Proposition V**). Expanding it gives a `(log p)²`-weighted count of squarefree shifted primes, so with `W(N) = Σ_{w<N}Λ(w)²`,
+**3. The variance ratio, and what its excess is.** Write
+`ρ(N) = Var C(N)/V(N)`, which is exactly `1` if the `μ(v)` on the
+surviving support were independent signs. Measured, mask removed, it
+**rises** 0.760 → 0.837 (increment 288); the raw ratio falls
+1.006 → 0.858 and the two converge as the mask decays like `N^{−1/2}`.
+So the wall beats a coin, by a margin that is **shrinking**. Whether
+`ρ → 1` is not settled — the model comparison returns INDETERMINATE and
+every parameter still walks.
 
-> `V(N) = W(N)·𝔄(N)·(1+o(1))`, where `𝔄(N) = ∏_{q∤N}(1 − 1/(q(q−1)))`  — Mirsky 1949.
+What `ρ − 1` *is* was settled (Proposition W, increment 289). Expanding
+`C(N)²` with `u = N−p`, `h = p′−p`:
 
-Measured to `1.000000 ± 0.000145` on every even `N ≤ 1.6·10⁷`. ⚠️ **The local factor is `𝔄(N)`, not `𝔖(N)`** — residual sd **0.000323** against **0.245235**, a factor of 760. `𝔖` is the singular series of the *count*; the *noise* has a different one, and substituting the first for the second is what made the displayed formula fail at `z = 98`.
+> `ρ − 1 = (1/V)·Σ_{h≠0} c(h)·S(h)`, with `c(h) = Σ_{p′−p=h}(log p)(log p′)`
+> a weighted prime-pair count and `S(h) = ⟨μ(u)μ(u−h)⟩` the **binary
+> Chowla correlation**.
+
+The wall's excess over square-root cancellation *is* a prime-pair-
+weighted Chowla correlation. Chowla-type input therefore forces
+`ρ → 1`, and then **the wall is exactly square-root** — nature
+over-delivers by a power of `log` and no more. Measured: `S(h)` sits at
+**1.051–1.068×** the random-sign floor `√(0.32264(X−h))` across five
+decades of shift; the reconstruction gives `ρ−1 = −0.0976` against a
+measured `−0.18`; the sign is negative. And the mass sits at
+`h ≈ 10⁵–10⁶` — shifts below `10³`, where Chowla is hardest and the
+averaged theorem weakest, carry **1.1%**.
+
+**4. The tail is Gaussian too** (increment 290) — which is the half
+that matters, since `C(N) = o(N)` constrains every `N` and a bulk can
+match to five decimals while the tail is heavy. `max|Z|` tracks the
+Gumbel law with mean deviation **+0.54 ± 0.45** from `E[max]` over
+eight bands; aggregate tail counts give ratios **0.999** (`t=3`),
+**0.997** (`t=4`), 0.878 (`t=5`); and the extremes are attained at
+**generic** `N` (`2·8317`, `2·138917`, …), not at deep radicals, so the
+mask removal is not leaking into the tail.
+
+**The margin, at the extreme rather than at a typical `N`.**
+`max|C| ≈ a_n√(𝔄(N)N log N)` gives `√N/(a_n√(𝔄 log N))` over the
+requirement: `10^{4.4}` at `N = 10¹²`, **`10^{22.8}` at `10⁵⁰`**. The
+requirement is not remotely tight; the whole difficulty is in *proving*
+`o(N)`.
+
+**Scope.** All four are measured at `N ≤ 1.6·10⁷`. Nothing here
+constrains the sizes at which this program's own no-go theorems begin
+to bite — `N ≈ 10⁴⁸⁰` and beyond.
 
 ### The original half, re-tested at that precision (increment 283 → 284)
 

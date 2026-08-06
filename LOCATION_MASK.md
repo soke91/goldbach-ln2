@@ -149,18 +149,15 @@ flat to 0.5%, so
 > second moment `Σ_v μ²(v)Λ(N−v)²`, against which the measured variance
 > runs 1.006 → 0.873.
 
-⚠️ **Re-audited at increment 280, and the exponent does not survive.**
-That fit ran at increments 236–238; **this mask was found at increment 240**,
-two increments later, and the law was never re-fitted. `sd(G)` there is
-`g.std()`, which removes one band-wide mean — so `m(N)` sat inside the
-measured variance the whole time. Removing it by the same modular
-enumeration that defines it (`code/lab_variance_law_reaudit.py`,
-`N ≤ 1.6·10⁷`) shows the mask supplying **14.1% of the variance at
-`N≈10⁵`, falling to 1.15% at `1.6·10⁷`**, and moving the fitted exponent
-by **0.29**. **Neither exponent is a measurement**: raw walks 0.83 → 1.02
-as the window grows, de-masked walks 1.60 → 1.30, neither has converged,
-and both drifts are ten times the quoted standard error. What survives is
-only that `α = 0` is excluded — the variance grows faster than `𝔖N`.
+That fit is superseded. It ran at increments 236–238, two increments
+before this mask was found, and was never redone; `sd(G)` there removes
+one band-wide mean, so `m(N)` sat inside the measured variance
+throughout, supplying **14.1% of it at `N≈10⁵`** and 1.15% at
+`1.6·10⁷`. Removing it moves the fitted exponent by 0.29 — and neither
+exponent is a measurement, since both walk with the window (raw
+0.83→1.02, de-masked 1.60→1.30). The wall's scale is the **exact**
+second moment `V(N) = Σ_v μ²(v)Λ(N−v)²`, which needs no fit at all;
+see CONJECTURE_L.md. History: CLOSURE_REAUDIT.md #36, #67, #68, #83.
 
 ### The mask's own scaling law (increment 280)
 

@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 290 (2026-08-07). 5 days, 88 recorded corrections,
+*Increment 291 (2026-08-07). 5 days, 89 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -17,8 +17,19 @@ the exponent-level analysis of the error terms.
 **CI stamp: `code/verify_all.py`** — repaired at increment 285. It had **no assertions and no failure path**: its criteria were characters inside output strings and it exited 0 regardless. Every stamp is now judged against a pre-registered interval, prints PASS/FAIL, exits 1 on failure, and carries a sensitivity block showing the verdict can flip. A **deep arm** (`30030 | N`) was added because the old sample forced `N ≡ 2 (mod 6)` and so excluded every `N` divisible by 3 — the cells where the location mask lives.
 **Correction and supersession record: `CLOSURE_REAUDIT.md`** — every
 statement this program has withdrawn, and what replaced it, in one
-place. The other documents carry no correction banners; they state the
-current position directly.
+place. **The other documents state the current position directly and
+do not argue with themselves**: where a statement is superseded its body
+is rewritten, not bannered. Increments 280–290 broke that rule — sixteen
+correction banners accumulated outside this file, and CONJECTURE_L.md
+reached the point of displaying a formula and then denying it three
+times below. Repaired at increment 291 (#89): every body that
+denied itself has been rewritten to state the current position, with the
+superseded form named once and its history pointed here. Six markers
+remain outside this file — three in MEASUREMENTS.md, two here, one in
+LITERATURE.md — and all six are **forward-looking cautions about live
+figures** (which convention a number used; that a cross-check is
+near-algebraic; that the no-go theorems are asymptotic), not denials of
+the text above them.
 
 ## Where things stand
 
@@ -214,17 +225,11 @@ sketch.** The exact identities and every measurement survive.
 The chain reduces to $C(N) = \sum_{n<N}\Lambda(n)\mu(N-n) = o(N)$,
 which is equivalent to the Goldbach asymptotic. Measured over 400 even
 $N$ in five octave groups (MEASUREMENTS §9, `code/h_deficit.py`):
-**$|C(N)| \sim N^{0.503}$** — square-root to three digits, against a
-requirement of merely $o(N)$.
-
-> ⚠️ **Both halves of that sentence are wrong** (increment 281). The
-> design — five groups of 80 *consecutive* even $N$ — re-run 500 times
-> with varied offsets gives $\beta = 0.516 \pm 0.043$, and 0.503 sits at
-> percentile 39. The spread is **43× the 0.001** that "three digits"
-> claims. The full census to $1.6\cdot10^7$ with the mask removed gives
-> $\beta = 0.5457 \pm 0.0032$: **not $1/2$, excluded at 14.5σ**, and
-> exactly what §12's variance law requires. The *requirement* is still
-> only $o(N)$, so the program's position is unchanged.
+**$|C(N)| \sim N^{0.5457\pm0.0032}$** — measurably above square root,
+which is what the variance law requires, against a requirement of merely
+$o(N)$. (§9 recorded $N^{0.503}$, "square-root to three digits", from
+five groups of 80 consecutive even $N$; replicating that design 500
+times gives $0.516\pm0.043$, so all three digits were noise. #70.)
 
 The discrepancy
 $R(N) = r(N) - \mathfrak S(N)(N - C(N))$ grows faster,
@@ -254,26 +259,16 @@ flags out of ~22 statistics**; five variants of $C(N)$ are all
 square-root sized, so there is no softer target; and seven hypotheses
 on $C(N)$ itself fired five flags which resolve into one statement:
 
-> **$C(N) = \sqrt{\mathfrak S(N)\,N}\cdot G(N)$**, with $G$ of unit
-> variance and Gaussian (kurtosis $\to 3$), plus a mean drift decaying
-> with $N$.
+> **$C(N) = m(N) + \sqrt{V(N)}\cdot G(N)$**, with
+> $V(N)=\sum_v\mu^2(v)\Lambda(N-v)^2$ exact, $m(N)$ the location mask,
+> and $G$ Gaussian in the bulk and in the tail.
 
-The mask is the **square root** of the singular series — dividing by
-$\mathfrak S$ itself overshoots, and the exponent solves to
-$0.497, 0.539, 0.460$ across three independent splits. **Conjecture L
-therefore extends to the final object of the whole chain**, which the
-campaign had never checked.
-
-⚠️ **Superseded twice; read `CLOSURE_REAUDIT.md` #36 and #67–#69.**
-The displayed law above is the pre-#36 form: $G$ does **not** have unit
-variance, and the “mean drift decaying with $N$” is the **location mask**
-$m(N)$, found four increments later. Increment 280 measured the mask's own
-scaling — $\mathrm{Var}_{\text{mask}}(Z)\propto N^{-0.489\pm0.005}$, i.e.
-$m(N)\asymp\sqrt{\mathfrak S(N)}\,N^{1/4}$, so it is **lower order and does
-not threaten $C(N)=o(N)$** — and found that the replacement law's exponent
-is **not identified**: it still walks with the fitting window, and a pure
-power of $N$ fits the range as well as $\log N$ does. What is established
-is only that the variance grows **faster than** $\mathfrak S N$.
+The mask $m(N)$ is lower order, $symp\sqrt{\mathfrak S(N)}N^{1/4}$, so it
+does not threaten $C(N)=o(N)$. The form this section carried until
+increment 283 — $\sqrt{\mathfrak S(N)N}\,G(N)$ with $G$ of unit variance
+and a "mean drift decaying with $N$" — is superseded; that drift was the
+mask, and the scale was wrong. History in `CLOSURE_REAUDIT.md`
+#36, #67–#69, #74, #83.
 
 ### 4. The measurement corpus — the primary artifact
 

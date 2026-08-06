@@ -196,18 +196,13 @@ across the octaves:
 > **|C(N)| ~ N^{0.503}** — square-root, to three digits
 > **|R(N)| ~ N^{0.599}**
 
-⚠️ **"To three digits" is refuted, and the exponent is not 0.503**
-(increment 281, `code/lab_wall_exponent_reaudit.py`). This design uses
-five groups of **80 consecutive even N** — each group spans 160 in `N`,
-and a scale estimated from 80 samples has sampling CV ≈ 7.9%. Re-running
-*this exact design* 500 times with the group offsets varied (fixed seed)
-gives
-
-> **β = 0.516 ± 0.0426**, 5th–95th percentile **[0.447, 0.585]**.
-
-The recorded 0.503 sits at **percentile 39** — an entirely ordinary
-draw. The replication spread is **43× the 0.001** that "three digits"
-asserts. Not an argument that the design is imprecise: a demonstration.
+That precision is not real, and the exponent is not 0.503. The design
+uses five groups of **80 consecutive even N** — each spans 160 in `N`,
+and a scale from 80 samples has sampling CV ≈ 7.9%. Re-running *this
+exact design* 500 times with the group offsets varied gives
+**β = 0.516 ± 0.0426**, 5th–95th percentile **[0.447, 0.585]**, with the
+recorded 0.503 at **percentile 39** — an ordinary draw, and a spread
+**43× the 0.001** that "three digits" asserts.
 
 **The real number**, from the full census of every even `N ≤ 1.6·10⁷`
 with the location mask removed:
@@ -449,23 +444,17 @@ the mean varying by two orders: 0.012, 0.121, 0.419, −0.002, −0.324,
 **−1.682**. That residual is a **location mask**, and it is the largest
 single signal in the whole sweep.
 
-> **C(N) = m(N) + √(κ·𝔖(N)·N·log N)·G(N)**, with `κ ≈ 0.465`, `m(N)`
-> the location mask of LOCATION_MASK.md, and G Gaussian once **both**
-> masks are applied — every tail inside 3 SE and the extreme at
-> z = +0.61.
+> **C(N) = m(N) + √(V(N))·G(N)**, with `V(N) = Σ_v μ²(v)Λ(N−v)²`
+> the **exact** second moment, `m(N)` the location mask of
+> LOCATION_MASK.md, and `G` Gaussian — in the bulk *and* in the tail.
 
-⚠️ **The `log N` and the `κ` are not measured** (increment 280). The
-exponent in `(log N)^α` walks with the fitting window — 1.60 → 1.30 with
-the mask removed, 0.83 → 1.02 with it left in — and neither has converged;
-the drifts are ten times the standard errors. Over this range a pure power
-`N^ε` fits **as well or better** (residual ratio 0.45 raw, 1.91 de-masked,
-against a bar of 2 fixed before the run), so the log factor is *consistent
-with* the data rather than *shown by* it, and `κ` is whatever `α` is
-assumed to be. **What is measured is that `α = 0` is excluded**: the
-variance grows faster than `𝔖N`. Read the formula as a shape with one
-established feature, not as a fitted law.
+The form this section originally displayed used a fitted `√(κ·𝔖(N)·N·log N)` with `κ ≈ 0.465`. It is superseded; its history is in CLOSURE_REAUDIT.md (#36, #45, #67, #68, #74, #75, #83) and nowhere else. Three things went wrong with it, and all three are now settled:
 
-⚠️ **And it is the wrong normaliser** (increment 283). Under this `𝔖N`-based scale the fluctuation is **not Gaussian**: excess kurtosis **+0.1704 (z = 98.1)**, `E|X|/sd` short of `√(2/π)` by −0.0062 (z = −29), on every even `N ≤ 1.6·10⁷`. Under the **exact second moment** `V(N) = Σ_v μ²(v)Λ(N−v)²` the same data give excess kurtosis **−0.0005 (z = −0.3)**, cell **means** alone. `(𝔖N)/V` varies with sd 0.049 about a mean of 0.165, **93.7% of it cell-explained**. So `κ𝔖N log N` is a fitted stand-in that matches `V` in the mean and misses its fluctuation — which is also why `α` above would not converge. **Use `√V(N)`; it needs no fit.** And `V(N)` now has a closed form: `V(N) = W(N)·𝔄(N)·(1+o(1))` with `W(N) = Σ_{w<N}Λ(w)²` and `𝔄(N) = ∏_{q∤N}(1−1/(q(q−1)))` (**Proposition V**, increment 287; Mirsky 1949 plus partial summation). Verified to `1.000000 ± 0.000145`. The local factor is `𝔄`, **not** `𝔖` — residual sd 0.000323 against 0.245235.
+- **the exponent was never identified** — it walked with every fitting window (1.60 → 1.30 de-masked, 0.83 → 1.02 raw), because `κ𝔖N(log N)^α` is a *fitted stand-in for an exact quantity* and there is no `α` to find;
+- **the normaliser was wrong** — under it the fluctuation is not Gaussian (excess kurtosis **+0.1704, z = 98.1**); under `V` it is (**−0.0005, z = −0.3**), cell means alone;
+- **the local factor was the wrong one** — `V` has the closed form `W(N)·𝔄(N)(1+o(1))` with `W(N) = Σ_{w<N}Λ(w)²` and `𝔄(N) = ∏_{q∤N}(1−1/(q(q−1)))` (**Proposition V**; Mirsky 1949 plus partial summation), verified to `1.000000 ± 0.000145`. Rescaled so only shape in `N` is judged, `𝔄` leaves residual sd **0.000323** against `𝔖`'s **0.245235**. `𝔖` is the singular series of the *count*; the *noise* has a different one.
+
+`V` needs no fit, so the law above carries no fitted parameter at all.
 
 This extends Conjecture L to the wall's own scalar, which the campaign
 had never done, but on **three** masks and not one: support, scale and
