@@ -1,0 +1,29 @@
+sieve + V + C  t=17s
+  band 1/8 exact  t=95s
+  band 2/8 exact  t=170s
+  band 3/8 exact  t=246s
+  band 4/8 exact  t=319s
+  band 5/8 exact  t=393s
+  band 6/8 exact  t=468s
+  band 7/8 exact  t=546s
+  band 8/8 exact  t=622s
+
+(T1) coin: mean debiased d^2 over 4096 cell-draws = +0.02044 +/- 0.00287  (z = +7.11),
+     implied share 0.0200  ->  FAIL
+
+(T2)(T3) the mask's share, per cell and pooled
+                 band    rho  deepest d    share  cells>50%   N in them    pooled
+   100000-     200000  0.976     -7.089    0.981         10    2.23e-02    0.1756
+   200000-     400000  0.931     -5.905    0.974          9    1.91e-02    0.1334
+   400000-     800000  0.907     -6.403    0.978          8    1.90e-02    0.0986
+   800000-    1600000  0.878     -5.816    0.975          8    1.51e-02    0.0718
+  1600000-    3200000  0.866     -4.977    0.966          7    1.03e-02    0.0498
+  3200000-    6400000  0.866     -4.403    0.957          5    9.92e-03    0.0346
+  6400000-   12800000  0.857     -3.885    0.946          4    1.93e-03    0.0235
+ 12800000-   16000000  0.854     -3.584    0.937          4    1.93e-03    0.0182
+
+    (T3) the pooled share falls faster than the deepest cell's: PASS
+         pooled  0.1756 -> 0.0182  (factor 9.6)
+         deepest 0.9808 -> 0.9368  (factor 1.05)
+    the debiasing does not zero out on a coin; every share here is inflated and none of it reads
+DONE
