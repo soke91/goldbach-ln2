@@ -1,0 +1,16 @@
+reusing 40 cached runs from Z:\업무\소수증명\goldbach-ln2\results\audit_stamp_calibration_raw_verify_deep.json
+intervals re-read from verify_deep.py: [0.83, 1.07], [0.62, 0.82], [0.08, 0.37]
+
+the CI stamp under 40 seeds (default is one seed, 211)
+row                                           mean        sd       min       max         interval   margin
+깊은 팔 반정규 (30030|N, 300N)                    0.9476    0.0293    0.8885    1.0035     [0.83, 1.07]      4.0
+얕은 팔 반정규 (3∤N, 300N)                        0.7238    0.0245    0.6694    0.7633     [0.62, 0.82]      3.9
+마스크 서명: 깊은 팔 − 얕은 팔                         0.2238    0.0357    0.1502    0.3077     [0.08, 0.37]      4.0
+
+    (S) identity rows have sd exactly 0: n/a  (0 identity row(s))
+    (C) every statistical row has 2 <= margin <= 20: PASS
+    (F) stamp-wide failure rate across seeds: 0.0%  ->  PASS
+
+    (D) two stated standard errors, measured for the first time
+    the gate is calibrated: every statistical row sits between 2 and 20 sigma inside its interval, and no seed fails
+DONE

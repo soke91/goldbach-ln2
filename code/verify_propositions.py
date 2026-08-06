@@ -228,6 +228,16 @@ def main():
           f"'violations == 0', so a single injected violation flips "
           f"them by construction")
     print(f"\n{'SENSITIVITY OK' if sens_ok else 'A CHECK CANNOT FAIL'}")
+
+    # 증분 307. 이 파일은 CLOSURE_REAUDIT #61이 "실패할 수 없는 검사"의
+    # **답**으로 내세우는 파일이고 STATUS가 재현 명령으로 인용하는데,
+    # 정작 자기는 'SOMETHING FAILED'와 'A CHECK CANNOT FAIL'을 찍고도
+    # **종료코드 0으로 끝났다**. 민감도 블록은 있고 실패 경로가 없었다 —
+    # 위험 6번 셋째 형태가 그 형태의 수리로 지목된 파일 안에 있었다.
+    # `code/lint_gates.py`가 기계로 잡는다.
+    if not (allok and sens_ok):
+        print("DONE (failed)")
+        sys.exit(1)
     print("DONE")
 
 

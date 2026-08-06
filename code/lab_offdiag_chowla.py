@@ -183,6 +183,10 @@ def main():
     print("    theorem weakest, carry the LEAST gross mass. The wall")
     print("    leans on large shifts, where that theorem is strongest.")
     print(f"\n{'ALL THREE PASS' if (ok_A and ok_B and ok_C) else 'SOMETHING FAILED'}")
+    # 증분 307: 이 줄은 판정을 알리면서 나쁜 쪽을 돌려줄 수 없었다.
+    if not (ok_A and ok_B and ok_C):
+        print("DONE (failed)")
+        sys.exit(1)
     print("DONE")
 
 

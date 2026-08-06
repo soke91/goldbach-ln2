@@ -86,9 +86,13 @@ except Exception:
 
 R = 40
 HERE = os.path.dirname(os.path.abspath(__file__))
-STAMP = os.path.join(HERE, "verify_all.py")
+# 감사 대상은 인자로 받는다. 기본은 verify_all.py — 증분 307에서
+# verify_deep.py가 게이트를 갖게 되면서 같은 교정이 필요해졌다.
+TARGET = sys.argv[1] if len(sys.argv) > 1 else "verify_all.py"
+STAMP = os.path.join(HERE, TARGET)
 CACHE = os.path.join(os.path.dirname(HERE), "results",
-                     "audit_stamp_calibration_raw.json")
+                     "audit_stamp_calibration_raw_"
+                     + TARGET.replace(".py", "") + ".json")
 
 
 def collect():
@@ -130,6 +134,21 @@ def main():
     names = [runs[0][2][i]["name"] for i in range(nrows)]
     los = np.array([runs[0][2][i]["lo"] for i in range(nrows)])
     his = np.array([runs[0][2][i]["hi"] for i in range(nrows)])
+    if os.environ.get("STAMPCAL_REUSE"):
+        # 캐시된 값은 그대로 쓰되 **구간은 지금 파일에서 다시 읽는다**.
+        # 구간을 고친 뒤 재감사할 때 옛 구간으로 판정하면 아무 의미가 없다.
+        dump = os.path.join(tempfile.mkdtemp(prefix="stampcur_"), "cur.json")
+        env = dict(os.environ)
+        env.pop("STAMPCAL_REUSE", None)
+        env["STAMP_SEED"] = "211"
+        env["STAMP_DUMP"] = dump
+        subprocess.run([sys.executable, STAMP], capture_output=True, env=env)
+        with open(dump, encoding="utf-8") as fh:
+            cur = json.load(fh)
+        los = np.array([cur[i]["lo"] for i in range(nrows)])
+        his = np.array([cur[i]["hi"] for i in range(nrows)])
+        print(f"intervals re-read from {TARGET}: "
+              + ", ".join(f"[{a:g}, {b:g}]" for a, b in zip(los, his)))
     vals = np.array([[x[2][i]["val"] for i in range(nrows)] for x in runs])
     exits = np.array([x[1] for x in runs])
 
@@ -152,16 +171,24 @@ def main():
               f"{vals[:, i].min():>9.4f} {vals[:, i].max():>9.4f} "
               f"{f'[{los[i]:g}, {his[i]:g}]':>16} {mtxt:>8}")
 
-    okS = bool((sd[ident] == 0).all()) if ident.any() else False
+    # 항등식 행이 **없는** 대상이 있다 (verify_deep.py). 첫 판은 그때
+    # okS = False를 내고 요약문이 "항등식 행이 시드에 따라 변한다"는
+    # 거짓말을 찍었다 — 변한 행은 없고 그런 행이 0개였을 뿐이다.
+    # 없는 것을 실패로 세는 것은 판정이 아니라 결함이다.
+    okS = bool((sd[ident] == 0).all()) if ident.any() else None
     stat = ~ident
     tight = stat & (margin < 2.0)
     loose = stat & (margin > 20.0)
     okC = not (tight.any() or loose.any())
-    fail_rate = float((exits != 0).mean())
+    # 실패율은 기록된 종료코드가 아니라 **값과 현재 구간**에서 다시
+    # 계산한다. 값은 구간과 무관하게 시드만으로 정해지므로, 이러면
+    # 구간을 고친 뒤 40회를 다시 돌리지 않아도 된다 (STAMPCAL_REUSE).
+    inside = (vals >= los[None, :]) & (vals <= his[None, :])
+    fail_rate = float((~inside.all(axis=1)).mean())
     okF = fail_rate < 0.10
 
     print(f"\n    (S) identity rows have sd exactly 0: "
-          f"{'PASS' if okS else 'FAIL'}  "
+          f"{'n/a' if okS is None else ('PASS' if okS else 'FAIL')}  "
           f"({int(ident.sum())} identity row(s))")
     print(f"    (C) every statistical row has 2 <= margin <= 20: "
           f"{'PASS' if okC else 'FAIL'}")
@@ -189,19 +216,20 @@ def main():
                   f"ratio {sd[i]/0.15:.2f}")
 
     nt, nl = int(tight.sum()), int(loose.sum())
-    if okS and okC and okF:
+    okS_eff = (okS is None) or okS
+    if okS_eff and okC and okF:
         v = ("the gate is calibrated: every statistical row sits between "
              "2 and 20 sigma inside its interval, and no seed fails")
-    elif okS and okF and nl and not nt:
+    elif okS_eff and okF and nl and not nt:
         v = (f"{nl} of {int(stat.sum())} statistical rows are DECORATION "
              f"-- their interval is more than 20 sigma wide, so they "
              f"would pass through any plausible change in the "
              f"mathematics they claim to check")
-    elif okS and nt:
+    elif okS_eff and nt:
         v = (f"{nt} of {int(stat.sum())} statistical rows are TOO TIGHT "
              f"-- their own sampling spread reaches their interval, so "
              f"a green stamp there is luck")
-    elif not okS:
+    elif okS is False:
         v = ("an identity row varies with the seed; it is not the exact "
              "identity the stamp says it is, and that outranks the "
              "calibration question")
