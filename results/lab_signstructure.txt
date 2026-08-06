@@ -1,0 +1,47 @@
+sieve  t=0s
+
+(A)+(B) deep N, where r = 17 and the threshold is 289
+    exception p=1931 m=185 N-v=3125 = 5^k, 5 | N
+    exception p=2887 m=119 N-v=16807 = 7^k, 7 | N
+    exception p=3793 m=95 N-v=25 = 5^k, 5 | N
+  k=12: N=360360, r=17, threshold r^2=289, 22777 terms checked, 0 genuine violations, 3 stated exceptions
+       1 term:  12909 primes   pos/neg =  0.0195
+          2-3:    737 primes   pos/neg =  2.4387
+          4-8:    576 primes   pos/neg =  7.0541
+          >=9:    355 primes   pos/neg = 18.4297
+    exception p=1823 m=247 N-v=169 = 13^k, 13 | N
+    exception p=1993 m=226 N-v=32 = 2^k, 2 | N
+    exception p=2153 m=194 N-v=32768 = 2^k, 2 | N
+  k=15: N=450450, r=17, threshold r^2=289, 27452 terms checked, 0 genuine violations, 9 stated exceptions
+       1 term:  15606 primes   pos/neg =  0.0213
+          2-3:    899 primes   pos/neg =  2.4192
+          4-8:    698 primes   pos/neg =  6.6833
+          >=9:    424 primes   pos/neg = 21.4750
+    exception p=2087 m=259 N-v=7 = 7^k, 7 | N
+    exception p=3253 m=161 N-v=16807 = 7^k, 7 | N
+    exception p=3727 m=145 N-v=125 = 5^k, 5 | N
+  k=18: N=540540, r=17, threshold r^2=289, 31691 terms checked, 0 genuine violations, 6 stated exceptions
+       1 term:  17975 primes   pos/neg =  0.0213
+          2-3:   1064 primes   pos/neg =  2.6145
+          4-8:    789 primes   pos/neg =  7.6322
+          >=9:    496 primes   pos/neg = 19.5173
+
+(C) control: all even N, where r is small and the
+    threshold r^2 is tiny, so the structure should vanish
+    exception p=99317 m=6 N-v=4096 = 2^k, 2 | N
+    exception p=99829 m=6 N-v=1024 = 2^k, 2 | N
+    exception p=99989 m=6 N-v=64 = 2^k, 2 | N
+  N=599998: N=599998, r=3, threshold r^2=9, 10120 terms checked, 0 genuine violations, 3 stated exceptions
+       1 term:   8845 primes   pos/neg =  0.5583
+          2-3:    637 primes   pos/neg =  2.0756
+  N=599996: N=599996, r=3, threshold r^2=9, 8209 terms checked, 0 genuine violations, 0 stated exceptions
+       1 term:   7336 primes   pos/neg =  0.6232
+          2-3:    433 primes   pos/neg =  1.9989
+  N=599990: N=599990, r=3, threshold r^2=9, 10026 terms checked, 0 genuine violations, 0 stated exceptions
+       1 term:   8855 primes   pos/neg =  0.5195
+          2-3:    577 primes   pos/neg =  1.0184
+
+total sign violations across every check: 0
+  zero means the sign structure of P.5 holds exactly:
+  one negative term against a sum of positive ones
+DONE

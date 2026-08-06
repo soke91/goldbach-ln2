@@ -277,6 +277,45 @@ growing factor (`1/√δ` = 2.28, 2.88, 4.05, 4.96 at y = 13, 10², 10⁴,
 same order from every `j` at once, and show that the constant carries
 the extra `1/√δ` at depth.
 
+**Proposition P.7 (the signs are forced, not random).** *Let r be the
+least prime not dividing N. For every p with* `(N−1)/p < r²` *the
+nonzero terms of* `D_p(N)` *are* `v = p`, *carrying* `μ = −1`, *and*
+`v = qp` *for primes* `q ∈ [r, (N−1)/p]`, *each carrying* `μ = +1`.
+*Hence*
+
+> `D_p(N) = −Λ(N−p)/log p + Σ_{r≤q≤(N−1)/p} Λ(N−qp)/log(qp)`,
+
+*up to the* `O(ω(N))` *terms of P.5 where* `N−v` *is a power of a prime
+dividing N.*
+
+*Proof.* By P.5 the surviving m are those coprime to `rad N`; every
+composite such m has all prime factors `≥ r`, so the smallest is `r²`.
+Below that the m are 1 and primes, and `μ(qp) = μ(q)μ(p) = +1`. ∎
+
+For `N = k·30030` we have `r = 17`, so this covers every p with
+`N/p < 289` — most of the mass. **Verified exactly**
+(`code/lab_signstructure.py`): 0 genuine violations in ~70 000 term
+checks across three deep N and three all-even controls, with 21
+exceptions all classified as the `N−v = q^k, q | N` case the
+proposition states.
+
+**This is why "how far from random" was the wrong question.** Every
+cancellation statistic used above — the second-moment null of §4, the
+sign-randomised null of increments 267–269 — models `D_p` as
+independently signed terms. It is not: the signs are **forced**, one
+minus against many plus. The right question is the balance, and it is
+narrow:
+
+| terms in D_p | 1 | 2–3 | 4–8 | ≥9 |
+|---|---|---|---|---|
+| deep N: `pos/neg` | **0.0213** | 2.61 | 7.63 | 19.52 |
+| all even N | 0.5583 | 2.08 | — | — |
+
+Cancellation happens only where `pos/neg ≈ 1`, a window between one and
+three terms. Below it the single negative term stands alone — 17 975
+primes at one N — and above it the positive sum overwhelms. At depth the
+one-term class is 26× further from balance than at a typical N.
+
 ## 5. The ceiling: what transform P can and cannot deliver
 
 Grouping by dyadic ranges `R = [P, 2P)` rather than by single primes
