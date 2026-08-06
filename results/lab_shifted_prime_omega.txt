@@ -1,0 +1,23 @@
+sieve t=1s
+
+           group    n   R_A (shifted primes)   R_A weighted   R_B (rough set)   R_A/R_B
+   deep  k*30030   40     -0.03606 +- 0.00438       -0.03771          -0.04115     0.876
+     shallow  2q   21     -0.00097 +- 0.00076       -0.00094          -0.00002    60.639
+
+(B) the profiles themselves, at one N from each group
+  deep  k*30030  N = 630630
+     j         1       2       3       4       5       6
+     A    0.4252  0.4853  0.0890  0.0005  0.0000  0.0000
+     B    0.4318  0.4848  0.0829  0.0005  0.0000  0.0000
+  shallow  2q  N = 1477442
+     j         1       2       3       4       5       6
+     A    0.1331  0.3632  0.3465  0.1369  0.0198  0.0005
+     B    0.1880  0.4096  0.3026  0.0901  0.0095  0.0002
+
+(C) the factor increments 244-245 could not derive
+  deep    R_A/R_B = 0.876
+  shallow R_A/R_B = 60.639
+  deep/shallow of that ratio = 0.014
+  null for every ratio here is 1.000 (no difference between
+  the shifted-prime set and the generic rough set)
+DONE
