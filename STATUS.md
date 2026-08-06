@@ -1,7 +1,7 @@
 # STATUS — single-page state of the program
 
-*Last updated: increment 198 (2026-08-06). 4 days, 30 recorded
-corrections, 18 pre-registered closures, 15 documented "teeth".*
+*Last updated: increment 199 (2026-08-06). 4 days, 31 recorded
+corrections, 18 recorded closures (1 void, 4 under re-audit), 15 documented "teeth".*
 
 **Consolidated working paper: `paper/negative_map.tex`** — the whole
 campaign in one document (the two couplings, Theorem A and the
@@ -89,8 +89,12 @@ and $E_4(\alpha)$, distinguished only by the weight $w_k$.
   $\sum_k|D(k)|^2 \ll (\log N)^{-2A-2}\sum_k M_k^2$ — a fixed log-power
   saving over the **trivial** bound, which square-root cancellation
   clears with margin $(N/K)(\log N)^{-2A-2}\to\infty$ (invisible at
-  accessible $N$). **No route verdict changes**: all five are blocked
-  structurally, at named-lemma level, not on margin.
+  accessible $N$). The five *adjudication routes* are unaffected —
+  they are blocked structurally, at named-lemma level, not on margin —
+  but several **other** closures were budget calls and had to be
+  re-audited; see the next item. (An earlier version of this line said
+  "no route verdict changes", full stop. That was too quick, and the
+  re-audit found one void closure and four in question.)
 - **The amplitude half is what the chain needs, and it is unreachable.**
   A fresh-context adjudication (AMPLITUDE_ADJUDICATION.md) found all
   five candidate routes blocked at named-lemma level; the common
@@ -116,7 +120,20 @@ and $E_4(\alpha)$, distinguished only by the weight $w_k$.
 - **The Construction** (CONSTRUCTION.md), four classes, three closed by
   measurement (C1 abelian, C2 inverse-domain, C4 manufactured
   modularity) and the fourth (C-III, spectral/Voronoi) refuted by
-  adversarial review at four independent coordinates (C3_REVIEW.md).
+  adversarial review — **but see the re-audit**.
+- **⚠️ Re-audit of every closure (increment 199, CLOSURE_REAUDIT.md).**
+  Correction #30 changed the yardstick, so every death sentence passed
+  on a magnitude or scale-mismatch basis was re-examined.
+  **One is void**: C-III's kill coordinate #1 explicitly assumed "E1
+  demands |D(k)|² ≈ M_k", the square-root scale; the tree's own output
+  $\sum|D|^2 \ll (N^2/K)(\log)^{-2C}$ is exactly the corrected target's
+  form. **Four are in question** (REVIEW_VERDICT #4, #5, #6 and
+  C-III #4's arithmetic half) — their budgets must be redone.
+  **The rest stand**, being structural: violated lemma premises,
+  absent congruences, and kill-tests that measured *no* signal rather
+  than *insufficient* signal. Net: C-III moves from "dead even with a
+  free Lemma S" back to "an open route needing a correct construction"
+  (its coordinates #2 and #3 remain fatal to the draft as written).
 
 ### 3. The refuted proof-program, retained as a record
 

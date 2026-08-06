@@ -1,3 +1,21 @@
+> ## ⚠️ PARTIALLY WITHDRAWN (increment 199 — read CLOSURE_REAUDIT.md first)
+>
+> **Kill coordinate #1 below is VOID.** It rests on the premise "E1 is
+> an L²(k) statement at GAUSSIAN (square-root) scale: it demands
+> |D(k)|² ≈ M_k", which is the misstated target found in correction
+> #30. The chain actually requires
+> Σ|D|² ≪ (log N)^{−2A−2}·Σ M_k² — the **trivial** scale — and the
+> tree's own output as computed below, Σ|D|² ≪ (N²/K)(log)^{−2C}, is
+> *the same form*, meeting it whenever C ≥ A+1. The "off target by
+> N/K ≥ x^{2/3}" measured the distance to a scale the chain does not
+> require.
+>
+> **Consequence**: the headline claim "two of which stand even if
+> Lemma S is granted for free" is **withdrawn** — those two were #1
+> (void) and #4 (arithmetic half in question). Coordinates #2 and #3
+> stand and remain fatal *to the draft as written*, so C-III is still
+> refuted as drafted, but it is no longer closed on budget grounds.
+
 # C-III Adversarial Review Verdict (increment 188) — the tree is refuted
 
 *Fresh-context refutation-mandate review of C3_DRAFT.md, line-checked

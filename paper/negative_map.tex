@@ -15,10 +15,11 @@
 
 \title{A negative map of the Elliott--Halberstam route to Goldbach\\
 \large with one unconditional theorem, one conjecture,\\
-and eighteen pre-registered closures}
+and eighteen pre-registered closures,\\
+one of which this paper withdraws}
 
 \author{[author]}
-\date{Working paper, increment 198 of the \texttt{goldbach-ln2}
+\date{Working paper, increment 199 of the \texttt{goldbach-ln2}
 program\\
 \small All measurements reproducible from the accompanying repository}
 
@@ -56,7 +57,7 @@ experiments --- each closed with numbers, together with the five
 structural constraints they impose on any future technique.
 
 The deliverable is the map, not a theorem toward Goldbach. We state
-throughout what is and is not claimed, and we record thirty
+throughout what is and is not claimed, and we record thirty-one
 corrections to our own earlier statements, including three refutations
 of our own derivations and one false-positive trap that would have
 produced an apparent refutation of $EH_\mu$.
@@ -523,11 +524,13 @@ C-IV manufactured modularity & approximate Fricke law for
  \textbf{closed}, 0/6 levels. A true modular form drives the defect to
  $\approx 0$, so absence is meaningful.\\
 C-III Motohashi type & (no finite test) &
- a full theory draft was written and then \textbf{refuted} by
- adversarial review at four independent coordinates: assembly scale
- mismatch $x^{2/3}$, a bookkeeping error hiding the type-II leaf, an
- illegitimate dual, and a pointwise budget deficit sealed by our own
- measurement.\\
+ a full theory draft was written and then refuted by adversarial
+ review at four coordinates --- \textbf{but see
+ \S\ref{sec:reaudit}}: the first of them, the ``assembly scale
+ mismatch $x^{2/3}$'', is \textbf{void}, having been measured against
+ the misstated target. What stands is fatal to the draft as written (an
+ illegitimate dual; a classification hiding a type-II region), not to
+ the route.\\
 \hline
 \end{longtable}
 
@@ -576,6 +579,53 @@ $m \asymp N/K \ge N^{2/3}$: the surviving M\"obius sits on the
 Theorem~\ref{thm:A} work. The switch is not a technique that happens
 to fail on the supply side; its single requirement --- M\"obius on the
 short variable --- is precisely what the type-II cut forbids.
+
+\subsection{Re-audit: what the corrected target costs the map}
+\label{sec:reaudit}
+
+Correction to the target (\S\ref{sec:supply}) changes the yardstick,
+so every death sentence passed on a magnitude or scale-mismatch basis
+had to be re-examined. Under the corrected target the E1 route carries
+a \textbf{slack of $N/K \ge N^{2/3}$}: a technique may be lossy by up
+to that factor and still deliver. Under the printed target the
+required bound sat \emph{below} what nature supplies, so the slack was
+zero and any loss was fatal. That is what re-opens things.
+
+\begin{itemize}
+\item \textbf{One closure is void.} C-III's first kill coordinate
+  reads, verbatim, ``E1 is an L$^2(k)$ statement at Gaussian
+  (square-root) scale: it demands $|D(k)|^2 \approx M_k$'', and
+  concludes that the tree's output
+  $\sum|D|^2 \ll (N^2/K)(\log)^{-2C}$ is ``off target by
+  $N/K \ge x^{2/3}$''. But the corrected target \emph{is}
+  $\sum|D|^2 \ll (N^2/K)(\log N)^{-2A-2}$ --- the same form, met
+  whenever $C \ge A+1$. The distance measured was the distance to a
+  scale the chain does not require.
+\item \textbf{Four are in question}: the ``excess $K^{2/3}$'', the
+  conductor-inflation half of the second-Vaughan-layer item, the
+  L$^2$-versus-signed-L$^1$ mismatch (the same error class as the
+  correction itself), and the arithmetic half of C-III's budget
+  coordinate. Their budgets must be redone; they are neither
+  reinstated nor void.
+\item \textbf{The rest stand}, being structural: violated lemma
+  premises, absent pair congruences, illegitimate transforms, and
+  kill-tests that measured \emph{no} signal rather than
+  \emph{insufficient} signal. Proposition~\ref{prop:E} is also
+  unaffected: on $C(N)$ itself the slack is only a log power.
+\end{itemize}
+
+The net effect is that C-III moves from ``dead even with a free
+Lemma S'' back to ``an open route needing a correct construction'',
+its remaining obstruction being a named one --- shift-averaged binary
+$\mu\mu$ correlations at log-power strength.
+
+We record the hazard by name: \emph{scale-normalisation drift},
+writing a target at the square-root scale when the chain consumes it
+at the trivial scale. This program has now made that mistake twice
+(the SEAM formalisation, and the target itself), and both times it was
+caught only by comparing a stated target against our own measurements
+of the same quantity. That comparison is now mandatory before any
+target is used to adjudicate anything.
 
 \section{What the closures constrain}
 

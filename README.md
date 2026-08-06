@@ -59,6 +59,14 @@ five constraints any future technique must satisfy, and the methodology
 (pre-registration, fresh-context adversarial review, power before
 belief) that produced the negative results.
 
+**Read alongside it: [CLOSURE_REAUDIT.md](CLOSURE_REAUDIT.md).** The
+program discovered that it had been carrying its own target written at
+the wrong scale (square-root where the chain consumes at trivial — a
+factor N/K ≥ N^{2/3}), so every closure decided on a magnitude or
+budget basis was re-examined. **One is void, four are in question, the
+rest stand.** The negative map is smaller than it was, and the part
+that shrank is exactly the part measured with the wrong ruler.
+
 **One unconditional result (survived review).** The demand side of the
 Huang–Li reduction was audited rather than attacked, and one derivation
 came through: [THEOREM_A.md](THEOREM_A.md) (summary) →

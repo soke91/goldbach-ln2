@@ -1,3 +1,22 @@
+> ## ⚠️ PARTIALLY RE-OPENED (increment 199 — read CLOSURE_REAUDIT.md first)
+>
+> Correction #30 found the program's stated E1 target was written at
+> the square-root scale when the chain consumes it at the trivial
+> scale — a factor N/K ≥ N^{2/3}. Items below that were decided on a
+> **magnitude or norm** basis were therefore measured with the wrong
+> ruler and are now **open re-audit items**: **#4** (the "excess
+> K^{2/3}"), **#5** (conductor inflation — first half), and **#6**
+> (the L²-versus-signed-L¹ mismatch, which is the same error class as
+> #30 itself). They are neither reinstated nor void; their budgets
+> must be redone against Σ M_k².
+>
+> Items **#1, #2, #3 stand** — they are structural (a violated lemma
+> premise, an absent pair congruence, an over-strong normalization),
+> not budget calls. On **#3**: the SEAM formalization was indeed
+> over-normalized, but that is the *same species* of mistake as #30,
+> so the SEAM conjecture should be re-derived against the corrected
+> target before it is called false.
+
 # Adversarial Review Verdict (increment 143) — the proof program is refuted in its core reductions
 
 *An independent adversarial review (fresh context, refutation mandate,
