@@ -221,6 +221,77 @@ method's entire weight space. It is not an obstruction to other
 methods. Its value is that it closes the design space Theorems A and C
 opened, instead of leaving it to be re-explored.
 
+## Proposition V — the wall's exact scale, in closed form (increment 287)
+
+Increment 283 established that Conjecture L's Gaussian half holds for
+`C(N)` under the **exact** second moment
+`V(N) = Σ_{v<N} μ²(v)Λ(N−v)²` and fails at `z = 98` under the fitted
+`𝔖N`-based stand-in. That left `V(N)` exact but opaque. It is not.
+
+`Λ(w)²` is supported on prime powers with weight `(log p)²`, so with
+`w = N − v`,
+
+> `V(N) = Σ_{p^k<N} (log p)²μ²(N−p^k) = Σ_{p<N}(log p)²μ²(N−p) + O(√N log²N)`,
+
+a `(log p)²`-weighted count of **squarefree shifted primes**. Its local
+density at a prime `q`:
+
+- **`q | N`**: `q²|(N−p)` forces `q|(N−p)`, hence `q|p`, hence `p = q`
+  — one term. **The primes dividing `N` impose no condition at all.**
+- **`q ∤ N`**: the bad class is `p ≡ N (mod q²)`, and since `q ∤ N`
+  that is a **unit** class, so it costs a density `1/φ(q²) = 1/(q(q−1))`.
+
+> **Proposition V.** With `W(N) := Σ_{w<N}Λ(w)²` — a prefix sum
+> independent of `N`'s factorisation — and
+> `𝔄(N) := ∏_{q∤N}(1 − 1/(q(q−1))) = A_{Artin}/∏_{q|N}(1 − 1/(q(q−1)))`,
+>
+> `V(N) = W(N)·𝔄(N)·(1 + o(1))`,  hence  `V(N) ~ 𝔄(N)·N·log N`.
+
+**This is Mirsky's 1949 theorem on squarefree shifted primes plus
+partial summation. The derivation is recalled, not claimed.** What is
+this program's is the identification of `V(N)` as the wall's scale
+(283) and what follows next.
+
+**Measured** (`code/lab_V_asymptotic.py`, every even `N ≤ 1.6·10⁷`).
+Dividing by `W(N)` removes the analytic factor *exactly*, so no
+asymptotic for `Σ(log p)²` is assumed and the arithmetic stands alone:
+
+| band | mean `R/𝔄` | sd |
+|---|---|---|
+| `10⁵–2·10⁵` | 1.000023 | 0.00154 |
+| `1.28·10⁷–1.6·10⁷` | **1.000000** | **0.000145** |
+
+Per cell, `R/𝔄 = 1.00000` to five decimals for every radical from
+`2\|N` through `2·3·5·7·11·13\|N` (`R = 0.748387, 0.898064, 0.945330,
+0.968386, 0.977271, 0.983570`, matching `𝔄` in each).
+
+### The correction this forces, and it is the sharpest of the session
+
+The campaign has used `𝔖(N) = 2C₂∏_{q|N,q>2}(q−1)/(q−2)` as *the* local
+factor everywhere. For the wall's scale that is **the wrong function**.
+Rescaling each predictor to `R`'s mean so only its *shape* in `N` is
+judged:
+
+| local factor | residual sd | max deviation |
+|---|---|---|
+| **`𝔄(N)`** (Mirsky) | **0.000323** | 0.0069 |
+| `𝔖(N)` (used here) | **0.245235** | 0.617 |
+
+A factor of **760**. So:
+
+> **The singular series of the problem is not the local factor of the
+> noise.** `𝔖(N)` is correct for the Goldbach *count* — Hardy–Littlewood
+> — and was carried across to the variance of `C(N)`, where the right
+> object is `𝔄(N)`. Both are products over `q | N`, which is why the
+> substitution survived so long.
+
+That single mis-identification explains three earlier findings at once:
+increment 283's "93.7% of the variance of `(𝔖N)/V` is cell-explained"
+(`𝔖` is the wrong cell function); increment 280's exponent `α` that
+would not converge (a log-power was absorbing a wrong *arithmetic*
+factor); and why `κ ≈ 0.465` still looked serviceable (`𝔖` and `𝔄`
+correlate across `N`, so the mean fits and the fluctuation does not).
+
 ### Proposition D‴ — the no-go is monotone in the input (increment 278)
 
 A no-go resting on an unconditional estimate invites one objection:

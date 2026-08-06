@@ -1,0 +1,33 @@
+convolution  t=12s
+
+(TEST 1) R(N) = V(N)/W(N) against A(N), by octave band
+                 band     count   mean R/A(N)   sd of R/A   max |dev|
+   100000-     200000     50000      1.000023    0.001543    0.006931
+   200000-     400000    100000      1.000009    0.001082    0.005076
+   400000-     800000    200000      0.999994    0.000766    0.003789
+   800000-    1600000    400000      1.000001    0.000519    0.002644
+  1600000-    3200000    800000      1.000001    0.000376    0.002003
+  3200000-    6400000   1600000      1.000001    0.000263    0.001514
+  6400000-   12800000   3200000      1.000000    0.000186    0.001071
+ 12800000-   16000000   1600000      1.000000    0.000145    0.000814
+    |mean R/A - 1| : first band 0.000023, last 0.000000   shrinking
+
+(TEST 2) which local factor explains the cell structure?
+    each predictor is rescaled to R's mean, so only its
+    SHAPE across N is being judged
+          A(N)  (Mirsky): residual sd 0.000323, max |dev| 0.006932
+       S(N)  (used here): residual sd 0.245235, max |dev| 0.616761
+    ratio sd(A)/sd(S) = 0.00132
+    pre-registered rule (< 0.1): A(N) IS the correct factor
+
+(TEST 3) control: fix the radical, R(N) must be constant
+         primes dividing N     count     mean R       sd R       A(N)       R/A
+                         2   3049750   0.748387   0.000947   0.748386   1.00000
+                       2.3   1524874   0.898064   0.001118   0.898063   1.00000
+                     2.3.5    381220   0.945330   0.001168   0.945330   1.00000
+                   2.3.5.7     63536   0.968386   0.001192   0.968387   1.00000
+                2.3.5.7.11      6354   0.977271   0.001197   0.977271   1.00000
+             2.3.5.7.11.13       529   0.983570   0.001132   0.983570   1.00000
+    within a cell A(N) is constant, so any spread in R is
+    the tail primes q > 13 dividing N plus sampling.
+DONE

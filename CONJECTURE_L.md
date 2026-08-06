@@ -126,6 +126,12 @@ with `𝔖N` anyway.
 > **Corrected form**: `C(N) = m(N) + √(V(N))·G(N)`, `G` Gaussian,
 > `V(N) = Σ_v μ²(v)Λ(N−v)²`, `m(N)` the location mask.
 
+**And `V(N)` is not opaque** (increment 287, **Proposition V**). Expanding it gives a `(log p)²`-weighted count of squarefree shifted primes, so with `W(N) = Σ_{w<N}Λ(w)²`,
+
+> `V(N) = W(N)·𝔄(N)·(1+o(1))`, where `𝔄(N) = ∏_{q∤N}(1 − 1/(q(q−1)))`  — Mirsky 1949.
+
+Measured to `1.000000 ± 0.000145` on every even `N ≤ 1.6·10⁷`. ⚠️ **The local factor is `𝔄(N)`, not `𝔖(N)`** — residual sd **0.000323** against **0.245235**, a factor of 760. `𝔖` is the singular series of the *count*; the *noise* has a different one, and substituting the first for the second is what made the displayed formula fail at `z = 98`.
+
 ### The original half, re-tested at that precision (increment 283 → 284)
 
 The claim above was corrected for the **extension** to `C(N)`. The
