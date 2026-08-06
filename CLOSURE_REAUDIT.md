@@ -360,7 +360,44 @@ that does not match the claim being tested is the same error as
 writing a target at the wrong scale** — and it was caught the same
 way, by widening to the whole profile instead of trusting one number.
 
-## The two hazards this campaign actually suffers from
+## Round 6 (increment 227): the hazard-4 sweep
+
+Hazard 4 is new, so the same question #30 raised has to be asked again:
+**does any standing closure rest on a null that was a size heuristic?**
+Every null in `code/` was classified.
+
+| null construction | scripts | exposed? |
+|---|---|---|
+| Monte-Carlo draws from the model, scored with the *same* estimator | `e1_constr_c1/c2/c2b/c4`, `e1_spectral_null`, `e1_wishart_null`, `e1_forge_kt3/kt4`, `e1_dilation` (permutation), `e4_wheelnull` | **no** — the null is generated, not guessed |
+| exact sampling distribution of the statistic, or SE computed from the data as `std/√n` | `sweep_A` A6–A10, `sweep_B` B1–B5, `sweep_B2/B3`, `hyp_round2b`, `lab_gb_multiplicativity`, `e1_forge_kt2` | **no** |
+| verdict is directional ("does the ratio approach 1"), with an a priori `(log N)^{−1}` band printed for scale only | `hl_S1_check`, `hl_assembly` | **no**, but the band is heuristic — the verdicts do not turn on it, and both landed at 0.982 and 1.002 |
+| CLT exponent 0.5 as the null, with a hand-chosen band [0.45, 0.60] | `sweep_C` | **low** — the exponent is exact under the null; only the band width is judgement, and the reading was "every variant sits at square root" |
+| **size estimate `√(M_p log N)` in place of the second moment** | `lab_prime_factor_split` | **YES** — recomputed |
+| **Euler-product and `√(N/w) log N` size estimates** | `lab_grouping_asymmetry` | **YES** — corrections #33, #34, fixed in the same session |
+
+**Result of the recomputation.** Session 6's null was replaced by the
+exact second moment `V_p = Σ_{v<N,p|v} μ²(v)Λ(N−v)²`. The constant moved
+from 0.83 to 0.87 and `S_abs/S_null` remains flat (0.883 → 0.871 across
+a factor 8 in N); `S_abs/triv` is null-free and unchanged. The heuristic
+sat 5–7% high — except in the top dyadic range, where it returned a
+"typical size" of 1.0968 times the trivial bound, which is impossible;
+the exact second moment returns 1.0000 there, correctly reporting that
+one-term sums admit no cancellation at all. **The verdict stands: the
+prime-factor split has positive margin.**
+
+**Nothing re-opens.** And there is a structural reason it was unlikely
+to: hazard 4 bites on *magnitude* nulls, whereas the closures that
+survived rounds 1–5 are the ones whose criterion was "is there any
+signal at all", which is threshold-free and therefore null-shape-free.
+The two exposed scripts are both from this week's invention work, where
+the questions are quantitative for the first time.
+
+**Coverage, stated.** This swept nulls, not closures. A closure resting
+on a *correct* null but a wrong model is untouched by it — and several
+E1 verdicts use Conjecture L's own iid model as the null, which is
+circular by construction and already recorded as such in `sweep_B`.
+
+## The four hazards this campaign actually suffers from
 
 Both are about **stating a criterion that does not match the thing
 being tested**, and both are caught the same way — by widening from a

@@ -405,28 +405,35 @@ classes lost here; this one does not.
 
 Lossless is necessary, not sufficient. The decisive quantity is the
 **absolute aggregate** `S_abs(N) = Σ_p log p |D_p(N)|`, which uses *no
-cancellation across p whatsoever*. Beside it, the random-sign null:
-`D_p` runs over ≈ `M_p/log N` prime-power terms of size ≈ log N, so
-`null_p = √(M_p log N)` and `S_null = Σ_p log p √(M_p log N)`.
+cancellation across p whatsoever*. Beside it, the random-sign null
+taken from the data rather than from a size estimate: `D_p` is a signed
+sum of `t_v = μ(v)Λ(N−v)` over `p | v`, so its scale is the square root
+of its own second moment, `V_p = Σ_{v<N, p|v} μ²(v)Λ(N−v)²`, computed
+in the same loop.
 
 | N | S_abs/triv | S_null/triv | **S_abs/S_null** | S_abs/(N log N) |
 |---|---|---|---|---|
-| 5·10⁴ | 0.4459 | 0.5380 | **0.8287** | 0.3162 |
-| 10⁵ | 0.4200 | 0.5097 | **0.8239** | 0.3029 |
-| 2·10⁵ | 0.4033 | 0.4872 | **0.8277** | 0.2916 |
-| 4·10⁵ | 0.3828 | 0.4615 | **0.8294** | 0.2784 |
+| 5·10⁴ | 0.4459 | 0.5048 | **0.8833** | 0.3162 |
+| 10⁵ | 0.4200 | 0.4817 | **0.8718** | 0.3029 |
+| 2·10⁵ | 0.4033 | 0.4620 | **0.8729** | 0.2916 |
+| 4·10⁵ | 0.3828 | 0.4394 | **0.8712** | 0.2784 |
 
 Two things, and the second is the one that matters.
 
 1. `S_abs/triv` **decays** — the fraction of the trivial bound that
    survives without any p-cancellation is falling.
-2. `S_abs/S_null` is **flat to three digits across a factor 8 in N**
-   (0.8287 → 0.8294). The measured aggregate sits at a constant 0.83 of
+2. `S_abs/S_null` is **flat across a factor 8 in N** (0.883 → 0.871,
+   a 1.4% drift). The measured aggregate sits at a constant ≈0.87 of
    its own random-sign prediction. The per-p cancellation is exactly
    square-root strength, neither better nor worse, and stably so.
 
-Asymptotically `M_p ≈ cN/p` gives `S_null ≈ √(cN log N)·Σ_{p<N} log p/√p
-≈ 2√c·N√(log N)`, so `S_null/(N log N) ≈ const/√(log N) → 0`.
+Asymptotically `V_p ≈ cN log N/p` gives `S_null ≈ √(cN log N)·Σ_{p<N}
+log p/√p ≈ 2√c·N√(log N)`, so `S_null/(N log N) ≈ const/√(log N) → 0`.
+
+*(The size heuristic `√(M_p log N)` — `M_p/log N` terms of size `log N`
+— lands 5–7% above the exact second moment here, so it would not have
+changed the verdict. It is printed beside the null rather than in place
+of it; see hazard 4 in CLOSURE_REAUDIT.md.)*
 
 > **Square-root cancellation per p suffices, with √(log N) to spare,
 > and no cancellation across p is needed at all.**
@@ -437,7 +444,7 @@ This is the first transform in the campaign where the budget closes
 with room left over.
 
 *Stated with its limit.* Over N ∈ [5·10⁴, 4·10⁵] the factor √(log N)
-moves by 9%, so the fitted exponents (−0.851 measured, −0.862 null)
+moves by 9%, so the fitted exponents (−0.851 measured, −0.781 null)
 separate "decaying" from "flat" and nothing finer; they are not a
 confirmation of −1/2. The finding that carries weight is the flatness
 of S_abs/S_null, which needs no extrapolation.
@@ -446,19 +453,23 @@ of S_abs/S_null, which needs no extrapolation.
 
 | p range | mass frac | abs frac | mean ρ_p | null ρ_p |
 |---|---|---|---|---|
-| 2–4 | 0.0370 | **0.0006** | 0.0158 | 0.0101 |
-| 32–64 | 0.0482 | 0.0007 | 0.0147 | 0.0438 |
-| 1024–2048 | 0.0587 | 0.0079 | 0.1350 | 0.2402 |
-| 32768–65536 | 0.0615 | 0.0488 | 0.7937 | 0.9223 |
-| 131072–262144 | 0.0630 | 0.0625 | 0.9929 | 1.0359 |
-| 262144–4·10⁵ | 0.0638 | **0.0638** | **1.0000** | 1.0968 |
+| 2–4 | 0.0370 | **0.0006** | 0.0158 | 0.0097 |
+| 32–64 | 0.0482 | 0.0007 | 0.0147 | 0.0421 |
+| 1024–2048 | 0.0587 | 0.0079 | 0.1350 | 0.2308 |
+| 32768–65536 | 0.0615 | 0.0488 | 0.7937 | 0.8911 |
+| 131072–262144 | 0.0630 | 0.0625 | 0.9929 | 0.9974 |
+| 262144–4·10⁵ | 0.0638 | **0.0638** | **1.0000** | **1.0000** |
 
 The trivial mass is spread almost perfectly evenly over dyadic ranges
 (≈0.06 each, as `Σ log p/p` demands). The *surviving* mass is not: it
 climbs monotonically from 0.0006 to 0.0638. **All the difficulty is at
 large p**, and for the top range `ρ_p = 1.0000` exactly — those `D_p`
 are one-term sums, where cancellation is not merely hard but
-unavailable. That region carries mass ≈ 1/log N and vanishes, slowly.
+unavailable. The null agrees there (`1.0000`, since `√(t²) = |t|`),
+which is the check that the exact second moment gets right and the
+size heuristic did not: the heuristic returned a null of 1.0968, a
+"typical size" larger than the trivial bound, which is impossible.
+That region carries mass ≈ 1/log N and vanishes, slowly.
 
 ### What this hands the next session
 

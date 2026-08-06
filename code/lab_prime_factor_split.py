@@ -41,16 +41,24 @@ C_log(N) = o(N log N). Three things get measured, in order:
      then per-p cancellation alone suffices and the split has margin;
      if S_abs is a fixed fraction of the trivial bound, it has none.
 
-NULLS, COMPUTED BEFORE ANY THRESHOLD. D_p is a sum over roughly
-M_p / log N prime-power terms each of size ~ log N. Under a random-sign
-model its typical size is sqrt(count) * log N = sqrt(M_p log N), so
+NULLS, TAKEN FROM THE DATA AND NOT FROM A SIZE HEURISTIC. D_p is a
+signed sum of the terms t_v = mu(v) Lambda(N-v) over v divisible by p,
+so under a random-sign model its scale is the square root of its own
+second moment, which is computable in the same loop:
 
-    null_p := sqrt(M_p * log N),    rho_p := |D_p| / M_p,
-    rho_p^null = sqrt(log N / M_p).
+    V_p    := Sum_{v<N, p|v} mu^2(v) Lambda(N-v)^2,
+    null_p := sqrt(V_p),          rho_p := |D_p| / M_p.
 
-Summing the null against log p gives S_null(N) = Sum_p log p
-sqrt(M_p log N). With M_p ~ c N / p this is ~ 2 sqrt(c) N sqrt(log N),
-so the PREDICTION under square-root-per-p is
+    S_null(N) := Sum_p log p * sqrt(V_p).
+
+A size heuristic would instead write null_p = sqrt(M_p log N), on the
+grounds that D_p has ~ M_p/log N terms of size ~ log N; that form is
+also printed, as a check on how far such reasoning lands, but it is
+NOT the null the verdict is read against (hazard 4, CLOSURE_REAUDIT).
+
+Asymptotically V_p ~ c N log N / p, so S_null ~ sqrt(c N log N) *
+Sum_{p<N} log p / sqrt(p) ~ 2 sqrt(c) N sqrt(log N) and the PREDICTION
+under square-root-per-p is
 
     S_null / (N log N)  ~  const / sqrt(log N),
 
@@ -103,13 +111,15 @@ def split(N, mu, lam, primes):
     M_log = float(np.dot(absterm, logv))
 
     ps = primes[primes < N]
-    D = np.empty(len(ps)); M = np.empty(len(ps))
+    D = np.empty(len(ps)); M = np.empty(len(ps)); V = np.empty(len(ps))
     for i, p in enumerate(ps):
         idx = np.arange(int(p), N, int(p))
         m = mu[idx].astype(np.float64); L = lam[N - idx]
-        D[i] = np.dot(m, L)
+        t = m * L
+        D[i] = t.sum()
         M[i] = np.dot(np.abs(m), L)
-    return C, C_log, M_log, ps, D, M
+        V[i] = np.dot(t, t)                 # second moment, exact
+    return C, C_log, M_log, ps, D, M, V
 
 
 def main():
@@ -122,20 +132,20 @@ def main():
           f"{'rel.diff':>10}")
     rows = []
     for N in NS:
-        C, C_log, M_log, ps, D, M = split(N, mu, lam, primes)
+        C, C_log, M_log, ps, D, M, V = split(N, mu, lam, primes)
         lp = np.log(ps.astype(np.float64))
         lhs = float(np.dot(lp, D))
         rel = abs(lhs - C_log) / max(abs(C_log), 1.0)
         print(f"{N:>8} {C:>12.2f} {C_log:>14.2f} {lhs:>14.2f} "
               f"{rel:>10.2e}")
-        rows.append((N, C, C_log, M_log, ps, D, M, lp))
+        rows.append((N, C, C_log, M_log, ps, D, M, V, lp))
     print("    exact identity: no error term, and mu kills the")
     print("    non-squarefree v where log v = Sum_{p|v} log p would fail")
 
     print("\n(B) losslessness -- Sum_p log p M_p vs the trivial bound")
     print(f"{'N':>8} {'Sum lp*M_p':>14} {'M_log':>14} {'rel.diff':>10} "
           f"{'/(N log N)':>11}")
-    for (N, C, C_log, M_log, ps, D, M, lp) in rows:
+    for (N, C, C_log, M_log, ps, D, M, V, lp) in rows:
         s = float(np.dot(lp, M))
         rel = abs(s - M_log) / M_log
         print(f"{N:>8} {s:>14.2f} {M_log:>14.2f} {rel:>10.2e} "
@@ -145,17 +155,19 @@ def main():
 
     print("\n(C) the decisive one -- S_abs uses NO cancellation over p")
     print(f"{'N':>8} {'S_abs':>13} {'S_null':>13} {'triv':>13} "
-          f"{'S_abs/triv':>11} {'S_null/triv':>12} {'S_abs/S_null':>13}")
+          f"{'S_abs/triv':>11} {'S_null/triv':>12} {'S_abs/S_null':>13} "
+          f"{'heur/S_null':>12}")
     meas = []
-    for (N, C, C_log, M_log, ps, D, M, lp) in rows:
+    for (N, C, C_log, M_log, ps, D, M, V, lp) in rows:
         logN = math.log(N)
         S_abs = float(np.dot(lp, np.abs(D)))
-        S_null = float(np.dot(lp, np.sqrt(M * logN)))
+        S_null = float(np.dot(lp, np.sqrt(V)))
+        S_heur = float(np.dot(lp, np.sqrt(M * logN)))
         triv = float(np.dot(lp, M))
         meas.append((N, S_abs, S_null, triv))
         print(f"{N:>8} {S_abs:>13.1f} {S_null:>13.1f} {triv:>13.1f} "
               f"{S_abs/triv:>11.4f} {S_null/triv:>12.4f} "
-              f"{S_abs/S_null:>13.4f}")
+              f"{S_abs/S_null:>13.4f} {S_heur/S_null:>12.4f}")
 
     # fitted exponent in log N, reported with its caveat
     xs = np.array([math.log(math.log(N)) for (N, a, b, t) in meas])
@@ -169,7 +181,7 @@ def main():
     print("    these exponents separate 'decaying' from 'flat', no more")
 
     print("\n(D) where the mass sits -- dyadic profile at N = 400000")
-    (N, C, C_log, M_log, ps, D, M, lp) = rows[-1]
+    (N, C, C_log, M_log, ps, D, M, V, lp) = rows[-1]
     logN = math.log(N)
     triv = float(np.dot(lp, M))
     print(f"{'p range':>16} {'#p':>7} {'mass frac':>10} {'abs frac':>9} "
@@ -183,7 +195,8 @@ def main():
             wa = float(np.dot(l, np.abs(d)))
             rho = float(np.dot(l * m, np.abs(d) / np.maximum(m, 1e-9))
                         ) / max(wm, 1e-9)
-            rn = float(np.dot(l * m, np.sqrt(logN / np.maximum(m, 1e-9)))
+            v = V[sel]
+            rn = float(np.dot(l * m, np.sqrt(v) / np.maximum(m, 1e-9))
                        ) / max(wm, 1e-9)
             print(f"{b:>7}-{min(2*b, N):>8} {int(sel.sum()):>7} "
                   f"{wm/triv:>10.4f} {wa/triv:>9.4f} {rho:>9.4f} "
@@ -195,7 +208,7 @@ def main():
     print("\n(E) how much of C_log survives -- the wall itself")
     print(f"{'N':>8} {'C(N)':>12} {'C/sqrt(N)':>11} {'C_log':>12} "
           f"{'C_log/(N logN)':>15} {'S_abs/(N logN)':>15}")
-    for (N, C, C_log, M_log, ps, D, M, lp), (n2, S_abs, S_null, triv) \
+    for (N, C, C_log, M_log, ps, D, M, V, lp), (n2, S_abs, S_null, triv) \
             in zip(rows, meas):
         print(f"{N:>8} {C:>12.2f} {C/math.sqrt(N):>11.4f} "
               f"{C_log:>12.2f} {C_log/(N*math.log(N)):>15.6f} "
