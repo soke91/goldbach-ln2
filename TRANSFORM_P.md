@@ -146,7 +146,19 @@ divisor switch with zero slack and Proposition E found the circle
 method with zero margin; this is the first transform in the campaign
 whose budget closes with room left over.
 
-**⚠ These are averages over all even N, and P.4 is a statement about
+**⚠ The premise fails at deep N, and these are averages over all
+even N.** The margin above rests on "square-root cancellation per p suffices", i.e. on `S_abs ≈ S_null`. Measured along the primorial ladder at N ≈ 10⁶ (`code/lab_transformP_depth.py`), with `R = S_abs/Σ log p·M_p` — so `R = 1` is exactly no cancellation:
+
+| rad(N) ⊇ | odd primes | R | R_null | **R/R_null** |
+|---|---|---|---|---|
+| 2 | 0 | 0.3912 | 0.4078 | **0.959** |
+| 2·3·5 | 2 | 0.5508 | 0.4466 | 1.234 |
+| 2·3·5·7·11 | 4 | 0.6966 | 0.4862 | 1.433 |
+| 2·…·17 | 6 | 0.7817 | 0.5134 | **1.522** |
+
+`R/R_null` climbs from 0.96 to **1.52**: at deep N the per-prime sums cancel **worse than random**, because the location mask gives each `D_p` a systematic component. So the premise of §4's margin — square-root per p — is false exactly where the demand is largest. The increments in R are shrinking (0.039, 0.121, 0.087, 0.059, 0.054, 0.031), so R may saturate below 1, but that is an extrapolation from seven points whose last has **n = 2**. **The decisive measurement is R along the primorial sequence at N ≥ 10⁷**, which is not yet done.
+
+**And these are averages over all even N, while P.4 is a statement about
 every N.** Split by how deep N sits in the location mask
 (`code/lab_transformP_demask.py`, N ≈ 10⁶):
 
