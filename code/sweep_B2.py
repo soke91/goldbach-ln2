@@ -45,7 +45,12 @@ def stats(tag, x, S, om, m5, n):
         zm = (a.mean() - b.mean()) / se
         print(f"  [{tag}] {nm:<10} sd ratio {rs:5.3f} z={zs:+7.2f}"
               f"   mean z={zm:+7.2f}")
-        out += [abs(zs)]
+        # The mean z was printed and NOT counted until increment 260,
+        # the same omission found in sweep_B3 at increment 259 (this
+        # helper is the one B3 was derived from). After dividing by
+        # S(N) the omega>=5 MEAN sits at z = -5.25 and was invisible
+        # to the summary line.
+        out += [abs(zs), abs(zm)]
     return out
 
 
@@ -75,11 +80,16 @@ def main():
 
     zc = stats("raw  ", c, S, om, m5, n)
     print()
-    zu = stats("÷S(N)", u, S, om, m5, n)
+    zu = stats("/S(N)", u, S, om, m5, n)
 
     nc = sum(1 for v in zc if v >= 4)
     nu = sum(1 for v in zu if v >= 4)
-    print(f"\nflags |z|>=4:  raw {nc}/5   after ÷S(N) {nu}/5")
+    print(f"\nflags |z|>=4:  raw {nc}/{len(zc)}   "
+          f"after /S(N) {nu}/{len(zu)}")
+    print("  (all eight printed statistics are counted. The three")
+    print("   MEAN z were printed and omitted from the count until")
+    print("   increment 260; the omega>=5 mean survives /S(N) at")
+    print("   z = -5.25 and was invisible to the old summary.)")
     print("verdict:",
           "MASK IS S(N) -- C(N) = S(N) x (unit Gaussian) x sqrt(N)"
           if nu == 0 else
