@@ -87,6 +87,8 @@ exactly Gaussian (22 exceedances of 3σ vs 27 expected)
   C_{k,k′} = (local factor determined by gcd with N) × Gaussian —
   the θ=1/8 structure law reappearing at dispersion level
   (`code/e1_tail_anatomy.py`).
+
+⚠️ **Which convention produced which number** (increment 286, `results/audit_zero_support.txt`). The raw 0.348–0.370 above is the **`(a)` convention**: pairs whose support is entirely annihilated by M.3 are handed `r = 0` by `abs(Σ)/√max(support,1)` and enter the mean as though they were measurements. Measured at `N ≈ 10⁷`, that convention costs a factor **0.55** over primes `p` — the annihilation rate is **45%**, and `(a)/(b) = 1 − (rate)` by construction, so **the fault is exactly as large as the mask is dense**. Over all `m` the rate is **0.0%** and the conventions agree to 1.0000, which is why §6's dispersion figure (0.801, `dispersion_engine.py`, summed over all `m`) is undamaged. §7's zero-accounting already superseded the raw numbers with the **`(b)/(c)`** convention (0.97–1.02); what was missing is that **no document said which convention any figure used**.
 - Zero-accounting (12,000 pairs × 2 N, per-pair zero terms counted
   directly): the free class closes COMPLETELY — after removing the
   forced μ=0 terms (q | N, q | k forces q | N−pk; q² | N kills

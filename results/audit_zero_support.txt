@@ -1,0 +1,95 @@
+(A) static scan: sqrt(max(x, 1)) divisors in code/
+    38 sites, 28 without a visible guard
+
+                            file  line  guarded?  code
+           audit_zero_support.py     9      NO    r = abs(vals.sum()) / math.sqrt(max(v, 1))
+           audit_zero_support.py   144      yes   r_buggy = abs(float(vals.sum())) / math.sqrt(max(v, 1))
+           audit_zero_support.py   189      NO    r = abs(float(prod.sum())) / math.sqrt(max(v, 1))
+                     cascade2.py    56      NO    duals.append(d / math.sqrt(max(v, 1)))
+                cstar_dossier.py    55      NO    r_unw = abs(prod.sum()) / math.sqrt(max(M_eff, 1))
+            dispersion_engine.py    52      NO    r = abs(C) / math.sqrt(max(M_eff, 1))
+                 e1_blind_1e9.py   126      NO    r1_naive = float(np.mean(np.abs(C) / np.sqrt(np.maximum(su
+                  e1_dilation.py    46      NO    return int(vals.sum(dtype=np.int64)) / math.sqrt(max(v, 1)
+                 e1_forge_kt2.py    82      yes   x = np.where(sup > 100, C / np.sqrt(np.maximum(sup, 1)), n
+                 e1_forge_kt3.py    52      yes   M = np.where(NZ > 50, C / np.sqrt(np.maximum(NZ, 1)), 0.0)
+                 e1_forge_r4b.py    47      NO    d = D / np.sqrt(np.maximum(S, 1.0))
+             e1_integer_field.py    62      NO    r1_raw = np.mean(np.abs(D) / np.sqrt(np.maximum(sup, 1)))
+             e1_integer_field.py    88      NO    r1_adj = np.mean(np.abs(resid) / np.sqrt(np.maximum(sup, 1
+             e1_integer_field.py   103      NO    r1_loo = np.mean(np.abs(resid2) / np.sqrt(np.maximum(sup, 
+                 e1_mean_term.py    64      yes   Chat = np.where(NZ > 50, C / np.sqrt(np.maximum(NZ, 1)), 0
+                e1_pair_local.py    70      NO    r1 = np.abs(T) / np.sqrt(np.maximum(sup, 1))
+                  e1_seam_law.py    87      NO    r1_naive = np.abs(C) / np.sqrt(np.maximum(sup, 1))  # 0 wh
+                e1_settle_900.py    74      NO    r1 = np.abs(D) / np.sqrt(np.maximum(sup, 1))
+                  e1_spectral.py    72      yes   Chat = np.where(NZ > 50, C / np.sqrt(np.maximum(NZ, 1)), 0
+             e1_spectral_null.py    59      yes   Chat = np.where(NZ > 50, C / np.sqrt(np.maximum(NZ, 1)), 0
+                e1_target_1e9.py    72      NO    r1s.append(abs(D) / np.sqrt(max(sup, 1)))
+                e1_target_2e9.py    71      NO    r1s.append(abs(D) / np.sqrt(max(sup, 1)))
+             e1_target_multiN.py    74      NO    r1s.append(abs(D) / np.sqrt(max(sup, 1)))
+               e1_v34_anatomy.py   109      yes   r1m = np.mean(np.abs(D[m]) / np.sqrt(np.maximum(sup[m], 1)
+              e1_wishart_null.py    48      yes   Ch = np.where(NZ > 50, C / np.sqrt(np.maximum(NZ, 1)), 0.0
+              e1_zero_account.py    80      yes   r1_eff = np.abs(C) / np.sqrt(np.maximum(npz, 1))
+                   ehmu_final.py    84      NO    rw = math.sqrt(max(cnt, 1.0) * v_unit)
+               ehmu_final_1e9.py    95      NO    rw = math.sqrt(max(cnt, 1.0) * v_unit)
+      lab_gaussian_half_audit.py   285      NO    Zv = C[Ns] / np.sqrt(np.maximum(V[Ns], 1e-300))
+                    seam_thin.py    48      NO    r = abs(S) / math.sqrt(max(n_eff, 1))
+               seam_thin_deep.py    48      NO    r = abs(S) / math.sqrt(max(n_eff, 1))
+          smooth_moduli_probe.py    79      NO    rw = math.sqrt(max(cnt, 1.0) * v_unit)
+                 typeII_kface.py    65      NO    rr.append(abs(inner) / math.sqrt(max(K_eff, 1)))
+              typeII_kface_MR.py    65      NO    rr.append(abs(inner) / math.sqrt(max(K_eff, 1)))
+               typeII_profile.py    65      NO    rr.append(abs(inner) / math.sqrt(max(K_eff, 1)))
+                   verify_all.py   131      NO    rr.append(abs(prod.sum()) / math.sqrt(max(v, 1)))
+                  verify_deep.py    79      NO    rr.append(abs(prod.sum()) / math.sqrt(max(v, 1)))
+                  verify_deep.py    99      yes   rr2.append(abs(vals.sum()) / math.sqrt(max(v, 1)))
+
+    'guarded' means a nearby `np.where`, a `> threshold`
+    filter or a nan sentinel. It is a syntactic reading and
+    can be wrong in both directions; (B) measures the size
+    of the fault so the list can be prioritised rather than
+    trusted.
+
+sieve  t=5s
+
+(B) the same statistic under three conventions
+    N = 9999998, C_(k,k') = Sum_p mu(N-pk) mu(N-pk')
+
+        k-band   pairs   annih.   (a) as 0  (b) excl.   (c) free   (a)/(b)
+     [252,464)     596   45.5%     0.4272     0.7834     0.7516    0.5453
+   [2000,4000)     600   44.7%     0.4228     0.7640     0.7198    0.5533
+    half-normal reference 0.7979
+    (a) is what an unguarded site reports. The ratio (a)/(b)
+    is 1 - (annihilation rate) by construction, so the fault
+    is exactly as large as the mask is dense -- which is why
+    it is invisible in shallow bands and severe in deep ones.
+
+    control: the same family summed over ALL m rather
+    than over primes p -- what dispersion_engine.py does
+        k-band   pairs   annih.   (a) as 0  (b) excl.   (a)/(b)
+     [315,630)     199    0.0%     0.7732     0.7732    1.0000
+   [2000,4000)     200    0.0%     0.8091     0.8091    1.0000
+    So the idiom is harmless over all m and severe over
+    primes p. The discriminator is the DENSITY of the
+    summation range, not the site syntax -- which is why
+    the static scan in (A) can only prioritise, not judge.
+
+(C) which documented numbers use which convention
+    (a reading of the scripts, each claim naming its file)
+          e1_zero_account.py   (b)/(c)  counts per-pair zeros directly; MEASUREMENTS section 7's 0.97-1.02 and kurtosis 2.99-3.03 rest on this
+            e1_mask_model.py       (c)  blind mask verification, free class
+               verify_all.py   (b)+(c)  was (a) until increment 285; V4 read 0.401
+        dispersion_engine.py       (a)  section 6's 0.801 -- see the note below
+                 cascade2.py       (a)  duals, not quoted in MEASUREMENTS
+              e1_dilation.py       (a)  section 6's cross-scale correlations, a CORRELATION of two such quantities rather than a mean of them
+
+    Two corrections to this script own first draft:
+    * section 6 dispersion number (0.801) is safe, and the
+      measured reason is the control above -- it sums over
+      ALL m, where annihilation is absent. The first draft
+      argued that a number near 0.80 could not have been
+      depressed, which assumes the answer.
+    * e1_seam_law.py is listed unguarded by (A) but is
+      INSTRUMENTED: its line carries a 0-when-killed note
+      and the next statement prints the annihilation rate.
+      The scan looks for filters and misses a published
+      diagnostic, so NO in column 3 means no filter, not
+      nobody noticed.
+DONE
