@@ -169,6 +169,47 @@ constructions, window-shape invariant; destroyed by gap permutation —
 an invariant of ≥3-point additive prime correlations
 (`code/e4_dense_sample.py` et al.).
 
+## 9. The wall's own scalar: C(N) ≍ √N, and what the comet measures
+
+Theorem C gives, unconditionally,
+r(N) = 𝔖(N)(N − C(N)) + R(N), where
+C(N) = Σ_{n<N}Λ(n)μ(N−n) is the scalar the whole chain reduces to and
+R(N) = E₃(α) + O_A(N(log N)^{−A}) is the discrepancy. Measured over
+400 even N in five octave groups from 1.2·10⁵ to 1.9·10⁶
+(`code/h_deficit.py`):
+
+| N₀ | corr(C, D) | mean\|C−D\|/N | sd(C/N) |
+|---|---|---|---|
+| 1.2·10⁵ | 0.457 | 0.00838 | 0.01071 |
+| 2.4·10⁵ | 0.746 | 0.00730 | 0.00612 |
+| 4.8·10⁵ | 0.771 | 0.00455 | 0.00495 |
+| 9.6·10⁵ | 0.831 | 0.00372 | 0.00310 |
+| 1.9·10⁶ | 0.726 | 0.00294 | 0.00271 |
+
+with D(N) := N − r(N)/𝔖(N) the relative Goldbach deficit. Fitting
+across the octaves:
+
+> **|C(N)| ~ N^{0.503}** — square-root, to three digits
+> **|R(N)| ~ N^{0.599}**
+
+Two readings, one positive and one negative.
+
+- **The chain's slack on its own final object is √N.** It needs only
+  C(N) = o(N); nature delivers N^{1/2}. That is the same shape as
+  every other margin in this program: nature over-delivers by a power,
+  and no technique certifies any of it.
+- **The comet is not measuring C(N).** Since
+  D = C − R/𝔖 and R grows faster than C, the deviation of the Goldbach
+  count from 𝔖(N)N is dominated by R, not by 𝔖C. So the ln 2 corpus
+  of §8 and the final-boss scalar are **not** the same object — a
+  hypothesis raised here and refuted by its own pre-registered
+  criterion (corr(C,D) ≥ 0.9 required; 0.60 pooled). The modest
+  correlation is the signature of R dominating, not of noise.
+
+At these N the O_A term in R is itself of size (log N)^{−2} ≈ 0.005 of
+N, comparable to what is measured, so R cannot be separated into E₃
+and the error; the exponent above is for the total discrepancy.
+
 ## One-shot reproduction
 
 ```bash

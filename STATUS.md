@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 201 (2026-08-06). 4 days, 31 recorded corrections,
+*Increment 208 (2026-08-06). 4 days, 31 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth".*
 
 **Consolidated working paper: `paper/negative_map.tex`.**
@@ -124,6 +124,20 @@ vacuous (Q-slot premise violated), the role exchange into the
 dispersion lemma is unfounded (no pair congruence), and the SEAM
 formalization is over-normalized. **Read the verdict before the
 sketch.** The exact identities and every measurement survive.
+
+### 3b. The wall's own scalar, measured
+
+The chain reduces to $C(N) = \sum_{n<N}\Lambda(n)\mu(N-n) = o(N)$,
+which is equivalent to the Goldbach asymptotic. Measured over 400 even
+$N$ in five octave groups (MEASUREMENTS §9, `code/h_deficit.py`):
+**$|C(N)| \sim N^{0.503}$** — square-root to three digits, against a
+requirement of merely $o(N)$. The discrepancy
+$R(N) = r(N) - \mathfrak S(N)(N - C(N))$ grows faster,
+$\sim N^{0.599}$, so the Goldbach count's deviation from
+$\mathfrak S(N)N$ is dominated by $R$ rather than by $\mathfrak S C$:
+**the ln 2 comet corpus and the final-boss scalar are not the same
+object**, a hypothesis raised and refuted here by its own
+pre-registered criterion.
 
 ### 4. The measurement corpus — the primary artifact
 

@@ -1,0 +1,17 @@
+sieving to 2000000 ...
+
+        N0   #N  corr(C,D)  mean|C-D|/N   mean C/N    sd C/N   mean D/N
+    120000   80     0.4566      0.00838   -0.00110   0.01071   -0.00130
+    240000   80     0.7463      0.00730    0.00067   0.00612    0.00329
+    480000   80     0.7711      0.00455    0.00042   0.00495    0.00059
+    960000   80     0.8311      0.00372   -0.00003   0.00310    0.00062
+   1900000   80     0.7259      0.00294   -0.00050   0.00271   -0.00118
+
+pooled: corr = 0.6034   mean|C-D|/N = 0.00538   (400 values of N)
+
+scaling (5 octave groups):
+  sd(C/N)   ~ N^(-0.497)   =>  |C(N)| ~ N^(0.503)
+  |C-D|/N   ~ N^(-0.401)   =>  |E_3/S| ~ N^(0.599)
+  (the chain needs only C(N) = o(N), i.e. exponent < 1)
+verdict: PARTIAL -- see numbers against the pre-registered rule
+DONE

@@ -19,7 +19,7 @@ and eighteen pre-registered closures,\\
 two of which this paper withdraws}
 
 \author{[author]}
-\date{Working paper, increment 200 of the \texttt{goldbach-ln2}
+\date{Working paper, increment 207 of the \texttt{goldbach-ln2}
 program\\
 \small All measurements reproducible from the accompanying repository}
 
@@ -665,6 +665,58 @@ at the trivial scale. This program has now made that mistake twice
 caught only by comparing a stated target against our own measurements
 of the same quantity. That comparison is now mandatory before any
 target is used to adjudicate anything.
+
+\subsection{C-III after the re-audit: what it needs, and what is left}
+\label{sec:c3state}
+
+Re-opening C-III raised three requirements. Two are now settled.
+
+\paragraph{(1) A legitimate transform --- closed for changes of
+variable.} Put $A = N-a$, $B = N-b$, so $A = mk$ and $B = m'k$; then
+$m'A - mB = 0$ exactly. In centered coordinates the dilate family is
+therefore the \emph{pencil of lines through the origin}, while the
+shift family $B = A - h$ is a family of \emph{parallel} lines. A
+pencil is characterised by its vertex, here a finite point; a parallel
+family is a pencil whose vertex is at infinity. Affine maps send
+finite points to finite points, and since $\mu$ lives on $\mathbb Z$
+the available changes of variable are exactly the integral affine
+ones. So no change of variable carries one family to the other --- which
+proves what an earlier probe had only measured, that the obvious
+re-indexing is circular (the off-diagonal computed directly and via
+that re-indexing agree exactly). What remains is the summation-formula
+class, blocked in general by the roughness of the outer weight $\mu$,
+with every named candidate in it already closed.
+
+\paragraph{(2) A classification covering the type-II region ---
+settled against the draft.} The draft's bookkeeping needs the
+M\"obius-side $a$ to satisfy $a \le y^{O(1)} = M^{o(1)}$. Measuring the
+absolute Heath--Brown weight
+$W(a) = \sum_j \binom{J}{j} A_j(a) D_j(M/a)$ across $a$-sizes, the
+fraction with $a > M^{0.05}$ is $0.939, 0.949, 0.960, 0.947$ at
+$J = 3, 4, 6, 8$, rising to $0.961$ and $0.969$ at $M = 10^6$. So
+about $95\%$ of the identity's weight lies outside the region the
+classification covers, flat in $J$ across the range the draft
+proposes and increasing with $M$. Those pieces carry a rough
+coefficient with no divisor structure and hence no Voronoi entry.
+
+The obstruction is parameter-independent: the identity with cut $z$
+needs $z^J \ge x$, and its $j$-th term has $a \le z^j$, which at
+$j = J$ is $x$ for every admissible $(z,J)$ --- while the weight
+concentrates in exactly those high-$j$ terms ($0.824$ at $j=3$ when
+$J=3$; $0.847$ at $j \in \{6,7,8\}$ when $J=8$). A repair would have
+to bound $\sum_a\sum_b \alpha(a)\beta(b)\mu(N-abk)$ with $\alpha$
+rough and $a$ long, where every individual piece is trivial and all
+the content is cancellation across $a$ --- a type-II estimate for
+$\mu(N-\cdot)$, i.e.\ the wall. Every identity decomposing $\mu$
+produces such a term; one whose every piece had either a long free
+variable or a divisor-structured rough coefficient would dispose of
+the parity obstruction. \textbf{Completing the draft and breaking the
+wall are the same task.}
+
+\paragraph{(3) Quantitative averaged Chowla.} Shift-averaged binary
+$\mu\mu$ correlations at a \emph{fixed} log-power saving, against a
+best known of $(\log)^{1-c}$. This is a named external open problem
+and is where C-III now stands.
 
 \section{What the closures constrain}
 
