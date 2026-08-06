@@ -6,9 +6,44 @@ hypotheses) of whether any existing machine proves a nontrivial slice
 of the distilled amplitude statement*
 
 > **E1 (weak form).** For even N, D(k) = Σ_{√N<m≤N/k} μ(m)μ(N−mk):
-> Σ_{k∼K}|D(k)|² ≪ (log N)^{−A} Σ_{k∼K} M_k, K ≤ x^{1/3} dyadic —
-> the entirety of what the Huang–Li chain consumes (fixed log-power
-> saving is the currency; o(1) or log log savings are not consumable).
+> **Σ_{k∼K}|D(k)|² ≪ (log N)^{−2A−2} Σ_{k∼K} M_k²**, K ≤ x^{1/3}
+> dyadic — the entirety of what the Huang–Li chain consumes (fixed
+> log-power saving is the currency; o(1) or log log savings are not
+> consumable).
+
+> ### ⚠️ Correction #30 (increment 198) — this statement was wrong
+>
+> The line above originally read `≪ (log N)^{−A} Σ_{k∼K} M_k`, with
+> **M_k where M_k² belongs**. The difference is a factor M ≍ N/K —
+> a *power* of N, not a constant.
+>
+> **Why the printed form was false.** Σ_k M_k is the square-root scale
+> (|D(k)| ≈ √M_k ⟹ Σ|D|² ≈ Σ M_k). So the printed target demanded
+> *better than square-root cancellation by a log power* — and this
+> repository's own measurements refute it: at N = 10⁸,
+> **Σ|D|²/Σ M_k = 0.305 / 0.310 / 0.319** over K = 10³/3·10³/6·10³,
+> against a demand of (log N)^{−4} = 8.8·10⁻⁶. False by four and a
+> half orders of magnitude, at every N (`code/e1_target_audit.py`).
+>
+> **The correct derivation.** The wall is the type-II term
+> T_II = Σ_{k∼K} b_k D(k) with |b_k| ≪ log N, needed at
+> |T_II| ≪ N(log N)^{−A}. Cauchy–Schwarz in k gives
+> |T_II| ≤ ‖b‖₂(Σ_k|D(k)|²)^{1/2} with ‖b‖₂² ≍ K(log N)², hence
+> Σ_k|D(k)|² ≪ N²/(K(log N)^{2A+2}), and Σ_{k∼K}M_k² ≍ K(N/K)² = N²/K.
+>
+> **What actually changes.** The target is a fixed log-power saving
+> over the **trivial** bound Σ M_k², not over the square-root scale.
+> Nature's margin is then (N/K)/(log N)^{2A+2} → ∞ (since K ≤ N^{1/3}),
+> though it is invisible at N = 10⁸, where (log N)^{10} = 4.5·10¹²
+> dwarfs N/K = 10⁵ — the slack is asymptotic, and no computation at
+> accessible N can display it.
+>
+> **What does not change.** All five route verdicts below stand: they
+> are blocked at named-lemma level, structurally, not on margin. In
+> particular Route 2's third obstruction survives — a triple-log saving
+> is still not a fixed power of log. The correction sharpens the
+> statement of the open problem ("any fixed log-power saving over
+> trivial in an L² average") without reopening any route.
 
 ## Route verdicts (all checked at named-lemma level)
 

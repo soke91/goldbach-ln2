@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Last updated: increment 197 (2026-08-06). 4 days, 29 recorded
+*Last updated: increment 198 (2026-08-06). 4 days, 30 recorded
 corrections, 18 pre-registered closures, 15 documented "teeth".*
 
 **Consolidated working paper: `paper/negative_map.tex`** — the whole
@@ -78,6 +78,19 @@ and $E_4(\alpha)$, distinguished only by the weight $w_k$.
   pair, cell, matrix and E1-ratio level across $10^8$–$2\cdot10^9$ and
   four $N$-structures. **Every "sub-random" reading in this program's
   history is mask accounting.**
+- **⚠️ Correction #30 (increment 198): the target itself was
+  misstated.** The adjudication printed the consumable as
+  $\sum_{k\sim K}|D(k)|^2 \ll (\log N)^{-A}\sum M_k$ — with $M_k$ where
+  $M_k^2$ belongs, a factor $N/K$. As printed it demands *better than
+  square-root cancellation*, and this repository's own data refute it:
+  $\sum|D|^2/\sum M_k = 0.305/0.310/0.319$ at $N=10^8$ against a demand
+  of $8.8\cdot10^{-6}$. The correct requirement, from Cauchy–Schwarz on
+  $T_{II}=\sum_k b_kD(k)$, is
+  $\sum_k|D(k)|^2 \ll (\log N)^{-2A-2}\sum_k M_k^2$ — a fixed log-power
+  saving over the **trivial** bound, which square-root cancellation
+  clears with margin $(N/K)(\log N)^{-2A-2}\to\infty$ (invisible at
+  accessible $N$). **No route verdict changes**: all five are blocked
+  structurally, at named-lemma level, not on margin.
 - **The amplitude half is what the chain needs, and it is unreachable.**
   A fresh-context adjudication (AMPLITUDE_ADJUDICATION.md) found all
   five candidate routes blocked at named-lemma level; the common
