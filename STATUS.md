@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 228 (2026-08-06). 4 days, 31 recorded corrections,
+*Increment 229 (2026-08-06). 4 days, 31 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth".*
 
 **What is trusted, and what is not: `DEPENDENCY_AUDIT.md`.** The
@@ -199,6 +199,9 @@ slope 1 — remains unexamined because nobody knows how to build it.
   for what has been withdrawn and why.
 - **Entry point**: MEASUREMENTS.md, then `python code/verify_all.py`.
 - **The theorems**: THEOREM_A.md → `paper/theorem_A.tex`.
+- **The live construction**: TRANSFORM_P.md — the prime-factor split,
+  the first transform here with positive margin (Props. P.1–P.4), with
+  TRANSFORM_LAB.md as the notebook it came out of.
 - **The open problem**: CONJECTURE_L.md (amplitude half), with
   AMPLITUDE_ADJUDICATION.md and TECHNIQUE_FORGE.md for why each route
   fails, and C3_REVIEW.md for the one that is open.
