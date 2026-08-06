@@ -52,7 +52,17 @@ show it is harmless under the hypotheses already assumed
 
 We state plainly what is \emph{not} claimed: Theorem~\ref{thm:A} removes
 only the part of the demand that carries no Goldbach content, and the
-net progress toward the Goldbach conjecture is zero.
+net progress toward the Goldbach conjecture is zero. We also state
+plainly what is \emph{standard}. The ingredients of Theorem~\ref{thm:A}
+are classical and its mechanism --- a divisor switch that moves the work
+onto a short variable, followed by Bombieri--Vinogradov --- is ordinary
+practice; what is offered is the application, together with the
+corrections it turns out to require. Theorem~\ref{thm:D} is, in genre, a
+precise form for this particular reduction of the phenomenon Bombieri's
+asymptotic sieve records, and a reader who finds its conclusion
+unsurprising is right to. Section~\ref{sec:lit} places both against the
+record, including Lichtman's level of distribution beyond the
+square-root barrier \cite{Li23}, which postdates \cite{HL}.
 \end{abstract}
 
 \section{Introduction}
@@ -798,6 +808,24 @@ design space extracts $C(N)$ by divisor switching plus
 Bombieri--Vinogradov.
 \end{theorem}
 
+\begin{remark}[relation to Bombieri's asymptotic sieve]
+\label{rem:bombieri}
+The genre of Theorem~\ref{thm:D} is classical. Bombieri's asymptotic
+sieve \cite{Bom76} shows that sieve weights alone cannot detect primes,
+however the weights are chosen, and the parity obstruction it isolates
+is the reason one expects a statement of this shape. What
+Theorem~\ref{thm:D} adds is not the phenomenon but its precise form
+here: the obstruction is quantified as a separation of $N^{1/2}$ between
+two thresholds --- the point at which a weight's transform must carry
+mass in order to extract $C(N)$, and the point below which the residual
+is accessible at all --- it is specific to the divisor-switch route, and
+it survives granting the full Elliott--Halberstam conjecture rather than
+merely Bombieri--Vinogradov. The reason the statement is worth making is
+narrow but real: without it, $E_3$ looks like one member of a family of
+candidate consumptions, and Theorem~\ref{thm:C} then looks like an
+accident of one choice of weight rather than a property of the route.
+\end{remark}
+
 \begin{proof}
 By Lemma~\ref{lem:extract} and $\varphi(d)\ge1$,
 \[
@@ -1092,6 +1120,74 @@ closes under hypotheses already assumed.
 zero.
 \end{itemize}
 
+\section{Relation to the literature}\label{sec:lit}
+
+This section is a placement, not a survey, and it is deliberately
+conservative about what is offered here as new.
+
+\paragraph{Theorem~\ref{thm:A}.} The mechanism is standard. After the
+divisor switch the M\"obius on the long variable squares away and the
+surviving M\"obius sits on a variable of length at most
+$N^{1/2-\delta}$, which is the classical configuration in which
+Bombieri--Vinogradov applies. Every ingredient
+(Bombieri--Vinogradov; the Goldston--Y\i ld\i r\i m estimate
+\cite{GY} as used in \cite{HL}; the elementary density identity of
+Proposition~\ref{prop:MT}) is off the shelf. The statement is offered as
+a \emph{lemma about the Huang--Li reduction}, not as a contribution to
+the theory of Bombieri--Vinogradov; its content is that this particular
+consumption of $EH_\mu$ is unnecessary, and what difficulty it has lies
+in the bookkeeping --- in particular that the condition $(k,N)=1$ must
+be discarded by the degeneracy argument rather than expanded over
+$e\mid N$, and that main terms may be assigned only to classes with
+$(q,N)=1$, the second of which shifts the density by exactly
+$N/\varphi(N)$ if missed.
+
+\paragraph{Theorem~\ref{thm:D} and Proposition~\ref{prop:E}.} See
+Remark~\ref{rem:bombieri} for the relation to \cite{Bom76}.
+Proposition~\ref{prop:E} is an observation --- Parseval bounds any
+pointwise route from below by the $L^2$ norm --- and is recorded because
+the circle method is the first thing one tries on $C(N)$, not because it
+is difficult.
+
+\paragraph{Beyond the square-root barrier.} Since \cite{HL} appeared,
+Lichtman \cite{Li23} has shown that the primes have level of
+distribution $66/107 \approx 0.617$ using triply well-factorable
+weights, and has used it to improve upper bounds for Goldbach
+representations --- the first use of a level beyond the square-root
+barrier on that problem. That work does not collide with the present
+one: it concerns the primes rather than
+$\sum_{n<N}\Lambda(n)\mu(N-n)$, and it yields upper bounds rather than
+the asymptotic that \cite{HL} targets. It is nevertheless the state of
+the art against which any claim of the form ``beyond $1/2$'' must now be
+measured.
+
+The same line of work \cite{Li20,Li23} establishes a level of
+distribution $3/5$ for the M\"obius function with triply
+well-factorable weights; we have not verified the precise statement or
+its location against the published versions, and cite it here as the
+object the question below refers to rather than as a result we have
+checked. Since
+\cite{HL} require $EH_\mu(N^{\theta'})$ for a single $\theta'>1/2$, and
+since Theorem~\ref{thm:C} identifies $w_k=\log k$ as the weight carrying
+the Goldbach content, the following question is well posed and, so far
+as the present authors know, open:
+
+\begin{quote}
+Does the weight that the Huang--Li consumption actually requires lie in
+the triply well-factorable class for which level $3/5$ is known for
+$\mu$?
+\end{quote}
+
+Two cautions attach to it. First, $EH_\mu$ as stated in \eqref{eq:EHmu}
+carries $\max_a|\cdot|$, whereas well-factorable results bound signed
+weighted sums $\sum_q \lambda_q E(x;q,a)$; the comparison must therefore
+be made against what the argument \emph{consumes}, which is a signed
+sum, and not against the absolute-value form as written. Second,
+Theorem~\ref{thm:D} closes extraction \emph{by divisor switching}; the
+technology of \cite{Li23} is the Deshouillers--Iwaniec spectral large
+sieve, a different mechanism, and Theorem~\ref{thm:D} says nothing about
+it.
+
 \begin{thebibliography}{9}
 \bibitem{HL} Jing-Jing Huang and Huixi Li,
 \emph{On the connection between the Goldbach conjecture and the
@@ -1103,6 +1199,14 @@ Elliott--Halberstam conjecture}, arXiv:2005.03811v2 [math.NT], 2022.
 conjecture}, Chinese Ann. Math. \textbf{3} (1982), 555--560.
 \bibitem{MV} Hugh Montgomery and Robert Vaughan,
 \emph{Multiplicative number theory I: classical theory}, CUP, 2007.
+\bibitem{Bom76} Enrico Bombieri, \emph{The asymptotic sieve},
+Rend. Accad. Naz. XL (5) \textbf{1/2} (1975/76), 243--269.
+\bibitem{Li23} Jared Duker Lichtman, \emph{Primes in arithmetic
+progressions to large moduli, and Goldbach beyond the square-root
+barrier}, arXiv:2309.08522 [math.NT], 2023.
+\bibitem{Li20} Jared Duker Lichtman, \emph{Primes in arithmetic
+progressions to large moduli, II: well-factorable estimates},
+arXiv:2006.07088 [math.NT], 2020.
 \end{thebibliography}
 
 \end{document}
