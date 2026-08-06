@@ -166,6 +166,8 @@ even N.** The margin above rests on "square-root cancellation per p suffices", i
 | **R at N ≈ 1.5·10⁷** | 0.3381 | 0.4738 | 0.5965 | **0.6821** | 0.7069* |
 | R/R_null there | 0.954 | 1.220 | 1.422 | **1.537** | 1.576* |
 
+*(The `R_null` column uses `√V_p`, which is the random-sign level only where `D_p` has a single term. A **sign-randomised** null — μ replaced by random signs on the same support — is exact for every p and comes out 5–8% stricter: the depth-6 ratio is **1.584** rather than 1.522, and all even N sits at **0.959**. Correction #55; the readings below are unchanged in direction and slightly larger in size.)*
+
 *(\* n = 1)*. Two facts follow, and together they are the answer.
 
 1. **R decays with N at every fixed depth** — −13.6, −8.6, −14.0, −15.9, −14.4, −14.2, −12.7 percent across a factor 12.5 in N, a mean of **−13.3%**.
