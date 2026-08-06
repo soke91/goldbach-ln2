@@ -80,9 +80,9 @@ triply well-factorable is not reached; the question is upstream of it.
 priced this in.** For `Λ` of level `θ_E` the loss factor is
 `exp(c₁√((1−θ_E)log N))`. At `θ_E = 1/2` that is `exp(c₁√(0.5 log N))`;
 at Lichtman's `3/5` it is `exp(c₁√(0.4 log N))`. Both exceed every power
-of `log N`. Only `θ_E = 1` exactly would close the gap, and there each
-progression holds `O(1)` terms and the statement is vacuous. **A better
-level was never the missing ingredient.**
+of `log N`. **A better level was never the missing ingredient** — no *fixed* level is, however close to 1.
+
+⚠️ **Corrected at increment 279.** This paragraph continued: *“Only `θ_E = 1` exactly would close the gap, and there each progression holds `O(1)` terms and the statement is vacuous.”* **Both halves are wrong.** Solving the inequality (Proposition D⁗) gives the boundary at `1 − θ_E ≪ (log log N)²/log N` — strictly stronger than EH, strictly weaker than `θ_E = 1` — and in that regime a progression retains `exp(C(log log N)²)` terms, more than every fixed power of `log N`, so it is **not vacuous**. The conclusion here is unaffected, because Lichtman's `3/5` is a fixed constant and reason 1 is independent and decisive; but the reason as written was not sound, and it had stood since increment 235 as one of three grounds for closing the program's highest-value open item.
 
 **3. The author's own conclusion, as a sanity check.** Lichtman's
 Goldbach application gives **upper bounds** — "the greatest improvement

@@ -341,11 +341,68 @@ Theorem 1 *assumes* EH for Λ. Raising the level does not help.
 > **N^{1−θ_E}**, so ‖b‖₁/|B_w| ≫ exp(c√((1−θ_E)log N)) — beyond every
 > power of log for each fixed θ_E < 1.
 
-Closing would require **θ_E = 1 exactly** — equidistribution of Λ to
-moduli of size N itself, where each progression holds O(1) terms and
-the statement carries no information. **The demand side stays closed
-even granting the full Elliott–Halberstam conjecture**: the switch
-route needs not a stronger level but a different mechanism.
+**The demand side stays closed even granting the full
+Elliott–Halberstam conjecture**: the switch route needs not a stronger
+level but a different mechanism.
+
+#### Proposition D⁗ — where the boundary actually is (increment 279)
+
+The theorem above is correctly hedged: *for each **fixed** θ_E < 1*.
+The prose that stood here from increment 196 was not. It read
+
+> ~~"Closing would require **θ_E = 1 exactly** — equidistribution of Λ
+> to moduli of size N itself, where each progression holds O(1) terms
+> and the statement carries no information."~~
+
+and that skips a whole regime, because `θ_E = θ_E(N) → 1` **at a rate**
+is neither a fixed level nor the boundary. Solving the inequality
+instead of gesturing at it (`η := 1 − θ_E`, asking the loss to stay
+below `(log N)^A`):
+
+> `exp(c√(η log N)) ≤ (log N)^A ⟺ η ≤ (A/c)²·(log log N)²/log N.`
+
+> **Proposition D⁗.** The switch route saves a power of log **iff**
+> `1 − θ_E ≪ (log log N)²/log N`. That requirement is **strictly
+> stronger than EH** (which fixes ε) and **strictly weaker than the
+> vacuous θ_E = 1**.
+
+**And the regime is not vacuous.** Moduli reach `N^{1−η}`, so a
+progression retains `N^η = exp(C(log log N)²)` terms — which exceeds
+`(log N)^A` for *every* fixed A, since the ratio is
+`exp((log log N)(C log log N − A)) → ∞`. Not `O(1)`. The old sentence
+was wrong on both halves: the boundary is not at 1, and what lies just
+below it is not empty.
+
+**Why the distinction is not pedantic.** "Vacuous" says the target is
+meaningless; "stronger than EH" says it is meaningful and out of reach.
+Only the second is true, and only the second leaves a well-posed
+question — *how close to 1 can the level be pushed?* — instead of
+closing one that was never closed.
+
+**Increment 235 is not reopened.** Lichtman's `3/5` is a fixed
+constant, and `results/lab_level_threshold.txt` column (C) confirms no
+fixed level ever suffices; reason 1 there (object mismatch: `Λ(n)μ(N−n)`
+is a correlation, not a single function) is independent and decisive.
+The conclusion stands; the reason given for it did not.
+
+#### What the same table says about every no-go here
+
+Asked when Theorem D′ *acquires content*, the answer is sobering.
+Solving `c√(η log N) = A log log N` for the crossover (c = 1, A = 3):
+
+| η = 1 − θ_E | no-go bites from |
+|---|---|
+| 0.40 (Lichtman's 3/5) | **N ≈ 10⁴⁸⁰** |
+| 0.10 | N ≈ 10³⁰⁷¹ |
+| 0.01 | N ≈ 10⁵³⁷⁴⁴ |
+
+Below those sizes the switch route loses nothing that matters and
+Theorem D′ is silent. Two independent solves agree on this (the
+required η at N = 10⁵⁰⁰ is 0.388, just under 0.40, and the 0.40
+crossover is 10⁴⁸⁰, just under 10⁵⁰⁰). **Every no-go in this program
+should be read this way**: they constrain *methods*, not any
+computation anyone will run. This is stated because the theorems are
+otherwise easy to read as though they bit at reachable N. They do not.
 
 ### Proposition E — the circle method has zero margin on C(N) (196)
 

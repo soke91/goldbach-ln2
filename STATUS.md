@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 278 (2026-08-07). 5 days, 64 recorded corrections,
+*Increment 279 (2026-08-07). 5 days, 66 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -56,6 +56,21 @@ $\mu(k)$.
   is $N^{1-\theta_E}$ and the loss $\exp(c\sqrt{(1-\theta_E)\log N})$
   exceeds every power of $\log$. **No weight extracts $C(N)$ by divisor
   switching — even granting the full Elliott–Halberstam conjecture.**
+- **Proposition D‴** (inc. 278): the loss factor is $\ge 1/\max_d|\rho|$,
+  hence **monotone** in the bound on $\rho$ — every improvement of
+  Huang–Li's Lemma 1 *strengthens* the no-go, none can weaken it. Under
+  RH it becomes a power of $N$. The route is not blocked by what we
+  cannot prove; it is blocked harder the more we know.
+- **Proposition D⁗** (inc. 279): the boundary is **not** $\theta_E = 1$.
+  Solving gives $1-\theta_E \ll (\log\log N)^2/\log N$ — strictly
+  stronger than EH, strictly weaker than $\theta_E = 1$ — and that
+  regime is **not vacuous** (progressions retain $\exp(C(\log\log N)^2)$
+  terms, beating every fixed power of $\log N$). Corrects prose that had
+  stood since increment 196.
+- ⚠️ **All of these are asymptotic and bite late**: Theorem D′ acquires
+  content around $N \approx 10^{480}$ at $\eta = 0.40$, $10^{3071}$ at
+  $\eta = 0.10$. They constrain **methods**, not any computation anyone
+  will run (`results/lab_level_threshold.txt`).
 - **Proposition D″**: the smooth-weight family closes too. For
   $w_k = f(\log k)$ one has $b = \mu*\log^D = \Lambda_D$, and for a
   monomial every term of the complete part is nonnegative, so it is

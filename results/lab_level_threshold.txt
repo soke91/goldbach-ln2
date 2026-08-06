@@ -1,0 +1,100 @@
+(A) required level: theta_E >= 1 - (A/c)^2 (loglog N)^2/log N
+    A = 3.0, i.e. asking the switch to save (log N)^3
+
+         N      log N  loglog N       eta  c = 1     eta  c = 1/2       eta  c = 2
+      1e10      23.03     3.137         3.845475        15.381899         0.961369
+      1e50     115.13     4.746         1.760850         7.043401         0.440213
+     1e100     230.26     5.439         1.156371         4.625485         0.289093
+     1e500    1151.29     7.049         0.388390         1.553558         0.097097
+    1e1000    2302.59     7.742         0.234266         0.937064         0.058567
+   1e10000   23025.85    10.044         0.039434         0.157737         0.009859
+
+    the same as theta_E = 1 - eta (c = 1 column).
+    A REQUIRED eta >= 1 MEANS THE FORMULA IS NOT YET IN ITS
+    REGIME: it would permit theta_E <= 0, which is outside
+    Theorem D's hypothesis theta_E in (0,1). At such N the
+    loss factor is ALREADY below (log N)^A for every level,
+    so there is nothing for the requirement to constrain.
+      1e10   eta =   3.8455 >= 1   -- NOT IN REGIME, no constraint here
+      1e50   eta =   1.7609 >= 1   -- NOT IN REGIME, no constraint here
+     1e100   eta =   1.1564 >= 1   -- NOT IN REGIME, no constraint here
+     1e500   theta_E >= 0.61161044    (EH is theta_E = 1 - eps for FIXED eps)
+    1e1000   theta_E >= 0.76573396    (EH is theta_E = 1 - eps for FIXED eps)
+   1e10000   theta_E >= 0.96056585    (EH is theta_E = 1 - eps for FIXED eps)
+
+(A2) from what N does the no-go have content?
+     crossover L = log N solving c sqrt(eta L) = A log L
+     eta          log N                  N
+    0.40         1104.9              1e480
+    0.10         7070.9             1e3071
+    0.01       123749.5            1e53744
+     Below these N the switch route loses NOTHING that matters
+     and Theorem D' is silent. This is an asymptotic no-go and
+     its content lives far past any computable range -- stated
+     because the theorem is otherwise easy to read as though
+     it bit at reachable N. It does not.
+
+(B) is that regime vacuous? terms per progression = N^eta
+         N            N^eta        (log N)^A          ratio
+      1e10          e^88.55           e^9.41        e^79.14   (not in regime)
+      1e50         e^202.73          e^14.24       e^188.49   (not in regime)
+     1e100         e^266.26          e^16.32       e^249.95   (not in regime)
+     1e500         e^447.15          e^21.15       e^426.00
+    1e1000         e^539.42          e^23.23       e^516.19
+   1e10000         e^908.00          e^30.13       e^877.87
+    ratio -> infinity, so a progression holds MORE than every
+    fixed power of log N terms. NOT O(1). NOT vacuous.
+
+(C) control: no FIXED level works, as Theorem D' states
+         N   eta=0.40 (3/5)     eta=0.10     eta=0.01    (log N)^A
+      1e10           e^3.03       e^1.52       e^0.48       e^9.41
+      1e50           e^6.79       e^3.39       e^1.07      e^14.24
+     1e100           e^9.60       e^4.80       e^1.52      e^16.32
+     1e500          e^21.46      e^10.73       e^3.39      e^21.15
+    1e1000          e^30.35      e^15.17       e^4.80      e^23.23
+   1e10000          e^95.97      e^47.99      e^15.17      e^30.13
+    every fixed-eta column overtakes (log N)^A and stays
+    above it: a constant level never suffices, however close
+    to 1 -- which is exactly what the theorem says.
+
+(D) self-check: is the solved eta really the crossing point?
+         N                 at eta      at eta*(1-1e-6)      at eta*(1+1e-6)
+      1e10             +0.000e+00           -4.705e-06           +4.705e-06
+      1e50             +0.000e+00           -7.119e-06           +7.119e-06
+     1e100             +0.000e+00           -8.159e-06           +8.159e-06
+     1e500             -3.553e-15           -1.057e-05           +1.057e-05
+    1e1000             +0.000e+00           -1.161e-05           +1.161e-05
+   1e10000             +0.000e+00           -1.507e-05           +1.507e-05
+    column 1 must be ~0 (eta IS the crossing point), column 2
+    negative (below eta the route works), column 3 positive.
+
+SELF-CHECK OK
+
+======================================================================
+conclusion
+======================================================================
+The boundary is NOT theta_E = 1 and the regime that closes the
+gap is NOT vacuous. The correct statement is:
+
+    the switch route needs  1 - theta_E << (loglog N)^2/log N,
+    which is STRICTLY STRONGER THAN EH (any fixed eps) and
+    STRICTLY WEAKER THAN the vacuous theta_E = 1.
+
+Internal consistency: (A) needs eta <= 0.388 at N = 1e500,
+just under 0.40, and (A2) puts the eta = 0.40 crossover at
+N = 1e480, just under 1e500. Two separate solves agree.
+
+And a second thing the tables show, which was not the
+question asked: the no-go is asymptotic and its content
+begins around N = 1e480 for eta = 0.40. Every no-go in this
+program should be read that way -- they constrain METHODS,
+not any computation anyone will run.
+
+This does not reopen increment 235: Lichtman's 3/5 is a fixed
+constant and column (C) shows fixed constants never suffice,
+and reason 1 there (object mismatch) is independent and
+decisive. What changes is that 'vacuous' was the wrong word.
+'Vacuous' says the target is meaningless; 'stronger than EH'
+says it is meaningful and out of reach. Only the second is
+true, and only the second leaves a well-posed question.
+DONE
