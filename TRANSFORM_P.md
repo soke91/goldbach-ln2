@@ -156,7 +156,24 @@ even N.** The margin above rests on "square-root cancellation per p suffices", i
 | 2·3·5·7·11 | 4 | 0.6966 | 0.4862 | 1.433 |
 | 2·…·17 | 6 | 0.7817 | 0.5134 | **1.522** |
 
-`R/R_null` climbs from 0.96 to **1.52**: at deep N the per-prime sums cancel **worse than random**, because the location mask gives each `D_p` a systematic component. So the premise of §4's margin — square-root per p — is false exactly where the demand is largest. The increments in R are shrinking (0.039, 0.121, 0.087, 0.059, 0.054, 0.031), so R may saturate below 1, but that is an extrapolation from seven points whose last has **n = 2**. **The decisive measurement is R along the primorial sequence at N ≥ 10⁷**, which is not yet done.
+`R/R_null` climbs from 0.96 to **1.52**: at deep N the per-prime sums cancel **worse than random**, because the location mask gives each `D_p` a systematic component. So the premise of §4's margin — square-root per p — is false exactly where the demand is largest.
+
+**Repeated at X = 2·10⁷ with proper samples** (n = 10 per depth, `code/lab_transformP_depth7.py`; the table above had n = 2 at depth 6), which separates the two axes:
+
+| depth | 0 | 2 | 4 | 6 | 7 |
+|---|---|---|---|---|---|
+| R at N ≈ 10⁶ | 0.3912 | 0.5508 | 0.6966 | 0.7817 | — |
+| **R at N ≈ 1.5·10⁷** | 0.3381 | 0.4738 | 0.5965 | **0.6821** | 0.7069* |
+| R/R_null there | 0.954 | 1.220 | 1.422 | **1.537** | 1.576* |
+
+*(\* n = 1)*. Two facts follow, and together they are the answer.
+
+1. **R decays with N at every fixed depth** — −13.6, −8.6, −14.0, −15.9, −14.4, −14.2, −12.7 percent across a factor 12.5 in N, a mean of **−13.3%**.
+2. **R climbs with depth at fixed N**, but the steps are shrinking: +0.055, +0.081, +0.063, +0.060, +0.048, +0.038, **+0.025**.
+
+Along the primorial sequence itself — depth k requires `N ≥ p_k#`, so the two move together — a step from depth 6 to depth 7 multiplies N by 19, which costs **−15.4%**, against a depth gain of **+3.6%**. **The N-decay outruns the depth growth**, and the measured pair agrees: R = 0.7817 at (N ≈ 10⁶, depth 6) falls to 0.7069 at (N ≈ 1.9·10⁷, depth 7). So P.4's demand does decay even along the hardest sequence.
+
+What remains false is the **premise**, not the conclusion: `R/R_null` is flat in N at fixed depth (1.522 → 1.537 at depth 6), so "square-root cancellation per p" is not what carries deep N — something else does, and §4's derivation of the margin from `S_null ≈ 2√c·N/√(log N)` does not apply there.
 
 **And these are averages over all even N, while P.4 is a statement about
 every N.** Split by how deep N sits in the location mask
