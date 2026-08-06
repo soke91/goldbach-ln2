@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 215 (2026-08-06). 4 days, 31 recorded corrections,
+*Increment 216 (2026-08-06). 4 days, 31 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth".*
 
 **Consolidated working paper: `paper/negative_map.tex`.**

@@ -1,0 +1,19 @@
+X = 2000, |W| = 501
+  LHS  Sum_N |C(N)|^2      = 8353614.4694
+  RHS  Sum_h r(h) S(h)     = 8353614.4694
+  difference               = 2.049e-08   IDENTITY OK
+  diagonal h = 0           = 3801174.8896   (0.455 of total)
+  off-diagonal             = 4552439.5798   (+0.545 of total)
+
+X = 4000, |W| = 1001
+  LHS  Sum_N |C(N)|^2      = 32219252.5320
+  RHS  Sum_h r(h) S(h)     = 32219252.5320
+  difference               = 1.155e-07   IDENTITY OK
+  diagonal h = 0           = 16900940.2758   (0.525 of total)
+  off-diagonal             = 15318312.2563   (+0.475 of total)
+
+Gap: MRT gives an average saving of o(1) per shift; the
+identity needs order 1/X per shift. Shortfall ~ X, not a
+log power. The second-moment route lands on the known
+exceptional-set result, not on a fixed-N statement.
+DONE

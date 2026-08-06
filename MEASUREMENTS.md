@@ -339,6 +339,40 @@ mask × Gaussian, with the mask the square root of the singular series.
 It also explains the decaying 3 | N mean split of §11 as the residual
 drift of the same law.
 
+## 13. The wall's variance is a weighted shift-averaged Chowla sum
+
+The law of §12 is a statement about the variance of C(N), and the
+variance unfolds exactly (`code/wall_secondmoment.py`):
+
+> **Σ_{N∈W} |C(N)|² = Σ_h r_W(h)·S_W(h)**, where
+> r_W(h) = Σ_{n−n′=h}Λ(n)Λ(n′) counts prime pairs at shift h and
+> S_W(h) = Σ_v μ(v)μ(v+h) is the binary Chowla correlation.
+
+Verified to machine precision (differences 2·10⁻⁸ and 1.2·10⁻⁷ at
+X = 2000 and 4000). So **the variance of the wall's own scalar is a
+prime-pair-weighted, shift-averaged Chowla sum** — and shift-averaging
+is exactly the regime Matomäki–Radziwiłł–Tao control, unlike the
+dilate-averaging of §everything-else.
+
+Two readings, one of which corrects a prediction of ours.
+
+- **The off-diagonal does not cancel; it adds.** We predicted it would
+  have to cancel a log X against the diagonal. Measured, it is
+  **positive and comparable**: 0.545 and 0.475 of the total at
+  X = 2000 and 4000. So about half the variance of C(N) is genuine
+  shifted-Möbius correlation rather than diagonal mass.
+- **The gap to MRT is a factor X, not a log power.** MRT gives
+  Σ_{|h|≤H}|S(h)| = o(HX), an average saving of o(1) per shift against
+  the trivial |S(h)| ≤ X; pinning the identity to the precision a
+  fixed-N statement needs would require order 1/X per shift. And a
+  second moment yields almost-all-N in any case, which is the
+  exceptional-set result already on the map.
+
+The value of the identity is as a map coordinate: it is the one place
+where the wall's own object connects to shift-averaged rather than
+dilate-averaged technology, and the connection is exact. What it does
+not do is close anything.
+
 ## One-shot reproduction
 
 ```bash
