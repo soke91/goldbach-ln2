@@ -52,17 +52,22 @@ Increment 282 checked exactly one closure and found the conclusion
 stood while its evidence was `1.8 s.e.` rather than the `29 s.e.`
 recorded. That is one of thirteen standing closures.
 
-The table below is a **triage, not a re-audit**. It says which
-closures rest on a quantity a later correction touched, and therefore
-which must be re-derived before they may be quoted. It does not claim
-any of them is wrong.
+The table below began as a **triage, not a re-audit**. Increments
+309–317 worked through it, and **every row is now settled**: Proposition
+E and Forge R5 re-derived and strengthened, RV #6 found to have been
+settled at 199 already, RV #3's corrected form derived and met with a
+power margin, and the kill-tests given the floors and error bars none of
+them had. ⚠️ What survives is not the triage's verdicts but its
+corrections to itself: four of its rows were wrong as written (#130,
+#134, #147), which is the reason a register of this kind has to be
+checked against sources rather than trusted.
 
 | Closure | What it rests on | Corrections that moved it | Status |
 |---|---|---|---|
 | ~~**Proposition E**~~ — circle method has zero margin on `C(N)` | the **trivial bound** `ψ(N) ∼ N` (PNT) and `sup ≥ ‖·‖₂` (Parseval). **Not** the size of `C(N)` — the triage below got that wrong | **none.** Every quantity is an exact sum over `n < N` or a consequence of PNT | ✅ **RE-DERIVED (inc. 309): stands, and is stronger.** `W(N)` cancels between `√(WQ)` and `rms C = √(ρ·𝔄·W)`, leaving `deficit = √(Q/(ρ𝔄)) ≍ √N` — a clean power of `N`, not a log power. Measured `0.888 → 0.961` in units of `√N` across a factor 100 in `N`; Parseval floor `1.52 → 1.92`, never below 1 (#130) |
 | ~~**Forge R5**~~ — circle method on `C(N)`, magnitude | the same two lines | **none** | ✅ **Settled with Proposition E** (inc. 309) |
 | **C-III #4** (second half) — pointwise budget deficit `x^{1/3}` | a magnitude comparison | `#30` re-opened the first half at increment 199; the second was left standing on structural grounds | ✅ Structural half unaffected by later corrections |
-| **RV #3** — SEAM over-normalized by `√P` | a **normalization** | `#36`, `#68`, `#287`: three further normalisation corrections, all in the same error class | ⚠️ **The one genuinely untouched item in this register.** Increment 199's body states it precisely: the verdict stands (SEAM as written was too strong), but **SEAM must be re-derived against the corrected target before it is called false** — an over-strong conjecture that is false is not evidence against the correctly-normalised one. Never done |
+| ~~**RV #3**~~ — SEAM over-normalized by `√P` | a **normalization** | `#36`, `#68`, `#287` | ✅ **RE-DERIVED (inc. 317). The corrected form is met with a power margin.** As written SEAM demanded `|C| ≪ √M(log N)^{−A}`, a log saving over the **square-root** scale — false. The chain consumes at the **trivial** scale (#30), so the demand is `|C| ≪ M(log N)^{−A}`, and `|C|/M ≈ 0.797/√M` beats every fixed `A` by a **power of `M`**; no drift against `log M` (`z = +1.62`). ⚠️ RV #3's own figure was also wrong — `0.717` is the unconditioned estimator; the clean bucket gives `0.7979` within 3 SE (#149) |
 | ~~**RV #6**~~ — Theorem E1 (L²) does not match the pipeline (signed L¹) | norm/currency mismatch | none | ✅ **It was settled at increment 199 and this register said otherwise** (#147): the verdict *table* says "in question", the *body* forty lines below says "the mismatch is real as an observation and not fatal as an objection". ⚠️ Its measurement had no spread; supplied at 316 — the loss ratio's **mean does not exist** (`mean/median = 4.7·10¹¹`), its single-band point estimate reaches **38× its own median**, and the `957×` outlier is a 5%-probability tail. ✅ The conclusion survives on the median: `loss ≈ 1.44√K`, constant to 9.3% for `K ≥ 700` (#148) |
 | Adjudication route 4 — Perron costs `N^{1−o(1)}` | a magnitude, margin restated as `N^{1/3}` at 199 | none since | ✅ |
 | **Construction C1, C2, C2b, C4** | existence of structure — each measured *no* signal | **none.** All four already use a **coin** null: random signs on the real support | ✅ **Hazard 7 is already satisfied** in these four. `e1_constr_c1.py`'s own header reads "Null: 8 draws of random signs on the real support" (#134) |

@@ -1,0 +1,20 @@
+mu ready  t=3s
+
+(S1)(S2) the seam band under both normalisations
+        P  pairs        M  |C|/sqrtM      SE  z vs 0.798      |C|/M  x sqrt(M)
+     2048    800      114     0.7941  0.0213       -0.18    0.07458     0.7950
+     4096    800      212     0.7894  0.0213       -0.40    0.05424     0.7894
+     8192    800      386     0.7616  0.0213       -1.70    0.03874     0.7613
+    16384    800      723     0.7948  0.0213       -0.14    0.02957     0.7951
+    32768    800     1338     0.7996  0.0213       +0.08    0.02189     0.8006
+    65536    800     2517     0.8386  0.0213       +1.91    0.01672     0.8389
+
+    (S1) clean-bucket |C|/sqrt(M) equals sqrt(2/pi) = 0.7979 within 3 SE: PASS  (max |z| = 1.91)
+    (S2) no drift of |C|/sqrt(M) with log M: PASS  (slope +0.01332 +/- 0.00824, z = +1.62)
+         a log-power correction to |C| ~ sqrt(M) would show here and nowhere else;
+         mean(|C|/M)*sqrt(M) = 0.7967 (spread 10.2%) is |C|/sqrt(M) restated, not a second test
+    (S3) at the top band M = 2517, the saving over trivial is M^(-1/2) = 1.993e-02,
+         which is (log N)^(-1.36) with log N = 17.73 -- and it is a POWER of M, so it beats
+         every fixed A as M grows.
+    the correctly normalised SEAM statement is not merely true, it is met with a power margin: |C|/M ~ 0.797/sqrt(M). RV #3's refutation is of the over-strong form only, exactly as its own note said, and the correctly normalised form has now been derived and measured. Register B is empty
+DONE
