@@ -1,8 +1,9 @@
 # Transform P — the prime-factor split of the Goldbach wall
 
 *Formalisation of the candidate found at increment 225 and measured
-through increment 229. Everything in §1–§3 is proved; §4 is measured
-and labelled as such; §5 states what is not established.*
+through increment 230. Everything in §1–§3 is proved; §4 and §5 are
+measurement, labelled as such; §5 also states the ceiling the transform
+cannot cross, and §6 what is not established.*
 
 Throughout, N is a large even integer,
 
