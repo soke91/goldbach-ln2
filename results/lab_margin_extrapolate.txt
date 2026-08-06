@@ -1,0 +1,29 @@
+sieve done  t=4s
+N=    50000  S_abs/N=0.3455  S_abs/triv=0.4423  t=4s
+N=   100000  S_abs/N=0.3295  S_abs/triv=0.4170  t=4s
+N=   200000  S_abs/N=0.3148  S_abs/triv=0.3996  t=4s
+N=   400000  S_abs/N=0.2995  S_abs/triv=0.3797  t=4s
+N=   800000  S_abs/N=0.2905  S_abs/triv=0.3691  t=5s
+N=  1600000  S_abs/N=0.2791  S_abs/triv=0.3545  t=6s
+N=  3200000  S_abs/N=0.2685  S_abs/triv=0.3411  t=7s
+N=  6400000  S_abs/N=0.2592  S_abs/triv=0.3291  t=9s
+
+model fits
+  (i)   a (logN)^-1/2      a=1.0820                 resid sd=0.00995
+  (ii)  c + b/logN         c=+0.0680  b=+3.0062   resid sd=0.00083
+  (iii) a (logN)^-b        b=0.7727                 resid sd=0.00081
+
+what the data say about the limit c in model (ii)
+  fitted c = +0.0680
+  leave-one-out range: [+0.0667, +0.0696]
+
+  (ii) vs (iii): resid sd 0.00083 vs 0.00081   ratio 0.96
+  predictions at log N = 20 (N ~ 5e8): (ii) 0.2183  (iii) 0.2148  separation 0.0035
+  measurement noise (larger resid sd) = 0.00083
+
+verdict: UNDECIDED -- (ii) and (iii) fit equally well and their predictions separate by less than the noise at any reachable N. Whether S_abs/N -> 0 is NOT numerically decidable.
+what IS settled: the exponent is not -1/2. The measured
+decay is (log N)^-0.773, FASTER than the square-root-
+per-p prediction, so P.4's budget is met with more room
+than predicted, not less.
+DONE

@@ -1,0 +1,20 @@
+convolutions  t=4s
+
+                  band    count    sd(G)     sd^2  logNmid  sd^2/logN  VarC/SumLam^2
+    100000-     200000    50000   2.0693   4.2819   11.859     0.3611         1.0062
+    200000-     400000   100000   2.1108   4.4554   12.553     0.3549         0.9550
+    400000-     800000   200000   2.1704   4.7107   13.246     0.3556         0.9231
+    800000-    1600000   400000   2.2095   4.8817   13.939     0.3502         0.8895
+   1600000-    3200000   800000   2.2656   5.1329   14.632     0.3508         0.8741
+   3200000-    4000000   400000   2.3059   5.3170   15.090     0.3523         0.8729
+
+fits
+  alpha = 0 (the recorded law) : CV of sd^2 = 7.52%
+  alpha = 1                    : CV of sd^2/logN = 1.03%
+  fitted alpha = 0.8953      : CV = 0.54%   kappa = 0.4651
+
+verdict: CONFIRMED -- Var C(N) = 0.465 * S(N) * N * log N, and the recorded law is missing a factor sqrt(log N)
+consequence: G(N) = C(N)/sqrt(S(N) N) is NOT the standardised
+fluctuation; C(N)/sqrt(kappa S(N) N log N) is. Any statement
+normalised the old way drifts by sqrt(log N) across a range.
+DONE

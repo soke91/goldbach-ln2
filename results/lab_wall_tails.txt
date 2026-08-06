@@ -1,0 +1,63 @@
+sieve  t=2s
+convolution  t=3s
+samples n = 1950001   t=4s
+
+(A) scale and bulk
+  mean -0.0020 (null 0, SE 0.0007)
+  sd   2.2406 (Conjecture L's law says 1)
+  skew -0.0020 (null 0, SE 0.0018)
+  kurt 3.1696 (null 3, SE 0.0035)
+
+(A2) is sd(G) constant in N? (if not, pooling mixes
+     scales and manufactures a heavy tail by itself)
+                N band     count      mean        sd     kurt
+    100000-     200000     50000    0.0051    2.0693   3.3401
+    200000-     400000    100000   -0.0444    2.1108   3.2322
+    400000-     800000    200000    0.0281    2.1704   3.2071
+    800000-    1600000    400000   -0.0315    2.2095   3.1651
+   1600000-    3200000    800000    0.0244    2.2656   3.1479
+   3200000-    4000000    400000   -0.0309    2.3059   3.1371
+     sd range [2.0693, 2.3059], ratio 1.1143
+     within-band kurtosis is the honest shape statistic;
+     the pooled one is contaminated whenever ratio > 1
+     band-standardised sample: n = 1950000
+
+(B) tails of G/sd -- POOLED (see (A2) before reading)
+   t   P(|Z|>t) meas    2Phi(-t)   binom SE        z
+   1        0.310873    0.317311   0.000333   -19.32
+   2        0.046851    0.045500   0.000149     9.05
+   3        0.003762    0.002700   0.000037    28.59
+   4        0.000188    0.000063   0.000006    21.82
+   5        0.000012    0.000001   0.000001    21.64
+
+(B2) the same tails, BAND-STANDARDISED -- the honest one
+   t   P(|Zb|>t) meas    2Phi(-t)   binom SE        z
+   1         0.311174    0.317311   0.000333   -18.41
+   2         0.046787    0.045500   0.000149     8.62
+   3         0.003699    0.002700   0.000037    26.90
+   4         0.000193    0.000063   0.000006    22.72
+   5         0.000014    0.000001   0.000001    24.48
+
+(C) the extreme -- max|Z| against the Gaussian-max law
+  observed max|Z| = 5.8612
+  E[max] = 5.0059  sd[max] = 0.2383   z = +3.59
+  (sqrt(2 log n) = 5.3821)
+
+(D) the top ten, against their order statistics
+  k    |Z|_(k)   expected     diff
+  1     5.8612     5.1530  +0.7082
+  2     5.8488     4.9430  +0.9058
+  3     5.8320     4.8425  +0.9895
+  4     5.8163     4.7752  +1.0411
+  5     5.6717     4.7244  +0.9472
+  6     5.5865     4.6835  +0.9030
+  7     5.5768     4.6491  +0.9276
+  8     5.4727     4.6195  +0.8532
+  9     5.4554     4.5935  +0.8619
+ 10     5.4446     4.5702  +0.8744
+
+verdict: NORMALISATION DRIFTS (sd ratio 1.114) -- the pooled tail in (B) is contaminated; read (B2)
+         DEVIATION SURVIVES BAND-STANDARDISATION -- see (B2)
+what this decides: EH_mu is a max statement, so the tail is
+the half of Conjecture L the chain actually consumes.
+DONE
