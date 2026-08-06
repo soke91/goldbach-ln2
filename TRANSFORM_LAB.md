@@ -475,6 +475,87 @@ whether **`Σ_w μ(w)𝔖_w(N)/w` cancels**, an Euler product over a
 multiplicative-in-w singular series. That is computable, and it is the
 next measurement.
 
+## Session 7 — the same identity, grouped the other way
+
+Transform P is a double sum over (p, w) with v = pw. Session 6 grouped
+it by p. Grouping by w instead costs nothing and changes everything:
+
+> `C_log(N) = Σ_p log p · D_p(N) = −Σ_w μ(w) · G_w(N)`,
+> `G_w(N) = Σ_{p<N/w, p∤w} log p · Λ(N−pw)`
+
+verified exactly (rel. diff ≤ 1.9·10⁻¹³). And `G_w(N)` is a familiar
+object: it counts `N = wp + n` in primes. **The wall is a Möbius
+average of binary Goldbach problems**, one for each w, with `G_1(N)`
+the Goldbach count itself.
+
+### The asymmetry, and it is exact rather than measured
+
+`G_w ≥ 0` termwise. Therefore
+
+> `Σ_w |G_w| = Σ_w G_w = Σ_v μ²(v)Λ(N−v) log v` = the trivial bound,
+> **identically**.
+
+| N | w-grouping Σ\|·\|/triv | p-grouping Σ\|·\|/triv |
+|---|---|---|
+| 5·10⁴ | 1.00000000 | 0.4459 |
+| 10⁵ | 1.00000000 | 0.4200 |
+| 2·10⁵ | 1.00000000 | 0.4033 |
+
+One identity, two groupings, opposite verdicts. The w-grouping has
+**provably** zero margin — every scrap of its cancellation must come
+from μ(w) across groups. The p-grouping's `D_p` contains the Möbius,
+cancels internally, and that alone suffices.
+
+### What the w-grouping would need
+
+**Its main terms cancel, and completely.** With `𝔖_w(N) = 𝔖(N)f(w)`,
+`f(w) = Π_{q|w}(q−1)/(q−2)`, the main-term sum is `𝔖(N)N·A(W)`,
+`A(W) = Σ_{w≤W} μ(w)f(w)/w`. Since f is within O(1/q) of 1, A(W) is a
+perturbation of `Σ_{w≤W} μ(w)/w` — PNT-strength, not `1/log W`:
+
+| N | A(W) | Σ μ(w)/w | 1/log W | MT_tot | \|MT\|/triv |
+|---|---|---|---|---|---|
+| 2.5·10⁴ | −9.8·10⁻⁴ | 9.9·10⁻⁴ | 0.106 | −42.9 | 2.4·10⁻⁴ |
+| 10⁵ | −2.9·10⁻⁴ | 5.3·10⁻⁴ | 0.092 | −50.7 | 6.1·10⁻⁵ |
+| 2·10⁵ | −4.4·10⁻⁴ | −4.9·10⁻⁴ | 0.087 | −155.5 | 8.8·10⁻⁵ |
+
+The main terms cancel from ~N log N down to O(100) — better than
+(log N)². **The singular-series average is not the obstruction.**
+
+**And the residual is at its own square-root scale.** With
+`E_w = G_w − 𝔖_w N/w`, measured against the second moment of `G_w`
+computed in the same loop (`null_w = √(Σ_p t_p²)`):
+
+| N | Σ\|E_w\| | Σ null_w | **ratio** | Σ\|E_w\|/triv |
+|---|---|---|---|---|
+| 2.5·10⁴ | 52379 | 44236 | **1.184** | 0.2888 |
+| 5·10⁴ | 112398 | 89426 | **1.257** | 0.2929 |
+| 10⁵ | 220735 | 185640 | **1.189** | 0.2658 |
+| 2·10⁵ | 463475 | 377073 | **1.229** | 0.2625 |
+
+Flat at ≈1.2, exactly as the p-grouping was flat at 0.83 against its
+own null. Both groupings, once normalised against the right scale, sit
+at square-root strength — the difference is entirely in what has to be
+supplied from outside to get there.
+
+> **The design rule.** Group so that **μ is inside the group**. Then
+> the group cancels internally and the main-term subtraction comes for
+> free; group the other way and the group is nonnegative, has zero
+> margin as it stands, and only becomes comparable after main terms are
+> put in by hand.
+
+### Two nulls of mine were wrong, and both were caught by the data
+
+Recorded as corrections #33 and #34. I predicted `A(W) ~ c/log W` from
+the Euler product — the truth is PNT-strength, three orders below. And
+I predicted `Σ|E_w| ~ √2·N log N` with a flat ratio ≈1 to trivial — the
+measurement is 7× smaller and *decaying*. Both errors have one cause:
+**the null came from an a priori size heuristic instead of from the
+data**, when the statistic's own second moment was computable in the
+same loop. That is now hazard 4 in CLOSURE_REAUDIT.md. Rule 2 said
+compute the null first; it did not say the null must not itself be a
+guess. Now it does.
+
 ### Not yet read
 
 MRT's *averaged* form of Chowla (`arxiv_1503.05121`) is stated

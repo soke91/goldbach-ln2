@@ -1,0 +1,48 @@
+       N   C_log direct    -Sum mu G_w   rel.diff  Sum|G_w|/triv
+   25000        5224.91        5224.91   4.35e-15     1.00000000
+   50000        5228.41        5228.41   2.44e-15     1.00000000
+  100000        -904.89        -904.89   4.69e-14     1.00000000
+  200000        1230.69        1230.69   1.51e-13     1.00000000
+
+(B) the asymmetry -- both groupings of the SAME identity
+       N  w-group |.|/triv  p-group |.|/triv
+       (p-group figures from session 6, results/lab_prime_factor_split.txt)
+   25000        1.00000000              --  
+   50000        1.00000000            0.4459
+  100000        1.00000000            0.4200
+  200000        1.00000000            0.4033
+    G_w >= 0 termwise, so Sum_w |G_w| = Sum_w G_w = the
+    trivial bound identically: the w-grouping has provably
+    zero margin. The p-grouping's D_p carries the Mobius and
+    cancels inside each group.
+
+(C) do the main terms cancel? A(W) = Sum mu(w) f(w)/w
+       N        A(W)  Sum mu(w)/w   1/log W      MT_tot  |MT|/triv  |MT|/(N/logN)
+   25000   -0.000976     0.000988   0.10601       -42.9   0.000237         0.0174
+   50000   -0.001481    -0.000807   0.09875      -130.3   0.000340         0.0282
+  100000   -0.000288     0.000532   0.09242       -50.7   0.000061         0.0058
+  200000   -0.000442    -0.000487   0.08686      -155.5   0.000088         0.0095
+    A(W) tracks Sum mu(w)/w, PNT-strength and far below
+    1/log W: the main terms cancel from ~N log N to O(100),
+    a saving of more than (log N)^2. The singular-series
+    average is NOT the obstruction to the w-grouping.
+
+(D) what is left after the main terms: E_w = G_w - S_w N/w
+       N     Sum|E_w|   Sum null_w  |E|/null  |E|/triv   heuristic  |E|/heur
+   25000      52379.2      44235.8    1.1841    0.2888    358030.5    0.1463
+   50000     112397.6      89425.5    1.2569    0.2929    765073.9    0.1469
+  100000     220735.3     185639.5    1.1891    0.2658   1628173.5    0.1356
+  200000     463475.1     377072.8    1.2291    0.2625   3452398.7    0.1342
+    |E|/null is the figure that counts: the residual mass
+    measured against its own second-moment scale. The size
+    heuristic sqrt(2) N log N is printed only to show how
+    far a priori sizing lands from the data.
+
+reading: one identity, two groupings. The p-grouping's D_p
+carries the Mobius, so it cancels internally and needs no
+main term supplied from outside; the w-grouping's G_w is
+nonnegative, has provably zero margin as it stands, and only
+becomes comparable after its main terms are subtracted by
+hand. Design rule: group so that mu is INSIDE the group, and
+the main-term subtraction comes for free.
+DONE

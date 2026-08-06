@@ -383,6 +383,29 @@ single number to the whole profile, or by computing the null first.
    **compute the null value of the statistic first and put it in the
    pre-registration next to the threshold.**
 
+3. **Identity checks with unenforced side conditions.** Verifying an
+   arithmetic identity while imposing only some of its hypotheses, and
+   reading the resulting failures as a defect. Three instances in one
+   session: the ladder identity needing p² ∤ m (increment 218, ~10%
+   false failures); the μ² insertion, where the paper inserts μ² into
+   the product *before* the split and we applied it after (221) — this
+   one would have become a **false claim of a second defect in a
+   published paper**; and the μ–μ dilation needing p ∤ v *and*
+   p ∤ (N′−v) (224, 5.2% false failures). Rule: **when checking an
+   identity with side conditions, enumerate them all and enforce every
+   one before reading any mismatch.**
+
+4. **Nulls taken from size heuristics instead of from the data.** Rule
+   2 says compute the null first; it does not by itself say *how*, and
+   an a priori estimate of the null is still an assumption. Two
+   instances at increment 226 (corrections #33, #34): an Euler-product
+   reading gave `A(W) ~ c/log W` where the truth is PNT-strength, and
+   `|E_w| ~ √(N/w) log N` overshot the measured residual by a factor 7
+   because it is dominated by the w where the model does not apply.
+   Rule: **where the statistic's own second moment is computable from
+   the same loop, use it as the null.** Print the heuristic beside it
+   if it is informative, never in place of it.
+
 Every closure in this repository predating these rules was re-checked
 against them; the ones that survived are the ones whose criteria were
 "is there any signal at all", which is threshold-free.
@@ -402,6 +425,9 @@ get there is listed here.
 | 29 | in Prop. D″, the top-r piece dominates by a power of log N | the pieces are the same order (r₂/r₁ = 0.771 → 0.810); the closure rests on nonnegativity |
 | 30 | E1 target `Σ|D|² ≪ (log N)^{−A} Σ M_k` (square-root scale) | `Σ|D|² ≪ (log N)^{−2A−2} Σ M_k²` (trivial scale) — a factor N/K |
 | 31 | "no route verdict changes" after #30 | this document: 2 void, 1 downgraded, 2 moot, 13 standing |
+| 32 | ③ is "a named external open problem" with a qualitative gap; MRT's averaged Chowla is qualitative | an **exponent** gap: MRT gives ≈(log H)^{−1+o(1)}, Pilatte a fixed power, and the chain wants ≈(log N)^{−6} — provisional, since the 6 is read off Huang–Li (TRANSFORM_LAB §2) |
+| 33 | null for the singular-series average: `A(W) ~ c/log W` from the Euler product 1 − f(q)/q ~ 1 − 1/q | `A(W)` tracks `Σ_{w≤W} μ(w)/w`, PNT-strength — measured ~10⁻³ against 1/log W ≈ 0.09. The Euler reading describes the smooth-truncated product, not the Möbius sum |
+| 34 | null for the w-grouping residual: `Σ_w|E_w| ~ √2·N log N`, so the ratio to trivial should be ≈1 and flat | the data-driven second-moment null `Σ_w √(Σ_p t_p²)`; measured ratio 1.18–1.26, flat, and 0.26 of trivial and falling. The heuristic overshot by a factor 7 |
 
 Two of these are the same species — #30 and REVIEW_VERDICT #3 (SEAM's
 √P over-normalization) are both **scale-normalisation drift**: writing
