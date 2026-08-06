@@ -1,0 +1,54 @@
+convolutions t=4s
+
+(A) fitting the two laws to the cell means
+  real: 129 cells (n >= 100), no sign filter; 58 negative
+    weighted R^2 on cell means:  multiplicative -713.9646   additive +0.2191
+
+(B) the same fit on permuted labels -- the noise floor
+  permuted: 129 cells (n >= 100), no sign filter; 27 negative
+    weighted R^2 on cell means:  multiplicative -1.0769   additive -0.0005
+
+(C) the fitted per-prime factors
+   q  f(q) fitted   q/(q-1)  (q-1)/(q-2)  permuted f
+   3       0.1260    1.5000       2.0000      1.7802
+   5      17.6332    1.2500       1.3333      1.3398
+   7       7.0052    1.1667       1.2000      1.8816
+  11       3.7008    1.1000       1.1111      2.3194
+  13       3.0941    1.0833       1.0909      2.7483
+  17       2.5337    1.0625       1.0667      2.8764
+  19       2.1868    1.0556       1.0588      2.0176
+  23       1.9374    1.0455       1.0476      2.5204
+  A = 0.1260   (the base depth at rad(N) = 2)
+
+(D) how well the multiplicative law predicts the deep cells
+                  primes | N   count  measured  mult pred  add pred
+                 3*5*7*11*13     111    -5.315    -22.451    -0.335
+                    3*5*7*11    1327    -3.036     -7.256    -0.302
+                    3*5*7*13    1106    -2.789     -6.066    -0.296
+                    3*5*7*17     830    -2.488     -4.968    -0.288
+                    3*5*7*19     737    -2.406     -4.287    -0.285
+                    3*5*7*23     603    -2.289     -3.799    -0.283
+                   3*5*11*13     664    -1.926     -3.205    -0.276
+                   3*5*11*17     497    -1.805     -2.624    -0.268
+                   3*5*11*19     441    -1.698     -2.265    -0.264
+                   3*5*11*23     360    -1.603     -2.007    -0.262
+                   3*5*13*17     413    -1.596     -2.194    -0.262
+                   3*5*13*19     367    -1.570     -1.894    -0.259
+
+(E) is the cell mean a power of the singular-series factor?
+  fit  log(-mean) = -10.6491 + 9.7351 log(Sig)
+  i.e. mean = -0.0000 * Sig^9.735    weighted R^2 = 0.9097   (58 cells)
+  permuted floor: exponent +0.990, R^2 0.1377   (27 cells)
+
+                  primes | N     Sig  measured  power-law
+                 3*5*7*11*13   3.879    -5.315    -12.768
+                    3*5*7*11   3.556    -3.036     -5.473
+                    3*5*7*13   3.491    -2.789     -4.578
+                    3*5*7*17   3.413    -2.488     -3.678
+                    3*5*7*19   3.388    -2.406     -3.423
+                    3*5*7*23   3.352    -2.289     -3.087
+                   3*5*11*13   3.232    -1.926     -2.164
+                   3*5*11*17   3.160    -1.805     -1.739
+                   3*5*11*19   3.137    -1.698     -1.618
+                   3*5*11*23   3.104    -1.603     -1.459
+DONE
