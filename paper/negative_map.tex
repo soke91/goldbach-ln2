@@ -15,10 +15,10 @@
 
 \title{A negative map of the Elliott--Halberstam route to Goldbach\\
 \large with one unconditional theorem, one conjecture,\\
-and seventeen pre-registered closures}
+and eighteen pre-registered closures}
 
 \author{[author]}
-\date{Working paper, increment 196 of the \texttt{goldbach-ln2}
+\date{Working paper, increment 197 of the \texttt{goldbach-ln2}
 program\\
 \small All measurements reproducible from the accompanying repository}
 
@@ -49,14 +49,14 @@ a deterministic local mask times an exactly Gaussian fluctuation, so
 that every ``sub-random'' reading in the literature of this problem
 that we could reproduce is mask accounting. What the Goldbach chain
 consumes is the amplitude half of that conjecture, and we report
-\textbf{seventeen pre-registered closures} --- five route adjudications
-against the source papers' explicit lemma hypotheses, nine
+\textbf{eighteen pre-registered closures} --- five route adjudications
+against the source papers' explicit lemma hypotheses, ten
 kill-tested technique designs, and three representation-class
 experiments --- each closed with numbers, together with the five
 structural constraints they impose on any future technique.
 
 The deliverable is the map, not a theorem toward Goldbach. We state
-throughout what is and is not claimed, and we record twenty-eight
+throughout what is and is not claimed, and we record twenty-nine
 corrections to our own earlier statements, including three refutations
 of our own derivations and one false-positive trap that would have
 produced an apparent refutation of $EH_\mu$.
@@ -278,6 +278,33 @@ it saves against $N$, while the pairing needs the scale $N^{1/2}$,
 which Parseval forbids. This is the parity obstruction in
 circle-method language.
 
+Theorem~\ref{thm:D} assumes $b$ is supported low enough for BV, which
+excludes the most natural family: $w_k=f(\log k)$ with $f$ polynomial.
+There $b=\mu*\log^D=\Lambda_D$, the generalised von Mangoldt function,
+so the complete part splits by the number of prime factors of $u$ into
+a Goldbach-type piece ($r=1$) and Chen-type pieces ($r\ge2$).
+
+\begin{proposition}[polynomial weights]\label{prop:Dpp}
+$D=0$ gives $B_w\ll e^{-c\sqrt{\log K}}$. For a monomial $x^D$,
+$D\ge1$, every term of the complete part is nonnegative
+($\Lambda\ge0$, $\Lambda_D\ge0$), so it is $\asymp N(\log N)^{D-1}$
+with a fixed sign. Cancelling across monomials requires tuning against
+the asymptotics of the $r=1$ piece, which at $D=1$ is the binary
+Goldbach sum --- circular. No polynomial weight makes the complete
+part a classically known object.
+\end{proposition}
+
+Measured at $N=10^6,4\cdot10^6,1.6\cdot10^7$: the two pieces of
+$\mathrm{CP}_2$ are the same order, with ratio $0.771,0.790,0.810$
+drifting towards $1$, and $\mathrm{CP}_2/(N\log N) = 2.886, 2.949,
+2.997$. (This refuted our own first prediction, that the top-$r$ piece
+would dominate by a power of $\log N$; the closure rests on
+nonnegativity instead.) The one analytically canonical tuning,
+$f(x)=x^2-2\gamma x$, which makes $b$ mean-zero by killing the pole of
+$\zeta W$ at $s=1$, moves the complete part by about five percent:
+mean-zero is not smallness, because it removes the average of $b$ and
+not its correlation with $\Lambda(N-\cdot)$.
+
 The loss exponent $\sqrt{(1/2)\log N}$ is the $\sqrt N$ barrier itself:
 it is the gap between where a weight must live to see $C(N)$ and where
 Bombieri--Vinogradov permits it to live. This is a no-go for one
@@ -366,7 +393,7 @@ therefore not knowledge of the structure --- the mask is an algorithm
 and $\mathbf G$ is featureless in every measurement --- but a proof
 technique for the amplitude of a featureless object.
 
-\section{The negative map: seventeen closures}\label{sec:closures}
+\section{The negative map: eighteen closures}\label{sec:closures}
 
 Every entry below was pre-registered: the decision rule was fixed in
 writing before the computation ran, and a design that failed its rule
@@ -638,7 +665,7 @@ for all 243 squarefree $m<400$); the closure experiments are
   is now an unconditional theorem, the other half is equivalent to the
   conclusion.
 \item The supply side is closed to measurement: the object is
-  featureless in every direction with a name, and the seventeen
+  featureless in every direction with a name, and the eighteen
   pre-registered closures say precisely which directions were checked
   and why each fails.
 \item Net progress toward Goldbach is zero. The contribution is the

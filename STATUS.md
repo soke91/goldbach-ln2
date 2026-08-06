@@ -1,11 +1,11 @@
 # STATUS — single-page state of the program
 
-*Last updated: increment 196 (2026-08-06). 4 days, 28 recorded
-corrections, 17 pre-registered closures, 15 documented "teeth".*
+*Last updated: increment 197 (2026-08-06). 4 days, 29 recorded
+corrections, 18 pre-registered closures, 15 documented "teeth".*
 
 **Consolidated working paper: `paper/negative_map.tex`** — the whole
 campaign in one document (the two couplings, Theorem A and the
-equivalence, Conjecture L, all seventeen closures with their blocking
+equivalence, Conjecture L, all eighteen closures with their blocking
 coordinates, the five constraints on any future technique, and the
 methodology that produced the negative results).
 
@@ -53,6 +53,15 @@ and $E_4(\alpha)$, distinguished only by the weight $w_k$.
   $C(N)=\sum\Lambda(n)\mu(N-n)$ by divisor switching plus BV** — a
   no-go over the entire weight space of that method (not a claim about
   other methods).
+- **Proposition D″ (increment 197): the smooth-weight family closes
+  too.** Theorem D assumed $b$ low-supported; the natural family it
+  excluded is $w_k = f(\log k)$, where $b = \mu*\log^D = \Lambda_D$ and
+  the complete part splits by $\omega(u)$ into a Goldbach-type piece
+  and Chen-type pieces. For a monomial every term is nonnegative
+  ($\Lambda\ge0$, $\Lambda_D\ge0$), so it is $\asymp N(\log N)^{D-1}$
+  with fixed sign; cancelling across monomials would have to be tuned
+  against the asymptotics of the Goldbach sum itself. The one
+  analytically canonical tuning (mean-zero $b$) moves it by 5%.
 - **Net progress toward Goldbach: zero.** Theorem A removes only the
   half of the demand that carries no Goldbach content.
 - By-product: a genuine defect in the published equation (18) — a

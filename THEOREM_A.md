@@ -190,6 +190,55 @@ method's entire weight space. It is not an obstruction to other
 methods. Its value is that it closes the design space Theorems A and C
 opened, instead of leaving it to be re-explored.
 
+### Proposition D″ — smooth weights: μ ∗ log^D = Λ_D (increment 197)
+
+Theorem D assumes b = μ∗w is supported low enough for BV. That excludes
+the most natural family of all — **w_k = f(log k), f polynomial** —
+whose transform is spread over every scale. Nobody had looked past
+D = 1. The structure there is explicit: **b = μ∗log^D = Λ_D**, the
+generalized von Mangoldt function, which vanishes on integers with more
+than D prime factors. So the complete part splits by ω(u):
+
+| D | r = 1 | r = 2 |
+|---|---|---|
+| 1 | Σ_p Λ(N−p)log p — **the Goldbach sum** (Theorem C) | — |
+| 2 | Σ_p Λ(N−p)log²p (Goldbach-type) | 2Σ_{pq} Λ(N−pq)log p log q (**Chen-type**) |
+
+> **Proposition D″.** (i) D = 0 ⟹ B_w ≪ e^{−c√log K} — no extraction.
+> (ii) For a monomial x^D, D ≥ 1, **every term is nonnegative**
+> (Λ ≥ 0 and Λ_D ≥ 0), so CP_D ≍ N(log N)^{D−1} with fixed sign — never
+> o(N). (iii) Cancelling across monomials requires tuning c₁ against
+> c₂, and the ratio to be matched involves the asymptotics of the r=1
+> piece — which at D=1 *is* the binary Goldbach sum. **Circular.**
+
+**⚠️ Correction #29 — a structural prediction of mine that the
+measurement refuted.** I first expected the top-r piece to dominate the
+others by a power of log N, which would have given (ii) without
+nonnegativity. **False.** Measured (`code/thmD2_polyweight.py`):
+
+| N | 10⁶ | 4·10⁶ | 1.6·10⁷ |
+|---|---|---|---|
+| r=1 / N | 22.51 | 25.04 | 27.46 |
+| r=2 / N | 17.36 | 19.79 | 22.25 |
+| **r₂/r₁** | 0.771 | 0.790 | **0.810** |
+| CP₂/(N log N) | 2.886 | 2.949 | 2.997 |
+
+The ratio drifts toward **1**, not 0 or ∞ — the two pieces are the
+*same* order. The closure stands, but on **nonnegativity**, not on
+separation of scales. (Calibration: the D=1 column reproduces the
+Goldbach sum at 1.7565/1.7633/1.7614 N against 𝔖(10⁶) = 1.7604 ✓.
+A first run read r₂ = 0 exactly — an indexing bug, Λ(u) instead of
+Λ(N−u), caught precisely because Λ(pq) ≡ 0 makes the bug total.)
+
+**The canonical tuning removes almost nothing.** There is exactly one
+degree-2 tuning with an analytic justification: f(x) = x² − 2γx kills
+the pole of ζ(s)W(s) at s = 1, i.e. makes b **mean-zero** — the best a
+weight can do without knowing the correlations. Measured, it moves CP
+from 39.88N/44.84N/49.71N to 37.85N/42.80N/47.67N — **about 5%**.
+Mean-zero is not smallness: killing the pole removes the *average* of
+b, not its *correlation* with Λ(N−·), and the correlation is the whole
+problem.
+
 ### Theorem D′ — the no-go survives Elliott–Halberstam (increment 196)
 
 The obvious objection is that BV is not the only input: Huang–Li's own

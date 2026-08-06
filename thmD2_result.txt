@@ -1,0 +1,17 @@
+Complete part of the switch identity for polynomial weights
+  D=1 (w = log k)        : CP = Sum_p Lambda(N-p) log p        [the Goldbach sum]
+  D=2 (w = log^2 k)      : CP = r1 + r2,  r1 = Sum_p Lambda(N-p) log^2 p,  r2 = 2 Sum_{pq} Lambda(N-pq) log p log q
+  tuned (w = log^2 - 2g log): kills the pole of zeta*W at s=1, i.e. makes b mean-zero
+
+         N    CP_1/N      r1/N       r2/N     CP_2/N  CP_2/(NlogN)    tuned/N    r2/r1    logN
+   1000000    1.7565   22.5145    17.3626    39.8771        2.8864    37.8493   0.7712  13.816
+   4000000    1.7633   25.0438    19.7913    44.8351        2.9493    42.7994   0.7903  15.202
+  16000000    1.7614   27.4579    22.2504    49.7083        2.9966    47.6748   0.8103  16.588
+
+=== PRE-REGISTERED READING ===
+  |CP_2|/N          : ['39.877', '44.835', '49.708']
+  |tuned|/N         : ['37.849', '42.799', '47.675']
+  CP_2/(N log N)    : ['2.8864', '2.9493', '2.9966']
+  r2/r1 vs log N    : ['0.771/13.82', '0.790/15.20', '0.810/16.59']
+verdict: CLOSED -- CP_2/(N log N) is bounded away from zero with a constant sign. NOTE (correction): the r=1 and r=2 pieces are the SAME order, r2/r1 -> ~1, not separated by a power of log N as first predicted; the closure rests instead on nonnegativity -- Lambda >= 0 and Lambda_D >= 0 make every term of a monomial weight nonnegative -- and on the fact that cancelling across monomials requires tuning against the asymptotics of the binary Goldbach sum itself.
+DONE

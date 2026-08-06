@@ -54,7 +54,7 @@ coordinates.
 consolidated working paper. The whole campaign in one document: the two
 couplings of the Huang–Li hypothesis, the unconditional theorem and the
 equivalence on the demand side, Conjecture L on the supply side, all
-**seventeen pre-registered closures** with their blocking coordinates, the
+**eighteen pre-registered closures** with their blocking coordinates, the
 five constraints any future technique must satisfy, and the methodology
 (pre-registration, fresh-context adversarial review, power before
 belief) that produced the negative results.

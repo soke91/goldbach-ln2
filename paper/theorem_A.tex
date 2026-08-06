@@ -870,6 +870,83 @@ full Elliott--Halberstam conjecture} --- the divisor-switch route needs
 not a stronger level but a different mechanism.
 \end{remark}
 
+\subsection{Smooth weights: $\mu * \log^D = \Lambda_D$}
+\label{sec:Dpp}
+
+Theorem~\ref{thm:D} closes the weights whose transform $b=\mu*w$ is
+supported low enough for Bombieri--Vinogradov. That hypothesis
+excludes the most natural family of all, $w_k = f(\log k)$ with $f$ a
+polynomial, whose transform is spread over every scale. For those the
+structure is explicit:
+\[
+  b \;=\; \mu * \log^D \;=\; \Lambda_D,
+\]
+the generalised von Mangoldt function. $\Lambda_D$ vanishes on
+integers with more than $D$ prime factors, and on a squarefree
+$u=p_1\cdots p_r$ with $r\le D$ it is the $r$-th finite difference of
+$x^D$ at the points $\log p_i$; in particular $\Lambda_D(u) =
+D!\,\log p_1\cdots\log p_D$ when $r=D$. Hence for $f = x^D$ the
+complete part splits by the number of prime factors,
+\[
+  \mathrm{CP}_D(N) = \sum_{r=1}^{D}\ \sum_{\substack{u<N\ \text{squarefree}\\ \omega(u)=r}}
+   \Lambda(N-u)\,\Lambda_D(u),
+\]
+the $r=1$ piece being a Goldbach-type sum and the $r\ge2$ pieces
+Chen-type sums (prime plus $r$-almost-prime).
+
+\begin{proposition}[polynomial weights]\label{prop:Dpp}
+Let $w_k = f(\log k)$ with $f=\sum_{j\le D}c_jx^j$ real.
+\begin{enumerate}
+\item[(i)] If $D=0$ then $B_w \ll e^{-c\sqrt{\log K}}$ (Huang--Li's
+  Lemma 1): no extraction.
+\item[(ii)] If $f$ is a single monomial $x^D$, $D\ge1$, then every
+  term of $\mathrm{CP}_D$ is nonnegative, since $\Lambda\ge0$ and
+  $\Lambda_D\ge0$; by classical sieve bounds
+  $\mathrm{CP}_D \asymp N(\log N)^{D-1}$, with a fixed sign. It is
+  never $o(N)$.
+\item[(iii)] Cancellation therefore requires coefficients of opposite
+  sign, i.e.\ tuning $c_1$ against $c_2,\dots$; but the ratio that
+  would have to be matched involves the asymptotics of the $r=1$
+  piece, which for $D=1$ \emph{is} the binary Goldbach sum. The tuning
+  is circular.
+\end{enumerate}
+Consequently no polynomial weight makes the complete part a
+classically known object.
+\end{proposition}
+
+\begin{remark}[a prediction of ours that the measurement refuted]
+We first expected the top-$r$ piece to dominate the others by a power
+of $\log N$, which would have given (ii) without any appeal to
+nonnegativity. That is false: measured at $N = 10^6, 4\cdot10^6,
+1.6\cdot10^7$ (\texttt{code/thmD2\_polyweight.py}), the two pieces of
+$\mathrm{CP}_2$ are the \emph{same} order, with
+\[
+\begin{array}{r|ccc}
+ N & 10^6 & 4\cdot10^6 & 1.6\cdot10^7\\\hline
+ r=1:\ \sum_p\Lambda(N-p)\log^2p\ /\,N & 22.51 & 25.04 & 27.46\\
+ r=2:\ 2\sum_{pq}\Lambda(N-pq)\log p\log q\ /\,N & 17.36 & 19.79 & 22.25\\
+ \text{ratio } r_2/r_1 & 0.771 & 0.790 & 0.810\\
+ \mathrm{CP}_2/(N\log N) & 2.886 & 2.949 & 2.997
+\end{array}
+\]
+--- the ratio drifts towards $1$, not towards $0$ or $\infty$. The
+closure stands, but on nonnegativity rather than on separation of
+scales. Calibration: the $D=1$ column reproduces the Goldbach sum
+$\sum_p\Lambda(N-p)\log p = 1.7565N,\,1.7633N,\,1.7614N$ against
+$\SS(10^6)=1.7604$.
+\end{remark}
+
+\begin{remark}[the canonical tuning removes almost nothing]
+There is exactly one degree-$2$ tuning with an analytic justification:
+$f(x)=x^2-2\gamma x$ kills the pole of $\zeta(s)W(s)$ at $s=1$, i.e.
+makes $b$ mean-zero, which is the best a weight can do without knowing
+the correlations. Measured, it moves $\mathrm{CP}$ from
+$39.88N,\,44.84N,\,49.71N$ to $37.85N,\,42.80N,\,47.67N$ --- about
+five percent. Mean-zero is not smallness: killing the pole removes the
+average of $b$, not its correlation with $\Lambda(N-\cdot)$, and the
+correlation is the whole problem.
+\end{remark}
+
 \subsection{The circle method has zero margin on $C(N)$}
 \label{sec:circle}
 
