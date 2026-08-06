@@ -45,7 +45,14 @@ def stats(tag, x, S, om, m5, n):
         zm = (a.mean() - b.mean()) / se
         print(f"  [{tag}] {nm:<10} sd ratio {rs:5.3f} z={zs:+7.2f}"
               f"   mean z={zm:+7.2f}")
-        out += [abs(zs)]
+        # The mean z was printed and NOT counted here until increment
+        # 259. That omission hid the largest surviving signal: after
+        # dividing by sqrt(S) the sd ratios collapse to 1.040, 0.998,
+        # 1.007 while the omega>=5 MEAN sits at z = -6.35, larger than
+        # any counted statistic. A summary that omits part of the
+        # evidence it printed is the same fault as a verdict string
+        # that misreports its own rule.
+        out += [abs(zs), abs(zm)]
     return out
 
 
@@ -81,7 +88,13 @@ def main():
 
     nc = sum(1 for v in zc if v >= 4)
     nu = sum(1 for v in zu if v >= 4)
-    print(f"\nflags |z|>=4:  raw {nc}/5   after ÷S(N) {nu}/5")
+    print(f"\nflags |z|>=4:  raw {nc}/{len(zc)}   "
+          f"after /sqrt(S) {nu}/{len(zu)}")
+    print("  (all eight printed statistics are counted. The three")
+    print("   MEAN z were printed and omitted from the count until")
+    print("   increment 259, which hid the largest surviving signal:")
+    print("   after /sqrt(S) the omega>=5 mean sits at z = -6.35,")
+    print("   larger than any counted statistic.)")
     print("verdict:",
           "MASK IS sqrt(S(N)) -- C(N) = sqrt(S(N) N) x unit Gaussian"
           if nu == 0 else

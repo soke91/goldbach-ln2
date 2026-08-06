@@ -11,6 +11,11 @@ S range [1.320, 4.856]
   [/sqrtS] omega>=5   sd ratio 0.998 z=  -0.04   mean z=  -6.35
   [/sqrtS] N=0 mod 5  sd ratio 1.007 z=  +0.15   mean z=  -1.08
 
-flags |z|>=4:  raw 5/5   after ÷S(N) 1/5
+flags |z|>=4:  raw 6/8   after /sqrt(S) 2/8
+  (all eight printed statistics are counted. The three
+   MEAN z were printed and omitted from the count until
+   increment 259, which hid the largest surviving signal:
+   after /sqrt(S) the omega>=5 mean sits at z = -6.35,
+   larger than any counted statistic.)
 verdict: PARTIAL -- S(N) explains some of the structure
 DONE
