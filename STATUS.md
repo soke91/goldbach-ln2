@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 281 (2026-08-07). 5 days, 71 recorded corrections,
+*Increment 282 (2026-08-07). 5 days, 73 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -174,6 +174,20 @@ $\mathfrak S(N)N$ is dominated by $R$ rather than by $\mathfrak S C$:
 **the ln 2 comet corpus and the final-boss scalar are not the same
 object**, a hypothesis raised and refuted here by its own
 pre-registered criterion.
+
+> **Re-audited at increment 282: the closure stands, the evidence for it
+> did not, and the exponent was wrong.** Full census to $1.6\cdot10^7$:
+> $\beta_R-\beta_C = +0.0997\pm0.0034$ (**29 s.e.**), so the conclusion
+> is now established — but replicating §9's own design 500 times gives
+> that difference as $+0.079\pm0.054$, making the recorded gap **1.8
+> s.e.**, with **7% of replicates returning the opposite sign**. The
+> criterion statistic was also mis-estimated: $\mathrm{corr}(C,D)$ is
+> **0.80 falling to 0.71** per band, not the 0.60 that pooling across
+> scales produced, and removing the mask *raises* it by 0.042. What
+> makes the closure safe is that the correlation **falls** with $N$
+> ($-0.0198\pm0.00035$ per unit $\log N$), moving away from the 0.9
+> threshold — the one thing §9 did not check. Corrected exponent:
+> $|R(N)| \sim N^{0.6458\pm0.0065}$.
 
 A twenty-hypothesis sweep (MEASUREMENTS §12) then pinned the scalar's
 law. Ten hypotheses on the local structure of $D(k)$ returned **0

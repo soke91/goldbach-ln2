@@ -244,6 +244,49 @@ At these N the O_A term in R is itself of size (log N)^{−2} ≈ 0.005 of
 N, comparable to what is measured, so R cannot be separated into E₃
 and the error; the exponent above is for the total discrepancy.
 
+### Re-audit of this closure (increment 282)
+
+`code/lab_comet_closure_reaudit.py`, full census of every even
+`N ≤ 1.6·10⁷`, mask removed. **The closure stands. The evidence
+recorded for it did not.**
+
+**The conclusion is right, and now established.** `β_R − β_C = +0.0997
+± 0.0034` — **29 s.e.** R does grow faster than C, so D is dominated by
+R and the comet is not measuring C(N).
+
+**But §9's own design could not have shown that.** Replicating it 500
+times (five groups of 80 consecutive even N, offsets varied) gives a
+difference of `+0.079 ± 0.054`: the recorded gap 0.096 is **1.8 s.e. of
+that design**, and **7.0% of replicates return a difference ≤ 0**. A
+refutation was recorded on evidence that would have come out the other
+way one time in fourteen.
+
+**The criterion statistic itself was mis-estimated.** §9 pooled five
+groups and got `corr(C,D) = 0.60`. Pooling across bands of different
+scale *attenuates* a correlation; per band the de-masked value is
+**0.80 falling to 0.71**, and pooling every band here reproduces the
+same artefact (0.7064). The true correlation was never as low as 0.60.
+
+**And the mask does the opposite of what one would guess.** Removing it
+*raises* the correlation by **+0.042** — the mask was suppressing the
+association between C and D, not manufacturing it.
+
+**What makes the closure safe is the trend, which was the one thing not
+checked.** The de-masked correlation **falls** monotonically,
+`−0.0198 ± 0.00035` per unit `log N`. It is moving *away* from the 0.9
+threshold, so the criterion will not be met at larger N. Had it been
+rising — the pattern §9's own five noisy groups appeared to show
+(0.457, 0.746, 0.771, 0.831, 0.726) — the closure would have been
+premature.
+
+> **Corrected exponent: |R(N)| ~ N^{0.6458 ± 0.0065}**, not `N^{0.599}`.
+> `β_C = 0.5461 ± 0.0033`, independently reproducing increment 281's
+> 0.5457 ± 0.0032 by a different estimator.
+
+The caveat above is unchanged and still governs: at these N the `O_A`
+term is comparable to what is measured, so `β_R` is the exponent of the
+**total** discrepancy and not of `E₃`.
+
 ## 10. Three hypotheses on the wall, and one signal chased down
 
 All pre-registered before running (`code/hyp_round.py`,

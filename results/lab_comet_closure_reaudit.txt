@@ -1,0 +1,36 @@
+sieve + 2 convolutions  t=15s
+
+identity R = S*(C-D):  max relative deviation 2.573e-14   OK
+
+(A) corr(C, D) per band -- the closure's own criterion,
+    at full census instead of 80 samples per group
+                 band     count   corr raw  corr de-masked  logNmid
+   100000-     200000     50000     0.6931          0.8006   11.859
+   200000-     400000    100000     0.7118          0.7879   12.553
+   400000-     800000    200000     0.7221          0.7750   13.246
+   800000-    1600000    400000     0.7212          0.7579   13.939
+  1600000-    3200000    800000     0.7189          0.7434   14.632
+  3200000-    6400000   1600000     0.7162          0.7328   15.325
+  6400000-   12800000   3200000     0.7073          0.7183   16.018
+ 12800000-   16000000   1600000     0.7018          0.7104   16.477
+
+    section 9 pooled its five groups and got 0.60.
+    pooling ALL bands here (same mistake, for comparison): 0.7064
+    per-band de-masked: first 0.8006, last 0.7104
+    trend in de-masked corr vs log N: -0.01982 +/- 0.00035 per unit log N
+    not rising at 3 s.e.
+    mask effect on the correlation: -0.0417 (raw minus de-masked)
+
+(B) exponents from the full census, de-masked, paired
+    beta_C = 0.5461 +/- 0.0033
+    beta_R = 0.6458 +/- 0.0065
+    beta_R - beta_C = +0.0997 +/- 0.0034   (29.1 s.e.)
+    'R grows faster than C' requires > 3 s.e.:  STANDS
+
+(C) what could section 9's design have resolved?
+    500 replicates of five groups of 80 consecutive even N
+    beta_C  0.5290 +/- 0.0426
+    beta_R  0.6084 +/- 0.0438
+    difference +0.0794 +/- 0.0536   -> the recorded gap 0.096 is 1.8 s.e. of that design
+    fraction of replicates with difference <= 0: 0.070
+DONE
