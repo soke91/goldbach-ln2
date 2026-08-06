@@ -93,12 +93,29 @@ these designs are trying to beat a Cauchy–Schwarz cost of a factor `d`.
 |---|---|
 | its floor measured, in units of the field's own sd | K2 done (`0.163`); twelve others not |
 | its ALIVE branch demonstrated, not asserted | K2 done; twelve others not |
-| **the design's own requirement stated in the same units** — how large a gain would make it ALIVE? | **none done.** Without this the floor cannot be judged sufficient |
+| **the design's own requirement stated in the same units** — how large a gain would make it ALIVE? | **K2 done (inc. 312); twelve others not** |
 
-The third row is the one that decides whether these closures stand.
-A floor of `0.163` sd is either comfortably below what the design needs
-(closure stands, now quantitatively) or above it (closure is empty).
-Nothing in the record answers that for any design.
+The third row is the one that decides whether these closures stand,
+and for K2 it now reads. Design K2 splits the `k`-average mod `d` at a
+Cauchy–Schwarz cost of a factor `d`, so a coherent shift must satisfy
+`1 + n_r δ²/c > d`, i.e. `δ_design ≈ √(c·d(d−1)/n)` with
+`c = Var₀/n_r` **measured** at `0.516`. Against the floor `4/√n`
+the two cross near `d = 7`.
+
+⚠️ **But beating the factor `d` is not the route's bar.** The corrected
+E1 target (#30) needs a saving of `(log N)^{2A+2}` over trivial, so the
+split must reach `d ∼ (log N)^{2A+2}`. A gain of a factor 6 is not a
+log power and cannot help the route whatever the design does with it.
+At the `d` the target does need:
+
+| `A` | `d` needed | `δ_design` | against the floor |
+|---|---|---|---|
+| 1 | `8.0·10⁴` | `3.4·10³` | **14,000×** |
+| 2 | `2.3·10⁷` | `9.5·10⁵` | **4.1·10⁶×** |
+
+✅ **K2 is the first kill-test closure in this program to stand
+quantitatively**, with its one blind region named: `d ≤ 6`, worth at
+most a factor 6, which the route cannot spend (#138).
 | C-III #2, #3; RV #1, #2; Adjudication 1, 2, 3, 5 | structural — violated premises, absent congruences, illegitimate transforms | none | ✅ Structural closures do not move with a measurement |
 
 **The pattern.** Every closure at risk is a **magnitude, normalisation

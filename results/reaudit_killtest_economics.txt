@@ -1,0 +1,67 @@
+field ready  t=1s
+
+(D1) the progression-sum variance, measured against n_r
+    h     n    d     n_r       Var0  Var0/n_r
+    1   233    4   116.5     40.554     0.348
+    1   233   16    29.1     14.230     0.489
+    2   233    4   116.5      2.795     0.024
+    2   233   16    29.1     21.925     0.753
+    4   349    4   116.3      4.822     0.041
+    4   349   16    29.1     21.019     0.723
+    6   233    4   116.5      0.005     0.000
+    6   233   16    29.1      7.132     0.245
+    8   350    4   116.7    102.085     0.875
+    8   350   16    29.2     35.428     1.215
+   16   350    4   116.7     40.920     0.351
+   16   350   16    29.2     16.920     0.580
+   30   234    4   117.0    126.009     1.077
+   30   234   16    29.2     12.152     0.415
+   32   350    4   116.7     33.025     0.283
+   32   350   16    29.2     19.602     0.672
+   64   351    4   117.0     13.054     0.112
+   64   351   16    29.2     39.184     1.340
+  210   234    4   117.0     31.934     0.273
+  210   234   16    29.2     14.938     0.511
+
+    (D1) Var0/n_r stays below 3x: PASS  (mean 0.516, max 1.340)
+
+(D2) delta_design (gain = d) against the floor 4/sqrt(n)
+   d     floor   d_design    ratio  test sees it?
+   2   0.23504    0.02168    0.092             NO
+   3   0.23504    0.07125    0.303             NO
+   4   0.23504    0.07877    0.335             NO
+   5   0.23504    0.21623    0.920             NO
+   6   0.23504    0.15872    0.675             NO
+   8   0.23504    0.23702    1.008            yes
+  12   0.23504    0.34790    1.480            yes
+  16   0.23504    0.58213    2.477            yes
+  30   0.23504    1.34879    5.739            yes
+  32   0.23504    1.42269    6.053            yes
+
+    analytic requirement with the MEASURED Var0/n_r = 0.516:
+      delta_design(d) = sqrt(c*d*(d-1)/n),  n = 292
+     d   analytic     direct   ratio
+     2    0.05950    0.02168   0.364   (few classes)
+     3    0.10305    0.07125   0.691   (few classes)
+     4    0.14573    0.07877   0.541   (few classes)
+     5    0.18814    0.21623   1.149   (few classes)
+     6    0.23043    0.15872   0.689   (few classes)
+     8    0.31482    0.23702   0.753
+    12    0.48335    0.34790   0.720
+    16    0.65175    0.58213   0.893
+    30    1.24089    1.34879   1.087
+    32    1.32504    1.42269   1.074
+
+    (D2) the floor is below the design's requirement for every d >= 5: FAIL
+    (D3) largest d at which the design would need LESS than the test could see: 6
+
+    BUT beating the factor d is not the route's bar.
+    The corrected E1 target (#30) needs a saving of
+    (log N)^(2A+2) over trivial, so the split must reach
+    d ~ (log N)^(2A+2). A gain of a factor 6 is not a log
+    power and cannot help the route whatever the design
+    does with it.
+      A = 1:  d ~   7.99e+04   delta_design ~   3.36e+03   =  1.43e+04 x the floor
+      A = 2:  d ~   2.26e+07   delta_design ~    9.5e+05   =  4.05e+06 x the floor
+    K2's DEAD is sufficient in the regime the route needs. Below d = 7 a structure could hide under the floor, but the most it buys there is a factor 6 -- not a log power, so it cannot help E1's corrected target. At the d the target does need, the design would require a shift over a hundred times the floor, so the closure stands QUANTITATIVELY for the first time
+DONE
