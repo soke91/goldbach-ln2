@@ -1,0 +1,50 @@
+sieve + 2 convolutions  t=15s
+
+(A) extreme value law, per octave band
+                 band         n   max|Z|     a_n  (max-a_n)/scale          argmax rad(N)
+   100000-     200000     50000    4.579   4.124            +1.54                 2.8317
+   200000-     400000    100000    4.387   4.280            -0.06               2.138917
+   400000-     800000    200000    4.802   4.432            +1.25                2.32561
+   800000-    1600000    400000    5.073   4.578            +1.94             2.157.3931
+  1600000-    3200000    800000    4.819   4.721            -0.07              2.47.2659
+  3200000-    6400000   1600000    5.046   4.860            +0.42             2.929.2683
+  6400000-   12800000   3200000    5.197   4.995            +0.53           2.5.37.15823
+ 12800000-   16000000   1600000    4.740   4.860            -1.22        2.3.5.13.37.101
+    Gumbel scale ~ 0.187; deviations are from E[max] = 
+    a_n + 0.5772*scale, so a centred result has mean 0
+    mean deviation +0.54 +/- 0.45 (Gumbel sd/sqrt(8))
+    pre-registered |dev| <= 3 in every band  ->  PASS
+
+(B) tail counts against the Gaussian expectation
+                 band            t=3            t=4            t=5
+               band 1    141/  135.0      5/    3.2      0/    0.0
+               band 2    276/  270.0      4/    6.3      0/    0.1
+               band 3    534/  540.0     13/   12.7      0/    0.1
+               band 4   1082/ 1079.9     33/   25.3      1/    0.2
+               band 5   2210/ 2159.8     54/   50.7      0/    0.5
+               band 6   4342/ 4319.7    109/  101.3      1/    0.9
+               band 7   8616/ 8639.3    193/  202.7      2/    1.8
+               band 8   4240/ 4319.7     91/  101.3      0/    0.9
+    observed / expected. Per band these are noisy; the
+    aggregate is the statistic that discriminates:
+      t = 3: observed  21441, expected  21463.4, ratio  0.999
+      t = 4: observed    502, expected    503.6, ratio  0.997
+      t = 5: observed      4, expected      4.6, ratio  0.878
+
+(D) the margin, in the chain's own terms
+    X = 1e7  : max|Z| ~  5.08, so max|C| ~ 5.08*sqrt(A*N*log N), and the margin over
+                the requirement |C| = o(N) is ~ sqrt(N)/(5.1*sqrt(log N)) = 1e2.2
+    X = 1e12 : max|Z| ~  6.94, so max|C| ~ 6.94*sqrt(A*N*log N), and the margin over
+                the requirement |C| = o(N) is ~ sqrt(N)/(6.9*sqrt(log N)) = 1e4.4
+    X = 1e20 : max|Z| ~  9.19, so max|C| ~ 9.19*sqrt(A*N*log N), and the margin over
+                the requirement |C| = o(N) is ~ sqrt(N)/(9.2*sqrt(log N)) = 1e8.2
+    X = 1e50 : max|Z| ~ 14.89, so max|C| ~ 14.89*sqrt(A*N*log N), and the margin over
+                the requirement |C| = o(N) is ~ sqrt(N)/(14.9*sqrt(log N)) = 1e22.8
+    The program has been quoting a TYPICAL-N margin. This is
+    the margin at the extreme, which is the one the
+    requirement actually constrains.
+
+    Scope: X <= 1.6e7 here. An extreme-value law verified in
+    that range constrains nothing at the sizes where the
+    no-go theorems bite (correction #66).
+DONE

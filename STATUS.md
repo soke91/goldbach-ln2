@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 289 (2026-08-07). 5 days, 86 recorded corrections,
+*Increment 290 (2026-08-07). 5 days, 88 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -98,6 +98,20 @@ mid N}(1-1/(q(q-1)))$ (Mirsky 1949).
   (`paper/defect_report_18.md`, not sent).
 
 ### 2. The supply side — mapped, not closed
+
+**The tail, which is the only thing the requirement constrains**
+(inc. 290). A bulk can be Gaussian to five decimals while the tail is
+heavy, and $C(N)=o(N)$ constrains **every** $N$, not typical ones.
+With the mask removed and $V$ exact, $\max|Z|$ tracks the Gumbel law:
+mean deviation from $E[\max]$ is $+0.54\pm0.45$ over eight bands, and
+aggregate tail counts against the Gaussian expectation give ratios
+**0.999** ($t=3$), **0.997** ($t=4$), 0.878 ($t=5$). The extremes sit at
+**generic** $N$ ($2\cdot8317$, $2\cdot138917$, ...), not deep radicals, so
+the mask removal is not leaking into the tail. **The margin at the
+extreme** — the figure the program should quote, and never has — is
+$\sqrt N/(a_n\sqrt{\mathfrak A\log N})$: $10^{4.4}$ at $N=10^{12}$,
+$10^{22.8}$ at $10^{50}$. **The requirement is not remotely tight; the
+whole difficulty is in proving it** (#87, #88).
 
 **And what that excess IS** (inc. 289, **Proposition W**): expanding
 $C(N)^2$ gives $\rho-1=(1/V)\sum_{h\ne0}c(h)S(h)$ with $c(h)$ a
