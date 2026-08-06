@@ -213,6 +213,42 @@ at the top. All the difficulty is at large p, and in the top range
 unavailable rather than merely hard. That region carries mass ≍ 1/log N
 and vanishes, slowly.
 
+## 4b. Why depth costs: the effective term count (Proposition P.5)
+
+**Proposition P.5.** *Let N be even. In*
+`D_p(N) = Σ_{v<N, p|v} μ(v)Λ(N−v)/log v` *the nonzero terms are
+exactly those with* `v = mp` *and* `(m, rad N) = 1`, *up to the*
+`O(ω(N))` *terms where* `N−v` *is a power of a prime dividing N. Hence*
+
+> `#{nonzero terms of D_p} = (φ(rad N)/rad N)·(N/p)·(1+o(1))`.
+
+*Proof.* By M.1, `Λ(N−v) ≠ 0` and `q | N` force `q ∤ v` unless
+`N−v = q^k`. With `v = mp` and `p ∤ rad N`, that is `(m, rad N) = 1`. ∎
+
+The consequence is quantitative and it explains the depth effect. No
+per-p cancellation can take `|D_p|` below the square root of its term
+count, so the floor on P.4's demand scales as **`√(rad N/φ(rad N))`**.
+For `N = k·30030` that factor is **2.284**; for a typical even N it is
+about 1.41.
+
+**Measured** (`code/lab_termcount.py`), decomposing the demand by
+`j = ⌊(N−1)/p⌋`:
+
+| | mass at j ≤ 15 | S/M there | S/M total | `1/√j` floor |
+|---|---|---|---|---|
+| deep `k·30030` | **0.3937** | **1.0000** | 0.7749 | 0.3416 |
+| all even N | — | 0.83–1.00 | 0.3624 | 0.2022 |
+
+At deep N every class with `j ≤ 15` has `S/M = 1.0000` **exactly**, and
+so does its sign-randomised null: with `rad N = 30030` the only `m ≤ 15`
+coprime to it is `m = 1`, so those `D_p` are **single terms** and there
+is nothing to cancel. That is 39% of the demand, structurally
+irreducible rather than merely hard.
+
+The floor ratio measures **1.69** against the predicted **1.62**, so the
+proposition accounts for the depth effect quantitatively and not only
+in direction.
+
 ## 5. The ceiling: what transform P can and cannot deliver
 
 Grouping by dyadic ranges `R = [P, 2P)` rather than by single primes
