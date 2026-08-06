@@ -15,10 +15,10 @@
 
 \title{A negative map of the Elliott--Halberstam route to Goldbach\\
 \large with one unconditional theorem, one conjecture,\\
-and sixteen pre-registered closures}
+and seventeen pre-registered closures}
 
 \author{[author]}
-\date{Working paper, increment 194 of the \texttt{goldbach-ln2}
+\date{Working paper, increment 196 of the \texttt{goldbach-ln2}
 program\\
 \small All measurements reproducible from the accompanying repository}
 
@@ -49,8 +49,8 @@ a deterministic local mask times an exactly Gaussian fluctuation, so
 that every ``sub-random'' reading in the literature of this problem
 that we could reproduce is mask accounting. What the Goldbach chain
 consumes is the amplitude half of that conjecture, and we report
-\textbf{sixteen pre-registered closures} --- five route adjudications
-against the source papers' explicit lemma hypotheses, eight
+\textbf{seventeen pre-registered closures} --- five route adjudications
+against the source papers' explicit lemma hypotheses, nine
 kill-tested technique designs, and three representation-class
 experiments --- each closed with numbers, together with the five
 structural constraints they impose on any future technique.
@@ -255,6 +255,29 @@ $|C(N)|\ll \exp(c\sqrt{\tfrac12\log N})\,N(\log N)^{-A}$ --- no saving
 of any power of $\log N$.
 \end{theorem}
 
+\begin{theorem}[the no-go survives $EH$]\label{thm:Dprime}
+If $\Lambda$ has level of distribution $\theta_E<1$, the same argument
+gives $\|b\|_1/|B_w| \gg \exp(c\sqrt{(1-\theta_E)\log N})$. Closing the
+gap requires $\theta_E=1$: equidistribution of $\Lambda$ to moduli of
+size $N$ itself, where each progression holds $O(1)$ terms.
+\end{theorem}
+
+\begin{proposition}[the circle method has zero margin]\label{prop:E}
+Writing $C(N)=\int_0^1 S_\Lambda S_\mu e(-N\alpha)d\alpha$, both
+standard estimates lie at or above the trivial bound $\psi(N)\sim N$:
+Cauchy--Schwarz gives $\sim(6/\pi^2)^{1/2}N(\log N)^{1/2}$, exceeding
+it by a growing factor; and any bound
+$\sup_\alpha|S_\mu|\cdot\|S_\Lambda\|_1$ is at least
+$\|S_\mu\|_2\|S_\Lambda\|_1\gg N$ by Parseval. The measured margin
+$N/(\sup|S_\mu|\,\|S_\Lambda\|_1)$ is $0.168,0.175,0.158,0.152$ at
+$N=2^{14},\dots,2^{20}$ --- below $1$ and decaying.
+\end{proposition}
+
+Davenport's uniform bound $S_\mu\ll_A N(\log N)^{-A}$ is useless here:
+it saves against $N$, while the pairing needs the scale $N^{1/2}$,
+which Parseval forbids. This is the parity obstruction in
+circle-method language.
+
 The loss exponent $\sqrt{(1/2)\log N}$ is the $\sqrt N$ barrier itself:
 it is the gap between where a weight must live to see $C(N)$ and where
 Bombieri--Vinogradov permits it to live. This is a no-go for one
@@ -343,7 +366,7 @@ therefore not knowledge of the structure --- the mask is an algorithm
 and $\mathbf G$ is featureless in every measurement --- but a proof
 technique for the amplitude of a featureless object.
 
-\section{The negative map: sixteen closures}\label{sec:closures}
+\section{The negative map: seventeen closures}\label{sec:closures}
 
 Every entry below was pre-registered: the decision rule was fixed in
 writing before the computation ran, and a design that failed its rule
@@ -394,7 +417,7 @@ single character family, additive or multiplicative, while each
 route's decisive lemma consumes exactly that diagonalization as a
 hypothesis.
 
-\subsection{Technique designs, kill-tested (8)}
+\subsection{Technique designs, kill-tested (9)}
 
 \begin{longtable}{p{0.05\textwidth}p{0.30\textwidth}p{0.55\textwidth}}
 \hline
@@ -429,6 +452,11 @@ R3 & character transform of the $k$-average &
  Parseval forbids a statistical gain.\\
 R4 & divisor switch (the program's own newest mechanism) &
  \textbf{dead}: see \S\ref{sec:R4}.\\
+R5 & the circle method applied directly to $C(N)$ &
+ \textbf{dead, zero margin}: both bills lie at or above the trivial
+ bound, and the cap on the pointwise route is Parseval
+ ($\sup\ge\|\cdot\|_2$), which no technique can move
+ (Proposition~\ref{prop:E}).\\
 \hline
 \end{longtable}
 
@@ -610,7 +638,7 @@ for all 243 squarefree $m<400$); the closure experiments are
   is now an unconditional theorem, the other half is equivalent to the
   conclusion.
 \item The supply side is closed to measurement: the object is
-  featureless in every direction with a name, and the sixteen
+  featureless in every direction with a name, and the seventeen
   pre-registered closures say precisely which directions were checked
   and why each fails.
 \item Net progress toward Goldbach is zero. The contribution is the

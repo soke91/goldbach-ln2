@@ -190,6 +190,60 @@ method's entire weight space. It is not an obstruction to other
 methods. Its value is that it closes the design space Theorems A and C
 opened, instead of leaving it to be re-explored.
 
+### Theorem D′ — the no-go survives Elliott–Halberstam (increment 196)
+
+The obvious objection is that BV is not the only input: Huang–Li's own
+Theorem 1 *assumes* EH for Λ. Raising the level does not help.
+
+> **Theorem D′.** If Λ has level of distribution θ_E ∈ (0,1), the
+> residual is accessible only for b supported on d ≤ N^{θ_E−(1−θ′)},
+> while extraction still needs mass at d ≍ K = N^{θ′}. The gap is
+> **N^{1−θ_E}**, so ‖b‖₁/|B_w| ≫ exp(c√((1−θ_E)log N)) — beyond every
+> power of log for each fixed θ_E < 1.
+
+Closing would require **θ_E = 1 exactly** — equidistribution of Λ to
+moduli of size N itself, where each progression holds O(1) terms and
+the statement carries no information. **The demand side stays closed
+even granting the full Elliott–Halberstam conjecture**: the switch
+route needs not a stronger level but a different mechanism.
+
+### Proposition E — the circle method has zero margin on C(N) (196)
+
+Since the switch is closed over its whole design space, the exact
+position of the *other* classical mechanism is worth recording.
+With C(N) = ∫₀¹ S_Λ(α)S_μ(−α)e(−Nα)dα, both standard estimates lie
+**at or above** the trivial bound |C(N)| ≤ ψ(N) ~ N:
+
+- **(i) Cauchy–Schwarz**: ‖S_Λ‖₂‖S_μ‖₂ ~ (6/π²)^{1/2}·N(log N)^{1/2} —
+  above trivial by a factor ≍ (log N)^{1/2}, which **grows**.
+- **(ii) Pointwise × L¹**: sup_α|S_μ|·‖S_Λ‖₁ ≥ ‖S_μ‖₂‖S_Λ‖₁ ≫ N^{1/2}·
+  N^{1/2} = N, **by Parseval** — an identity-level constraint. No
+  improvement in Möbius exponential-sum technology can push
+  sup_α|S_μ| below (6/π²)^{1/2}N^{1/2}.
+
+So Davenport's uniform S_μ(α) ≪_A N(log N)^{−A} is useless here: it
+saves against N, while the pairing needs the scale N^{1/2}, which
+Parseval forbids. **This is the parity obstruction in circle-method
+language — the binary problem sits exactly at the trivial bound with
+no margin**, which is why the method that settles the ternary problem
+cannot be pushed to the binary one by sharpening the Möbius input.
+
+Measured (`code/circle_margin.py`, exact FFT on a 4N grid):
+
+| N | 2¹⁴ | 2¹⁶ | 2¹⁸ | 2²⁰ |
+|---|---|---|---|---|
+| ‖S_μ‖₂/√N | 0.7798 | 0.7797 | 0.7797 | 0.7797 |
+| sup\|S_μ\|/√N | 3.058 | 2.742 | 2.853 | 2.801 |
+| ‖S_Λ‖₁/√N | 1.946 | 2.084 | 2.219 | 2.346 |
+| (i) bound / N | 2.297 | 2.473 | 2.639 | 2.795 |
+| **margin** N/(sup·‖S_Λ‖₁) | 0.168 | 0.175 | 0.158 | 0.152 |
+
+The first row reproduces √(6/π²) = 0.7797 exactly (computation check);
+the margin — which route (ii) would need to exceed 1 — sits near 0.16
+and is **decaying**. Route (i) diverges like (log N)^{1/2} as
+predicted. The object itself is small: C(N)/N = −0.0105, 0.0001,
+0.0059, 0.0032.
+
 **Numerical confirmation** (`code/thmD_tradeoff.py`, N = 99,999,998,
 θ′ = 0.56, K = 30199): for w_k = [d₀|k] the brute-force B_w over all
 k < K matches the factorised formula to every displayed digit, and

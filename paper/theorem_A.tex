@@ -833,6 +833,101 @@ the design space that Theorems~\ref{thm:A} and~\ref{thm:C} opened,
 rather than leaving it to be re-explored.
 \end{remark}
 
+\subsection{The no-go survives Elliott--Halberstam}
+
+The obvious objection to Theorem~\ref{thm:D} is that
+Bombieri--Vinogradov is not the only available input: Huang--Li's
+Theorem 1 itself \emph{assumes} $EH$ for $\Lambda$ at level
+$N^{\theta}$. Raising the assumed level does not help.
+
+\begin{theorem}\label{thm:Dprime}
+Suppose $\Lambda$ has level of distribution $\theta_E \in (0,1)$, i.e.
+$EH(N^{\theta_E})$ holds. Then the residual is accessible only for $b$
+supported on $d \le N^{\theta_E-(1-\theta')}$, while extraction still
+requires mass at $d \asymp K = N^{\theta'}$; the two thresholds are
+separated by $N^{1-\theta_E}$, and
+\[
+  \frac{\|b\|_1}{|B_w|} \;\gg\;
+  \exp\!\left(c_1\sqrt{(1-\theta_E)\log N}\right),
+\]
+which exceeds every power of $\log N$ for each fixed $\theta_E<1$.
+\end{theorem}
+
+\begin{proof}
+Identical to Theorem~\ref{thm:D} with $N^{1/2-\delta}$ replaced by
+$N^{\theta_E}$: the residual's moduli are $md$ with $m<N^{1-\theta'}$,
+so $d \le N^{\theta_E}/N^{1-\theta'}$, whence
+$K/D = N^{\theta'}/N^{\theta_E-1+\theta'} = N^{1-\theta_E}$, and
+Lemma~\ref{lem:extract} gives the ratio.
+\end{proof}
+
+\begin{remark}
+Closing the gap would require $\theta_E = 1$ exactly: equidistribution
+of $\Lambda$ in progressions to moduli of size $N$ itself, where each
+progression contains $O(1)$ terms and the statement carries no
+information. So the demand side stays closed \emph{even granting the
+full Elliott--Halberstam conjecture} --- the divisor-switch route needs
+not a stronger level but a different mechanism.
+\end{remark}
+
+\subsection{The circle method has zero margin on $C(N)$}
+\label{sec:circle}
+
+Since the switch is closed over its whole design space, it is worth
+recording the exact position of the other classical mechanism. Write
+\[
+  C(N) = \int_0^1 S_\Lambda(\alpha)\,S_\mu(-\alpha)\,e(-N\alpha)\,
+   d\alpha,\qquad
+  S_\Lambda(\alpha)=\sum_{n\le N}\Lambda(n)e(n\alpha),\quad
+  S_\mu(\alpha)=\sum_{m\le N}\mu(m)e(m\alpha).
+\]
+
+\begin{proposition}[zero margin]\label{prop:E}
+Both standard ways of estimating this integral lie at or above the
+trivial bound $|C(N)|\le\psi(N)\sim N$:
+\begin{enumerate}
+\item[(i)] $\|S_\Lambda\|_2\|S_\mu\|_2
+   = \bigl(\sum_{n\le N}\Lambda(n)^2\bigr)^{1/2}
+     \bigl(\sum_{m\le N}\mu^2(m)\bigr)^{1/2}
+   \sim (6/\pi^2)^{1/2}\,N(\log N)^{1/2}$, exceeding the trivial bound
+   by a factor $\asymp(\log N)^{1/2}$, which \emph{grows};
+\item[(ii)] any bound of the shape
+  $\sup_\alpha|S_\mu(\alpha)|\cdot\|S_\Lambda\|_1$ is, by Parseval,
+  at least $\|S_\mu\|_2\|S_\Lambda\|_1 \gg N^{1/2}\cdot N^{1/2}=N$.
+\end{enumerate}
+In (ii) the inequality $\sup \ge \|\cdot\|_2$ is an identity-level
+constraint: no improvement in M\"obius exponential-sum technology can
+lower $\sup_\alpha|S_\mu|$ below $(6/\pi^2)^{1/2}N^{1/2}$.
+\end{proposition}
+
+Davenport's uniform bound $S_\mu(\alpha)\ll_A N(\log N)^{-A}$ is
+therefore useless here: it is a saving over $N$, whereas the pairing
+needs a bound at the scale $N^{1/2}$, which Parseval forbids. This is
+the parity obstruction in circle-method language --- \emph{the binary
+problem sits exactly at the trivial bound with no margin} --- and it is
+why the method that settles the ternary problem cannot be pushed to
+the binary one by any sharpening of the M\"obius input.
+
+The constants are measured in \texttt{code/circle\_margin.py}
+($N=2^{14}\ldots2^{20}$, exact FFT on a $4N$-point grid):
+\[
+\begin{array}{r|cccc}
+ N & 2^{14} & 2^{16} & 2^{18} & 2^{20}\\\hline
+ \|S_\mu\|_2/\sqrt N & 0.7798 & 0.7797 & 0.7797 & 0.7797\\
+ \sup|S_\mu|/\sqrt N & 3.058 & 2.742 & 2.853 & 2.801\\
+ \|S_\Lambda\|_1/\sqrt N & 1.946 & 2.084 & 2.219 & 2.346\\
+ \text{(i) bound}/N & 2.297 & 2.473 & 2.639 & 2.795\\
+ N/\bigl(\sup|S_\mu|\,\|S_\Lambda\|_1\bigr) & 0.168 & 0.175 & 0.158
+  & 0.152
+\end{array}
+\]
+The first row reproduces $\sqrt{6/\pi^2}=0.7797$ exactly, confirming
+the computation; the last row --- the margin route (ii) would need to
+exceed $1$ --- sits near $0.16$ and is \emph{decaying}. Route (i)
+diverges from the trivial bound like $(\log N)^{1/2}$, as predicted.
+For reference the object itself is small: $C(N)/N = -0.0105$, $0.0001$,
+$0.0059$, $0.0032$ at these $N$.
+
 \subsection{Numerical confirmation of the load-bearing quantity}
 
 Lemma~\ref{lem:extract} carries the theorem, so it is checked directly

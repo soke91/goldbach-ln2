@@ -1,0 +1,16 @@
+Circle-method margin for C(N) = Sum Lambda(n) mu(N-n)
+Parseval floor: sup|S_mu| >= ||S_mu||_2 ~ sqrt(6N/pi^2) = 0.7797 sqrt(N)
+
+        N  sup|Smu|/rtN  ||Smu||2/rtN  ||Slam||1/rtN  CS bound/N   MARGIN    C(N)/N
+    16384        3.0583        0.7798         1.9462      2.2972   0.1680   -0.0105
+    65536        2.7423        0.7797         2.0844      2.4727   0.1749    0.0001
+   262144        2.8531        0.7797         2.2189      2.6393   0.1580    0.0059
+  1048576        2.8012        0.7797         2.3463      2.7954   0.1521    0.0032
+
+=== PRE-REGISTERED READING ===
+  N =     16384: MARGIN = 0.1680   (log N)^(1/2) = 3.115
+  N =     65536: MARGIN = 0.1749   (log N)^(1/2) = 3.330
+  N =    262144: MARGIN = 0.1580   (log N)^(1/2) = 3.532
+  N =   1048576: MARGIN = 0.1521   (log N)^(1/2) = 3.723
+verdict: NO ROOM -- the binary circle method sits at or above the trivial bound; sup >= L2 is free and cannot be improved, so no pointwise Mobius bound can rescue it
+DONE

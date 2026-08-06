@@ -178,7 +178,9 @@ was previously named.
 |---|---|---|---|
 | R4 | **L¹ coherence of the restricted field**: does the exact identity's perfect cancellation leave a residue after the two restrictions? If block sums of D(k) over consecutive k are sub-Gaussian, the L¹ identity funds part of the L² bound and the switch becomes a lever | Block sums S_B(j)=Σ_{k∈block}D(k) at B ∈ {1,8,64,512}; statistic ratio(B)=Σ_j\|S_B(j)\|²/Σ_k supp(k), which is B-independent under Conjecture L. Control: same statistic for the full-m field D_full. **Pre-registered: ALIVE iff ratio(B) ≤ 0.5·ratio(1) for ≥2 block sizes B ≥ 8 at BOTH N; DEAD otherwise** | **DEAD** — 0 hits at either N. The identity itself is confirmed exactly (brute force at N = 5000, 20000: the double sum equals μ(N−1) on the nose), but none of its perfect cancellation survives the restrictions. First run (2048 k) showed a same-direction deficit at both N (B=8: 0.87/0.94, B=64: 0.77/0.80) inside the estimator's own SE; settled at full power (8000 k = the entire band where the type-II field is non-empty, since m > √N forces k < √N): B=8 ratios 0.958/1.023, and the sharper diagnostic — lag-1 autocorrelation of D(k)/√supp(k) — reads **+0.0104 / +0.0127 against SE 0.0112**, i.e. dead zero and, if anything, mildly positive rather than the negative coherence a surviving residue requires. The deficit was block-count SE. Closed (`code/e1_forge_r4.py`, `e1_forge_r4b.py`) |
 
-## Round-3 synthesis (increment 194)
+| R5 | **The circle method, applied directly to the wall** C(N) = ∫S_Λ S_μ e(−Nα)dα. Not a lever on the dilate field but the other classical mechanism for the scalar itself; worth pricing exactly now that the switch is closed over its whole design space | Compute the two bills the method must pay — Cauchy–Schwarz ‖S_Λ‖₂‖S_μ‖₂, and pointwise × L¹, sup\|S_μ\|·‖S_Λ‖₁ — against the trivial bound ψ(N) ~ N. **Pre-registered: ROOM iff the margin N/(sup\|S_μ\|·‖S_Λ‖₁) grows at least like a power of log N; NO ROOM if bounded or decaying** (`code/circle_margin.py`) | **DEAD — zero margin, and the cap is identity-level.** (i) Cauchy–Schwarz gives ~(6/π²)^{1/2}N(log N)^{1/2}, *above* the trivial bound by a growing factor (measured 2.30 → 2.80 over N = 2¹⁴…2²⁰). (ii) Any pointwise route is capped by **Parseval**: sup_α\|S_μ\| ≥ ‖S_μ‖₂ = (6/π²)^{1/2}N^{1/2} for free, so sup·‖S_Λ‖₁ ≫ N — trivial again. Measured margin 0.168/0.175/0.158/0.152, decaying. Davenport's uniform S_μ ≪_A N(log N)^{−A} is useless here: it saves against N while the pairing needs scale N^{1/2}, which Parseval forbids. Computation validated by ‖S_μ‖₂/√N = 0.7797 = √(6/π²) exactly. Closed |
+
+## Round-3 synthesis (increment 194, extended at 196)
 
 The program's newest asset closes too, and it closes informatively.
 
@@ -205,6 +207,25 @@ The program's newest asset closes too, and it closes informatively.
    it. The switch's cancellation is a property of complete divisor
    sums over the full range; the type-II cut makes every divisor sum
    incomplete and, measured directly, leaves no coherence behind.
+
+**Addendum (increment 196): the two classical mechanisms are now
+priced, and both prices are identity-level.**
+
+- **Divisor switching**: closed over its entire weight space by
+  Theorem D, and by Theorem D′ the closure survives assuming
+  Elliott–Halberstam for Λ at any level θ_E < 1 — the gap is
+  N^{1−θ_E}, so closing it needs θ_E = 1, i.e. equidistribution to
+  moduli of size N, which is vacuous.
+- **The circle method**: zero margin (R5). The cap is Parseval,
+  sup ≥ L², which no technique can move.
+
+Both mechanisms fail for reasons that are *identities*, not estimates:
+μ ∗ log = Λ on the demand side, the incompleteness of truncated
+divisor sums for the switch, and sup ≥ ‖·‖₂ for the circle method.
+That is the sharpest form in which this campaign can state the wall:
+**every closure it found is at the level of identities, and the
+remaining object, C(N) = o(N), is equivalent to the Goldbach asymptotic
+itself.**
 
 **The forge's terminal statement** (unchanged by round 3, and now
 tested against the program's own newest mechanism as well as against

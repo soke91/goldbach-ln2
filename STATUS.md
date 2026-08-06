@@ -1,11 +1,11 @@
 # STATUS — single-page state of the program
 
-*Last updated: increment 194 (2026-08-06). 4 days, 28 recorded
-corrections, 16 pre-registered closures, 15 documented "teeth".*
+*Last updated: increment 196 (2026-08-06). 4 days, 28 recorded
+corrections, 17 pre-registered closures, 15 documented "teeth".*
 
 **Consolidated working paper: `paper/negative_map.tex`** — the whole
 campaign in one document (the two couplings, Theorem A and the
-equivalence, Conjecture L, all sixteen closures with their blocking
+equivalence, Conjecture L, all seventeen closures with their blocking
 coordinates, the five constraints on any future technique, and the
 methodology that produced the negative results).
 
@@ -77,7 +77,7 @@ and $E_4(\alpha)$, distinguished only by the weight $w_k$.
   multiplicative, while the $k$-average supplies no linearizing
   invariance.
 - **Technique Forge** (TECHNIQUE_FORGE.md), three rounds, eight
-  designs, eight pre-registered deaths: no internal lever
+  designs, nine pre-registered deaths: no internal lever
   (multiplicative orbit, manufactured congruence, Gram moments,
   $N$-average descent all exactly as flat as Conjecture L predicts),
   no external coupling surface (zeros invisible through the pairing,
