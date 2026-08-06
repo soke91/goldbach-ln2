@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 304 (2026-08-07). 5 days, 116 recorded corrections,
+*Increment 305 (2026-08-07). 5 days, 119 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 8 named hazards.*
 
@@ -313,11 +313,24 @@ on $C(N)$ itself fired five flags which resolve into one statement:
 > $V(N)=\sum_v\mu^2(v)\Lambda(N-v)^2$ exact, $m(N)$ the location mask,
 > and $G$ Gaussian in the bulk and in the tail.
 
-The mask $m(N)$ is real (M.1 is a theorem) but its **scaling is
-unresolved**: the $N^{1/4}$ of increment 280 was fitted to a
-between-cell variance whose coin floor dominates the upper bands,
-with the real/coin ratio falling 4.21 to 0.52 and crossing 1 at
-$N\approx6\cdot10^6$ (#112). It
+The mask $m(N)$ is real (M.1 is a theorem) and, measured against an
+**exactly computed** floor, is **resolved in every band to
+$1.6\cdot10^7$**: $\max_c|z_c|$ runs 11.1, 10.9, 12.9, 12.6, 11.2,
+10.3, 9.4, **8.4**, and the deepest cell $3\cdot5\cdot7\cdot11\cdot13\mid N$
+sits at $-3.58\sqrt V$ in the top band (inc. 305). Increment 303 had
+called the large-$N$ amplitude *unresolved*; that was a statement about
+the **statistic**, not the mask. The aggregate
+$B=\sum_c (n_c/n)(m_c-\overline m)^2$ weights each cell by its **size**
+while the mask lives in the **rare** deep cells — the largest-$|z|$ cell
+holds $6.6\cdot10^{-5}$ of the top band — so with the floor removed
+exactly $B_{\text{mask}}$ still clears twice its error in only **2 of 8**
+bands. **#69's statistic could not have measured the mask at large $N$
+whatever the floor** (#118). Its **scaling remains withdrawn**: a decay
+beats a constant at 5 of 6 depths, but over a factor 160 in $N$ the data
+do **not** separate $N^{-a}$ from $(\log N)^{-b}$, and the fitted
+exponent varies about $4\times$ **with the cell** under either
+parameterisation ($a = 0.14, 0.22, 0.27, 0.37$ at depths 5→2), so **there
+is no single mask exponent** to quote (#119). It
 does not threaten $C(N)=o(N)$. The form this section carried until
 increment 283 — $\sqrt{\mathfrak S(N)N}\,G(N)$ with $G$ of unit variance
 and a "mean drift decaying with $N$" — is superseded; that drift was the

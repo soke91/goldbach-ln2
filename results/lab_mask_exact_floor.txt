@@ -1,0 +1,60 @@
+sieve + V  t=22s
+  band 1/8 exact  E[B_coin] = 0.052122  rho_real = 0.9757  t=109s
+  band 2/8 exact  E[B_coin] = 0.048923  rho_real = 0.9305  t=187s
+  band 3/8 exact  E[B_coin] = 0.046112  rho_real = 0.9072  t=269s
+  band 4/8 exact  E[B_coin] = 0.043629  rho_real = 0.8778  t=347s
+  band 5/8 exact  E[B_coin] = 0.041401  rho_real = 0.8665  t=426s
+  band 6/8 exact  E[B_coin] = 0.039397  rho_real = 0.8661  t=505s
+  band 7/8 exact  E[B_coin] = 0.037579  rho_real = 0.8574  t=584s
+  band 8/8 exact  E[B_coin] = 0.039348  rho_real = 0.8537  t=665s
+
+(S) self-test: exact z on 24 coin draws, 6144 values
+    mean -0.0561 (need |.| < 0.1),  sd 0.9936 (need 0.9 to 1.1)  ->  PASS
+    closed-form E[B_coin] against the draws' mean:
+         100000-200000     exact 0.05212  MC 0.04898 +/- 0.00525  z -0.60
+         200000-400000     exact 0.04892  MC 0.04141 +/- 0.00512  z -1.47
+         400000-800000     exact 0.04611  MC 0.04202 +/- 0.00686  z -0.60
+         800000-1600000    exact 0.04363  MC 0.03883 +/- 0.00583  z -0.82
+        1600000-3200000    exact 0.04140  MC 0.04378 +/- 0.00592  z +0.40
+        3200000-6400000    exact 0.03940  MC 0.03504 +/- 0.00491  z -0.89
+        6400000-12800000   exact 0.03758  MC 0.03696 +/- 0.00619  z -0.10
+       12800000-16000000   exact 0.03935  MC 0.04410 +/- 0.01015  z +0.47
+
+(M) the mask cell by cell, exact standard errors, key [3, 5, 7, 11, 13]
+                 band         n  max |z|  |z|>3.66  z*sqrt(rho)  resolved
+   100000-     200000     50000    11.09         9        10.95       yes
+   200000-     400000    100000    10.90         8        10.51       yes
+   400000-     800000    200000    12.86         6        12.25       yes
+   800000-    1600000    400000    12.55         6        11.76       yes
+  1600000-    3200000    800000    11.24         4        10.47       yes
+  3200000-    6400000   1600000    10.31         4         9.60       yes
+  6400000-   12800000   3200000     9.36         3         8.67       yes
+ 12800000-   16000000   1600000     8.39         3         7.75       yes
+
+(A) the mask's own between-cell variance, floor removed
+                 band    B_real  E[B_coin]    B_mask    sd(B)  B_mask/sd  share of T
+   100000-     200000   0.20780    0.05212   0.15568  0.02574       6.05    15.9551%
+   200000-     400000   0.14325    0.04892   0.09432  0.02508       3.76    10.1365%
+   400000-     800000   0.09918    0.04611   0.05307  0.03362       1.58     5.8503%
+   800000-    1600000   0.06786    0.04363   0.02423  0.02855       0.85     2.7607%
+  1600000-    3200000   0.04543    0.04140   0.00403  0.02899       0.14     0.4650%
+  3200000-    6400000   0.03106    0.03940  -0.00833  0.02404      -0.35    -0.9623%
+  6400000-   12800000   0.02060    0.03758  -0.01698  0.03031      -0.56    -1.9806%
+ 12800000-   16000000   0.01586    0.03935  -0.02349  0.04973      -0.47    -2.7519%
+
+    (S) exact variance verified on coins: PASS
+    (M) per-cell: bands clearing Bonferroni |z| > 3.66: 8/8  ->  PASS
+    (A) aggregate: bands with B_mask > 2 sd: 2/8  ->  FAIL   g = not fitted -- too few bands carry a measurable B_mask
+        (#69 reported g = -0.489, withdrawn at 303)
+    the mask is resolved in EVERY band by the per-cell test, at |z| = 8.4 in the top band, while its aggregate between-cell variance is unmeasurable above N ~ 4e+05. The two disagree because B weights each cell by n_c/n and the mask lives in the RARE deep cells: the largest-|z| cell holds 6.62e-05 of the top band. So #69's statistic could not have measured the mask at large N whatever the floor, and 303's 'amplitude unresolved' was a statement about that statistic, not about the mask.
+
+    the three largest cells by |z|, per band (cell = bitmask over [3, 5, 7, 11, 13])
+         100000-200000     3571113: -7.0886 (z -11.1)  35711: -4.8985 (z -10.6)  35713: -4.6532 (z -10.2)
+         200000-400000     3571113: -5.9054 (z -10.9)  35711: -4.4887 (z -10.1)  35713: -4.0470 (z -9.2)
+         400000-800000     3571113: -6.4028 (z -12.9)  35711: -3.9040 (z -9.1)  35713: -3.6238 (z -8.6)
+         800000-1600000    3571113: -5.8160 (z -12.5)  35711: -3.2399 (z -7.8)  35713: -2.9117 (z -7.1)
+        1600000-3200000    3571113: -4.9770 (z -11.2)  35711: -2.7800 (z -6.9)  35713: -2.5865 (z -6.5)
+        3200000-6400000    3571113: -4.4034 (z -10.3)  35711: -2.3985 (z -6.1)  35713: -2.2106 (z -5.7)
+        6400000-12800000   3571113: -3.8855 (z -9.4)  35711: -2.0086 (z -5.2)  35713: -1.8559 (z -4.9)
+       12800000-16000000   3571113: -3.5838 (z -8.4)  35711: -1.7916 (z -4.6)  35713: -1.6887 (z -4.4)
+DONE

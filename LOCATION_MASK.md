@@ -159,30 +159,71 @@ exponent is a measurement, since both walk with the window (raw
 second moment `V(N) = Σ_v μ²(v)Λ(N−v)²`, which needs no fit at all;
 see CONJECTURE_L.md. History: CLOSURE_REAUDIT.md #36, #67, #68, #83.
 
-### The mask's own scaling: withdrawn (increment 280, withdrawn at 303)
+### The mask's amplitude and its scaling (increment 305)
 
-Increment 280 fitted `Var_mask(Z) ∝ N^g` with `g = −0.489 ± 0.005` and
-concluded `m(N) ≍ √𝔖(N)·N^{1/4}`. **That fit is contaminated and the
-conclusion is withdrawn.**
+The mask is **resolved in every band measured, to `N = 1.6·10⁷`**. Its
+scaling is **not determined**, and increment 280's `g = −0.489`, with
+the `m(N) ≍ √𝔖(N)·N^{1/4}` that followed from it, stays withdrawn.
 
-The quantity fitted is a between-cell variance, and a **coin** — random
-`±1` on the same support, through the identical enumeration — produces
-one too. Normalising each by its own total, the real signal runs
-`B/T = 0.226` down to `0.021` while the coin floor sits at `0.054` down
-to `0.040`. The ratio falls
+**The instrument.** For a coin every second moment of every cell mean
+is closed-form —
 
-> **4.21, 3.27, 2.66, 1.77, 1.35, 1.27, 0.80, 0.52**
+> `sd(m_c − gm)² = Q_cc/n_c² − 2 Q_ca/(n_c n) + Q_aa/n²`,
+> `Q_cd = Σ_v μ²(v) u_c(v) u_d(v)`,
+> `u_c(v) = Σ_{N∈c} Λ(N−v)/√V(N)`
 
-crossing 1 at `N ≈ 6·10⁶`. The exponent was fitted across all eight
-bands, of which the upper two are **floor-dominated**.
+— one FFT per cell, no simulation. Verified against 24 coin draws: the
+z it produces are standard normal, mean `−0.056`, sd `0.9936`.
 
-✅ **The mask itself stands.** M.1 is a theorem, and at small `N` the
-enumeration sees it at **4.2×** the floor. What is withdrawn is the
-*scaling*, and with it the `N^{1/4}` amplitude. The mask's size at large
-`N` is **unresolved**, not small — and increment 280's other figure,
-"1.15% of the variance at `1.6·10⁷`", sits below the floor.
+**The mask, cell by cell.** Against those exact errors, `max_c |z_c|`
+runs **11.1, 10.9, 12.9, 12.6, 11.2, 10.3, 9.4, 8.4** over the octaves
+from `10⁵` to `1.6·10⁷` — every band clears Bonferroni at 32 cells by a
+wide margin. The deepest cell, `3·5·7·11·13 | N`, sits at
 
-History: CLOSURE_REAUDIT.md #67, #69, #112, #113.
+> `m_c − gm = −7.09, −5.91, −6.40, −5.82, −4.98, −4.40, −3.89, −3.58`
+
+in units of `√V`. **The mask does not fade below measurability; it is
+eight standard deviations deep at the top of the range.**
+
+**Why increment 280's statistic could not see that.** It measured a
+between-cell variance `B = Σ_c (n_c/n)(m_c − gm)²`, which weights each
+cell by its **size**. The mask lives in the **rare** deep cells: the
+largest-`|z|` cell holds `6.6·10⁻⁵` of the top band. Its contribution to
+`B` is therefore negligible however large its deviation. Measured with
+the floor removed exactly, `B_mask = B_real − E[B_coin]` clears twice
+its own error in only **2 of 8** bands and is consistent with zero above
+`N ≈ 4·10⁵`. So the failure was never only the missing floor — **the
+aggregate is the wrong instrument for a signal carried by rare cells**,
+and no amount of floor correction would have fixed it.
+
+**The decay, and what cannot be said about it.** Fitted per depth on
+half-octave bands, weighted by the exact errors, a decay beats a
+constant by more than `2×` in weighted RSS at **5 of 6 depths**. But
+over a factor `160` in `N` the data do **not** separate `A·N^{−a}` from
+`A·(log N)^{−b}`: the two are indistinguishable at depths 5, 4 and 0,
+and only at depths 3 and 2 does the power of `N` win by the required
+margin. Worse for any single law, the fitted exponent **depends on the
+cell** —
+
+| depth | `a` in `N^{−a}` | `b` in `(log N)^{−b}` | verdict |
+|---|---|---|---|
+| 5 (`3·5·7·11·13`) | 0.1434 | 2.0057 | not distinguishable |
+| 4 (`3·5·7·11`) | 0.2152 | 2.9337 | not distinguishable |
+| 3 (`3·5·7`) | 0.2713 | 3.6697 | power of `N` |
+| 2 (`3·5`) | 0.3686 | 4.9192 | power of `N` |
+| 1 (`3`) | 0.0437 | 0.5512 | no decay established |
+| 0 (none) | 0.6289 | 8.1361 | not distinguishable |
+
+— a spread of about `4×` under **either** parameterisation. **There is
+no single mask exponent**, so increment 280's one `g` was fitting a
+mixture, and it is not replaced by another number here.
+
+✅ What stands: M.1 is a theorem, the mask is real, it is measurable at
+every `N` tested, its amplitude falls with `N`, and it is deepest where
+`N` has the most small prime factors. ⚠️ What is not claimed: any law
+for that fall.
+
+History: CLOSURE_REAUDIT.md #67, #69, #112, #113, #117–#119.
 
 ## 4. What failed, and it is instructive
 
