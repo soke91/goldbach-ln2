@@ -1,0 +1,61 @@
+sieve + 2 convolutions  t=14s
+
+rho(N) = Var(C, mask removed) / mean V,  per octave band
+                 band     count  cells   rho raw  rho demask  logNmid
+   100000-     200000     50000    190   1.00618     0.76029   11.859
+   200000-     400000    100000    205   0.95499     0.78350   12.553
+   400000-     800000    200000    217   0.92313     0.80355   13.246
+   800000-    1600000    400000    229   0.88949     0.80684   13.939
+  1600000-    3200000    800000    237   0.87406     0.81834   14.632
+  3200000-    6400000   1600000    244   0.87334     0.83477   15.325
+  6400000-   12800000   3200000    248   0.86202     0.83612   16.018
+ 12800000-   16000000   1600000    240   0.85768     0.83733   16.477
+
+    rho is 1 exactly under random signs on the support.
+    measured: 0.76029 at the bottom, 0.83733 at
+    the top -- a RISE of 10.1% across
+    a factor 101 in N.
+    RAW rho instead FALLS 1.00618 -> 0.85768. The two
+    move in OPPOSITE directions and converge: the gap is
+    0.2459 at the bottom and 0.0204
+    at the top. That is finding #69 -- the mask decays like
+    N^(-1/2) relative to the fluctuation -- so the RAW fall
+    was mask contamination and its sign was wrong.
+
+model comparison (all two-parameter, same points)
+    M0  rho = c                : c = 0.81009, RMS 0.025828
+    M1  rho = c (log N)^(-beta): beta = -0.2860, RMS 0.006044
+    M2  rho = a - b/log N      : a = 1.03947, b = 3.2310, RMS 0.004863
+    pre-registered rule (best < half of each rival): INDETERMINATE
+
+stability: refit on the first j bands only
+  j  logN max       M0 c    M1 beta       M2 a
+  3    13.246    0.78245    -0.5008    1.17388
+  4    13.939    0.78855    -0.3804    1.08829
+  5    14.632    0.79451    -0.3386    1.06298
+  6    15.325    0.80122    -0.3372    1.07004
+  7    16.018    0.80620    -0.3093    1.05419
+  8    16.477    0.81009    -0.2860    1.03947
+    A parameter that walks with j is not measured. M2's `a`
+    is the one that decides the question -- it is the limit
+    rho would tend to -- so watch that column, not the fit
+    quality.
+
+cross-check: does sqrt(rho*V) reproduce increment 281?
+    exponent of sqrt(V)      : 0.5348
+    exponent of sqrt(rho)    : +0.0100
+    sum = exponent of sd(C)  : 0.5448
+    increment 281 measured   : 0.5457 +/- 0.0032
+    difference               : -0.0009
+    The two were fitted from different quantities by
+    different scripts, so agreement here is evidence and
+    not bookkeeping.
+
+what is and is not established
+    rho < 1 is established and large: the off-diagonal is
+    genuinely negative, so the wall does beat a coin.
+    Whether rho tends to a positive constant or to zero is
+    the question, and the null is M0, NOT zero. A downward
+    drift is not evidence for zero -- that is hazard 5, and
+    this program has committed it four times.
+DONE

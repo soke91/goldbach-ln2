@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 287 (2026-08-07). 5 days, 83 recorded corrections,
+*Increment 288 (2026-08-07). 5 days, 85 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -98,6 +98,19 @@ mid N}(1-1/(q(q-1)))$ (Mirsky 1949).
   (`paper/defect_report_18.md`, not sent).
 
 ### 2. The supply side — mapped, not closed
+
+**How much cancellation nature actually delivers, measured at last**
+(inc. 288). Proposition V makes $\rho(N):=\operatorname{Var}C(N)/V(N)$
+well posed — it is exactly 1 under random signs on the squarefree
+support. With the location mask removed, $\rho$ **rises** 0.760 → 0.837
+over $N \le 1.6\cdot10^7$, while the *raw* ratio falls 1.006 → 0.858:
+opposite directions, converging (gap 0.246 → 0.020). **The recorded
+downward trend was mask contamination and its sign was wrong.** So the
+wall does beat a coin ($\rho<1$) but by a margin that is **shrinking**,
+not growing. Whether $\rho\to1$ is **not** settled: the pre-registered
+model comparison returns INDETERMINATE and every parameter still walks
+(#84, #85). Cross-check: $\sqrt{\rho V}$ recomposes increment 281's
+independently fitted amplitude exponent to within $-0.0009$.
 
 The consumable is the signed type-II sum $\sum_{k\sim K} b_k D(k) \ll
 N(\log N)^{-A}$; via Cauchy–Schwarz it suffices to prove
