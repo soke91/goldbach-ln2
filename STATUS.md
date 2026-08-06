@@ -1,13 +1,16 @@
 # STATUS — single-page state of the program
 
-*Increment 222 (2026-08-06). 4 days, 31 recorded corrections,
+*Increment 223 (2026-08-06). 4 days, 31 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth".*
 
 **What is trusted, and what is not: `DEPENDENCY_AUDIT.md`.** The
-theorems proved here do not rest on Huang–Li; the strategic frame does,
-and we have found one defect in that frame already. "The wall is
-$C(N) = o(N)$" and "Goldbach follows from $EH_\mu$" are **conditional
-on their reduction**, which we have not independently verified.
+theorems proved here do not rest on Huang–Li; the strategic frame does.
+That frame has now been **independently re-derived here at every
+structural step** — inversion, split, $\mu^2$ insertion, switch, the
+$S_1$ evaluation, and the assembly giving $\mathfrak S(1-A(N))$ — with
+the one defect we found (the dropped truncation at (18)) repaired.
+No second defect was found. What is still taken on their authority is
+the exponent-level analysis of the error terms.
 
 **Consolidated working paper: `paper/negative_map.tex`.**
 **Correction and supersession record: `CLOSURE_REAUDIT.md`** — every

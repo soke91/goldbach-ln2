@@ -1,0 +1,17 @@
+       N       T/N     A(N)    ratio    |r-1|  (logN)^-1   S(1-A)   6/pi^2
+   50000    0.7812   0.7873   0.9922   0.0078     0.0924   0.3745   0.6079
+  100000    0.7901   0.7873   1.0036   0.0036     0.0869   0.3745   0.6079
+  200000    0.7879   0.7873   1.0007   0.0007     0.0819   0.3745   0.6079
+  400000    0.7888   0.7873   1.0020   0.0020     0.0775   0.3745   0.6079
+
+verdict: CONSISTENT -- the majorant of |C(N)| is A(N) N
+
+Why A(N) and not 6/pi^2: the squarefree density 0.6079 is
+the density of squarefree u over ALL u. Here u = N - n with
+n weighted by Lambda, i.e. n running over prime powers, and
+the local density at p becomes 1 - 1/(p(p-1)) instead of
+1 - 1/p^2, since n avoids the residue class 0 mod p. That is
+exactly A(N), and it is LARGER than 6/pi^2 -- so the bound is
+weaker than the naive one, which is why 1 - A(N) is small and
+Corollary 1 has to work to make it positive.
+DONE

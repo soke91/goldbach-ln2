@@ -275,6 +275,55 @@ The residual value is a coordinate: **if the shift-decoupling is ever
 to pay, it must be combined with something that improves the per-shift
 bound**, not with a cleverer choice of average.
 
+## Session 4 — the summation-formula entry to ①, closed for the same reason as K2
+
+Session 2 left one thing alive: HR's Corollary 1.1 needs no
+multiplicativity of f and g, only L² and L⁴ bounds, so the barrier is
+purely getting our object into the shape Σ_n Σ_{p|n} f(n)g(n ± p).
+Session 1's p-trick produced dilations. This session asks whether some
+*other* entry works.
+
+It does not, and the reason is one this program has already named.
+
+**What their corollary actually does.** It says a sum *already
+carrying* a p | n restriction equals its 1/p-weighted unrestricted
+counterpart, with a saving. It is a tool for **removing** a
+divisibility restriction that the problem hands you — which is what
+happens in Tao's reduction, where the restriction arises from the
+multiplicativity step and is not put in by hand.
+
+**Our object carries no such restriction.** Σ_u μ(N−u)G_b(u) has no
+p | u anywhere. One can manufacture one, using that Σ_{p∈P}[p|u] has
+mean L:
+
+> Σ_u μ(N−u)G(u) ≈ (1/L)·Σ_u Σ_{p|u} μ(N−u)G(u),
+
+and then apply the corollary to remove it again — returning exactly
+what we started with. **Manufacture-then-remove is a round trip.**
+
+This is K2's lesson verbatim, from the Technique Forge's first round:
+*"collapse structure pays only when it arises inside an intrinsic
+average that is already present; imposing it externally only pays the
+splitting cost."* K2 established it for a manufactured congruence; it
+holds identically for a manufactured divisibility index.
+
+> **Status of ①, complete.** Pointwise changes of variable: closed by
+> the pencil-versus-parallel argument. Summation formulas: the named
+> candidates were already closed by measurement, and the one live
+> entry — HR's Corollary 1.1 — is closed because our object has no
+> divisibility restriction for it to remove and manufacturing one is
+> circular. **① is now closed in both classes, each for a stated
+> structural reason rather than a budget.**
+
+What that leaves is not a gap in the enumeration but the enumeration
+itself: a transform outside both classes — neither a pointwise change
+of variable nor a summation formula in the usual sense. Inventing one
+is the whole task, and this lab now has the boundary drawn tightly
+enough that a candidate can be tested against it in one step: **does
+it move a finite pencil vertex to infinity, or does it remove a
+divisibility restriction the problem supplies rather than one we
+inserted?** Anything that does neither is new.
+
 ### Not yet read
 
 MRT's *averaged* form of Chowla (`arxiv_1503.05121`) is stated

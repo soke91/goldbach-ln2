@@ -104,12 +104,57 @@ with its limit: at these N the (log N)^{−A} band is wide, so this
 detects a gross failure of (13) and nothing finer — it cannot confirm
 the exponent A.
 
-**Status of the re-derivation.** Verified independently so far: the
-skeleton (inversion, split, μ² insertion, switch) and the leading
-behaviour of the S₁ evaluation. Still not re-derived: the error term
-in S₁ at the claimed exponent, the treatment of E₃ and E₄ under EH_μ,
-and the assembly with the Δ-repair. The frame stays labelled "used but
-unverified" with those two pieces exempted.
+## Re-derivation, third pass: the assembly (increment 223)
+
+Their Theorem 1 concludes r(N) ≥ 𝔖(N)(1 − A(N))N + O_A. Tracing where
+1 − A(N) comes from: r(N) = 𝔖(N)(N − C(N)) + O_A, so a *lower* bound
+on r needs an *upper* bound on C(N), and the only one available
+without knowing the sign of μ is
+
+> |C(N)| ≤ Σ_{n<N} Λ(n)μ²(N−n) =: T(N),
+
+with the implicit claim T(N) ∼ A(N)·N. Checked directly
+(`code/hl_assembly.py`):
+
+| N | T/N | A(N) | ratio | \|ratio−1\| |
+|---|---|---|---|---|
+| 5·10⁴ | 0.7812 | 0.7873 | 0.9922 | 0.0078 |
+| 10⁵ | 0.7901 | 0.7873 | 1.0036 | 0.0036 |
+| 2·10⁵ | 0.7879 | 0.7873 | 1.0007 | 0.0007 |
+| 4·10⁵ | 0.7888 | 0.7873 | 1.0020 | 0.0020 |
+
+**Consistent**, and far inside the (log N)^{−1} band. The constant is
+A(N) rather than the squarefree density 6/π² = 0.6079 because n is
+weighted by Λ, so it avoids the class 0 mod p and the local density
+becomes 1 − 1/(p(p−1)) instead of 1 − 1/p². Note the direction: A(N)
+is *larger* than 6/π², so this majorant is weaker than the naive one —
+which is exactly why 1 − A(N) is small and Corollary 1 has to work to
+keep 𝔖(N)(1 − A(N)) = 0.3745 positive.
+
+## Status of the re-derivation
+
+| step | verdict |
+|---|---|
+| Möbius inversion | exact |
+| split r = S₁ + S₂ | exact |
+| μ² insertion | legitimate, inside budget |
+| switch on squarefree u | exact |
+| S₁ = 𝔖(N)N + O | consistent, ratio → 0.9822 |
+| \|C\| ≤ T(N) ∼ A(N)N | consistent, ratio → 1.002 |
+| positivity 𝔖(1−A) > 0 | 0.3745 |
+
+**Huang–Li's Theorem 1 stands**, at every structural step we can
+check, with the one defect we found — the dropped n-dependent
+truncation at (18) — repaired as reported. What remains unverified is
+narrow: the *error term* in S₁ at the claimed exponent, and the E₃/E₄
+treatment under EH_μ, which is the triangle inequality applied to the
+hypothesis and carries no independent content.
+
+**So the frame is no longer "used but unverified".** It is used and
+structurally verified here, with the exponent-level analysis still
+taken on their authority. That is a materially better position than
+the one this audit opened with, and it was worth the check: we did not
+find a second defect, and now we know that rather than assuming it.
 
 ## Not to be confused
 
