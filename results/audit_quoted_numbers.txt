@@ -1,0 +1,41 @@
+(A) quoted numbers against the results file that produced them
+              document     figure  in results?  note
+      LOCATION_MASK.md     9.0034           ok  max|Z| before the mask
+      LOCATION_MASK.md     5.1515           ok  max|Z| after the mask
+      LOCATION_MASK.md     0.4683           ok  excess kurtosis before
+      LOCATION_MASK.md     0.0143           ok  excess kurtosis after
+      LOCATION_MASK.md     -4.852           ok  deep cell mean Z at 1e8
+      LOCATION_MASK.md     -6.014           ok  deeper cell mean Z at 1e8
+      LOCATION_MASK.md    0.10884           ok  P(C>0) at depth 5
+        TRANSFORM_P.md     0.8852           ok  S_abs/S_null at 5e4
+        TRANSFORM_P.md     0.8725           ok  S_abs/S_null at 4e5
+        TRANSFORM_P.md     0.3912           ok  R at depth 0, N ~ 1e6
+        TRANSFORM_P.md     0.6821           ok  R at depth 6, N ~ 1.5e7
+        TRANSFORM_P.md     1.5368           ok  R/R_null at depth 6
+        TRANSFORM_P.md     0.3416           ok  1/sqrt(j) floor, deep
+        TRANSFORM_P.md     0.2022           ok  1/sqrt(j) floor, all even
+        TRANSFORM_P.md     0.0213           ok  pos/neg at 1 term, deep
+        TRANSFORM_P.md    19.5173           ok  pos/neg at >=9 terms, deep
+        TRANSFORM_P.md     0.5412           ok  share of demand from p with <=2 terms, deep
+        TRANSFORM_P.md     0.7775           ok  share of demand, shallow
+        TRANSFORM_P.md     1.7677           ok  split de-masked demand
+        TRANSFORM_P.md     1.1114           ok  permuted floor
+    CLOSURE_REAUDIT.md     -193.5           ok  corr(C,S) z at full power
+    CLOSURE_REAUDIT.md     -137.4           ok  corr(C/sqrtS,S) z
+    CLOSURE_REAUDIT.md     -0.208           ok  off/LHS at 4e6
+    CLOSURE_REAUDIT.md      14.39           ok  S/S_sign at p in [16,32], deep
+
+  24 checks, 0 mismatches, 0 results files absent
+
+(B) derived figures, recomputed rather than located
+              document    quoted   recomputed   ok?  note
+        TRANSFORM_P.md      1.69       1.6894    ok  floor ratio deep/all-even
+        TRANSFORM_P.md      1.62       1.6146    ok  predicted ratio sqrt(rad/phi) deep vs typical
+        TRANSFORM_P.md     2.284       2.2833    ok  1/sqrt(delta) at rad = 30030
+
+TOTAL problems: 0
+  LIMIT: this checks that a figure was not invented or
+  mistyped between results/ and the document. It does NOT
+  check that it is the right figure for the claim it
+  supports.
+DONE
