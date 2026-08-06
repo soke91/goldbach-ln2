@@ -10,7 +10,16 @@ M_P computed for 64 cells  t=13s
   corr(C, kappa*M)          = +0.2236
   corr(C, kappa*M) permuted = +0.1974
 
-(B) fitted kappa_0 overall = 0.5373
+(B) which local factor? weighted R^2 on the cell means
+                                 weighting   kappa_0       R^2
+        kappa(N) M   [coprime-set density]    0.5373    0.5694
+   S(N) M       [shifted-prime enrichment]    0.6033    0.6318
+            M alone      [no local factor]    1.7981    0.4204
+kappa(N)^4.75 M  [free power, 1 extra dof]    0.0027    0.8108
+    (increment 243's fitted models: additive +0.219 with 9
+     parameters, multiplicative -714, Sig^9.7 +0.910)
+
+(B2) per-cell stability of the derived form
               primes | N    count   kappa_c   corr_c
                   (none)   704049    0.9603   0.0846
                        3   352023    0.1781   0.0798

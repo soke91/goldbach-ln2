@@ -159,8 +159,63 @@ def main():
     print(f"  corr(C, kappa*M)          = {r_w:+.4f}")
     print(f"  corr(C, kappa*M) permuted = {r_w0:+.4f}")
 
+    # Two local factors are derivable, from two different arguments,
+    # and they are not the same function of N:
+    #   kappa(N) = prod_{q|N} q/(q-1)   -- the density of the set the
+    #       Mobius variable is confined to (the argument above);
+    #   S(N)     = 2 C_2 prod_{q|N,q>2} (q-1)/(q-2)  -- the enrichment
+    #       of the SHIFTED-PRIME set at omega = 1, since v = N - p with
+    #       v also prime is a Goldbach representation and those are
+    #       S(N)-enhanced, whereas the generic rough set is not.
+    # Increment 244 left a factor ~1.7 unexplained on the deep cells,
+    # and S/kappa runs 0.66 on shallow N to 0.99 on N = 510510, a ratio
+    # of 1.49 -- the right order. Which factor the data prefer is a
+    # question with a derivation on each side, so both are fitted, and
+    # a free power of kappa is fitted alongside as the null that says
+    # neither derivation is right and only the exponent matters.
+    SN = np.full(len(Ns), 2 * 0.6601618158468696)
+    for i, q in enumerate(QS):
+        SN = np.where(((cell >> i) & 1).astype(bool),
+                      SN * (q - 1.0) / (q - 2.0), SN)
+
+    def r2_cells(weight):
+        k0 = float(np.dot(Cv, weight) / np.dot(weight, weight))
+        aa, bb, ww = [], [], []
+        for c in range(ncell):
+            idx = np.nonzero(cell == c)[0]
+            if len(idx) < 100:
+                continue
+            aa.append(float(Cv[idx].mean()))
+            bb.append(k0 * float(weight[idx].mean()))
+            ww.append(len(idx))
+        aa = np.array(aa); bb = np.array(bb)
+        ww = np.array(ww, dtype=np.float64)
+        num = float((ww * (aa - bb) ** 2).sum())
+        den = float((ww * (aa - np.average(aa, weights=ww)) ** 2).sum())
+        return 1 - num / den, k0
+
+    cands = [("kappa(N) M   [coprime-set density]", kapN * Mval),
+             ("S(N) M       [shifted-prime enrichment]", SN * Mval),
+             ("M alone      [no local factor]", Mval)]
+    best_a, best_r2 = 1.0, -9e9
+    for a in np.arange(0.0, 12.01, 0.25):
+        rr, _ = r2_cells(kapN ** a * Mval)
+        if rr > best_r2:
+            best_r2, best_a = rr, float(a)
+    cands.append((f"kappa(N)^{best_a:.2f} M  [free power, 1 extra dof]",
+                  kapN ** best_a * Mval))
+
+    print(f"\n(B) which local factor? weighted R^2 on the cell means")
+    print(f"{'weighting':>42} {'kappa_0':>9} {'R^2':>9}")
+    for nm, wgt in cands:
+        rr, k0 = r2_cells(wgt)
+        print(f"{nm:>42} {k0:>9.4f} {rr:>9.4f}")
+    print("    (increment 243's fitted models: additive +0.219 with 9")
+    print("     parameters, multiplicative -714, Sig^9.7 +0.910)")
+
+    W = kapN * Mval
     kap = float(np.dot(Cv, W) / np.dot(W, W))
-    print(f"\n(B) fitted kappa_0 overall = {kap:.4f}")
+    print(f"\n(B2) per-cell stability of the derived form")
     print(f"{'primes | N':>24} {'count':>8} {'kappa_c':>9} "
           f"{'corr_c':>8}")
     ks = []
