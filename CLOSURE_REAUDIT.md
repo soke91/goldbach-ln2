@@ -397,7 +397,7 @@ on a *correct* null but a wrong model is untouched by it — and several
 E1 verdicts use Conjecture L's own iid model as the null, which is
 circular by construction and already recorded as such in `sweep_B`.
 
-## The four hazards this campaign actually suffers from
+## The five hazards this campaign actually suffers from
 
 Both are about **stating a criterion that does not match the thing
 being tested**, and both are caught the same way — by widening from a
@@ -442,6 +442,20 @@ single number to the whole profile, or by computing the null first.
    Rule: **where the statistic's own second moment is computable from
    the same loop, use it as the null.** Print the heuristic beside it
    if it is informative, never in place of it.
+
+5. **Reading a declining trend as convergence to the null, when the
+   statistic has no power to distinguish.** Four instances, all on the
+   same object and all found only at increments 248–254: `sweep_B`'s B4
+   sign balance (z = −1.55 on ~1500 values; **−94.3 and +61.6** on
+   1.95·10⁶); B5's `corr(C,𝔖)` falling −0.194 → −0.138 → −0.070 across
+   three windows and read as convergence (**z = −193.5** at full power,
+   and **−137.4** after the very fix that was supposed to remove it);
+   the "mean drift, already insignificant at N ≈ 9·10⁵"; and §10's
+   `3 | N` split, where "𝔖-normalisation takes it below 3σ" was n ≈ 500
+   and full power gives z = −70 after that same normalisation. Rule:
+   **a trend toward the null is not evidence of the null unless the
+   last point has the power to reject it.** Quote the power, not the
+   trend.
 
 Every closure in this repository predating these rules was re-checked
 against them; the ones that survived are the ones whose criteria were

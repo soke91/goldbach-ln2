@@ -244,13 +244,32 @@ disjoint N-windows:
 | 7·10⁵ | −0.248 | +0.471 | −3.17 | −3.17 |
 | 1.4·10⁶ | −0.647 | −0.111 | −2.29 | −0.76 |
 
-**Real but decaying.** All three windows agree in sign (combined
-|z| = 5.68), so it is not noise; but the split measured in √N units is
-1.007, 0.719, 0.536, scaling as **N^{−0.41}** — i.e. the absolute
-split grows only like N^{0.09}. It is a lower-order term, not a mask
-on C(N)/√N, and at the largest window normalising by 𝔖(N) already
-takes it below 3σ, so singular-series scaling accounts for most of
-what remains.
+**Real, and lower-order, and it is the mask.** Measured at full power
+over every even N in [10⁵, 4·10⁶] rather than in three windows of ~500
+(`code/lab_split_decay.py`):
+
+| band | n | split | z | perm z | /√N | z of C/√𝔖 | z of C/𝔖 |
+|---|---|---|---|---|---|---|---|
+| 10⁵–2·10⁵ | 50000 | −620.0 | **−52.5** | −0.70 | −1.649 | −50.0 | −45.3 |
+| 4·10⁵–8·10⁵ | 200000 | −785.8 | **−66.2** | +0.84 | −1.045 | −60.7 | −53.6 |
+| 1.6·10⁶–3.2·10⁶ | 800000 | −959.5 | **−79.4** | +0.26 | −0.638 | −70.4 | −60.4 |
+
+Two of the three original readings stand.
+
+1. **The split is real** — 50 to 80 σ per band against a permutation
+   control at |z| ≤ 1.8.
+2. **It is lower-order.** `split/√N` falls as `N^{−0.315}` (the three
+   windows gave −0.41; a two-parameter power law fitted to points
+   carrying 23%, 32% and 44% relative error determines little). The
+   absolute split grows like `N^{0.19}`, so it is indeed not a mask on
+   `C(N)/√N`.
+3. **But it is the location mask**, seen through a shallow cut. `3 | N`
+   averages over mostly-shallow N; isolating the deep cells gives
+   `C/√N` around −20, falling far more slowly (LOCATION_MASK.md). And
+   the claim that 𝔖-normalisation removes it does not survive power:
+   at full power `C/√𝔖` still reads z = −70 and `C/𝔖` z = −60 — a
+   reduction of 10–15%, not a removal. "Below 3σ at the largest
+   window" was n ≈ 500.
 
 ## 11. Two more hypotheses, and a methodological correction
 
