@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 279 (2026-08-07). 5 days, 66 recorded corrections,
+*Increment 280 (2026-08-07). 5 days, 69 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -179,6 +179,17 @@ $\mathfrak S$ itself overshoots, and the exponent solves to
 $0.497, 0.539, 0.460$ across three independent splits. **Conjecture L
 therefore extends to the final object of the whole chain**, which the
 campaign had never checked.
+
+⚠️ **Superseded twice; read `CLOSURE_REAUDIT.md` #36 and #67–#69.**
+The displayed law above is the pre-#36 form: $G$ does **not** have unit
+variance, and the “mean drift decaying with $N$” is the **location mask**
+$m(N)$, found four increments later. Increment 280 measured the mask's own
+scaling — $\mathrm{Var}_{\text{mask}}(Z)\propto N^{-0.489\pm0.005}$, i.e.
+$m(N)\asymp\sqrt{\mathfrak S(N)}\,N^{1/4}$, so it is **lower order and does
+not threaten $C(N)=o(N)$** — and found that the replacement law's exponent
+is **not identified**: it still walks with the fitting window, and a pure
+power of $N$ fits the range as well as $\log N$ does. What is established
+is only that the variance grows **faster than** $\mathfrak S N$.
 
 ### 4. The measurement corpus — the primary artifact
 

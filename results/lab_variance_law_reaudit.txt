@@ -1,0 +1,76 @@
+convolution  t=12s
+
+                 band    count  cells  sd^2 raw  sd^2 demask  mask share  logNmid
+   100000-     200000    50000    190    4.2820       3.6770     14.13%   11.859
+   200000-     400000   100000    205    4.4555       4.0158      9.87%   12.553
+   400000-     800000   200000    217    4.7107       4.3848      6.92%   13.246
+   800000-    1600000   400000    229    4.8817       4.6472      4.80%   13.939
+  1600000-    3200000   800000    237    5.1329       4.9662      3.25%   14.632
+  3200000-    6400000  1600000    244    5.4364       5.3165      2.21%   15.325
+  6400000-   12800000  3200000    248    5.6766       5.5928      1.48%   16.018
+ 12800000-   16000000  1600000    240    5.8295       5.7622      1.15%   16.477
+
+sampling noise floor per band (CV of a variance):
+  0.632%  0.447%  0.316%  0.224%  0.158%  0.112%  0.079%  0.112%
+
+(A) mask contamination: does removing it move alpha?
+  raw     alpha = 1.0150 +/- 0.0280   resid RMS(log) = 0.01018
+  demask  alpha = 1.3013 +/- 0.0351   resid RMS(log) = 0.01159
+  |d alpha| = 0.2863   H1: contaminated
+  mask share of the variance: 5.06% on average
+
+(B) is alpha identified? test the recorded claim alpha = 1
+     raw  alpha = 1.0150 +/- 0.0280   z vs alpha=1 : +0.53   alpha=1 consistent
+  demask  alpha = 1.3013 +/- 0.0351   z vs alpha=1 : +8.58   alpha=1 EXCLUDED
+
+(C) is the LOG identified, or would a pure power of N do?
+    decision rule fixed before the run: the log is identified
+    only if the power fit's residual RMS exceeds the log
+    fit's by a factor of 2
+  raw     (log N)^1.015: RMS 0.01018   N^0.06860: RMS 0.00461   ratio 0.45   NOT identified -- a power of N fits as well
+  demask  (log N)^1.301: RMS 0.01159   N^0.08761: RMS 0.02211   ratio 1.91   NOT identified -- a power of N fits as well
+
+(C2) range stability: alpha from the first j bands only
+  j  logN max            alpha raw           alpha demask
+  3    13.246       0.9007 +/- 0.0983        1.6018 +/- 0.0245
+  4    13.939       0.8266 +/- 0.0520        1.4062 +/- 0.0928
+  5    14.632       0.8890 +/- 0.0388        1.3694 +/- 0.0498
+  6    15.325       1.0036 +/- 0.0550        1.3938 +/- 0.0304
+  7    16.018       1.0198 +/- 0.0345        1.3325 +/- 0.0319
+  8    16.477       1.0150 +/- 0.0280        1.3013 +/- 0.0351
+    A value that walks with j is not a measured exponent,
+    whatever its standard error says.
+
+(C3) the mask's own scaling: Var_mask in Z units vs N
+ band logN   Var_mask(Z)
+    11.859       0.60498
+    12.553       0.43966
+    13.246       0.32588
+    13.939       0.23453
+    14.632       0.16671
+    15.325       0.11996
+    16.018       0.08378
+    16.477       0.06725
+    fit Var_mask ~ N^g :  g = -0.4887 +/- 0.0047   RMS 0.02695
+    => m(N) ~ sqrt(S(N)) * N^0.2557
+    g < 0 means the mask DECAYS relative to the
+    fluctuation, i.e. it is lower order and does not
+    threaten C(N) = o(N).
+    stability of g across the window:
+      j=3  logN<=13.246   g = -0.4430 +/- 0.0082
+      j=4  logN<=13.939   g = -0.4563 +/- 0.0067
+      j=5  logN<=14.632   g = -0.4712 +/- 0.0072
+      j=6  logN<=15.325   g = -0.4746 +/- 0.0042
+      j=7  logN<=16.018   g = -0.4880 +/- 0.0058
+      j=8  logN<=16.477   g = -0.4887 +/- 0.0047
+
+(D) how much lever arm is there, really?
+    N spans a factor 160, but log N spans only
+    1.3893 -- and it is log N that carries the
+    exponent. log(log N) range = 0.3288.
+    To halve the s.e. on alpha (0.0351) the
+    log(log N) range must DOUBLE, i.e. log N must reach
+    22.9, i.e. N ~ 1e10. (se would go to ~0.0248)
+    This is why the exponent is hard to pin: the observable
+    grows like log log N, and no reachable N moves it much.
+DONE

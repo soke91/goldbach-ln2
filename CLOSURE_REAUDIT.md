@@ -459,17 +459,6 @@ single number to the whole profile, or by computing the null first.
 
 6. **A step that silently does not run, while the record says it did.**
    The most dangerous of the six, because nothing looks wrong. Two
-   **A third form: a check that cannot fail.** Increment 272's
-   identity test printed a "C(N) − Λ(N−1)" line built by rearranging
-   the very quantity it was meant to confirm, so it agreed to all
-   digits by algebra and verified nothing. It also compared
-   `Σ_p log p D_p` (weight 1) against ω-classes built with a `1/log v`
-   weight — two different objects, and the mismatch showed up as a
-   1.5·10⁴ "failure" of a true identity. Both fixed; with the weights
-   matched and a genuinely independent third computation the identity
-   holds to 6·10⁻¹⁰. Rule: **a verification must be able to come out
-   false.**
-
    instances: a pre-registered control prime dropped by an `n ≥ 12`
    guard that printed nothing (increment 243), and a document rewrite
    whose script raised `AssertionError` on a string that did not match
@@ -488,6 +477,29 @@ single number to the whole profile, or by computing the null first.
    **Every edit must be followed by a read-back that asserts the new
    state**, which is what the fix at 258 does. Naming a hazard does not
    prevent it; only a check that fails loudly does.
+
+   **A third form: a check that cannot fail.** Increment 272's
+   identity test printed a "C(N) − Λ(N−1)" line built by rearranging
+   the very quantity it was meant to confirm, so it agreed to all
+   digits by algebra and verified nothing. It also compared
+   `Σ_p log p D_p` (weight 1) against ω-classes built with a `1/log v`
+   weight — two different objects, and the mismatch showed up as a
+   1.5·10⁴ "failure" of a true identity. Both fixed; with the weights
+   matched and a genuinely independent third computation the identity
+   holds to 6·10⁻¹⁰. Rule: **a verification must be able to come out
+   false.**
+
+   **A fourth form: a shell heredoc collapsing `\\` to `\`.**
+   At increment 280 a patch reported success and wrote `\text` into
+   STATUS.md as a literal TAB and `\asymp` as a BEL, because the
+   heredoc ate one level of escaping before Python saw it. The
+   assertions passed — they tested for the *surrounding* text, not the
+   escapes — and only reading the file back caught it. Repairing it
+   exposed that this very paragraph had been spliced into the middle of
+   a sentence by an earlier edit of the same kind, unnoticed since.
+   Rule: **assert on the exact bytes that were the point of the edit**,
+   and prefer a file-writing tool to a shell heredoc for anything
+   containing backslashes.
 
 Every closure in this repository predating these rules was re-checked
 against them; the ones that survived are the ones whose criteria were
@@ -512,6 +524,9 @@ get there is listed here.
 | 33 | null for the singular-series average: `A(W) ~ c/log W` from the Euler product 1 − f(q)/q ~ 1 − 1/q | `A(W)` tracks `Σ_{w≤W} μ(w)/w`, PNT-strength — measured ~10⁻³ against 1/log W ≈ 0.09. The Euler reading describes the smooth-truncated product, not the Möbius sum |
 | 34 | null for the w-grouping residual: `Σ_w|E_w| ~ √2·N log N`, so the ratio to trivial should be ≈1 and flat | the data-driven second-moment null `Σ_w √(Σ_p t_p²)`; measured ratio 1.18–1.26, flat, and 0.26 of trivial and falling. The heuristic overshot by a factor 7 |
 | 35 | the criterion "does `S_abs/N → 0`?" tested as `(log N)^{−1/2}` **against** `c + b/log N`, returning DEAD | the right comparison is free-exponent (→0) against `c + b/log N` (→c). Rejecting the *rate* −1/2 is not evidence for a positive *limit*. Corrected verdict at N ≤ 6.4·10⁶: **UNDECIDED** — the two fit equally well (resid sd 0.00081 vs 0.00083) and separate by 0.0035 at N ≈ 5·10⁸, below the noise. What *is* settled: the exponent is ≈ **0.773**, i.e. **faster** decay than the square-root-per-p prediction |
+| 69 | *(a finding, not a correction)* the location mask's **own** scaling in N had never been measured — only its shape at fixed N | **`Var_mask(Z) ∝ N^g` with `g = −0.489 ± 0.005`, walking `−0.443 → −0.489` as the window grows — i.e. `g → −1/2`, so `m(N) ≍ √𝔖(N)·N^{1/4}`.** The value is still drifting but **the sign is not** (~100σ), and the sign is what matters: the mask is **lower order than the fluctuation** and therefore does **not** threaten `C(N) = o(N)`. With `E₃` already known to cancel 82% of it in the Goldbach count, the mask is harmless twice over — a real feature of the wall, not an obstruction. It also explains the bias in #67 mechanically: a term whose variance share falls like `N^{−1/2}` must bias a fitted log-exponent downward by an amount that shrinks with the range, which is why the raw and de-masked fits close from 0.70 apart (3 bands) to 0.29 apart (8) |
+| 68 | the wall's variance exponent has been quoted as `log N` to the first power, with `κ ≈ 0.465`, in CONJECTURE_L.md and MEASUREMENTS.md | **the exponent is not identified, in either direction.** Fitted `α` **walks with the window**: 0.83→1.02 raw, **1.60→1.30 de-masked**, neither converged, both drifts ~10× the standard error. ⚠️ The de-masked fit reports `z = +8.58` against `α = 1` — **quoting that as ‘α=1 excluded’ would have been a false ALIVE of exactly the kind this table exists to catch** (hazard 5, turned on the estimate instead of the null). Worse for the form: over this range a pure power `N^ε` fits **as well or better** (residual ratio 0.45 raw, 1.91 de-masked, against a bar of 2 fixed before the run), so the log factor is *consistent with* the data, not *shown by* it. **What survives is `α ≠ 0`** — the variance grows faster than `𝔖N`, which is #36's actual content. And it will not be settled by computing: `log log N` spans 0.33 over a factor 160 in N, so halving the standard error needs `N ~ 10¹⁰` |
+| 67 | the variance law was fitted at increments 236–238; **the location mask was found at increment 240** — two increments later — and the law was never re-fitted | **the fit was contaminated by a term this program itself discovered.** `sd(G)` is `g.std()`, which removes one band-wide mean and nothing else, so `m(N)` sat inside the measured variance throughout. Removing it by the same modular enumeration that defines it (cells keyed by which of `{3,…,23}` divide `N`, per-cell means subtracted within each band, exact `n−k` dof correction so the removal cannot shrink the variance by itself): the mask supplies **14.1% of the variance at `N≈10⁵`, 1.15% at `1.6·10⁷`**, and because that share *shrinks*, leaving it in **tilts the exponent by 0.29** at full range and 0.70 on the first three bands. Found by checking commit dates, not mathematics — **a measurement is only as current as the last thing discovered before it** |
 | 66 | *(an observation nobody asked for, and it reframes every no-go here)* from what N does Theorem D′ actually **bite**? | **N ≈ 10⁴⁸⁰ at Lichtman's level, and further out below it.** Solving `c√(η log N) = A log log N` (c=1, A=3): `η=0.40` crosses at `N≈10⁴⁸⁰`, `η=0.10` at `10³⁰⁷¹`, `η=0.01` at `10⁵³⁷⁴⁴`. Below those the switch route loses **nothing that matters** and the theorem is silent. Two independent solves agree (required η at `10⁵⁰⁰` is 0.388, just under 0.40; the 0.40 crossover is `10⁴⁸⁰`, just under `10⁵⁰⁰`). This does not weaken any no-go — they are asymptotic statements and are true — but **they constrain METHODS, not any computation anyone will run**, and the documents were easy to read as though they bit at reachable N. Now stated wherever they appear |
 | 65 | the prose under Theorem D′ said closing the gap *“would require **θ_E = 1 exactly** — … each progression holds **O(1) terms** and the statement carries no information”* | **wrong on both halves.** The theorem itself is correctly hedged (*for each **fixed** θ_E<1*); the prose then skipped the regime `θ_E = θ_E(N) → 1` **at a rate**. Solving instead of gesturing: `exp(c√(η log N)) ≤ (log N)^A ⇔ η ≤ (A/c)²(log log N)²/log N` (**Proposition D⁗**), so the boundary is `1−θ_E ≪ (log log N)²/log N` — **strictly stronger than EH, strictly weaker than θ_E=1**. And that regime is **not vacuous**: progressions retain `exp(C(log log N)²)` terms, which beats every fixed power of `log N`. ⚠️ This prose stood from increment 196 and was used at increment 235 as **one of three grounds for closing the program's highest-value open item**. The closure survives — Lichtman's `3/5` is a fixed constant and reason 1 (object mismatch) is independent and decisive — but *“vacuous”* says the target is meaningless where *“stronger than EH”* says it is meaningful and out of reach, and only the second leaves a well-posed question |
 | 64 | *(a robustness result, not a correction)* Theorem D rests on one unconditional estimate, Huang–Li's Lemma 1 `ρ_n(x) ≪ e^{−c√log x}`, which invites the objection that the no-go **records our ignorance and would dissolve if the estimate improved** | **it runs the other way, and the proof is one line.** The paper already displays `|B_w| ≤ ‖b‖₁·max_d|ρ_{dN}(K/d)|` (`theorem_A.tex` l. 833), so the loss factor is `≥ 1/max_d|ρ|` — **monotone decreasing in any upper bound for ρ**. Every improvement of Lemma 1 strengthens Theorem D; none can weaken it (**Proposition D‴**). Since `1/ζ` enters to the first power, RH gives `ρ_n(y) ≪ y^{−1/2+ε}`, and `K/d ≥ N^{1/2+δ}` turns the conclusion from `exp(c√((1/2+δ)log N))` into **a power of N** — at N=10⁵⁰, 3·10¹² in place of 44. `lab_rho_decay.py` measures ρ's decay directly (discrimination rule fixed before the run): deep n give **H_pow** decisively (RMS 0.081 vs 0.202 at n=2310), shallow n come back INDETERMINATE **because ρ changes sign** there — the signature of a ζ-zero-governed tail, not regime ambiguity. ⚠️ The fit is **not** evidence that β=1/2 is the truth and the deep-n cleanliness is plausibly pre-asymptotic; **the robustness conclusion does not depend on the fit**, only on the monotonicity |

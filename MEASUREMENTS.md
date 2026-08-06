@@ -373,6 +373,17 @@ single signal in the whole sweep.
 > masks are applied — every tail inside 3 SE and the extreme at
 > z = +0.61.
 
+⚠️ **The `log N` and the `κ` are not measured** (increment 280). The
+exponent in `(log N)^α` walks with the fitting window — 1.60 → 1.30 with
+the mask removed, 0.83 → 1.02 with it left in — and neither has converged;
+the drifts are ten times the standard errors. Over this range a pure power
+`N^ε` fits **as well or better** (residual ratio 0.45 raw, 1.91 de-masked,
+against a bar of 2 fixed before the run), so the log factor is *consistent
+with* the data rather than *shown by* it, and `κ` is whatever `α` is
+assumed to be. **What is measured is that `α = 0` is excluded**: the
+variance grows faster than `𝔖N`. Read the formula as a shape with one
+established feature, not as a fitted law.
+
 This extends Conjecture L to the wall's own scalar, which the campaign
 had never done, but on **three** masks and not one: support, scale and
 location. Two things in the earlier reading were wrong and both are

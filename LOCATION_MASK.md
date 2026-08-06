@@ -149,6 +149,39 @@ flat to 0.5%, so
 > second moment `Σ_v μ²(v)Λ(N−v)²`, against which the measured variance
 > runs 1.006 → 0.873.
 
+⚠️ **Re-audited at increment 280, and the exponent does not survive.**
+That fit ran at increments 236–238; **this mask was found at increment 240**,
+two increments later, and the law was never re-fitted. `sd(G)` there is
+`g.std()`, which removes one band-wide mean — so `m(N)` sat inside the
+measured variance the whole time. Removing it by the same modular
+enumeration that defines it (`code/lab_variance_law_reaudit.py`,
+`N ≤ 1.6·10⁷`) shows the mask supplying **14.1% of the variance at
+`N≈10⁵`, falling to 1.15% at `1.6·10⁷`**, and moving the fitted exponent
+by **0.29**. **Neither exponent is a measurement**: raw walks 0.83 → 1.02
+as the window grows, de-masked walks 1.60 → 1.30, neither has converged,
+and both drifts are ten times the quoted standard error. What survives is
+only that `α = 0` is excluded — the variance grows faster than `𝔖N`.
+
+### The mask's own scaling law (increment 280)
+
+The quantity removed is `Var(m)/(𝔖N)`, and it has a clean law of its own
+that nobody had measured:
+
+> `Var_mask(Z) ∝ N^g`, **`g = −0.489 ± 0.005`**, walking `−0.443 → −0.489`
+> across the window — i.e. `g → −1/2`, so **`m(N) ≍ √𝔖(N)·N^{1/4}`**.
+
+The exact value is still drifting, but **the sign is not** (~100σ). So the
+location mask is **lower order than the fluctuation** and does **not**
+threaten `C(N) = o(N)`. Together with `E₃` cancelling 82% of it in the
+Goldbach count, the mask is harmless twice over — a real feature of the
+wall, not an obstruction to the conjecture.
+
+It also explains the contamination mechanically: a term whose share of the
+variance falls like `N^{−1/2}` must bias a fitted log-exponent downward by
+an amount that itself shrinks with the range — which is exactly why the raw
+and de-masked estimates converge toward each other (0.70 apart on three
+bands, 0.29 apart on eight).
+
 ## 4. What failed, and it is instructive
 
 Seven corrections came out of these twelve increments, and five are the

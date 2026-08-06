@@ -89,6 +89,10 @@ places** (corrections #36, #45) and its corrected form needs three
 masks, not one:
 
 > `C(N) = m(N) + √(κ·𝔖(N)·N·log N) · G(N)`,  κ ≈ 0.465,
+>
+> ⚠️ the `log N` and the `κ` are **assumed shape, not measurement** —
+> increment 280 shows the exponent still walking with the fitting window
+> and a pure power of `N` fitting as well; only `α ≠ 0` is established
 
 with `m(N)` a **location** mask — a deterministic mean indexed by
 which small primes divide N, reaching 9 standard deviations below zero
