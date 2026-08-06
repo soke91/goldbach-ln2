@@ -114,7 +114,7 @@ checking: months.*
 |---|---|---|
 | **Theorem A** | Bombieri–Vinogradov + divisor switch moving the work to the short variable — a standard mechanism | **routine as mathematics, plausibly new as a statement.** Its content is specific to a 2020 paper's step; no hit in search. Should be presented as *a lemma about Huang–Li's E₄*, never as a theorem about BV |
 | **Theorem C** | `μ ∗ log = Λ`, classical | **bookkeeping.** Its value is directional (the E₃ route is circular), not technical |
-| **Theorem D / D′** | **Bombieri's asymptotic sieve** and the parity problem — "no choice of sieve weights extracts primes" | **the strongest thing here, and still expected.** The genre is classical; what is new is making it precise *for this reduction, under full EH*. An expert would likely call the conclusion unsurprising and the proof necessary |
+| **Theorem D / D′** | **Bombieri's asymptotic sieve** and the parity problem — "no choice of sieve weights extracts primes" | **the strongest thing here, and still expected.** The genre is classical; what is new is making it precise *for this reduction, with BV as the only input, at every level `θ′ < 1`*. **Corrected at increment 278**: this row read "under full EH", which misstates the theorem — Theorem D's ingredient list is Bombieri–Vinogradov at `Q = N^{1/2−δ}`, and full EH is what *Bombieri's asymptotic sieve* assumes, not what Theorem D assumes. An expert would likely call the conclusion unsurprising and the proof necessary |
 | **Proposition D″** | monomial weights, `μ ∗ log^D = Λ_D` | routine |
 | **Proposition E** | Parseval; `sup ≥ ‖·‖₂` | **an observation.** Most experts would assume it without proof |
 | **Transform P, P.1** | **Ramaré's identity** / peel-a-prime-factor: Bombieri's asymptotic sieve, Heath-Brown's identity, Tao's log-weighted device | **presumed known.** Ramaré corrects the multiple counting with `ω_{(P,Q)}(m)+1`; our `log p / log v` normalises instead. A weighted Ramaré split |
@@ -139,6 +139,52 @@ checking: months.*
    square-root barrier". It is the state of the art and it postdates
    Huang–Li.
 
+## Theorem D against Bombieri's asymptotic sieve (increment 278)
+
+Increment 233 placed Theorem D "in the genre of Bombieri's asymptotic
+sieve" and left it there. Re-reading the two side by side, **they do not
+overlap, and the reason is worth recording** — it is the sharpest thing
+this program can say about where its own no-go sits.
+
+| | Bombieri's asymptotic sieve | **Theorem D** |
+|---|---|---|
+| direction | **positive** — computes an asymptotic | **negative** — no weight works |
+| level assumed | **1** (full EH) | **θ′ < 1** |
+| condition on the weight | must **obey parity** (equal weight to odd and even numbers of prime factors) | *any* `w`, i.e. any `b = μ∗w` |
+| what fails, and by how much | parity-violating weights leave an **unknown scalar**; sieve majorants are off by a **factor of 2** | loss is `exp(c√log N)`, later `N^{1/4}` — **beats every power of log** |
+
+Three consequences.
+
+**1. Bombieri's sieve cannot evaluate `C(N)` even at level 1.** `μ` is
+the maximally parity-violating weight, so full EH does not deliver
+`Σ Λ(n)μ(N−n) = o(N)` through that machine. This is why every thread of
+this campaign closed on parity, and it is a *reason*, not a coincidence.
+
+**2. Theorem D is not a restatement of the parity problem.** The parity
+obstruction costs a **constant** (Tao: "any upper bounds must be off
+from the truth by a factor of 2 or more"). Theorem D costs
+`exp(c√log N)`, and by Proposition D‴ a power of N under RH. Different
+mechanism — Theorem D's loss comes from Siegel–Walfisz decay of ρ *at
+the truncation point*, not from a majorant's blindness to `Ω(n) mod 2`.
+The two close the same route for unrelated reasons.
+
+**3. It explains why Huang–Li's hypothesis is not circular.** `EH_μ` is
+a statement about **μ** in progressions — parity-sensitive input, and
+therefore outside the sieve axioms by construction. That is exactly the
+kind of ingredient Tao's survey lists as required to break parity
+(bilinear/Type-II information, Vaughan's identity, exceptional
+characters). So the chain is not "assume a sieve fact, deduce a
+parity-hard conclusion"; the assumption is doing legitimate work. **This
+is a point in Huang–Li's favour and is recorded as such** — the campaign
+has an interest in the opposite verdict and should say so when the
+evidence runs this way.
+
+⚠️ **Limits.** This is a reading of two survey expositions, not of
+Bombieri's paper. The "factor of 2" and the level-1 assumption are
+quoted from Tao's notes; the comparison table is our construction and
+nobody in the area has checked it. It sharpens the *placement* of
+Theorem D — it does **not** establish novelty, which remains open.
+
 ## What a real check would require
 
 - MathSciNet / zbMATH searches on the actual statements, not keywords.
@@ -154,4 +200,5 @@ Sources:
 [Primes in APs to large moduli II, arXiv:2006.07088](https://arxiv.org/abs/2006.07088) ·
 [Tao, Notes on the Bombieri asymptotic sieve](https://terrytao.wordpress.com/2016/07/17/notes-on-the-bombieri-asymptotic-sieve/) ·
 [Tao, Möbius function notes (Ramaré identity)](https://terrytao.wordpress.com/tag/mobius-function/) ·
-[Huang–Li, arXiv:2005.03811](https://arxiv.org/abs/2005.03811)
+[Huang–Li, arXiv:2005.03811](https://arxiv.org/abs/2005.03811) ·
+[Tao, Open question: the parity problem in sieve theory](https://terrytao.wordpress.com/2007/06/05/open-question-the-parity-problem-in-sieve-theory/)

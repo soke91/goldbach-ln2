@@ -221,6 +221,70 @@ method's entire weight space. It is not an obstruction to other
 methods. Its value is that it closes the design space Theorems A and C
 opened, instead of leaving it to be re-explored.
 
+### Proposition D‴ — the no-go is monotone in the input (increment 278)
+
+A no-go resting on an unconditional estimate invites one objection:
+that it records our ignorance rather than an obstruction, and would
+dissolve if the estimate improved. Theorem D rests on exactly one such
+estimate, Huang–Li's Lemma 1, `ρ_n(x) ≪ e^{−c√log x}`. The objection is
+answerable, and the answer runs the other way.
+
+The proof of Theorem D passes through the inequality already displayed
+in the paper (`theorem_A.tex`, l. 833):
+
+> `|B_w| ≤ ‖b‖₁ · max_{d ≤ D} |ρ_{dN}(K/d)|`,
+
+so the loss factor obeys
+
+> **Proposition D‴.** `‖b‖₁/|B_w| ≥ 1 / max_{d≤D} |ρ_{dN}(K/d)|`.
+> The right-hand side is **monotone decreasing in any upper bound for
+> ρ**. Hence *every* improvement of Lemma 1 strengthens Theorem D; no
+> improvement can weaken it.
+
+The bound `e^{−c√log x}` is what the *classical zero-free region* gives,
+and it is available because `1/ζ` enters to the first power
+(ingredient 3 above). Under RH the same contour argument gives
+`ρ_n(y) ≪ y^{−1/2+ε}`. Since b supported in `[1, N^{θ′−1/2−δ}]` forces
+`K/d ≥ N^{1/2+δ}`, substitution replaces Theorem D's conclusion
+
+> `exp(c√((1/2+δ)log N))`  by  `N^{(1/2+δ)(1/2−ε)}` — **a power of N.**
+
+At N = 10⁵⁰ that is 3·10¹² in place of 44. The route is not blocked by
+the weakness of what we can prove about ρ; it is blocked harder the
+more we know.
+
+**What is proof and what is measurement.** Proposition D‴ is the
+one-line monotonicity, and it is a proof. The RH substitution is a
+substitution into a published argument, not a new theorem, and is
+labelled as such. Neither claims to identify ρ's true decay.
+`code/lab_rho_decay.py` measures that decay directly for
+`n ∈ {2, 6, 30, 2310, 30030}` up to `x = 2·10⁷`, with the discrimination
+rule fixed before the run; `results/lab_rho_decay.txt`:
+
+| n | RMS `H_exp` | RMS `H_pow` | verdict | fitted β |
+|---|---|---|---|---|
+| 2 | 0.763 | 0.728 | INDETERMINATE | 0.509 |
+| 6 | 0.941 | 0.945 | INDETERMINATE | 0.527 |
+| 30 | 0.979 | 1.034 | INDETERMINATE | 0.773 |
+| 2310 | 0.202 | **0.081** | **H_pow** | 0.746 |
+| 30030 | 0.209 | **0.089** | **H_pow** | 0.695 |
+
+The split has an identified cause and it is not regime ambiguity: at
+n = 2 and n = 6 **ρ changes sign** across the range (n=2 runs
+−,−,−,+,−,+,+,−,+), so `log|ρ|` is ragged and neither straight line
+fits. Sign oscillation is the signature of a tail governed by ζ-zeros;
+a smooth power law does not oscillate. The clean `H_pow` fits are at
+the *deep* n, where ρ is sign-stable over the whole accessible range —
+which is plausibly pre-asymptotic, since a deep coprimality condition
+thins the summand and delays the oscillation.
+
+So the measurement is **not** evidence that β = 1/2 is the truth, and
+is not offered as such. Its only load-bearing content is that the
+observed decay is *at least* as fast as the unconditional bound, which
+by Proposition D‴ can only help. **The robustness conclusion does not
+depend on the fit**: it is the monotonicity, which holds whatever
+regime ρ is really in.
+
 ### Proposition D″ — smooth weights: μ ∗ log^D = Λ_D (increment 197)
 
 Theorem D assumes b = μ∗w is supported low enough for BV. That excludes

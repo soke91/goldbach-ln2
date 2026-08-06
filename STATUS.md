@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 277 (2026-08-06). 4 days, 62 recorded corrections,
+*Increment 278 (2026-08-07). 5 days, 64 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -203,7 +203,12 @@ slope 1 — remains unexamined because nobody knows how to build it.
   for the proved statements — M.1–M.3 and P.1–P.7, nine exact checks
   in seconds, each shown -- not merely asserted -- to flip to FAIL
   under a 1e-3 perturbation of one side.
-- **The theorems**: THEOREM_A.md → `paper/theorem_A.tex`.
+- **The theorems**: THEOREM_A.md → `paper/theorem_A.tex`. Includes
+  **Proposition D‴**: Theorem D's loss factor is `≥ 1/max_d|ρ|`, hence
+  monotone in the bound on ρ, so *every* improvement of Huang–Li's
+  Lemma 1 strengthens the no-go and none can weaken it. Under RH the
+  conclusion becomes a power of N. The route is not blocked by what we
+  cannot prove about ρ — it is blocked harder the more we know.
 - **The wall's deterministic term**: LOCATION_MASK.md — C(N) is not
   mean-zero. Propositions M.1–M.3, the derivation and where it stops,
   and the seven corrections that came out of finding it.
