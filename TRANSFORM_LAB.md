@@ -239,13 +239,41 @@ That is a sharper statement of the exceptional-set barrier than
 "N-averaging is provable but not consumable": it says *why* — the
 N-average is the only place the shift decouples from the modulus.
 
-**Sub-question 3, which this raises.** Is there an averaging cheaper
-than the full N-average that still decouples the shift from the
-modulus? An average over a short window of N, over a sub-progression
-of N, or over an auxiliary parameter not yet in the problem. K4 killed
-the N-average *descent* (trading the N-average for a k-average within
-one N); this is a different question — not descent, but a smaller
-average that still buys decoupling.
+**Sub-question 3, raised and answered in the same session.** Is there
+an averaging cheaper than the full N-average that still decouples the
+shift from the modulus?
+
+The natural candidate is a **short window**. Take W of length H and
+unfold: S_W(h) = Σ_{N∈W} μ(N−n)μ(N−n′) with n − n′ = h, and as N runs
+over W the variable v = N − n runs over an interval of length H. So
+
+> **the second moment over a short window unfolds into shifted μμ
+> correlations over short intervals** — and short intervals are exactly
+> Matomäki–Radziwiłł's home ground. The shift decouples from any
+> modulus, at a cost of H rather than N.
+
+That is the right territory. It does not help, and the reason is
+arithmetic rather than technological.
+
+- Actual size: Σ_{N∈W}|C(N)|² ≈ Σ_{N∈W} 𝔖(N)N ≈ 𝔖·N·H.
+- Trivial bound: Σ_h r_W(h)|S_W(h)| ≤ (max_h |S_W(h)|)·Σ_h r_W(h)
+  = H · N².
+- Shortfall = HN²/(𝔖NH) = **N/𝔖, independent of H.**
+
+Both the true size and the trivial bound scale linearly in the window
+length, so **no choice of window changes the shortfall**; it is the
+same factor N found for the full second moment. Shrinking it would
+need per-shift cancellation of size H/N — which is Chowla itself.
+
+> **Answer to sub-question 3.** A short window does decouple the shift
+> from the modulus, and it lands the object squarely in short-interval
+> territory. But the factor-N shortfall is window-independent, so the
+> decoupling buys nothing on its own. Cheap averaging is available;
+> what is not available is anything that improves the ratio.
+
+The residual value is a coordinate: **if the shift-decoupling is ever
+to pay, it must be combined with something that improves the per-shift
+bound**, not with a cleverer choice of average.
 
 ### Not yet read
 

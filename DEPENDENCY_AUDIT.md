@@ -83,12 +83,33 @@ only on N−n = p^ℓ with ℓ ≥ 2, of which there are O(√N log N). Our
 misreading, not their error — and exactly why one checks before
 claiming.
 
-**Status of the re-derivation.** The skeleton — inversion, split, μ²
-insertion, switch — is now verified independently and holds. What is
-*not* yet re-derived is the analytic half: the evaluation of S₁ under
-EH (their §3.1), the treatment of E₃ and E₄ under EH_μ, and the
-assembly with the Δ-repair. Until those are done, the frame stays
-labelled "used but unverified", with the skeleton exempted.
+## Re-derivation, second pass: the S₁ evaluation (increment 222)
+
+Their (13) claims S₁(α) = 𝔖(N)N + O(N(log N)^{−A}) under EH at level
+α. This is the half of the chain that consumes EH for Λ — the half
+Theorems A and C never touch — and it had not been checked here.
+Computed directly (`code/hl_S1_check.py`), with
+S₁ = −Σ_{d≤α} μ(d)log d · Σ_{n≡N (d)} Λ(n)μ²(N−n):
+
+| N | S₁/N | 𝔖(N) | ratio | \|ratio−1\| | (log N)^{−1} |
+|---|---|---|---|---|---|
+| 5·10⁴ | 1.5508 | 1.7604 | 0.8809 | 0.1191 | 0.0924 |
+| 10⁵ | 1.6805 | 1.7604 | 0.9546 | 0.0454 | 0.0869 |
+| 2·10⁵ | 1.7048 | 1.7604 | 0.9684 | 0.0316 | 0.0819 |
+| 4·10⁵ | 1.7290 | 1.7604 | **0.9822** | **0.0178** | 0.0775 |
+
+**Consistent with (13)**: the ratio climbs monotonically toward 1 and
+the discrepancy falls inside the (log N)^{−1} band throughout. Stated
+with its limit: at these N the (log N)^{−A} band is wide, so this
+detects a gross failure of (13) and nothing finer — it cannot confirm
+the exponent A.
+
+**Status of the re-derivation.** Verified independently so far: the
+skeleton (inversion, split, μ² insertion, switch) and the leading
+behaviour of the S₁ evaluation. Still not re-derived: the error term
+in S₁ at the claimed exponent, the treatment of E₃ and E₄ under EH_μ,
+and the assembly with the Δ-repair. The frame stays labelled "used but
+unverified" with those two pieces exempted.
 
 ## Not to be confused
 
