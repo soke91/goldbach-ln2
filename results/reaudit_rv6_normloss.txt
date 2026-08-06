@@ -1,0 +1,20 @@
+mu ready, sqrt(N) = 7071  t=2s
+
+(H1)(H2)(H3) the Cauchy-Schwarz loss, bootstrapped within each band
+     K      point     median        mean  mean/med   p95/med  med/sqrtK  P(>=10x)
+   200        7.5        7.5        16.2      2.16      5.15      0.531     2.48%
+   400       24.9       21.6       113.4      5.25     10.49      1.080     5.22%
+   700     1483.3       39.2       172.7      4.40     10.76      1.482     5.45%
+  1200      338.7       52.1       283.5      5.44     11.80      1.503     5.67%
+  2000      120.5       63.4 30046584664716.1 474128694149.17      9.79      1.417     4.92%
+  3200      151.5       77.8       359.7      4.63     10.22      1.375     5.10%
+
+    (H1) median(loss)/sqrt(K) constant to 30%
+         over ALL bands K = 200..3200: FAIL  (spread 183.3%, value 1.231)
+         over K >= 700 only:                PASS  (spread 9.3%, value 1.444)
+    the single-band POINT estimate, which is what the 199 table reported,
+    reaches 38x its own median at K = 700, while the medians run smooth.
+    (H2) mean/median exceeds 2 somewhere, i.e. the mean is not a usable summary: YES  (max 474128694149.17)
+    (H3) a loss of 10x the median has bootstrap probability 5.67% at its worst band -- the 199 table's 957x is its own tail
+    the sqrt(K) law holds on the median for K >= 700, loss ~ 1.44*sqrt(K), so RV #6's reading stands and now has a spread attached. The 199 table quoted three point estimates of a heavy-tailed ratio; two of them were single bands and the third was its tail
+DONE
