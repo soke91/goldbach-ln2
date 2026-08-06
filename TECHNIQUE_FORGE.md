@@ -109,5 +109,39 @@ designs must begin from an external cancellation source.
 | # | Design | Kill-test | Status |
 |---|---|---|---|
 | R1 | **Zero-spectrum visibility**: the explicit formula says μ(m) carries the oscillations m^{iγ} (γ = ζ-zero ordinates). If the field D(k) has a component aligned with the zero-templates T_γ(k) = Σ_m m^{iγ}μ(N−mk), the explicit formula gives an external handle on that component | Project the D-field onto span{Re T_γ, Im T_γ} (first 30 zeros) and compare captured energy against random-frequency templates at matched dimension. Pre-registered: ALIVE iff zero-capture ≥ 2× random-capture; else dead | **DEAD** — R²_zeros = 0.2152 vs random 0.2196 ± 0.0055 (ratio 0.98; both at the 60/300 overfitting baseline). The zero oscillations are entirely invisible through the μμ-pairing: the second factor μ(N−mk) scrambles the m^{iγ} coherence completely. The direct explicit-formula channel closes. Closed (`code/e1_forge_r1.py`) |
-| R2 | **Determinant/Kloosterman phase**: the pair constraint is the determinant equation; test whether C_{k,k′} correlates with the determinant phases e(N·k̄′/k) (the object DI/Kuznetsov machinery would control if a construction attached it) | Correlation of the C-field against determinant-phase templates vs matched random-phase controls | queued |
+| R2 | **Determinant/Kloosterman phase**: the pair constraint is the determinant equation; test whether C_{k,k′} correlates with the determinant phases e(N·k̄′/k) (the object DI/Kuznetsov machinery would control if a construction attached it) | Coherent twist gain + per-pair regression vs matched random-phase controls | **DEAD** — the regression test (strictly more general than the single-phase gain) read dead-zero in two independent runs (R² = −0.0001 / +0.0004 vs controls ± 0.0002, 48,000 coprime pairs total): the pair field is completely phase-blind to its own determinant structure. (The per-k gain aggregation hit an uninvestigated nan twice; verdict rests on the regression, which upper-bounds any single-phase gain at noise level.) Closed (`code/e1_forge_r2.py`, `e1_forge_r2b.py`) |
 | R3 | **Character transform of the k-average**: Σ_k χ(k)D(k) diagonalizes the inner sum into character-twisted μ-sums over APs mod m | **DEAD BY ANALYSIS** (recorded without a run): for the chain's range K ≤ x^{1/3} the AP moduli are m ~ x/K ≥ x^{2/3} — the transform relocates the difficulty into thin-progression μ-sums (the seam regime, provably void of current technology per the resistance profile); on the mirror side K ≥ x^{2/3} where moduli would be BV-small, the chain does not consume the estimate. Parseval also forbids a statistical gain (Σ_χ \|D̂(χ)\|² is basis-invariant). Closed |
+
+## Round-2 synthesis (increment 180)
+
+The three classical external cancellation sources close in three
+distinct ways:
+
+- **Zeros (R1): invisible.** The m^{iγ} coherence that the explicit
+  formula provides for μ(m) alone is completely scrambled by the
+  pairing with μ(N−mk) — capture indistinguishable from random
+  frequencies to the third decimal.
+- **Characters (R3): relocating.** The transform that diagonalizes
+  the k-average exists, but it deposits every diagonalized component
+  into thin-progression μ-sums (moduli ≥ x^{2/3}) — the seam regime,
+  outside all current technology.
+- **Determinant spectra (R2): phase-blind.** The field carries no
+  coherent component along the Kloosterman phases its own determinant
+  structure distinguishes.
+
+**Combined with Round 1** (no internal lever: orbit, congruence,
+moments, N-descent all exactly flat), the forge has now measured, in
+every direction that has an existing mathematical name, that the
+dilate field offers **no coupling surface**: nothing internal to
+exploit, nothing external that can see it. The precise shape of the
+missing technique follows: in the automorphic world, shifted
+convolutions Σa(n)a(n+h) are controlled because the coefficients
+a(n) COME WITH a spectral representation (Kuznetsov applies to them
+natively); μ has no such representation, and every route above
+failed exactly at the point where it tried to borrow one. **The
+technique to be created is a spectral (or equivalent
+structural) representation of μ-pairs themselves** — not a
+projection onto existing spectra. This is where measurement
+methodology reaches its limit: kill-tests can close designs, but the
+construction of a new representation is a purely theoretical act.
+The forge's deliverable is this boundary, drawn with numbers.
