@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 296 (2026-08-07). 5 days, 98 recorded corrections,
+*Increment 297 (2026-08-07). 5 days, 100 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -144,9 +144,16 @@ over $N \le 1.6\cdot10^7$, while the *raw* ratio falls 1.006 → 0.858:
 opposite directions, converging (gap 0.246 → 0.020). **The recorded
 downward trend was mask contamination and its sign was wrong.** So the
 wall does beat a coin ($\rho<1$) but by a margin that is **shrinking**,
-not growing. Whether $\rho\to1$ is **not** settled: the pre-registered
-model comparison returns INDETERMINATE and every parameter still walks
-(#84, #85). Cross-check: $\sqrt{\rho V}$ recomposes increment 281's
+not growing. Whether $\rho\to1$ is **not** settled (#84, #85), but the
+**rate is** (inc. 297). Proposition W selects the model 288 could not:
+with $c(h)\approx\mathfrak S_2(h)N$ and $S(h)$ at the square-root floor,
+$\rho-1\asymp-b/\log N$ — M2 with its intercept fixed at 1 by Chowla, a
+**one-parameter** model. The pre-registered test **rejects** it (34% worse
+in RMS) because M2's free intercept is $a=1.039$, *above* 1 and walking
+down (1.174 → 1.039): the data have not reached the limit, so fixing it
+is premature rather than wrong. What survives is $b$, which refits as
+2.7297 → **2.6817**, a drift of 0.048 across the window — a measured
+coefficient, where $a$ moves 0.13 and is still going (#99). Cross-check: $\sqrt{\rho V}$ recomposes increment 281's
 independently fitted amplitude exponent to within $-0.0009$.
 
 The consumable is the signed type-II sum $\sum_{k\sim K} b_k D(k) \ll

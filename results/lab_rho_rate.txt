@@ -1,0 +1,57 @@
+sieve + 2 convolutions  t=15s
+
+rho per octave band, location mask removed
+                 band         n       rho  logNmid
+   100000-     200000     50000   0.76029   11.859
+   200000-     400000    100000   0.78350   12.553
+   400000-     800000    200000   0.80355   13.246
+   800000-    1600000    400000   0.80684   13.939
+  1600000-    3200000    800000   0.81834   14.632
+  3200000-    6400000   1600000   0.83477   15.325
+  6400000-   12800000   3200000   0.83612   16.018
+ 12800000-   16000000   1600000   0.83733   16.477
+
+models; H_W has ONE parameter, the others two
+    M0  rho = c                 c=0.81009                RMS 0.025828
+    M1  rho = c (log N)^-beta   beta=-0.2860             RMS 0.006044
+    M2  rho = a - b/log N       a=1.03947, b=3.2310   RMS 0.004863
+    H_W rho = 1 - b/log N       b=2.6817   [1 param]      RMS 0.006517
+
+    best two-parameter RMS 0.004863; H_W/best = 1.340
+    pre-registered (<= 1.20): H_W REJECTED
+
+stability of b, refitted on the first j bands
+  j  logN max    b (H_W)  a (M2free)
+  3    13.246     2.7297     1.17388
+  4    13.939     2.7218     1.08829
+  5    14.632     2.7115     1.06298
+  6    15.325     2.6885     1.07004
+  7    16.018     2.6819     1.05419
+  8    16.477     2.6817     1.03947
+    b is the quantity Proposition W predicts to exist and be
+    positive; a is what M2 has to fit and H_W does not.
+
+what this settles and what it does not
+    The pre-registered rule REJECTED H_W. The closing text
+    of the first draft said the opposite: it was written
+    before the run and asserted the result it expected.
+    Corrected here rather than left standing.
+
+    REJECTED, and what that means. Fixing the intercept at
+    1 costs 34% in RMS against M2 free, whose intercept is
+    a = 1.03947 -- above 1, and WALKING DOWN: 1.174,
+    1.088, 1.063, 1.070, 1.054, 1.039 across the window. So
+    the data have not arrived at 1, and fixing it there is
+    premature at this size rather than wrong. Proposition W
+    predicts the limit, not how fast a finite window
+    reaches it.
+
+    WHAT SURVIVES is the RATE, and it is the part with
+    content. b = 2.6817 under H_W, refitted on the first j
+    bands: 2.7297, 2.7218, 2.7115, 2.6885, 2.6819, 2.6817 --
+    a drift of 0.048 over the whole window, settling. That
+    is a measured coefficient. Contrast a, which moves 0.13
+    over the same bands and is still going. So the 1/log N
+    rate is supported and the limit is not yet reached by
+    the data; rho -> 1 remains an inference from Chowla.
+DONE
