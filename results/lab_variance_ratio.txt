@@ -1,0 +1,38 @@
+convolutions t=8s
+
+                  band         n         Q  jackknife SE   (Q-1)/SE
+     50000-     100000     25000   1.08191       0.01257        6.5
+    100000-     200000     50000   1.00781       0.00872        0.9
+    200000-     400000    100000   0.95782       0.00499       -8.4
+    400000-     800000    200000   0.92330       0.00416      -18.4
+    800000-    1600000    400000   0.89060       0.00292      -37.5
+   1600000-    3200000    800000   0.87409       0.00268      -47.0
+   3200000-    6400000   1600000   0.87342       0.00166      -76.3
+   6400000-    8000000    800000   0.86768       0.00253      -52.3
+
+  bands with Q < 1 (asymptotic regime): 6 of 8
+  last three Q: 0.87409, 0.87342, 0.86768   changes: -0.4 SE, -2.3 SE
+
+  fits, weighted residual (lower is better)
+    Q = c              c = 0.88525                 res = 856.9
+    Q = a (log N)^-b   b = 0.6227                res = 259.5
+    Q = a N^-b         b = 0.04580               res = 326.8
+
+  the same fits on the Q < 1 bands only
+    Q = c              c = 0.88198                 res = 405.3
+    Q = a (log N)^-b   b = 0.4255                res = 71.35
+    extrapolated to 1e12:  const 0.8820   decaying 0.6759
+
+  extrapolated to N = 1e12 (about the practical ceiling)
+    constant fit  Q = 0.8852
+    (log N)^-b    Q = 0.5959
+    N^-b          Q = 0.4893
+    separation const vs (log N)^-b = 0.2894
+    measurement error at the last band = 0.00253
+  => decidable in principle at 1e12; the fits separate by
+     114.4 error bars
+
+  note: Q = 1 is exactly square-root cancellation, so the
+  (Q-1)/SE column says how far from random the wall sits,
+  and the fits say whether that distance is growing
+DONE
