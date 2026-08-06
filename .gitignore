@@ -1,2 +1,9 @@
 __pycache__/
 *.pyc
+
+# Never commit third-party papers or their extractions (copyright).
+# The reference library lives OUTSIDE this repo, at ../papers/.
+*.pdf
+*_text.txt
+papers/
+arxiv_*
