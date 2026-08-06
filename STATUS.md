@@ -97,12 +97,16 @@ of it.
   transform — but the route is not. It needs a legitimate transform, a
   classification covering the type-II region, and quantitative averaged
   Chowla at fixed log-power strength (best known $(\log)^{1-c}$).
-  What is measured about the transform: the dilate problem is $\mu\mu$
-  correlations along lines of arbitrary rational slope, the shift
-  problem is the slope-1 case, the obvious re-indexing is an exact
-  relabelling (circular), and the slope family is not tamer than the
-  shift family. So the transform must be genuinely analytic — and the
-  named candidates for that are already closed.
+  On the transform: in centered coordinates $A = N-a$, $B = N-b$ one
+  has $m'A - mB = 0$ exactly, so the dilate family is the **pencil of
+  lines through the origin** and the shift family is a **parallel**
+  family of slope 1. A pencil's vertex is finite, a parallel family's
+  is at infinity, and affine maps send finite points to finite points —
+  so **no integral change of variable can do it**, which proves what
+  the earlier probe measured as circularity. What remains is a
+  summation formula, blocked in general by the roughness of the outer
+  weight $\mu$ (Voronoi compresses only against smooth weights), with
+  every named candidate in that class already closed.
 
 ### 3. The refuted proof-program, retained as a record
 

@@ -80,27 +80,72 @@ does not.
 ## What C-III needs, exactly
 
 1. **A legitimate transform** in place of the draft's hybrid object.
-   Its geometry is now pinned down: with a = N−mk and b = N−m′k one
-   has m′a − mb = (m′−m)N, so the dilate problem is μμ correlations
-   along lines of arbitrary rational slope and the shift problem is
-   the slope-1 case. Two things are measured about it
-   (`code/c3_transform_probe.py`): the obvious re-indexing by
-   d = m′−m produces a genuine fixed-shift correlation but with shift
-   a multiple of the modulus, so rescaling returns the original object
-   — verified as an exact identity, 184.0 versus 184.0, difference
-   0.000e+00 — and the slope family is **not** tamer than the shift
-   family (means 0.4561/0.4714 against 0.4826/0.4591, ratios 0.945 and
-   1.027, both half-normal on their own support). So the transform
-   cannot be a re-indexing, and cannot be motivated by the slope
-   family being easier. It must be a genuine analytic transform whose
-   dual variable supplies the shift average — and the named candidates
-   for that (inverse-domain spectrum, manufactured modularity, the
-   dispersion/delta route) are each already closed by measurement or
-   by structure.
+   See the next section: this requirement is now closed for one of the
+   two classes a transform can belong to, and unpopulated in the
+   other.
 2. **A classification** covering the type-II region of coordinate 2.
 3. **Quantitative averaged Chowla**: shift-averaged binary μμ
    correlations with a *fixed* log-power saving. Best known is
    (log)^{1−c} for a small fixed c.
+
+## Requirement 1 in detail: the transform
+
+**The geometry.** Put A = N − a and B = N − b, so that A = mk and
+B = m′k. Then
+
+> **m′A − mB = 0 exactly**,
+
+verified over 200,000 triples with zero mismatches
+(`code/c3_pencil_check.py`; the uncentered form m′a − mb = (m′−m)N is
+verified alongside it). So in centered coordinates the dilate family is
+the **pencil of lines through the origin**, one line per slope m′/m,
+traversed as k runs — while the shift family b = a + h is B = A − h, a
+family of **parallel lines of slope 1**. Requirement 1 asks for a
+transform carrying the first to the second.
+
+A transform can be of exactly two kinds. Both are now accounted for.
+
+### (a) Pointwise change of variable — **closed**
+
+A pencil is characterised by its vertex, which here is a finite point;
+a parallel family is a pencil whose vertex lies at infinity. An affine
+map sends lines to lines and **finite points to finite points**, so no
+affine map carries one family to the other. Since μ lives on ℤ, the
+structure-preserving changes of variable available are exactly the
+integral affine ones. In particular no shear (A,B) ↦ (A, B − jA) helps:
+it permutes slopes and fixes the origin, so the family remains a
+pencil.
+
+This settles, by proof rather than by measurement, what the earlier
+probe had found empirically: the re-indexing by d = m′ − m produces a
+genuine fixed-shift correlation, but with shift a multiple of the
+modulus, so rescaling returns the original object — an exact identity,
+184.0 versus 184.0, difference 0.000e+00
+(`code/c3_transform_probe.py`). Nor can such a transform be motivated
+by the slope family being easier: it is not. Measured means
+0.4561/0.4714 against the shift family's 0.4826/0.4591, ratios 0.945
+and 1.027, both half-normal on their own support.
+
+### (b) Summation formula — **open, and unpopulated**
+
+The remaining possibility is a genuine analytic transform whose dual
+variable supplies the shift average. Here the obstruction is the one
+coordinate 3 already identified, in general form: a Voronoi-type
+formula compresses a sum only against a **smooth** outer weight, and
+our outer weight is μ — rough. The two legitimate realisations are
+therefore the two that coordinate 3 examined, and both fail for stated
+reasons: truncated Voronoi + Abel yields the √-phase but no Kloosterman
+factors and a non-summable weight, while the delta method yields
+Kloosterman factors but a linear phase whose repair is the refuted
+dispersion route. The other named candidates in this class — the
+inverse-domain spectrum and manufactured modularity — are closed by
+measurement against accurate nulls.
+
+**Status of requirement 1**: closed for changes of variable; open for
+summation formulas, with every named candidate in that class already
+closed. That is a classification of transform types, not a theorem
+about all conceivable mathematics, and it is stated at exactly that
+strength.
 
 Requirement 3 is worth stating on its own, because it changes the
 character of the obstruction. The adjudication's central finding was

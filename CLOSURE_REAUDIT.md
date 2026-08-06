@@ -266,9 +266,37 @@ supplies the shift average. The named candidates for that are exactly
 the ones already measured shut: the inverse-domain spectrum (C2,
 mask-exact under accurate nulls), manufactured modularity (C4, 0/6
 levels), and the dispersion/delta route (REVIEW_VERDICT #1–#2,
-structurally refuted). **So ① is open in principle and empty among the
-transform classes this program can name** — which is a weaker claim
-than "C-III is dead", and a stronger one than "C-III is open".
+structurally refuted).
+
+## Round 4 (increment 204): ① closed for changes of variable
+
+The centered coordinates settle half of ① by proof rather than by
+measurement. Put A = N−a, B = N−b, so A = mk and B = m′k; then
+
+> **m′A − mB = 0 exactly**
+
+(verified over 200,000 triples, zero mismatches,
+`code/c3_pencil_check.py`). So the dilate family is the **pencil of
+lines through the origin** and the shift family B = A − h is a family
+of **parallel lines of slope 1**. A pencil is characterised by its
+vertex — here a finite point — and a parallel family is a pencil whose
+vertex is at infinity. **Affine maps send finite points to finite
+points**, so no affine map carries one family to the other; and since
+μ lives on ℤ, the structure-preserving changes of variable available
+are exactly the integral affine ones. No shear helps either: it
+permutes slopes and fixes the origin.
+
+**So ① is closed for pointwise changes of variable**, which explains
+the measured circularity rather than merely recording it. It remains
+open for summation formulas — where the obstruction is coordinate 3's,
+in general form: Voronoi-type formulas compress only against a
+**smooth** outer weight, and ours is μ.
+
+**Status of ①**: closed in one of the two classes a transform can
+belong to, unpopulated in the other. This is a classification of
+transform types, not a theorem about all conceivable mathematics, and
+is stated at that strength. **C-III therefore stands at: ① half
+closed, ② unattempted, ③ a named external open problem.**
 
 ## Supersession record (all of it, in one place)
 
