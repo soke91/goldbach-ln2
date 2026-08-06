@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 294 (2026-08-07). 5 days, 95 recorded corrections,
+*Increment 295 (2026-08-07). 5 days, 96 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -256,7 +256,12 @@ $\sqrt V$-standardised scores $z=+13.9$ against the permutation null, with
 $M(N)/\sqrt N$ — a known zero sum — as positive control at $z=+15.8$. So
 the wall's fluctuation is **Gaussian in distribution but not phase-random
 in $\log N$**: those are different statements and only the first had ever
-been tested (#94). And the wall is **not** the Mertens function —
+been tested (#94). **Its size** (inc. 295): regressing on the first ten
+ordinates gives $R^2 = 3.9\cdot10^{-3}$, i.e. **0.39% of the variance**,
+against a surrogate maximum of $4.2\cdot10^{-6}$ — 1571$\times$ chance, every
+ordinate at $z\ge23$. ⚠️ That is a **floor**, not the share: the zeros do
+not stop at the tenth. The component is real and **subdominant**, so the
+Gaussian half survives with a spectral term named, not replaced (#96). And the wall is **not** the Mertens function —
 $\mathrm{corr}(C,M)\approx0.06$, flat, despite exponents agreeing to 0.013 (#93).
 
 Sizes, with the log powers solved for rather than left inside an

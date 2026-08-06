@@ -167,7 +167,37 @@ requirement: `10^{4.4}` at `N = 10¹²`, **`10^{22.8}` at `10⁵⁰`**. The
 requirement is not remotely tight; the whole difficulty is in *proving*
 `o(N)`.
 
-**Scope.** All four are measured at `N ≤ 1.6·10⁷`. Nothing here
+**5. The fluctuation is Gaussian in distribution but not phase-random
+in `log N`** (increments 294–295). `C(N)` de-masked and `√V`-standardised
+carries the **zeta ordinates**: a permutation test against 200
+phase-randomised surrogates gives `z = +13.9`, with `M(N)/√N` — a known
+zero sum — as positive control at `z = +15.8`. Regressing on
+`cos(γ log N), sin(γ log N)` for the first ten ordinates:
+
+> **`R² = 3.896·10⁻³`** (0.39% of the variance) against a surrogate mean
+> of `2.48·10⁻⁶` and a 100-surrogate maximum of `4.16·10⁻⁶` — **1571×
+> chance**, and every ordinate individually at `z ≥ 23.4` (`γ₁` at 209.5).
+
+⚠️ **This does not overturn point 2.** Gaussian *in distribution* and
+phase-random *in `log N`* are different statements, and a small
+oscillatory component leaves kurtosis untouched — which is why 283's
+`−0.0005` and this coexist. Conjecture L's "no class structure" is a
+claim about the distribution; the spectrum is a second axis, and on it
+the wall is **not** structureless.
+
+⚠️ **0.39% is a floor, not the share.** The zeros do not stop at the
+tenth; ten ordinates capture part of the zero-driven component and the
+true fraction is larger by an amount not estimated here. Quoting it as
+*the* share would be reading a truncated sum as a total. What is
+settled is that the component is **real and subdominant**: the law needs
+a spectral term **named**, not a new leading behaviour.
+
+**And the wall is not the Mertens function** (increment 294), though
+`Λ`'s mean of 1 suggests `C(N) ≈ Σ_v μ(v) = M(N)` and the exponents
+nearly agree (`0.5272` against `0.5137`). `corr(C, M) ≈ 0.06`, flat
+across every band and unchanged by removing the mask.
+
+**Scope.** All five are measured at `N ≤ 1.6·10⁷`. Nothing here
 constrains the sizes at which this program's own no-go theorems begin
 to bite — `N ≈ 10⁴⁸⁰` and beyond.
 
