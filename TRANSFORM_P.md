@@ -1,9 +1,10 @@
 # Transform P — the prime-factor split of the Goldbach wall
 
 *Formalisation of the candidate found at increment 225 and measured
-through increment 230. Everything in §1–§3 is proved; §4 and §5 are
-measurement, labelled as such; §5 also states the ceiling the transform
-cannot cross, and §6 what is not established.*
+through increment 231. §1–§3 are proved; §4 and §5 are measurement,
+labelled as such, §5 stating the ceiling the transform cannot cross;
+§6 is the analytic status and what a proof would have to do; §7 is what
+is not established.*
 
 Throughout, N is a large even integer,
 
@@ -187,7 +188,49 @@ representations. Unconditionally the inequality above still holds and
 still blocks a fixed log power for any N where Goldbach is not nearly
 failing.
 
-## 6. What is not established
+## 6. Analytic status: what a proof would have to do
+
+The range-grouped form `C_R = −Σ_w μ(w)H_{R,w}`, with
+`H_{R,w} = Σ_{p∈R, p∤w} log p·Λ(N−pw)/log(pw)`, is bilinear with μ on
+one side and Λ on the other, and the one manoeuvre such a form admits
+is Cauchy–Schwarz in the rough variable w followed by expanding the
+square — the dispersion method.
+
+**Plain Cauchy–Schwarz has no margin, and is worse than trivial.**
+Measured (`code/lab_dispersion_margin.py`), the bound
+`CS_R = (Σ_{w≤W} μ²(w))^{1/2}(Σ_{w≤W} H_{R,w}²)^{1/2}` gives
+
+| N | Σ_R CS_R / N | Σ_R CS_R / triv | CS/Σ\|C_R\| |
+|---|---|---|---|
+| 5·10⁴ | 1.429 | 1.830 | 6.01 |
+| 10⁵ | 1.450 | 1.836 | 6.51 |
+| 2·10⁵ | 1.446 | 1.835 | 6.75 |
+
+Per range `CS_R/N ≈ 0.08` uniformly, against a per-range demand of
+`1/log N = 0.082`: the bound equals the demand exactly, which is the
+same zero-margin verdict Proposition E returned for the circle method
+on C(N).
+
+**The diagonal is comfortable.** The part of the expansion that no
+cancellation can remove measures 0.611, 0.595, 0.572 of N — below the
+budget and falling. So the damage is not structural. It is the
+**positive off-diagonal main terms** `Σ_w Λ(N−pw)Λ(N−p'w) ≈ 𝔖(p,p')W`,
+which Cauchy–Schwarz admits with a plus sign after the sign information
+that made `C_R` small has been discarded.
+
+> **Specification.** A proof must not bound `|Σ|²` but *compute* it:
+> the off-diagonal main terms are explicit singular series, so the
+> dispersion method proper applies — subtract the main terms, bound only
+> the variance. The diagonal survives that subtraction untouched and
+> sits at 0.57 N and decaying, so there is room for exactly that
+> argument and for no cruder one.
+
+This is a specification, not a proof. Bounding the variance means
+controlling correlations of primes along two linear forms `N−pw` and
+`N−p'w`, on average over the pair (p, p′) — a real analytic problem,
+and where the difficulty of transform P now honestly sits.
+
+## 7. What is not established
 
 - **P.1–P.3 are identities, not estimates.** They prove nothing about
   the wall. What they do is relocate it, losslessly, and P.3 shows that
@@ -210,7 +253,7 @@ failing.
   wall is their Theorem 1's equivalence clause. DEPENDENCY_AUDIT.md
   records what has and has not been re-derived here.
 
-## 7. Why this candidate and not another
+## 8. Why this candidate and not another
 
 Sessions 1–5 of TRANSFORM_LAB.md closed two whole classes of transform
 and left a three-clause test. A candidate is new if it does **none** of:

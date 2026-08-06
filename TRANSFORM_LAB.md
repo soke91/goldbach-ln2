@@ -722,6 +722,73 @@ construction. The remaining question is not "is it small" — it is
 **"is the range-grouped bilinear form provable"**, which is analysis,
 not measurement, and is where the next work has to go.
 
+## Session 11 — the dispersion test: plain Cauchy–Schwarz dies, the diagonal does not
+
+Session 10 handed the question to analysis. The range-grouped form
+`C_R = −Σ_w μ(w)H_{R,w}` with `H_{R,w} = Σ_{p∈R} log p·Λ(N−pw)/log(pw)`
+is bilinear with μ on one side and Λ on the other, and the standard
+manoeuvre is Cauchy–Schwarz in the rough variable w, then expanding the
+square — the dispersion method. Whether that manoeuvre leaves margin is
+arithmetic, and arithmetic can be computed.
+
+**Pre-registered**, from the shape alone: `Σ_w Λ(N−pw) ≈ N/p`, so the
+square is `≈ c N²/log²N`, i.e. `|C_R| ≲ √c·N/log N` — and with ~log N
+ranges the per-range demand is exactly `o(N/log N)`. The prediction was
+that Cauchy–Schwarz lands *at* the demand with no margin, the same
+verdict Proposition E returned for the circle method.
+
+**It lands on the nose.**
+
+| N | Σ_R\|C_R\| | Σ_R CS_R | **CS/N** | CS/triv | CS/Σ\|C_R\| |
+|---|---|---|---|---|---|
+| 5·10⁴ | 11896 | 71462 | **1.429** | 1.830 | 6.01 |
+| 10⁵ | 22283 | 145031 | **1.450** | 1.836 | 6.51 |
+| 2·10⁵ | 42831 | 289105 | **1.446** | 1.835 | 6.75 |
+
+Per range `CS_R/N ≈ 0.08` almost uniformly across all 17 ranges, and
+`1/log N = 0.082` at N = 2·10⁵ — the bound equals the demand exactly.
+In aggregate the manoeuvre costs **1.45 N**, which is 1.83× the
+*trivial* bound: plain Cauchy–Schwarz is worse than doing nothing. The
+loss over the true `Σ|C_R|` is a factor 6.0 → 6.8, growing slowly, the
+same `√K` species measured in REVIEW_VERDICT #6.
+
+**But the diagonal is comfortable, and that is the useful half.**
+
+| N | Σ_R diag | **/N** | diagonal share of CS |
+|---|---|---|---|
+| 5·10⁴ | 30550 | **0.611** | 0.4275 |
+| 10⁵ | 59487 | **0.595** | 0.4102 |
+| 2·10⁵ | 114397 | **0.572** | 0.3957 |
+
+The diagonal — the part of the expansion that no cancellation can
+remove — sits at 0.57 N and is **falling**. So the damage is not
+structural: it is specifically the **positive off-diagonal main terms**
+`Σ_w Λ(N−pw)Λ(N−p'w) ≈ 𝔖(p,p')W`, which Cauchy–Schwarz throws into the
+bound with a plus sign after the sign information that made `C_R` small
+has already been discarded.
+
+> **What a proof must therefore do.** Not bound `|Σ|²` — *compute* it.
+> The off-diagonal main terms are explicit singular series, so the
+> dispersion method proper applies: subtract the main terms and bound
+> only the variance. The diagonal, which survives that subtraction
+> untouched, is at 0.57 N and decaying, so there is room for exactly
+> that argument and for no cruder one.
+
+This is the first time this campaign has had a **specification** for a
+live route rather than a refutation of one. It is not a proof and it is
+not a claim that the variance is boundable — bounding it is a real
+analytic problem, and the off-diagonal error terms are correlations of
+primes along two linear forms on average over the pair, which is where
+the difficulty now honestly sits.
+
+*Zero margin, three times.* Proposition E (circle method on C(N)),
+REVIEW_VERDICT #6 (Cauchy–Schwarz in the E1 pipeline), and now this.
+The pattern is not that absolute values always fail — Proposition P.4
+takes absolute values and keeps a margin of 0.38 and falling. It is
+that absolute values taken **after squaring** destroy the sign
+information the wall runs on, every time, and land back at the trivial
+scale. Take them on already-cancelled quantities and they are affordable.
+
 ### Not yet read
 
 MRT's *averaged* form of Chowla (`arxiv_1503.05121`) is stated
