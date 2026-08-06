@@ -1,0 +1,28 @@
+mu ready  t=2s
+
+=== D (m > sqrt N)   N = 49999998   t=3s ===
+    B    nb     ratio   boot sd     rel  sqrt(2/nb)   agree   vs B=1  vs 0.5*B1
+    1  2048    1.1259    0.0444    3.9%        3.1%    1.26 baseline          —
+    8   256    1.1755    0.1156    9.8%        8.8%    1.11    +0.43      -5.30
+   64    32    1.0735    0.3804   35.4%       25.0%    1.42    -0.14      -1.34
+  512     4    2.5228    1.0180   40.4%       70.7%    0.57    +1.37      -1.93
+
+=== D_full (all m)   N = 49999998   t=4s ===
+    B    nb     ratio   boot sd     rel  sqrt(2/nb)   agree   vs B=1  vs 0.5*B1
+    1  2048    1.0292    0.0364    3.5%        3.1%    1.13 baseline          —
+    8   256    0.9866    0.0925    9.4%        8.8%    1.06    -0.46      -5.10
+   64    32    1.0034    0.3437   34.3%       25.0%    1.37    -0.08      -1.42
+  512     4    2.6424    0.8283   31.3%       70.7%    0.44    +1.95      -2.57
+
+    (G1) reduced replication returns R4's verdict (no B flags): PASS
+    (G2) bootstrap sd matches sqrt(2/nb) to 30% where nb >= 8: FAIL
+
+    (G3)(G4) what the columns say:
+    'vs B=1' is the fall R4 looks for, in the block estimator's own
+    standard errors. 'vs 0.5*B1' is how far the pre-registered
+    threshold sits from the measurement, in the same units.
+    At B = 512 there are four blocks and the relative SE is
+    71% by construction, so neither column can carry
+    weight there whatever the field does.
+    the bootstrap sd EXCEEDS sqrt(2/nb) -- 35.4% against 25.0% at B = 64 -- so the analytic form R4b quoted is an UNDERestimate. sqrt(2/nb) assumes the block sums are iid Gaussian, and D(k) is neither, which is what R4 is testing. The direction matters: every R4 test is WEAKER than R4b's own numbers say, not stronger. At B = 64 the 0.5 threshold sits 1.3 sd from the measurement, and at B = 512 the estimator averages four blocks and carries no information at all. R4's DEAD is a 5-sigma statement at B = 8 and nearly nothing at the block sizes where its own signature -- a ratio falling with B -- would appear
+DONE
