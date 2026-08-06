@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 302 (2026-08-07). 5 days, 111 recorded corrections,
+*Increment 303 (2026-08-07). 5 days, 113 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 7 named hazards.*
 
@@ -313,7 +313,11 @@ on $C(N)$ itself fired five flags which resolve into one statement:
 > $V(N)=\sum_v\mu^2(v)\Lambda(N-v)^2$ exact, $m(N)$ the location mask,
 > and $G$ Gaussian in the bulk and in the tail.
 
-The mask $m(N)$ is lower order, $\asymp\sqrt{\mathfrak S(N)}N^{1/4}$, so it
+The mask $m(N)$ is real (M.1 is a theorem) but its **scaling is
+unresolved**: the $N^{1/4}$ of increment 280 was fitted to a
+between-cell variance whose coin floor dominates the upper bands,
+with the real/coin ratio falling 4.21 to 0.52 and crossing 1 at
+$N\approx6\cdot10^6$ (#112). It
 does not threaten $C(N)=o(N)$. The form this section carried until
 increment 283 — $\sqrt{\mathfrak S(N)N}\,G(N)$ with $G$ of unit variance
 and a "mean drift decaying with $N$" — is superseded; that drift was the

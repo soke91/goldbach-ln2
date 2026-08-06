@@ -1,0 +1,40 @@
+sieve + V  t=11s
+real  t=16s
+  coin 5/20  t=36s
+  coin 10/20  t=56s
+  coin 15/20  t=76s
+  coin 20/20  t=97s
+
+between-cell variance of Z, real mu against 20 coins
+                 band         n  B/T real  B/T coin   ratio   T real   T coin  over max?
+   100000-     200000     50000   0.22584   0.05364    4.21   0.9757   0.8368        yes
+   200000-     400000    100000   0.16423   0.05017    3.27   0.9305   0.8424         NO
+   400000-     800000    200000   0.11750   0.04421    2.66   0.9072   0.8557        yes
+   800000-    1600000    400000   0.08347   0.04707    1.77   0.8778   0.8481         NO
+  1600000-    3200000    800000   0.05712   0.04218    1.35   0.8665   0.8729         NO
+  3200000-    6400000   1600000   0.03940   0.03104    1.27   0.8661   0.8703         NO
+  6400000-   12800000   3200000   0.02668   0.03318    0.80   0.8574   0.8576         NO
+ 12800000-   16000000   1600000   0.02079   0.04035    0.52   0.8537   0.8582         NO
+
+    exponent of B_real            g = -0.5467   (#69 reported -0.489)
+    exponent of the coin floor    g = -0.0827
+    exponent of B_real - B_coin   g = -5.5289
+
+    bands where the real signal clears every coin: 2/8
+    ratio real/coin runs 4.21 down to 0.52, crossing 1
+    at band 7 (N ~ 6e+06).
+
+    M.1 is a theorem, so the mask exists; and at small N the
+    enumeration sees it plainly (4.2x the coin). What this run
+    shows is that the SAME statistic has a coin floor of
+    B/T = 0.043 which does NOT fall with sample size
+    (0.054 at n=50000, 0.040 at n=1600000), so the
+    cell means are not concentrating. The mechanism is not
+    identified here and is left open rather than guessed.
+
+    Consequences. #69 fitted g = -0.5467 to B_real across
+    all 8 bands, of which the upper 2 are floor-
+    dominated, so that exponent is contaminated. #67 quoted
+    1.15% at 1.6e7, which is below the floor. Neither is a
+    measurement of the mask. The mask itself stands.
+DONE

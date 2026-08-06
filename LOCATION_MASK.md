@@ -159,25 +159,30 @@ exponent is a measurement, since both walk with the window (raw
 second moment `V(N) = Σ_v μ²(v)Λ(N−v)²`, which needs no fit at all;
 see CONJECTURE_L.md. History: CLOSURE_REAUDIT.md #36, #67, #68, #83.
 
-### The mask's own scaling law (increment 280)
+### The mask's own scaling: withdrawn (increment 280, withdrawn at 303)
 
-The quantity removed is `Var(m)/(𝔖N)`, and it has a clean law of its own
-that nobody had measured:
+Increment 280 fitted `Var_mask(Z) ∝ N^g` with `g = −0.489 ± 0.005` and
+concluded `m(N) ≍ √𝔖(N)·N^{1/4}`. **That fit is contaminated and the
+conclusion is withdrawn.**
 
-> `Var_mask(Z) ∝ N^g`, **`g = −0.489 ± 0.005`**, walking `−0.443 → −0.489`
-> across the window — i.e. `g → −1/2`, so **`m(N) ≍ √𝔖(N)·N^{1/4}`**.
+The quantity fitted is a between-cell variance, and a **coin** — random
+`±1` on the same support, through the identical enumeration — produces
+one too. Normalising each by its own total, the real signal runs
+`B/T = 0.226` down to `0.021` while the coin floor sits at `0.054` down
+to `0.040`. The ratio falls
 
-The exact value is still drifting, but **the sign is not** (~100σ). So the
-location mask is **lower order than the fluctuation** and does **not**
-threaten `C(N) = o(N)`. Together with `E₃` cancelling 82% of it in the
-Goldbach count, the mask is harmless twice over — a real feature of the
-wall, not an obstruction to the conjecture.
+> **4.21, 3.27, 2.66, 1.77, 1.35, 1.27, 0.80, 0.52**
 
-It also explains the contamination mechanically: a term whose share of the
-variance falls like `N^{−1/2}` must bias a fitted log-exponent downward by
-an amount that itself shrinks with the range — which is exactly why the raw
-and de-masked estimates converge toward each other (0.70 apart on three
-bands, 0.29 apart on eight).
+crossing 1 at `N ≈ 6·10⁶`. The exponent was fitted across all eight
+bands, of which the upper two are **floor-dominated**.
+
+✅ **The mask itself stands.** M.1 is a theorem, and at small `N` the
+enumeration sees it at **4.2×** the floor. What is withdrawn is the
+*scaling*, and with it the `N^{1/4}` amplitude. The mask's size at large
+`N` is **unresolved**, not small — and increment 280's other figure,
+"1.15% of the variance at `1.6·10⁷`", sits below the floor.
+
+History: CLOSURE_REAUDIT.md #67, #69, #112, #113.
 
 ## 4. What failed, and it is instructive
 
