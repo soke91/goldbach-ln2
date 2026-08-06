@@ -1,0 +1,41 @@
+sieve + 2 convolutions  t=15s
+
+(A) identity R = E + S*C
+    max relative deviation 3.020e-14   OK
+
+(B)+(C) the three magnitudes on the same bands
+                 band      mean|E|    mean|S*C|      mean|R|  |E| share  logNmid
+   100000-     200000       2938.5       1927.8       2215.0     60.4%   11.859
+   200000-     400000       4566.2       2734.6       3311.5     62.5%   12.553
+   400000-     800000       7066.3       3881.8       5074.0     64.5%   13.246
+   800000-    1600000      10773.1       5528.6       7714.4     66.1%   13.939
+  1600000-    3200000      16439.4       7919.5      11834.9     67.5%   14.632
+  3200000-    6400000      24981.4      11432.2      18098.7     68.6%   15.325
+  6400000-   12800000      37519.1      16410.2      27529.7     69.6%   16.018
+ 12800000-   16000000      47833.7      20357.2      35393.9     70.1%   16.477
+
+    beta_E    = 0.6061 +/- 0.0048
+    beta_S*C  = 0.5137 +/- 0.0019   (increment 281 measured beta_C = 0.5457 +/- 0.0032)
+    beta_R    = 0.6052 +/- 0.0024   (increment 282 recorded 0.6458 +/- 0.0065)
+
+(D) beta_E against the explicit formula
+    |E    | ~ sqrt(N) (log N)^1.51   (beta = 0.6061, log N bar = 14.3)
+    |S*C  | ~ sqrt(N) (log N)^0.20   (beta = 0.5137, log N bar = 14.3)
+    |R    | ~ sqrt(N) (log N)^1.50   (beta = 0.6052, log N bar = 14.3)
+    The explicit formula makes r(N) - S(N)N a sum over zeta
+    zeros, so sqrt(N) times a power of log is exactly what
+    it should be. c ~ 1.5 is an ordinary value; it is NOT
+    an excess over square root, and reading beta = 0.61 as
+    one would repeat correction #66 on this program's own
+    numbers.
+
+    stability: refit on the first j bands
+  j  logN max    beta_E   beta_S*C    beta_R
+  3    13.246    0.6329     0.5049    0.5979
+  4    13.939    0.6253     0.5065    0.6016
+  5    14.632    0.6206     0.5092    0.6055
+  6    15.325    0.6169     0.5129    0.6077
+  7    16.018    0.6123     0.5152    0.6082
+  8    16.477    0.6061     0.5137    0.6052
+    A value that walks is not a measurement.
+DONE

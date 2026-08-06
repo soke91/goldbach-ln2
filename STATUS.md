@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 291 (2026-08-07). 5 days, 89 recorded corrections,
+*Increment 292 (2026-08-07). 5 days, 90 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -231,13 +231,17 @@ $o(N)$. (§9 recorded $N^{0.503}$, "square-root to three digits", from
 five groups of 80 consecutive even $N$; replicating that design 500
 times gives $0.516\pm0.043$, so all three digits were noise. #70.)
 
-The discrepancy
-$R(N) = r(N) - \mathfrak S(N)(N - C(N))$ grows faster,
-$\sim N^{0.599}$, so the Goldbach count's deviation from
-$\mathfrak S(N)N$ is dominated by $R$ rather than by $\mathfrak S C$:
-**the ln 2 comet corpus and the final-boss scalar are not the same
-object**, a hypothesis raised and refuted here by its own
-pre-registered criterion.
+The discrepancy $R(N) = r(N) - \mathfrak S(N)(N - C(N))$ splits
+exactly as $R = E + \mathfrak S C$ with $E(N) = r(N) - \mathfrak S(N)N$ the
+**classical Goldbach error term**, and $E$ **dominates**: 60% of $|R|$ at
+$N\approx10^5$, rising to 70% at $1.6\cdot10^7$ (inc. 292). So the Goldbach
+count's deviation from $\mathfrak S(N)N$ is carried by the classical error,
+not by the wall — **the ln 2 comet corpus and the final-boss scalar are
+not the same object**, a hypothesis raised and refuted here, and now
+refuted by a cleaner mechanism than the exponent comparison §9 used.
+Sizes, with the log powers solved for rather than left inside an
+effective exponent: $|E|\sim\sqrt N(\log N)^{1.51}$,
+$|\mathfrak S C|\sim\sqrt N(\log N)^{0.20}$.
 
 > **Re-audited at increment 282: the closure stands, the evidence for it
 > did not, and the exponent was wrong.** Full census to $1.6\cdot10^7$:
