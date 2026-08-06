@@ -1,0 +1,47 @@
+(1) verification: every number below occurs in its own results file
+    Forge R1     forge_r1_result.txt        verified
+    Forge R2     forge_r2_result.txt        verified
+    Forge R4     forge_r4_result.txt        verified
+    Constr C4    constr_c4_result.txt       verified
+
+(2) the criterion and the measurement, both in standard errors of the null
+test                 null         sd    threshold   T in sd   measured  meas in sd
+Forge R1          0.21960    0.00550      0.43920     +39.9    0.98000       -0.80
+Forge R2         -0.00006    0.00016     -0.00012      -0.4   -0.00012       +0.38
+Forge R4                — not printed         0.5x         ?     0.5929           ?
+Constr C4               — not printed         0.5x         ?     1.5300           ?
+
+(3) what each verdict actually excludes
+    Forge R1  the pre-registered threshold is 40 sd above the null, so as WRITTEN the
+              test only excluded a doubling. Its measurement
+              is 0.98x the null, i.e. -0.8 sd,
+              so the DATA exclude an enhancement of 7.5% at 3 sd.
+              **The recorded verdict understates its own evidence by a factor 13.**
+    Forge R2  'capture >= 2 x the random control' with a
+              control of -0.00006: twice a negative number
+              is SMALLER, so the ALIVE branch is unreachable
+              as written. ⚠️ The criterion is ill-posed. The
+              measurement is fine and says nothing is there:
+              -0.00012 against -0.00006 +- 0.00016 = -0.38 sd.
+    Forge R4  no error bar is printed beside the block
+              ratios, and R4b's own header puts the
+              estimator's SE at ~9% at B=8 and ~25% at
+              B=64. At B=512 the measured 0.5929/0.9862 =
+              0.601 sits near the 0.5 threshold with an
+              SE that was never quoted. ⚠️ Under-powered
+              exactly where the criterion bites.
+    Constr C4 defect ratios run 0.89 to 1.53 across Q with
+              **no error bars at all**, against a threshold
+              of 0.5. ⚠️ The spread across Q is the only
+              clue to the sd and it is ~0.25, putting the
+              threshold about 2 sd below 1 -- marginal.
+
+(4) the pattern
+    Ratio criteria in this program were chosen as EFFECT
+    sizes -- 2x, 0.5x -- and never compared against the
+    spread of the thing they threshold. Where the null's sd
+    is small the criterion is far looser than the data, and
+    the verdict understates the evidence; where it is large
+    or unprinted the criterion cannot be judged at all.
+    Two of four are the first kind, two the second.
+DONE
