@@ -360,6 +360,33 @@ that does not match the claim being tested is the same error as
 writing a target at the wrong scale** — and it was caught the same
 way, by widening to the whole profile instead of trusting one number.
 
+## The two hazards this campaign actually suffers from
+
+Both are about **stating a criterion that does not match the thing
+being tested**, and both are caught the same way — by widening from a
+single number to the whole profile, or by computing the null first.
+
+1. **Scale-normalisation drift.** Writing a target at the square-root
+   scale when the chain consumes it at the trivial scale, or the
+   reverse. Two instances: the E1 target (correction #30) and the SEAM
+   formalisation (REVIEW_VERDICT #3). Rule: state which scale a target
+   is normalised against, in the same sentence, and compare it against
+   our own measurement of the same quantity before using it to
+   adjudicate anything.
+
+2. **Thresholds below the noise floor.** Choosing a pre-registered
+   cutoff without computing what the statistic reads under no
+   structure. Five instances in a single session: the a > M^{1/3} cut
+   (increment 205), the spread-only test for a mask on C(N) (210), the
+   |corr| ≥ 0.10 cross-N test and the top-decade test (212), and a
+   verdict string that misreported its own rule (211). Rule:
+   **compute the null value of the statistic first and put it in the
+   pre-registration next to the threshold.**
+
+Every closure in this repository predating these rules was re-checked
+against them; the ones that survived are the ones whose criteria were
+"is there any signal at all", which is threshold-free.
+
 ## Supersession record (all of it, in one place)
 
 This repository carries no correction banners elsewhere. Every

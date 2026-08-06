@@ -252,6 +252,44 @@ on C(N)/√N, and at the largest window normalising by 𝔖(N) already
 takes it below 3σ, so singular-series scaling accounts for most of
 what remains.
 
+## 11. Two more hypotheses, and a methodological correction
+
+**H10 — do nearby N carry correlated copies of the dilate field?**
+Moving N to N+h shifts every Möbius argument by h, so a nonzero
+corr_k(D_N, D_{N+h}) would be a binary Chowla signal. Over 18 triples
+(three N, h ∈ {2,6,30}, two bands, 1200 k each) the standardised
+z = corr·√n has **mean |z| = 0.814 against a standard-normal null of
+0.798**, max |z| = 1.92. **DEAD**, and the dead result has content:
+nearby N carry *independent* copies of the field, which is precisely
+why the N-averaged route buys an exceptional set rather than a
+fixed-N statement.
+
+**H12 — does some range of n carry the mass of C(N)?**
+For equal-log-length ranges, g = |Σ_range f|/√(#terms) is constant
+under Brownian behaviour. Measured max/median g = 3.03, 3.31, 2.03,
+3.03 across four N — but the **argmax range differs every time**
+(7, 3, 5, 6), and max/median ≈ 3.2 is exactly what eight half-normal
+draws give. **DEAD**: the walk is Brownian and no range is special.
+
+**The methodological correction, and it is the important part.** Both
+hypotheses first returned ALIVE, and both verdicts were artefacts of
+thresholds chosen without computing the null:
+
+- H10 used |corr| ≥ 0.10 on 300 points, where the null SE is
+  1/√300 = 0.058 — a 1.7σ threshold, below the noise floor. Two hits
+  in twelve tests is what chance delivers (expected 1.1).
+- H12 used "one decade of n carries ≥ 50%", but the top decade is
+  always the last, spanning ~89% of the range; under Brownian
+  behaviour its expected share is ~0.95, so the measured 0.53–0.74 was
+  *less* than random.
+
+Counting the single-threshold cut of §9's neighbourhood and the
+spread-only test of §10, this session produced **five under-specified
+pre-registrations**. The pattern is now named and the rule is
+explicit: **compute the null value of the statistic before choosing
+the threshold, and state it in the pre-registration.** Every test in
+§11 carries its null in the same line as its criterion.
+
 ## One-shot reproduction
 
 ```bash
