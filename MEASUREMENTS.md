@@ -192,6 +192,40 @@ across the octaves:
 > **|C(N)| ~ N^{0.503}** — square-root, to three digits
 > **|R(N)| ~ N^{0.599}**
 
+⚠️ **"To three digits" is refuted, and the exponent is not 0.503**
+(increment 281, `code/lab_wall_exponent_reaudit.py`). This design uses
+five groups of **80 consecutive even N** — each group spans 160 in `N`,
+and a scale estimated from 80 samples has sampling CV ≈ 7.9%. Re-running
+*this exact design* 500 times with the group offsets varied (fixed seed)
+gives
+
+> **β = 0.516 ± 0.0426**, 5th–95th percentile **[0.447, 0.585]**.
+
+The recorded 0.503 sits at **percentile 39** — an entirely ordinary
+draw. The replication spread is **43× the 0.001** that "three digits"
+asserts. Not an argument that the design is imprecise: a demonstration.
+
+**The real number**, from the full census of every even `N ≤ 1.6·10⁷`
+with the location mask removed:
+
+> **β = 0.5457 ± 0.0032** (raw, mask left in: 0.5315 ± 0.0019).
+> `β = 1/2` is excluded at **14.5σ**; the mask alone shifts β by +0.014.
+
+So `|C(N)|` grows **measurably faster than `√N`**, which is what §12's
+variance law says it must and what this section read as confirming the
+opposite. The requirement is still only `o(N)`, so nothing about the
+program's position changes — but "square-root to three digits" was
+three digits of noise around a number that is not `1/2`.
+
+⚠️ **One consistency check here is not a check.** `β` and §12's `α`
+are the *same fitted numbers in two parametrisations* (`sd(C)` is
+`sd(Z)` times ~`√(𝔖N)`), so `β = 0.5 + (α/2)(Δloglog/Δlog)` holds by
+construction; the agreement to 6·10⁻⁴ against α = 1.30 confirms nothing.
+The one informative row is `α = 0`, which the old law predicts and the
+data refute. A genuinely unforced diagnostic is `E|C|/sd`, which is
+**0.79145** against the Gaussian `√(2/π) = 0.79788` — a consistent
+**−0.81%**, the sign expected from the residual excess kurtosis.
+
 Two readings, one positive and one negative.
 
 - **The chain's slack on its own final object is √N.** It needs only

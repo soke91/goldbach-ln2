@@ -1,0 +1,66 @@
+sieve + convolution  t=12s
+
+(A) section 9's design, re-run 500 times with the group
+    offsets varied. The recorded 0.503 is ONE draw.
+    mean 0.5162   sd 0.0426   median 0.5167
+    5th-95th percentile: [0.4466, 0.5853]  width 0.1387
+    the recorded value 0.503 sits at percentile 39
+    replication sd is 43x the 0.001 implied by
+    'three digits'  ->  REFUTED
+
+(B) full census, every even N <= 1.6e7, mask removed
+                 band     count     sd C raw     sd C dem     E|C| dem  logNmid
+   100000-     200000     50000       1108.9       1027.6        812.0   11.859
+   200000-     400000    100000       1599.7       1518.7       1203.4   12.553
+   400000-     800000    200000       2326.2       2244.3       1774.5   13.246
+   800000-    1600000    400000       3348.9       3267.4       2585.1   13.939
+  1600000-    3200000    800000       4856.3       4776.8       3781.8   14.632
+  3200000-    6400000   1600000       7068.0       6989.6       5533.1   15.325
+  6400000-   12800000   3200000      10214.1      10138.4       8029.5   16.018
+ 12800000-   16000000   1600000      12730.7      12657.0      10022.6   16.477
+
+    beta from sd(C)  raw       = 0.5315 +/- 0.0019  (RMS 0.00700)
+    beta from sd(C)  de-masked = 0.5457 +/- 0.0032  (RMS 0.01195)
+    beta from E|C|   de-masked = 0.5460 +/- 0.0032  (RMS 0.01202)
+    mask shifts beta by +0.0142
+    beta = 1/2 is excluded at 14.5 sigma
+
+    sd and E|C| must estimate the same scale: |difference| = 0.0003   consistent
+    (that agreement is near-forced too -- both are linear
+     functionals of the same residuals -- so it checks the
+     arithmetic, not the model.)
+
+    a check that is NOT forced: E|C|/sd = sqrt(2/pi) =
+    0.79788 for a Gaussian. Per band, de-masked:
+      0.7902  0.7924  0.7907  0.7912  0.7917  0.7916  0.7920  0.7919
+      mean 0.79145, i.e. -0.81% from Gaussian --
+      a small, consistent deficit, the sign expected from
+      the residual positive excess kurtosis (+0.014 after
+      masking, LOCATION_MASK.md). Reported as a diagnostic.
+
+(C) does that agree with section 12's variance law?
+    !! READ THIS BEFORE READING THE NUMBERS !!
+    This relation is NEARLY ALGEBRAIC, not an independent
+    test. beta is the slope of log sd(C) on log N; alpha is
+    the slope of log sd(Z)^2 on log log N; and sd(C) is
+    sd(Z) times a factor ~sqrt(S*N). So the two are the same
+    numbers in two parametrisations, and beta = 0.5 +
+    (alpha/2)(D loglog/D log) holds to the extent that both
+    regressions are linear. An agreement to 1e-3 below is
+    therefore expected BY CONSTRUCTION and confirms nothing
+    -- this program has shipped four checks that could not
+    come out false and this would have been the fifth.
+    The one informative row is alpha = 0: the OLD law makes
+    a prediction the data can refute, and does.
+    beta_pred = 0.5 + (alpha/2)*(D loglog N / D log N)
+    over this window  D loglog/D log = 0.3288/4.6170 = 0.07122
+                   alpha = 0 (old law): beta_pred = 0.5000   measured(de-masked) 0.5457   diff +0.0457
+                    alpha = 1 (quoted): beta_pred = 0.5356   measured(de-masked) 0.5457   diff +0.0101
+     alpha = 1.30 (inc 280, de-masked): beta_pred = 0.5463   measured(de-masked) 0.5457   diff -0.0006
+
+    section 9's window was narrower; its own predicted beta:
+      alpha =  0.0: beta_pred = 0.5000
+      alpha =  1.0: beta_pred = 0.5384
+      alpha =  1.3: beta_pred = 0.5499
+      recorded there: 0.503, replication sd 0.0426 -> that window cannot separate these
+DONE

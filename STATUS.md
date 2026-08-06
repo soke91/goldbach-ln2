@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 280 (2026-08-07). 5 days, 69 recorded corrections,
+*Increment 281 (2026-08-07). 5 days, 71 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -156,7 +156,18 @@ The chain reduces to $C(N) = \sum_{n<N}\Lambda(n)\mu(N-n) = o(N)$,
 which is equivalent to the Goldbach asymptotic. Measured over 400 even
 $N$ in five octave groups (MEASUREMENTS §9, `code/h_deficit.py`):
 **$|C(N)| \sim N^{0.503}$** — square-root to three digits, against a
-requirement of merely $o(N)$. The discrepancy
+requirement of merely $o(N)$.
+
+> ⚠️ **Both halves of that sentence are wrong** (increment 281). The
+> design — five groups of 80 *consecutive* even $N$ — re-run 500 times
+> with varied offsets gives $\beta = 0.516 \pm 0.043$, and 0.503 sits at
+> percentile 39. The spread is **43× the 0.001** that "three digits"
+> claims. The full census to $1.6\cdot10^7$ with the mask removed gives
+> $\beta = 0.5457 \pm 0.0032$: **not $1/2$, excluded at 14.5σ**, and
+> exactly what §12's variance law requires. The *requirement* is still
+> only $o(N)$, so the program's position is unchanged.
+
+The discrepancy
 $R(N) = r(N) - \mathfrak S(N)(N - C(N))$ grows faster,
 $\sim N^{0.599}$, so the Goldbach count's deviation from
 $\mathfrak S(N)N$ is dominated by $R$ rather than by $\mathfrak S C$:
