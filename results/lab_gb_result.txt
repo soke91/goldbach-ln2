@@ -1,0 +1,11 @@
+K=60: n=4000  exact matches G(uv)=G(u)G(v): 1529/4000 (0.382)
+        mean dev = 0.7252   corr(G(uv), G(u)G(v)) = -0.1403  z = -8.88 (null 0, SE 0.0158)
+        verdict: SOME STRUCTURE
+K=300: n=4000  exact matches G(uv)=G(u)G(v): 1120/4000 (0.280)
+        mean dev = 0.8424   corr(G(uv), G(u)G(v)) = +0.0345  z = +2.18 (null 0, SE 0.0158)
+        verdict: NO MULTIPLICATIVE STRUCTURE
+
+The untruncated G is (b*mu)(u), multiplicative by
+construction; whatever is measured above is caused by the
+truncation k ~ K alone.
+DONE

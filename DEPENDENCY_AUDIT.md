@@ -1,0 +1,70 @@
+# What this campaign is trusting, and what happens if it is wrong
+
+*Opened at increment 220, prompted by the right question: Huang–Li's
+result might be wrong, and this program should not lean on it. We
+already found one defect in it — the dropped n-dependent truncation in
+equation (18) — so the paper is demonstrably not error-free, and
+"published" is not the same as "verified".*
+
+**What we have and have not checked.** We audited the two consumption
+sites (E₃, E₄), the step at (18), and Lemma 1 as we use it. We have
+**not** independently verified Theorem 1 or Corollary 1 end to end.
+That is the honest state.
+
+## Exposure, result by result
+
+| result | depends on Huang–Li? | if their Theorem 1 is wrong |
+|---|---|---|
+| **Theorem A** (w = 1 sum is ≪_A N(log N)^{−A}) | **No.** Uses their Lemma 1, which is a Goldston–Yıldırım estimate checkable on its own, plus Bombieri–Vinogradov | stands |
+| **Theorem D / D′** (no weight extracts C(N) by the switch, even under EH) | **No.** A statement about the divisor-switch method | stands |
+| **Proposition D″** (polynomial weights) | **No.** μ ∗ log^D = Λ_D is classical | stands |
+| **Proposition E** (circle method has zero margin on C(N)) | **No.** Parseval and the trivial bound | stands |
+| **Conjecture L** and every measurement | **No.** Numerical facts about μ-fields | stand |
+| **C(N) = √(𝔖N)·G** law; second-moment identity | **No.** Derived and verified here | stand |
+| **Theorem C** (E₃ = ΣΛΛ − 𝔖(N−C) + O_A) | **No** — it is our own derivation. That it reproduces their (22) is a *consistency check on them* | stands |
+| **Corollary B** (E₄ consumption unconditional) | **Partly.** The statement that E₄ is where they consume EH_μ is a reading of their proof | the corollary would lose its target but Theorem A survives |
+| **"The wall is C(N) = o(N)"** | **Yes.** This is their Theorem 1's equivalence clause | the wall would have to be relocated |
+| **"Goldbach follows from EH_μ(θ′ > 1/2)"** | **Yes.** Their Corollary 1 | the whole strategic frame goes |
+| **"③ needs a fixed log power ≈ 6"** | **Yes.** Read off their Corollary 1 proof (A = 2 + ε/2) | the exponent is unfounded |
+
+So: **the theorems this program proved do not rest on Huang–Li. The
+strategic frame does.**
+
+## What is actually conditional in the equivalence
+
+Our own Theorem C gives, unconditionally,
+E₃(α) = Σ Λ(n)Λ(N−n) − 𝔖(N)(N − C(N)) + O_A(N(log N)^{−A}).
+The equivalence "r̃(N) ∼ 𝔖(N)N ⟺ C(N) = o(N)" therefore needs
+E₃ = o(N), which is a hypothesis, not a theorem. Empirically the
+discrepancy R(N) = r̃ − 𝔖(N − C) measures as ∼ N^{0.599} = o(N)
+(MEASUREMENTS §9), so the equivalence looks true — but that is
+measurement, not proof, and it is exactly the kind of thing this
+campaign has learned not to treat as settled.
+
+**Consequence for how we speak.** "The wall is C(N) = o(N)" should be
+stated as *conditional on the Huang–Li reduction*, not as a fact about
+Goldbach. Documents that assert it flatly are overstating.
+
+## The task this creates
+
+**Independent re-derivation of Huang–Li Theorem 1.** Not a reading of
+their proof — a derivation from Pan's decomposition forward, in our own
+bookkeeping, with the (18) repair included from the start. Two reasons
+it is worth the effort:
+
+1. we have already found one error in the chain we are standing on, so
+   the prior that there is exactly one is not defensible;
+2. every quantitative claim we make about what the chain *needs* — the
+   exponent for ③, the level θ′ > 1/2, the collapse to E₃ — is read
+   off their proof, so if the proof moves, those move.
+
+Until that is done, the honest labels are: **our theorems, verified
+here; their frame, used but unverified.**
+
+## Not to be confused
+
+This is not a claim that Huang–Li is wrong. It is a statement about
+what we have checked. Their Theorem 1 may well be correct; the defect
+we found is repairable and we showed how. The point is that this
+program has been treating the frame as bedrock while treating its own
+derivations to adversarial review — an asymmetry with no justification.

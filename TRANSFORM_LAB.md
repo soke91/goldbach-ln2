@@ -110,6 +110,101 @@ Two things to establish before attacking it, both cheap:
   G_b against its untruncated counterpart, which is μ(u)b-transformed
   and *is* well behaved.
 
+## Session 2 — sub-question 1 answered, and two corrections to our record
+
+### Sub-question 1: no, and the reason repeats the wall
+
+Tao's reduction works because λ is multiplicative in the summation
+variable: for p | n, λ(n) = λ(p)λ(n/p), so the shift-1 correlation at
+scale N equals the shift-p correlation at scale pN restricted to
+multiples of p. Try the same on ours.
+
+Introduce the p-index the standard way, using that Σ_{p∈P}[p|u] has
+mean L:
+
+> Σ_u μ(N−u)G(u) ≈ (1/L)·Σ_u Σ_{p|u} μ(N−u)G(u).
+
+Now to produce a *shift* we must move one factor by p. Two attempts,
+both forced:
+
+- **Index by p | u.** Then the natural move is u ↦ u/p, and the second
+  factor becomes μ(N − u/p) — the argument is *dilated*, not shifted.
+- **Index by p | (N−u).** Writing v = N−u and using μ(v) = −μ(v/p),
+  the sum becomes −(1/L)Σ_v Σ_{p|v} μ(v/p)·G(N−v): again the Möbius
+  argument is dilated while the companion sits at N−v.
+
+**Either way the p-trick produces a dilation, never a shift**, because
+the multiplicative structure lives on u and the additive structure on
+N−u — they are on different factors. This is the campaign's wall
+reappearing at the reduction step rather than at the estimate.
+
+The other half of the obstruction is measured rather than assumed.
+Tao's step needs the shifted function multiplicative; the untruncated
+G is (b∗μ), multiplicative by construction, so any failure is caused
+by the truncation k ∼ K alone. Measured over 4000 coprime pairs
+(`code/lab_gb_multiplicativity.py`): G(uv) = G(u)G(v) holds for only
+38.2% of pairs at K = 60 and 28.0% at K = 300 — and most of those are
+cases where both sides vanish — while corr(G(uv), G(u)G(v)) is −0.140
+at K = 60 and +0.035 at K = 300, flipping sign. **The truncation
+destroys multiplicativity outright.**
+
+### What is still live in the HR route
+
+Two facts keep it from being closed.
+
+1. **Their Corollary 1.1 needs no multiplicativity.** It bounds
+   Σ_n Σ_{p|n} f(n)g(n+σp) against its 1/p-weighted counterpart for
+   *any* f, g with |f|₂,|g|₂ ≤ 1 and |f|₄,|g|₄ ≤ e^{CL}. So the
+   barrier is not the roughness of our factors; it is purely getting
+   the object into the form Σ_n Σ_{p|n} f(n)g(n ± p).
+2. **The self-similarity Tao uses is present on our Möbius factor.**
+   Index by p | (N−u) and move u ↦ u ± p: then N−u and N−u∓p are both
+   divisible by p, and with w = (N−u)/p one gets
+   **μ(N−u)·μ(N−u∓p) = μ(w)·μ(w∓1)** — the two-point Chowla
+   correlation at a smaller scale, exactly Tao's mechanism. What we
+   lack is that our companion is G(u), a divisor-type function of u,
+   rather than a second Möbius at a shifted point.
+
+**Sub-question 2.** Is there a form of the wall in which *both*
+factors are Möbius at additively related points? The second moment of
+C(N) is one (§13 of MEASUREMENTS: Σ_h r(h)S(h)), but it costs the
+passage to almost-all-N. Is there another?
+
+### Correction #32 — two things our record had wrong about ③
+
+**(a) MRT's averaged Chowla is not qualitative.** Our documents said
+the shift-averaged form is stated as o(HX) with the quantitative
+strength unchecked. The paper's own abstract says otherwise: *"Our
+arguments in fact give quantitative bounds on the decay rate (roughly
+on the order of log log H / log H)"*. So the shift-averaged form
+already carries a saving of about (log H)^{−1+o(1)}. Pilatte's
+(log x)^{1−c} likewise is a saving of (log x)^{−c} for an absolute
+c > 0 — a *fixed power of log*, for a fixed shift, logarithmically
+averaged.
+
+**(b) The chain needs a fixed log power, not every A.** Huang–Li's
+Corollary 1 proof takes **A = 2 + ε/2** and needs only
+1 − A(N) ≫ (log N)^{−2}. So binary Goldbach for large N consumes
+EH_μ at one fixed exponent, not for all A. Carrying that through the
+corrected E1 target gives an exponent of about 2A+2 ≈ 6.
+
+**What this changes.** ③ was recorded as "a named external open
+problem" with an implicitly qualitative gap. It is better described
+as an **exponent gap**: the technology delivers fixed log powers of
+order 1, and the chain wants a fixed log power of order 6. Whether
+those compose — the passage from averaged Chowla through E1 to EH_μ
+has losses of its own — is a separate question and is not claimed
+here. But "qualitative versus quantitative" was the wrong description
+and is withdrawn.
+
+**Caveat on (b), and it is not small.** The exponent 2 + ε/2 is read
+off Huang–Li's own Corollary 1 proof, so it is only as good as that
+proof — and we have already found one defect in the same paper. See
+DEPENDENCY_AUDIT.md: our theorems do not rest on Huang–Li, but every
+quantitative statement about what the *chain* needs does, and none of
+those has been independently derived here. Treat "③ needs about
+(log N)^{−6}" as provisional.
+
 ### Not yet read
 
 MRT's *averaged* form of Chowla (`arxiv_1503.05121`) is stated
