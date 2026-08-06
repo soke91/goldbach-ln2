@@ -82,7 +82,25 @@ in its purest measured form.
   marginal reading (r1 at 10⁹, +1.6σ) are recorded honestly, not
   averaged away.
 
-## Coverage adjudication (increment 170)
+## Coverage adjudication (increment 170) — amended at 198–200
+
+> **⚠️ Two amendments, both from CLOSURE_REAUDIT.md.**
+>
+> 1. **The target quoted in that adjudication was wrong** (correction
+>    #30). It printed the consumable at the *square-root* scale,
+>    Σ|D|² ≪ (log N)^{−A} Σ M_k, where the chain requires the
+>    *trivial* scale, **Σ|D|² ≪ (log N)^{−2A−2} Σ M_k²** — a factor
+>    N/K ≥ N^{2/3}. The amplitude half is a fixed log-power saving over
+>    **trivial**, not a strengthening of square-root cancellation.
+> 2. **The five route verdicts below survive** (they are blocked at
+>    named-lemma level, structurally), **but two closures elsewhere do
+>    not**: C-III's assembly-scale and budget coordinates were measured
+>    against the wrong target and are void, so **C-III is re-opened**
+>    as a route. What it needs is stated exactly in CLOSURE_REAUDIT.md.
+>
+> Consequence for the sentence "no coupling surface in any direction
+> with a mathematical name": it holds for the forge's own designs and
+> for the five routes, not as a blanket statement.
 
 A fresh-context adjudication against the source papers' lemma
 hypotheses (AMPLITUDE_ADJUDICATION.md) found: all five candidate

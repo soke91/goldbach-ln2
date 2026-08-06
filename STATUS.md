@@ -95,7 +95,8 @@ and $E_4(\alpha)$, distinguished only by the weight $w_k$.
   re-audited; see the next item. (An earlier version of this line said
   "no route verdict changes", full stop. That was too quick — the
   re-audit voided two closures, downgraded one and mooted two.)
-- **The amplitude half is what the chain needs, and it is unreachable.**
+- **The amplitude half is what the chain needs, and no named route
+  reaches it** (but see the re-audit: one route is re-opened).
   A fresh-context adjudication (AMPLITUDE_ADJUDICATION.md) found all
   five candidate routes blocked at named-lemma level; the common
   obstruction is that the bilinear pair constraint of
@@ -189,8 +190,9 @@ The Huang–Li hypothesis has exactly two couplings of the two Möbius
 factors: **divisibility-coupled** (the demand side, $k \mid N-n$),
 where the divisor switch is free but hands back the Goldbach sum
 itself; and **difference-coupled** (the supply side, $\mu(m)\mu(N-mk)$),
-where the field offers no coupling surface, internal or external, in
-any direction that has a mathematical name.
+where no named coupling surface has been found, internal or external —
+with the standing exception of C-III, re-opened at increment 200 and
+needing a legitimate transform plus quantitative averaged Chowla.
 
 ## How to continue
 

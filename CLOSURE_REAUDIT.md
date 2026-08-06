@@ -220,6 +220,56 @@ different kind of open problem from the one this program had recorded.
 over-claimed refutations. The route is open again and needs exactly
 the thing nobody can currently do.
 
+## Round 3 (increment 201): item ① probed directly
+
+C-III's remaining need ① is "a legitimate transform". Stated cleanly,
+the geometry is this. In the L² off-diagonal put a = N−mk, b = N−m′k;
+then **m′a − mb = (m′−m)N**, so as k runs the pair traverses lattice
+points on a fixed line of rational slope m/m′. A shift correlation
+Σ_a μ(a)μ(a+h) is the same object on a line of **slope 1**. So
+
+> dilate problem = μμ correlations along lines of arbitrary rational
+> slope; shift problem = the slope-1 case.
+
+Item ① asks for a transform carrying the first to the second. Two
+things are now measured (`code/c3_transform_probe.py`).
+
+**(i) The obvious shift reading is an exact relabelling, not a
+transform.** Re-index by d = m′−m and fix (d,k): the shift h = dk is
+then *fixed* and a = N−mk runs over the progression a ≡ N (mod k), so
+the inner factor genuinely is a fixed-shift correlation
+Σ_{a≡N(k)} μ(a)μ(a−dk). But **the shift dk is a multiple of the
+modulus k**, and rescaling the progression sends μ(a)μ(a−dk) straight
+back to μ(N−mk)μ(N−(m−d)k). Verified numerically: the off-diagonal
+computed directly and via the (d,k) reading agree **exactly** (184.0
+vs 184.0, difference 0.000e+00). The shift reading exists and is
+circular.
+
+**(ii) The slope family is not tamer than the shift family.**
+Pre-registered: LEAD iff mean |T(m,m′)|/√K ≤ 0.6, CLOSED if the two
+families agree within 10%.
+
+| K | slope mean | shift mean | ratio |
+|---|---|---|---|
+| 10³ | 0.4561 | 0.4826 | 0.945 |
+| 3·10³ | 0.4714 | 0.4591 | 1.027 |
+
+**CLOSED.** Both sit at half-normal on their own support (0.46/√0.37 ≈
+0.76 against 0.798, the mask accounting of Conjecture L), and they
+agree with each other. The two families are the same difficulty; the
+difference between them is provability, not size.
+
+**What ① therefore requires.** Not a re-indexing (circular) and not a
+motivation from the slope family being tamer (it is not). It must be a
+genuine *analytic* transform — a summation formula whose dual variable
+supplies the shift average. The named candidates for that are exactly
+the ones already measured shut: the inverse-domain spectrum (C2,
+mask-exact under accurate nulls), manufactured modularity (C4, 0/6
+levels), and the dispersion/delta route (REVIEW_VERDICT #1–#2,
+structurally refuted). **So ① is open in principle and empty among the
+transform classes this program can name** — which is a weaker claim
+than "C-III is dead", and a stronger one than "C-III is open".
+
 ## Tally after both rounds
 
 | | count |

@@ -137,8 +137,11 @@ distinct ways:
 **Combined with Round 1** (no internal lever: orbit, congruence,
 moments, N-descent all exactly flat), the forge had by increment 180
 measured, in every direction that has an existing mathematical name,
-that the dilate field offers **no coupling surface**: nothing internal
-to exploit, nothing external that can see it.
+that the dilate field offers **no coupling surface among the sources
+it examined**: nothing internal to exploit, nothing external that can
+see it. (Increment 200 re-audit: this stands for the forge's own
+designs; the separate C-III route was re-opened, since two of its four
+refutations were measured against the misstated target.)
 
 ## Round 3 — the divisor-switch asset (opened at increment 194)
 
