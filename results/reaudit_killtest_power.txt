@@ -1,0 +1,60 @@
+mu ready  t=1s
+field ready  t=1s
+
+(P1) K2's own rule at reduced N = 19999998, no injection
+    h     n      mean      sd      zm      m2    zdev    rho1  flag
+    1   233   -0.0016  0.9576   -0.03   0.917   +0.00  -0.062  
+    2   233   +0.0322  1.0079   +0.49   1.017   +0.79    +nan  
+    4   349   -0.0087  1.0157   -0.16   1.032   +1.00  +0.059  
+    6   233   -0.0599  0.9205   -0.99   0.851   -0.56    +nan  
+    8   350   +0.0225  1.0583   +0.40   1.120   +1.67  +0.107  
+   16   350   -0.0046  1.0128   -0.08   1.026   +0.99  -0.092  
+   30   234   +0.0189  0.9555   +0.30   0.913   -0.03    +nan  
+   32   350   -0.0687  0.9155   -1.40   0.843   -0.72  -0.038  
+   64   351   -0.0980  1.0177   -1.80   1.045   +1.15  +0.109  
+  210   234   +0.0544  1.0362   +0.80   1.077   +1.33    +nan  
+
+    (P1) reduced replication returns DEAD: PASS  (0 flags)
+
+(P2) the smallest coherent shift K2 can see, by injection
+    h      sd     n     floor      4se-mean  measured d*   ratio
+    1  0.9576   233   0.25093       0.25257      0.25257   1.000
+    2  1.0079   233   0.26413       0.23194      0.23194   1.000
+    4  1.0157   349   0.21748       0.22622      0.22622   1.000
+    6  0.9205   233   0.24120       0.30114      0.30114   1.000
+    8  1.0583   350   0.22626       0.20375      0.20375   1.000
+   16  1.0128   350   0.21655       0.22110      0.22110   1.000
+   30  0.9555   234   0.24985       0.23098      0.23098   1.000
+   32  0.9155   350   0.19575       0.26449      0.26449   1.000
+   64  1.0177   351   0.21728       0.31528      0.31528   1.000
+  210  1.0362   234   0.27095       0.21653      0.21653   1.000
+
+    (P2) measured d* matches 4*se − mean to 2%: PASS
+         (the POWER is 4*sd/sqrt(n), the 'floor' column;
+          d*'s offset from it is this realisation's own
+          mean, not a property of the test)
+
+(P3) at twice the floor, every h must flag
+    h=   1  injected +0.5051  zm=+8.03  FLAGS (good)
+    h=   2  injected +0.4639  zm=+7.51  FLAGS (good)
+    h=   4  injected +0.4524  zm=+8.16  FLAGS (good)
+    h=   6  injected +0.6023  zm=+8.99  FLAGS (good)
+    h=   8  injected +0.4075  zm=+7.60  FLAGS (good)
+    h=  16  injected +0.4422  zm=+8.08  FLAGS (good)
+    h=  30  injected +0.4620  zm=+7.70  FLAGS (good)
+    h=  32  injected +0.5290  zm=+9.40  FLAGS (good)
+    h=  64  injected +0.6306  zm=+9.80  FLAGS (good)
+    h= 210  injected +0.4331  zm=+7.20  FLAGS (good)
+
+    (P3) the test can return ALIVE: PASS
+
+    detection floor = 4/sqrt(n), in units of the field's own sd
+      this reduced run, n = 291 viable k:  0.2378
+      the original, n <= 600 consecutive k:      >= 0.1633
+    The support cut `sup > 100` bites harder at reduced N,
+    so this run has fewer viable k and a HIGHER floor. The
+    original's floor is the better number and it is still
+    0.163 sd -- a coherent mean shift below that was
+    invisible to K2, and no run ever said so.
+    K2's DEAD verdict is real and now has a number attached: it excludes coherent structure above 0.238 sd and says nothing below that. The test can return ALIVE, shown rather than asserted
+DONE

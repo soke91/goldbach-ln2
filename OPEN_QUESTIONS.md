@@ -71,6 +71,34 @@ any of them is wrong.
 | **Forge K1, R2, R2b, R4, R4b** | existence of structure | **no null the classifier can see.** R4b's own header shows why: its reference is a `B = 1` baseline ratio, not a resampling — and it re-ran itself for power after a `+3.7σ` band in this program's history regressed to noise | ⚠️ **Read individually.** "No null detected" is a limit of the classifier, not a verdict |
 
 > ⚠️ **This row previously read**: "Forge K1–K4, R1–R4; Construction C1, C2, C4 — all measured no signal against **permutation nulls**, which hazard 7 invalidates." That was written without opening the files and is **false for twelve of thirteen** (#134): exactly one contains a permutation null, four already contain the coin control hazard 7 asks for, and five contain no resampling at all. `code/audit_killtest_nulls.py` classifies them mechanically.
+
+### ⚠️ Every DEAD verdict has a floor, and none of them stated it
+
+Increment 311 measured one, for K2 (`code/reaudit_killtest_power.py`).
+The test flags at `|mean|/(sd/√n) ≥ 4` over `n ≤ 600` consecutive `k`,
+so its **detection floor is `4/√n ≈ 0.163` standard deviations** of the
+field. Shown, not assumed: at twice the floor every one of ten `h`
+values flags (`z` from `+7.2` to `+9.8`), so the test **can** return
+ALIVE; unmodified it returns DEAD at reduced `N` exactly as the
+original did.
+
+**That changes what every kill-test-based closure says.** "DEAD"
+was read throughout this program as *no structure*. It means *no
+coherent structure above the floor*, and the floor was never quoted.
+The two are different statements, and the difference matters exactly
+when a design needs a **small** gain — which is the usual case, since
+these designs are trying to beat a Cauchy–Schwarz cost of a factor `d`.
+
+| What is now required of every kill-test-based closure | Status |
+|---|---|
+| its floor measured, in units of the field's own sd | K2 done (`0.163`); twelve others not |
+| its ALIVE branch demonstrated, not asserted | K2 done; twelve others not |
+| **the design's own requirement stated in the same units** — how large a gain would make it ALIVE? | **none done.** Without this the floor cannot be judged sufficient |
+
+The third row is the one that decides whether these closures stand.
+A floor of `0.163` sd is either comfortably below what the design needs
+(closure stands, now quantitatively) or above it (closure is empty).
+Nothing in the record answers that for any design.
 | C-III #2, #3; RV #1, #2; Adjudication 1, 2, 3, 5 | structural — violated premises, absent congruences, illegitimate transforms | none | ✅ Structural closures do not move with a measurement |
 
 **The pattern.** Every closure at risk is a **magnitude, normalisation
