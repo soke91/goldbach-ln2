@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 234 (2026-08-06). 4 days, 31 recorded corrections,
+*Increment 235 (2026-08-06). 4 days, 31 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth".*
 
 **What is trusted, and what is not: `DEPENDENCY_AUDIT.md`.** The
@@ -203,9 +203,10 @@ slope 1 — remains unexamined because nobody knows how to build it.
   the first transform here with positive margin (Props. P.1–P.4), with
   TRANSFORM_LAB.md as the notebook it came out of.
 - **Where our results sit in the record**: LITERATURE.md — provisional
-  placement, and the highest-value open item in the program (whether
-  Lichtman's level-3/5 weight class for μ already covers what the chain
-  consumes).
+  placement, and the resolution (negative) of whether current
+  large-moduli technology already covers what the chain consumes. It
+  does not: the object is a correlation Λ(n)μ(N−n), not a single
+  function, and the well-factorable machinery has no entry point.
 - **The open problem**: CONJECTURE_L.md (amplitude half), with
   AMPLITUDE_ADJUDICATION.md and TECHNIQUE_FORGE.md for why each route
   fails, and C3_REVIEW.md for the one that is open.

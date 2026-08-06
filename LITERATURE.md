@@ -51,9 +51,62 @@ Caveats, stated so the question is not overclaimed:
 - `log k` is not obviously well-factorable in any of the senses used;
   the honest state is that nobody here has checked.
 
-**This is now the highest-value open item in the program** — higher than
-anything in TRANSFORM_LAB, because it asks whether an existing theorem
+**This was the highest-value open item in the program** — higher than
+anything in TRANSFORM_LAB, because it asked whether an existing theorem
 already covers the gap rather than asking us to invent one.
+
+### Resolved, negatively (increment 235)
+
+Three independent reasons, any one of which settles it.
+
+**1. Object mismatch, and it is decisive.** Well-factorable results —
+Lichtman II (arXiv:2006.07088) is for **primes**, level `x^{3/5−ε}`,
+extending Bombieri–Friedlander–Iwaniec's `x^{4/7−ε}` — are distribution
+statements for a *single* arithmetic function `f(n)` in progressions.
+Huang–Li's `EH_μ` is a distribution statement for
+
+> `f(n) = Λ(n)·μ(N−n)`,
+
+a **correlation**, whose second factor's argument is the additive shift
+`N−n`. The machinery behind every well-factorable result
+(Vaughan/Heath-Brown decomposition → Type I/II sums → Kloosterman sums →
+the Deshouillers–Iwaniec spectral large sieve) requires convolution
+structure **in n**. `Λ(n)μ(N−n)` has multiplicative structure in two
+variables tied by an additive constraint — this program's "two
+couplings" — and the machinery has no entry point. Whether the weight is
+triply well-factorable is not reached; the question is upstream of it.
+
+**2. Raising the level does not help, and our own Theorem D′ already
+priced this in.** For `Λ` of level `θ_E` the loss factor is
+`exp(c₁√((1−θ_E)log N))`. At `θ_E = 1/2` that is `exp(c₁√(0.5 log N))`;
+at Lichtman's `3/5` it is `exp(c₁√(0.4 log N))`. Both exceed every power
+of `log N`. Only `θ_E = 1` exactly would close the gap, and there each
+progression holds `O(1)` terms and the statement is vacuous. **A better
+level was never the missing ingredient.**
+
+**3. The author's own conclusion, as a sanity check.** Lichtman's
+Goldbach application gives **upper bounds** — "the greatest improvement
+on the problem since Bombieri–Davenport from 1966", and
+Bombieri–Davenport 1966 is an upper-bound constant. If the method
+reached `EH_μ` it would give the *asymptotic*, which by our Theorem C is
+equivalent to binary Goldbach for large even N. He does not claim that,
+and the claim would not be modest. The method demonstrably does not
+reach the object.
+
+**Nothing is salvageable elsewhere either.** Transform P's demand is the
+same object type (μ against Λ across an additive constraint). Theorem A
+already covers every `θ′ > 1/2`; a level of `3/5` would extend it to
+`θ′ > 2/5`, which is more than the chain needs and therefore no gain.
+
+**One thing is gained, and it is not small.** The reason the
+state-of-the-art technology cannot touch this is *exactly* the
+obstruction this program identified independently and calls the two
+couplings. That is external corroboration of the negative map, arrived
+at from the other direction — and it is the first such corroboration the
+campaign has had.
+
+*Cost of resolving it: eight searches and three fetches. Cost of not
+checking: months.*
 
 ## Provisional placement of our results
 
