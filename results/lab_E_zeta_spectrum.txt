@@ -1,0 +1,55 @@
+sieve + 2 convolutions  t=14s
+
+TEST 1+2: E(N)/sqrt(N)  -- expected to show the lines
+    log-N span 5.075, resolution 1.238
+     gamma       |F|  local med  local p99    /p99  above?
+   14.1347    0.3681     0.0919     0.2928    1.26     YES
+   21.0220    0.3804     0.0423     0.1334    2.85     YES
+   25.0109    0.2508     0.0353     0.1354    1.85     YES
+   30.4249    0.1825     0.0368     0.2171    0.84      no
+   32.9351    0.1684     0.0614     0.2179    0.77      no
+   37.5862    0.1407     0.0614     0.1119    1.26     YES
+   40.9187    0.1419     0.0644     0.1033    1.37     YES
+   43.3271    0.2256     0.0568     0.0815    2.77     YES
+   48.0052    0.1086     0.0585     0.0776    1.40     YES
+   49.7738    0.1160     0.0671     0.1384    0.84      no
+    7 of 10 above their LOCAL 99th percentile
+
+TEST 3a: S(N)C(N)/sqrt(N) -- NOT a valid control
+    log-N span 5.075, resolution 1.238
+     gamma       |F|  local med  local p99    /p99  above?
+   14.1347    0.2660     0.0675     0.2007    1.33     YES
+   21.0220    0.2530     0.0438     0.0722    3.50     YES
+   25.0109    0.1403     0.0295     0.0693    2.02     YES
+   30.4249    0.0943     0.0338     0.1259    0.75      no
+   32.9351    0.0792     0.0258     0.1254    0.63      no
+   37.5862    0.0840     0.0330     0.0774    1.08     YES
+   40.9187    0.0475     0.0463     0.0773    0.61      no
+   43.3271    0.1242     0.0412     0.0536    2.32     YES
+   48.0052    0.0462     0.0425     0.0492    0.94      no
+   49.7738    0.0506     0.0435     0.0506    1.00      no
+    5 of 10 above their LOCAL 99th percentile
+
+TEST 3b: E permuted across N -- the valid control: same values, phase alignment destroyed
+    log-N span 5.075, resolution 1.238
+     gamma       |F|  local med  local p99    /p99  above?
+   14.1347    0.0185     0.0222     0.0433    0.43      no
+   21.0220    0.0179     0.0448     0.0551    0.32      no
+   25.0109    0.0208     0.0242     0.0549    0.38      no
+   30.4249    0.0107     0.0235     0.0475    0.23      no
+   32.9351    0.0421     0.0270     0.0475    0.89      no
+   37.5862    0.0110     0.0247     0.0475    0.23      no
+   40.9187    0.0213     0.0214     0.0248    0.86      no
+   43.3271    0.0200     0.0189     0.0255    0.78      no
+   48.0052    0.0238     0.0071     0.0254    0.94      no
+   49.7738    0.0101     0.0159     0.0257    0.39      no
+    0 of 10 above their LOCAL 99th percentile
+
+verdict
+    pre-registered: at least 5 of 10 ordinates above the
+    99th percentile.  E: 7/10   3a: 5/10   surrogate 3b: 0/10
+    the explicit-formula reading SURVIVES: the lines sit at the ordinates and vanish when the log-N phase alignment is destroyed
+    3a is not an artefact either: C(N) contains Lambda,
+    so it legitimately carries the same zeros. It was a
+    bad control, not a bad result.
+DONE

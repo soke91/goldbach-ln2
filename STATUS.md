@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 292 (2026-08-07). 5 days, 90 recorded corrections,
+*Increment 293 (2026-08-07). 5 days, 92 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -239,6 +239,15 @@ count's deviation from $\mathfrak S(N)N$ is carried by the classical error,
 not by the wall — **the ln 2 comet corpus and the final-boss scalar are
 not the same object**, a hypothesis raised and refuted here, and now
 refuted by a cleaner mechanism than the exponent comparison §9 used.
+**And $E$ really is the zeta-zero error, by location and not by size**
+(inc. 293). If $E(N)\approx-2\sum_\rho N^\rho/\rho$ then $E(N)/\sqrt N$
+carries $e^{i\gamma\log N}$ for every zero, so its spectrum in $\log N$ must
+have lines at the ordinates. Binned on a uniform $\log N$ grid and tested
+against a **local** null: **7 of 10** of the first ordinates clear their
+local 99th percentile ($\gamma_2$ at $2.85\times$), while a phase-randomised
+surrogate gives **0 of 10**. First detection of the zeta zeros anywhere
+in this program's data (#91, #92).
+
 Sizes, with the log powers solved for rather than left inside an
 effective exponent: $|E|\sim\sqrt N(\log N)^{1.51}$,
 $|\mathfrak S C|\sim\sqrt N(\log N)^{0.20}$.
