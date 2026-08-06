@@ -167,30 +167,25 @@ requirement: `10^{4.4}` at `N = 10¹²`, **`10^{22.8}` at `10⁵⁰`**. The
 requirement is not remotely tight; the whole difficulty is in *proving*
 `o(N)`.
 
-**5. The fluctuation is Gaussian in distribution but not phase-random
-in `log N`** (increments 294–295). `C(N)` de-masked and `√V`-standardised
-carries the **zeta ordinates**: a permutation test against 200
-phase-randomised surrogates gives `z = +13.9`, with `M(N)/√N` — a known
-zero sum — as positive control at `z = +15.8`. Regressing on
-`cos(γ log N), sin(γ log N)` for the first ten ordinates:
+**5. The spectral lines in `C(N)` are `Λ`'s, not the wall's**
+(increments 294–295, corrected at 302). `C(N)` de-masked and
+`√V`-standardised does carry the zeta ordinates — regressing on
+`cos(γ log N), sin(γ log N)` for the first ten gives
+`R² = 3.896·10⁻³` — but replacing `μ` by a random `±1` on the same
+support, through the same `Λ` and the identical pipeline, gives a coin
+mean of **`2.99·10⁻³`** with **6 of 20 draws at or above the real
+value**. The ratio is `1.30×`, not the `1566×` reported against a
+*permutation* null.
 
-> **`R² = 3.896·10⁻³`** (0.39% of the variance) against a surrogate mean
-> of `2.49·10⁻⁶` and a 200-surrogate maximum of `5.09·10⁻⁶` — **1566×
-> chance**, and every ordinate individually at `z ≥ 23.4` (`γ₁` at 209.5).
+⚠️ **A permutation surrogate destroys every structure at once**, so it
+answers "is there structure" and not "which ingredient". `C = μ * Λ`
+and `Λ` carries the zeros by the explicit formula; the lines are its,
+and nothing here is a property of `μ` or of the wall. The sentence
+"not phase-random in `log N`" remains literally true of `C(N)` and is
+**empty** — it restates that `Λ` is in the convolution.
 
-⚠️ **This does not overturn point 2.** Gaussian *in distribution* and
-phase-random *in `log N`* are different statements, and a small
-oscillatory component leaves kurtosis untouched — which is why 283's
-`−0.0005` and this coexist. Conjecture L's "no class structure" is a
-claim about the distribution; the spectrum is a second axis, and on it
-the wall is **not** structureless.
-
-⚠️ **0.39% is a floor, not the share.** The zeros do not stop at the
-tenth; ten ordinates capture part of the zero-driven component and the
-true fraction is larger by an amount not estimated here. Quoting it as
-*the* share would be reading a truncated sum as a total. What is
-settled is that the component is **real and subdominant**: the law needs
-a spectral term **named**, not a new leading behaviour.
+So point 2 stands unqualified: on every axis tested, `μ` behaves like a
+coin. History in CLOSURE_REAUDIT.md #94, #96, #110.
 
 **And the wall is not the Mertens function** (increment 294), though
 `Λ`'s mean of 1 suggests `C(N) ≈ Σ_v μ(v) = M(N)` and the exponents

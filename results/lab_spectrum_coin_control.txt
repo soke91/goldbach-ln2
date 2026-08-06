@@ -1,0 +1,24 @@
+sieve + V  t=11s
+real R^2 = 3.896370e-03   t=21s
+  coin 5/20  R^2 = 8.935e-04  t=45s
+  coin 10/20  R^2 = 2.772e-03  t=70s
+  coin 15/20  R^2 = 2.505e-03  t=93s
+  coin 20/20  R^2 = 4.713e-03  t=118s
+
+R^2 on the first ten ordinates, identical pipeline
+    real mu              3.896370e-03
+    coin mean            2.993817e-03
+    coin max of 20       5.514821e-03
+    coin min             8.934640e-04
+    real / coin mean     1.30x
+    coin draws at or above the real value: 6/20
+
+    pre-registered: real above every coin draw  ->  FAIL
+    the lines are Lambda's, not the wall's -- #94 and #96 describe the von Mangoldt function
+
+    Note on what this cannot say: it separates mu from
+    Lambda, not the wall from the explicit formula. Even
+    if mu is needed, the zeros still enter through Lambda;
+    what would be established is that the mu-Lambda
+    correlation is what makes them add coherently.
+DONE

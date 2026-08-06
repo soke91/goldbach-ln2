@@ -1,8 +1,8 @@
 # STATUS — single-page state of the program
 
-*Increment 301 (2026-08-07). 5 days, 109 recorded corrections,
+*Increment 302 (2026-08-07). 5 days, 111 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
-6 named hazards.*
+7 named hazards.*
 
 **What is trusted, and what is not: `DEPENDENCY_AUDIT.md`.** The
 theorems proved here do not rest on Huang–Li; the strategic frame does.
@@ -271,18 +271,19 @@ in this program's data (#91, #92). Recalibrated at increment 294 by a
 estimated from a window holding only ~6.5 independent frequencies — and
 it survives: $E/\sqrt N$ gives $z=+12.4$, $p\le0.005$ (#95).
 
-**The wall carries them too** (inc. 294). $C(N)$ de-masked and
-$\sqrt V$-standardised scores $z=+13.9$ against the permutation null, with
-$M(N)/\sqrt N$ — a known zero sum — as positive control at $z=+15.8$. So
-the wall's fluctuation is **Gaussian in distribution but not phase-random
-in $\log N$**: those are different statements and only the first had ever
-been tested (#94). **Its size** (inc. 295): regressing on the first ten
-ordinates gives $R^2 = 3.9\cdot10^{-3}$, i.e. **0.39% of the variance**,
-against a 200-surrogate maximum of $5.1\cdot10^{-6}$ — 1566$\times$ chance, every
-ordinate at $z\ge23$. ⚠️ That is a **floor**, not the share: the zeros do
-not stop at the tenth. The component is real and **subdominant**, so the
-Gaussian half survives with a spectral term named, not replaced (#96). And the wall is **not** the Mertens function —
-$\mathrm{corr}(C,M)\approx0.06$, flat, despite exponents agreeing to 0.013 (#93).
+**But the lines in the wall are $\Lambda$'s, not the wall's** (inc. 302).
+$C(N)$ does carry the ordinates — but replacing $\mu$ by a random $\pm1$ on
+the same support, through the same $\Lambda$ and the identical pipeline, gives a
+coin mean of $2.99\cdot10^{-3}$ against the real $3.90\cdot10^{-3}$, with **6 of
+20 coin draws at or above it**. The ratio is $1.30\times$, not the $1566\times$
+reported against a *permutation* null. $C=\mu*\Lambda$ and $\Lambda$ carries the
+zeros by the explicit formula, so this was never evidence about $\mu$ (#110).
+**Hazard 7, which is behind this and #106 both: a null that destroys
+everything identifies nothing.** When the object is built from several
+arithmetic inputs, the null must vary exactly one and leave the rest
+byte-identical (#111). ✅ What survives across both controls: **every claim
+that $\mu$ behaves like a coin stands; every claim that $\mu$ is special has
+fallen.**
 
 Sizes, with the log powers solved for rather than left inside an
 effective exponent: $|E|\sim\sqrt N(\log N)^{1.51}$,
