@@ -1,7 +1,7 @@
 # STATUS — single-page state of the program
 
-*Last updated: increment 199 (2026-08-06). 4 days, 31 recorded
-corrections, 18 recorded closures (1 void, 4 under re-audit), 15 documented "teeth".*
+*Last updated: increment 200 (2026-08-06). 4 days, 31 recorded
+corrections, 18 recorded closures (2 void, 1 downgraded, 2 moot, 13 standing), 15 documented "teeth".*
 
 **Consolidated working paper: `paper/negative_map.tex`** — the whole
 campaign in one document (the two couplings, Theorem A and the
@@ -93,8 +93,8 @@ and $E_4(\alpha)$, distinguished only by the weight $w_k$.
   they are blocked structurally, at named-lemma level, not on margin —
   but several **other** closures were budget calls and had to be
   re-audited; see the next item. (An earlier version of this line said
-  "no route verdict changes", full stop. That was too quick, and the
-  re-audit found one void closure and four in question.)
+  "no route verdict changes", full stop. That was too quick — the
+  re-audit voided two closures, downgraded one and mooted two.)
 - **The amplitude half is what the chain needs, and it is unreachable.**
   A fresh-context adjudication (AMPLITUDE_ADJUDICATION.md) found all
   five candidate routes blocked at named-lemma level; the common
@@ -127,13 +127,29 @@ and $E_4(\alpha)$, distinguished only by the weight $w_k$.
   **One is void**: C-III's kill coordinate #1 explicitly assumed "E1
   demands |D(k)|² ≈ M_k", the square-root scale; the tree's own output
   $\sum|D|^2 \ll (N^2/K)(\log)^{-2C}$ is exactly the corrected target's
-  form. **Four are in question** (REVIEW_VERDICT #4, #5, #6 and
-  C-III #4's arithmetic half) — their budgets must be redone.
+  form. **Four were opened for re-audit** (REVIEW_VERDICT #4, #5, #6
+  and C-III #4's arithmetic half) and round 2 settled all four.
   **The rest stand**, being structural: violated lemma premises,
   absent congruences, and kill-tests that measured *no* signal rather
-  than *insufficient* signal. Net: C-III moves from "dead even with a
-  free Lemma S" back to "an open route needing a correct construction"
-  (its coordinates #2 and #3 remain fatal to the draft as written).
+  than *insufficient* signal.
+  **Round 2 (increment 200) settled the four**: C-III #4's arithmetic
+  half is also **void** (its own premise is "no-margin arithmetic");
+  **RV #6 is downgraded, not fatal** — the chain consumes the *signed*
+  sum, L² enters only via Cauchy–Schwarz at a measured price of ≍ √K
+  (58×, 45×), so L² is sufficient but strictly stronger than needed;
+  **RV #4 and #5 are moot**, since #1 and #2 kill their program
+  structurally. Net: **C-III is re-opened as a route** (its #2 and #3
+  remain fatal to the draft as written) and what it needs is now
+  stated exactly — a legitimate transform, a complete classification,
+  and quantitative averaged Chowla at fixed log-power strength. The
+  character of the obstruction changes with it: the **dilate** average
+  admits no diagonalizing character family, but the **shift** average
+  is MRT's home ground, and C-III's value is that it moves the
+  difficulty from the first to the second.
+  **Strategic corollary**: Cauchy–Schwarz discards the sign structure
+  of $b_k$, the structure whose power R4 exhibited (for $b_k\equiv1$
+  the unrestricted sum is exactly $\mu(N-1)$) — the program has been
+  aiming at something strictly harder than its own target.
 
 ### 3. The refuted proof-program, retained as a record
 

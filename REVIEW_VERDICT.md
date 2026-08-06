@@ -4,11 +4,23 @@
 > the square-root scale when the chain consumes it at the trivial
 > scale — a factor N/K ≥ N^{2/3}. Items below that were decided on a
 > **magnitude or norm** basis were therefore measured with the wrong
-> ruler and are now **open re-audit items**: **#4** (the "excess
-> K^{2/3}"), **#5** (conductor inflation — first half), and **#6**
-> (the L²-versus-signed-L¹ mismatch, which is the same error class as
-> #30 itself). They are neither reinstated nor void; their budgets
-> must be redone against Σ M_k².
+> ruler. Round 2 of the re-audit (increment 200) settles them:
+>
+> - **#6 — downgraded, not fatal.** The chain's consumable is the
+>   *signed* sum Σ_k b_k D(k); the L² statement enters only through
+>   Cauchy–Schwarz, so L² is **sufficient** and strictly stronger than
+>   needed — the implication runs the safe way. Measured price of that
+>   step: a factor ≍ √K (58×, 45× at K = 10³, 3·10³;
+>   `code/norm_audit.py`), which the margin absorbs. **Corollary worth
+>   more than the verdict**: Cauchy–Schwarz discards exactly the sign
+>   structure of b_k — the structure whose power R4 exhibited (for
+>   b_k ≡ 1 the *unrestricted* sum is exactly μ(N−1)). The program has
+>   been aiming at something strictly harder than its own target.
+> - **#4, #5 — moot.** Their budgets are probably void by the same
+>   arithmetic (at K = N^{1/3}, K^{2/3} = N^{2/9}, far inside a slack
+>   of N^{2/3}), but it is immaterial: they belong to a proof program
+>   that **#1 and #2 kill structurally**, and those are untouched by
+>   any target. Re-opening #4 and #5 revives nothing.
 >
 > Items **#1, #2, #3 stand** — they are structural (a violated lemma
 > premise, an absent pair congruence, an over-strong normalization),

@@ -1,0 +1,16 @@
+N = 99999998, log N = 18.421
+
+      K    #k  L2=(S|D|^2)^.5     S1(b=1)     CS(b=1)    loss   S1(b=log)   CS(b=log)    loss   S1(1)/N
+   1000   300          2661.3       795.0     46095.4    58.0      5697.5    324725.1    57.0  7.95e-06
+   3000   300          1423.4       550.0     24653.8    44.8      4439.8    198578.4    44.7  5.50e-06
+   6000   300           773.8        14.0     13402.9   957.3       122.5    116927.4   954.3  1.40e-07
+
+Reading:
+  The signed sums are far smaller than the Cauchy-Schwarz
+  bounds built from the same data: the step that converts the
+  chain's real consumable (signed L1) into the L2 statement
+  costs a factor of that size. L2 therefore SUFFICES but is
+  strictly stronger than the chain needs -- RV #6's mismatch
+  is real as an observation and NOT fatal as an objection,
+  since the implication runs the safe way (L2 => signed L1).
+DONE

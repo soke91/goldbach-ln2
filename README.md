@@ -63,8 +63,8 @@ belief) that produced the negative results.
 program discovered that it had been carrying its own target written at
 the wrong scale (square-root where the chain consumes at trivial — a
 factor N/K ≥ N^{2/3}), so every closure decided on a magnitude or
-budget basis was re-examined. **One is void, four are in question, the
-rest stand.** The negative map is smaller than it was, and the part
+budget basis was re-examined. **Two are void, one downgraded, two moot, the rest stand**, and C-III
+is re-opened as a route. The negative map is smaller than it was, and the part
 that shrank is exactly the part measured with the wrong ruler.
 
 **One unconditional result (survived review).** The demand side of the

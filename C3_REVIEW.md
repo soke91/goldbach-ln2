@@ -10,11 +10,32 @@
 > N/K ≥ x^{2/3}" measured the distance to a scale the chain does not
 > require.
 >
+> **Kill coordinate #4 is also void in its arithmetic half** (round 2,
+> increment 200). Its own words are "**No-margin** arithmetic:
+> pointwise consumption loses by N_n^{1/2} ≥ x^{1/3}" — and the
+> no-margin premise is the misstated target; against a slack of
+> N/K ≥ N^{2/3} a loss of x^{1/3} is affordable. Its structural half
+> softens too: "absolute-value summation reaches at best trivial scale"
+> is no longer fatal, because the corrected target sits exactly one
+> log-power below trivial. What survives of #4 is its last clause —
+> all saving must come from shift-averaged binary μμ correlations at
+> log-power strength, which is a **named open problem**, not an
+> impossibility.
+>
 > **Consequence**: the headline claim "two of which stand even if
-> Lemma S is granted for free" is **withdrawn** — those two were #1
-> (void) and #4 (arithmetic half in question). Coordinates #2 and #3
+> Lemma S is granted for free" is **withdrawn in full** — those two
+> were #1 (void) and #4 (void/downgraded). Coordinates #2 and #3
 > stand and remain fatal *to the draft as written*, so C-III is still
-> refuted as drafted, but it is no longer closed on budget grounds.
+> refuted as drafted, but **the route is re-opened**. What it needs is
+> now stated exactly in CLOSURE_REAUDIT.md: a legitimate transform, a
+> complete classification, and quantitative averaged Chowla at fixed
+> log-power strength.
+>
+> Note the character change: the adjudication's central finding was
+> that the **dilate** average admits no diagonalizing character family,
+> while the **shift** average is MRT's home ground. C-III's value, if
+> a legitimate transform exists, is that it moves the difficulty from
+> the first to the second.
 
 # C-III Adversarial Review Verdict (increment 188) — the tree is refuted
 

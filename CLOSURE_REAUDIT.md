@@ -118,16 +118,118 @@ comparing a stated target against our own measurements of the same
 quantity. That comparison is now mandatory before any target is used
 to adjudicate anything.
 
-## What must be re-derived (not adjudicated here)
+## Round 2 (increment 200): the four open items, settled
 
-RV #4, #5, #6 and C-III #4's arithmetic half cannot be settled from
-the verdict texts alone: they quote powers (K^{2/3}, conductor
-inflation, an L²-vs-L¹ mismatch) whose derivations live in documents
-that themselves used the printed target. Each needs its budget redone
-against Σ M_k². They are recorded here as **open re-audit items**, not
-as reinstated or as void.
+### RV #6 — which norm the chain consumes: **downgraded, not fatal**
 
-Honest summary: **one closure void, four in question, the rest stand.**
-The negative map is smaller than it was this morning, and the part of
-it that shrank is precisely the part that had been measured with the
-wrong ruler.
+RV #6 objected that "the tex's Theorem E1 (L²) does not match the
+pipeline (signed L¹)". Settled from scratch, since it is a
+norm/currency call and that is the very class of error #30 was.
+
+The chain's actual consumable is the **signed** sum
+T_II = Σ_{k∼K} b_k D(k) ≪ N(log N)^{−A}, with b_k the specific
+arithmetic weight the Vaughan decomposition produces (1, log k, …),
+not an arbitrary bounded sequence. The L² statement enters **only**
+through Cauchy–Schwarz, |T_II| ≤ ‖b‖₂(Σ|D|²)^{1/2} — a proof strategy
+we chose, not a requirement. So L² is *sufficient* (the implication
+runs the safe way) and *strictly stronger than needed*.
+
+Measured price of that step (`code/norm_audit.py`, N = 10⁸):
+
+| K | 10³ | 3·10³ | 6·10³ |
+|---|---|---|---|
+| (Σ\|D\|²)^{1/2} | 2661 | 1423 | 774 |
+| \|Σ_k D(k)\| | 795 | 550 | 14 |
+| ‖1‖₂·(Σ\|D\|²)^{1/2} | 46095 | 24654 | 13403 |
+| **Cauchy–Schwarz loss** | **58×** | **45×** | 957× |
+
+The loss is ≍ √K, as it must be for a sign-random field (√1000 = 32,
+√6000 = 77; the 957 is one band where the signed sum happened to land
+near zero). Both norms are cleared by nature with room — the signed
+sums sit 5–7 orders below N — so the √K loss is affordable.
+
+**Verdict: the mismatch is real as an observation and not fatal as an
+objection.** Downgraded from "refuted (major)". The strategic
+corollary matters more than the verdict: **the chain needs only the
+signed L¹ bound, and Cauchy–Schwarz discards exactly the sign
+structure of b_k** — the structure whose power R4 already exhibited
+(for b_k ≡ 1 the *unrestricted* sum is exactly μ(N−1)). The program
+has been aiming at something strictly harder than its own target.
+
+### C-III #4 arithmetic half — **void**
+
+The verdict's own words are "**No-margin** arithmetic: pointwise
+consumption loses by N_n^{1/2} ≥ x^{1/3−O(1/J)}". The no-margin
+premise is the misstated target. Against the corrected slack N/K ≥
+N^{2/3}, a loss of x^{1/3} is affordable, with N^{1/3} to spare.
+
+The structural half also softens. "The object is typically exactly
+√-sized, so absolute-value summation reaches at best trivial scale" is
+no longer a death sentence: **the corrected target is exactly one
+log-power below trivial**, so reaching trivial scale leaves a gap in
+the currency rather than a gap in the exponent. What remains is the
+verdict's own last clause — all saving must come from u′-family sign
+cancellation, which expands into **shift-averaged binary μμ
+correlations at log-power strength**.
+
+**Verdict: arithmetic half void; structural half downgraded from
+"fatal" to "reduces C-III to a named open problem".**
+
+### RV #4 and #5 — **moot**
+
+Their budgets (the "excess K^{2/3}", the conductor inflation) were
+computed against the printed target and are probably void by the same
+arithmetic — at K = N^{1/3}, K^{2/3} = N^{2/9}, far inside a slack of
+N^{2/3}. But re-deriving them would be archaeology without payoff:
+they belong to the proof program that RV **#1 and #2 kill
+structurally** (a violated Q-slot premise; an absent pair congruence),
+and those two are untouched by any target. Re-opening #4 and #5
+revives nothing.
+
+**Verdict: budget arithmetic likely void, immaterial.**
+
+## Where this leaves C-III
+
+All four kill coordinates re-audited: **#1 void, #4 void/downgraded,
+#2 and #3 fatal to the draft as written but not to the route.** The
+headline "the tree dies even with a free Lemma S" is withdrawn in
+full.
+
+What C-III now needs, stated exactly:
+
+1. a **legitimate transform** in place of the draft's hybrid object
+   (coordinate #3 stands: Kloosterman factors, √-phase, 1/c weights
+   and a c-range are not simultaneously the output of truncated
+   Voronoi or of the delta method);
+2. a **complete classification** covering the type-II region the draft
+   's bookkeeping hid (coordinate #2);
+3. **quantitative averaged Chowla**: shift-averaged binary μμ
+   correlations with a *fixed log-power* saving. Best known is
+   (log)^{1−c} for a small fixed c.
+
+Item 3 is worth stating plainly because it changes the character of
+the obstruction. The adjudication's central finding was that the
+**dilate** average admits no diagonalizing character family, whereas
+the **shift** average is precisely MRT's home ground (translation,
+Fejér kernel). If a legitimate transform converting the one into the
+other exists, the remaining gap is *quantitative strength inside an
+active area*, not the absence of any coupling surface. That is a
+different kind of open problem from the one this program had recorded.
+
+**None of this is progress toward Goldbach.** It is the withdrawal of
+over-claimed refutations. The route is open again and needs exactly
+the thing nobody can currently do.
+
+## Tally after both rounds
+
+| | count |
+|---|---|
+| void | 2 (C-III #1, C-III #4 arithmetic) |
+| downgraded, not fatal | 2 (RV #6, C-III #4 structural) |
+| moot (immaterial even if void) | 2 (RV #4, RV #5) |
+| standing | the rest |
+
+The negative map is smaller than it was, and everything that shrank
+had been measured with the wrong ruler. What survives is structural:
+violated premises, absent congruences, illegitimate transforms, and
+kill-tests that found *no* signal rather than *insufficient* signal.
