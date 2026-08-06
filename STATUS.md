@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 299 (2026-08-07). 5 days, 105 recorded corrections,
+*Increment 300 (2026-08-07). 5 days, 107 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -145,17 +145,21 @@ over $N \le 1.6\cdot10^7$, while the *raw* ratio falls 1.006 → 0.858:
 opposite directions, converging (gap 0.246 → 0.020). **The recorded
 downward trend was mask contamination and its sign was wrong.** So the
 wall does beat a coin ($\rho<1$) but by a margin that is **shrinking**,
-not growing. Whether $\rho\to1$ is **not** settled (#84, #85), but the
-**rate is** (inc. 297). Proposition W selects the model 288 could not:
-with $c(h)\approx\mathfrak S_2(h)N$ and $S(h)$ at the square-root floor,
-$\rho-1\asymp-b/\log N$ — M2 with its intercept fixed at 1 by Chowla, a
-**one-parameter** model. The pre-registered test **rejects** it (34% worse
-in RMS) because M2's free intercept is $a=1.039$, *above* 1 and walking
-down (1.174 → 1.039): the data have not reached the limit, so fixing it
-is premature rather than wrong. What survives is $b$, which refits as
-2.7297 → **2.6817**, a drift of 0.048 across the window — a measured
-coefficient, where $a$ moves 0.13 and is still going (#99). Cross-check: $\sqrt{\rho V}$ recomposes increment 281's
-independently fitted amplitude exponent to within $-0.0009$.
+not growing. ⚠️ **Withdrawn at increment 300.** The centred estimator behind every
+number in this paragraph is **biased**, and the bias accounts for the whole
+effect: replacing $\mu$ by a random $\pm1$ on the same support leaves $V$
+identical and every other step byte-identical, and the coin reproduces the
+real curve with $z$ between $-0.5$ and $+0.4$ in every band. **The centred
+estimator cannot tell $\mu$ from a coin.** Nearby $N$ share the same
+$\mu(v)\Lambda(N-v)$ terms, so the $C(N)$ are positively correlated across a
+band and subtracting the band mean removes real variance. Withdrawn with it:
+#84's direction, #99's $b=2.68$, and the quantitative half of #86.
+Proposition W's identity is algebra and is untouched; what is gone is every
+measurement that claimed to confront it. Under the estimator the coin does
+validate --- the uncentred $E[C^2]/V$, exactly 1 for a coin --- the real
+ratio runs $1.008$ down to $0.858$, the **opposite** direction, at $z=-4.2$
+in the top band. That is suggestive and not established: it needs its own
+null and its own increment (#106, #107).
 
 The consumable is the signed type-II sum $\sum_{k\sim K} b_k D(k) \ll
 N(\log N)^{-A}$; via Cauchy–Schwarz it suffices to prove

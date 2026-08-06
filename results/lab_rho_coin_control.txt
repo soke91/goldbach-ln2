@@ -1,0 +1,49 @@
+sieve + V  t=12s
+real mu computed  t=17s
+  coin 1/12  t=21s
+  coin 2/12  t=26s
+  coin 3/12  t=30s
+  coin 4/12  t=35s
+  coin 5/12  t=39s
+  coin 6/12  t=44s
+  coin 7/12  t=48s
+  coin 8/12  t=53s
+  coin 9/12  t=57s
+  coin 10/12  t=62s
+  coin 11/12  t=66s
+  coin 12/12  t=71s
+
+rho per octave band: real mu against 12 coin draws
+                 band         n  rho real  coin mean   coin sd         z  mask removes   2nd real   2nd coin
+   100000-     200000     50000   0.76029    0.76060   0.07078      -0.0       0.06173    1.00781    0.95583
+   200000-     400000    100000   0.78350    0.77988   0.03037       0.1       0.07065    0.95782    1.05296
+   400000-     800000    200000   0.80355    0.78668   0.04122       0.4       0.05683    0.92330    1.00468
+   800000-    1600000    400000   0.80684    0.79217   0.03914       0.4       0.04715    0.89060    0.92870
+  1600000-    3200000    800000   0.81834    0.81285   0.06154       0.1       0.02718    0.87409    0.93225
+  3200000-    6400000   1600000   0.83477    0.82811   0.03484       0.2       0.02266    0.87342    0.97690
+  6400000-   12800000   3200000   0.83612    0.85125   0.03627      -0.4       0.03175    0.86223    0.99940
+ 12800000-   16000000   1600000   0.83733    0.86018   0.04639      -0.5       0.03296    0.85788    0.97141
+    'mask removes' is how much the demask step lowers the COIN's
+    rho. Random signs carry no location mask, so that column is
+    the machinery own bias and should be ~0. It is not.
+
+(a) coin rho within 0.02 of 1 in every band: FAIL
+(b) real more than 10 coin sd below the coin: FAIL
+
+    The centred estimator cannot tell the two apart: the
+    coin reproduces the real curve with z between -0.5
+    and +0.4 in every band.
+
+    The UNCENTRED second moment is the estimator the coin
+    validates: E[C^2] = V exactly under random signs, and no
+    centring is done, so no shared-term correlation is
+    removed. Coin: mean 0.9778, trend -0.0028/band.
+    Real: 1.0078 down to 0.8579, trend -0.0202/band.
+    Top band: real 0.8579 against coin mean 0.9714, z = -4.2.
+
+    So the centred rho of increments 288 and 297 measured the
+    pipeline. Under the estimator the coin validates, the real
+    ratio moves the OTHER way: down, not up.
+    Establishing that properly needs its own null; this run
+    establishes only that the earlier estimator was biased.
+DONE
