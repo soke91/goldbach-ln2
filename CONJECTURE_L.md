@@ -15,6 +15,11 @@ For an even integer N and the families probed in this repository —
   D(k) = Σ_m μ(m) μ(N−mk), T = Σ_m μ(N−k₁m) μ(N−k₂m),
 - Möbius sums over thin progressions (moduli L > √y) —
 
+*(Scope note, increment 262: the wall's own scalar C(N) is **not**
+one of these families. It needs a location and a scale mask as well —
+see "Scope, and the extension to C(N)" below. The statement as written
+applies to the families listed above, where it has been re-verified.)*
+
 **Conjecture L.** Each field factorizes as
 
 > field = **M** × **G**,
@@ -57,6 +62,47 @@ survived every challenge unmodified.
 Every historically "sub-random" reading of this program
 (0.29–0.74 across all families and bands) is explained by **M**
 alone; no measurement anywhere detects structure in **G**.
+
+## Scope, and the extension to C(N) (increments 237–261)
+
+The families named in the statement above are the dilate pairs, the
+integer-indexed dilates `D(k)`, and Möbius sums over thin
+progressions. **The wall's own scalar `C(N)` is not among them**, and
+the distinction now matters, because the extension to it needs a
+different statement.
+
+**Inside the original scope, nothing changes, and it has been
+re-verified independently.** `sweep_A` reports 0 flags at |z| ≥ 4 out
+of ~22 statistics on `D(k)` — and it counts the *mean* z as well as
+the spread, so "no mean field" is tested and passes there. Increment
+250 asked the question directly: the forcing that gives `C(N)` a mean
+(n prime, `q | N` ⟹ `q ∤ N−n`) has no analogue for `D(k)`, because both
+its factors are μ. Grouping 4000 values of k by how many small primes
+divide k and not N gives no mean shift (all |z| < 1.2 against a
+permuted control reaching 1.66). What `D(k)` carries instead is a pure
+**support** mask, exactly as stated: `q² | gcd(k,N)` forces
+`q² | N−mk` for every m, hence `D(k) = 0` identically — 1212 predicted
+zeros, all observed.
+
+**Outside it, the extension made in MEASUREMENTS §12 was wrong in two
+places** (corrections #36, #45) and its corrected form needs three
+masks, not one:
+
+> `C(N) = m(N) + √(κ·𝔖(N)·N·log N) · G(N)`,  κ ≈ 0.465,
+
+with `m(N)` a **location** mask — a deterministic mean indexed by
+which small primes divide N, reaching 9 standard deviations below zero
+for primorial N — and `√𝔖(N)` a **scale** mask. Both are finite
+modular functions of N, so the *character* of the conjecture survives;
+what fails is the clause **"no mean field"**, which is a property of
+the original families and not of `C(N)`. With both masks applied, G
+passes: every tail inside 3 SE and the extreme at z = +0.61
+(LOCATION_MASK.md).
+
+So the honest restatement is: **field = (support × scale × location
+masks) × G**, with which masks are nontrivial depending on the family.
+For the dilate families only the support mask is, and the original
+statement stands as written. For `C(N)` all three are.
 
 ## Relation to Goldbach
 
