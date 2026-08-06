@@ -503,12 +503,21 @@ removed by finite modular enumeration.
   excess kurtosis $+0.1704$ at $z=98$: a normaliser that manufactures a
   heavy tail.
 
-\item \textbf{The mask is lower order.}
-  $\mathrm{Var}(m)/(\mathfrak S N)\propto N^{g}$ with
-  $g = -0.489\pm0.005$, so
-  $m(N)\asymp\sqrt{\mathfrak S(N)}\,N^{1/4}$. The value still drifts;
-  the sign does not, and the sign is what matters --- the mask does not
-  threaten $C(N)=o(N)$.
+\item \textbf{The mask is real at every scale measured, and its law is
+  not known.} Against an exactly computed floor---for a coin every
+  second moment of every cell mean is closed form, $\mathrm{Var}(m_c
+  -\overline m) = Q_{cc}/n_c^2 - 2Q_{ca}/(n_c n) + Q_{aa}/n^2$ with
+  $Q_{cd}=\sum_v\mu^2(v)u_c(v)u_d(v)$ and $u_c(v)=\sum_{N\in c}
+  \Lambda(N-v)/\sqrt{V(N)}$---the mask clears Bonferroni in every
+  octave to $1.6\cdot10^7$, at $\max_c|z_c| = 8.4$ in the top band. At
+  $N\approx10^8$ a $300$-versus-$300$ comparison gives the deep arm
+  $0.9476\pm0.0293$ against the shallow $0.7238\pm0.0245$, a gap of
+  $+0.2238\pm0.0056$. But its \emph{scaling} is not determined: over a
+  factor $160$ in $N$ the data do not separate $N^{-a}$ from
+  $(\log N)^{-b}$, and the fitted exponent varies about fourfold with
+  the cell under either parameterisation, so no single exponent
+  describes it. What matters here is unaffected: the mask is lower
+  order and does not threaten $C(N)=o(N)$.
 
 \item \textbf{The tail is Gaussian too}, which is the half that
   matters, since $C(N)=o(N)$ constrains every $N$ and a bulk can match
@@ -580,10 +589,22 @@ what Chowla forces --- costs $34\%$ in residual against a free
 two-parameter fit, whose intercept sits at $1.039$, above $1$ and
 walking down through $1.174, 1.088, 1.063, 1.070, 1.054, 1.039$ as the
 window grows. The data have not reached the limit, so fixing it there
-is premature at this size rather than wrong. What the window does
-measure is the rate: $b$ refits as
-$2.7297, 2.7218, 2.7115, 2.6885, 2.6819, 2.6817$, a drift of $0.048$,
-against $0.134$ for the intercept.
+is premature at this size.
+
+Both the fit and the rate it returned have since been withdrawn, and
+the reason is worth stating because it is not a numerical one. The
+quantity fitted is a \emph{de-trended} $\rho$, and de-trending across a
+band of $N$ removes real variance: nearby $N$ share the same
+$\mu(v)\Lambda(N-v)$ terms, so the $C(N)$ are positively correlated
+across the band. Replacing $\mu$ by a random $\pm1$ on the same
+support---leaving $\Lambda$, $V$ and every other input byte-identical
+---reproduces the same estimator output. \textbf{The estimator cannot
+tell $\mu$ from a coin}, so neither the drift nor the rate was a
+measurement of $\mu$ at all. Proposition~\ref{prop:W} is an identity
+and is untouched; what is gone is every number that claimed to confront
+it. Whether $\rho\to1$---whether the wall is exactly square-root---is
+therefore open, and with one realisation of $\mu$ it may not be
+answerable at all.
 
 \subsection{The margin, at the extreme}
 

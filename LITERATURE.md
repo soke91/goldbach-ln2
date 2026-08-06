@@ -151,7 +151,7 @@ this program can say about where its own no-go sits.
 | direction | **positive** — computes an asymptotic | **negative** — no weight works |
 | level assumed | **1** (full EH) | **θ′ < 1** |
 | condition on the weight | must **obey parity** (equal weight to odd and even numbers of prime factors) | *any* `w`, i.e. any `b = μ∗w` |
-| what fails, and by how much | parity-violating weights leave an **unknown scalar**; sieve majorants are off by a **factor of 2** | loss is `exp(c√log N)`, later `N^{1/4}` — **beats every power of log** |
+| what fails, and by how much | parity-violating weights leave an **unknown scalar**; sieve majorants are off by a **factor of 2** | loss is `exp(c√log N)`, later `N^{1/4}` — **beats every power of log** | <!-- withdrawn-ok: this N^{1/4} is Theorem D's loss exponent, an unrelated quantity to the mask amplitude of #69 -->
 
 Three consequences.
 

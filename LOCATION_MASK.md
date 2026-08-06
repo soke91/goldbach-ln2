@@ -144,7 +144,7 @@ residual is **skewness**, not a missing mask: raising the enumeration from
 every even `N ≤ 4·10⁶`, `sd(G)` drifts 2.069 → 2.306 and `sd²/log N` is
 flat to 0.5%, so
 
-> `Var C(N) ≈ 0.465·𝔖(N)·N·log N` — **the recorded law was missing a
+> `Var C(N) ≈ 0.465·𝔖(N)·N·log N` — **superseded; the recorded law was missing a
 > factor `√(log N)`**. The normaliser needing no fit at all is the exact
 > second moment `Σ_v μ²(v)Λ(N−v)²`, against which the measured variance
 > runs 1.006 → 0.873.
@@ -152,8 +152,10 @@ flat to 0.5%, so
 That fit is superseded. It ran at increments 236–238, two increments
 before this mask was found, and was never redone; `sd(G)` there removes
 one band-wide mean, so `m(N)` sat inside the measured variance
-throughout, supplying **14.1% of it at `N≈10⁵`** and 1.15% at
-`1.6·10⁷`. Removing it moves the fitted exponent by 0.29 — and neither
+throughout. ⚠️ The two shares that figure once carried — 14.1% at
+`N≈10⁵` and 1.15% at `1.6·10⁷` — are **withdrawn** (#112): they were
+between-cell variances with no coin floor subtracted, and the second
+sits below that floor. Removing the mask moves the fitted exponent by 0.29 — and neither
 exponent is a measurement, since both walk with the window (raw
 0.83→1.02, de-masked 1.60→1.30). The wall's scale is the **exact**
 second moment `V(N) = Σ_v μ²(v)Λ(N−v)²`, which needs no fit at all;

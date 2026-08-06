@@ -343,6 +343,8 @@ increment 283's "93.7% of the variance of `(𝔖N)/V` is cell-explained"
 would not converge (a log-power was absorbing a wrong *arithmetic*
 factor); and why `κ ≈ 0.465` still looked serviceable (`𝔖` and `𝔄`
 correlate across `N`, so the mean fits and the fluctuation does not).
+<!-- withdrawn-ok: #36/#68's κ is quoted here to explain why the
+     withdrawn fit looked right, not asserted -->>
 
 ### Proposition D‴ — the no-go is monotone in the input (increment 278)
 
