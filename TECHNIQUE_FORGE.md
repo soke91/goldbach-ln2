@@ -103,3 +103,11 @@ literature, or an algebraic identity of a kind the ladder is not).
 This is the forge's honest round-1 boundary: the technique to be
 created is not an assembly of the family's own parts. Round-2
 designs must begin from an external cancellation source.
+
+## Round 2 — external cancellation sources (opened at increment 178)
+
+| # | Design | Kill-test | Status |
+|---|---|---|---|
+| R1 | **Zero-spectrum visibility**: the explicit formula says μ(m) carries the oscillations m^{iγ} (γ = ζ-zero ordinates). If the field D(k) has a component aligned with the zero-templates T_γ(k) = Σ_m m^{iγ}μ(N−mk), the explicit formula gives an external handle on that component | Project the D-field onto span{Re T_γ, Im T_γ} (first 30 zeros) and compare captured energy against random-frequency templates at matched dimension. Pre-registered: ALIVE iff zero-capture ≥ 2× random-capture; else dead | RUNNING (`code/e1_forge_r1.py`) |
+| R2 | **Determinant/Kloosterman phase**: the pair constraint is the determinant equation; test whether C_{k,k′} correlates with the determinant phases e(N·k̄′/k) (the object DI/Kuznetsov machinery would control if a construction attached it) | Correlation of the C-field against determinant-phase templates vs matched random-phase controls | queued |
+| R3 | **Character transform of the k-average**: Σ_k χ(k)D(k) diagonalizes the inner sum into character-twisted μ-sums over APs mod m | **DEAD BY ANALYSIS** (recorded without a run): for the chain's range K ≤ x^{1/3} the AP moduli are m ~ x/K ≥ x^{2/3} — the transform relocates the difficulty into thin-progression μ-sums (the seam regime, provably void of current technology per the resistance profile); on the mirror side K ≥ x^{2/3} where moduli would be BV-small, the chain does not consume the estimate. Parseval also forbids a statistical gain (Σ_χ \|D̂(χ)\|² is basis-invariant). Closed |
