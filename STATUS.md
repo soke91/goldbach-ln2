@@ -41,6 +41,18 @@ and $E_4(\alpha)$, distinguished only by the weight $w_k$.
   sufficient form of the demand **equivalent** to the conclusion. There
   was never a weakening to find, and no choice of $\theta'$, truncation
   or smoothing can evade an identity.
+- **Theorem D (increment 195): the interior of the weight space is
+  empty.** Theorems A and C are the two endpoints of a design space —
+  the weight $w_k$ attached to $\mu(k)$. Writing $b=\mu*w$, extraction
+  requires $b$ to have mass *at* the truncation point $K=N^{\theta'}$
+  (Huang–Li's Lemma 1 damps everything below it by
+  $e^{-c\sqrt{\log(K/d)}}$), while Bombieri–Vinogradov admits $b$ only
+  below $N^{\theta'-1/2}$. The two thresholds are separated by exactly
+  $N^{1/2}$, and the resulting loss $\exp(c\sqrt{\tfrac12\log N})$
+  exceeds every power of $\log$. **No weight extracts
+  $C(N)=\sum\Lambda(n)\mu(N-n)$ by divisor switching plus BV** — a
+  no-go over the entire weight space of that method (not a claim about
+  other methods).
 - **Net progress toward Goldbach: zero.** Theorem A removes only the
   half of the demand that carries no Goldbach content.
 - By-product: a genuine defect in the published equation (18) — a

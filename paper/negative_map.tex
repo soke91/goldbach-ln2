@@ -221,6 +221,48 @@ back. This is closure at the level of identities, not of estimates: no
 choice of $\theta'$, truncation, or smoothing can evade it.
 \end{remark}
 
+\subsection{The interior of the weight space is empty}
+
+Theorems~\ref{thm:A} and~\ref{thm:C} are the two endpoints of a design
+space: the weight $w_k$ attached to $\mu(k)$ in the demand functional.
+It is natural to look for a weight between them --- complete divisor
+sum still cheap, main-term coefficient still of size $1$ --- that would
+extract $C(N)=\sum_{n<N}\Lambda(n)\mu(N-n)$ from
+Bombieri--Vinogradov alone. There is none.
+
+Write $b := \mu*w$, so $w_k=\sum_{d\mid k}b_d$; every weight has this
+form. For squarefree $u$ one has $\sum_{k\mid u}\mu(k)w_k=\mu(u)b_u$,
+so the switch identity reads
+$B_w\,C(N)=\sum_{u<N}\Lambda(N-u)\mu^2(u)b_u-\mathcal R_w$ with
+$B_w=\sum_{k<K,(k,N)=1}\mu(k)w_k/\varphi(k)$. Two exact facts then
+oppose each other:
+
+\begin{itemize}
+\item \emph{Extraction}:
+  $B_w=\sum_{d<K}b_d\,\frac{\mu(d)}{\varphi(d)}\rho_{dN}(K/d)$ with
+  $\rho \ll e^{-c\sqrt{\log x}}$, so $B_w$ is controlled by the part of
+  $b$ sitting \emph{at} the truncation point $K=N^{\theta'}$.
+\item \emph{BV-accessibility}: expanding $w$ inside the residual gives
+  moduli $md$ with $m<N^{1-\theta'}$, so $b$ may only be supported on
+  $d\le N^{\theta'-1/2-\delta}$.
+\end{itemize}
+
+\begin{theorem}[no weight extracts $C(N)$]\label{thm:D}
+If $b=\mu*w$ is supported in $[1,N^{\theta'-1/2-\delta}]$ then
+$\|b\|_1/|B_w| \gg \exp(c\sqrt{(1/2+\delta)\log N})$, and the switch
+identity yields at best
+$|C(N)|\ll \exp(c\sqrt{\tfrac12\log N})\,N(\log N)^{-A}$ --- no saving
+of any power of $\log N$.
+\end{theorem}
+
+The loss exponent $\sqrt{(1/2)\log N}$ is the $\sqrt N$ barrier itself:
+it is the gap between where a weight must live to see $C(N)$ and where
+Bombieri--Vinogradov permits it to live. This is a no-go for one
+precisely specified method --- divisor switching with BV as the only
+input --- over that method's entire weight space; it is not an
+obstruction to other methods. Its purpose is to close the design space
+that Theorems~\ref{thm:A} and~\ref{thm:C} opened.
+
 \subsection{A defect in the published paper}
 
 Equation (18) of \cite{HL} replaces the $n$-dependent constraint

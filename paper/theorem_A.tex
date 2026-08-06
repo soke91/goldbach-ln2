@@ -697,6 +697,163 @@ truncation, or smoothing can circumvent an identity. The demand side of
 the reduction admits no weakening.
 \end{remark}
 
+\section{The demand side is empty: a no-go over all weights}
+\label{sec:D}
+
+Theorem~\ref{thm:A} and Theorem~\ref{thm:C} treat the two weights that
+occur in \cite{HL}, $w_k = 1$ and $w_k = \log k$. It is natural to ask
+whether some \emph{other} weight sits between them: one whose complete
+divisor sum is still cheap (as for $w=1$) but whose main-term
+coefficient is still of size $1$ (as for $w=\log k$), and which would
+therefore extract the scalar $C(N)=\sum_{n<N}\Lambda(n)\mu(N-n)$ from
+Bombieri--Vinogradov alone. This section shows that no such weight
+exists, and that the obstruction is quantitatively the $\sqrt N$
+barrier.
+
+\subsection{The design space}
+
+Let $w:\mathbb N\to\mathbb R$ be arbitrary and let
+$b := \mu * w$, so that $w_k=\sum_{d\mid k}b_d$; every weight has this
+form, and $b$ is determined by $w$. Put
+\[
+  B_w := \sum_{\substack{k<K\\(k,N)=1}}\frac{\mu(k)w_k}{\varphi(k)},
+  \qquad
+  \|b\|_1 := \sum_{u<N}|b_u| .
+\]
+Running the switch of Section~3 with the weight $w$ gives the identity
+\begin{equation}\label{eq:extract}
+  B_w\cdot C(N) \;=\; \underbrace{\sum_{u<N}\Lambda(N-u)\mu^2(u)\,b_u}
+  _{\text{complete part}} \;-\; \underbrace{\mathcal R_w}_{\text{residual}}
+  \;+\;O\!\left(N^{o(1)}\right),
+\end{equation}
+the complete part being evaluated by the following lemma, which
+identifies $b$ as exactly the complete divisor transform.
+
+\begin{lemma}\label{lem:Gb}
+For squarefree $u$,
+$\sum_{k\mid u}\mu(k)w_k = \mu(u)\,b_u$.
+\end{lemma}
+
+\begin{proof}
+$\sum_{k\mid u}\mu(k)\sum_{d\mid k}b_d
+ = \sum_{d\mid u}b_d\,\mu(d)\sum_{j\mid (u/d)}\mu(j)
+ = \sum_{d\mid u}b_d\,\mu(d)\,[\,u/d=1\,] = \mu(u)b_u$,
+using $(d,u/d)=1$ for squarefree $u$.
+\end{proof}
+
+The two known cases are the two ends of this space: $w=1$ gives
+$b=\delta_1$, $\|b\|_1 = 1$ and (Huang--Li's Lemma 1)
+$B_w\ll e^{-c\sqrt{\log K}}$; while $w=\log$ gives $b=\Lambda$,
+$\|b\|_1\asymp N$ --- the complete part \emph{is} the binary Goldbach
+sum --- and $B_w\to-\SS(N)\asymp1$.
+
+\subsection{The two opposing constraints}
+
+\begin{lemma}[extraction]\label{lem:extract}
+$\displaystyle B_w=\sum_{\substack{d<K\\(d,N)=1}}b_d\,
+ \frac{\mu(d)}{\varphi(d)}\,\rho_{dN}\!\left(\frac{K}{d}\right)$,
+where $\rho_{n}(x)=\sum_{j<x,\,(j,n)=1}\mu(j)/\varphi(j)
+ \ll e^{-c_1\sqrt{\log x}}$.
+\end{lemma}
+
+\begin{proof}
+Write $k=dj$; for squarefree $k$ one has $(d,j)=1$,
+$\mu(k)=\mu(d)\mu(j)$ and $\varphi(k)=\varphi(d)\varphi(j)$. The bound
+on $\rho$ is Huang--Li's Lemma 1.
+\end{proof}
+
+\begin{lemma}[BV-accessibility]\label{lem:bv}
+Expanding $w_k=\sum_{d\mid k}b_d$ inside the residual gives
+$\mathcal R_w=\sum_d b_d\,\mathcal R^{(d)}$, where $\mathcal R^{(d)}$
+is a sum of $\Lambda$ over progressions to moduli $md$ with
+$m<N^{1-\theta'}$. Bombieri--Vinogradov bounds each
+$\mathcal R^{(d)}\ll_A N(\log N)^{-A}$ provided
+$d\le N^{1/2-\delta}/N^{1-\theta'}=N^{\theta'-1/2-\delta}$; hence, on
+that support, $\mathcal R_w\ll_A \|b\|_1\,N(\log N)^{-A}$.
+\end{lemma}
+
+The two lemmas pull in opposite directions. Lemma~\ref{lem:extract}
+says $B_w$ is controlled by the part of $b$ sitting \emph{at} the
+truncation point $K$: mass at $d\le K^{1-\varepsilon}$ is damped by
+$e^{-c\sqrt{\varepsilon\log K}}$. Lemma~\ref{lem:bv} says $b$ may only
+live \emph{below} $N^{\theta'-1/2}$. The two thresholds are separated
+by a factor $N^{1/2}$.
+
+\begin{theorem}[no weight extracts $C(N)$]\label{thm:D}
+Fix $\theta'\in(1/2,1)$ and $\delta>0$, and let $w$ be any weight
+whose transform $b=\mu*w$ is supported in
+$[1,\,N^{\theta'-1/2-\delta}]$ --- the range in which the residual is
+accessible to Bombieri--Vinogradov. Then
+\[
+  \frac{\|b\|_1}{|B_w|} \;\gg\;
+   \exp\!\left(c_1\sqrt{(\tfrac12+\delta)\log N}\right),
+\]
+and consequently \eqref{eq:extract} yields at best
+\[
+  |C(N)| \;\ll_A\; \exp\!\left(c_1\sqrt{\tfrac12\log N}\right)
+   \cdot \frac{N}{(\log N)^{A}},
+\]
+which is not a saving of any power of $\log N$. No weight in the
+design space extracts $C(N)$ by divisor switching plus
+Bombieri--Vinogradov.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:extract} and $\varphi(d)\ge1$,
+\[
+  |B_w| \le \sum_{d\le D}\frac{|b_d|}{\varphi(d)}
+    \left|\rho_{dN}\!\left(\frac Kd\right)\right|
+  \le \|b\|_1\max_{d\le D}\left|\rho_{dN}\!\left(\frac Kd\right)\right|
+  \ll \|b\|_1\,e^{-c_1\sqrt{\log(K/D)}},
+\]
+with $D=N^{\theta'-1/2-\delta}$, so that
+$K/D=N^{1/2+\delta}$. This is the displayed ratio. Feeding it into
+\eqref{eq:extract} together with the complete-part bound
+$\ll\|b\|_1\log N$ (Lemma~\ref{lem:Gb}) and Lemma~\ref{lem:bv} gives
+the bound on $|C(N)|$; and $e^{c_1\sqrt{\log N/2}}$ exceeds every
+power of $\log N$.
+\end{proof}
+
+\begin{remark}[what the obstruction is]
+The loss factor is $\exp(c_1\sqrt{(1/2)\log N})$, and the $1/2$ in the
+exponent is literally the exponent of the $\sqrt N$ barrier: it is the
+gap between where a weight must live to see $C(N)$ (at $N^{\theta'}$,
+the truncation point) and where it may live for Bombieri--Vinogradov
+to close its residual (below $N^{\theta'-1/2}$). Theorem~\ref{thm:C}
+exhibited the two endpoints of this space; Theorem~\ref{thm:D} shows
+the interior is empty, and shows why.
+\end{remark}
+
+\begin{remark}[scope, stated honestly]
+Theorem~\ref{thm:D} is a no-go for one precisely specified method ---
+divisor switching with Bombieri--Vinogradov as the only input --- over
+the whole weight space of that method. It is not, and does not claim
+to be, an obstruction to other methods. Its value is that it closes
+the design space that Theorems~\ref{thm:A} and~\ref{thm:C} opened,
+rather than leaving it to be re-explored.
+\end{remark}
+
+\subsection{Numerical confirmation of the load-bearing quantity}
+
+Lemma~\ref{lem:extract} carries the theorem, so it is checked directly
+(\texttt{code/thmD\_tradeoff.py}, $N = 99{,}999{,}998$,
+$\theta'=0.56$, $K=30199$). For the single-divisor weights
+$w_k=[\,d_0\mid k\,]$ (i.e.\ $b=\delta_{d_0}$) the brute-force
+$B_w$ over all $k<K$ agrees with the factorised formula to every
+displayed digit, and $|B_w|\varphi(d_0)$ is exactly
+$|\rho_{d_0N}(K/d_0)|$:
+\[
+\begin{array}{r|cccccc}
+ K/d_0 & 1 & 7 & 13 & 143 & 974 & 30199\\\hline
+ |B_w|\,\varphi(d_0) & 1.000000 & 0.750000 & 0.066667 & 0.003384
+  & 0.004166 & 0.000529
+\end{array}
+\]
+--- of order $1$ only when $K/d_0=O(1)$, i.e.\ only when the weight's
+transform sits at the truncation point, and exponentially damped
+throughout the range Bombieri--Vinogradov admits (for these parameters
+$N^{\theta'-1/2}=3$).
+
 \section{Numerical verification}
 
 All computations are reproducible from the accompanying repository;

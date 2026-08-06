@@ -152,6 +152,52 @@ code: `code/thmA_audit.py`, `thmA_scale.py`, `thmA_logw.py`,
 `thmA_mtlog.py`, `thmA_fix.py`, `thmA_E3.py`,
 `thmA_density_check.py`.*
 
+## Theorem D — the demand side is empty (increment 195)
+
+Theorems A and C treat the two weights that occur in Huang–Li,
+w = 1 and w = log k. The obvious next question is whether some weight
+*between* them works: complete divisor sum still cheap (as for w = 1),
+main-term coefficient still of size 1 (as for w = log k). **No such
+weight exists**, and the obstruction is quantitatively the √N barrier.
+
+Write b := μ ∗ w, so w_k = Σ_{d|k} b_d — every weight has this form.
+Two exact facts oppose each other:
+
+- **Extraction.** B_w = Σ_{d<K,(d,N)=1} b_d·(μ(d)/φ(d))·ρ_{dN}(K/d)
+  with ρ ≪ e^{−c√log x} (Huang–Li's Lemma 1). So B_w is controlled by
+  the part of b sitting **at** the truncation point K = N^{θ′}: mass
+  at d ≤ K^{1−ε} is damped by e^{−c√(ε log K)}.
+- **BV-accessibility.** Expanding w inside the residual gives moduli
+  m·d with m < N^{1−θ′}, so BV needs b supported on
+  **d ≤ N^{θ′−1/2−δ}**.
+
+The two thresholds are separated by exactly N^{1/2}.
+
+> **Theorem D.** If b = μ∗w is supported in [1, N^{θ′−1/2−δ}] then
+> ‖b‖₁/|B_w| ≫ exp(c√((1/2+δ)log N)), so the switch identity
+> B_w·C(N) = Σ_u Λ(N−u)μ²(u)b_u − 𝓡_w yields at best
+> |C(N)| ≪ exp(c√(½log N))·N(log N)^{−A} — **no saving of any power of
+> log.** No weight extracts C(N) by divisor switching plus BV.
+
+Clean by-product (Lemma: for squarefree u, Σ_{k|u}μ(k)w_k = μ(u)b_u):
+the complete part is always **Σ_{u<N} Λ(N−u)μ²(u)b_u**. The two known
+cases fall out as the two ends — w=1 ⟹ b=δ₁ (‖b‖₁=1, B_w→0);
+w=log ⟹ b=Λ (‖b‖₁≍N, complete part *is* the Goldbach sum, B_w≍1).
+
+**Scope, stated honestly**: this is a no-go for one precisely specified
+method — divisor switching with BV as the only input — over that
+method's entire weight space. It is not an obstruction to other
+methods. Its value is that it closes the design space Theorems A and C
+opened, instead of leaving it to be re-explored.
+
+**Numerical confirmation** (`code/thmD_tradeoff.py`, N = 99,999,998,
+θ′ = 0.56, K = 30199): for w_k = [d₀|k] the brute-force B_w over all
+k < K matches the factorised formula to every displayed digit, and
+|B_w|·φ(d₀) is exactly |ρ(K/d₀)| — 1.000000 at K/d₀ = 1, 0.7500 at 7,
+0.0667 at 13, 0.0034 at 143, 0.000529 at 30199. Order 1 only at the
+truncation point; exponentially damped throughout the range BV admits
+(here N^{θ′−1/2} = 3).
+
 ## Write-up (increment 193)
 
 This file is the summary. **The full proof is `paper/theorem_A.tex`**:

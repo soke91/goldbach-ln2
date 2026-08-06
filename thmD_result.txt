@@ -1,0 +1,30 @@
+N = 99999998,  theta' = 0.56,  K = N^theta' = 30199
+BV admits weight-support only up to N^(theta'-1/2) = 3
+
+rho_N(x) = Sum_{j<=x,(j,N)=1} mu(j)/phi(j)   vs Huang-Li Lemma 1 bound exp(-c sqrt(log x))
+         x       rho(x)  exp(-sqrt(log x))    ratio
+         1     1.000000           0.434937    2.299
+        10     0.250000           0.219275    1.140
+       100     0.023542           0.116955    0.201
+      1000    -0.004297           0.072204    0.060
+     10000    -0.002963           0.048082    0.062
+     30199    -0.000529           0.040285    0.013
+     30199    -0.000529           0.040285    0.013
+     30199    -0.000529           0.040285    0.013
+
+B_w for w_k = [d0 | k]  (b = delta_{d0}):  exact brute force over k < K, vs the factorised formula
+        d0       K/d0    B_w (brute)      formula  |B_w|*phi(d0)
+         1      30199    -0.00052892  -0.00052892       0.000529
+         3      10066    -0.00207227  -0.00207227       0.004145
+         3      10066    -0.00207227  -0.00207227       0.004145
+         5       6039     0.00035440   0.00035440       0.001418
+        31        974     0.00013887   0.00013887       0.004166
+       211        143    -0.00001612  -0.00001612       0.003384
+      2311         13    -0.00002886  -0.00002886       0.066667
+     30031          1     0.00003394   0.00003394       1.000000
+         3      10066    -0.00207227  -0.00207227       0.004145
+      3777          7     0.00029809   0.00029809       0.750000
+     15101          1    -0.00006623  -0.00006623       1.000000
+
+Reading: |B_w| * phi(d0) is exactly |rho(K/d0)|.  It is of order 1 only when K/d0 is O(1) -- i.e. the weight's Mobius transform must sit AT the truncation point K = N^theta'.  For d0 <= N^(theta'-1/2), the range BV admits, it is exponentially damped.
+DONE
