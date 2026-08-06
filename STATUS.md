@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 241 (2026-08-06). 4 days, 31 recorded corrections,
+*Increment 242 (2026-08-06). 4 days, 31 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth".*
 
 **What is trusted, and what is not: `DEPENDENCY_AUDIT.md`.** The

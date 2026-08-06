@@ -1,0 +1,61 @@
+sieve to 100000000: 5761455 primes, t=6s
+  deep  510510: 60 values  t=9s
+  deeper 9699690: 10 values  t=10s
+  control (random even): 150 values  t=19s
+  shallow  2*q: 42 values  t=22s
+
+control at N ~ 100000000: mean +0.0238  sd 0.8744  n = 150
+  (this is the null every other row is read against)
+
+                   group     n    mean Z      sd  (mean-ctrl)/sd_ctrl
+            deep  510510    60    -4.852   1.371                -5.58
+          deeper 9699690    10    -6.014   1.040                -6.91
+   control (random even)   150     0.024   0.874                 0.00
+            shallow  2*q    42     0.104   0.738                 0.09
+
+the deep cells one by one -- does it hold at every N?
+           N         Z              C   C/sqrt(N)        C/N
+  -- deep  510510
+      510510    -8.573       -21196.9     -29.667   -0.04152
+     2042040    -7.267       -37940.9     -26.551   -0.01858
+     3573570    -6.171       -43482.4     -23.002   -0.01217
+     5105100    -6.312       -53836.6     -23.827   -0.01055
+     6636630    -6.205       -60876.7     -23.631   -0.00917
+     8168160    -4.887       -53574.3     -18.745   -0.00656
+     9699690    -8.116       -97656.1     -31.356   -0.01007
+    11231220    -5.772       -74985.3     -22.375   -0.00668
+    12762750    -4.907       -68245.0     -19.103   -0.00535
+    14294280    -4.448       -65704.2     -17.378   -0.00460
+    15825810    -5.363       -83673.8     -21.033   -0.00529
+    17357340    -4.409       -72215.0     -17.333   -0.00416
+    18888870    -7.076      -121289.5     -27.907   -0.00642
+    20420400    -4.331       -77332.3     -17.113   -0.00379
+  -- deeper 9699690
+     9699690    -8.116       -97656.1     -31.356   -0.01007
+    19399380    -6.714      -116846.4     -26.529   -0.00602
+    29099070    -7.345      -158553.9     -29.393   -0.00545
+    38798760    -5.327      -133967.3     -21.507   -0.00345
+    48498450    -5.260      -148872.8     -21.377   -0.00307
+    58198140    -4.990      -155552.9     -20.390   -0.00267
+    67897830    -4.799      -162340.8     -19.702   -0.00239
+    77597520    -6.332      -229868.4     -26.095   -0.00296
+    87297210    -5.927      -229002.9     -24.510   -0.00262
+    96996900    -5.334      -217906.3     -22.125   -0.00225
+
+(E) which invariant is actually constant?
+                   group    n  mean C/sqrt(N)   1st half   2nd half    mean Z  Z*sqrt(logN)
+            deep  510510   60         -19.362    -21.195    -17.529    -4.852       -20.086
+          deeper 9699690   10         -24.298    -26.032    -22.564    -6.014       -25.158
+   control (random even)  150           0.077      0.326     -0.172     0.024         0.100
+            shallow  2*q   42           0.371      0.813     -0.071     0.104         0.442
+    if C/sqrt(N) is flat across the halves while Z is not,
+    the invariant is C/sqrt(N) and Z's decay is the
+    normaliser's sqrt(log N), not the mask weakening
+
+verdict:
+  WEAKENED -- -5.6 sd, against about -8.5 at
+  N ~ 10^6. The mask survives but shrinks; the rate
+  matters and needs a third scale.
+  note C/N in the table: the effect is a sqrt(N)-scale main
+  term, so it is o(N) and does not threaten the wall.
+DONE

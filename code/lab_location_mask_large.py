@@ -46,6 +46,7 @@ NULLS AND CRITERION, on the same line.
 """
 import numpy as np
 import math
+import sys
 import time
 
 
@@ -96,7 +97,7 @@ def CV(N, mu, primes, lpr):
 
 
 def main():
-    X = 30_000_000
+    X = int(sys.argv[1]) if len(sys.argv) > 1 else 30_000_000
     t0 = time.time()
     mu, primes = sieve_mu_and_primepowers(X)
     lpr = np.log(primes.astype(np.float64))
@@ -109,14 +110,23 @@ def main():
     rng = np.random.default_rng(20260806)
 
     groups = {}
-    groups["deep  510510"] = [k * P6 for k in range(1, X // P6 + 1)]
-    groups["deeper 9699690"] = [k * P7 for k in range(1, X // P7 + 1)]
+    def thin(vals, cap):
+        if len(vals) <= cap:
+            return vals
+        step = len(vals) // cap
+        return vals[::step][:cap]
+    groups["deep  510510"] = thin(
+        [k * P6 for k in range(1, X // P6 + 1)], 60)
+    groups["deeper 9699690"] = thin(
+        [k * P7 for k in range(1, X // P7 + 1)], 40)
     if X >= P8:
-        groups["deepest 223092870"] = [k * P8
-                                       for k in range(1, X // P8 + 1)]
+        groups["deepest 223092870"] = thin(
+            [k * P8 for k in range(1, X // P8 + 1)], 20)
     lo = X // 2
-    ctrl = np.unique(rng.integers(lo // 2, X // 2, size=400) * 2)
-    groups["control (random even)"] = [int(v) for v in ctrl[:300]]
+    nctl = 300 if X <= 40_000_000 else 150
+    ctrl = np.unique(rng.integers(lo // 2, X // 2,
+                                  size=2 * nctl) * 2)
+    groups["control (random even)"] = [int(v) for v in ctrl[:nctl]]
     sh = []
     cand = primes[np.searchsorted(primes, X // 4):]
     for q in cand[:: max(1, len(cand) // 120)][:60]:
