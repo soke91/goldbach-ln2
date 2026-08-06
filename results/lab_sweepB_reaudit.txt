@@ -1,0 +1,33 @@
+convolutions t=4s
+
+(A) the B5 statistic at full power   n = 1950001, SE = 0.00072
+                             statistic  corr with S          z
+           C            [sweep_B's B5]      -0.1386     -193.5
+          C / sqrt(S)  [sweep_B's fix]      -0.0984     -137.4
+                                 C / S      -0.0671      -93.7
+    C / sqrt(V)  [exact scale removal]      -0.1517     -211.8
+  sweep_B ran at n = 1500, SE 2.6e-2, and read
+  corr = -0.2075 at z = -8.04
+
+(B) does it decline with N, as the recorded table read?
+                  band         n   corr(C,S)   corr(C/sqrtS,S)   corr(C/sqrtV,S)
+    100000-     200000     50000     -0.3316           -0.2595           -0.3189
+    200000-     400000    100000     -0.2671           -0.1983           -0.2546
+    400000-     800000    200000     -0.2146           -0.1600           -0.2048
+    800000-    1600000    400000     -0.1741           -0.1234           -0.1642
+   1600000-    3200000    800000     -0.1331           -0.0952           -0.1260
+   3200000-    4000000    400000     -0.1236           -0.0855           -0.1146
+    a scale mask cannot make any of these nonzero; only a
+    location mask can
+
+(C) the scale half of sweep_B's reading, checked
+          S band         n        sd C   sd C/sqrtS   sd C/sqrtV  mean C/sqrtV
+  1.20-1.50         851542      4141.4       3556.4       0.8997        0.0118
+  1.50-2.00         400645      4157.7       3174.0       0.8861        0.1209
+  2.00-2.50          47171      4210.5       2866.1       0.8757        0.4186
+  2.50-3.00         425682      4615.4       2802.9       0.9149       -0.0023
+  3.00-4.00         201170      4775.2       2570.1       0.9440       -0.3239
+  4.00-6.00          23791      6165.6       2876.7       1.2331       -1.6820
+    if sd C/sqrt(V) is flat across S bands the scale is
+    fully removed; the mean column is then pure location
+DONE

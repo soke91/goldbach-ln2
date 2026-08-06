@@ -316,10 +316,12 @@ sign flip, so C5 duplicates C2 rather than testing anything.)
 **Sweep B — seven hypotheses on C(N), and this one fired.** Five flags
 at |z| ≥ 4: kurtosis 4.446 (z +11.4), corr(c, 𝔖) −0.208 (z −8.0), sd
 ratio 1.408 for ω(N) ≥ 5 (z +6.4), 0.806 for ω(N) ≤ 3 (z −5.2), and
-1.261 for N ≡ 0 mod 5 (z +5.7). All five are what a 𝔖-dependent scale
-predicts. Dividing by 𝔖 **overshoots** (the ratios invert to 0.708,
-1.287, 0.820), and solving R = (S₁/S₂)^β across the three splits gives
-β = 0.497, 0.539, 0.460. So the mask is **√𝔖**, and dividing by it:
+1.261 for N ≡ 0 mod 5 (z +5.7).
+
+**Four of the five are scale, and √𝔖 fixes them.** Dividing by 𝔖
+**overshoots** (the ratios invert to 0.708, 1.287, 0.820), and solving
+R = (S₁/S₂)^β across the three splits gives β = 0.497, 0.539, 0.460, so
+the scale mask is **√𝔖**. Dividing by it:
 
 | after ÷√𝔖 | N₀ = 2·10⁵ | 5·10⁵ | 9·10⁵ |
 |---|---|---|---|
@@ -329,15 +331,38 @@ predicts. Dividing by 𝔖 **overshoots** (the ratios invert to 0.708,
 | kurtosis | 3.333 | 3.397 | **2.983** |
 | corr(·, 𝔖) | −0.194 | −0.138 | **−0.070** |
 
-> **C(N) = √(𝔖(N)·N) · G(N)**, with G of unit variance and Gaussian
-> (kurtosis → 3 at the largest window), plus a mean drift that decays
-> with N and is already insignificant at N ≈ 9·10⁵.
+**The fifth flag is not scale, and √𝔖 does not remove it.** A scale
+mask rescales a fluctuation; it cannot create a correlation between
+C(N) and 𝔖(N). The `corr(·, 𝔖)` row above falls from −0.194 to −0.070
+across three windows of ~1500 values each, which is a decline but not a
+disappearance, and at full power it is not close to zero:
+
+| statistic | corr with 𝔖 | z (n = 1.95·10⁶) |
+|---|---|---|
+| C | −0.1386 | **−193.5** |
+| C/√𝔖 | −0.0984 | **−137.4** |
+| C/√V, exact scale removal | −0.1517 | **−211.8** |
+
+Dividing by the exact per-N second moment √V flattens the scale
+completely (sd 0.90, 0.89, 0.88, 0.91, 0.94 across 𝔖 bands) and leaves
+the mean varying by two orders: 0.012, 0.121, 0.419, −0.002, −0.324,
+**−1.682**. That residual is a **location mask**, and it is the largest
+single signal in the whole sweep.
+
+> **C(N) = m(N) + √(κ·𝔖(N)·N·log N)·G(N)**, with `κ ≈ 0.465`, `m(N)`
+> the location mask of LOCATION_MASK.md, and G Gaussian once **both**
+> masks are applied — every tail inside 3 SE and the extreme at
+> z = +0.61.
 
 This extends Conjecture L to the wall's own scalar, which the campaign
-had never done: the final object of the whole chain is itself
-mask × Gaussian, with the mask the square root of the singular series.
-It also explains the decaying 3 | N mean split of §11 as the residual
-drift of the same law.
+had never done, but on **three** masks and not one: support, scale and
+location. Two things in the earlier reading were wrong and both are
+recorded (corrections #36 and #45). The scale carries a factor
+√(log N) that was absorbed into a constant over too narrow a range of
+N. And the "mean drift, already insignificant at N ≈ 9·10⁵" was the
+location mask seen and dismissed: at 1.95·10⁶ values the 3 | N sign
+split reads z = −94.3 against +61.6 off it, and the 3 | N mean split of
+§11 is that same mask, not a residual drift of the scale law.
 
 ## 13. The wall's variance is a weighted shift-averaged Chowla sum
 
