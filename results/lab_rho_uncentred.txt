@@ -1,0 +1,49 @@
+sieve + V  t=11s
+real  t=14s
+  coin 10/40  t=50s
+  coin 20/40  t=85s
+  coin 30/40  t=121s
+  coin 40/40  t=156s
+
+E[C^2]/V per octave band, real mu against 40 coin draws
+                 band         n      real  coin mean   coin sd        z
+   100000-     200000     50000   1.00781    1.04584   0.26118    -0.15
+   200000-     400000    100000   0.95782    0.99293   0.21060    -0.17
+   400000-     800000    200000   0.92330    0.99952   0.20629    -0.37
+   800000-    1600000    400000   0.89060    0.99330   0.19350    -0.53
+  1600000-    3200000    800000   0.87409    1.00227   0.18131    -0.71
+  3200000-    6400000   1600000   0.87342    1.01156   0.19408    -0.71
+  6400000-   12800000   3200000   0.86223    0.98188   0.16512    -0.72
+ 12800000-   16000000   1600000   0.85788    0.99088   0.16772    -0.79
+
+    coin mean over all bands 1.00227 (exactly 1 in expectation)
+    real trend -0.02016/band; coin trends -0.12187 to +0.09108
+    coin trends more negative than the real one: 12/40
+    bands past 5 sigma: 0/8
+
+    (a) at least 5 bands past -5 sigma: FAIL
+    (b) no coin trend as negative as the real one: FAIL
+    NOT established by either clause
+
+    pooled over all bands: real 0.90589, coin 1.00227 +/- 0.12478, z = -0.77
+    coin draws below the real pooled value: 9/40
+
+    Why the test cannot conclude: the estimator is
+    UNBIASED (coin mean 1.00227) but its per-draw
+    scatter is 0.195, because the
+    C(N) across a band are strongly dependent -- they share
+    most of their terms -- so a band of 1600000 values
+    carries far fewer than 1600000 independent ones.
+    So the low-variance estimator is biased (increment 300)
+    and the unbiased one is too noisy: the pooled deficit is
+    0.094 against a coin scatter of 0.125, i.e. 0.77 of one standard
+    deviation, with 9 of 40 coin draws
+    landing below it. With one realisation of mu this
+    quantity is not measurable by either route.
+
+    The mask is left in, so the real ratio is an OVERestimate
+    (E[C^2] = mean(m^2) + mean(fluct^2)) and the measured
+    deficit 0.1421 in the top band is a LOWER
+    bound on the true one. Removing the mask is what
+    produced increment 300's bias, so it is not attempted.
+DONE

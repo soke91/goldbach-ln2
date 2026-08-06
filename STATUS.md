@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 300 (2026-08-07). 5 days, 107 recorded corrections,
+*Increment 301 (2026-08-07). 5 days, 109 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -157,9 +157,17 @@ band and subtracting the band mean removes real variance. Withdrawn with it:
 Proposition W's identity is algebra and is untouched; what is gone is every
 measurement that claimed to confront it. Under the estimator the coin does
 validate --- the uncentred $E[C^2]/V$, exactly 1 for a coin --- the real
-ratio runs $1.008$ down to $0.858$, the **opposite** direction, at $z=-4.2$
-in the top band. That is suggestive and not established: it needs its own
-null and its own increment (#106, #107).
+ratio runs $1.008$ down to $0.858$. **That is not established either**
+(inc. 301): with 40 coin draws, 0 of 8 bands pass $-5\sigma$, 12 of 40 coin
+trends are more negative than the real one, and pooled the real $0.906$ sits
+at $z=-0.77$ against coin $1.002\pm0.125$ with 9 of 40 draws below it. The
+$z=-4.2$ of #107 divided by the standard error of the coin *mean* rather
+than by its spread (#108). ⚠️ **The low-variance estimator is biased and the
+unbiased one is too noisy** — pooled deficit $0.094$ against a coin scatter
+of $0.125$, because the $C(N)$ across a band share most of their terms. So
+Proposition W's $\rho-1$ has **never been measured**, and with one realisation
+of $\mu$ it is not measurable by either route. How much the wall beats a coin
+is currently **unknown** (#106--#109).
 
 The consumable is the signed type-II sum $\sum_{k\sim K} b_k D(k) \ll
 N(\log N)^{-A}$; via Cauchy–Schwarz it suffices to prove
