@@ -29,16 +29,11 @@ is the complete divisor sum left behind:
 > where E_μ(t;k,a) = Σ_{n≤t, n≡a (k)} Λ(n)μ(N−n) −
 > (1/φ(k)) Σ_{n≤t} Λ(n)μ(N−n).
 
-**Correction 28 (increment 193, found while writing the proof out — an
-overclaim withdrawn).** Increment 192's "the true bound is the stronger
-N e^{−c√log N}" is **wrong**. Every ingredient other than
-Bombieri–Vinogradov (main term, mean term, complete sum) does give an
-exponential saving, but **BV itself yields only N(log N)^{−A} for each
-fixed A**: the Siegel–Walfisz range inside its proof is q ≤ (log N)^B
-with B fixed, so it does not upgrade to an exponential saving. The
-corrected statement is the one displayed above. The Corollary and the
-closure are unaffected — N(log N)^{−A} is exactly what Huang–Li need.
-(See `paper/theorem_A.tex`, Remark after the proof of Theorem A.)
+Every ingredient other than Bombieri–Vinogradov (main term, mean term,
+complete sum) gives an exponential saving N e^{−c√log N}; BV itself
+yields only N(log N)^{−A} for each fixed A, its internal
+Siegel–Walfisz range being q ≤ (log N)^B with B fixed. So the power of
+log above is imposed by BV alone, and it is exactly what Huang–Li need.
 
 **Why it works, in one line**: after the substitution the Möbius on
 the LONG variable cancels itself (μ(k)² = 1) and only μ² ≥ 0 remains
@@ -211,10 +206,9 @@ than D prime factors. So the complete part splits by ω(u):
 > c₂, and the ratio to be matched involves the asymptotics of the r=1
 > piece — which at D=1 *is* the binary Goldbach sum. **Circular.**
 
-**⚠️ Correction #29 — a structural prediction of mine that the
-measurement refuted.** I first expected the top-r piece to dominate the
-others by a power of log N, which would have given (ii) without
-nonnegativity. **False.** Measured (`code/thmD2_polyweight.py`):
+**The two pieces are the same order** — the closure rests on
+nonnegativity, not on separation of scales. Measured
+(`code/thmD2_polyweight.py`):
 
 | N | 10⁶ | 4·10⁶ | 1.6·10⁷ |
 |---|---|---|---|
@@ -223,12 +217,9 @@ nonnegativity. **False.** Measured (`code/thmD2_polyweight.py`):
 | **r₂/r₁** | 0.771 | 0.790 | **0.810** |
 | CP₂/(N log N) | 2.886 | 2.949 | 2.997 |
 
-The ratio drifts toward **1**, not 0 or ∞ — the two pieces are the
-*same* order. The closure stands, but on **nonnegativity**, not on
-separation of scales. (Calibration: the D=1 column reproduces the
-Goldbach sum at 1.7565/1.7633/1.7614 N against 𝔖(10⁶) = 1.7604 ✓.
-A first run read r₂ = 0 exactly — an indexing bug, Λ(u) instead of
-Λ(N−u), caught precisely because Λ(pq) ≡ 0 makes the bug total.)
+The ratio drifts toward **1**, not toward 0 or ∞. Calibration: the D=1
+column reproduces the Goldbach sum at 1.7565/1.7633/1.7614 N against
+𝔖(10⁶) = 1.7604 ✓.
 
 **The canonical tuning removes almost nothing.** There is exactly one
 degree-2 tuning with an analytic justification: f(x) = x² − 2γx kills

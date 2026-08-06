@@ -11,39 +11,34 @@ of the distilled amplitude statement*
 > log-power saving is the currency; o(1) or log log savings are not
 > consumable).
 
-> ### ⚠️ Correction #30 (increment 198) — this statement was wrong
->
-> The line above originally read `≪ (log N)^{−A} Σ_{k∼K} M_k`, with
-> **M_k where M_k² belongs**. The difference is a factor M ≍ N/K —
-> a *power* of N, not a constant.
->
-> **Why the printed form was false.** Σ_k M_k is the square-root scale
-> (|D(k)| ≈ √M_k ⟹ Σ|D|² ≈ Σ M_k). So the printed target demanded
-> *better than square-root cancellation by a log power* — and this
-> repository's own measurements refute it: at N = 10⁸,
-> **Σ|D|²/Σ M_k = 0.305 / 0.310 / 0.319** over K = 10³/3·10³/6·10³,
-> against a demand of (log N)^{−4} = 8.8·10⁻⁶. False by four and a
-> half orders of magnitude, at every N (`code/e1_target_audit.py`).
->
-> **The correct derivation.** The wall is the type-II term
-> T_II = Σ_{k∼K} b_k D(k) with |b_k| ≪ log N, needed at
-> |T_II| ≪ N(log N)^{−A}. Cauchy–Schwarz in k gives
-> |T_II| ≤ ‖b‖₂(Σ_k|D(k)|²)^{1/2} with ‖b‖₂² ≍ K(log N)², hence
-> Σ_k|D(k)|² ≪ N²/(K(log N)^{2A+2}), and Σ_{k∼K}M_k² ≍ K(N/K)² = N²/K.
->
-> **What actually changes.** The target is a fixed log-power saving
-> over the **trivial** bound Σ M_k², not over the square-root scale.
-> Nature's margin is then (N/K)/(log N)^{2A+2} → ∞ (since K ≤ N^{1/3}),
-> though it is invisible at N = 10⁸, where (log N)^{10} = 4.5·10¹²
-> dwarfs N/K = 10⁵ — the slack is asymptotic, and no computation at
-> accessible N can display it.
->
-> **What does not change.** All five route verdicts below stand: they
-> are blocked at named-lemma level, structurally, not on margin. In
-> particular Route 2's third obstruction survives — a triple-log saving
-> is still not a fixed power of log. The correction sharpens the
-> statement of the open problem ("any fixed log-power saving over
-> trivial in an L² average") without reopening any route.
+## Where the target comes from
+
+The chain's consumable is the **signed** type-II sum
+T_II = Σ_{k∼K} b_k D(k), with |b_k| ≪ log N, needed at
+|T_II| ≪ N(log N)^{−A}. Cauchy–Schwarz in k gives
+|T_II| ≤ ‖b‖₂(Σ_k|D(k)|²)^{1/2} with ‖b‖₂² ≍ K(log N)², hence
+Σ_k|D(k)|² ≪ N²/(K(log N)^{2A+2}); and Σ_{k∼K}M_k² ≍ K(N/K)² = N²/K.
+That is the E1 form displayed above.
+
+Two features of it govern every verdict below.
+
+- **The normaliser is Σ M_k², the trivial bound — not Σ M_k, the
+  square-root scale.** E1 asks for a fixed log-power saving over
+  *triviality*. It does not ask for square-root cancellation, still
+  less for an improvement on it.
+- **Nature therefore supplies far more than is asked.** Measured,
+  Σ|D|²/Σ M_k = 0.305 / 0.310 / 0.319 at N = 10⁸ over
+  K = 10³/3·10³/6·10³ (`code/e1_target_audit.py`), i.e. square-root
+  cancellation, leaving a margin of (N/K)(log N)^{−2A−2} → ∞. The
+  margin is asymptotic and invisible at accessible N — at N = 10⁸,
+  (log N)^{10} = 4.5·10¹² dwarfs N/K = 10⁵ — so no computation can
+  display it, and none is offered as evidence for it.
+
+The consequence for adjudication is that a route dies here only on
+**structural** grounds — a lemma whose hypothesis is unmet, an input
+that is circular, a saving weaker than a fixed power of log — never
+because it is lossy by a power of N below the margin. Each verdict
+below is of that kind.
 
 ## Route verdicts (all checked at named-lemma level)
 
@@ -72,11 +67,20 @@ no invariance that linearizes the constraint.
 The repository's self-diagnosis in CONJECTURE_L.md — "what is missing
 is a proof technique for the amplitude of a featureless object; the
 binary-correlation difficulty in its purest measured form" — is
-confirmed by verbatim comparison: E1 is out of reach of current
-technology, and the unreachability is certified at the level of the
-explicit hypotheses of the decisive lemmas of all five routes.
+confirmed by verbatim comparison: E1 is out of reach of these five
+routes, and the unreachability is certified at the level of the
+explicit hypotheses of their decisive lemmas.
+
+This is a statement about the five routes, not about every conceivable
+one. Outside them, the Technique Forge closed nine designs of its own
+and the Construction closed three representation classes; **one route
+remains open**, C-III, whose requirements are stated in
+CLOSURE_REAUDIT.md.
 
 *Sources checked (all local): Tao 2016 (Thm 1.3, footnote 2, Prop 2.4,
 Lemma 3.6), Lichtman 2020 (Lemmas 2.1, 4.5, 4.7, 6.1, Thm 6.2),
 Lichtman 2023 (Lemma 5.1), Huang–Li (Thm 1 / Cor 1),
 REVIEW_VERDICT.md, CONJECTURE_L.md.*
+
+*Supersessions and the corrections that produced them are recorded in
+one place: CLOSURE_REAUDIT.md.*

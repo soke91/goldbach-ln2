@@ -270,6 +270,29 @@ structurally refuted). **So ① is open in principle and empty among the
 transform classes this program can name** — which is a weaker claim
 than "C-III is dead", and a stronger one than "C-III is open".
 
+## Supersession record (all of it, in one place)
+
+This repository carries no correction banners elsewhere. Every
+document states its current position directly; what was withdrawn to
+get there is listed here.
+
+| # | Withdrawn statement | Replaced by |
+|---|---|---|
+| 25 | "gates pass"; "the remainder is one 1/30-wide seam"; "the rest is transcription" | REVIEW_VERDICT.md items 1–3 |
+| 26 | a z = 9 spectral excess (iid-entry Wigner null applied to a Gram matrix) | the correct Wishart null, dead centre |
+| 27 | "C-III dies even with a free Lemma S" | C3_REVIEW.md as it now stands: draft refuted, route open |
+| 28 | Theorem A's bound is N e^{−c√log N} | ≪_A N(log N)^{−A}; BV's internal Siegel–Walfisz range caps it |
+| 29 | in Prop. D″, the top-r piece dominates by a power of log N | the pieces are the same order (r₂/r₁ = 0.771 → 0.810); the closure rests on nonnegativity |
+| 30 | E1 target `Σ|D|² ≪ (log N)^{−A} Σ M_k` (square-root scale) | `Σ|D|² ≪ (log N)^{−2A−2} Σ M_k²` (trivial scale) — a factor N/K |
+| 31 | "no route verdict changes" after #30 | this document: 2 void, 1 downgraded, 2 moot, 13 standing |
+
+Two of these are the same species — #30 and REVIEW_VERDICT #3 (SEAM's
+√P over-normalization) are both **scale-normalisation drift**: writing
+a target at the square-root scale when the chain consumes it at the
+trivial scale. Both were caught only by comparing a stated target
+against our own measurements of the same quantity. That comparison is
+now mandatory before any target is used to adjudicate anything.
+
 ## Tally after both rounds
 
 | | count |

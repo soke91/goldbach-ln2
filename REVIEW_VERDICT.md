@@ -1,42 +1,13 @@
-> ## ⚠️ PARTIALLY RE-OPENED (increment 199 — read CLOSURE_REAUDIT.md first)
->
-> Correction #30 found the program's stated E1 target was written at
-> the square-root scale when the chain consumes it at the trivial
-> scale — a factor N/K ≥ N^{2/3}. Items below that were decided on a
-> **magnitude or norm** basis were therefore measured with the wrong
-> ruler. Round 2 of the re-audit (increment 200) settles them:
->
-> - **#6 — downgraded, not fatal.** The chain's consumable is the
->   *signed* sum Σ_k b_k D(k); the L² statement enters only through
->   Cauchy–Schwarz, so L² is **sufficient** and strictly stronger than
->   needed — the implication runs the safe way. Measured price of that
->   step: a factor ≍ √K (58×, 45× at K = 10³, 3·10³;
->   `code/norm_audit.py`), which the margin absorbs. **Corollary worth
->   more than the verdict**: Cauchy–Schwarz discards exactly the sign
->   structure of b_k — the structure whose power R4 exhibited (for
->   b_k ≡ 1 the *unrestricted* sum is exactly μ(N−1)). The program has
->   been aiming at something strictly harder than its own target.
-> - **#4, #5 — moot.** Their budgets are probably void by the same
->   arithmetic (at K = N^{1/3}, K^{2/3} = N^{2/9}, far inside a slack
->   of N^{2/3}), but it is immaterial: they belong to a proof program
->   that **#1 and #2 kill structurally**, and those are untouched by
->   any target. Re-opening #4 and #5 revives nothing.
->
-> Items **#1, #2, #3 stand** — they are structural (a violated lemma
-> premise, an absent pair congruence, an over-strong normalization),
-> not budget calls. On **#3**: the SEAM formalization was indeed
-> over-normalized, but that is the *same species* of mistake as #30,
-> so the SEAM conjecture should be re-derived against the corrected
-> target before it is called false.
-
-# Adversarial Review Verdict (increment 143) — the proof program is refuted in its core reductions
+# Adversarial Review Verdict — the proof program is refuted in its core reductions
 
 *An independent adversarial review (fresh context, refutation mandate,
-line-checked against Lichtman arXiv:2309.08522 §3–§5) returned the
-following verdict. We publish it in full spirit: the failures are part
-of the record.*
+line-checked against Lichtman arXiv:2309.08522 §3–§5) returned this
+verdict at increment 143; items decided on a magnitude or norm basis
+were re-audited at increments 199–200 against the corrected E1 target,
+and are stated below in their settled form. We publish the whole thing
+in full spirit: the failures are part of the record.*
 
-## Refuted (fatal)
+## Refuted — structural, and fatal
 
 1. **The gate arithmetic (T6/G4).** The dictionary placed the EH-layer
    modulus x^{1/2+δ} into Lemma 5.1's Q-slot, violating its premise
@@ -58,17 +29,38 @@ of the record.*
 3. **The SEAM formalization.** Over-normalized by √P: it demands more
    than the chain needs and is falsified by our own measurement
    (half-normal constant 0.717, not (log)^{−A}). Even corrected, with
-   T5/T6 down it is not "the entire remainder."
+   T5/T6 down it is not "the entire remainder". *Note for anyone
+   reviving it*: being over-strong and false is not evidence against
+   the correctly normalized statement, which has not been derived.
 
-## Refuted (major)
+**These three are independent of any target and settle the program.**
+Items 4–6 below were budget or norm calls; none of them changes that.
 
-4. The h-range collapse does not survive the q-layer (excess K^{2/3}).
-5. The second Vaughan layer is not gate-neutral — its divisor
-   variables multiply the conductor (as our own type-I analysis had
-   shown; the type-II variant is worse, and re-enters a binary
-   equation).
-6. The tex's Theorem E1 (L²) does not match the pipeline (signed L¹);
-   the tex T1 identity conflates the two expansions.
+## Re-audited — none of these revives anything
+
+4. **The h-range collapse and the q-layer ("excess K^{2/3}").** The
+   excess was computed against a target that was itself misstated (see
+   CLOSURE_REAUDIT.md); at K = N^{1/3} it is N^{2/9}, far inside the
+   actual margin N/K ≥ N^{2/3}, so it is probably no obstruction at
+   all. It is not re-derived here, because items 1 and 2 kill the
+   program that contains it.
+5. **The second Vaughan layer.** Its divisor variables do multiply the
+   conductor, and that half was likewise a budget call now in doubt;
+   the surviving half — that the type-II variant re-enters a binary
+   equation — is structural and stands. Same conclusion: immaterial to
+   the verdict.
+6. **Theorem E1 (L²) versus the pipeline (signed L¹).** The mismatch
+   is real as an observation and **not fatal as an objection**. What
+   the chain consumes is the signed sum Σ_k b_k D(k); the L² statement
+   enters only through Cauchy–Schwarz, so L² is *sufficient* — the
+   implication runs the safe way — and strictly stronger than needed.
+   Measured price of that step: a factor ≍ √K (58× and 45× at
+   K = 10³ and 3·10³, `code/norm_audit.py`), which the margin absorbs.
+   The corollary matters more than the verdict: **Cauchy–Schwarz
+   discards exactly the sign structure of b_k**, whose power is
+   already on record — for b_k ≡ 1 the *unrestricted* double sum is
+   exactly μ(N−1). The program has been aiming at something strictly
+   harder than its own target.
 
 ## Survives
 
@@ -85,11 +77,12 @@ of the record.*
 
 The unresolved remainder is not a 1/30-wide seam. It is the
 off-diagonal dispersion over the whole range K ≤ x^{1/3} without a
-conductor-collapse mechanism — that is, the binary-correlation
-difficulty this program faced at the outset, now with a much more
-precise map of why each route fails.
+conductor-collapse mechanism — the binary-correlation difficulty this
+program faced at the outset, now with a much more precise map of why
+each route fails, and with one route (C-III) still open.
 
-*This is the program's 25th documented correction and its largest.
-The proof-program documents (PROOF_SKETCH_E1.md, paper/e1_proof.tex,
+*The proof-program documents (PROOF_SKETCH_E1.md, paper/e1_proof.tex,
 paper/e1_transcription.md) are retained as a record with this verdict
-prepended in banner; MEASUREMENTS.md is unaffected.*
+prepended in banner; MEASUREMENTS.md is unaffected. Supersessions and
+the corrections that produced them are recorded in one place:
+CLOSURE_REAUDIT.md.*

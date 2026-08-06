@@ -82,37 +82,49 @@ in its purest measured form.
   marginal reading (r1 at 10⁹, +1.6σ) are recorded honestly, not
   averaged away.
 
-## Coverage adjudication (increment 170) — amended at 198–200
+## What the chain consumes
 
-> **⚠️ Two amendments, both from CLOSURE_REAUDIT.md.**
->
-> 1. **The target quoted in that adjudication was wrong** (correction
->    #30). It printed the consumable at the *square-root* scale,
->    Σ|D|² ≪ (log N)^{−A} Σ M_k, where the chain requires the
->    *trivial* scale, **Σ|D|² ≪ (log N)^{−2A−2} Σ M_k²** — a factor
->    N/K ≥ N^{2/3}. The amplitude half is a fixed log-power saving over
->    **trivial**, not a strengthening of square-root cancellation.
-> 2. **The five route verdicts below survive** (they are blocked at
->    named-lemma level, structurally), **but two closures elsewhere do
->    not**: C-III's assembly-scale and budget coordinates were measured
->    against the wrong target and are void, so **C-III is re-opened**
->    as a route. What it needs is stated exactly in CLOSURE_REAUDIT.md.
->
-> Consequence for the sentence "no coupling surface in any direction
-> with a mathematical name": it holds for the forge's own designs and
-> for the five routes, not as a blanket statement.
+The Goldbach chain does not need Conjecture L. It needs a bound on the
+**signed** sum T_II = Σ_{k∼K} b_k D(k) ≪ N(log N)^{−A}, where b_k is
+the arithmetic weight the Vaughan decomposition produces. Applying
+Cauchy–Schwarz in k — a choice, not a requirement — gives the
+sufficient L² form
+
+> **Σ_{k∼K} |D(k)|² ≪ (log N)^{−2A−2} Σ_{k∼K} M_k²**,
+
+a fixed log-power saving over the **trivial** bound Σ M_k² ≍ N²/K.
+Square-root cancellation, which is what the measurements above record,
+clears this with margin (N/K)(log N)^{−2A−2} → ∞. So the amplitude
+half is not a strengthening of square-root cancellation; it is a
+log-power saving over triviality, and nature supplies far more than is
+asked. The whole difficulty is that no technique certifies any of it.
+
+## Coverage: what is and is not reached
 
 A fresh-context adjudication against the source papers' lemma
-hypotheses (AMPLITUDE_ADJUDICATION.md) found: all five candidate
-routes (shift→dilate substitution, entropy decrement, technique
-rerun, Dirichlet-polynomial mean values, partial slices) are blocked
-at named-lemma level; the only provable E1-shaped statement is the
-N-averaged version (exceptional-set territory, not consumable by
-Huang–Li); and the common obstruction is that the bilinear pair
-constraint of μ(m)μ(N−mk) is diagonalized by no additive or
-multiplicative character family, while the k-average supplies no
+hypotheses (AMPLITUDE_ADJUDICATION.md) finds all five candidate routes
+— shift→dilate substitution, entropy decrement, technique rerun,
+Dirichlet-polynomial mean values, partial slices — blocked at
+named-lemma level. The only provable E1-shaped statement is the
+N-averaged version, which lands in exceptional-set territory and is
+not consumable by Huang–Li. The common obstruction is that the
+bilinear pair constraint of μ(m)μ(N−mk) is diagonalized by no additive
+or multiplicative character family, while the k-average supplies no
 linearizing invariance.
+
+Beyond those five, the Technique Forge closed nine designs of its own
+and the Construction closed three representation classes. **One route
+is open**: C-III (Motohashi-type spectral realization). It needs a
+legitimate transform, a classification covering the type-II region,
+and quantitative averaged Chowla at fixed log-power strength; the
+geometry and the current state of each requirement are in
+CLOSURE_REAUDIT.md. So the accurate statement is *no coupling surface
+has been found among the sources examined*, not that none exists in
+any direction with a mathematical name.
 
 *If Conjecture L (or just its amplitude half) is known, provable, or
 refutable by current technology, the authors of this repository would
 be grateful for a pointer — see paper/contact_drafts.md.*
+
+*Supersessions and the corrections that produced them are recorded in
+one place: CLOSURE_REAUDIT.md.*
