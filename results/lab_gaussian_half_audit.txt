@@ -1,0 +1,64 @@
+sieve + convolution  t=12s
+
+(A) baseline: de-masked on {3..23}, per octave band
+                 band         n     skew       z  exc.kurt        z   E|X|/sd        z
+   100000-     200000     50000  -0.0056    -0.5    0.1715      7.8   0.78869     -3.4
+   200000-     400000    100000  -0.0064    -0.8    0.1516      9.8   0.79161     -3.3
+   400000-     800000    200000   0.0034     0.6    0.1898     17.3   0.79024     -5.7
+   800000-    1600000    400000  -0.0057    -1.5    0.1818     23.5   0.79094     -7.3
+  1600000-    3200000    800000   0.0004     0.1    0.1703     31.1   0.79159     -9.3
+  3200000-    6400000   1600000  -0.0011    -0.6    0.1711     44.2   0.79156    -13.3
+  6400000-   12800000   3200000  -0.0012    -0.9    0.1693     61.8   0.79196    -17.6
+ 12800000-   16000000   1600000   0.0061     3.2    0.1678     43.3   0.79180    -12.8
+    Gaussian: skew 0, excess kurtosis 0, E|X|/sd = 0.79788
+
+(B) depth ladder, centring only -- is it mask leakage?
+ depth  primes up to   cells   exc.kurt        z   E|X|/sd dev        z
+     2             5      32     0.1595     91.8      -0.00554    -25.9
+     4            11     128     0.1645     94.6      -0.00580    -27.1
+     6            17     510     0.1686     97.1      -0.00599    -28.0
+     8            23    1810     0.1704     98.1      -0.00619    -29.0
+    10            31    4867     0.1698     97.8      -0.00646    -30.2
+
+(C) per-cell STANDARDISATION -- is it a variance mask?
+ depth  cells kept   exc.kurt        z   E|X|/sd dev        z
+     4         128     0.0046      2.6      -0.00020     -1.0
+     6         432     0.0001      0.1      -0.00008     -0.4
+     8         998    -0.0019     -1.1      -0.00006     -0.3
+
+    excess kurtosis removed by DEPTH  (d=4 -> d=10): -3.3%
+    excess kurtosis removed by SCALING (d=8):        101.1%
+    pre-registered rule: a variance mask is declared if
+    scaling removes >= 70% while depth removes < 30%
+    verdict: (ii) VARIANCE MASK
+
+(D) does the deviation shrink with N?
+                 band   exc.kurt   E|X|/sd dev
+   100000-     200000     0.1715      -0.00919
+   200000-     400000     0.1516      -0.00627
+   400000-     800000     0.1898      -0.00764
+   800000-    1600000     0.1818      -0.00694
+  1600000-    3200000     0.1703      -0.00630
+  3200000-    6400000     0.1711      -0.00632
+  6400000-   12800000     0.1693      -0.00592
+ 12800000-   16000000     0.1678      -0.00608
+    trend in excess kurtosis vs log N: -0.00005 per unit
+    decaying
+
+(C2) which normaliser? S(N)*N (displayed in the docs)
+     versus V(N) = Sum_v mu^2 Lambda^2 (exact, used by
+     increment 240)
+    normaliser              treatment   exc.kurt        z   E|X|/sd dev        z
+        S(N)*N        cell means only     0.1704     98.1      -0.00619    -29.0
+        S(N)*N      cell mean + scale    -0.0019     -1.1      -0.00006     -0.3
+    V(N) exact        cell means only    -0.0005     -0.3      -0.00018     -0.8
+    V(N) exact      cell mean + scale    -0.0031     -1.8      -0.00002     -0.1
+    the two normalisers differ: (S*N)/V has mean 0.1653, sd 0.0491, range [0.113, 0.488]
+    and 93.7% of its variance is explained by the SAME cells -- which is
+    why per-cell standardisation imitated it
+
+(E) robustness: quarter-octave bands (scale mixing within
+    a band is ~0.001 in excess kurtosis, predicted; here it
+    is measured)
+    30 bands, excess kurtosis +0.1674 (z 96.3), octave value +0.1704
+DONE

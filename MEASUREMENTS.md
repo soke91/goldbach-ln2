@@ -461,6 +461,8 @@ assumed to be. **What is measured is that `α = 0` is excluded**: the
 variance grows faster than `𝔖N`. Read the formula as a shape with one
 established feature, not as a fitted law.
 
+⚠️ **And it is the wrong normaliser** (increment 283). Under this `𝔖N`-based scale the fluctuation is **not Gaussian**: excess kurtosis **+0.1704 (z = 98.1)**, `E|X|/sd` short of `√(2/π)` by −0.0062 (z = −29), on every even `N ≤ 1.6·10⁷`. Under the **exact second moment** `V(N) = Σ_v μ²(v)Λ(N−v)²` the same data give excess kurtosis **−0.0005 (z = −0.3)**, cell **means** alone. `(𝔖N)/V` varies with sd 0.049 about a mean of 0.165, **93.7% of it cell-explained**. So `κ𝔖N log N` is a fitted stand-in that matches `V` in the mean and misses its fluctuation — which is also why `α` above would not converge. **Use `√V(N)`; it needs no fit.**
+
 This extends Conjecture L to the wall's own scalar, which the campaign
 had never done, but on **three** masks and not one: support, scale and
 location. Two things in the earlier reading were wrong and both are

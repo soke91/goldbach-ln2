@@ -94,6 +94,38 @@ masks, not one:
 > increment 280 shows the exponent still walking with the fitting window
 > and a pure power of `N` fitting as well; only `α ≠ 0` is established
 
+⚠️ **And that normaliser does not deliver the Gaussianity this
+conjecture claims** (increment 283, `code/lab_gaussian_half_audit.py`).
+Tested on every even `N ≤ 1.6·10⁷`, cell means removed, band
+standardised:
+
+| normaliser | excess kurtosis | z | `E\|X\|/sd − √(2/π)` | z |
+|---|---|---|---|---|
+| `√(κ𝔖(N)N log N)` — **as displayed above** | **+0.1704** | **98.1** | −0.00619 | −29.0 |
+| `√(V(N))`, `V = Σ_v μ²(v)Λ(N−v)²` — exact | **−0.0005** | −0.3 | −0.00018 | −0.8 |
+
+**The Gaussian half is true, and truer than ever measured — under the
+right normaliser.** With `V(N)` the fluctuation is Gaussian to
+`−0.0005 ± 0.0017` in excess kurtosis on 6.3·10⁶ values, and removing
+cell *means* alone suffices. Under the displayed `𝔖N`-based scale it
+fails at **z = 98**.
+
+The two are not interchangeable: `(𝔖N)/V` has mean 0.165, sd 0.049 and
+range [0.113, 0.488], and **93.7% of that variance is explained by the
+same divisibility cells**. So `κ𝔖(N)N log N` matches `V` in the *mean*
+at reachable `N` (`κ log N ≈ 6.5` against `V/(𝔖N) ≈ 6.05`) and gets its
+*fluctuation* wrong.
+
+**This also dissolves increment 280's puzzle.** `α` was unidentifiable
+because `κ𝔖N(log N)^α` is a **fitted stand-in for an exact quantity**;
+there is no true `α` to identify. The wall's scale is `V(N)`, which
+needs no fit, and increment 238 said so — `"the normaliser that needs no
+fitting is the exact second moment"` — before the conjecture was written
+with `𝔖N` anyway.
+
+> **Corrected form**: `C(N) = m(N) + √(V(N))·G(N)`, `G` Gaussian,
+> `V(N) = Σ_v μ²(v)Λ(N−v)²`, `m(N)` the location mask.
+
 with `m(N)` a **location** mask — a deterministic mean indexed by
 which small primes divide N, reaching 9 standard deviations below zero
 for primorial N — and `√𝔖(N)` a **scale** mask. Both are finite

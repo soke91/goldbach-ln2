@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 282 (2026-08-07). 5 days, 73 recorded corrections,
+*Increment 283 (2026-08-07). 5 days, 75 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -99,7 +99,10 @@ of it.
   × (exactly Gaussian fluctuation on the surviving support). Mask
   blind-verified (corr 1.0000); Gaussian half holds at pair, cell,
   matrix and E1-ratio level across $10^8$–$2\cdot10^9$ and four
-  $N$-structures. Every "sub-random" reading in this program's history
+  $N$-structures. For the **wall** $C(N)$ the Gaussian half holds
+  only under the **exact** second moment $V(N)=\sum_v\mu^2(v)\Lambda(N-v)^2$
+  (excess kurtosis $-0.0005$, $z=-0.3$); under the $\mathfrak S N$-based
+  scale this program displays it **fails at $z=98$** (inc. 283). Every "sub-random" reading in this program's history
   is mask accounting.
 - **Five routes adjudicated** against the source papers' verbatim lemma
   hypotheses: all blocked structurally. The common obstruction is that
