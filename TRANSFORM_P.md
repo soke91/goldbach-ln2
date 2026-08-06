@@ -221,14 +221,38 @@ that made `C_R` small has been discarded.
 > **Specification.** A proof must not bound `|Σ|²` but *compute* it:
 > the off-diagonal main terms are explicit singular series, so the
 > dispersion method proper applies — subtract the main terms, bound only
-> the variance. The diagonal survives that subtraction untouched and
-> sits at 0.57 N and decaying, so there is room for exactly that
-> argument and for no cruder one.
+> the variance.
 
-This is a specification, not a proof. Bounding the variance means
-controlling correlations of primes along two linear forms `N−pw` and
-`N−p'w`, on average over the pair (p, p′) — a real analytic problem,
-and where the difficulty of transform P now honestly sits.
+**That was carried out, and it is not enough.** With `h_w =
+κ_R·𝔖_w(N)/log(Pw)` — the shape derived from the binary equation
+`N = wp + n`, only the constant fitted — writing `C_R = −Σ_w μ(w)h_w −
+Σ_w μ(w)(H−h)` and bounding only the second piece gives
+
+| N | Σ_R disp_R / N | plain CS / N | Σ_R \|first piece\| / N |
+|---|---|---|---|
+| 5·10⁴ | **0.941** | 1.429 | 0.182 |
+| 10⁵ | **0.950** | 1.450 | 0.174 |
+| 2·10⁵ | **0.940** | 1.446 | 0.165 |
+
+The main term is genuine — it explains 78% of the second moment, and the
+first piece is PNT-small and falling, as Proposition P.3's remark
+predicted. But the bound is 0.94 N and **flat**, against a demand of
+`o(N)`. The variance here is *computed exactly*, not estimated, so no
+theorem about it can improve this: the shape of the argument is what
+fails.
+
+**The obstruction.** Cauchy–Schwarz over w costs `√(N/P)`, affordable
+only for large P; cancellation inside `D_p` needs many v per p, which
+happens only for small P. The requirements are opposite and the mass
+sits at the crossover. Concretely, the main-term model explains 0.10 of
+the second moment at p ∈ [2,4) and 0.83 by p ≍ 10³, while the number of
+w available to fit it falls from 6·10⁴ to 1; only p ≍ 10³–4·10³ has
+both, and that is two dyadic ranges out of seventeen.
+
+**Net position.** The true value `Σ_p log p|D_p|` is 0.30 N and falling
+(§4). The best available argument bounds it by 0.94 N and flat. The gap
+between those two numbers is the size of what is missing, and closing it
+is not a matter of executing a known method more carefully.
 
 ## 7. What is not established
 
@@ -245,10 +269,17 @@ and where the difficulty of transform P now honestly sits.
   range √(log N) moves by 9%, so the decay of `S_abs/triv` separates
   "decaying" from "flat" and nothing finer. The flatness of
   `S_abs/S_null` is the claim that needs no extrapolation.
-- **Novelty is unverified.** Splitting a Möbius sum by the prime
-  factors of its argument is a standard device; whether this particular
-  arrangement, and Proposition P.3 in particular, is in the literature
-  has not been checked. See the standing note in STATUS.md.
+- **P.1 should be presumed known.** A first literature pass
+  (increment 232, four searches) places it squarely in the
+  peel-a-prime-factor family — **Ramaré's identity**, Bombieri's
+  asymptotic sieve, Heath-Brown's identity, Tao's log-weighted device.
+  Ramaré's version carries a correction factor `ω_{(P,Q)}(m)+1` for the
+  multiple counting when v has several prime factors in range; the
+  weight `log p / log v` performs the same bookkeeping by normalising
+  instead of correcting. **Transform P is a weighted Ramaré split.**
+  Proposition P.3 and the margin/ceiling analysis returned no hit, but
+  four searches is weak evidence and the honest label is *unverified,
+  plausibly folklore*.
 - **The Huang–Li frame is used, not owned.** That `C(N) = o(N)` is the
   wall is their Theorem 1's equivalence clause. DEPENDENCY_AUDIT.md
   records what has and has not been re-derived here.

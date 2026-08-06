@@ -789,6 +789,101 @@ that absolute values taken **after squaring** destroy the sign
 information the wall runs on, every time, and land back at the trivial
 scale. Take them on already-cancelled quantities and they are affordable.
 
+## Session 12 — the dispersion method proper: better by 35%, and still not enough
+
+Session 11 wrote the specification: don't bound `|Σ|²`, compute it. Done
+here. With `h_w = κ_R·𝔖_w(N)/log(Pw)` the main term of `H_{R,w}` — the
+*shape* derived from the binary equation `N = wp + n`, only the constant
+κ_R fitted from the same data — split rather than bound:
+
+> `C_R = −Σ_w μ(w)h_w − Σ_w μ(w)(H_{R,w} − h_w)`,
+> `disp_R := |first| + √(n_sqf·Var_R)`, `Var_R = Σ_w μ²(w)(H−h)²`.
+
+**The main term is real.** It explains 78% of the second moment in
+aggregate (Var/raw = 0.22), and the first piece is PNT-small as session
+7 predicted: `Σ_R|first|/N` = 0.182, 0.174, 0.165 and falling.
+
+**And it is still not enough.**
+
+| N | Σ_R disp_R | **disp/N** | plain CS/N | disp/CS |
+|---|---|---|---|---|
+| 5·10⁴ | 47073 | **0.941** | 1.429 | 0.659 |
+| 10⁵ | 94953 | **0.950** | 1.450 | 0.655 |
+| 2·10⁵ | 188019 | **0.940** | 1.446 | 0.650 |
+
+Below 1, by a hair, and **flat**. The pre-registered criterion was
+"below 1 *and falling*"; it fails the second clause. And the variance
+here is not estimated — it is computed exactly — so **no theorem about
+the variance can rescue this bound.** The specification was right about
+what to do; doing it does not reach `o(N)`.
+
+### Why: a pincer, visible in one table
+
+| p range | #w | var explained | disp_R/N |
+|---|---|---|---|
+| 2–4 | 60794 | 0.1013 | 0.098 |
+| 64–128 | 1902 | 0.6897 | 0.048 |
+| 1024–2048 | 120 | 0.8327 | 0.034 |
+| 4096–8192 | 31 | 0.8329 | 0.049 ⚠ |
+| 131072–2·10⁵ | 1 | 1.0000 | 0.051 ⚠ |
+
+Two things move in opposite directions as p grows.
+
+- **Small p**: `H_{R,w}` is a sum over 1–5 primes, so it has no main
+  term to speak of (var explained 0.10) and Cauchy–Schwarz costs
+  `√#w = √(N/p)` — the largest possible. The method does not apply.
+- **Large p**: the model fits, but `#w = N/P` collapses, and a
+  one-parameter fit against 1–31 points **interpolates**. The
+  `var explained = 1.0000` rows are overfitting, not success; they prove
+  nothing and are flagged as such in the output.
+
+Only `p ≍ 10³–4·10³` has both a meaningful model and enough w to fit it
+(#w = 61–120, var explained 0.81–0.83), and that is two ranges out of
+seventeen.
+
+> **The obstruction, stated once.** Cauchy–Schwarz over w costs `√(N/P)`,
+> which is affordable only for large P; cancellation inside `D_p`
+> requires many v per p, which happens only for small P. The two
+> requirements are opposite, the mass sits at the crossover, and neither
+> method works there. That is the same pincer session 6's dyadic profile
+> showed from the other side.
+
+### Where this leaves transform P
+
+The identity, losslessness, and the grouping asymmetry stand — they are
+theorems (TRANSFORM_P.md §1–§3). The measured margin in P.4 stands: the
+true `Σ_p log p|D_p|` is 0.30 N and falling. What has been closed is the
+*route to proving it by the standard manoeuvre*: plain Cauchy–Schwarz
+(1.45 N), and now the dispersion method proper (0.94 N, flat), both fail
+against a demand of `o(N)`. P.4's hypothesis remains true-and-unproved,
+and the gap between 0.30 (what it is) and 0.94 (what the best available
+argument bounds it by) is exactly the size of what is missing.
+
+## Literature check on transform P (increment 232)
+
+Four searches, so this is a first pass and not a survey.
+
+**The identity should be presumed known.** "Peel a prime factor out of
+a Möbius or prime sum" is a standard family: **Ramaré's identity**,
+Bombieri's asymptotic sieve, Heath-Brown's identity, and Tao's
+log-weighted device all live in it. Ramaré's version introduces the
+correction factor `ω_{(P,Q)}(m) + 1` precisely to fix the multiple
+counting that arises when v has several prime factors in the range —
+which is the same bookkeeping our weight `log p / log v` performs
+automatically, by normalising rather than correcting. **Transform P is
+best described as a weighted Ramaré split**, and P.1 should be labelled
+as such rather than as new.
+
+**Not found, and not therefore new.** No hit for Proposition P.3 — the
+statement that the w-grouping's absolute aggregate equals the trivial
+bound identically, hence has zero margin — nor for the margin/ceiling
+analysis of §4–§6. Four searches is weak evidence; the honest label is
+*unverified, and plausibly folklore in the sieve literature*.
+
+Sources: [Ramaré identity discussion, Tao](https://terrytao.wordpress.com/tag/mobius-function/),
+[Möbius identity factory, arXiv:2312.05138](https://arxiv.org/abs/2312.05138),
+[Huang–Li, arXiv:2005.03811](https://arxiv.org/pdf/2005.03811).
+
 ### Not yet read
 
 MRT's *averaged* form of Chowla (`arxiv_1503.05121`) is stated
