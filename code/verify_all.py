@@ -23,9 +23,42 @@
 정규화에 대해서는 감사 결과가 깨끗했다: V1의 `Σ log²p·[μ≠0]`,
 V5·V6의 직접 센 받침은 모두 **정확한** 2차 모멘트다. 증분 283이
 문서에서 찾아낸 `𝔖N` 대역품은 이 도장에 들어온 적이 없다.
+
+증분 306에서 **위험 8번**을 이 도장 자신에게 겨눴고, 세 번째 결함이
+나왔다 (`code/audit_stamp_calibration.py`).
+
+(C) **구간 폭이 각 행의 산포에 대해 교정된 적이 없었다.** 285가 고친
+    것은 "판정기가 실패할 수 있는가"였지 "구간이 옳은 폭인가"가
+    아니다. 시드를 40개로 바꿔 돌리자 도장 전체가 **25%의 시드에서
+    exit 1**을 냈다 — 시드 211의 초록불은 운이었다. 얕은 팔은
+    자기 구간 안쪽으로 **1.14σ**밖에 안 들어와 있었고(혼자 ~13%
+    실패), E1은 1.65σ였다.
+
+    고친 방식: 폭은 **실측 산포에서** 잡는다(중심 ± 4σ, 40시드).
+    중심은 이론값이 살아있는 행에서는 이론값 그대로 두고(사다리 0,
+    인수분해 법칙 1, E1 1, 반정규 0.7979), **이론값이 이미 반박된
+    두 행에서만** 실측 평균으로 옮긴다 — V1의 두 팔이다. 통과하도록
+    넓힌 것이 아니라 폭의 근거를 바꾼 것이고, 결과 여유는 3.4~4.1σ로
+    사전등록 창 [2, 20] 안에 든다.
+
+(D) **V1의 옛 중심은 이 프로그램이 이미 반박한 예측이었다.**
+    구간 [0.60, 1.00]은 반정규 `√(2/π) = 0.7979`, 즉 `ρ = 1`을
+    중심으로 잡은 것인데 증분 288·289가 `ρ = Var T / V < 1`을
+    확정했다. 40시드 평균은 얕은 팔에서 `r̄ = 0.7181 ± 0.0163`,
+    이론값에서 **4.9σ 아래**다. `r̄ = √(2ρ/π)`로 풀면
+    **`N ≈ 10⁸`에서 `ρ = 0.810 ± 0.018`** — FFT 작업이 닿는
+    `1.6·10⁷`보다 한 자리 위에서의 독립 측정이다. 깊은 팔이
+    `0.8018`로 더 높은 것은 마스크가 결정론적 성분을 얹기 때문이고,
+    그래서 두 팔의 차이 자체가 마스크의 서명이다.
+
+    한편 **유도해 적어둔 표준오차 둘은 옳았다**: 이음새의
+    `SE = 0.0953`(반정규, n=40) 대 실측 `0.0904`(0.95배), E1의
+    "실SE ~0.15" 대 실측 `0.1320`(0.88배). 오차 분석은 멀쩡했고,
+    그것을 구간 폭에 대조하는 단계가 없었을 뿐이다.
 """
 
 import math
+import os
 import sys
 
 import numpy as np
@@ -65,7 +98,11 @@ print("mu 완료됨 (검증: Σμ(≤1e6) =",
 
 N = 99_999_998
 SQ = int(N ** 0.5)
-rng = np.random.default_rng(211)
+# 시드는 기본 211로 고정된다 — 기본 실행은 종전과 바이트 동일하다.
+# 환경변수 STAMP_SEED는 증분 306의 교정 감사(위험 8번)가 이 도장을
+# 여러 표본에서 다시 돌려 **각 행의 산포**를 재기 위한 것이다.
+# 사전등록 구간은 그 산포에 대해 교정된 적이 없었다.
+rng = np.random.default_rng(int(os.environ.get("STAMP_SEED", "211")))
 rows = []
 
 # V1: 핵 총합 T(N) 반정규 (30 N)
@@ -95,11 +132,11 @@ deep = [v for v in deep if v > 2][:30]
 rs_deep = [half_normal_ratio(v) for v in deep]
 rows.append(("핵 T(N) 반정규 — 얕은 팔 (3∤N, 30N)",
              f"평균 r={np.mean(rs_shallow):.3f}", np.mean(rs_shallow),
-             (0.60, 1.00)))
+             (0.30, 1.14)))
 print(rows[-1][:2], flush=True)
 rows.append((f"핵 T(N) 반정규 — 깊은 팔 (30030|N, {len(rs_deep)}N)",
              f"평균 r={np.mean(rs_deep):.3f}", np.mean(rs_deep),
-             (0.60, 1.00)))
+             (0.40, 1.20)))
 print(rows[-1][:2], flush=True)
 
 # V2: 사다리 항등식 (10쌍, p=3)
@@ -130,7 +167,7 @@ for _ in range(50):
     v = int(np.count_nonzero(prod))
     rr.append(abs(prod.sum()) / math.sqrt(max(v, 1)))
 rows.append(("분산 비대각 (50쌍)", f"평균 r={np.mean(rr):.3f}",
-             float(np.mean(rr)), (0.60, 1.00)))
+             float(np.mean(rr)), (0.51, 1.08)))
 print(rows[-1][:2], flush=True)
 
 # V4: 이음새 대역
@@ -185,7 +222,7 @@ while len(rr2) < N_FREE and tries4 < 4000:
 # 0.798 ± 2.5·SE = [0.56, 1.04]. n은 보기 전에 고정됐다.
 rows.append((f"이음새 대역 — 자유 클래스 ({len(rr2)}쌍)",
              f"평균 r={np.mean(rr2):.3f}", float(np.mean(rr2)),
-             (0.56, 1.04)))
+             (0.43, 1.16)))
 print(rows[-1][:2], flush=True)
 print(f"  [진단] 받침 50 미만이라 제외된 쌍: {n_low4} "
       f"({100*n_low4/max(n_low4+len(rr2)+len(rr2_shared),1):.0f}%) — "
@@ -221,7 +258,7 @@ while n_free < 400 and tries < 20000:
         n_free += 1
 m2f = float(np.mean(m2s))
 rows.append(("인수분해 법칙: 자유-클래스 분산비",
-             f"m2_eff={m2f:.3f} ({n_free}쌍)", m2f, (0.85, 1.15)))
+             f"m2_eff={m2f:.3f} ({n_free}쌍)", m2f, (0.72, 1.28)))
 print(rows[-1][:2], flush=True)
 
 # V6: E1 비율 미니 도장 (100 k, 대역 [3000,4000))
@@ -234,7 +271,7 @@ for k6 in ks6:
     S2 += float(t6.sum()) ** 2
     SS += int(np.count_nonzero(t6))
 rows.append(("E1 비율 (100k, 실SE ~0.15)",
-             f"{S2/SS:.3f}", float(S2/SS), (0.70, 1.40)))
+             f"{S2/SS:.3f}", float(S2/SS), (0.47, 1.53)))
 print(rows[-1][:2], flush=True)
 
 def judge(rows):
@@ -265,6 +302,15 @@ for name, text, val, (lo, hi) in rows:
     sens_ok &= flips
     print(f"    {name:<38} 주입값 {bad:>8g}  "
           f"{'FAIL로 뒤집힘 (좋음)' if flips else '여전히 PASS (나쁨)'}")
+
+# STAMP_DUMP가 있으면 판정 결과를 JSON으로 남긴다. 감사용이며
+# 기본 실행에서는 아무 일도 하지 않는다.
+_dump = os.environ.get("STAMP_DUMP")
+if _dump:
+    import json
+    with open(_dump, "w", encoding="utf-8") as fh:
+        json.dump([{"name": nm, "val": float(v), "lo": lo, "hi": hi}
+                   for nm, _t, v, (lo, hi) in rows], fh, ensure_ascii=False)
 
 print(f"\n  {'전체통과' if ok_all else '실패한 검증이 있음'}"
       f" / {'민감도 정상' if sens_ok else '판정기가 실패할 수 없음'}")

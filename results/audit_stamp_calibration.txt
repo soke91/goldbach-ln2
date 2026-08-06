@@ -1,0 +1,24 @@
+  10/40 seeds  t=119s
+  20/40 seeds  t=239s
+  30/40 seeds  t=357s
+  40/40 seeds  t=477s
+
+the CI stamp under 40 seeds (default is one seed, 211)
+row                                           mean        sd       min       max         interval   margin
+핵 T(N) 반정규 — 얕은 팔 (3∤N, 30N)                0.7181    0.1032    0.5444    0.9813      [0.3, 1.14]      4.1
+핵 T(N) 반정규 — 깊은 팔 (30030|N, 30N)            0.8018    0.0983    0.6614    1.0495       [0.4, 1.2]      4.0
+사다리 항등식 (10쌍)                               0.0000    0.0000    0.0000    0.0000           [0, 0] identity
+분산 비대각 (50쌍)                                0.7847    0.0704    0.6231    0.9192     [0.51, 1.08]      3.9
+이음새 대역 — 자유 클래스 (40쌍)                       0.8296    0.0904    0.6726    1.0753     [0.43, 1.16]      3.7
+인수분해 법칙: 자유-클래스 분산비                         1.0005    0.0678    0.8664    1.1323     [0.72, 1.28]      4.1
+E1 비율 (100k, 실SE ~0.15)                     0.9180    0.1320    0.6629    1.2079     [0.47, 1.53]      3.4
+
+    (S) identity rows have sd exactly 0: PASS  (1 identity row(s))
+    (C) every statistical row has 2 <= margin <= 20: PASS
+    (F) stamp-wide failure rate across seeds: 0.0%  ->  PASS
+
+    (D) two stated standard errors, measured for the first time
+        seam:  stated SE 0.0953 (half-normal, n=40) vs measured sd 0.0904  ratio 0.95
+        E1:    stated SE ~0.15 vs measured sd 0.1320  ratio 0.88
+    the gate is calibrated: every statistical row sits between 2 and 20 sigma inside its interval, and no seed fails
+DONE
