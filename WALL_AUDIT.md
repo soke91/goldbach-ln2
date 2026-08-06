@@ -39,7 +39,22 @@ well-factorable weight vanishes on primes in (√Q, Q]; μ does not).
    because the signs die on line one of the published proof.
 3. **y-uniformity relaxable** to an integral (L¹-type) form.
 
-## The crack candidate (status: TO DERIVE, not claimed)
+## VERDICT ON THE CRACK (increment 191) — see THEOREM_A.md
+
+The derivation returned: the switch is exact and does flip the inner
+sums into BV territory, but the complete divisor sum splits the two
+weights — w = 1 vanishes ([h=1]) giving **Theorem A (candidate,
+under verification)**, while w = log k returns **Λ(h)** (μ ∗ log = Λ)
+and hence the binary Goldbach sum itself. **(W)_log is EQUIVALENT to
+Goldbach**; the weakest sufficient form was the conclusion all along.
+Closure at the level of identities.
+
+**Error corrected**: the paragraph below states C(t) enters with
+coefficient O(log²N). That is wrong — the coefficient is
+Σ_k μ(k)log k/φ(k) → −𝔖(N) ≍ 1. The original text is retained below
+for the record.
+
+## The crack candidate (status: SUPERSEDED — retained as record)
 
 In (W), μ(k)·E_μ carries μ(k)² = 1 on squarefree k, and the k-sum
 telescopes by divisor-switching: u = mk with the truncation k ≤ N^{θ′}
