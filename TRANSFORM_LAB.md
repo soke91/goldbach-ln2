@@ -324,6 +324,52 @@ it move a finite pencil vertex to infinity, or does it remove a
 divisibility restriction the problem supplies rather than one we
 inserted?** Anything that does neither is new.
 
+## Session 5 — the first stake: why the machinery cannot see our pairing
+
+With both transform classes closed, the useful question becomes *what
+exactly* the working machinery requires that our object lacks. It has
+a one-line answer, and it is sharper than "the coupling is bilinear".
+
+**Tao and Helfgott–Radziwiłł both run on a simultaneous dilation.**
+
+> λ(pn)·λ(pn+p) = λ(p)²·λ(n)λ(n+1) = λ(n)λ(n+1)
+
+— the correlation at scale pn *is* the correlation at scale n, because
+**both factors transform under the same dilation**. Verified exactly,
+200,000 draws, zero mismatches (`code/lab_dilation_pairing.py`).
+
+**Our wall pairs μ with Λ, and only μ dilates.** Λ is not completely
+multiplicative: Λ(pm) is log p when m is a power of p and 0 otherwise.
+Measured: among 23,124 draws with Λ(m) ≠ 0, Λ(pm) ≠ 0 in **74**
+(0.0032). The second factor simply does not survive the dilation, so
+no simultaneous dilation exists for C(N) = Σ_v μ(v)Λ(N−v).
+
+**Replacing Λ by μ restores the dilation but moves N.** For the pure
+pair, μ(pv)μ(p(N′−v)) = μ(v)μ(N′−v) whenever p divides neither v nor
+N′−v — exact, 133,173 draws, zero mismatches. But read what it
+relates: the correlation at **N = pN′** restricted to p | v, against
+the correlation at **N′**. The dilation moves the additive constraint,
+so it acts *across* the N-family rather than within one N — which is
+the N-average, and we know its price.
+
+> **The first stake of the invention phase.** A transform that works
+> must handle **two factors with different transformation behaviour**.
+> Every mechanism that currently breaks a parity-type correlation
+> requires the two factors to move together; ours cannot, and forcing
+> them to move together (by replacing Λ with μ) converts the problem
+> into an N-family statement.
+
+This adds a third clause to the candidate test. A candidate transform
+is new if it does **none** of: move a finite pencil vertex to infinity;
+remove a divisibility restriction we inserted ourselves; or require the
+two factors to dilate together.
+
+*(Recorded: the first run of test (3) enforced only p ∤ v and failed on
+5.2% of draws — exactly the density of p | (N′−v), the side condition
+the second factor needs. Third time this session a verification script
+under-enforced an identity's hypotheses; the rule is now explicit —
+when checking an identity with side conditions, enforce all of them.)*
+
 ### Not yet read
 
 MRT's *averaged* form of Chowla (`arxiv_1503.05121`) is stated
