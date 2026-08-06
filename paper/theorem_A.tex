@@ -1,0 +1,779 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\renewcommand{\SS}{\mathfrak{S}}
+\newcommand{\Emu}{E_\mu}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\lcm}{lcm}
+
+\title{An unconditional bound for a M\"obius-weighted correlation sum\\
+in fixed residue classes, with two consequences for the\\
+Huang--Li reduction of Goldbach to Elliott--Halberstam}
+
+\author{[author]}
+\date{Increment 193 of the \texttt{goldbach-ln2} program\\
+\small Verification code: \texttt{code/thmA\_*.py} in the accompanying repository}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Huang and Li [arXiv:2005.03811] show that the binary Goldbach conjecture
+for large even $N$ follows from $EH$ together with a M\"obius-twisted
+variant $EH_\mu$ whose levels sum to more than $1$; by Bombieri--Vinogradov
+their Corollary~1 reduces this to $EH_\mu(N^{\theta'})$ alone for a single
+$\theta' > 1/2$. Their proof consumes $EH_\mu$ at exactly two places, the
+functionals they call $E_3(\alpha)$ and $E_4(\alpha)$. We prove
+unconditionally (Theorem~\ref{thm:A}) that the M\"obius-weighted
+correlation sum underlying $E_4$ is
+$\ll_A N(\log N)^{-A}$ for every $A>0$, uniformly in the truncation
+point; consequently (Corollary~\ref{cor:B}) the $E_4$ consumption of
+$EH_\mu$ is unnecessary and the entire $EH_\mu$ demand of the Huang--Li
+argument collapses to the single scalar $E_3(\alpha)$. We then show
+(Theorem~\ref{thm:C}) that the corresponding statement for $E_3$ --- the
+same sum with the weight $\log k$ --- is not merely hard but
+\emph{equivalent} to binary Goldbach for large even $N$, by an
+unconditional identity which is Huang--Li's own equation~(22). The root
+cause is $\mu * \log = \Lambda$. Finally we record a genuine defect in
+the published paper: equation~(18) drops an $n$-dependent constraint
+present in the definition of $S_2(\alpha)$; we give the missing term and
+show it is harmless under the hypotheses already assumed
+(Section~\ref{sec:delta}).
+
+We state plainly what is \emph{not} claimed: Theorem~\ref{thm:A} removes
+only the part of the demand that carries no Goldbach content, and the
+net progress toward the Goldbach conjecture is zero.
+\end{abstract}
+
+\section{Introduction}
+
+\subsection{The Huang--Li reduction}
+
+Let $N$ be a large even integer, $\Lambda$ the von Mangoldt function,
+$\mu$ the M\"obius function, and
+\[
+  \tilde r(N) \;=\; \sum_{n<N} \Lambda(n)\Lambda(N-n),
+  \qquad
+  \SS(N) \;=\; 2\prod_{p>2}\Bigl(1-\tfrac{1}{(p-1)^2}\Bigr)
+                \prod_{\substack{p\mid N\\ p>2}}\Bigl(1+\tfrac{1}{p-2}\Bigr).
+\]
+Write $EH_\mu(Q)$ for the assertion that for every $A>0$
+\begin{equation}\label{eq:EHmu}
+  \sum_{q\le Q}\ \max_{y<N}\ \max_{(a,q)=1}
+  \Bigl|\sum_{\substack{n\le y\\ n\equiv a\ (q)}}\Lambda(n)\mu(N-n)
+        -\frac{1}{\varphi(q)}\sum_{n\le y}\Lambda(n)\mu(N-n)\Bigr|
+  \;\ll_A\; \frac{N}{(\log N)^A}.
+\end{equation}
+Huang and Li \cite{HL} prove that $EH(N^\theta(\log N)^{2A+8})$ together
+with $EH_\mu(N^{1-\theta})$ implies
+$\tilde r(N)\ge \SS(N)(1-A(N))N + O(N(\log N)^{-A})$, where
+\begin{equation}\label{eq:AN}
+  A(N)=\prod_{\substack{p\nmid N\\ p>2}}\Bigl(1-\frac{1}{p(p-1)}\Bigr),
+\end{equation}
+and deduce (their Corollary~1) that, in view of Bombieri--Vinogradov,
+binary Goldbach for all sufficiently large even integers follows from
+$EH_\mu(N^{\theta'})$ alone, for any single $\theta'>1/2$.
+
+Throughout this note we work in that \emph{Corollary-1 regime}: a fixed
+$\theta'\in(1/2,1)$ is given, we put
+\[
+  \delta := \theta' - \tfrac12 > 0, \qquad K := N^{\theta'},
+  \qquad M := N/K = N^{1-\theta'} \le N^{1/2-\delta}.
+\]
+
+\subsection{Where $EH_\mu$ is consumed}
+
+The hypothesis \eqref{eq:EHmu} enters the Huang--Li proof at exactly two
+places. With $\alpha$ the Vaughan-type parameter of their §3 and
+$K=(N-1)/\alpha$, these are (their notation, and note the residue class
+is the \emph{fixed} class $a\equiv N$):
+\begin{align}
+  E_3(\alpha) &= \sum_{\substack{k<K\\ (k,N)=1}}\mu(k)\log k
+    \Bigl[\sum_{\substack{n<N\\ n\equiv N\ (k)}}\Lambda(n)\mu(N-n)
+      -\frac{1}{\varphi(k)}\sum_{n<N}\Lambda(n)\mu(N-n)\Bigr],
+      \label{eq:E3}\\
+  E_4(\alpha) &= \sum_{\substack{k<K\\ (k,N)=1}}\mu(k)
+    \Bigl[\sum_{\substack{n<N\\ n\equiv N\ (k)}}\Lambda(n)\mu(N-n)\log(N-n)
+      -\frac{1}{\varphi(k)}\sum_{n<N}\Lambda(n)\mu(N-n)\log(N-n)\Bigr].
+      \label{eq:E4}
+\end{align}
+In both cases Huang--Li discard the signs $\mu(k)$ by the triangle
+inequality on the first line and then appeal to \eqref{eq:EHmu} (their
+Lemma~4 for $E_4$). The two functionals differ in exactly one respect:
+$E_3$ carries the weight $w_k=\log k$ and $E_4$ carries $w_k=1$ (the
+$\log(N-n)$ inside $E_4$ is $k$-independent and is removed by partial
+summation). This note shows that this one difference decides everything.
+
+\subsection{Results}
+
+For $(k,N)=1$ and $1\le t<N$ put
+\begin{equation}\label{eq:Emu}
+  \Emu(t;k) := \sum_{\substack{n\le t\\ n\equiv N\ (k)}}\Lambda(n)\mu(N-n)
+             - \frac{1}{\varphi(k)}\sum_{n\le t}\Lambda(n)\mu(N-n),
+  \qquad
+  C(t) := \sum_{n\le t}\Lambda(n)\mu(N-n),
+\end{equation}
+and, for a weight $w$,
+\[
+  T_w(t) \;:=\; \sum_{\substack{k<K\\ (k,N)=1}} \mu(k)\,w(k)\,\Emu(t;k).
+\]
+Thus $E_4$ is obtained from $T_1$ and $E_3$ from $T_{\log}$.
+
+\begin{theorem}\label{thm:A}
+Fix $\theta'\in(1/2,1)$ and put $K=N^{\theta'}$. Then for every $A>0$,
+\[
+  \sup_{1\le t<N}\ \bigl|T_1(t)\bigr|
+  \;=\;\sup_{1\le t<N}\
+  \Bigl|\sum_{\substack{k<K\\(k,N)=1}}\mu(k)\,\Emu(t;k)\Bigr|
+  \;\ll_{A,\theta'}\; \frac{N}{(\log N)^{A}} .
+\]
+Moreover every ingredient of the proof except Bombieri--Vinogradov
+contributes only $O\!\left(N e^{-c\sqrt{\log N}}\right)$: the power of
+$\log$ in the statement is imposed by Bombieri--Vinogradov alone.
+\end{theorem}
+
+\begin{remark}
+Theorem~\ref{thm:A} is a statement about a \emph{signed} sum in a
+\emph{fixed} residue class. It is not an instance of, and does not
+imply, $EH_\mu(N^{\theta'})$, which asks for absolute values and a
+maximum over residue classes. The mechanism is described in one line in
+Section~\ref{sec:mechanism}: after divisor switching the M\"obius factor
+on the long variable squares itself away, and the surviving M\"obius
+sits on a variable of size $\le N^{1/2-\delta}$.
+\end{remark}
+
+\begin{corollary}\label{cor:B}
+In the Corollary-1 regime, $E_4(\alpha)\ll_A N(\log N)^{-A}$ for every
+$A>0$, unconditionally. Consequently Huang--Li's estimate
+$S_4(\alpha)=O(N(\log N)^{-A})$ requires no hypothesis, their Lemma~4 is
+not needed, and the entire $EH_\mu$ demand of their argument collapses
+to the single scalar $E_3(\alpha)$ (together with the correction
+$\Delta$ of Section~\ref{sec:delta}, which is likewise unconditional
+here).
+\end{corollary}
+
+\begin{theorem}\label{thm:C}
+In the Corollary-1 regime one has the unconditional identity
+\[
+  E_3(\alpha) \;=\; \sum_{n<N}\Lambda(n)\Lambda(N-n)
+     \;-\; \SS(N)\Bigl(N-\sum_{n<N}\Lambda(n)\mu(N-n)\Bigr)
+     \;+\; O_A\!\left(\frac{N}{(\log N)^{A}}\right),
+\]
+which is exactly Huang--Li's equation~(22). In particular the bound
+$E_3(\alpha)\ll_A N(\log N)^{-A}$ --- the weakest form of $EH_\mu$ that
+their argument actually needs --- is \emph{equivalent} to
+$\tilde r(N)\sim\SS(N)N$, i.e.\ to binary Goldbach for large even $N$.
+\end{theorem}
+
+Theorem~\ref{thm:C} is the more consequential half. It says that the
+search for a weaker sufficient condition on the demand side of the
+Huang--Li reduction is closed, and closed at the level of identities
+rather than of estimates: no choice of $\theta'$, of truncation, or of
+smoothing can evade it, because the root cause is the identity
+$\mu*\log=\Lambda$ from which Huang--Li start. The weight $\log k$ is
+the carrier of the Goldbach content, so every divisor switch must hand
+it back.
+
+\subsection{What is not claimed}\label{sec:notclaimed}
+
+The net progress toward the Goldbach conjecture in this note is
+\emph{zero}. Theorem~\ref{thm:A} removes precisely the half of the
+$EH_\mu$ demand that carries no Goldbach content, and
+Theorem~\ref{thm:C} shows the other half is the conclusion itself. What
+is gained is structural: the demand collapses to one scalar, that
+scalar is proved equivalent to the conclusion, and one defect of the
+published paper is identified with its repair.
+
+\section{Notation and the mechanism}\label{sec:mechanism}
+
+$p$ always denotes a prime. $\varphi$ is Euler's function, $\tau_3$ the
+$3$-fold divisor function, $\rad(u)=\prod_{p\mid u}p$. Constants
+$c,c_1,\dots$ are positive and absolute unless subscripted;
+implied constants may depend on $A$ and $\theta'$. We write
+$P(N)$ for the set of primes dividing $N$.
+
+The mechanism of Theorem~\ref{thm:A} is the following. The residue class
+in \eqref{eq:Emu} is the fixed class $n\equiv N\pmod k$, i.e.
+\[
+  n \equiv N \pmod{k}\quad\Longleftrightarrow\quad k \mid N-n .
+\]
+So the $k$-sum is a divisor sum over $u=N-n$, and switching the order of
+summation writes $u=mk$ with $m<N/K=N^{1-\theta'}$. For squarefree $u$
+one has $\mu(u)\mu(k)=\mu(m)\mu^2(k)$: the M\"obius factor on the
+\emph{long} variable $k$ cancels against itself and leaves the
+nonnegative $\mu^2$, while the surviving M\"obius sits on the
+\emph{short} variable $m\le N^{1/2-\delta}$. That is the classical
+``M\"obius on the short variable plus Bombieri--Vinogradov''
+configuration.
+
+\section{Proof of Theorem~\ref{thm:A}}
+
+Fix $A>0$ and set
+\begin{equation}\label{eq:trunc}
+  D_0 := (\log N)^{A+2}, \qquad E_0 := (\log N)^{2A+4} .
+\end{equation}
+(The truncations must be allowed to depend on $A$; a fixed choice covers
+only bounded $A$.)
+
+\subsection{Step 0: the subtracted mean term}
+
+By \eqref{eq:Emu},
+\begin{equation}\label{eq:split0}
+  T_1(t) \;=\; D(t) \;-\; C(t)\,B(K),
+  \qquad
+  D(t):=\sum_{\substack{k<K\\(k,N)=1}}\mu(k)
+        \sum_{\substack{n\le t\\ n\equiv N\ (k)}}\Lambda(n)\mu(N-n),
+\end{equation}
+where $B(K)=\sum_{k<K,(k,N)=1}\mu(k)/\varphi(k)$. Huang--Li's Lemma~1
+(a form of Goldston--Y{\i}ld{\i}r{\i}m) gives
+$B(K)\ll e^{-c_1\sqrt{\log K}}$, and trivially
+$|C(t)|\le\sum_{n<N}\Lambda(n)\ll N$. Hence
+\begin{equation}\label{eq:meanterm}
+  |C(t)B(K)| \;\ll\; N e^{-c\sqrt{\log N}}
+\end{equation}
+uniformly in $t$.
+
+\subsection{Step 1: divisor switching (an exact identity)}
+
+Since $n\equiv N\pmod k$ with $n\le t<N$ is the same as $u:=N-n$ being a
+multiple of $k$ in $[N-t,N)$,
+\begin{equation}\label{eq:switch}
+  D(t) \;=\; \sum_{N-t\le u<N}\Lambda(N-u)\,\mu(u)\,\sigma_K(u),
+  \qquad
+  \sigma_K(u):=\sum_{\substack{k\mid u,\ k<K\\ (k,N)=1}}\mu(k) .
+\end{equation}
+This is a finite rearrangement, hence exact. (It is machine-verified to
+$5\cdot10^{-10}$ in \texttt{code/thmA\_audit.py}.)
+
+\subsection{Step 2: the complete divisor sum}
+
+\begin{lemma}\label{lem:complete}
+For squarefree $u\ge1$,
+$\displaystyle\sum_{k\mid u,\ (k,N)=1}\mu(k)=\mathbf 1_{\rad(u)\mid N}$.
+\end{lemma}
+
+\begin{proof}
+The sum is multiplicative in $u$ with local factor $1$ at $p\mid N$ and
+$1-1=0$ at $p\nmid N$. Hence it vanishes unless every prime of $u$
+divides $N$.
+\end{proof}
+
+Splitting $\sigma_K(u)$ into the complete sum minus the tail $k\ge K$,
+\eqref{eq:switch} becomes $D(t)=P(t)-R(t)$ with
+\begin{equation}\label{eq:PR}
+  P(t)=\!\!\sum_{\substack{N-t\le u<N\\ \rad(u)\mid N}}\!\!\Lambda(N-u)\mu(u),
+  \qquad
+  R(t)=\!\!\sum_{N-t\le u<N}\!\!\Lambda(N-u)\mu(u)
+       \sum_{\substack{k\mid u,\ k\ge K\\ (k,N)=1}}\mu(k).
+\end{equation}
+In $P(t)$ the conditions $\mu(u)\ne0$ and $\rad(u)\mid N$ force
+$u\mid\rad(N)$, so there are at most $2^{\omega(N)}=N^{o(1)}$ terms, each
+$\ll\log N$:
+\begin{equation}\label{eq:P}
+  P(t)\ll N^{o(1)} .
+\end{equation}
+
+\subsection{Step 3: the residual, and the degeneracy lemma}
+
+Write $u=mk$ with $k\ge K$, so $m=u/k<N/K=M$. For squarefree $u$ the
+factorisation forces $(m,k)=1$ and $\mu(u)\mu(k)=\mu(m)\mu^2(k)$, so
+\begin{equation}\label{eq:R1}
+  R(t)=\sum_{m<M}\mu(m)
+      \sum_{\substack{k\ge K,\ (k,m)=1,\ (k,N)=1\\ N-t\le mk<N}}
+      \mu^2(k)\,\Lambda(N-mk).
+\end{equation}
+
+\begin{lemma}[degeneracy]\label{lem:degen}
+The contribution to \eqref{eq:R1} of the terms with $(k,N)>1$ is
+$O(N^{o(1)})$. The same bound holds for the terms in which the modulus
+constructed in Step~4 is not coprime to $N$.
+\end{lemma}
+
+\begin{proof}
+Suppose $p\mid(k,N)$ and $\Lambda(N-mk)\ne0$, say $N-mk=q^\ell$. Since
+$p\mid k$ and $p\mid N$ we get $p\mid N-mk$, hence $q=p$ and
+$n:=N-mk=p^\ell$ with $p\mid N$. The number of such $n<N$ is
+$\le\sum_{p\mid N}\log N/\log p\ll(\log N)^2$; for each, the pairs
+$(m,k)$ with $mk=N-n$ number $\le\tau(N-n)\ll N^{o(1)}$, and each term is
+$\ll\log N$.
+\end{proof}
+
+By Lemma~\ref{lem:degen} we may drop the condition $(k,N)=1$ from
+\eqref{eq:R1} at a cost of $O(N^{o(1)})$. This is essential: expanding
+$\mathbf 1_{(k,N)=1}$ by M\"obius over $e\mid N$ would multiply the number
+of Bombieri--Vinogradov calls by $2^{\omega(N)}=N^{o(1)}$ and destroy the
+budget.
+
+\subsection{Step 4: unfolding $\mu^2$ and the coprimality}
+
+Insert $\mu^2(k)=\sum_{d^2\mid k}\mu(d)$ and
+$\mathbf 1_{(k,m)=1}=\sum_{e\mid(k,m)}\mu(e)$ and truncate at $D_0,E_0$
+of \eqref{eq:trunc}.
+
+\emph{Tail $d>D_0$.} Such terms have $d^2\mid k$, hence
+$n=N-mk\equiv N\pmod{md^2}$; the number of $n\le N$ in that progression
+is $\ll N/(md^2)+1$ and each $\Lambda\ll\log N$. Summing,
+\[
+  \ll \log N\sum_{m<M}\sum_{d>D_0}\Bigl(\frac{N}{md^2}+1\Bigr)
+  \ll \frac{N(\log N)^2}{D_0} + \sqrt{NM}
+  \ll \frac{N}{(\log N)^{A}} + N^{1-\theta'/2}.
+\]
+
+\emph{Tail $e>E_0$.} Such terms have $e\mid k$ and $e\mid m$, hence
+$n\equiv N\pmod{me}$, and
+\[
+  \ll \log N\sum_{m<M}\sum_{\substack{e\mid m\\ e>E_0}}
+      \Bigl(\frac{N}{me}+1\Bigr)
+  \ll \frac{N\log N}{E_0}\sum_{m<M}\frac{\tau(m)}{m} + M
+  \ll \frac{N(\log N)^{3}}{E_0}+M .
+\]
+
+Both are $\ll N(\log N)^{-A}$. In the remaining range put
+$L:=\lcm(d^2,e)$ and $q:=mL$; the conditions $d^2\mid k$, $e\mid k$ and
+$n=N-mk$ give $n\equiv N\pmod q$, and $mk<N$, $mk\ge\max(N-t,mK)$ give
+$1\le n\le T_m(t)$ where
+\begin{equation}\label{eq:Tm}
+  T_m(t) := \min\bigl(t,\ N-mK\bigr).
+\end{equation}
+Therefore, with $\psi(y;q,a)=\sum_{n\le y,\,n\equiv a\,(q)}\Lambda(n)$,
+\begin{equation}\label{eq:R2}
+  R(t) = \sum_{m<M}\mu(m)\sum_{d\le D_0}\mu(d)
+         \sum_{\substack{e\mid m\\ e\le E_0}}\mu(e)\,
+         \psi\bigl(T_m(t);\,q,\,N\bigr)
+         \;+\;O\!\left(\frac{N}{(\log N)^{A}}\right).
+\end{equation}
+By Lemma~\ref{lem:degen} we may further restrict to $(q,N)=1$: if
+$g=(q,N)>1$ then $g\mid n$ forces $n$ to be a power of a prime dividing
+$N$, and the total over the $\ll MD_0E_0\tau$-many triples is
+$\ll N^{1-\theta'+o(1)}$.
+
+\begin{remark}[the false-positive trap]\label{rem:trap}
+Restricting the \emph{main terms} to classes with $(q,N)=1$ is not
+cosmetic. Assigning a main term $T_m/\varphi(q)$ to a degenerate class
+shifts the density of the whole computation by the factor
+$N/\varphi(N)$. Carried into the $\log k$ branch of
+Section~\ref{sec:C}, that error produces an apparent \emph{refutation}
+of $EH_\mu$. It is recorded here because it is the most plausible
+false-positive we have encountered.
+\end{remark}
+
+Note the size of the modulus: $q=m\lcm(d^2,e)\le MD_0^2E_0$, so by
+\eqref{eq:trunc}
+\begin{equation}\label{eq:level}
+  q \;\le\; N^{1-\theta'}(\log N)^{4A+8} \;=\; N^{1/2-\delta}(\log N)^{4A+8}
+  \;\le\; N^{1/2-\delta/2}
+\end{equation}
+for $N$ large. This is the level at which Bombieri--Vinogradov is
+applied.
+
+\subsection{Step 5: Bombieri--Vinogradov}
+
+\begin{lemma}[$\tau$-weighted Bombieri--Vinogradov]\label{lem:BV}
+For all $A,B>0$ there is $C=C(A,B)$ such that for
+$Q\le N^{1/2}(\log N)^{-C}$,
+\[
+  \sum_{q\le Q}\tau_3(q)^{B}\ \max_{y\le N}\ \max_{(a,q)=1}
+  \Bigl|\psi(y;q,a)-\frac{y}{\varphi(q)}\Bigr|
+  \;\ll_{A,B}\; \frac{N}{(\log N)^{A}} .
+\]
+\end{lemma}
+
+\begin{proof}
+Write $\mathcal E_q$ for the inner maximum. By Cauchy--Schwarz,
+$\sum_q\tau_3^B\mathcal E_q\le
+(\sum_q\tau_3^{2B}\mathcal E_q)^{1/2}(\sum_q\mathcal E_q)^{1/2}$.
+For the first factor use the trivial bound
+$\mathcal E_q\ll (N/\varphi(q))\log N$, giving
+$\ll N(\log N)^{C_1(B)}$; for the second use Bombieri--Vinogradov with
+exponent $2A+C_1(B)$.
+\end{proof}
+
+A modulus $q$ arises in \eqref{eq:R2} from at most $\tau_3(q)$ triples
+$(m,d,e)$. Writing $\psi(T_m;q,N)=T_m/\varphi(q)+\mathcal E$ and applying
+Lemma~\ref{lem:BV} with \eqref{eq:level},
+\begin{equation}\label{eq:R3}
+  R(t) \;=\; \mathrm{MT}(t) \;+\; O\!\left(\frac{N}{(\log N)^{A}}\right),
+  \qquad
+  \mathrm{MT}(t)=\sum_{\substack{m<M\\ (m,N)=1}}\mu(m)\,T_m(t)\,c_{D_0,E_0}(m),
+\end{equation}
+where
+$c_{D_0,E_0}(m)=\sum_{d\le D_0}\sum_{e\mid m,\,e\le E_0}
+\mu(d)\mu(e)\mathbf 1_{(d,N)=1}/\varphi(m\lcm(d^2,e))$.
+
+\subsection{Step 6: the density}
+
+\begin{lemma}\label{lem:density}
+Let $m$ be squarefree with $(m,N)=1$ and put
+\[
+  c(m):=\sum_{d\ge1}\ \sum_{e\mid m}
+     \frac{\mu(d)\mu(e)\mathbf 1_{(d,N)=1}}{\varphi(m\lcm(d^2,e))} .
+\]
+Then $c(m)=A(N)\lambda(m)/m$ with $A(N)$ as in \eqref{eq:AN} and
+$\lambda(m)=\prod_{p\mid m}\bigl(1-\tfrac{1}{p(p-1)}\bigr)^{-1}$.
+Moreover $c_{D_0,E_0}(m)=c(m)+O(1/(mD_0))$.
+\end{lemma}
+
+\begin{proof}
+The sum is multiplicative. If $p\nmid m$ then $p\nmid e$ and the local
+factor is $1-1/\varphi(p^2)=1-1/(p(p-1))$ for $p\nmid N$, and $1$ for
+$p\mid N$. If $p\mid m$ (so $p\nmid N$) the $p$-part of
+$m\lcm(d^2,e)$ is $p^{1+\max(2v_p(d),v_p(e))}$, and the four choices
+$(v_p(d),v_p(e))\in\{0,1\}^2$ contribute
+\[
+  \frac{1}{p-1}-\frac{1}{p(p-1)}-\frac{1}{p^2(p-1)}+\frac{1}{p^2(p-1)}
+  \;=\;\frac{1}{p}.
+\]
+Hence $c(m)=\prod_{p\mid m}p^{-1}\cdot
+\prod_{p\nmid m,\ p\nmid N}(1-\tfrac{1}{p(p-1)})
+= m^{-1}A(N)\lambda(m)$. The truncation error is the tail
+$\sum_{d>D_0}1/\varphi(md^2)\ll 1/(mD_0)$ and similarly for $e$.
+\end{proof}
+
+\begin{remark}[the load-bearing line]\label{rem:loadbearing}
+Equivalently, for squarefree $m$,
+$\sum_{g\mid m}\mu(g)/(\varphi(m/g)\,g\,\varphi(g))=1/m$: the local
+factor is exactly $p^{-1}$, so the density exponent is exactly $1$ and
+$1/\zeta$ occurs to the \emph{first} power in Lemma~\ref{lem:mu}
+below. A non-integral exponent would give, by Selberg--Delange, only
+$(\log x)^{-c}$ for a fixed $c$ in Lemma~\ref{lem:mu}, and
+Theorem~\ref{thm:A} would be false. The identity is verified in exact
+rational arithmetic for all squarefree $m<400$, with zero mismatches
+(\texttt{code/thmA\_density\_check.py}).
+\end{remark}
+
+\begin{lemma}\label{lem:mu}
+Let $f(m):=\mu(m)\lambda(m)\mathbf 1_{(m,N)=1}$ and
+$G(x):=\sum_{m\le x}f(m)/m$. Then
+$G(x)\ll \frac{N}{\varphi(N)}\,e^{-c\sqrt{\log x}}
+ + x^{-1/4}e^{C\sqrt{\log N}}$
+for $x\ge2$.
+\end{lemma}
+
+\begin{proof}
+Write $F(s)=\sum_m f(m)m^{-s}=\prod_{p\nmid N}(1-\lambda(p)p^{-s})$ and
+$F(s)=\zeta(s)^{-1}H(s)$, so $f=\mu*h$ with $h$ multiplicative,
+$h(p^j)=1$ for $p\mid N$ and $h(p^j)=1-\lambda(p)=O(p^{-2})$ for
+$p\nmid N$. Then
+$G(x)=\sum_{b\le x}\frac{h(b)}{b}\sum_{a\le x/b}\frac{\mu(a)}{a}$.
+For $b\le\sqrt x$ use
+$\sum_{a\le y}\mu(a)/a\ll e^{-c\sqrt{\log y}}$ (the classical
+zero-free region) together with
+$\sum_b|h(b)|/b\ll\prod_{p\mid N}(1-1/p)^{-1}\ll N/\varphi(N)$. For
+$b>\sqrt x$ bound $\sum_{b>y}|h(b)|/b\le
+y^{-1/2}\sum_b|h(b)|b^{-1/2}\ll y^{-1/2}\prod_{p\mid N}(1-p^{-1/2})^{-1}
+\ll y^{-1/2}e^{C\sqrt{\log N}}$.
+\end{proof}
+
+Since $M=N^{1-\theta'}$ is a fixed power of $N$, the second term of
+Lemma~\ref{lem:mu} is negligible at $x\asymp M$, and
+$N/\varphi(N)\ll\log\log N$; so $G(x)\ll e^{-c'\sqrt{\log x}}$ in the
+relevant range.
+
+\subsection{Step 7: the main term dies, uniformly in $t$}
+
+\begin{proposition}\label{prop:MT}
+$\displaystyle \sup_{1\le t<N}|\mathrm{MT}(t)|\ll N e^{-c\sqrt{\log N}}$.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:density},
+$\mathrm{MT}(t)=A(N)\sum_{m<M}\frac{f(m)}{m}T_m(t)+O(M\log N/D_0)$
+with $T_m(t)$ as in \eqref{eq:Tm}. Put $m_0:=(N-t)/K$, so
+$T_m(t)=t$ for $m\le m_0$ and $T_m(t)=N-mK$ for $m>m_0$; in particular
+$x\mapsto T_x(t)$ is non-increasing, is constant on $[1,m_0]$, has
+derivative $-K$ on $(m_0,M)$, and $T_M(t)=0$. Abel summation against
+$G$ of Lemma~\ref{lem:mu} gives
+\[
+  \sum_{m<M}\frac{f(m)}{m}T_m(t)
+  = G(M)\,T_M(t) + K\!\int_{m_0}^{M}\! G(x)\,dx
+  = K\!\int_{m_0}^{M}\! G(x)\,dx .
+\]
+Hence, uniformly in $t$,
+\[
+  \Bigl|\sum_{m<M}\frac{f(m)}{m}T_m(t)\Bigr|
+  \le K\int_{1}^{M}|G(x)|\,dx
+  \ll K\int_1^M e^{-c\sqrt{\log x}}dx
+  \ll KM e^{-c'\sqrt{\log M}} \ll N e^{-c''\sqrt{\log N}},
+\]
+using $\log M\asymp\log N$. The truncation error is
+$\ll M\log N/D_0=o(N(\log N)^{-A})$.
+\end{proof}
+
+Note that the cancellation is genuine and global: the term $m=1$ alone
+contributes $T_1(t)\asymp N$, so the smallness of $\mathrm{MT}$ is
+entirely due to the cancellation in $\sum f(m)/m$.
+
+\subsection{Conclusion}
+
+Combining \eqref{eq:split0}, \eqref{eq:meanterm}, \eqref{eq:P},
+\eqref{eq:R3} and Proposition~\ref{prop:MT}:
+\[
+  T_1(t) = \underbrace{P(t)}_{N^{o(1)}}
+         - \underbrace{\mathrm{MT}(t)}_{\ll Ne^{-c\sqrt{\log N}}}
+         - \underbrace{O\!\left(N(\log N)^{-A}\right)}_{\text{BV}}
+         - \underbrace{C(t)B(K)}_{\ll Ne^{-c\sqrt{\log N}}},
+\]
+uniformly in $t<N$. This proves Theorem~\ref{thm:A}, and exhibits
+Bombieri--Vinogradov as the only ingredient that does not give an
+exponential saving. \qed
+
+\begin{remark}\label{rem:bound}
+An earlier version of this statement claimed the bound
+$Ne^{-c\sqrt{\log N}}$ outright. That is not justified: the
+Bombieri--Vinogradov input yields $N(\log N)^{-A}$ for each fixed $A$
+and no more, because the Siegel--Walfisz range in its proof is
+$q\le(\log N)^{B}$ with $B$ fixed. The corrected statement is the one
+given above; it is what Corollary~\ref{cor:B} needs.
+\end{remark}
+
+\section{Proof of Corollary~\ref{cor:B}}
+
+Fix $k$ and set
+$a_n:=\Lambda(n)\mu(N-n)\bigl(\mathbf 1_{n\equiv N (k)}-1/\varphi(k)\bigr)$,
+so that $\Emu(t;k)=\sum_{n\le t}a_n$ and the bracket in \eqref{eq:E4} is
+$\sum_{n<N}a_n\log(N-n)$. Since $\log(N-n)$ vanishes at $n=N-1$ and has
+derivative $-1/(N-t)$, Abel summation gives
+\[
+  \sum_{n<N}a_n\log(N-n) \;=\; \int_{1}^{N-1}\frac{\Emu(t;k)}{N-t}\,dt .
+\]
+The weight $\log(N-n)$ does not depend on $k$, so multiplying by
+$\mu(k)$ and summing over $k<K$ with $(k,N)=1$ (a finite sum) gives the
+exact identity
+\[
+  E_4(\alpha) \;=\; \int_{1}^{N-1}\frac{T_1(t)}{N-t}\,dt .
+\]
+Hence $|E_4(\alpha)|\le\bigl(\sup_{t<N}|T_1(t)|\bigr)\log N
+\ll_A N(\log N)^{1-A}$ by Theorem~\ref{thm:A}. As $A$ is arbitrary this
+is Corollary~\ref{cor:B}. Huang--Li's Lemma~4 is invoked only to bound
+$E_4$; with the above it is not needed, and the only remaining
+appearance of $EH_\mu$ in their §3 is through $E_3(\alpha)$. \qed
+
+\section{The correction $\Delta$ to equation~(18)}\label{sec:delta}
+
+We record a genuine defect in the published paper, together with its
+repair.
+
+Huang--Li define
+$S_2(\alpha)=\sum_{n<N}\Lambda(n)\tilde\Lambda_\alpha(N-n)$ with
+$\tilde\Lambda_\alpha(u)=\sum_{d\mid u,\ d>\alpha}\mu(d)\log(1/d)$, and
+substitute $k=u/d$, so that the constraint $d>\alpha$ becomes
+\begin{equation}\label{eq:constraint}
+  k \;<\; \frac{N-n}{\alpha},
+\end{equation}
+an \emph{$n$-dependent} bound. Their displayed equation~(18) reads
+\[
+  S_2(\alpha) \;=\; \sum_{k<\frac{N-1}{\alpha}}\mu(k)
+    \sum_{\substack{n<N\\ n\equiv N\ (k)}}
+    \Lambda(n)\mu(N-n)\log\Bigl(\frac{k}{N-n}\Bigr),
+\]
+in which \eqref{eq:constraint} has been replaced by the $n$-free bound
+$k<(N-1)/\alpha$. The two differ. Writing $N-n=mk$, the condition
+\eqref{eq:constraint} is $m>\alpha$, so the right-hand side of~(18)
+contains, in addition to $S_2(\alpha)$, exactly the terms with
+$m\le\alpha$. On those terms
+$\mu(k)\mu(N-n)=\mu(m)\mu^2(k)\mathbf 1_{(k,m)=1}$ and
+$\log(k/(N-n))=-\log m$, so
+\begin{equation}\label{eq:Delta}
+  S_2(\alpha) \;=\; \text{RHS of (18)} \;+\; \Delta,
+  \qquad
+  \Delta \;=\; \sum_{2\le m\le\alpha}\mu(m)\log m
+    \sum_{\substack{k<(N-1)/\alpha\\ (k,m)=1}}\mu^2(k)\,\Lambda(N-mk).
+\end{equation}
+(The term $m=1$ drops out since $\log1=0$.) The trivial bound is
+$\Delta\ll N(\log N)^2$, which exceeds the target
+$O(N(\log N)^{-A})$, so $\Delta$ is not negligible and needs its own
+lemma.
+
+It does close, by the machinery already used above and under hypotheses
+Huang--Li already assume. Indeed $\Delta$ has exactly the shape of the
+residual \eqref{eq:R1}: the M\"obius factor sits on the \emph{short}
+variable $m\le\alpha$, and the long variable $k$ carries only
+$\mu^2\ge0$. Expanding $\mu^2(k)$ and $\mathbf 1_{(k,m)=1}$ as in Step~4
+reduces $\Delta$ to sums of $\Lambda$ over progressions to moduli
+$\ll\alpha(\log N)^{4A+8}$, plus a main term
+$A(N)\sum_{m\le\alpha}\mu(m)\lambda(m)(\log m)\,T_m/m$ which is
+$O(Ne^{-c\sqrt{\log N}})$ by Lemma~\ref{lem:mu} and partial summation.
+Hence:
+\begin{itemize}
+\item In the Corollary-1 regime, $\alpha=N^{1-\theta'}<N^{1/2}$ and
+      Bombieri--Vinogradov closes $\Delta$ \emph{unconditionally}.
+\item In the general Theorem-1 regime, $\alpha\asymp N^{\theta}$ and
+      $\Delta$ closes under the hypothesis
+      $EH(N^{\theta}(\log N)^{2A+8})$ which is assumed there.
+\end{itemize}
+So Theorem~1 and Corollary~1 of \cite{HL} stand as stated; what is
+missing is the treatment of $\Delta$.
+
+\section{Proof of Theorem~\ref{thm:C}: the permanent closure}\label{sec:C}
+
+Now take the weight $w_k=\log k$, i.e.\ the functional $E_3$ of
+\eqref{eq:E3}. Steps 0--1 are unchanged, and the complete divisor sum of
+Lemma~\ref{lem:complete} is replaced by the following.
+
+\begin{lemma}\label{lem:completelog}
+For squarefree $u$, write $u=u_N u'$ where $u_N$ is the largest divisor
+of $u$ composed of primes dividing $N$. Then
+$\sum_{k\mid u,\ (k,N)=1}\mu(k)\log k=-\Lambda(u')$.
+\end{lemma}
+
+\begin{proof}
+The sum is over $k\mid u'$ and equals $-\Lambda(u')$ by
+$\mu*\log=\Lambda$.
+\end{proof}
+
+Hence the complete piece of $E_3$ is
+\[
+  -\sum_{1\le u<N}\Lambda(N-u)\,\mu(u)\,\Lambda(u')
+  \;=\; -\sum_{\substack{u<N,\ (u,N)=1}}\Lambda(N-u)\mu(u)\Lambda(u)
+        + O(N^{o(1)}\log^2 N).
+\]
+Now $\mu(u)\Lambda(u)$ is supported on primes $u=p$, where it equals
+$-\log p$; prime powers $u=p^\ell$, $\ell\ge2$, have $\mu(u)=0$. So the
+complete piece equals
+\begin{equation}\label{eq:goldbachback}
+  \sum_{p<N}\Lambda(N-p)\log p \;+\;O\bigl(N^{o(1)}\log^2N\bigr)
+  \;=\;\sum_{n<N}\Lambda(n)\Lambda(N-n)+O\bigl(N^{1/2+\varepsilon}\bigr),
+\end{equation}
+the binary Goldbach sum itself. The door is free: divisor switching
+costs nothing, and immediately behind it stands the object one was
+trying to avoid.
+
+Two further terms have to be evaluated, and neither vanishes.
+
+\emph{(i) The residual main term.} Repeating Steps 3--6 with the extra
+factor $\log k=\log((N-n)/m)$ produces the main term
+$A(N)\sum_{m<M}\mu(m)\lambda(m)m^{-1}\int_{mK}^{N}\log(v/m)\,dv$. By
+Lemma~\ref{lem:mu} and partial summation this is
+$-\SS(N)\,N+O(N(\log N)^{-A})$; equivalently, the constant is fixed by
+$A(N)\,\widetilde G(1)=\SS(N)$ where
+$\widetilde G(1)=\lim_x\sum_{m\le x}\mu(m)\lambda(m)\log m/m$.
+
+\emph{(ii) The subtracted mean term.} It carries the factor
+\[
+  B_{\log}(K):=\sum_{\substack{k<K\\ (k,N)=1}}\frac{\mu(k)\log k}{\varphi(k)}
+  \;=\;-\SS(N)+O\bigl(e^{-c\sqrt{\log K}}\log K\bigr),
+\]
+which is exactly Huang--Li's Lemma~1: subtracting
+$\sum_{k\le K}\mu(k)\varphi(k)^{-1}\log(K/k)=\SS(N)+O(e^{-c_1\sqrt{\log K}})$
+from $\log K\cdot\sum_{k\le K}\mu(k)/\varphi(k)=O(\log K\,e^{-c_1\sqrt{\log K}})$
+gives the claim. (Independently: with
+$f(s)=\prod_{p\nmid N}\bigl(1-\frac{p^{-s}}{p-1}\bigr)$ one has
+$f(s)=\zeta(s+1)^{-1}h(s)$ with $h(0)=\SS(N)$, so
+$B_{\log}(\infty)=-f'(0)=-\SS(N)$.) Since the mean term is
+$-C(N)B_{\log}(K)$ with $C(N)=\sum_{n<N}\Lambda(n)\mu(N-n)$, it
+contributes $+\SS(N)\,C(N)$.
+
+Collecting \eqref{eq:goldbachback}, (i) and (ii):
+\[
+  E_3(\alpha) = \sum_{n<N}\Lambda(n)\Lambda(N-n)
+    -\SS(N)N+\SS(N)C(N)+O_A\!\left(\frac{N}{(\log N)^{A}}\right),
+\]
+which is the assertion of Theorem~\ref{thm:C} and is Huang--Li's
+equation~(22). Since $\SS(N)\asymp1$, the bound
+$E_3(\alpha)\ll_A N(\log N)^{-A}$ is therefore equivalent to
+\[
+  \tilde r(N)=\SS(N)\bigl(N-C(N)\bigr)+O_A\!\left(N(\log N)^{-A}\right)
+  \quad\text{with}\quad C(N)=o(N),
+\]
+i.e.\ to the asymptotic $\tilde r(N)\sim\SS(N)N$ --- binary Goldbach for
+large even $N$. \qed
+
+\begin{remark}
+The mechanism is structural, not accidental. The identity
+$\mu*\log=\Lambda$ is the starting point of the Huang--Li argument
+(their (10)); it is therefore also what any divisor switch inside their
+$\log k$-weighted functional must return. No choice of $\theta'$,
+truncation, or smoothing can circumvent an identity. The demand side of
+the reduction admits no weakening.
+\end{remark}
+
+\section{Numerical verification}
+
+All computations are reproducible from the accompanying repository;
+$\theta'=0.56$ throughout, $N$ ranging over $2.5\cdot10^4$ to
+$8\cdot10^5$ (the ranges are small because the residual is computed
+exactly, by enumeration).
+
+\begin{enumerate}
+\item \textbf{Switching identity} (\texttt{thmA\_audit.py}). The
+identity $D(t)=P(t)-R(t)$ of \eqref{eq:PR} holds to $5\cdot10^{-10}$
+(machine precision), confirming Step~1 and Lemma~\ref{lem:complete}.
+
+\item \textbf{The residual is its main term} (\texttt{thmA\_fix.py}).
+With the main terms restricted to $(m,N)=1$ as required by
+Remark~\ref{rem:trap}:
+\[
+\begin{array}{r|ccccc}
+ N & 5\cdot10^4 & 10^5 & 2\cdot10^5 & 4\cdot10^5 & 8\cdot10^5\\\hline
+ R/N               & 0.1140 & 0.0965 & 0.0785 & 0.0618 & 0.0483\\
+ \mathrm{MT}/N     & 0.1190 & 0.0964 & 0.0770 & 0.0616 & 0.0491
+\end{array}
+\]
+i.e.\ $1$--$4\%$ agreement: the residual \emph{is} the predicted main
+term, and that main term decays through the cancellation of
+Lemma~\ref{lem:mu}. The observed decay is
+$R\asymp N^{1-\theta'/2}$ (the ratio $R/N^{1-\theta'/2}$ stays in
+$[2.17,2.46]$ over the whole range), not $\asymp N$
+(\texttt{thmA\_scale.py}).
+
+\item \textbf{The $\log k$ branch does not decay}
+(\texttt{thmA\_logw.py}, \texttt{thmA\_mtlog.py}). The same quantity
+with $w_k=\log k$ has $R_{\log}/N=2.28,\,2.26,\,2.21,\,2.13,\,2.07$
+against predicted $2.33,\,2.26,\,2.19,\,2.13,\,2.08$ --- an object of
+size $\asymp N$, consistent with Theorem~\ref{thm:C}. Here
+$\SS(N)=1.7604$.
+
+\item \textbf{The constants} (\texttt{thmA\_E3.py}). $B_{\log}(K)$
+approaches $-\SS(N)$, and $A(N)\widetilde G(1)=\SS(N)$, as required by
+(i) and (ii) of Section~\ref{sec:C}.
+
+\item \textbf{The load-bearing identity}
+(\texttt{thmA\_density\_check.py}). $\sum_{g\mid m}
+\mu(g)/(\varphi(m/g)g\varphi(g))=1/m$ verified in exact rational
+arithmetic for all $243$ squarefree $m<400$: zero mismatches. See
+Remark~\ref{rem:loadbearing}.
+\end{enumerate}
+
+\section{Summary}
+
+\begin{itemize}
+\item Theorem~\ref{thm:A}: the M\"obius-weighted, fixed-class
+correlation sum with weight $w_k=1$ is $\ll_A N(\log N)^{-A}$,
+unconditionally, for any level $N^{\theta'}$ with $\theta'>1/2$.
+\item Corollary~\ref{cor:B}: hence Huang--Li's $E_4$ (their Lemma~4)
+needs no hypothesis, and the whole $EH_\mu$ demand of their reduction
+collapses to the scalar $E_3$.
+\item Theorem~\ref{thm:C}: that scalar is unconditionally equivalent to
+binary Goldbach for large even $N$. The demand side admits no weaker
+sufficient condition.
+\item Section~\ref{sec:delta}: equation~(18) of \cite{HL} omits an
+$n$-dependent constraint; the missing term $\Delta$ is exhibited and
+closes under hypotheses already assumed.
+\item Section~\ref{sec:notclaimed}: the net progress toward Goldbach is
+zero.
+\end{itemize}
+
+\begin{thebibliography}{9}
+\bibitem{HL} Jing-Jing Huang and Huixi Li,
+\emph{On the connection between the Goldbach conjecture and the
+Elliott--Halberstam conjecture}, arXiv:2005.03811v2 [math.NT], 2022.
+\bibitem{GY} Daniel Goldston and Cem Y{\i}ld{\i}r{\i}m,
+\emph{Higher correlations of divisor sums related to primes I}, Integers
+\textbf{3} (2003), A5.
+\bibitem{Pan} Cheng-Dong Pan, \emph{A new attempt on Goldbach
+conjecture}, Chinese Ann. Math. \textbf{3} (1982), 555--560.
+\bibitem{MV} Hugh Montgomery and Robert Vaughan,
+\emph{Multiplicative number theory I: classical theory}, CUP, 2007.
+\end{thebibliography}
+
+\end{document}

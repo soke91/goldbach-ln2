@@ -50,11 +50,25 @@ exact identities and all measurements survive; the documents are
 retained as a record of the attempt and its precise failure
 coordinates.
 
+**One unconditional result (survived review).** The demand side of the
+Huang–Li reduction was audited rather than attacked, and one derivation
+came through: [THEOREM_A.md](THEOREM_A.md) (summary) →
+[paper/theorem_A.tex](paper/theorem_A.tex) (full proof). It shows the
+Möbius-weighted fixed-class correlation sum with weight w_k = 1 is
+≪_A N(log N)^{−A} unconditionally, so Huang–Li's E₄ / Lemma 4
+consumption of EH_μ is unnecessary and their whole EH_μ demand collapses
+to the single scalar E₃ — which the same document proves *equivalent* to
+binary Goldbach (their own equation (22); the root cause is μ ∗ log = Λ).
+**Net progress toward Goldbach is therefore zero**; what the result buys
+is the permanent closure of the demand-side search. A defect in the
+published equation (18) is reported, with its repair, in
+[paper/defect_report_18.md](paper/defect_report_18.md).
+
 ## What is claimed / not claimed
 
 - **Claimed (facts)**: the computed values and verifications; the exact
   identities used (Theorem-1 dichotomy, Buchstab bookkeeping); the
-  documented reductions.
+  documented reductions; Theorem A and its corollaries above.
 - **Conjectured**: the ln 2 constant; Conjecture P; the empirical structure
   laws.
 - **Not claimed**: any theorem toward Goldbach. The conditional frame

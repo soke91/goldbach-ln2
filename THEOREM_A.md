@@ -25,11 +25,20 @@ is the complete divisor sum left behind:
 
 > **Theorem A.** Fix θ′ > 1/2. Then, uniformly in t < N,
 > Σ_{k<N^{θ′}, (k,N)=1} μ(k) · E_μ(t; k, N mod k) ≪_{A,θ′}
-> N e^{−c√log N} ≪ N (log N)^{−A} for every A > 0,
+> N (log N)^{−A} for every A > 0,
 > where E_μ(t;k,a) = Σ_{n≤t, n≡a (k)} Λ(n)μ(N−n) −
 > (1/φ(k)) Σ_{n≤t} Λ(n)μ(N−n).
 
-(The review found the true bound is the stronger e^{−c√log N}.)
+**Correction 28 (increment 193, found while writing the proof out — an
+overclaim withdrawn).** Increment 192's "the true bound is the stronger
+N e^{−c√log N}" is **wrong**. Every ingredient other than
+Bombieri–Vinogradov (main term, mean term, complete sum) does give an
+exponential saving, but **BV itself yields only N(log N)^{−A} for each
+fixed A**: the Siegel–Walfisz range inside its proof is q ≤ (log N)^B
+with B fixed, so it does not upgrade to an exponential saving. The
+corrected statement is the one displayed above. The Corollary and the
+closure are unaffected — N(log N)^{−A} is exactly what Huang–Li need.
+(See `paper/theorem_A.tex`, Remark after the proof of Theorem A.)
 
 **Why it works, in one line**: after the substitution the Möbius on
 the LONG variable cancels itself (μ(k)² = 1) and only μ² ≥ 0 remains
@@ -142,3 +151,33 @@ estimates.**
 code: `code/thmA_audit.py`, `thmA_scale.py`, `thmA_logw.py`,
 `thmA_mtlog.py`, `thmA_fix.py`, `thmA_E3.py`,
 `thmA_density_check.py`.*
+
+## Write-up (increment 193)
+
+This file is the summary. **The full proof is `paper/theorem_A.tex`**:
+the seven steps of Theorem A (divisor-switching identity, complete-sum
+lemma, degeneracy lemma, unfolding of μ² and the coprimality with
+truncations D = (log N)^{A+2} and E = (log N)^{2A+4}, τ₃-weighted BV,
+the density lemma c(m) = A(N)λ(m)/m by an Euler-product computation,
+and a t-uniform Abel summation); the exact partial-summation identity
+behind Corollary B, E₄(α) = ∫₁^{N−1} T₁(t) dt/(N−t); the Δ-correction;
+and the equivalence of Theorem C.
+
+**Report for the authors: `paper/defect_report_18.md`** — the explicit
+form of the term Δ missing from (18) and its repair, stating that
+Theorem 1 and Corollary 1 stand, plus the two incidental results (E₄
+unconditional; (W)_log equivalent to Goldbach). It reads standalone.
+**Sending it is the user's decision and has not been done.**
+
+Two points settled while writing out the proof, absent from the
+increment-192 summary:
+
+- **Σ_k μ(k) log k/φ(k) → −𝔖(N) is a direct consequence of Huang–Li's
+  own Lemma 1**: subtract Σ μ/φ = O(e^{−c√log R}) from their
+  Σ μ(d)/φ(d) · log(R/d) = 𝔖(N) + O(e^{−c√log R}). No separate lemma is
+  needed. Independent check: f(s) = Π_{p∤N}(1 − p^{−s}/(p−1)) =
+  ζ(s+1)^{−1} h(s) with h(0) = 2C₂ Π_{p|N,p>2}(p−1)/(p−2) = 𝔖(N).
+- **Where the density c(m) actually comes from**: at p | m the local
+  factor is 1/(p−1) − 1/(p(p−1)) − 1/(p²(p−1)) + 1/(p²(p−1)) = **1/p**.
+  That four-term cancellation *is* the "density exponent exactly 1", and
+  it is the same object as the load-bearing identity.
