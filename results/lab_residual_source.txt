@@ -1,0 +1,32 @@
+convolution t=3s
+
+(A) raising the truncation
+                                QS   cells     z all     z 3|N   z 3 not|N
+                     (none, raw C)       -     -4.12    -94.28       61.63
+                                 3       2     10.31     26.40       -6.04   t=3s
+                               3,5       4      2.84     13.24       -5.88   t=4s
+                             3,5,7       8     -0.19      7.26       -5.36   t=4s
+                          3,5,7,11      16     -0.49      6.47       -5.18   t=4s
+                       3,5,7,11,13      32     -1.20      5.51       -5.37   t=4s
+                    3,5,7,11,13,17      64     -1.11      5.64       -5.35   t=5s
+                 3,5,7,11,13,17,19     128     -1.22      5.50       -5.38   t=5s
+              3,5,7,11,13,17,19,23     256     -1.38      5.11       -5.30   t=6s
+           3,5,7,11,13,17,19,23,29     512     -1.48      4.93       -5.29   t=7s
+        3,5,7,11,13,17,19,23,29,31    1024     -1.57      4.57       -5.16   t=8s
+     3,5,7,11,13,17,19,23,29,31,37    2048     -1.73      4.18       -5.08   t=9s
+    truncation => |z| falls toward 0; something else => it
+    plateaus. Read the 3|N and 3 not|N columns, not the
+    pooled one, which cancels (increment 248)
+
+(B) is the residual just skewness?
+             group         n   skew g1      SE  P-1/2 meas  Edgeworth   ratio
+               all   1950001   -0.0073  0.0018    -0.00049   +0.00048   -1.02
+             3 | N    650000   -0.0389  0.0030    +0.00317   +0.00258    1.23
+          3 not| N   1300001   +0.0154  0.0021    -0.00233   -0.00103    2.27
+    Edgeworth has NO fitted constant: for mean-zero data
+    P(X>0) - 1/2 = -g1/(6 sqrt(2 pi)), the MINUS mattering
+    because negative skew lifts the median above the mean.
+    A ratio near 1 means the residual IS skewness and no
+    mask is missing. The pooled row mixes two populations
+    with opposite signs and is not readable (increment 248).
+DONE
