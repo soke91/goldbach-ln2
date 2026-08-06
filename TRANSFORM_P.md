@@ -249,6 +249,34 @@ The floor ratio measures **1.69** against the predicted **1.62**, so the
 proposition accounts for the depth effect quantitatively and not only
 in direction.
 
+**Corollary P.6 (the floor, and that it is `o(N)`).** *Writing*
+`δ = φ(rad N)/rad N`, *P.5 gives*
+
+> `Σ_p log p |D_p| ≳ Σ_p log p·M_p/√(δN/p) ≈ 2A(N)·N/(√δ·log N)`,
+
+*using* `Σ_p log p M_p = A(N)N` *(P.2), a mass share* `(log p/p)/log N`
+*at p, and* `Σ_{p<N} log p/√p ≈ 2√N`.
+
+Checked against the measured floor: predicted `0.2577` for the deep
+group against `0.2699` measured, and `0.1955` against `0.1597` for all
+even N (where `δ` is a crude stand-in for an average over N).
+
+**This is `o(N)`, so P.5 does not refute P.4.** For a typical even N the
+floor is `Θ(N/log N)`. At maximal depth — `rad N` the product of all
+primes up to y, where `δ ∼ e^{−γ}/log y` and `N ≥ e^y` forces
+`y ≤ log N` — it is
+
+> `Θ(N·√(log log N)/log N)`,
+
+still `o(N)`. So depth raises the floor by an unbounded but very slowly
+growing factor (`1/√δ` = 2.28, 2.88, 4.05, 4.96 at y = 13, 10², 10⁴,
+10⁶) and never breaks it.
+
+**And it derives §5's ceiling in general.** §5 obtained
+`C(N) ≍ N/log N` from the `j = 1` primes alone; P.5 and P.6 give the
+same order from every `j` at once, and show that the constant carries
+the extra `1/√δ` at depth.
+
 ## 5. The ceiling: what transform P can and cannot deliver
 
 Grouping by dyadic ranges `R = [P, 2P)` rather than by single primes
