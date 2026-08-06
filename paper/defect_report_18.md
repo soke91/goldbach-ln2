@@ -1,3 +1,27 @@
+<!-- PRE-SEND CHECK, increment 277 (2026-08-06) -->
+<!--
+Asked before sending: might the authors already know?  Checked.
+
+  arXiv:2005.03811 has TWO versions, v1 (2020-05-08) and v2
+  (2022-08-28).  v2 is the latest, and its revision note reads
+  "title changed, typos corrected" -- not a mathematical correction.
+  The paper is published as a Springer book chapter, CANT 2020,
+  doi 10.1007/978-3-030-67996-5_17.  No erratum was found, and no
+  citing work noting the issue turned up in search.
+
+  So the step at (18) stands uncorrected in the latest public version,
+  about four years on, and this report has content.
+
+  TWO CAVEATS, both real.  Absence of an erratum in a web search is
+  weak evidence: a book chapter's errata are poorly indexed, and the
+  authors may well know privately.  And the value here is the repair,
+  not the defect -- the missing term is exhibited and shown harmless
+  under hypotheses the paper already assumes, so nothing in their
+  Theorem 1 is threatened.
+
+  Sending remains the author's decision and nothing has been sent.
+-->
+
 # A missing term in equation (18) of Huang–Li, arXiv:2005.03811v2
 
 *Prepared as a short, self-contained note that can be sent to the
