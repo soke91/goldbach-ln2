@@ -329,6 +329,28 @@ spectral entry. This is scoped to the one-sided Heath–Brown opening as
 drafted, over J = 3…8 and two M; a different opening could reallocate
 mass, and nothing here rules that out.
 
+**Can the draft be repaired by reparameterising?** No, and the reason
+does not depend on parameters. The identity with cut z needs z^J ≥ x,
+and its j-th term has μ-side a = a_1⋯a_j ≤ z^j, which at j = J is x —
+for every admissible (z, J). So a ≤ z^{O(1)} is compatible with the
+identity only if its high-j terms are dropped, which destroys it. And
+those are the terms carrying the weight: measured mass by block count
+is 0.824 at j = 3 (J=3), 0.967 at j ∈ {3,4} (J=4), 0.806 at
+j ∈ {5,6} (J=6), 0.847 at j ∈ {6,7,8} (J=8).
+
+**What a repair would require.** The excluded region is a bilinear
+form Σ_a Σ_b α(a)β(b)μ(N−abk) with α rough and a long. Each piece is
+individually trivial — for a near M the progression w ≡ N (mod ak)
+holds O(1) terms — so all the content is cancellation *across* a,
+which is a type-II estimate for μ(N−·): the wall. Cauchy–Schwarz in b,
+the only available move, returns the dilate-pair correlation.
+
+This is not special to the one-sided opening. Every identity
+decomposing μ produces a type-II term, and an identity whose every
+piece had either a long free variable or a divisor-structured
+coefficient on the rough side would dispose of the parity obstruction.
+**"Complete the draft" and "break the wall" are the same task.**
+
 **A methodological correction, same species as #30.** The first pass
 pre-registered a single threshold, a > M^{1/3}, and got a J-dependent
 answer (0.326 → 0.032 as J ran 3 → 8) that pointed the opposite way.

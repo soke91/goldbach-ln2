@@ -77,6 +77,53 @@ it is the bulk of it. And the pieces there carry a *rough* coefficient
 α(a) — a product of μ-blocks — with no divisor structure, so they have
 no Voronoi entry: the spectral door of §3 serves only the corner.
 
+### 2b. Can the draft's classification be repaired by reparameterising?
+
+No, and the reason is parameter-independent.
+
+The Heath–Brown identity with block cut z needs J blocks with
+z^J ≥ x. Its j-th term has μ-side a = a_1⋯a_j with each a_i ≤ z, so
+**a can reach z^j, and at j = J that is x** — for *every* admissible
+(z, J). The draft's assumption a ≤ z^{O(1)} is therefore compatible
+with the identity only if the terms with j large are absent, i.e. only
+if the identity is truncated, which destroys it.
+
+And those are exactly the terms that carry the weight. Measured mass
+by block count:
+
+| J | distribution over j | top-j share |
+|---|---|---|
+| 3 | 0.005 / 0.171 / **0.824** | 0.824 |
+| 4 | 0.001 / 0.032 / 0.299 / **0.668** | 0.967 (j = 3,4) |
+| 6 | … 0.167 / **0.431** / **0.375** | 0.806 (j = 5,6) |
+| 8 | … 0.305 / **0.369** / 0.173 | 0.847 (j = 6,7,8) |
+
+So the identity's mass sits in precisely the terms whose μ-side the
+draft's bookkeeping excludes, at every J. There is no choice of z and
+J that puts the weight in the corner the draft can handle.
+
+### What a repair would require
+
+The excluded region is, after collecting the free blocks into a weight
+β(b), a bilinear form
+
+> Σ_{a} Σ_{b} α(a) β(b) μ(N − abk),  α rough (a product of μ-blocks),
+> a long.
+
+Bounding it needs cancellation *across* a, since each individual piece
+is trivial: for a near M the progression w ≡ N (mod ak) has O(1)
+terms. Cancellation across a in that form is a type-II estimate for
+μ(N − ·), which is the wall the whole tree was built to avoid.
+Applying the only available treatment — Cauchy–Schwarz in b — returns
+Σ_{a,a'} α(a)α(a') Σ_b μ(N−abk)μ(N−a'bk), the dilate-pair correlation.
+
+This is not special to the one-sided opening. Every identity that
+decomposes μ produces a type-II term; an identity whose every piece
+had either a long free variable or a divisor-structured coefficient on
+the rough side would dispose of the parity obstruction. So "complete
+the draft" and "break the wall" are the same task, which is the honest
+answer to whether the draft can be finished.
+
 ### 3. §3 dual bookkeeping — **fatal to the draft**
 
 CO is a one-free-variable sum, and "Voronoi on the divisor side with w
