@@ -1,0 +1,18 @@
+convolution t=3s
+
+                 band         n      split        SE         z   perm z    /sqrtN  z of C/sqrtS  z of C/S
+   100000-    200000     50000    -619.96     11.81    -52.47    -0.70   -1.6486        -49.99    -45.33
+   200000-    400000    100000    -697.96     11.83    -59.01     1.82   -1.3124        -53.45    -45.82
+   400000-    800000    200000    -785.82     11.87    -66.20     0.84   -1.0448        -60.73    -53.59
+   800000-   1600000    400000    -915.33     11.91    -76.85    -1.45   -0.8605        -66.90    -55.29
+  1600000-   3200000    800000    -959.48     12.08    -79.41     0.26   -0.6379        -70.37    -60.40
+  3200000-   4000000    400000   -1173.89     21.09    -55.67     0.78   -0.6206        -47.56    -38.61
+
+  fitted decay of split/sqrt(N):
+    as N^a       a = -0.3153    [MEASUREMENTS section 10 recorded -0.41]
+    as (log N)^a a = -4.2364    [LOCATION_MASK's deep-family exponent is -1.5]
+  measured fall across the range: 0.376  over a
+  factor 25.3 in N
+    N^-0.41 would give 0.266
+    (log N)^-1.5 would give 0.697
+DONE
