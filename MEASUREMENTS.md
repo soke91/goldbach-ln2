@@ -210,6 +210,48 @@ At these N the O_A term in R is itself of size (log N)^{−2} ≈ 0.005 of
 N, comparable to what is measured, so R cannot be separated into E₃
 and the error; the exponent above is for the total discrepancy.
 
+## 10. Three hypotheses on the wall, and one signal chased down
+
+All pre-registered before running (`code/hyp_round.py`,
+`code/hyp_h2b.py`).
+
+**H1 — do the actual Vaughan weights buy cancellation the L² can't
+see?** The chain consumes the *signed* sum Σ_{k∼K} b_k D(k), and
+Cauchy–Schwarz throws away b's structure; only b = 1 had been tested.
+One weight is special: over the full ranges Σ_k μ(k)D(k) =
+Σ_u μ(N−u)(μ∗μ)(u), a linear μ-sum against a bounded multiplicative
+function. Measured |Σ b·D| / (‖b‖₂·rms D) over five band/N
+combinations for b ∈ {1, log k, μ(k), μ(k)log k, Λ(k)}: values scatter
+from 0.32 to 1.95 with no weight consistently small (b = μ gives 0.43,
+0.39 at one N but 1.52 at the next band). **DEAD** — every weight sits
+at the random-sign value, as Conjecture L predicts.
+
+**H3 — is the L² mass concentrated on few k?** Participation ratio
+P = (Σ|D|²)²/(K·Σ|D|⁴), which is 1/3 for a Gaussian field. Measured
+0.293, 0.232, 0.221, 0.274, 0.265. **DEAD** — mildly heavier-tailed
+than Gaussian, nowhere near the ≤ 0.15 that isolation would need.
+
+**H2 — is there a mask on C(N)?** The registered criterion was a
+spread test, and it returned DEAD (sd ratio 1.049 across v₂ bins).
+But the *means* split by 3 | N at ≈ 6.7σ — a signal the criterion had
+not been written to catch, the same under-specification as the
+single-threshold cut in §9's neighbourhood. Chased down in three
+disjoint N-windows:
+
+| window | mean(3\|N) | mean(3∤N) | z | z after ÷𝔖(N) |
+|---|---|---|---|---|
+| 3·10⁵ | −0.346 | +0.661 | −4.38 | −4.91 |
+| 7·10⁵ | −0.248 | +0.471 | −3.17 | −3.17 |
+| 1.4·10⁶ | −0.647 | −0.111 | −2.29 | −0.76 |
+
+**Real but decaying.** All three windows agree in sign (combined
+|z| = 5.68), so it is not noise; but the split measured in √N units is
+1.007, 0.719, 0.536, scaling as **N^{−0.41}** — i.e. the absolute
+split grows only like N^{0.09}. It is a lower-order term, not a mask
+on C(N)/√N, and at the largest window normalising by 𝔖(N) already
+takes it below 3σ, so singular-series scaling accounts for most of
+what remains.
+
 ## One-shot reproduction
 
 ```bash

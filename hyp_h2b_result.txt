@@ -1,0 +1,14 @@
+sieving to 1500000 ...
+
+    window    n3   n!3    mean3   mean!3    z raw    |nor3    nor!3    z nor
+    300000   300   600   -0.346    0.661    -4.38   -0.037    0.436    -4.91
+    700000   300   600   -0.248    0.471    -3.17   -0.034    0.289    -3.17
+   1400000   300   600   -0.647   -0.111    -2.29   -0.170   -0.092    -0.76
+
+raw |z| by window : ['4.38', '3.17', '2.29']
+S-normalised |z|  : ['4.91', '3.17', '0.76']
+split |mean3 - mean!3| in sqrt(N) units: ['1.007', '0.719', '0.536']
+  scales as N^(-0.41)  =>  in absolute terms |C| split ~ N^(0.09)
+  combined |z| over the three windows = 5.68
+verdict: REAL BUT DECAYING -- same sign in all three windows, combined significance high, yet the split shrinks relative to sqrt(N); a lower-order term, not a mask on C(N)/sqrt(N). At the largest window the S-normalised split is already below 3 sigma, so S(N) scaling accounts for most of what remains.
+DONE
