@@ -152,7 +152,41 @@ at the top. All the difficulty is at large p, and in the top range
 unavailable rather than merely hard. That region carries mass ≍ 1/log N
 and vanishes, slowly.
 
-## 5. What is not established
+## 5. The ceiling: what transform P can and cannot deliver
+
+Grouping by dyadic ranges `R = [P, 2P)` rather than by single primes
+gives a strictly weaker sufficient condition than P.4 — `|C_R| ≤
+Σ_{p∈R} log p|D_p|` termwise, with `C_R = Σ_v μ(v)Λ(N−v)L_R(v)/log v`
+and `L_R(v) = Σ_{p|v, p∈R} log p`. Measured, it buys a **constant
+factor 0.67, flat across a factor 8 in N**, and nothing asymptotic.
+
+More importantly, both routes share a floor. For `p > N/2` the only
+v < N divisible by p is `v = p`, so on that range
+
+> `C_R = Σ_{p∈R} log p·D_p = −Σ_{p∈R} Λ(N−p)`,
+
+every term negative, and no grouping can recover cancellation from it —
+μ(p) = −1 carries no sign variation. Hence
+
+> **Σ_p log p·|D_p(N)| ≥ Σ_{N/2<p<N} Λ(N−p)**,
+
+which is the number of Goldbach representations of N with the prime
+exceeding N/2, expected to be `≍ 𝔖(N)N/(2 log N)` and measured within
+8–10% of it (18853 against 20471 at N = 4·10⁵).
+
+> **Consequence.** Any argument through transform P that passes to
+> absolute values can conclude `C(N) ≍ N/log N` and **no fixed power of
+> log better**. That is enough for the Huang–Li equivalence, which asks
+> only `C(N) = o(N)` for the Goldbach asymptotic. It is not enough for
+> anything that wants `C(N) ≪ N(log N)^{−A}`.
+
+The floor is stated conditionally in one direction: it is `≍ N/log N`
+provided N has close to its expected number of Goldbach
+representations. Unconditionally the inequality above still holds and
+still blocks a fixed log power for any N where Goldbach is not nearly
+failing.
+
+## 6. What is not established
 
 - **P.1–P.3 are identities, not estimates.** They prove nothing about
   the wall. What they do is relocate it, losslessly, and P.3 shows that
@@ -175,7 +209,7 @@ and vanishes, slowly.
   wall is their Theorem 1's equivalence clause. DEPENDENCY_AUDIT.md
   records what has and has not been re-derived here.
 
-## 6. Why this candidate and not another
+## 7. Why this candidate and not another
 
 Sessions 1–5 of TRANSFORM_LAB.md closed two whole classes of transform
 and left a three-clause test. A candidate is new if it does **none** of:

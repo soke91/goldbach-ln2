@@ -661,6 +661,67 @@ component of that level, which is the parity obstruction itself, met
 head-on rather than circumvented. Recorded as a formulation, not a
 route, and explicitly flagged as beyond numerical reach.
 
+## Session 10 — range grouping: the right shape, a constant-factor gain, and a floor
+
+Proposition P.4 takes absolute values one prime at a time. Grouping the
+same identity by dyadic ranges `R = [P, 2P)` gives a strictly weaker
+sufficient condition,
+
+> `C(N) − Λ(N−1) = Σ_R C_R(N)`,
+> `C_R(N) = Σ_{p∈R} log p·D_p(N) = Σ_v μ(v)Λ(N−v)L_R(v)/log v`,
+> `L_R(v) = Σ_{p|v, p∈R} log p`,
+
+and for large P both `p` and `w = v/p` run over long prescribed ranges,
+so `C_R` is a genuine bilinear form in (p, w) — the shape Type-II
+technology is built for, with μ(w) still inside the group as P.3
+demands. Two questions: how much does the weaker condition buy, and
+does it reach the part that P.4 cannot?
+
+**It buys a constant factor, not an asymptotic one.**
+
+| N | Σ_R\|C_R\|/triv | S_abs/triv | **coh/abs** | Σ_R\|C_R\|/N |
+|---|---|---|---|---|
+| 5·10⁴ | 0.3046 | 0.4423 | **0.6887** | 0.2379 |
+| 10⁵ | 0.2820 | 0.4170 | **0.6764** | 0.2228 |
+| 2·10⁵ | 0.2718 | 0.3996 | **0.6804** | 0.2142 |
+| 4·10⁵ | 0.2519 | 0.3797 | **0.6633** | 0.1987 |
+
+The gain is flat at ≈0.67 across a factor 8 in N. Range grouping is a
+better sufficient condition by a factor 1.5 and by nothing more.
+
+**And it does not reach the hard part.** For `p > N/2` the only v with
+`p | v` is `v = p` itself, so
+
+> `C_R = −Σ_{p∈R} Λ(N−p)` — every term negative.
+
+μ(p) = −1 with no sign variation, so no grouping recovers anything
+there. Measured `|C_R|/A_R = 1.0000` exactly in the top range (the
+pre-registered bug check, passed), and the size matches the predicted
+`𝔖(N)N/(2 log N)` to 8–10%:
+
+| N | top \|C_R\| | prediction | share of triv |
+|---|---|---|---|
+| 10⁵ | 5377 | 5734 | 0.0680 |
+| 4·10⁵ | 18853 | 20471 | 0.0598 |
+
+> **The ceiling.** Any route through transform P that takes absolute
+> values — P.4's or the range-grouped version — is bounded below by the
+> Goldbach count of the top half, `≍ 𝔖(N)N/(2 log N)`. So transform P
+> can deliver `C(N) ≍ N/log N` and **not one power of log better**.
+
+That is not fatal: `N/log N = o(N)`, which is exactly what the
+Huang–Li equivalence asks for the Goldbach asymptotic. But it settles
+what the transform is for. It is a route to the asymptotic formula,
+never to a fixed log power, and any document claiming otherwise for it
+would be overstating.
+
+**What this closes and what it leaves.** The measurement question about
+the large-p side is answered: regrouping does not make the surviving
+mass smaller in order, and the residual there is one-signed by
+construction. The remaining question is not "is it small" — it is
+**"is the range-grouped bilinear form provable"**, which is analysis,
+not measurement, and is where the next work has to go.
+
 ### Not yet read
 
 MRT's *averaged* form of Chowla (`arxiv_1503.05121`) is stated
