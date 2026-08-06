@@ -11,10 +11,19 @@ opposite directions:
 - **Register B** — a **closure** (a route declared dead) rested on a
   quantity that a later correction changed. A closure whose premise
   moved is not a closure until it is re-derived.
+- **Register C** — a claim that still **stands** was *derived from* one
+  that was withdrawn. It does not get withdrawn automatically; it just
+  stops having support.
 
-Register B is the dangerous one. A withdrawn *positive* claim costs
-nothing but a claim; a withdrawn *negative* one silently re-opens a
-route the program stopped looking at.
+An earlier version of this file said a withdrawn *positive* claim
+"costs nothing but a claim". That is wrong, and Register C is what it
+missed. A positive claim used to derive something else takes the
+derivation with it, silently, and nothing in this repo tracked that
+(#135). `code/audit_withdrawn_forms.py` catches the *textual* case — a
+document still printing a withdrawn number; `code/audit_withdrawn_dependents.py`
+narrows the *logical* case to a reading list, and the reading is done
+below rather than automated, because automating exactly this judgement
+is what produced #134.
 
 `code/audit_withdrawn_forms.py` enforces the other half of the rule —
 that no live document still **asserts** a withdrawn form.
@@ -56,7 +65,12 @@ any of them is wrong.
 | **RV #3** — SEAM over-normalized by `√P` | a **normalization** | `#36`, `#68`, `#287`: three further normalisation corrections, all in the same error class (scale-normalisation drift) | ⚠️ **Re-derive.** Same species as the fault it reports |
 | **RV #6** — Theorem E1 (L²) does not match the pipeline (signed L¹) | norm/currency mismatch | `#30` flagged it as the same error class as itself; no later correction touches the norms | ⚠️ Was already "in question" at 199 and has not been resolved since |
 | Adjudication route 4 — Perron costs `N^{1−o(1)}` | a magnitude, margin restated as `N^{1/3}` at 199 | none since | ✅ |
-| Forge K1–K4, R1–R4; Construction C1, C2, C4 | **existence of structure** — each measured *no* signal | ⚠️ `#110`/`#111` (hazard 7): a null that destroys everything identifies nothing. These kill-tests used permutation nulls | ⚠️ **Re-derive the nulls.** A kill-test that found "no signal" against a destroy-everything null has not shown the signal is absent from `μ` specifically. `#50` audited their *counting* and found it clean; the *null* was not audited |
+| **Construction C1, C2, C2b, C4** | existence of structure — each measured *no* signal | **none.** All four already use a **coin** null: random signs on the real support | ✅ **Hazard 7 is already satisfied** in these four. `e1_constr_c1.py`'s own header reads "Null: 8 draws of random signs on the real support" (#134) |
+| **Forge K2, K3, K4** | existence of structure | an **analytic** `z`, no resampling | ⚠️ **Read the distribution, not the null.** An analytic `z` is fine if the reference distribution is right; hazard 7 does not apply, hazard 8 does — the spread was never checked against a resampled one |
+| **Forge R1** | existence of structure | a **surrogate** null: random-frequency templates | ⚠️ **Check the surrogate's width.** Not a permutation, so hazard 7 does not apply as stated; the question is power |
+| **Forge K1, R2, R2b, R4, R4b** | existence of structure | **no null the classifier can see.** R4b's own header shows why: its reference is a `B = 1` baseline ratio, not a resampling — and it re-ran itself for power after a `+3.7σ` band in this program's history regressed to noise | ⚠️ **Read individually.** "No null detected" is a limit of the classifier, not a verdict |
+
+> ⚠️ **This row previously read**: "Forge K1–K4, R1–R4; Construction C1, C2, C4 — all measured no signal against **permutation nulls**, which hazard 7 invalidates." That was written without opening the files and is **false for twelve of thirteen** (#134): exactly one contains a permutation null, four already contain the coin control hazard 7 asks for, and five contain no resampling at all. `code/audit_killtest_nulls.py` classifies them mechanically.
 | C-III #2, #3; RV #1, #2; Adjudication 1, 2, 3, 5 | structural — violated premises, absent congruences, illegitimate transforms | none | ✅ Structural closures do not move with a measurement |
 
 **The pattern.** Every closure at risk is a **magnitude, normalisation
@@ -66,6 +80,29 @@ survives an audit, what is fitted does not* — applied to the negative
 results instead of the positive ones.
 
 ---
+
+## Register C — what was derived from a claim that fell
+
+Fourteen corrections withdrew a *positive* claim. The mechanical pass
+finds **35 citations of them across the live documents, of which 22 are
+history pointers and 13 are withdrawal sentences** — no document states
+a withdrawn number as its own. That is the textual half. The logical
+half is below: for each withdrawn claim that anything was built on,
+what was built, and whether it survives without it.
+
+| Withdrawn | What was built on it | Does it survive? |
+|---|---|---|
+| **#36** the fitted variance law `Var C ≈ 0.465·𝔖·N·log N` | every statement of the wall's *scale* — that `C` is square-root sized, that `G` has unit variance, the normalisation in Conjecture L | ✅ **Yes, and by a better route.** Proposition V replaced the fit with the **exact** second moment `V(N) = Σ_v μ²(v)Λ(N−v)²`. Everything downstream now goes through `V`, which needs no fit. The withdrawal removed a crutch, not a support |
+| **#47** the decay exponent of `Q = ΣC²/V` | Proposition E's *strengthening* at increment 309 — "the method is short by a power of `N`" | ✅ **Yes, and the derivation was rebuilt to avoid it.** The docstring motivating 309 quoted `C ≍ √N(log N)^{0.29}`, but the derivation that ran does not use it: `W(N)` cancels between `√(WQ)` and `√(ρ𝔄W)`, so the result needs only that `𝔄` and `ρ` are bounded, both measured directly |
+| **#67, #69, #112, #119** the mask's share and its scaling `N^{1/4}` | the load-bearing claim **"the mask is lower order and does not threaten `C(N) = o(N)`"** | ✅ **Yes, without any exponent.** That claim needs only `\|m(N)\| = O(√V)`, and the mask is measured *in units of* `√V`: the deepest cell reads `−7.09` at `N ≈ 10⁵` falling to `−3.58` at `1.4·10⁷`. Since `√V ≍ √(N log N) = o(N)`, the conclusion follows from a bounded number, not from a fitted exponent. ⚠️ The paper stated it the other way until #127 |
+| **#84, #99** the direction of `ρ`'s trend and the rate `b = 2.68` | would be **"the wall is asymptotically exactly square-root"** | ✅ **Nothing to save — it was never claimed.** That statement is Register A1 and is open. Proposition W, which is algebra, is untouched; what fell is every *measurement* that claimed to confront it |
+| **#94, #96, #110** the wall carries the zeta zeros, share `0.39%` | would be **"the wall's fluctuation is not phase-random in `log N`"** | ✅ **Survives as a statement about `Λ`, not the wall.** `C = μ*Λ` and `Λ` carries the zeros by the explicit formula. Conjecture L's bulk and tail results do not use the spectrum at all, so nothing else moves |
+| **#118** the mask's amplitude is unresolved at large `N` | increment 303's diagnosis that the coin floor was what hid it | ⚠️ **Partly.** The floor is real, but the *reason* the aggregate missed the mask is that `B` weights cells by size while the mask lives in rare cells. Corrected in `LOCATION_MASK.md` at 305 |
+
+**The result is that nothing load-bearing fell with them** — but that
+sentence is worth exactly as much as the reading behind it, which is
+one pass by the same author who wrote the claims. It is recorded here
+so it can be checked rather than assumed.
 
 ## What is not in this file
 

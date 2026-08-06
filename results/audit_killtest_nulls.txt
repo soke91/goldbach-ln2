@@ -1,0 +1,36 @@
+SELF-TEST
+    coin         -> COIN                   as expected
+    permute      -> PERMUTE                as expected
+    surrogate    -> SURROGATE              as expected
+    none         -> NONE                   as expected
+    SELF-TEST OK
+
+(1) the null each kill-test actually uses
+closure      file                   null                         evidence
+Forge K1     e1_forge_kt1.py        NONE                         
+Forge K2     e1_forge_kt2.py        ANALYTIC                     line 78: sqrt(n)
+Forge K3     e1_forge_kt3.py        ANALYTIC                     line 94: z = (
+Forge K4     e1_forge_kt4.py        ANALYTIC                     line 63: sqrt(n)
+Forge R1     e1_forge_r1.py         SURROGATE                    line 88: uniform(10, 105, size
+Forge R2     e1_forge_r2.py         NONE                         
+Forge R2b    e1_forge_r2b.py        NONE                         
+Forge R4     e1_forge_r4.py         NONE                         
+Forge R4b    e1_forge_r4b.py        NONE                         
+Constr C1    e1_constr_c1.py        COIN+ANALYTIC                line 17: random signs
+Constr C2    e1_constr_c2.py        COIN                         line 12: random signs
+Constr C2b   e1_constr_c2b.py       COIN+PERMUTE+ANALYTIC        line 77: choice([-1.0, 1.0]
+Constr C4    e1_constr_c4.py        COIN                         line 94: choice([-1.0, 1.0]
+
+(2) tally over 13 files
+    COIN       4
+    PERMUTE    1
+    SURROGATE  1
+    ANALYTIC   5
+    NONE       5
+
+    Register B (increment 308) asserted that all of these
+    'measured no signal against permutation nulls'.
+    Files actually containing a permutation null: 1
+    Files actually containing a coin null:        4
+    the register's claim is false as written: 1 of 13 use a permutation null and 4 already use the coin control hazard 7 asks for. The row must be split before any of these closures is judged
+DONE

@@ -1,0 +1,50 @@
+SELF-TEST
+    pointer                -> pointer    as expected
+    support                -> support    as expected
+    not a withdrawn one    -> no hit     as expected
+    SELF-TEST OK
+
+(1) citations of a withdrawn positive claim, in live documents
+
+  CONJECTURE_L.md
+    line   90  #67 — the mask's share of the variance
+        #67, #68, #74, #75, #83, #84, #86, #87) and nowhere else.
+    line   90  #68 — the wall's variance exponent in log N
+        #67, #68, #74, #75, #83, #84, #86, #87) and nowhere else.
+    line   90  #84 — the direction of rho's trend
+        #67, #68, #74, #75, #83, #84, #86, #87) and nowhere else.
+    line   90  #86 — the quantitative half of the demasking claim
+        #67, #68, #74, #75, #83, #84, #86, #87) and nowhere else.
+
+  STATUS.md
+    line  168  #84 — the direction of rho's trend
+        #84's direction, #99's $b=2.68$, and the quantitative half of #86.
+    line  168  #99 — the rate constant b = 2.68
+        #84's direction, #99's $b=2.68$, and the quantitative half of #86.
+    line  168  #86 — the quantitative half of the demasking claim
+        #84's direction, #99's $b=2.68$, and the quantitative half of #86.
+    line  293  #110 — the spectral lines are the wall's
+        zeros by the explicit formula, so this was never evidence about $\mu$ (#110).
+    line  340  #69 — the mask's scaling N^{1/4}
+        bands. **#69's statistic could not have measured the mask at large $N$
+    line  346  #119 — a single exponent for the mask's decay
+        is no single mask exponent** to quote (#119). It
+    line  351  #36 — the wall's variance law Var C = k*S*N*log N
+        #36, #67–#69, #74, #83.
+    line  351  #67 — the mask's share of the variance
+        #36, #67–#69, #74, #83.
+    line  351  #69 — the mask's scaling N^{1/4}
+        #36, #67–#69, #74, #83.
+
+(2) tally
+    citations that look like pointers to the record: 22
+    citations that need reading:                     13
+    withdrawn positive claims tracked:               14
+
+    Every line above is a place where a live document
+    mentions a withdrawn claim OUTSIDE a history pointer.
+    Whether it merely mentions it or RESTS on it is a
+    judgement, and this tool does not make it -- the
+    reading list is the deliverable. Automating the
+    judgement is what produced #134.
+DONE
