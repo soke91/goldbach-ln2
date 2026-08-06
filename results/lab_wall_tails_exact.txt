@@ -1,0 +1,106 @@
+convolutions  t=4s
+
+(A) within-band heterogeneity of the exact scale sqrt(V)
+                  band   CV of sqrt(V)   CV of model
+    100000-     200000          0.1158        0.2114
+    200000-     400000          0.1153        0.2114
+    400000-     800000          0.1148        0.2114
+    800000-    1600000          0.1144        0.2114
+   1600000-    3200000          0.1140        0.2114
+   3200000-    4000000          0.0567        0.1895
+    a scale mixture needs a nonzero CV to bite; the model
+    column shows how much of it S(N)N already captures
+
+--- (a) C / sqrt(S N)   [recorded law]   n = 1950000
+  kurtosis 3.1646  (null 3, SE 0.0035, z = +46.9)
+   t     P(|Z|>t)    2Phi(-t)         SE        z
+   1     0.311174    0.317311   0.000333   -18.41
+   2     0.046787    0.045500   0.000149     8.62
+   3     0.003699    0.002700   0.000037    26.90
+   4     0.000193    0.000063   0.000006    22.72
+   5     0.000014    0.000001   0.000001    24.48
+  max|Z| 5.8612  E[max] 5.0059  sd 0.2383   z = +3.59
+  => FAIL -- deviation
+
+--- (b) C / sqrt(0.465 S N log N)   [corrected law]   n = 1950000
+  kurtosis 3.1645  (null 3, SE 0.0035, z = +46.9)
+   t     P(|Z|>t)    2Phi(-t)         SE        z
+   1     0.311282    0.317311   0.000333   -18.09
+   2     0.046785    0.045500   0.000149     8.61
+   3     0.003698    0.002700   0.000037    26.88
+   4     0.000194    0.000063   0.000006    22.99
+   5     0.000014    0.000001   0.000001    25.42
+  max|Z| 5.8960  E[max] 5.0059  sd 0.2383   z = +3.74
+  => FAIL -- deviation
+
+--- (c) C / sqrt(V)   [exact, no model]   n = 1950000
+  kurtosis 3.4683  (null 3, SE 0.0035, z = +133.5)
+   t     P(|Z|>t)    2Phi(-t)         SE        z
+   1     0.309901    0.317311   0.000333   -22.23
+   2     0.044955    0.045500   0.000149    -3.65
+   3     0.004095    0.002700   0.000037    37.56
+   4     0.000690    0.000063   0.000006   110.00
+   5     0.000210    0.000001   0.000001   386.71
+  max|Z| 9.0034  E[max] 5.0059  sd 0.2383   z = +16.78
+  => FAIL -- deviation
+
+(B) the outliers under the exact normaliser -- who are they?
+         N  Z=C/sqrt(V)            C     sqrt(V)    S(N)  V/(S N logN)          factorisation
+    510510      -8.5731     -21196.9      2472.5  5.4627        0.1668       2*3*5*7*11*13*17
+   1021020      -8.4629     -30423.9      3595.0  5.4627        0.1675     2^2*3*5*7*11*13*17
+    870870      -8.4285     -27779.6      3295.9  5.3109        0.1717       2*3*5*7*11*13*29
+    690690      -8.3823     -24382.4      2908.8  5.3651        0.1698       2*3*5*7*11*13*23
+    570570      -8.2317     -21603.0      2624.4  5.4225        0.1680       2*3*5*7*11*13*19
+    180180      -7.9189     -11099.7      1401.7  5.1213        0.1759      2^2*3^2*5*7*11*13
+   1141140      -7.9032     -30156.8      3815.8  5.4225        0.1687     2^2*3*5*7*11*13*19
+   2552550      -7.8288     -46061.3      5883.6  5.4627        0.1683     2*3*5^2*7*11*13*17
+   1291290      -7.7060     -31392.1      4073.7  5.2462        0.1741       2*3*5*7*11*13*43
+    930930      -7.5333     -25740.3      3416.9  5.2979        0.1722       2*3*5*7*11*13*31
+    139230      -7.5181      -9126.8      1214.0  4.9164        0.1818        2*3^2*5*7*13*17
+    212520      -7.4825     -11446.4      1529.7  4.9180        0.1825        2^3*3*5*7*11*23
+    if sqrt(V) is tiny for these N, the normaliser is
+    degenerate there and the tail is an artefact of it;
+    if C is genuinely large, the tail is arithmetic
+
+(C) is it a location effect driven by S(N)?
+        S(N) bin     count    mean Z     sd Z  mean V/(SNlogN)
+   1.20-1.50        851542    0.0118   0.8997           0.5132
+   1.50-2.00        400645    0.1209   0.8861           0.4212
+   2.00-2.50         47171    0.4186   0.8757           0.3476
+   2.50-3.00        425682   -0.0023   0.9149           0.3079
+   3.00-4.00        201170   -0.3239   0.9440           0.2528
+   4.00-6.00         23791   -1.6820   1.2331           0.2081
+    a monotone mean column IS the location effect; a flat
+    one would mean S(N) is not what drives the outliers
+
+--- (d) C/sqrt(V), centred and scaled within S(N) bins   n = 1950001
+  kurtosis 3.0191  (null 3, SE 0.0035, z = +5.5)
+   t     P(|Z|>t)    2Phi(-t)         SE        z
+   1     0.316540    0.317311   0.000333    -2.31
+   2     0.045567    0.045500   0.000149     0.45
+   3     0.002820    0.002700   0.000037     3.23
+   4     0.000091    0.000063   0.000006     4.81
+   5     0.000005    0.000001   0.000001     7.45
+  max|Z| 5.5883  E[max] 5.0059  sd 0.2383   z = +2.44
+  => FAIL -- deviation
+
+verdict -- excess kurtosis after each step
+  (a) model normaliser        +0.1646
+  (c) exact normaliser        +0.4683   <- WORSE, not better
+  (d) + S(N)-centred/scaled   +0.0191   <- 96% removed
+
+  reading: the outliers are primorials, every one with
+  C < 0, so the effect is in the LOCATION and not the tail.
+  Centring on an S(N)-dependent mean takes the excess
+  kurtosis from +0.47 to +0.02 and the extreme from
+  z = +16.8 to z = +2.4, which passes. Conjecture L needs a
+  MEAN term -- a local mask on the location, not only on the
+  scale -- and increment 237's 'heavy tail' reading is
+  superseded by that.
+
+  what is still open: with only six S bins the residual
+  tails at t = 4, 5 sit at z = +4.8, +7.5, and the mean
+  column is NOT monotone in S, so S(N) alone is not the
+  exact index -- which primes divide N matters, not just
+  the aggregate. A finer mask is the next measurement.
+DONE
