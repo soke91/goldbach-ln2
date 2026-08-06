@@ -1,0 +1,27 @@
+M = 200000
+
+J = 3,  z = M^(1/J) = 58,  max a = z^J = 195112 (vs M = 200000)
+  weight fraction with a > M^theta:
+   th=0.05: 0.9388  th=0.10: 0.8187  th=0.20: 0.6332  th=0.33: 0.3256
+   mass by block count j: j=1: 0.005  j=2: 0.171  j=3: 0.824
+
+J = 4,  z = M^(1/J) = 21,  max a = z^J = 194481 (vs M = 200000)
+  weight fraction with a > M^theta:
+   th=0.05: 0.9489  th=0.10: 0.8264  th=0.20: 0.6014  th=0.33: 0.2565
+   mass by block count j: j=1: 0.001  j=2: 0.032  j=3: 0.299  j=4: 0.668
+
+J = 6,  z = M^(1/J) = 7,  max a = z^J = 117649 (vs M = 200000)
+  weight fraction with a > M^theta:
+   th=0.05: 0.9604  th=0.10: 0.8362  th=0.20: 0.5612  th=0.33: 0.1729
+   mass by block count j: j=1: 0.000  j=2: 0.002  j=3: 0.026  j=4: 0.167  j=5: 0.431  j=6: 0.375
+
+J = 8,  z = M^(1/J) = 4,  max a = z^J = 65536 (vs M = 200000)
+  weight fraction with a > M^theta:
+   th=0.05: 0.9473  th=0.10: 0.7501  th=0.20: 0.3716  th=0.33: 0.0319
+   mass by block count j: j=1: 0.000  j=2: 0.000  j=3: 0.003  j=4: 0.026  j=5: 0.124  j=6: 0.305  j=7: 0.369  j=8: 0.173
+
+Reading: the draft's CO bookkeeping needs a = M^{o(1)}, so the
+th=0.05 and th=0.10 columns are the relevant ones. Compare the
+same J across the two M to separate genuine J-decay from the
+finite-size artefact that z = M^(1/J) becomes tiny.
+DONE

@@ -298,6 +298,46 @@ transform types, not a theorem about all conceivable mathematics, and
 is stated at that strength. **C-III therefore stands at: ① half
 closed, ② unattempted, ③ a named external open problem.**
 
+## Round 5 (increment 205): ② settled — the hidden leaf is the bulk
+
+C-III's requirement ② was "a classification covering the type-II
+region". Attempting it settles it, negatively for the draft and more
+sharply than the review had stated.
+
+The draft's CO bookkeeping needs the μ-side a to satisfy
+a ≤ y^{O(1)} = M^{o(1)}. Measuring the absolute Heath–Brown weight
+W(a) = Σ_j C(J,j)·A_j(a)·D_j(M/a) across a-sizes
+(`code/c3_hb_mass.py`):
+
+| J | a > M^{0.05} | a > M^{0.10} |
+|---|---|---|
+| 3 | 0.939 | 0.819 |
+| 4 | 0.949 | 0.826 |
+| 6 | 0.960 | 0.836 |
+| 8 | 0.947 | 0.750 |
+
+and raising M to 10⁶ moves these to 0.961/0.865 (J=4) and
+0.969/0.849 (J=8). **So ~95% of the identity's weight — rising with
+M, flat in J — lies outside the region the draft's classification
+covers.** The excluded pieces carry a rough coefficient α(a), a
+product of μ-blocks with no divisor structure, hence no Voronoi
+entry: §3's spectral door serves only the remaining few percent.
+
+**Verdict on ②**: the classification can be completed, and completing
+it shows the tree's dominant leaf is the bilinear μμ core with no
+spectral entry. This is scoped to the one-sided Heath–Brown opening as
+drafted, over J = 3…8 and two M; a different opening could reallocate
+mass, and nothing here rules that out.
+
+**A methodological correction, same species as #30.** The first pass
+pre-registered a single threshold, a > M^{1/3}, and got a J-dependent
+answer (0.326 → 0.032 as J ran 3 → 8) that pointed the opposite way.
+That threshold does not match what the claim requires: "a ≤ y^{O(1)}"
+means a = M^{o(1)}, i.e. small θ, not θ = 1/3. **Choosing a threshold
+that does not match the claim being tested is the same error as
+writing a target at the wrong scale** — and it was caught the same
+way, by widening to the whole profile instead of trusting one number.
+
 ## Supersession record (all of it, in one place)
 
 This repository carries no correction banners elsewhere. Every

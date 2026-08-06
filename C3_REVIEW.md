@@ -28,15 +28,54 @@ The tree's own output, as the objection itself computes it, is
 C ≥ A+1. The distance that was measured was the distance to a scale
 the chain does not require.
 
-### 2. §2 classification — **fatal to the draft**
+### 2. §2 classification — **fatal to the draft, and worse than stated**
 
-The draft claimed total μ-block mass a ≤ y^{O(1)}; the Heath–Brown
-identity actually allows a up to y^J ≈ x. The true classification has
-three leaves: P-I′ (some 1-block ≥ x^{1/2+δ} — survives), the CO
-corner (a genuinely small — near measure-zero), and an unclassified
-**type-II region** (medium μ-mass, no long smooth block) where most
-generic mass lives, in which the rough×rough core returns. The draft's
+The draft claimed total μ-block mass a ≤ y^{O(1)}, and derived from it
+the CO modulus bound q = ak ≤ x^{1/3+O(1/J)}. The Heath–Brown identity
+actually allows a up to y^J ≈ x. The true classification has three
+leaves: P-I′ (some free block ≥ x^{1/2+δ} — survives), the CO corner
+(a genuinely small), and a **type-II region** (medium μ-mass, no long
+free block) in which the rough×rough core returns. The draft's
 bookkeeping hid that region.
+
+**How much mass it hides — measured** (`code/c3_hb_mass.py`). Since
+bookkeeping must bound each piece, the relevant weight is the absolute
+one: W(a) = Σ_j C(J,j)·A_j(a)·D_j(M/a), where A_j(a) counts
+factorisations of a into j squarefree blocks each ≤ z = M^{1/J} and
+D_j(x) = Σ_{b≤x} d_j(b) is the free side. The draft needs
+a ≤ y^{O(1)} = M^{o(1)}, so the small-θ columns are the operative
+ones:
+
+| J | a > M^{0.05} | a > M^{0.10} | a > M^{1/3} |
+|---|---|---|---|
+| 3 | **0.939** | 0.819 | 0.326 |
+| 4 | **0.949** | 0.826 | 0.257 |
+| 6 | **0.960** | 0.836 | 0.173 |
+| 8 | **0.947** | 0.750 | 0.032 |
+
+**94–96% of the identity's weight sits at μ-side sizes the draft's
+assumption excludes, at every J including the J = 8–12 the draft
+proposes, with no decay in J.** The apparent decay in the last column
+is an artefact of comparing a fixed cut M^{1/3} against max a = z^J,
+which shrinks from 195112 to 65536 as J runs 3 → 8 while M stays
+200000; at the thresholds the claim actually requires there is no such
+effect. The mass also concentrates in the largest block counts
+(j = J−1, J carry the bulk), which is precisely where a can be large.
+
+Raising M moves the figures the wrong way for the draft, which settles
+the finite-size question:
+
+| M | J | a > M^{0.05} | a > M^{0.10} |
+|---|---|---|---|
+| 2·10⁵ | 4 | 0.949 | 0.826 |
+| 10⁶ | 4 | **0.961** | **0.865** |
+| 2·10⁵ | 8 | 0.947 | 0.750 |
+| 10⁶ | 8 | **0.969** | **0.849** |
+
+So the type-II region is not a leak at the edge of the classification;
+it is the bulk of it. And the pieces there carry a *rough* coefficient
+α(a) — a product of μ-blocks — with no divisor structure, so they have
+no Voronoi entry: the spectral door of §3 serves only the corner.
 
 ### 3. §3 dual bookkeeping — **fatal to the draft**
 

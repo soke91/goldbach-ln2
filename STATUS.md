@@ -92,11 +92,19 @@ of it.
 - **The Construction**: C-I abelian, C-II inverse-domain and C-IV
   manufactured modularity are each closed by measurement against
   accurate nulls.
-- **C-III is open.** Its draft is refuted — an incomplete
-  classification, and a dual object that is the output of no legitimate
-  transform — but the route is not. It needs a legitimate transform, a
-  classification covering the type-II region, and quantitative averaged
-  Chowla at fixed log-power strength (best known $(\log)^{1-c}$).
+- **C-III**: its draft is refuted, and two of its three outstanding
+  requirements are now settled against it. **①** is closed for
+  pointwise changes of variable (see below) and unpopulated for
+  summation formulas. **②** is settled by measurement: completing the
+  classification shows the draft's assumption $a \le y^{O(1)}$ excludes
+  **~95% of the Heath–Brown weight** (0.939–0.969 above $M^{0.05}$,
+  flat in $J$ over 3–8, rising with $M$), and those pieces carry a
+  rough coefficient with no divisor structure, hence no Voronoi entry —
+  so the spectral door serves only a few percent of the mass. **③**,
+  quantitative averaged Chowla at fixed log-power strength (best known
+  $(\log)^{1-c}$), is a named external open problem. Scope: ② is for
+  the one-sided Heath–Brown opening as drafted; a different opening
+  could reallocate mass, and nothing here rules that out.
   On the transform: in centered coordinates $A = N-a$, $B = N-b$ one
   has $m'A - mB = 0$ exactly, so the dilate family is the **pencil of
   lines through the origin** and the shift family is a **parallel**
