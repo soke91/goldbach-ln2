@@ -50,6 +50,15 @@ exact identities and all measurements survive; the documents are
 retained as a record of the attempt and its precise failure
 coordinates.
 
+**Start here: [paper/negative_map.tex](paper/negative_map.tex)** — the
+consolidated working paper. The whole campaign in one document: the two
+couplings of the Huang–Li hypothesis, the unconditional theorem and the
+equivalence on the demand side, Conjecture L on the supply side, all
+**sixteen pre-registered closures** with their blocking coordinates, the
+five constraints any future technique must satisfy, and the methodology
+(pre-registration, fresh-context adversarial review, power before
+belief) that produced the negative results.
+
 **One unconditional result (survived review).** The demand side of the
 Huang–Li reduction was audited rather than attacked, and one derivation
 came through: [THEOREM_A.md](THEOREM_A.md) (summary) →

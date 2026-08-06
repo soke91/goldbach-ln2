@@ -1,0 +1,601 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1.05in]{geometry}
+\usepackage{longtable}
+\usepackage{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\renewcommand{\SS}{\mathfrak{S}}
+
+\title{A negative map of the Elliott--Halberstam route to Goldbach\\
+\large with one unconditional theorem, one conjecture,\\
+and sixteen pre-registered closures}
+
+\author{[author]}
+\date{Working paper, increment 194 of the \texttt{goldbach-ln2}
+program\\
+\small All measurements reproducible from the accompanying repository}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Huang and Li proved that binary Goldbach for large even $N$ follows
+from $EH_\mu(N^{\theta'})$ for a single $\theta' > 1/2$. This paper
+reports a four-day computational and analytic campaign that mapped
+that hypothesis from both of its sides and found both closed, for
+sharply different reasons.
+
+On the \emph{demand} side we prove one unconditional theorem
+(Theorem~\ref{thm:A}): the M\"obius-weighted, fixed-class correlation
+sum with weight $w_k = 1$ is $\ll_A N(\log N)^{-A}$, so Huang--Li's
+$E_4$ consumption of $EH_\mu$ is unnecessary and the whole demand
+collapses to the single scalar $E_3$. We then show
+(Theorem~\ref{thm:C}) that this scalar is \emph{equivalent} to binary
+Goldbach, by an unconditional identity which is Huang--Li's own
+equation (22); the root cause is $\mu * \log = \Lambda$. The
+demand-side search for a weaker sufficient condition is therefore
+closed at the level of identities. Net progress toward Goldbach: zero.
+
+On the \emph{supply} side the campaign produced one formal conjecture
+(Conjecture~\ref{conj:L}): every M\"obius family probed factorizes as
+a deterministic local mask times an exactly Gaussian fluctuation, so
+that every ``sub-random'' reading in the literature of this problem
+that we could reproduce is mask accounting. What the Goldbach chain
+consumes is the amplitude half of that conjecture, and we report
+\textbf{sixteen pre-registered closures} --- five route adjudications
+against the source papers' explicit lemma hypotheses, eight
+kill-tested technique designs, and three representation-class
+experiments --- each closed with numbers, together with the five
+structural constraints they impose on any future technique.
+
+The deliverable is the map, not a theorem toward Goldbach. We state
+throughout what is and is not claimed, and we record twenty-eight
+corrections to our own earlier statements, including three refutations
+of our own derivations and one false-positive trap that would have
+produced an apparent refutation of $EH_\mu$.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+\subsection{The conditional frame}
+
+Let $N$ be a large even integer,
+$\tilde r(N) = \sum_{n<N}\Lambda(n)\Lambda(N-n)$, and $\SS(N)$ the
+singular series. Write $EH_\mu(Q)$ for the assertion that for every
+$A>0$
+\[
+  \sum_{q\le Q}\max_{y<N}\max_{(a,q)=1}
+  \Bigl|\sum_{\substack{n\le y\\ n\equiv a\,(q)}}\Lambda(n)\mu(N-n)
+   -\frac{1}{\varphi(q)}\sum_{n\le y}\Lambda(n)\mu(N-n)\Bigr|
+  \ll_A \frac{N}{(\log N)^A}.
+\]
+Huang and Li~\cite{HL}, continuing Pan~\cite{Pan}, proved that
+$EH(N^{\theta}(\log N)^{2A+8})$ together with $EH_\mu(N^{1-\theta})$
+implies $\tilde r(N)\ge \SS(N)(1-A(N))N + O(N(\log N)^{-A})$, and
+deduced (their Corollary~1) that in view of Bombieri--Vinogradov,
+binary Goldbach for all sufficiently large even integers follows from
+$EH_\mu(N^{\theta'})$ alone for any single $\theta' > 1/2$.
+
+This is the sharpest conditional frame we are aware of: one sentence
+stands between classical technology and Goldbach. The campaign
+reported here asked what that sentence actually costs.
+
+\subsection{The organizing principle: two couplings}
+
+The hypothesis contains a product of two M\"obius factors, and there
+are exactly two ways their arguments can be coupled. This turns out to
+organize everything.
+
+\begin{itemize}
+\item \textbf{Divisibility-coupled} (the \emph{demand} side). Inside
+  Huang--Li's proof, $EH_\mu$ is consumed only in the fixed residue
+  class $n \equiv N \pmod k$, i.e.\ $k \mid N-n$: one M\"obius
+  argument divides the other. Section~\ref{sec:demand}.
+\item \textbf{Difference-coupled} (the \emph{supply} side). Any attempt
+  to \emph{prove} $EH_\mu$ by dispersion arrives at the dilate field
+  $D(k) = \sum_m \mu(m)\mu(N-mk)$, where the two arguments are related
+  by a difference, not a divisibility. Section~\ref{sec:supply}.
+\end{itemize}
+
+\noindent
+The two behave completely differently, and each is closed for its own
+reason:
+
+\begin{center}
+\begin{tabular}{p{0.20\textwidth}p{0.34\textwidth}p{0.34\textwidth}}
+\hline
+ & \textbf{Divisibility-coupled} & \textbf{Difference-coupled}\\
+\hline
+Divisor switch & exact, and free & exact, but useless\\
+M\"obius lands on & the \emph{short} variable, $m\le N^{1/2-\delta}$ &
+ the \emph{long} variable, $m \asymp N/K \ge N^{2/3}$\\
+Consequence & Bombieri--Vinogradov closes it: Theorem~\ref{thm:A} &
+ no known machine applies\\
+But & the weighted version is \emph{equivalent} to Goldbach
+ (Theorem~\ref{thm:C}) & the field offers no coupling surface,
+ internal or external (\S\ref{sec:closures})\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{What this paper claims}
+
+\begin{itemize}
+\item \textbf{Claimed}: Theorem~\ref{thm:A}, Corollary~\ref{cor:B} and
+  Theorem~\ref{thm:C}, with full proofs in the companion note
+  \cite{ThmA}; the defect in \cite{HL}'s equation (18) and its repair;
+  all measurements, which are reproducible; the closure table of
+  \S\ref{sec:closures}.
+\item \textbf{Conjectured}: Conjecture~\ref{conj:L}.
+\item \textbf{Not claimed}: any theorem toward Goldbach.
+  Theorem~\ref{thm:A} is unconditional but Goldbach-neutral: it
+  removes exactly the half of the demand that carries no Goldbach
+  content.
+\end{itemize}
+
+\section{The demand side}\label{sec:demand}
+
+\subsection{Where $EH_\mu$ is actually consumed}
+
+For $(k,N)=1$ and $1\le t<N$ put
+\[
+  E_\mu(t;k) = \sum_{\substack{n\le t\\ n\equiv N\,(k)}}
+    \Lambda(n)\mu(N-n) - \frac{1}{\varphi(k)}\sum_{n\le t}
+    \Lambda(n)\mu(N-n).
+\]
+With $K = (N-1)/\alpha$, Huang--Li's two consumption sites are
+\[
+  E_3(\alpha)=\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!\mu(k)\log k\,
+  E_\mu(N;k),
+  \qquad
+  E_4(\alpha)=\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!\mu(k)\,
+  \bigl[\text{$E_\mu$ with the extra weight }\log(N-n)\bigr].
+\]
+They differ in exactly one respect: the weight $w_k$ is $\log k$ in
+$E_3$ and $1$ in $E_4$ (the $\log(N-n)$ inside $E_4$ is
+$k$-independent and comes off by partial summation). In both cases
+Huang--Li discard the signs $\mu(k)$ on the first line by the triangle
+inequality, and only then appeal to $EH_\mu$. Keeping the signs is
+what the following results exploit.
+
+\subsection{The theorem}
+
+\begin{theorem}[$w_k = 1$]\label{thm:A}
+Fix $\theta' \in (1/2,1)$ and put $K = N^{\theta'}$. Then for every
+$A>0$,
+\[
+  \sup_{1\le t<N}\Bigl|
+   \sum_{\substack{k<K\\(k,N)=1}}\mu(k)\,E_\mu(t;k)\Bigr|
+  \;\ll_{A,\theta'}\; \frac{N}{(\log N)^A}.
+\]
+Every ingredient except Bombieri--Vinogradov contributes only
+$O(Ne^{-c\sqrt{\log N}})$.
+\end{theorem}
+
+The mechanism is one line. The class $n \equiv N \pmod k$ is
+$k \mid N-n$, so the $k$-sum is a divisor sum over $u = N-n$;
+switching and writing $u = mk$ gives, for squarefree $u$,
+$\mu(u)\mu(k) = \mu(m)\mu^2(k)$ --- the M\"obius on the long variable
+$k$ squares itself away, and the surviving M\"obius sits on the short
+variable $m < N^{1-\theta'} \le N^{1/2-\delta}$. That is the classical
+``M\"obius on the short variable plus Bombieri--Vinogradov''
+configuration. Proofs, and the four mandatory corrections that an
+adversarial review imposed, are in \cite{ThmA}.
+
+\begin{corollary}\label{cor:B}
+$E_4(\alpha) \ll_A N(\log N)^{-A}$ unconditionally, via the exact
+identity $E_4(\alpha) = \int_1^{N-1} T_1(t)\,dt/(N-t)$. Hence
+Huang--Li's Lemma 4 is not needed and the entire $EH_\mu$ demand
+collapses to the single scalar $E_3(\alpha)$.
+\end{corollary}
+
+\begin{theorem}[$w_k = \log k$: the permanent closure]\label{thm:C}
+Unconditionally,
+\[
+  E_3(\alpha) = \sum_{n<N}\Lambda(n)\Lambda(N-n)
+   - \SS(N)\Bigl(N - \sum_{n<N}\Lambda(n)\mu(N-n)\Bigr)
+   + O_A\!\left(N(\log N)^{-A}\right),
+\]
+which is Huang--Li's own equation (22). Hence
+$E_3(\alpha)\ll_A N(\log N)^{-A}$ --- the weakest form of the
+hypothesis their argument needs --- is \emph{equivalent} to
+$\tilde r(N)\sim\SS(N)N$.
+\end{theorem}
+
+\begin{remark}
+The two theorems are the same computation with two weights. For
+$w_k = \log k$ the complete divisor sum is $-\Lambda$ rather than an
+indicator, because $\mu * \log = \Lambda$ --- and that identity is
+where Huang--Li \emph{start} (their (10)). The $\log k$ weight is the
+carrier of the Goldbach content, so every divisor switch must hand it
+back. This is closure at the level of identities, not of estimates: no
+choice of $\theta'$, truncation, or smoothing can evade it.
+\end{remark}
+
+\subsection{A defect in the published paper}
+
+Equation (18) of \cite{HL} replaces the $n$-dependent constraint
+$k < (N-n)/\alpha$, present in the definition of $S_2(\alpha)$, by the
+$n$-free $k < (N-1)/\alpha$. The omitted term is
+\[
+  \Delta = \sum_{2\le m\le\alpha}\mu(m)\log m
+    \sum_{\substack{k<(N-1)/\alpha\\ (k,m)=1}}\mu^2(k)\Lambda(N-mk),
+\]
+whose trivial bound $\ll N(\log N)^2$ exceeds the target. It closes by
+the same machinery --- M\"obius again on the short variable --- under
+hypotheses already assumed: unconditionally by Bombieri--Vinogradov in
+the Corollary-1 regime, and under the assumed $EH$ in the Theorem-1
+regime. Theorem 1 and Corollary 1 of \cite{HL} stand as stated.
+
+\section{The supply side}\label{sec:supply}
+
+\subsection{The consumable}
+
+The chain's supply-side consumable, distilled, is
+\[
+  \textbf{E1 (weak form).}\quad
+  D(k) = \!\!\sum_{\sqrt N < m \le N/k}\!\! \mu(m)\mu(N-mk),
+  \qquad
+  \sum_{k\sim K}|D(k)|^2 \ll (\log N)^{-A}\sum_{k\sim K} M_k,
+\]
+for $K \le N^{1/3}$ dyadic. A fixed log-power saving is the currency;
+$o(1)$ and $\log\log$ savings are not consumable.
+
+\subsection{Conjecture L}
+
+\begin{conjecture}[the factorization law]\label{conj:L}
+Each M\"obius family probed in this program --- prime-indexed dilate
+pairs $C_{k,k'} = \sum_{p\sim P}\mu(N-pk)\mu(N-pk')$, integer-indexed
+dilates and their pairs, and M\"obius sums over thin progressions ---
+factorizes as
+\[
+  \text{field} \;=\; \mathbf M \times \mathbf G,
+\]
+where $\mathbf M$ is the deterministic local mask, computed exactly by
+finite modular enumeration from the $v_q$-data of $(N,k,k')$, and
+$\mathbf G$ is, on the surviving support, a fluctuation that is
+exactly Gaussian at half-normal scale: no mean field, no class
+structure, kurtosis $3$, Wishart-consistent pair spectrum.
+\end{conjecture}
+
+The evidence is summarized in Table~\ref{tab:L}; full stamps and
+one-shot reproduction are in the repository.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{p{0.30\textwidth}p{0.62\textwidth}}
+\hline
+Level & Stamp\\
+\hline
+Pair statistics & free class $0.97$--$1.02$, kurtosis $2.99$--$3.03$
+ (two $N$)\\
+Exact cells & every viable $(v_2,v_3)$ cell $0.99$--$1.06$\\
+Mask, blind & $\mathrm{corr}(\text{pred},\text{obs}) = 1.0000$,
+ amplitude error $1.5\%$; annihilation fractions predicted exactly at
+ a fresh $N$\\
+Pair matrix & $\lambda_{\max}$ at the Wishart null dead center
+ ($z = -0.19$)\\
+E1 itself at $10^9$ & band ratios $0.966 / 0.950 / 0.922$ over
+ $K \sim 10^3/3\cdot10^3/10^4$, no growth\\
+E1 definitive grid & 4 $N$ $\times$ 2 bands $\times$ 300 $k$ with
+ bootstrap SE: mean $z = +0.02$, 7/8 cells within $1.25\sigma$, the
+ suspect cell settled by near-census\\
+\hline
+\end{tabular}
+\caption{Measured support for Conjecture~\ref{conj:L}.}
+\label{tab:L}
+\end{table}
+
+Conjecture~\ref{conj:L} is \emph{stronger} than the chain needs: E1
+requires only square-root cancellation on average. What is missing is
+therefore not knowledge of the structure --- the mask is an algorithm
+and $\mathbf G$ is featureless in every measurement --- but a proof
+technique for the amplitude of a featureless object.
+
+\section{The negative map: sixteen closures}\label{sec:closures}
+
+Every entry below was pre-registered: the decision rule was fixed in
+writing before the computation ran, and a design that failed its rule
+was closed in one paragraph and never re-litigated. Route
+adjudications were done in fresh context against the source papers'
+verbatim lemma hypotheses.
+
+\subsection{Adjudication of existing machinery (5)}
+
+\begin{longtable}{p{0.24\textwidth}p{0.10\textwidth}p{0.56\textwidth}}
+\hline
+Route & Verdict & Blocking coordinate\\
+\hline
+\endhead
+MRT / Lichtman 2020, shift $\to$ dilate & Blocked &
+ the orthogonality factorization needs a \emph{linear} pair
+ constraint ($h = m-n$); the dilate constraint
+ $m'u - mu' = N(m'-m)$ is bilinear. The $h$-average is a translation;
+ the $k$-average is a dilation, with no diagonalizing character
+ family.\\
+Tao 2016 entropy decrement, $k$-averaged & Blocked $\times 3$ &
+ (i) no $k$-analog of approximate affine invariance; (ii) the sampling
+ prime enters the phase multiplicatively, so the sparsification fails
+ and the surviving input is the target itself; (iii) the saving is
+ triple-log, below spec.\\
+Lichtman 2020 rerun in dilate coordinates & Blocked &
+ the congruence coupling is a genuine isomorphism but powers only the
+ typical-set restriction; the decoupling blocks at the same bilinear
+ coordinate, and the uniformity slot would need an $EH_\mu$-grade
+ input (circular).\\
+Dirichlet-polynomial fourth moment / Perron & Blocked &
+ every log-saving mean-value pillar assumes coefficient
+ multiplicativity in its own variable; $\mu(N-u)$ has none. Unfolding
+ by Perron costs $T \gtrsim N^{1-o(1)}$; opening the fourth moment
+ reproduces the binary correlation.\\
+Partial slices & Partial &
+ the type-I slice is already consumed; the \emph{$N$-averaged}
+ theorem is provable but lands in exceptional-set territory, which
+ Huang--Li cannot consume; no nontrivial fixed-$N$ slice exists.\\
+\hline
+\end{longtable}
+
+\noindent
+\textbf{The common obstruction.} $\mu(m)\mu(N-mk)$ couples its
+variables simultaneously through the product $mk$ and the difference
+$N-mk$; the pair constraint is bilinear and is diagonalized by no
+single character family, additive or multiplicative, while each
+route's decisive lemma consumes exactly that diagonalization as a
+hypothesis.
+
+\subsection{Technique designs, kill-tested (8)}
+
+\begin{longtable}{p{0.05\textwidth}p{0.30\textwidth}p{0.55\textwidth}}
+\hline
+\# & Design & Result (pre-registered rule applied)\\
+\hline
+\endhead
+K1 & multiplicative Fej\'er kernel on the exact dilation ladder &
+ \textbf{dead}: full 63-divisor orbit $R^2 = 0.466$. Half the field's
+ energy is invisible to its entire multiplicative orbit.\\
+K2 & manufactured pair congruence (determinant/Kloosterman) &
+ \textbf{dead}: 0/10 flags over $h = 1\ldots210$; congruent pairs are
+ statistically $h$-blind, so the manufactured congruence buys nothing
+ against the splitting cost.\\
+K3 & Wishart / operator moment method &
+ \textbf{dead}: $\mathrm{tr}(M^2),\mathrm{tr}(M^3),\mathrm{tr}(M^4)$
+ dead-center on the Wishart null ($z = -0.48/+0.42/-0.03$). No
+ sub-Wishart surplus to fund the exchange.\\
+K4 & $N$-average descent &
+ \textbf{dead}: 0/8 flags; the dual field is $\delta$-blind and
+ $m$-uncorrelated.\\
+R1 & zero-spectrum visibility (explicit formula) &
+ \textbf{dead}: $R^2_{\text{zeros}} = 0.2152$ vs random-frequency
+ $0.2196\pm0.0055$. The $m^{i\gamma}$ coherence is completely
+ scrambled by the pairing.\\
+R2 & determinant / Kloosterman phase &
+ \textbf{dead}: regression $R^2 = -0.0001/+0.0004$ against controls
+ $\pm0.0002$ over 48{,}000 coprime pairs. The field is phase-blind to
+ its own determinant structure.\\
+R3 & character transform of the $k$-average &
+ \textbf{dead by analysis}: for $K \le N^{1/3}$ the transform deposits
+ every component into thin progressions (moduli $\ge N^{2/3}$);
+ Parseval forbids a statistical gain.\\
+R4 & divisor switch (the program's own newest mechanism) &
+ \textbf{dead}: see \S\ref{sec:R4}.\\
+\hline
+\end{longtable}
+
+\subsection{Representation classes (3, plus one refutation)}
+
+\begin{longtable}{p{0.10\textwidth}p{0.25\textwidth}p{0.55\textwidth}}
+\hline
+Class & Test & Result\\
+\hline
+\endhead
+C-I abelian & rational-peak energy vs mask-null &
+ \textbf{closed}, 0/6: the abelian spectrum is mask-exact.\\
+C-II inverse domain & special-frequency excess in the
+ modular-inverse re-indexing &
+ \textbf{closed on verification}: fired at 4/300 with $z = +10.97$
+ under 8-draw nulls, collapsed under 64-draw nulls
+ ($+4.14/+2.41/+1.19/+0.30$), permutation null concurring, second-$N$
+ replication 0/4.\\
+C-IV manufactured modularity & approximate Fricke law for
+ $\Phi(z) = \sum t_m e(mz)$ &
+ \textbf{closed}, 0/6 levels. A true modular form drives the defect to
+ $\approx 0$, so absence is meaningful.\\
+C-III Motohashi type & (no finite test) &
+ a full theory draft was written and then \textbf{refuted} by
+ adversarial review at four independent coordinates: assembly scale
+ mismatch $x^{2/3}$, a bookkeeping error hiding the type-II leaf, an
+ illegitimate dual, and a pointwise budget deficit sealed by our own
+ measurement.\\
+\hline
+\end{longtable}
+
+\subsection{R4 in detail: the divisor switch does not
+localize}\label{sec:R4}
+
+Theorem~\ref{thm:A} gave the program a mechanism it did not have when
+the earlier rounds were designed, so it was tested in its turn.
+Applied to the dilate field over its \emph{full} ranges the switch
+gives an exact identity
+\[
+  \sum_{k\ge1}\ \sum_{m:\,mk\le N-1}\mu(m)\mu(N-mk)
+  = \sum_{u<N}\mu(N-u)\sum_{m\mid u}\mu(m)
+  = \mu(N-1),
+\]
+verified by brute force at $N = 5000$ and $N = 20000$. This is perfect
+cancellation: $O(1)$ for a double sum of $\sim N\log N$ terms, far
+beyond square root, and it is the strongest cancellation this program
+found anywhere.
+
+E1 imposes two restrictions that make the inner divisor sum
+incomplete: the type-II cut $m > \sqrt N$ and the dyadic band
+$k \sim K$. The kill-test asked whether any of the cancellation
+survives, by measuring block sums $S_B(j) = \sum_{k\in\text{block}}D(k)$
+against the $B$-independence that Conjecture~\ref{conj:L} predicts.
+
+\emph{Result: none of it survives.} On $8000$ values of $k$ --- the
+entire band on which the type-II field is non-empty, since
+$m > \sqrt N$ forces $k < \sqrt N$ --- the block ratios are flat
+($B=8$: $0.958$ and $1.023$ at two $N$, against $B=1$ baselines
+$0.980$ and $0.979$), and the sharper diagnostic, the lag-1
+autocorrelation of $D(k)/\sqrt{\mathrm{supp}(k)}$, reads
+$+0.0104$ and $+0.0127$ against a standard error of $0.0112$: dead
+zero, and if anything mildly positive rather than the negative
+coherence a surviving residue would require. An initial run on
+$2048\ k$ had shown a same-direction deficit at both $N$; it was
+settled as block-count standard error, in accordance with this
+program's practice after an earlier $+3.7\sigma$ reading regressed to
+noise under power.
+
+\emph{The mirror.} Switching the banded $L^1$ sum gives
+$\sum_{k\sim K}D_{\text{full}}(k)
+ = \sum_{u<N}\mu(N-u)\sum_{m\mid u,\ u/2K<m\le u/K}\mu(m)$, where
+$m \asymp N/K \ge N^{2/3}$: the surviving M\"obius sits on the
+\emph{long} variable, the exact opposite of the assignment that makes
+Theorem~\ref{thm:A} work. The switch is not a technique that happens
+to fail on the supply side; its single requirement --- M\"obius on the
+short variable --- is precisely what the type-II cut forbids.
+
+\section{What the closures constrain}
+
+Any transform or invariance $T$ that linearizes the pair constraint at
+a cost of at most a log power must satisfy all five of the following.
+
+\begin{enumerate}
+\item \textbf{(K1)} $T$ cannot act through divisibility sub-sums: the
+  multiplicative orbit spans only half the field's energy, so $T$ must
+  couple to the $p$-coprime core directly.
+\item \textbf{(K2)} $T$ cannot manufacture its congruence externally:
+  collapse structure pays only when it arises inside an intrinsic
+  average that is already present.
+\item \textbf{(K3)} $T$ cannot bootstrap from the field's own moments:
+  every moment consumes higher $\mu$-correlations and the field
+  carries no sub-Wishart surplus.
+\item \textbf{(K4)} $T$ cannot descend from the $N$-average: its
+  linearization is load-bearing and the $k$-average holds no shadow
+  of it.
+\item \textbf{(R4)} $T$ cannot be the divisor switch or a relative:
+  the switch's cancellation is a property of \emph{complete} divisor
+  sums, and the type-II cut makes every divisor sum incomplete.
+\end{enumerate}
+
+\noindent
+Together with the round-2 findings --- zeros invisible through the
+pairing, characters merely relocating the difficulty into thin
+progressions, determinant phases blind --- the field offers no
+coupling surface in any direction that has an existing mathematical
+name. In the automorphic world, shifted convolutions
+$\sum a(n)a(n+h)$ are controlled because the coefficients $a(n)$
+\emph{come with} a spectral representation; $\mu$ has none, and every
+route above failed exactly where it tried to borrow one. The technique
+to be created is a spectral (or equivalent structural) representation
+of $\mu$-pairs themselves, not a projection onto existing spectra ---
+and its construction is a purely theoretical act, beyond what
+kill-testing can reach.
+
+\section{Methodology, and the corrections}
+
+Three rules were followed throughout, and they are the reason we
+believe the negative results.
+
+\begin{enumerate}
+\item \textbf{Pre-registration.} Every design's decision rule was
+  written before its computation ran. Two designs fired and were then
+  retracted on verification (C-II at $z = +10.97$; a $z = 9$ spectral
+  excess that turned out to be our own null-design category error ---
+  an i.i.d.-entry Wigner null applied to a Gram matrix).
+\item \textbf{Adversarial review in fresh context.} Three of this
+  program's own derivations were refuted this way (the E1 gate
+  arithmetic and role-exchange; the SEAM formalization, falsified by
+  our own data; the C-III tree at four coordinates). Theorem~\ref{thm:A}
+  is the first derivation to survive the same protocol, and it did so
+  only after four mandatory corrections.
+\item \textbf{Power before belief.} A $+3.7\sigma$ band elevation
+  regressed to $1.078\pm0.072$ under bootstrap; a $-2.4\sigma$ dip
+  resolved at four times the sample; the R4 deficit dissolved at four
+  times the $k$-range.
+\end{enumerate}
+
+\noindent
+\textbf{Twenty-eight corrections} are recorded in the repository. Two
+deserve mention here because they are traps rather than slips.
+
+\begin{itemize}
+\item \emph{The $(q,N)>1$ main-term trap.} In the proof of
+  Theorem~\ref{thm:A}, assigning a main term $T_m/\varphi(q)$ to a
+  residue class with $(q,N)>1$ --- which is degenerate, its true
+  contribution being $O(\log^2 N)$ --- shifts the density by exactly
+  $N/\varphi(N)$. Carried into the $\log k$ branch, that error
+  produces an apparent \emph{refutation of $EH_\mu$}. This is the most
+  plausible false positive the campaign met; without adversarial
+  review it would have been announced.
+\item \emph{Eight-draw-null inflation.} Nulls estimated from too few
+  draws inflate maxima across a family of 300 tests; the C-II ``hit''
+  survived 8-draw nulls and died under 64-draw nulls plus replication.
+\end{itemize}
+
+\noindent
+One correction is to this campaign's own increment-192 record: the
+bound in Theorem~\ref{thm:A} was briefly claimed as
+$Ne^{-c\sqrt{\log N}}$. That is wrong --- Bombieri--Vinogradov yields
+only $N(\log N)^{-A}$ for each fixed $A$, its internal Siegel--Walfisz
+range being $q \le (\log N)^B$ with $B$ fixed --- and the claim is
+withdrawn here. The corollaries are unaffected.
+
+\section{Reproducibility}
+
+All measurements run on a laptop with Python and numpy. One-shot
+verification of the core corpus: \texttt{python code/verify\_all.py}.
+The Theorem~\ref{thm:A} checks are
+\texttt{code/thmA\_*.py} (switching identity exact to $5\cdot10^{-10}$;
+residual versus predicted main term agreeing to 1--4\%; the
+load-bearing density identity verified in exact rational arithmetic
+for all 243 squarefree $m<400$); the closure experiments are
+\texttt{code/e1\_forge\_*.py} and \texttt{code/e1\_constr\_*.py}.
+
+\section{Summary}
+
+\begin{itemize}
+\item The demand side of the Huang--Li reduction is closed: one half
+  is now an unconditional theorem, the other half is equivalent to the
+  conclusion.
+\item The supply side is closed to measurement: the object is
+  featureless in every direction with a name, and the sixteen
+  pre-registered closures say precisely which directions were checked
+  and why each fails.
+\item Net progress toward Goldbach is zero. The contribution is the
+  map, one unconditional theorem that removes a Goldbach-neutral
+  demand, one conjecture that any future construction must reproduce,
+  and one defect report for the source paper.
+\end{itemize}
+
+\begin{thebibliography}{9}
+\bibitem{HL} Jing-Jing Huang and Huixi Li, \emph{On the connection
+between the Goldbach conjecture and the Elliott--Halberstam
+conjecture}, arXiv:2005.03811v2 [math.NT], 2022.
+\bibitem{ThmA} \emph{An unconditional bound for a M\"obius-weighted
+correlation sum in fixed residue classes}, companion note,
+\texttt{paper/theorem\_A.tex} in this repository.
+\bibitem{Pan} Cheng-Dong Pan, \emph{A new attempt on Goldbach
+conjecture}, Chinese Ann. Math. \textbf{3} (1982), 555--560.
+\bibitem{Tao} Terence Tao, \emph{The logarithmically averaged Chowla
+and Elliott conjectures for two-point correlations}, Forum Math. Pi
+\textbf{4} (2016).
+\bibitem{Li20} Jared Duker Lichtman, \emph{Averages of the M\"obius
+function on shifted primes}, arXiv:2009.08969.
+\bibitem{Li23} Jared Duker Lichtman, \emph{Primes in arithmetic
+progressions to large moduli, and shifted primes without large prime
+factors}, arXiv:2309.08522.
+\bibitem{MV17} M. Ram Murty and Akshaa Vatwani, \emph{Twin primes and
+the parity problem}, J. Number Theory \textbf{180} (2017), 643--659.
+\end{thebibliography}
+
+\end{document}

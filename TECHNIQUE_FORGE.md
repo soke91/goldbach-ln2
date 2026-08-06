@@ -73,6 +73,11 @@ paragraph in this table, closed, never re-litigated.
 - (increment 176) **K4 DEAD**: the dual field is δ-blind and
   m-uncorrelated; the N-average's linearization has no within-N
   substitute.
+- (increment 194) Round 3 opened on the increment-193 asset. New exact
+  identity recorded and verified. **R4 DEAD** on its pre-registered
+  criterion; a same-direction deficit at 2048 k was settled at 8000 k
+  (increment 194b) as block-count SE, with lag-1 autocorrelation
+  +0.011 ± 0.011. Fifth constraint on T recorded.
 
 ## Round-1 synthesis (increment 177)
 
@@ -130,11 +135,80 @@ distinct ways:
   structure distinguishes.
 
 **Combined with Round 1** (no internal lever: orbit, congruence,
-moments, N-descent all exactly flat), the forge has now measured, in
-every direction that has an existing mathematical name, that the
-dilate field offers **no coupling surface**: nothing internal to
-exploit, nothing external that can see it. The precise shape of the
-missing technique follows: in the automorphic world, shifted
+moments, N-descent all exactly flat), the forge had by increment 180
+measured, in every direction that has an existing mathematical name,
+that the dilate field offers **no coupling surface**: nothing internal
+to exploit, nothing external that can see it.
+
+## Round 3 — the divisor-switch asset (opened at increment 194)
+
+*Round 2 closed with "the technique to be created is a spectral
+representation of μ-pairs themselves". Round 3 exists because
+increment 193 produced a genuinely new asset that was not available
+when rounds 1–2 were designed: the divisor switch of Theorem A, the
+one mechanism this program has found that converts a bilinear μμ
+object into a linear one.*
+
+**The new asset, stated exactly.** Applied to the dilate field over
+its full ranges, the switch gives an exact identity:
+
+> Σ_{k≥1} Σ_{m: mk ≤ N−1} μ(m)μ(N−mk)
+>  = Σ_{u<N} μ(N−u) Σ_{m|u} μ(m)
+>  = Σ_{u<N} μ(N−u)·[u=1] = **μ(N−1)**.
+
+Perfect cancellation: O(1) for a double sum of ~N log N terms, far
+beyond square root. E1 imposes exactly two restrictions that make the
+inner divisor sum incomplete — the type-II cut m > √N and the dyadic
+band k ∼ K. R4 asks whether any of the perfect cancellation survives
+them.
+
+**The mirror observation (derivation, no measurement needed).** Switch
+the banded L¹ sum: Σ_{k∼K} D_full(k) = Σ_{u<N} μ(N−u) Σ_{m|u,\ u/2K<m≤u/K} μ(m).
+Here m ≍ N/K ≥ N^{2/3} (since the chain needs K ≤ N^{1/3}), so the
+surviving Möbius sits on the **long** variable while the complementary
+variable k ∼ K ≤ N^{1/3} is short. Theorem A's assignment is exactly
+the opposite: there μ landed on the short variable m ≤ N^{1/2−δ} and
+Bombieri–Vinogradov closed it. **Same switch, opposite
+variable-length assignment** — this is the structural reason the
+demand side was free and the supply side is not, and it is a
+constraint on any future use of the switch, not an obstruction that
+was previously named.
+
+| # | Design | Kill-test | Status |
+|---|---|---|---|
+| R4 | **L¹ coherence of the restricted field**: does the exact identity's perfect cancellation leave a residue after the two restrictions? If block sums of D(k) over consecutive k are sub-Gaussian, the L¹ identity funds part of the L² bound and the switch becomes a lever | Block sums S_B(j)=Σ_{k∈block}D(k) at B ∈ {1,8,64,512}; statistic ratio(B)=Σ_j\|S_B(j)\|²/Σ_k supp(k), which is B-independent under Conjecture L. Control: same statistic for the full-m field D_full. **Pre-registered: ALIVE iff ratio(B) ≤ 0.5·ratio(1) for ≥2 block sizes B ≥ 8 at BOTH N; DEAD otherwise** | **DEAD** — 0 hits at either N. The identity itself is confirmed exactly (brute force at N = 5000, 20000: the double sum equals μ(N−1) on the nose), but none of its perfect cancellation survives the restrictions. First run (2048 k) showed a same-direction deficit at both N (B=8: 0.87/0.94, B=64: 0.77/0.80) inside the estimator's own SE; settled at full power (8000 k = the entire band where the type-II field is non-empty, since m > √N forces k < √N): B=8 ratios 0.958/1.023, and the sharper diagnostic — lag-1 autocorrelation of D(k)/√supp(k) — reads **+0.0104 / +0.0127 against SE 0.0112**, i.e. dead zero and, if anything, mildly positive rather than the negative coherence a surviving residue requires. The deficit was block-count SE. Closed (`code/e1_forge_r4.py`, `e1_forge_r4b.py`) |
+
+## Round-3 synthesis (increment 194)
+
+The program's newest asset closes too, and it closes informatively.
+
+- **The identity is real and is perfect.** Σ_{k}Σ_{m: mk≤N−1}
+  μ(m)μ(N−mk) = μ(N−1), verified exactly. On the *unrestricted*
+  ranges the bilinear μμ object is not merely square-root cancelling
+  but O(1) — the divisor switch is the strongest cancellation
+  mechanism this program has found anywhere.
+- **None of it localizes.** After E1's two restrictions the field is
+  L¹-incoherent to measurement precision: block ratios flat, lag-1
+  autocorrelation +0.011 ± 0.011. The perfect cancellation lives
+  entirely in the interaction between the type-I window (m ≤ √N) and
+  the small-k range, i.e. outside the window the chain consumes.
+- **The mirror**, derived above: the same switch puts μ on the short
+  variable on the demand side (m ≤ N^{1/2−δ}, hence BV, hence
+  Theorem A) and on the **long** variable on the supply side
+  (m ≍ N/K ≥ N^{2/3}). The switch is not a technique that happens to
+  fail here; it is a technique whose single requirement — Möbius on
+  the short variable — is exactly what the type-II cut forbids.
+
+**Fifth constraint on any viable T** (joining the four of round 1):
+
+5. **(from R4)** T cannot be the divisor switch, or any relative of
+   it. The switch's cancellation is a property of complete divisor
+   sums over the full range; the type-II cut makes every divisor sum
+   incomplete and, measured directly, leaves no coherence behind.
+
+**The forge's terminal statement** (unchanged by round 3, and now
+tested against the program's own newest mechanism as well as against
+borrowed ones). In the automorphic world, shifted
 convolutions Σa(n)a(n+h) are controlled because the coefficients
 a(n) COME WITH a spectral representation (Kuznetsov applies to them
 natively); μ has no such representation, and every route above
