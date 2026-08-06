@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 298 (2026-08-07). 5 days, 102 recorded corrections,
+*Increment 299 (2026-08-07). 5 days, 105 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -13,7 +13,7 @@ the one defect we found (the dropped truncation at (18)) repaired.
 No second defect was found. What is still taken on their authority is
 the exponent-level analysis of the error terms.
 
-**Consolidated working paper: `paper/negative_map.tex`.**
+**Consolidated working paper: `paper/negative_map.tex`** — now carries §"The wall's own law": Proposition V (the exact scale in closed form, Mirsky), the corrected law `C(N) = m(N) + √V·G`, Proposition W (the excess is a Chowla correlation), and the four measured facts — Gaussian bulk, lower-order mask, Gaussian tail, spectral component. Fifteen increments of results had lived only in markdown. ⚠️ Writing it exposed that the paper **had not compiled**: two propositions used an environment that was never defined (#103).
 **CI stamp: `code/verify_all.py`** — repaired at increment 285. It had **no assertions and no failure path**: its criteria were characters inside output strings and it exited 0 regardless. Every stamp is now judged against a pre-registered interval, prints PASS/FAIL, exits 1 on failure, and carries a sensitivity block showing the verdict can flip. A **deep arm** (`30030 | N`) was added because the old sample forced `N ≡ 2 (mod 6)` and so excluded every `N` divisible by 3 — the cells where the location mask lives.
 **Verdict linter: `code/lint_verdicts.py`** — a conclusion must be *computed*, not *composed*. It flags any `print` of a plain string literal carrying verdict vocabulary outside a branch, since such a line asserts an outcome the run cannot contradict; f-strings with a computed value, prints inside a conditional, and lines marked `# verdict-ok: <reason>` pass. Built after a script printed the result it expected and the run rejected it (#100). First pass over 226 files: 10 candidates, 7 criterion-or-structural and marked with their reason, **3 real and all mine**.
 **Document linter: `code/lint_docs.py`** — six mechanical checks over every `.md`/`.tex` file, exit 1 on failure, with a self-test that shows each one detecting a synthetic fault. It exists because escape collapse through shell heredocs had corrupted tracked files five times and been answered five times with a note; it found a sixth, live, on its first run. Two of its own invariants failed that self-test before the third passed.

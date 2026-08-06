@@ -49,6 +49,11 @@ WHAT IT CHECKS.
      the most recent commit's, or be exactly one ahead, which is
      an increment in progress rather than a disagreement.
   F. ADJACENT DUPLICATE LINES, which is what a botched splice leaves.
+  G. UNDEFINED LaTeX ENVIRONMENTS. A .tex using begin{proposition}
+     with no matching newtheorem does not compile, and there is no TeX
+     engine in this environment to say so. The working paper had
+     exactly that fault, unnoticed since those propositions were
+     added.
 
 Exit code 1 on any failure, so it can gate a commit rather than be
 read and ignored.
@@ -73,7 +78,19 @@ TAILS = ("mid", "eq", "abla", "ot", "onumber", "u",          # \n
          "ho", "ight", "angle", "floor",                     # \r
          "arepsilon", "ec", "arphi")                         # \v
 TAIL_RE = re.compile(r"^\s*(" + "|".join(TAILS) + r")\b")
-MIDFORMULA = re.compile(r"(\$[^$]*$)|[{_^\\]\s*$")
+TRAILING = re.compile(r"[{_^\\]\s*$")
+
+
+def midformula(line):
+    """Is this line left inside a formula?
+
+    The first version asked whether the last `$` was followed by text,
+    which is true of any line ending in prose after an inline formula
+    -- it flagged "...$1.051$--$1.068$ times the random-sign" followed
+    by the English word "floor". A line is left open when its `$`
+    count is ODD, or when it ends on a brace, subscript or backslash.
+    """
+    return (line.count("$") % 2 == 1) or bool(TRAILING.search(line))
 
 
 def docs():
@@ -125,16 +142,22 @@ def selftest():
     # B: split command caught, ordinary prose not
     chk("B: '\\prod_{q' / 'mid N}' flagged",
         bool(TAIL_RE.match("mid N}(1-1/(q(q-1)))$"))
-        and bool(MIDFORMULA.search("$\\mathfrak A(N)=\\prod_{q")))
+        and midformula("$\\mathfrak A(N)=\\prod_{q"))
     chk("B: 'times below' after prose not flagged",
-        not MIDFORMULA.search("reached the point of displaying a formula"))
+        not midformula("reached the point of displaying a formula"))
     chk("B: 'in $\\log N$' after prose not flagged",
-        not MIDFORMULA.search("phase-random"))
+        not midformula("phase-random"))
     # C: the real shape and the real fault
     chk("C: real table shape passes", block_ok([3, 4, 35, 97, 96, 95])[0])
     chk("C: increment 295's actual fault caught",
         not block_ok([3, 4, 35, 96, 97, 95])[0])
     chk("C: duplicate row number", len(set([5, 5])) != 2)
+    # G: an environment used with no matching newtheorem
+    defined_t = set(re.findall(r"newtheorem\*?\{([^}]+)\}",
+                               r"\newtheorem{theorem}{Theorem}"))
+    chk("G: proposition used, only theorem defined",
+        "proposition" not in defined_t)
+    chk("G: theorem used and defined", "theorem" in defined_t)
     # F: duplicated line
     L = ["Verified to $1.000000\\pm0.000145$."] * 2
     chk("F: adjacent duplicate", L[0].strip() == L[1].strip()
@@ -168,7 +191,7 @@ def main():
         lines = io.open(path, encoding="utf-8",
                         errors="replace").read().split("\n")
         for i in range(1, len(lines)):
-            if TAIL_RE.match(lines[i]) and MIDFORMULA.search(lines[i - 1]):
+            if TAIL_RE.match(lines[i]) and midformula(lines[i - 1]):
                 fails.append(f"B {os.path.relpath(path, REPO)}:{i+1} "
                              f"{lines[i-1][-28:]!r} / {lines[i][:28]!r}")
                 nb += 1
@@ -225,6 +248,32 @@ def main():
         print(f"    STATUS {si}, last commit {gi} -- {note}")
     except Exception as e:
         print(f"    skipped ({type(e).__name__})")
+
+    # (G) LaTeX environments used but never defined. The paper used
+    # begin{proposition} twice with no matching newtheorem, so it had
+    # not compiled since those propositions were added -- and there is
+    # no TeX engine in this environment to say so. A structural check
+    # costs nothing and catches it.
+    print("(G) LaTeX environments used but not defined")
+    STD = {"document", "abstract", "equation", "equation*", "align",
+           "align*", "gather", "gather*", "itemize", "enumerate",
+           "description", "tabular", "longtable", "table", "figure",
+           "center", "quote", "verbatim", "thebibliography", "proof",
+           "array", "cases", "pmatrix", "bmatrix", "matrix", "split",
+           "multline", "eqnarray", "displaymath", "flushleft",
+           "flushright", "minipage", "footnotesize", "small"}
+    ng = 0
+    for path in files:
+        if not path.endswith(".tex"):
+            continue
+        t = io.open(path, encoding="utf-8", errors="replace").read()
+        defined = set(re.findall(r"newtheorem\*?\{([^}]+)\}", t))
+        used = set(re.findall(r"begin\{([^}]+)\}", t))
+        for m in sorted(used - defined - STD):
+            fails.append(f"G {os.path.relpath(path, REPO)}: "
+                         f"environment {m!r} used, never defined")
+            ng += 1
+    print(f"    {ng} hits")
 
     print("(F) adjacent duplicate lines")
     nf = 0

@@ -7,6 +7,8 @@
     C: real table shape passes                           detects
     C: increment 295's actual fault caught               detects
     C: duplicate row number                              detects
+    G: proposition used, only theorem defined            detects
+    G: theorem used and defined                          detects
     F: adjacent duplicate                                detects
     SELF-TEST OK
 
@@ -15,11 +17,13 @@
 (B) LaTeX commands split by a collapsed backslash-n
     0 hits
 (C) correction rows: distinct, descending and contiguous
-    78 rows, 78 distinct, block ok
+    82 rows, 82 distinct, block ok
 (D) STATUS correction count against the table
-    STATUS 98, table max 98
+    STATUS 102, table max 102
 (E) STATUS increment against the last commit
-    STATUS 296, last commit 295 -- one ahead (increment in progress)
+    STATUS 298, last commit 298 -- in step
+(G) LaTeX environments used but not defined
+    0 hits
 (F) adjacent duplicate lines
     0 hits
 

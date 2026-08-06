@@ -8,6 +8,7 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
 \theoremstyle{definition}
 \newtheorem{remark}[theorem]{Remark}
 
@@ -416,6 +417,197 @@ requires only square-root cancellation on average. What is missing is
 therefore not knowledge of the structure --- the mask is an algorithm
 and $\mathbf G$ is featureless in every measurement --- but a proof
 technique for the amplitude of a featureless object.
+
+\section{The wall's own law}\label{sec:wall}
+
+The chain of Section~\ref{sec:demand} reduces the whole problem to one
+scalar,
+\[
+  C(N) \;=\; \sum_{n<N}\Lambda(n)\mu(N-n) \;=\; o(N),
+\]
+and Conjecture~\ref{conj:L} was stated for the $\mu$-families
+$D(k)$ and $C_{k,k'}$, not for $C(N)$. Extending it to $C(N)$ took five
+attempts, four of which this program recorded and withdrew; what
+follows is the current form and the four facts now known about it. The
+superseded versions and the reason each failed are in the repository's
+correction record and are not repeated here.
+
+\begin{proposition}[The exact scale]\label{prop:V}
+Let
+\[
+  V(N) \;=\; \sum_{v<N}\mu^2(v)\,\Lambda(N-v)^2,
+  \qquad
+  W(N) \;=\; \sum_{w<N}\Lambda(w)^2,
+\]
+and let
+\[
+  \mathfrak A(N) \;=\; \prod_{q\,\nmid\,N}\Bigl(1-\frac{1}{q(q-1)}\Bigr).
+\]
+Then $V(N) = W(N)\,\mathfrak A(N)\,(1+o(1))$, and consequently
+$V(N) \sim \mathfrak A(N)\,N\log N$.
+\end{proposition}
+
+\begin{proof}[Derivation]
+$\Lambda(w)^2$ is supported on prime powers with weight $(\log p)^2$,
+so with $w=N-v$,
+\[
+  V(N) \;=\; \sum_{p^k<N}(\log p)^2\mu^2(N-p^k)
+        \;=\; \sum_{p<N}(\log p)^2\mu^2(N-p) + O(\sqrt N\log^2 N),
+\]
+a $(\log p)^2$-weighted count of \emph{squarefree shifted primes}. Its
+local density at a prime $q$ is $1$ when $q\mid N$ --- there
+$q^2\mid N-p$ forces $q\mid p$, hence $p=q$, a single term --- and
+$1-1/\varphi(q^2) = 1-1/(q(q-1))$ when $q\nmid N$, since the bad class
+$p\equiv N \pmod{q^2}$ is then a unit class. The statement is Mirsky's
+theorem on squarefree values of shifted primes \cite{Mir49} together
+with partial summation; it is recalled here, not claimed.
+\end{proof}
+
+\paragraph{The local factor is $\mathfrak A$, not $\mathfrak S$.}
+This is the substitution that cost this program four withdrawn
+statements. The singular series $\mathfrak S(N)$ is Hardy--Littlewood's
+and is correct for the Goldbach \emph{count}; it was carried across to
+the \emph{variance} of $C(N)$, where the right object is
+$\mathfrak A(N)$. Both are products over $q\mid N$, which is why the
+substitution survived. Rescaling each candidate to the measured mean,
+so that only its shape in $N$ is judged, the residual standard
+deviation over every even $N\le 1.6\cdot10^7$ is $0.000323$ for
+$\mathfrak A$ against $0.245235$ for $\mathfrak S$ --- a factor of
+$760$. Dividing through by $W(N)$ removes the analytic factor exactly,
+so no asymptotic for $\sum(\log p)^2$ is assumed: the ratio
+$V(N)/W(N)$ against $\mathfrak A(N)$ has mean $1.000000$ with standard
+deviation $0.000145$ in the top octave, and agrees to five decimals in
+each of the six radical cells from $2\mid N$ through
+$2\cdot3\cdot5\cdot7\cdot11\cdot13\mid N$.
+
+\subsection{The law, and what is measured about it}
+
+\begin{conjecture}[The wall's law]\label{conj:wall}
+\[
+  C(N) \;=\; m(N) \;+\; \sqrt{V(N)}\;G(N),
+\]
+with $m(N)$ a deterministic \emph{location mask} indexed by which small
+primes divide $N$, $V(N)$ the exact second moment of
+Proposition~\ref{prop:V}, and $G(N)$ Gaussian.
+\end{conjecture}
+
+Four measurements, all on every even $N\le1.6\cdot10^7$ with the mask
+removed by finite modular enumeration.
+
+\begin{enumerate}
+\item \textbf{The bulk is Gaussian, under this scale and no other.}
+  Excess kurtosis $-0.0005$ ($z=-0.3$) and
+  $E|G|/\mathrm{sd}(G)$ short of $\sqrt{2/\pi}$ by $0.00018$
+  ($z=-0.8$), on $6.3\cdot10^6$ values, removing cell \emph{means}
+  alone. Under an $\mathfrak S N$-based scale the same data give
+  excess kurtosis $+0.1704$ at $z=98$: a normaliser that manufactures a
+  heavy tail.
+
+\item \textbf{The mask is lower order.}
+  $\mathrm{Var}(m)/(\mathfrak S N)\propto N^{g}$ with
+  $g = -0.489\pm0.005$, so
+  $m(N)\asymp\sqrt{\mathfrak S(N)}\,N^{1/4}$. The value still drifts;
+  the sign does not, and the sign is what matters --- the mask does not
+  threaten $C(N)=o(N)$.
+
+\item \textbf{The tail is Gaussian too}, which is the half that
+  matters, since $C(N)=o(N)$ constrains every $N$ and a bulk can match
+  to five decimals while the tail is heavy. $\max|G|$ tracks the Gumbel
+  law with mean deviation $+0.54\pm0.45$ from $E[\max]$ over eight
+  octaves; aggregate tail counts against the Gaussian expectation give
+  ratios $0.999$ at $t=3$, $0.997$ at $t=4$, $0.878$ at $t=5$; and the
+  extremes are attained at generic $N$, not at deep radicals, so the
+  mask removal is not leaking into the tail.
+
+\item \textbf{$G$ is Gaussian in distribution but not phase-random in
+  $\log N$.} Regressing $G$ on
+  $\cos(\gamma\log N),\ \sin(\gamma\log N)$ for the first ten ordinates
+  of the zeta zeros gives $R^2 = 3.90\cdot10^{-3}$ against a
+  $200$-surrogate maximum of $5.09\cdot10^{-6}$, and every ordinate
+  individually at $z\ge23$. This does not contradict item~1: a small
+  oscillatory component leaves kurtosis untouched, and \emph{Gaussian
+  in distribution} and \emph{phase-random in $\log N$} are different
+  statements. The $0.39\%$ is a floor, not the share --- the zeros do
+  not stop at the tenth.
+\end{enumerate}
+
+\subsection{How far the wall beats a coin}
+
+$V(N)$ is exactly the random-sign second moment: if the $\mu(v)$ on the
+surviving support were independent signs, $\mathrm{Var}\,C$ would equal
+$V$. So the single number measuring the excess is
+$\rho(N) = \mathrm{Var}\,C(N)/V(N)$, which is $1$ under random signs.
+
+\begin{proposition}[The excess is a Chowla correlation]\label{prop:W}
+With $u=N-p$ and $h=p'-p$,
+\[
+  \rho-1 \;=\; \frac1V\sum_{h\neq0} c(h)\,S(h),
+  \qquad
+  c(h)=\sum_{p'-p=h}(\log p)(\log p'),
+  \quad
+  S(h)=\bigl\langle \mu(u)\mu(u-h)\bigr\rangle .
+\]
+\end{proposition}
+
+$S(h)$ is the binary Chowla correlation. Chowla's conjecture gives
+$S(h)=o(1)$ for each fixed $h$, and its averaged form over $h$ is a
+theorem \cite{MRT15}. Under that input $\rho\to1$, and then the wall is
+\emph{exactly} square-root: nature over-delivers by a power of $\log$
+and no more.
+
+Three quantitative checks, each with a bar fixed before the run. The
+Moebius autocorrelation sits at $1.051$--$1.068$ times the random-sign
+floor $\sqrt{0.32264\,(X-h)}$ --- not $\sqrt X$, since the sum sees
+only $n$ with both $n$ and $n+h$ squarefree --- stably across five
+decades of shift. The reconstruction gives $\rho-1=-0.0976$ against a
+measured $-0.18$, a factor $0.54$. The sign is negative, as $\rho<1$
+requires.
+
+\paragraph{Where the wall leans.} Gross mass by shift:
+$h<10^3$ carries $1.1\%$, $10^3$--$10^4$ carries $3.0\%$,
+$10^4$--$10^5$ carries $23.1\%$, $10^5$--$10^6$ carries $48.9\%$, and
+above $10^6$ carries $23.8\%$ (the ranges cancel, net $-2.2\cdot10^{13}$
+against gross $4.4\cdot10^{13}$, so shares of the net would mislead).
+Small shifts, where Chowla is hardest and the averaged theorem weakest,
+carry almost nothing: \textbf{the wall leans on the range where that
+theorem is strongest.}
+
+\paragraph{The rate, and the limit.}
+Proposition~\ref{prop:W} with $c(h)\approx\mathfrak S_2(h)N$ and $S(h)$
+at the square-root floor gives $\rho-1\asymp-b/\log N$. Fitting that
+with the intercept fixed at $1$ --- a one-parameter model, and $1$ is
+what Chowla forces --- costs $34\%$ in residual against a free
+two-parameter fit, whose intercept sits at $1.039$, above $1$ and
+walking down through $1.174, 1.088, 1.063, 1.070, 1.054, 1.039$ as the
+window grows. The data have not reached the limit, so fixing it there
+is premature at this size rather than wrong. What the window does
+measure is the rate: $b$ refits as
+$2.7297, 2.7218, 2.7115, 2.6885, 2.6819, 2.6817$, a drift of $0.048$,
+against $0.134$ for the intercept.
+
+\subsection{The margin, at the extreme}
+
+The requirement constrains every $N$, so the figure to quote is the one
+at the extreme, not at a typical $N$. With
+$\max|G|\approx a_n$ the Gumbel location,
+\[
+  \max_{N\le X}|C(N)| \;\approx\; a_n\sqrt{\mathfrak A(N)\,N\log N},
+  \qquad
+  \frac{N}{\max|C|}\;\approx\;
+  \frac{\sqrt N}{a_n\sqrt{\mathfrak A\log N}},
+\]
+which is $10^{4.4}$ at $N=10^{12}$ and $10^{22.8}$ at $N=10^{50}$. The
+requirement is not remotely tight. The entire difficulty is in
+\emph{proving} $o(N)$, not in the size --- and by
+Theorems~\ref{thm:D} and~\ref{thm:Dprime} the one classical route to
+proving it is closed over its whole design space.
+
+\begin{remark}
+Everything in this section is measured at $N\le1.6\cdot10^7$. The
+no-go theorems of Section~\ref{sec:demand} are asymptotic and acquire
+content only near $N\approx10^{480}$; nothing measured here constrains
+that range, and nothing there is contradicted by these measurements.
+\end{remark}
 
 \section{The negative map: eighteen closures}\label{sec:closures}
 
@@ -845,6 +1037,12 @@ and Elliott conjectures for two-point correlations}, Forum Math. Pi
 \textbf{4} (2016).
 \bibitem{Li20} Jared Duker Lichtman, \emph{Averages of the M\"obius
 function on shifted primes}, arXiv:2009.08969.
+\bibitem{Mir49} L. Mirsky, \emph{The number of representations
+of an integer as the sum of a prime and a $k$-th power free
+integer}, Amer. Math. Monthly \textbf{56} (1949), 17--19.
+\bibitem{MRT15} Kaisa Matom\"aki, Maksym Radziwi\l{}\l{}
+and Terence Tao, \emph{An averaged form of Chowla's conjecture},
+Algebra Number Theory \textbf{9} (2015), 2167--2196.
 \bibitem{Li23} Jared Duker Lichtman, \emph{Primes in arithmetic
 progressions to large moduli, and shifted primes without large prime
 factors}, arXiv:2309.08522.
