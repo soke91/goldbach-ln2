@@ -65,8 +65,7 @@ $\mu(k)$.
   form. $V(N)=\sum_v\mu^2(v)\Lambda(N-v)^2$ is a $(\log p)^2$-weighted
   count of **squarefree shifted primes**, so $V(N)=W(N)\,\mathfrak A(N)(1+o(1))$
   with $W(N)=\sum_{w<N}\Lambda(w)^2$ and
-  $\mathfrak A(N)=\prod_{q
-mid N}(1-1/(q(q-1)))$ (Mirsky 1949).
+  $\mathfrak A(N)=\prod_{q\nmid N}(1-1/(q(q-1)))$ (Mirsky 1949).
   Verified to $1.000000\pm0.000145$. ⚠️ **The local factor is
   $\mathfrak A$, not $\mathfrak S$** — residual sd 0.000323 against
   0.245235, a factor of 760. The singular series of the *count* is not
