@@ -468,6 +468,16 @@ single number to the whole profile, or by computing the null first.
    every skipped branch print the fact that it skipped.** A control
    that does not announce its own absence is worse than no control.
 
+   **It then recurred three times immediately after being named.**
+   `sed -i 's/^\*Increment 255.../.../'` matches nothing when the file
+   says 254, and `sed` exits 0 on no match, so increments 255–257 each
+   reported a bump that did not happen and STATUS.md sat at 254 for
+   three commits. The rule above is necessary and not sufficient: a
+   chained command that *succeeds while doing nothing* defeats it.
+   **Every edit must be followed by a read-back that asserts the new
+   state**, which is what the fix at 258 does. Naming a hazard does not
+   prevent it; only a check that fails loudly does.
+
 Every closure in this repository predating these rules was re-checked
 against them; the ones that survived are the ones whose criteria were
 "is there any signal at all", which is threshold-free.

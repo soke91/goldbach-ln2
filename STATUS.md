@@ -1,7 +1,8 @@
 # STATUS — single-page state of the program
 
-*Increment 254 (2026-08-06). 4 days, 31 recorded corrections,
-18 recorded closures (13 standing), 15 documented "teeth".*
+*Increment 258 (2026-08-06). 4 days, 47 recorded corrections,
+18 recorded closures (13 standing), 15 documented "teeth",
+6 named hazards.*
 
 **What is trusted, and what is not: `DEPENDENCY_AUDIT.md`.** The
 theorems proved here do not rest on Huang–Li; the strategic frame does.
