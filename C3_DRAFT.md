@@ -1,3 +1,13 @@
+> **⚠ ADVERSARIAL REVIEW VERDICT (increment 188): this tree is
+> REFUTED at four independent coordinates — assembly scale mismatch
+> (x^{2/3}), a Heath-Brown bookkeeping error hiding the type-II leaf,
+> an illegitimate Voronoi dual, and a pointwise budget deficit
+> (x^{1/3}) sealed by our own T-S0b measurement. Two refutations
+> stand even granting Lemma S for free. See C3_REVIEW.md. Survives:
+> P-I' (corrected, classical), the one-sided-opening observation, and
+> the new map coordinate "beyond the spectral door waits the same
+> wall." Retained as a record of the attempt (correction #27).**
+
 # C-III Draft — the spectral-entry reduction tree (increment 186)
 
 *A pure-theory attempt at the only surviving representation class.
