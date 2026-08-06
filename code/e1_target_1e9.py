@@ -2,13 +2,16 @@
 """
 Increment 162: E1 itself at 1e9 -- the chain's actual consumable.
 
-Target E1 asks Sum_{k ~ K} |D(k)|^2 << (log)^{-A} Sum_k M_k for
-D(k) = Sum_{sqrt(N) < m <= N/k} mu(m) mu(N - mk). Under Conjecture L
-the natural normalized ratio is
+Target E1 asks Sum_{k ~ K} |D(k)|^2 << (log N)^{-2A-2} Sum_k M_k^2 --
+a fixed log-power saving over the TRIVIAL bound Sum M_k^2 ~ N^2/K, not
+over the square-root scale Sum M_k (see code/e1_target_audit.py and
+CLOSURE_REAUDIT.md; an earlier version of this docstring had M_k where
+M_k^2 belongs). What this script measures is NOT that target but the
+Conjecture L statistic
     E1_ratio(K) = Sum_k |D(k)|^2 / Sum_k support_k,
-predicted 1.0 (unit Gaussian variance on support) -- E1's truth with
-the (log)^{-A} margin corresponds to this ratio staying O(1) (it
-needs only NOT to grow). Full segmented mu to N; three dyadic bands.
+predicted 1.0 (unit Gaussian variance on support): square-root
+cancellation, which clears the target with margin (N/K)(log N)^{-2A-2}.
+The reading of interest is that the ratio does NOT grow. Full segmented mu to N; three dyadic bands.
 """
 import numpy as np, time
 

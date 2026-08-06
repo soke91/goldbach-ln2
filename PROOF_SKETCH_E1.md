@@ -9,9 +9,20 @@
 
 **Target (E1).** For $N$ even, $D(k) := \sum_{\sqrt N < m \le N/k} \mu(m)\,\mu(N-mk)$,
 prove
-$$\sum_{k \le K} |D(k)|^2 \;\ll\; \frac{1}{(\log N)^{A}}\sum_{k\le K} M_k
+$$\sum_{k \le K} |D(k)|^2 \;\ll\; \frac{1}{(\log N)^{2A+2}}\sum_{k\le K} M_k^2
 \qquad (M_k := \#\{m\}),$$
-for $K$ up to $\sqrt N$ and some $A = A(\text{assembly}) < \infty$.
+for $K$ up to $\sqrt N$ and some $A = A(\text{assembly}) < \infty$ —
+a fixed log-power saving over the **trivial** bound
+$\sum_k M_k^2 \asymp N^2/K$.
+
+> **Note on what this sketch was aiming at.** Everything below is
+> calibrated to $\sum_k M_k$, the **square-root** scale — see the
+> contradiction hypothesis "$\sum |D(k)|^2 \ge \delta^2 \sum_k M_k$"
+> in the port sketch, and the per-band budgets in Step 3. That is a
+> factor $N/K$ stronger than the chain consumes. So this program was
+> attempting to prove considerably more than was needed, in addition
+> to failing structurally (REVIEW_VERDICT items 1–2). Neither fact
+> rescues the other; both are recorded in CLOSURE_REAUDIT.md.
 
 **Why it matters.** By the chain documented in this repository
 (Huang–Li → Pan $f_3$ → Vaughan → hyperbola), E1 is the last unproven

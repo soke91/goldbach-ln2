@@ -4,17 +4,17 @@ building full mu to N...
   mu segment 600M
   mu segment 800M
   mu segment 1000M
-mu ready 44s
-  band[1000,2000) 50/150  t=45s
-  band[1000,2000) 100/150  t=46s
-  band[1000,2000) 150/150  t=47s
+mu ready 46s
+  band[1000,2000) 50/150  t=47s
+  band[1000,2000) 100/150  t=48s
+  band[1000,2000) 150/150  t=48s
 BAND K in [1000,2000): E1_ratio = 0.966  (pred ~1.0)  mean r1 = 0.804  (150 k)
-  band[3000,4000) 50/150  t=47s
-  band[3000,4000) 100/150  t=48s
-  band[3000,4000) 150/150  t=48s
+  band[3000,4000) 50/150  t=49s
+  band[3000,4000) 100/150  t=49s
+  band[3000,4000) 150/150  t=50s
 BAND K in [3000,4000): E1_ratio = 0.950  (pred ~1.0)  mean r1 = 0.756  (150 k)
-  band[10000,20000) 50/150  t=48s
-  band[10000,20000) 100/150  t=48s
-  band[10000,20000) 150/150  t=48s
+  band[10000,20000) 50/150  t=50s
+  band[10000,20000) 100/150  t=50s
+  band[10000,20000) 150/150  t=50s
 BAND K in [10000,20000): E1_ratio = 0.922  (pred ~1.0)  mean r1 = 0.765  (150 k)
 DONE

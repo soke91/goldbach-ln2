@@ -20,8 +20,15 @@ margins anywhere.*
 
 ## 0. Target
 
-E1 (weak): Σ_{k∼K}|D(k)|² ≪_A (log N)^{−A} Σ_k M_k for
-D(k) = Σ_{√N<m≤N/k} μ(m)μ(N−mk), K ≤ x^{1/3} dyadic.
+E1 (weak): Σ_{k∼K}|D(k)|² ≪ (log N)^{−2A−2} Σ_k M_k² for
+D(k) = Σ_{√N<m≤N/k} μ(m)μ(N−mk), K ≤ x^{1/3} dyadic — a fixed
+log-power saving over the **trivial** bound Σ M_k² ≍ N²/K.
+
+> This draft was written against the square-root-scale form
+> (Σ_k M_k), which is a factor N/K stronger than the chain consumes.
+> That misstatement is what invalidated two of the four coordinates in
+> the review of this draft; the surviving two are structural. See
+> C3_REVIEW.md and CLOSURE_REAUDIT.md.
 
 ## 1. One-sided Heath–Brown opening [classical]
 
