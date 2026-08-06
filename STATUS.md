@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 295 (2026-08-07). 5 days, 97 recorded corrections,
+*Increment 296 (2026-08-07). 5 days, 98 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 6 named hazards.*
 
@@ -15,6 +15,7 @@ the exponent-level analysis of the error terms.
 
 **Consolidated working paper: `paper/negative_map.tex`.**
 **CI stamp: `code/verify_all.py`** — repaired at increment 285. It had **no assertions and no failure path**: its criteria were characters inside output strings and it exited 0 regardless. Every stamp is now judged against a pre-registered interval, prints PASS/FAIL, exits 1 on failure, and carries a sensitivity block showing the verdict can flip. A **deep arm** (`30030 | N`) was added because the old sample forced `N ≡ 2 (mod 6)` and so excluded every `N` divisible by 3 — the cells where the location mask lives.
+**Document linter: `code/lint_docs.py`** — six mechanical checks over every `.md`/`.tex` file, exit 1 on failure, with a self-test that shows each one detecting a synthetic fault. It exists because escape collapse through shell heredocs had corrupted tracked files five times and been answered five times with a note; it found a sixth, live, on its first run. Two of its own invariants failed that self-test before the third passed.
 **Correction and supersession record: `CLOSURE_REAUDIT.md`** — every
 statement this program has withdrawn, and what replaced it, in one
 place. **The other documents state the current position directly and
@@ -291,7 +292,7 @@ on $C(N)$ itself fired five flags which resolve into one statement:
 > $V(N)=\sum_v\mu^2(v)\Lambda(N-v)^2$ exact, $m(N)$ the location mask,
 > and $G$ Gaussian in the bulk and in the tail.
 
-The mask $m(N)$ is lower order, $symp\sqrt{\mathfrak S(N)}N^{1/4}$, so it
+The mask $m(N)$ is lower order, $\asymp\sqrt{\mathfrak S(N)}N^{1/4}$, so it
 does not threaten $C(N)=o(N)$. The form this section carried until
 increment 283 — $\sqrt{\mathfrak S(N)N}\,G(N)$ with $G$ of unit variance
 and a "mean drift decaying with $N$" — is superseded; that drift was the
