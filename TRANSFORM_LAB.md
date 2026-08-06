@@ -567,6 +567,100 @@ same loop. That is now hazard 4 in CLOSURE_REAUDIT.md. Rule 2 said
 compute the null first; it did not say the null must not itself be a
 guess. Now it does.
 
+## Session 8 — the wall as an alternating series in ω(v), and why numerics stop here
+
+Session 7 left a puzzle. In the p-grouping the surviving mass reaches
+100% at large p, and the reason is plain once said: **for v prime,
+μ(v) = −1 with no sign variation at all.** Yet those v alone contribute
+`−Σ_p log p·Λ(N−p) ≈ −𝔖(N)N`, which dwarfs the measured `C_log`. So the
+wall's smallness is not cancellation *inside* any class of v.
+
+On the support of μ, `μ(v) = (−1)^{ω(v)}`, so
+
+> `C_log(N) = Σ_{j≥1} (−1)^j T_j(N)`,
+> `T_j(N) = Σ_{v<N, μ²(v)=1, ω(v)=j} Λ(N−v) log v ≥ 0`
+
+— exact (rel. diff ≤ 1.2·10⁻¹³), every term **nonnegative**, and
+`Σ_j T_j` is exactly the trivial bound. The wall is an **alternating
+series in the number of prime factors**, and `T_j` is the count of
+Goldbach representations `N = v + n` with v a squarefree j-almost-prime.
+`T_1` is the Goldbach count itself.
+
+### H_POISSON: the shape is refuted, the size would have sufficed
+
+If ω were Poisson the series would collapse to `e^{−2λ}`. Fitted
+properly (λ solves `λ/(1−e^{−λ}) = m`, not λ = m):
+
+| N | R = \|alt\|/ΣT | R_pois | λ fit | P(1) Poisson | P(1) measured |
+|---|---|---|---|---|---|
+| 5·10⁴ | 0.013627 | 0.1733 | 1.7526 | 0.3674 | 0.2240 |
+| 10⁵ | 0.001090 | 0.1609 | 1.8271 | 0.3503 | 0.2124 |
+| 2·10⁵ | 0.000697 | 0.1516 | 1.8865 | 0.3371 | 0.2002 |
+| 4·10⁵ | 0.009532 | 0.1416 | 1.9550 | 0.3224 | 0.1851 |
+
+The profile is **not** Poisson — measured P(1) is 0.185 against 0.322 —
+and the true series alternates 10–200× better than a Poisson would.
+But note what R_pois is doing: `R_pois ≈ e^{−λ}/(1−e^{−λ}) ≈ C/log N`,
+which is `o(1)`, which is **exactly what the wall needs**. So the
+Poisson heuristic is not too weak; it is simply not the truth.
+
+### Where the difficulty actually goes
+
+With `T_j⁰ = Σ_{ω(v)=j} μ²(v) log v` (drop the arithmetic weight) and
+`r_j = T_j/T_j⁰` the mean level of Λ(N−v) on the class,
+
+> `Σ_j (−1)^j T_j = r̄·Σ_j (−1)^j T_j⁰ + Σ_j (−1)^j (r_j − r̄) T_j⁰`
+
+The first piece is `r̄` times the **plain Möbius sum** `Σ_v μ(v) log v`,
+PNT-small and free (measured 265, −530, 4.4, 172 — a few parts in 10⁵
+of the trivial bound). Everything the wall asks sits in the second.
+
+| N | r̄ | r_1 | r_2 | r_3 | r_4 | free/triv | drift/triv |
+|---|---|---|---|---|---|---|---|
+| 10⁵ | 1.2993 | 1.7692 | 1.5296 | 1.1355 | 0.5542 | −0.00083 | −0.00026 |
+| 4·10⁵ | 1.2972 | 1.7393 | 1.5626 | 1.1810 | 0.6766 | 0.00006 | 0.00947 |
+
+**The prime level depends strongly on ω** — a factor 2.6 from j=1 to
+j=4, much of it the elementary fact that v must be odd and larger j
+makes 2 | v likelier. So the wall becomes: *does the ω-dependence of
+the prime density near N cancel in alternation?*
+
+### Why that should work — and why we cannot check it here
+
+An alternating sum is a repeated difference operator, so it annihilates
+smooth functions of j: for any polynomial f, `Σ_j (−1)^j f(j)λ^j/j!e^{−λ}`
+is `e^{−2λ}` times a polynomial in λ. The drift is therefore harmless
+unless `r_j` carries a component oscillating like `(−1)^j` — and such a
+component *is* a μ-correlation by definition. Replacing `r_j` by its
+weighted least-squares fit:
+
+| N | alt | alt(deg-1 fit) | residual | /triv |
+|---|---|---|---|---|
+| 2·10⁵ | 1231 | −8474 | 9705 | 0.0007 / 0.0048 / 0.0055 |
+| 4·10⁵ | 35777 | −14757 | 50533 | 0.0095 / 0.0039 / 0.0135 |
+
+Both pieces are ~0.4–1.4% of the trivial bound and **comparable to each
+other and to the wall**. Neither dominates. The annihilation mechanism
+needs many ω-classes to bite, and at N = 4·10⁵ there are five.
+
+> **This route is not numerically adjudicable at reachable N.** Its
+> controlling parameter is `log log N`, which moves from 2.38 to 2.56
+> across the entire factor-8 range we can compute. To double the number
+> of ω-classes we would need N of order `10^{10⁵}`. No amount of
+> compute fixes this; it is the same species of limit already recorded
+> for Theorem C (not testable below ~10¹³), only far more severe.
+
+### Verdict
+
+The ω-reformulation is **exact, clean, and worth having as a
+formulation** — it turns the wall into an alternating series of
+explicit nonnegative Goldbach-type counts, with the Möbius part free
+and the difficulty isolated in the ω-dependence of the prime level.
+It is **not a new resource**: the residual is precisely a `(−1)^{ω}`
+component of that level, which is the parity obstruction itself, met
+head-on rather than circumvented. Recorded as a formulation, not a
+route, and explicitly flagged as beyond numerical reach.
+
 ### Not yet read
 
 MRT's *averaged* form of Chowla (`arxiv_1503.05121`) is stated
