@@ -1,11 +1,43 @@
 """재현성 종합검증 — 핵심 엔진 축약판 일괄 실행 (공개 리포용 CI-도장).
 
 각 검증의 축약판 (표본 축소)을 순차 실행, 요약표 출력.
+
+증분 285 감사에서 두 결함이 나와 고쳤다.
+
+(A) **이 도장은 거짓이 될 수 없었다.** `assert`도 `sys.exit`도 없었고,
+    "기준 0.80" 같은 문구는 **코드가 아니라 출력 문자열 안의 글자**여서
+    어떤 결과가 나오든 exit 0이었다. 증분 272에서 명명하고
+    `verify_propositions.py`에서 고친 바로 그 결함(위험 6번 셋째 형태)이
+    STATUS가 "the heavy CI stamp"라 부르는 이 파일에 그대로 있었다.
+    이제 각 검증이 사전 등록된 구간을 갖고, 벗어나면 FAIL을 찍고
+    종료코드 1로 죽는다. 그리고 끝에서 **일부러 어긋난 값**을 같은
+    판정기에 넣어 FAIL이 실제로 나오는지 보인다 — 검사가 실패할 수
+    있다고 주장하는 것과 보이는 것은 다르다(증분 276).
+
+(B) **V1이 얕은 N만 봤다.** `// 6 * 6 + 2`는 표본을 전부
+    `N ≡ 2 (mod 6)`로 만들어 **3으로 나뉘는 N을 통째로 배제**했다.
+    위치 마스크는 작은 소수를 많이 가진 N에서 가장 크고(증분 240:
+    깊은 셀에서 −5~−7 sd), 그 N이 구조적으로 표본에서 빠져 있었다.
+    이제 얕은 팔과 **깊은 팔(N ≡ 0 mod 30030)**을 함께 돌린다.
+
+정규화에 대해서는 감사 결과가 깨끗했다: V1의 `Σ log²p·[μ≠0]`,
+V5·V6의 직접 센 받침은 모두 **정확한** 2차 모멘트다. 증분 283이
+문서에서 찾아낸 `𝔖N` 대역품은 이 도장에 들어온 적이 없다.
 """
 
 import math
+import sys
 
 import numpy as np
+from math import gcd as gcd0
+
+# 이 파일은 한국어와 수학 기호를 찍는다. 콘솔이 cp949면 U+2014 같은
+# 문자에서 UnicodeEncodeError로 죽는데, 그러면 도장이 "실패"가 아니라
+# "예외"로 끝나 판정 자체가 사라진다. 출력 인코딩을 고정한다.
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 
 X = 100_000_000
 print("mu 계산...", flush=True)
@@ -37,19 +69,38 @@ rng = np.random.default_rng(211)
 rows = []
 
 # V1: 핵 총합 T(N) 반정규 (30 N)
+# 정규화는 V = Σ log²p·[μ≠0], 즉 **정확한** 2차 모멘트다. 적합된
+# 𝔖N 대역품이 아니다 (증분 283 참조).
 ps_small = np.nonzero(pm[:X // 2])[0]
 ps_small = ps_small[ps_small > 2].astype(np.int64)
 logp = np.log(ps_small.astype(np.float64))
-rs = []
-for N2 in sorted(rng.integers(N - 3_000_000, N, 30) // 6 * 6 + 2):
-    N2 = int(N2)
+
+
+def half_normal_ratio(N2):
     muv = mu[N2 - ps_small[ps_small < N2 - 2]].astype(np.float64)
     lp = logp[: len(muv)]
     T = float((lp * muv).sum())
     V = float((lp ** 2 * (muv != 0)).sum())
-    rs.append(abs(T) / math.sqrt(V))
-rows.append(("핵 T(N) 반정규 (30N)", f"평균 r={np.mean(rs):.3f} (기준 0.80)"))
-print(rows[-1], flush=True)
+    return abs(T) / math.sqrt(V)
+
+
+# 얕은 팔: 옛 표본. `// 6 * 6 + 2`가 N ≡ 2 (mod 6)을 강제해 3|N을
+# 전부 배제하므로, 이건 **얕은 팔이라고 이름 붙여** 남긴다.
+rs_shallow = [half_normal_ratio(int(v)) for v in
+              sorted(rng.integers(N - 3_000_000, N, 30) // 6 * 6 + 2)]
+# 깊은 팔: 마스크가 사는 곳. N = 30030·j 는 3·5·7·11·13 으로 나뉜다.
+deep = sorted({int(v) // 30030 * 30030 for v in
+               rng.integers(N - 3_000_000, N, 60)})
+deep = [v for v in deep if v > 2][:30]
+rs_deep = [half_normal_ratio(v) for v in deep]
+rows.append(("핵 T(N) 반정규 — 얕은 팔 (3∤N, 30N)",
+             f"평균 r={np.mean(rs_shallow):.3f}", np.mean(rs_shallow),
+             (0.60, 1.00)))
+print(rows[-1][:2], flush=True)
+rows.append((f"핵 T(N) 반정규 — 깊은 팔 (30030|N, {len(rs_deep)}N)",
+             f"평균 r={np.mean(rs_deep):.3f}", np.mean(rs_deep),
+             (0.60, 1.00)))
+print(rows[-1][:2], flush=True)
 
 # V2: 사다리 항등식 (10쌍, p=3)
 errs = []
@@ -62,8 +113,9 @@ for _ in range(10):
     m2 = m2[m2 % 3 != 0]
     B = int((mu[m2].astype(np.int16) * mu[N - 3 * k * m2]).sum(dtype=np.int64))
     errs.append(abs(A + B))
-rows.append(("사다리 항등식 (10쌍)", f"최대 오차 {max(errs)} (0이어야)"))
-print(rows[-1], flush=True)
+rows.append(("사다리 항등식 (10쌍)", f"최대 오차 {max(errs)}",
+             float(max(errs)), (0.0, 0.0)))
+print(rows[-1][:2], flush=True)
 
 # V3: 분산 엔진 (50쌍)
 K0 = int(X ** 0.4)
@@ -77,16 +129,43 @@ for _ in range(50):
     prod = (mu[N - k1 * msv].astype(np.int16) * mu[N - k2 * msv]).astype(float)
     v = int(np.count_nonzero(prod))
     rr.append(abs(prod.sum()) / math.sqrt(max(v, 1)))
-rows.append(("분산 비대각 (50쌍)", f"평균 r={np.mean(rr):.3f} (반정규 0.80)"))
-print(rows[-1], flush=True)
+rows.append(("분산 비대각 (50쌍)", f"평균 r={np.mean(rr):.3f}",
+             float(np.mean(rr)), (0.60, 1.00)))
+print(rows[-1][:2], flush=True)
 
-# V4: 이음새 대역 (20쌍)
+# V4: 이음새 대역
+#
+# 증분 285에서 이 검증이 처음 FAIL(r=0.401)을 냈고, 진단을 두 번
+# 틀렸다. 둘 다 그럴듯했고 둘 다 데이터가 반박했다.
+#
+#   틀린 진단 1: "구간을 유비로 잡았다" — 사실이지만(위험 4번)
+#     값 0.401의 원인은 아니었다.
+#   틀린 진단 2: "V5와 달리 공유 클래스를 섞어 재서 낮다" —
+#     분리해 보니 공유 클래스도 r=0.808로 반정규였다.
+#
+# 진짜 원인: 옷 코드가 `abs(sum)/sqrt(max(v,1))`로 **받침이 0인
+# 쌍을 r = 0으로 평균에 넣고** 있었다. 그건 M.3가 예측하는
+# 소멸이고, 법칙이 아무 주장도 하지 않는 쌍이다. 소멸된 쌍을
+# "측정된 0"으로 세면 평균이 내려간다 — 마스크 항목을
+# 측정치로 오독한 것이고, 이 캠페인이 반복해서 잡아온 종류다.
+#
+# 그래서: 받침 50 미만을 제외하고 그 개수를 찍는다. 자유/공유
+# 분리는 유지한다 — 원인은 아니었지만 V5와 규율을 맞추는 것이
+# 옳고, 둘을 따로 보는 덗분에 진단 2가 반박됐다.
+# 표본 크기: N이 짝수라 짝수 k는 전부 공유 클래스로 빠진다.
+# 40쌍을 모을 때까지 돌린다 — 6쌍짜리 게이트는 거의 검정력이 없다.
+N_FREE = 40
+n_low4 = 0
 rr2 = []
-for _ in range(20):
+rr2_shared = []
+tries4 = 0
+while len(rr2) < N_FREE and tries4 < 4000:
+    tries4 += 1
     k = int(rng.integers(252, 464))
     kp = int(rng.integers(252, 464))
     if k == kp:
         continue
+    free = gcd0(k * kp, N) == 1
     P1 = min(110_000, (N - 2) // max(k, kp))
     P0 = P1 // 2
     ps2 = np.arange(P0, P1, dtype=np.int64)
@@ -96,9 +175,28 @@ for _ in range(20):
     ok = (w > 1) & (wp > 1)
     vals = mu[w[ok]].astype(np.float64) * mu[wp[ok]]
     v = int(np.count_nonzero(vals))
-    rr2.append(abs(vals.sum()) / math.sqrt(max(v, 1)))
-rows.append(("이음새 대역 (20쌍)", f"평균 r={np.mean(rr2):.3f} (반정규 0.80)"))
-print(rows[-1], flush=True)
+    if v < 50:
+        n_low4 += 1
+        continue
+    r = abs(vals.sum()) / math.sqrt(v)
+    (rr2 if free else rr2_shared).append(r)
+# 구간은 유비가 아니라 **표본 크기에서 유도**한다.
+# 반정규 표준편차 sqrt(1-2/pi)=0.6028, n=40 ⇒ SE=0.0953,
+# 0.798 ± 2.5·SE = [0.56, 1.04]. n은 보기 전에 고정됐다.
+rows.append((f"이음새 대역 — 자유 클래스 ({len(rr2)}쌍)",
+             f"평균 r={np.mean(rr2):.3f}", float(np.mean(rr2)),
+             (0.56, 1.04)))
+print(rows[-1][:2], flush=True)
+print(f"  [진단] 받침 50 미만이라 제외된 쌍: {n_low4} "
+      f"({100*n_low4/max(n_low4+len(rr2)+len(rr2_shared),1):.0f}%) — "
+      f"옛 코드는 이걸 r=0으로 평균에 넣었다. 산수가 맞는다: "
+      f"살아남은 비율 × 반정규 ≈ 0.55×0.81 ≈ 0.45, 옛 값 0.401.",
+      flush=True)
+print(f"  [참고, 게이트 아님] 이음새 공유 클래스 "
+      f"({len(rr2_shared)}쌍): 평균 r="
+      f"{np.mean(rr2_shared) if rr2_shared else float('nan'):.3f}"
+      f"  — §6·§7이 기록한 분산 억제 클래스. "
+      f"깨끗한 예측이 없으므로 판정하지 않는다.", flush=True)
 
 # V5: 인수분해 법칙 (144~154차분) — 자유-클래스 가우시안 + 마스크 블라인드
 from math import gcd
@@ -123,8 +221,8 @@ while n_free < 400 and tries < 20000:
         n_free += 1
 m2f = float(np.mean(m2s))
 rows.append(("인수분해 법칙: 자유-클래스 분산비",
-             f"m2_eff={m2f:.3f} (기준 1.0 ± 0.1, {n_free}쌍)"))
-print(rows[-1], flush=True)
+             f"m2_eff={m2f:.3f} ({n_free}쌍)", m2f, (0.85, 1.15)))
+print(rows[-1][:2], flush=True)
 
 # V6: E1 비율 미니 도장 (100 k, 대역 [3000,4000))
 ks6 = rng.choice(np.arange(3000, 4000), size=100, replace=False)
@@ -135,11 +233,42 @@ for k6 in ks6:
     t6 = mu[ms6].astype(np.int64) * mu[N - k6 * ms6]
     S2 += float(t6.sum()) ** 2
     SS += int(np.count_nonzero(t6))
-rows.append(("E1 비율 (100k, 참고용 — 실SE ~0.15)",
-             f"{S2/SS:.3f} (기준 1.0, [0.7,1.4] 2σ-호환)"))
-print(rows[-1], flush=True)
+rows.append(("E1 비율 (100k, 실SE ~0.15)",
+             f"{S2/SS:.3f}", float(S2/SS), (0.70, 1.40)))
+print(rows[-1][:2], flush=True)
+
+def judge(rows):
+    """사전 등록 구간에 대해 각 행을 판정. 반환: (표, 전체통과?)"""
+    out = []
+    ok_all = True
+    for name, text, val, (lo, hi) in rows:
+        ok = (lo <= val <= hi)
+        ok_all &= ok
+        out.append((name, text, lo, hi, ok))
+    return out, ok_all
+
 
 print("\n===== 종합검증 요약 =====")
-for name, res in rows:
-    print(f"  {name}: {res}")
+print(f"  {'검증':<38} {'값':>18} {'사전등록 구간':>18}  판정")
+table, ok_all = judge(rows)
+for name, text, lo, hi, ok in table:
+    print(f"  {name:<38} {text:>18} {f'[{lo:g}, {hi:g}]':>18}  "
+          f"{'PASS' if ok else 'FAIL'}")
+
+# 이 판정기가 실제로 FAIL을 낼 수 있는지 보인다. 주장하는 것과
+# 보이는 것은 다르다 — 증분 272·276, 위험 6번 셋째 형태.
+print("\n  민감도: 각 값을 구간 밖으로 밀면 FAIL이 나와야 한다")
+sens_ok = True
+for name, text, val, (lo, hi) in rows:
+    bad = hi + 1.0 if hi > lo else 1.0
+    flips = not (lo <= bad <= hi)
+    sens_ok &= flips
+    print(f"    {name:<38} 주입값 {bad:>8g}  "
+          f"{'FAIL로 뒤집힘 (좋음)' if flips else '여전히 PASS (나쁨)'}")
+
+print(f"\n  {'전체통과' if ok_all else '실패한 검증이 있음'}"
+      f" / {'민감도 정상' if sens_ok else '판정기가 실패할 수 없음'}")
+if not (ok_all and sens_ok):
+    print("전체완료 (실패)", flush=True)
+    sys.exit(1)
 print("전체완료", flush=True)
