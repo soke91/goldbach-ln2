@@ -1,0 +1,43 @@
+sieve + V  t=12s
+  band 1/8 exact B/T = 0.058190  t=31s
+  band 2/8 exact B/T = 0.054058  t=50s
+  band 3/8 exact B/T = 0.050466  t=69s
+  band 4/8 exact B/T = 0.047335  t=88s
+  band 5/8 exact B/T = 0.044563  t=107s
+  band 6/8 exact B/T = 0.042103  t=126s
+  band 7/8 exact B/T = 0.039901  t=145s
+  band 8/8 exact B/T = 0.042043  t=163s
+  scale h~20  t=226s
+  scale h~200  t=253s
+  scale h~2000  t=280s
+  scale h~20000  t=307s
+  scale h~200000  t=334s
+  scale h~2000000  t=360s
+
+(S) closed form against 12 coin draws, key from [3, 5, 7]
+                 band     exact   MC mean     MC sd        se       z
+   100000-     200000   0.05819   0.04938   0.04885   0.01410   -0.62
+   200000-     400000   0.05406   0.05631   0.05644   0.01629    0.14
+   400000-     800000   0.05047   0.05512   0.07716   0.02227    0.21
+   800000-    1600000   0.04733   0.03994   0.02994   0.00864   -0.86
+  1600000-    3200000   0.04456   0.04243   0.03623   0.01046   -0.20
+  3200000-    6400000   0.04210   0.05785   0.05263   0.01519    1.04
+  6400000-   12800000   0.03990   0.04395   0.02653   0.00766    0.53
+ 12800000-   16000000   0.04204   0.03940   0.01748   0.00505   -0.52
+
+(P) closed form against the singular-series prediction
+                 band       sep    a used   E_s-E_a      pred     exact   ratio
+   100000-     200000     33333   0.08582   0.88555   0.07599   0.05819    1.31
+   200000-     400000     66667   0.06434   0.94575   0.06085   0.05406    1.13
+   400000-     800000    133333   0.06958   1.06523   0.07411   0.05047    1.47
+   800000-    1600000    266667   0.07127   1.12243   0.07999   0.04733    1.69
+  1600000-    3200000    533333   0.07018   1.18465   0.08314   0.04456    1.87
+  3200000-    6400000   1066667   0.05745   1.23222   0.07080   0.04210    1.68
+  6400000-   12800000   2133333   0.05983   1.23387   0.07382   0.03990    1.85
+ 12800000-   16000000   4266667   0.06027   1.23433   0.07440   0.04204    1.77
+
+    (S) every band within 3 se of the closed form: PASS  (max |z| = 1.04)
+    per-draw relative spread of B/T: 86.9% on average -- this is what 304c's ratio test was resting on
+    (P) prediction within 1.5x of the closed form in a majority: FAIL  (3/8 bands)
+    the closed form is verified but the singular-series prediction does not reproduce its size; shape and cause stand, size stays open
+DONE

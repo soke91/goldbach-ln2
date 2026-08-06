@@ -1,0 +1,26 @@
+sieve + V  t=11s
+  coin 4/12  t=28s
+  coin 8/12  t=44s
+  coin 12/12  t=60s
+
+coin: mean pairwise correlation against the cell floor
+                 band         n   rho_bar       B/T  B/T / rho   1/logN  rho*logN
+   100000-     200000     50000   0.42558   0.06679      0.157  0.08432    5.0472
+   200000-     400000    100000   0.45959   0.07118      0.155  0.07966    5.7690
+   400000-     800000    200000   0.29752   0.05719      0.192  0.07550    3.9409
+   800000-    1600000    400000   0.31238   0.05568      0.178  0.07174    4.3542
+  1600000-    3200000    800000   0.19496   0.06263      0.321  0.06834    2.8526
+  3200000-    6400000   1600000   0.23960   0.07677      0.320  0.06525    3.6719
+  6400000-   12800000   3200000   0.25436   0.05081      0.200  0.06243    4.0745
+ 12800000-   16000000   1600000   0.29340   0.05339      0.182  0.06069    4.8342
+
+    (a) B/T within 20% of rho_bar in every band: FAIL
+    (b) rho_bar * log N constant to 15%: FAIL   (spread 67.5%, mean 4.3181)
+    neither clause holds; the derivation is wrong
+
+    Consequence if (a) holds: every statistic in this
+    program that averages Z over a subset of N carries an
+    irreducible floor of this size, whatever the sample.
+    That is one cause for the bias of #106, the
+    contamination of #112, and #113 itself.
+DONE

@@ -1,8 +1,8 @@
 # STATUS — single-page state of the program
 
-*Increment 303 (2026-08-07). 5 days, 113 recorded corrections,
+*Increment 304 (2026-08-07). 5 days, 116 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
-7 named hazards.*
+8 named hazards.*
 
 **What is trusted, and what is not: `DEPENDENCY_AUDIT.md`.** The
 theorems proved here do not rest on Huang–Li; the strategic frame does.
@@ -323,6 +323,36 @@ increment 283 — $\sqrt{\mathfrak S(N)N}\,G(N)$ with $G$ of unit variance
 and a "mean drift decaying with $N$" — is superseded; that drift was the
 mask, and the scale was wrong. History in `CLOSURE_REAUDIT.md`
 #36, #67–#69, #74, #83.
+
+**What that coin floor is** (inc. 304). It is not estimation noise and
+not a property of "the estimator": it is the **singular series of the
+shift**. For a coin $\operatorname{Var}Z(N)=V/V=1$ exactly, so the
+covariance *is* the correlation and needs no simulation —
+$\rho(h)=(\mu^2*g_h)(N)/\sqrt{V(N)V(N+h)}$ with
+$g_h(w)=\Lambda(w)\Lambda(w+h)$, whose numerator is a **prime-pair count
+at shift $h$** and therefore carries $\mathfrak S_2(h)$. Measured:
+$\rho(h)=a\,\mathfrak S_2(h)+b$ with
+$\operatorname{corr}(\rho,\mathfrak S_2)=0.9997$–$1.0000$ in all eight
+bands. Two $N$ in one cell agree on which small $q$ divide them, so
+$h=N'-N$ is divisible by small primes more often — $1/(q-1)$ against
+$1/q$ — exactly where $\mathfrak S_2$ is larger. **Permuting the cell
+labels across $N$**, which preserves every cell size and leaves $Z$
+byte-identical, collapses $B/T$ from $0.053$ to $0.0034$ at the bottom
+band and from $0.038$ to $0.00015$ at the top: the $(k-1)/n$ of an
+independent sample. So the floor's flatness in $n$ is explained — **the
+excess is a property of *pairs*, and no sample size removes it** (#116).
+Its **size** is not: against the closed form $E[B]/E[T]$ the singular
+series overpredicts by $1.13\times$ to $1.82\times$, growing with $N$,
+and the one suspect I could name was tested and cleared.
+
+Two by-products. The cell floor of *any* coin statistic is now
+available **exactly**, from
+$E[(\sum_{N\in c}Z)^2]=\sum_v\mu^2(v)u_c(v)^2$ with
+$u_c(v)=\sum_{N\in c}\Lambda(N-v)/\sqrt{V(N)}$ — one FFT per cell,
+no draws. And **hazard 8**: a pre-registered tolerance means nothing
+until the target's own spread is measured. A "$1.5\times$ in 7 of 8
+bands" pass was noise from a statistic with **86.9%** per-draw spread
+at $R=8$; two runs of the same band differ by $2.4\times$ (#115).
 
 ### 4. The measurement corpus — the primary artifact
 
