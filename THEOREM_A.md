@@ -195,7 +195,9 @@ Write b := μ ∗ w, so w_k = Σ_{d|k} b_d — every weight has this form.
 Two exact facts oppose each other:
 
 - **Extraction.** B_w = Σ_{d<K,(d,N)=1} b_d·(μ(d)/φ(d))·ρ_{dN}(K/d)
-  with ρ ≪ e^{−c√log x} (Huang–Li's Lemma 1). So B_w is controlled by
+  with ρ_HL ≪ e^{−c√log x} (Huang–Li's Lemma 1 function — **not** the
+  cancellation ratio `ρ = Var C / V`, which is a different quantity
+  two orders of magnitude larger; see `NOTATION.md`). So B_w is controlled by
   the part of b sitting **at** the truncation point K = N^{θ′}: mass
   at d ≤ K^{1−ε} is damped by e^{−c√(ε log K)}.
 - **BV-accessibility.** Expanding w inside the residual gives moduli
@@ -363,7 +365,7 @@ so the loss factor obeys
 
 > **Proposition D‴.** `‖b‖₁/|B_w| ≥ 1 / max_{d≤D} |ρ_{dN}(K/d)|`.
 > The right-hand side is **monotone decreasing in any upper bound for
-> ρ**. Hence *every* improvement of Lemma 1 strengthens Theorem D; no
+> ρ_HL**. Hence *every* improvement of Lemma 1 strengthens Theorem D; no
 > improvement can weaken it.
 
 The bound `e^{−c√log x}` is what the *classical zero-free region* gives,
@@ -408,7 +410,7 @@ is not offered as such. Its only load-bearing content is that the
 observed decay is *at least* as fast as the unconditional bound, which
 by Proposition D‴ can only help. **The robustness conclusion does not
 depend on the fit**: it is the monotonicity, which holds whatever
-regime ρ is really in.
+regime ρ_HL is really in.
 
 ### Proposition D″ — smooth weights: μ ∗ log^D = Λ_D (increment 197)
 

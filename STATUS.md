@@ -83,8 +83,12 @@ $\mu(k)$.
   is $N^{1-\theta_E}$ and the loss $\exp(c\sqrt{(1-\theta_E)\log N})$
   exceeds every power of $\log$. **No weight extracts $C(N)$ by divisor
   switching — even granting the full Elliott–Halberstam conjecture.**
-- **Proposition D‴** (inc. 278): the loss factor is $\ge 1/\max_d|\rho|$,
-  hence **monotone** in the bound on $\rho$ — every improvement of
+- **Proposition D‴** (inc. 278): the loss factor is
+  $\ge 1/\max_d|\rho_{HL}|$, hence **monotone** in the bound on
+  $\rho_{HL}$ — Huang–Li's Lemma 1 function, **not** the cancellation
+  ratio $\rho = \mathrm{Var}\,C/V$; the two differ by two orders of
+  magnitude and shared a symbol until increment 321 (`NOTATION.md`,
+  #159) — every improvement of
   Huang–Li's Lemma 1 *strengthens* the no-go, none can weaken it. Under
   RH it becomes a power of $N$. The route is not blocked by what we
   cannot prove; it is blocked harder the more we know.
@@ -444,11 +448,12 @@ slope 1 — remains unexamined because nobody knows how to build it.
   in seconds, each shown -- not merely asserted -- to flip to FAIL
   under a 1e-3 perturbation of one side.
 - **The theorems**: THEOREM_A.md → `paper/theorem_A.tex`. Includes
-  **Proposition D‴**: Theorem D's loss factor is `≥ 1/max_d|ρ|`, hence
-  monotone in the bound on ρ, so *every* improvement of Huang–Li's
-  Lemma 1 strengthens the no-go and none can weaken it. Under RH the
-  conclusion becomes a power of N. The route is not blocked by what we
-  cannot prove about ρ — it is blocked harder the more we know.
+  **Proposition D‴**: Theorem D's loss factor is `≥ 1/max_d|ρ_HL|`,
+  hence monotone in the bound on `ρ_HL`, so *every* improvement of
+  Huang–Li's Lemma 1 strengthens the no-go and none can weaken it.
+  Under RH the conclusion becomes a power of N. The route is not
+  blocked by what we cannot prove about `ρ_HL` — it is blocked harder
+  the more we know.
 - **The wall's deterministic term**: LOCATION_MASK.md — C(N) is not
   mean-zero. Propositions M.1–M.3, the derivation and where it stops,
   and the seven corrections that came out of finding it.

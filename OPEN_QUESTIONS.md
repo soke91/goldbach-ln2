@@ -32,6 +32,10 @@ that no live document still **asserts** a withdrawn form.
 
 ## Register A — holes with nothing in them
 
+<!-- rho-ok: every rho in this table is the cancellation ratio
+     Var C / V, not Huang-Li's Lemma 1 function; A6 mentions
+     Theorem D nearby but does not use its rho. See NOTATION.md -->
+
 | # | The question | What is known | What is not | What would close it |
 |---|---|---|---|---|
 | A1 | Does `ρ → 1` — is the wall **exactly** square-root? | `ρ = Var C / V` measured `0.857–0.878` at `N ≤ 1.6·10⁷` and **`0.810 ± 0.018` at `N ≈ 10⁸`** (#121). Proposition W makes `ρ − 1` a prime-pair-weighted Chowla correlation, exactly | Whether it tends to 1. Every measurement that claimed to confront it was withdrawn at #300: the de-trended estimator cannot tell `μ` from a coin | ⚠️ **Possibly nothing.** With one realisation of `μ` the quantity may not be estimable at all (#301): the unbiased estimator's spread `0.125` exceeds the deficit `0.094` |

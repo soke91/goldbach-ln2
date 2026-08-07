@@ -1,0 +1,29 @@
+sieve  t=1s
+
+(X1)(X2) the sup against its Parseval floor
+         N  ||S_mu||2/sqrtN  sup|S_mu|/sqrtN    slack  ||S_L||1/sqrtN
+     16384           0.7798           3.0659    3.932          1.9462
+     32768           0.7797           2.8996    3.719          2.0192
+     65536           0.7797           2.7384    3.512          2.0844
+    131072           0.7797           2.8456    3.650          2.1558
+    262144           0.7797           2.8512    3.657          2.2189
+    524288           0.7797           2.8892    3.706          2.2848
+   1048576           0.7797           2.8006    3.592          2.3463
+   2097152           0.7797           3.0032    3.852          2.4063
+   4194304           0.7797           2.9571    3.793          2.4647
+
+    (X1) ||S_mu||2/sqrt(N) = sqrt(6/pi^2) = 0.7797 at every size: PASS
+    (X2) the slack sup/||.||_2 does not grow with N: PASS  (fitted slope +0.0005, ratio 3.51 to 3.93)
+
+(X3) what saturating the uncertainty bound would buy
+    at N = 4194304:
+      actual   sup|S_mu| * ||S_L||_1  =   3.0569e+07   =   7.288 N
+      best possible ||S_mu||_2 * ||S_L||_1 =   8.0601e+06   =   1.922 N
+      gain from full saturation          3.793x  -- a BOUNDED constant
+      target needs a saving of (log N)^1 =     15.25 over trivial;
+        the best pointwise product is still 1.922x trivial, i.e. it SAVES nothing
+      target needs a saving of (log N)^2 =    232.54 over trivial;
+        the best pointwise product is still 1.922x trivial, i.e. it SAVES nothing
+
+    the uncertainty bound is already the binding constraint and its slack is a bounded 3.7x that does not grow. Saturating it exactly would improve the pointwise product by 3.8x and leave it still ABOVE trivial, while the target needs a growing log power. Uncertainty is on the wall's side, and entanglement -- rho - 1, Proposition W -- cancels out of the comparison entirely (inc. 320). Neither is a resource here
+DONE

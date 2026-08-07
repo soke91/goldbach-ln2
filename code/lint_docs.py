@@ -64,6 +64,14 @@ import re
 import subprocess
 import sys
 
+# 이 린터는 한국어와 em dash를 찍는다. 콘솔이 cp949면
+# UnicodeEncodeError로 죽어 판정 자체가 사라진다 — #122와 같은 결함이고,
+# 증분 321에서 검사 (H)가 첫 보고를 내려는 순간 발현됐다.
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 BAD_CTRL = {0x09: "TAB", 0x07: "BEL", 0x08: "BS", 0x0C: "FF",
@@ -287,6 +295,44 @@ def main():
                              f"{a[:40]!r}")
                 nf += 1
     print(f"    {nf} hits")
+
+    # (H) the rho collision. This program uses rho for two unrelated
+    # quantities -- Huang-Li's Lemma 1 function (~0.014 at N = 1e8) and
+    # the cancellation ratio Var C / V (0.810) -- and both appeared in
+    # STATUS.md with nothing between them, so "the loss factor is
+    # >= 1/max|rho|" read against "rho = 0.810" gives 1.23 where the
+    # truth is >= 73 (#159). Same species as the S/A collision of #74,
+    # #75, #83. Rule: within four lines of Theorem D's vocabulary, rho
+    # must carry a subscript or an argument.
+    print("(H) bare rho next to Theorem D's vocabulary")
+    dvocab = re.compile(r"Lemma 1|max_d|\\max_d|Theorem D")
+    bare = re.compile(r"(?<![_{A-Za-z])(ρ|\\rho)(?![_({A-Za-z0-9])")
+    nh = 0
+    for path in files:
+        rel = os.path.relpath(path, REPO).replace(os.sep, "/")
+        if rel in ("CLOSURE_REAUDIT.md", "NOTATION.md"):
+            continue
+        txt = io.open(path, encoding="utf-8", errors="replace").read()
+        # The marker is FILE-level: a table whose every rho is the
+        # cancellation ratio is exempted once, not line by line.
+        if "rho-ok" in txt:
+            continue
+        lines = txt.split("\n")
+        for i, line in enumerate(lines):
+            if not bare.search(line):
+                continue
+            # A line that SAYS which rho it means is not ambiguous --
+            # and the first run flagged the disambiguation sentences
+            # themselves, which would have made the fix unfixable.
+            if ("Var C" in line or "cancellation ratio" in line
+                    or "NOTATION" in line or r"\mathrm{Var}" in line):
+                continue
+            near = "\n".join(lines[max(0, i - 4):i + 5])
+            if dvocab.search(near):
+                fails.append(f"H {rel}:{i+1} bare rho near Theorem D "
+                             f"vocabulary: {line.strip()[:60]!r}")
+                nh += 1
+    print(f"    {nh} hits")
 
     print()
     if fails:

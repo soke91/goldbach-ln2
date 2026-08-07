@@ -164,7 +164,7 @@ this campaign closed on parity, and it is a *reason*, not a coincidence.
 obstruction costs a **constant** (Tao: "any upper bounds must be off
 from the truth by a factor of 2 or more"). Theorem D costs
 `exp(c√log N)`, and by Proposition D‴ a power of N under RH. Different
-mechanism — Theorem D's loss comes from Siegel–Walfisz decay of ρ *at
+mechanism — Theorem D's loss comes from Siegel–Walfisz decay of ρ_HL *at
 the truncation point*, not from a majorant's blindness to `Ω(n) mod 2`.
 The two close the same route for unrelated reasons.
 
