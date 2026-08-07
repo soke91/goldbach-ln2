@@ -1,8 +1,26 @@
 # STATUS — single-page state of the program
 
-*Increment 335 (2026-08-07). 6 days, 181 recorded corrections,
+*Increment 336 (2026-08-07). 6 days, 182 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
-9 named hazards.*
+10 named hazards.*
+
+**Hazard 10** (inc. 336): *a count is not an error bar — the uncertainty
+of a mean of correlated summands does not fall like `1/√n`.* Written down
+in that increment's own pre-registration as the prediction `b_d ≈ 1/2`,
+precisely so it could not later become a surprise, and **wrong at every
+depth**: the exact variance of a cell mean gives `b_d = 0.11, 0.047,
+0.039, 0.038, 0.038, 0.038`. Over the factor `140` in `N` measured here,
+`1/√n` says the error bar shrinks `11.8×`; it shrinks `1.21×`. So an
+interval built from a count is **about `10×` too narrow at the top of the
+present range, with the shortfall growing like `N^{0.46}`** — and unlike
+hazards 8 and 9, which make a quoted number ambiguous, this one makes it
+**false in a known direction**. The cause is that `u_c(v) = Σ_{N∈c}
+Λ(N−v)/√V(N)` is a **coherent** sum, not a self-averaging one, giving
+`Q_cc/n_c² ≈ (Σ_v μ²(v))/V ∝ 1/log N` — so the true law is
+`se ∝ (log N)^{−1/2}`, whose apparent power exponent over this range is
+`1/(2⟨log N⟩) = 0.036` against measured `0.0379` (#182). ⚠️ **Every
+interval in this program not built from the exact correlation is a
+candidate**; the sweep is increment 337's.
 
 **Hazard 9** (inc. 330): *two summaries of one object are not comparable
 until each one's weight is stated.* Increments 326–329 spent four passes

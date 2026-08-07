@@ -1,0 +1,32 @@
+sieve + V + C  t=15s
+15 half-octave bands
+  band 5/15  t=99s
+  band 10/15  t=185s
+  band 15/15  t=271s
+
+(S1)(S2) the floor, its error, and the ratio of the two
+ depth  pts   a (floor)   b (error)   |b-0.5|     g = b-a    g/SE
+     5   14      0.1434      0.1105    0.3895     -0.0299     1.4
+     4   15      0.2152      0.0465    0.4535     -0.1750    24.7
+     3   15      0.2713      0.0385    0.4615     -0.2404    54.5
+     2   15      0.3686      0.0379    0.4621     -0.3452    50.2
+     1   15      0.0437      0.0378    0.4622      0.4623     1.5
+     0   15      0.6289      0.0379    0.4621     -0.6203    43.8
+
+    (S1) every error-bar exponent within 0.10 of 1/2: FAIL
+
+    (S2) is the floor outrunning its own error?
+ depth          g       SE                verdict  sigma at 1.4e7
+     5    -0.0299   0.0212       flat within 3 SE             8.4
+     4    -0.1750   0.0071         dying artifact             4.6
+     3    -0.2404   0.0044         dying artifact             2.0
+     2    -0.3452   0.0069         dying artifact             0.4
+     1     0.4623   0.3059       flat within 3 SE             0.1
+     0    -0.6203   0.0142         dying artifact             0.0
+
+    (S3) a common significance exponent is admissible (chi2/dof <= 2): FAIL as predicted  (chi2/dof = 217.28, common g = -0.2639)
+
+    (S4) where the growing cells arrive (power law extrapolated far past its range)
+
+    the error bar does not fall like 1/sqrt(n_c) at every depth, so g cannot be read as significance growth and nothing below the first table stands
+DONE
