@@ -1,8 +1,18 @@
 # STATUS — single-page state of the program
 
-*Increment 329 (2026-08-07). 6 days, 173 recorded corrections,
+*Increment 330 (2026-08-07). 6 days, 174 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
-8 named hazards.*
+9 named hazards.*
+
+**Hazard 9** (inc. 330): *two summaries of one object are not comparable
+until each one's weight is stated.* Increments 326–329 spent four passes
+on a contradiction between `4.39` and `0.90` in which **both numbers
+were correct** — one implicitly weighted by `|Λ̂(j/q)|² ≈ (X/φ(q))²`, the
+other an unweighted mean over 255 frequencies of which only 22 mattered.
+It cost three invented mechanisms, and the first of them was right and
+discarded (#174). Distinct from #30: there a quantity met a **target**
+at the wrong scale; here two measurements of the **same object** met
+each other under different aggregations.
 
 **What is trusted, and what is not: `DEPENDENCY_AUDIT.md`.** The
 theorems proved here do not rest on Huang–Li; the strategic frame does.
