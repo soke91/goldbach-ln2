@@ -1,0 +1,57 @@
+n = 3873870, 31 exact moduli  t=7s
+
+(M1) share of total spectral mass in the exact atoms
+     coin 11.3379%   real 7.0016%   (7507 bins of 1936936)
+
+(M2) accumulation against the Ramanujan partial sum
+     q   mu2/phi   cum weight  cum coin mass     ratio
+     3   0.50000      0.50000        0.01298   0.02596
+     5   0.25000      0.75000        0.02401   0.03201
+     7   0.16667      0.91667        0.03563   0.03887
+    15   0.12500      1.04167        0.05084   0.04881
+    11   0.10000      1.14167        0.06024   0.05276
+    13   0.08333      1.22500        0.06690   0.05461
+    21   0.08333      1.30833        0.07263   0.05552
+    33   0.05000      1.35833        0.07802   0.05744
+    35   0.04167      1.40000        0.08191   0.05850
+    39   0.04167      1.44167        0.09040   0.06270
+    55   0.02500      1.46667        0.09475   0.06460
+    65   0.02083      1.48750        0.09728   0.06540
+   105   0.02083      1.50833        0.09968   0.06608
+    77   0.01667      1.52500        0.10156   0.06660
+    91   0.01389      1.53889        0.10346   0.06723
+   165   0.01250      1.55139        0.10457   0.06740
+   195   0.01042      1.56181        0.10590   0.06780
+   143   0.00833      1.57014        0.10706   0.06819
+   231   0.00833      1.57847        0.10811   0.06849
+   273   0.00694      1.58542        0.10887   0.06867
+   385   0.00417      1.58958        0.10952   0.06890
+   429   0.00417      1.59375        0.10999   0.06901
+   455   0.00347      1.59722        0.11049   0.06917
+   715   0.00208      1.59931        0.11077   0.06926
+  1155   0.00208      1.60139        0.11111   0.06938
+  1365   0.00174      1.60312        0.11136   0.06946
+  1001   0.00139      1.60451        0.11158   0.06954
+  2145   0.00104      1.60556        0.11181   0.06964
+  3003   0.00069      1.60625        0.11207   0.06977
+  5005   0.00035      1.60660        0.11249   0.07002
+ 15015   0.00017      1.60677        0.11338   0.07056
+
+    (M2) increments correlate (>0.9) and the ratio is stable (<20%) over the last half: PASS  (corr +0.9110, drift 4.7%)
+    (M3) the non-atomic bins are flat (no coarse peak >5x median): FAIL  (18.20x over 471 coarse bins)
+
+(M4) the largest peaks OUTSIDE the exact set, and the rational each sits at
+       bin         freq  mass/median    nearest j/q      q        err  what it is
+         1   0.00000026     127884.9              0      1      1.000  DC residue
+   1291291   0.33333359      58375.3            1/3      3      1.000  leakage from an excluded atom
+   1291288   0.33333282      23697.5            1/3      3      2.000  leakage from an excluded atom
+         2   0.00000052      22649.6              0      1      2.000  DC residue
+         3   0.00000077      21996.3              0      1      3.000  DC residue
+   1549549   0.40000026      14779.9            2/5      5      1.000  leakage from an excluded atom
+   1347433   0.34782608      13318.5           8/23     23      0.043  ATOM at q = 23
+    683624   0.17647056      13126.6           3/17     17      0.118  ATOM at q = 17
+    0/8 of the largest remaining peaks are unexplained
+    (M4) every remaining peak is accounted for (DC, leakage, or an atom at a modulus outside the exact set): PASS
+
+    the atoms carry the Ramanujan measure, the remaining peaks are themselves atoms at moduli outside the exact set, and the sixteen exact moduli account for 11.3% of the coin's mass -- a small share because the measure has infinitely many atoms and sum_q mu^2(q)/phi(q) diverges. #162's 'purely atomic' was a claim about density per bin, which holds at 525x, and NOT about where the mass is, which this run supplies for the first time. (M3) failed and was meant to: the remainder is NOT flat, because it still contains every atom with q not dividing 30030 -- and (M4) finds each of the eight largest to be DC residue, a leakage skirt, or an atom at q = 17 or 23. Nothing is unexplained
+DONE

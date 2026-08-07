@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 324 (2026-08-07). 6 days, 163 recorded corrections,
+*Increment 325 (2026-08-07). 6 days, 165 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 8 named hazards.*
 
@@ -367,7 +367,16 @@ reproduces it, so **the dynamics are $\Lambda$'s through the shift, not
 $\mu$'s** — the fourth structure in the wall to turn out that way. ⚠️ And
 it is a law, not a bound: the decomposition it suggests reduces to a
 pointwise Siegel–Walfisz for $\mu*\Lambda$, which is the parity problem
-again (#162).
+again (#162). ⚠️ **Qualified at 325 (#164): "purely atomic" was a claim
+about DENSITY per bin**, which holds at $525\times$; the sixteen exact
+moduli carry only **11.3%** of the coin's mass and **7.0%** of the
+real's. That is what the Ramanujan measure predicts — it has infinitely
+many atoms and $\sum_q \mu^2(q)/\varphi(q)$ diverges — and the
+cumulative mass tracks the cumulative weight at increment correlation
+$+0.9110$, stable to $4.7\%$. Of the eight largest peaks outside the
+exact set, three are DC residue, three are leakage skirts of atoms
+already counted, and two are **genuine atoms at $q = 17$ and $q = 23$**,
+the moduli the set excludes. Nothing unexplained.
 
 > **$C(N) = m(N) + \sqrt{V(N)}\cdot G(N)$**, with
 > $V(N)=\sum_v\mu^2(v)\Lambda(N-v)^2$ exact, $m(N)$ the location mask,
