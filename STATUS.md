@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 330 (2026-08-07). 6 days, 174 recorded corrections,
+*Increment 331 (2026-08-07). 6 days, 176 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 9 named hazards.*
 
@@ -12,7 +12,7 @@ other an unweighted mean over 255 frequencies of which only 22 mattered.
 It cost three invented mechanisms, and the first of them was right and
 discarded (#174). Distinct from #30: there a quantity met a **target**
 at the wrong scale; here two measurements of the **same object** met
-each other under different aggregations.
+each other under different aggregations. ✅ **First swept at 331 (#175)** at the quantity most claims rest on: `ρ = Var C / V` names **three** quantities — a ratio of means, a mean of ratios, and the half-normal arm `(π/2)mean(|C|/√V)²`. They agree to `0.75%` at `N ≈ 1.4·10⁷` and differ by `10.3%` at `10⁵`, ordered `A > B > C`. **Proposition W wants the ratio of totals, so #121's `ρ = 0.810` is `0.841` in its units.**
 
 **What is trusted, and what is not: `DEPENDENCY_AUDIT.md`.** The
 theorems proved here do not rest on Huang–Li; the strategic frame does.

@@ -1,0 +1,25 @@
+sieve  t=15s
+
+(R1)(R2) three definitions of rho, per octave
+                 band  A ratio-of-means  B mean-of-ratios  C half-normal   spread
+   100000-     200000           1.00781           0.97661        0.91404   10.26%
+   200000-     400000           0.95782           0.93246        0.89255    7.31%
+   400000-     800000           0.92330           0.90720        0.88059    4.85%
+   800000-    1600000           0.89060           0.87853        0.86127    3.41%
+  1600000-    3200000           0.87409           0.86646        0.85586    2.13%
+  3200000-    6400000           0.87342           0.86613        0.85937    1.64%
+  6400000-   12800000           0.86223           0.85750        0.85404    0.96%
+ 12800000-   16000000           0.85788           0.85388        0.85150    0.75%
+
+    (R1) all three within 2% in every band: FAIL  (max spread 10.26%)
+    (R2) ordering, averaged: A 0.9059, B 0.8923, C 0.8712
+         B/A = 0.9855   C/A = 0.9632   C/B = 0.9772
+
+    (R3) Proposition W states rho - 1 = (1/V) sum_h c(h)S(h),
+         which is a ratio of TOTALS -- definition A. The
+         0.810 of #121 came from the half-normal arm, i.e.
+         definition C, and increment 318's per-cell share
+         used definition B.
+
+    the three differ by up to 10.3%, so rho has named up to three quantities. C sits 3.7% from A systematically, which is the half-normal assumption failing on a field that carries a mask. Every recorded rho must say which definition it is: Proposition W wants A, #121's 0.810 is C, #318's share is B
+DONE
