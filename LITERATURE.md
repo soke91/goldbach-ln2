@@ -185,6 +185,58 @@ quoted from Tao's notes; the comparison table is our construction and
 nobody in the area has checked it. It sharpens the *placement* of
 Theorem D — it does **not** establish novelty, which remains open.
 
+## Physics-adjacent programmes, and where this one already meets them
+*(increment 322, prompted by the question directly)*
+
+The connections between physics and analytic number theory are real
+and some are deep. What follows is where each one touches this
+program's target, and the answer is the same in every case and for the
+same reason: **they connect to the *multiplicative* structure, and the
+wall is *additive*.**
+
+| programme | what it really is | where it meets `C(N) = o(N)` |
+|---|---|---|
+| **Random-matrix / quantum chaos** (Montgomery–Odlyzko, GUE spacings) | the strongest empirical physics↔number-theory link there is: zeta zero spacings match the statistics of heavy nuclei and disordered conductors | it is information about **zeros**. ⚠️ Binary Goldbach is open under GRH, so zero information is not the missing input — and **Proposition D‴ makes the no-go *monotone* in how much we know**: under RH the loss becomes a power of `N`. Better spectral input makes the obstruction **stronger** |
+| **Bost–Connes / the "primon gas"** | a genuine statistical-mechanical system whose partition function is `ζ(β)`, with a phase transition at `β = 1`; Connes' noncommutative-geometry route to RH | again multiplicative. The wall is a correlation of `μ` and `Λ` **at a fixed sum**, which no Euler product sees |
+| **p-adic strings, adelic product formulas** (Volovich) | `∏_p A_p · A_∞ = 1` — real and beautiful | a product over places. `C(N)` does not factor over places; that non-factorisation *is* the difficulty (see `ρ − 1`, Proposition W) |
+| **Modular forms in string theory; Rademacher exact formulas; black-hole degeneracy counting** | the circle method **works exactly** there — and the reason is that the generating function is **modular** | ✅ **this program tested exactly that.** Construction **C-IV** asks whether the dilate field's generating function carries an approximate Fricke-type law at any level `Q = 1…6`. Verdict: *"as modularity-free as its mask-null"* — re-audited at increment 314, where the criterion turned out to be a `1.3`-sigma test that noise trips `8.8%` of the time, so **the DEAD now rests on the measurement (`+0.10 sd`, never systematically below the null) rather than on the count** (#143) |
+| **Quasicrystals as zeta zeros** (Dyson, "Birds and Frogs") | a suggestion, not a theorem | no statement to test |
+| **Uncertainty and entanglement** | Parseval, and non-factorisation | both already inside the program's results and both on the wall's side — measured at increment 321 (#160) |
+
+**Why the black-hole success does not transfer, precisely.** Counting
+BPS states (Strominger–Vafa) reduces to coefficients of a modular
+form, and there the circle method is not merely useful but **exact**:
+Hardy–Ramanujan–Rademacher give `p(n)` as a convergent series. The
+reason is modularity — the generating function's behaviour near every
+rational is known, so the **major arcs capture everything** and the
+minor arcs are provably negligible.
+
+For the wall the integrand is `S_μ(α) S_Λ(α)`, and `S_μ` has **no major
+arcs at all**: Davenport's bound makes it `≪_A N(log N)^{−A}`
+*uniformly*, so there is nowhere the integrand is large and controlled.
+Yet Parseval floors it at `‖S_μ‖₂ = √(6N/π²)`, measured at `0.7797√N`
+at every size from `2¹⁴` to `2²²` (#160). **Uniformly small, and never
+small enough** — the whole circle is minor arc. That is Proposition E
+in one sentence, and it is why a method that is *exact* for partitions
+has zero margin here.
+
+⚠️ Hawking radiation itself enters only through that state-counting
+door. Its thermal and information-theoretic content — unitarity, the
+entropy of the horizon — has no contact with an additive prime problem
+that this program can name.
+
+**The one-line reason.** Increment 320 showed that `ρ` and `𝔄` — the
+arithmetic of the wall's own scale — **cancel out of the comparison
+that decides whether a method reaches the target**. Any programme whose
+contribution is a better description of that arithmetic therefore moves
+nothing. What is needed is a *pointwise* method losing less than a
+power of `N`, and none of the above is one.
+
+⚠️ **What this section is not.** It is not a literature search. It is a
+placement of programmes this program can name against a target it has
+measured, and the C-IV row is the only one backed by an experiment run
+here. The rest are reasoned, not tested, and are recorded as such.
+
 ## What a real check would require
 
 - MathSciNet / zbMATH searches on the actual statements, not keywords.
