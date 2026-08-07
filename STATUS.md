@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 322 (2026-08-07). 6 days, 161 recorded corrections,
+*Increment 324 (2026-08-07). 6 days, 163 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 8 named hazards.*
 
@@ -351,6 +351,23 @@ law. Ten hypotheses on the local structure of $D(k)$ returned **0
 flags out of ~22 statistics**; five variants of $C(N)$ are all
 square-root sized, so there is no softer target; and seven hypotheses
 on $C(N)$ itself fired five flags which resolve into one statement:
+
+**And a law for the process, not only the marginal** (inc. 324). A
+covariance function *is* a process specification, and increment 304
+measured this one in closed form: $\rho(h) = a\,\mathfrak S_2(h) + b$ at
+$\mathrm{corr} = 0.9997$–$1.0000$. Since $\mathfrak S_2$ has the
+Ramanujan expansion $\sum_q (\mu^2(q)/\varphi^2(q))c_q(h)$, the spectral
+measure must be **atoms at the rationals $j/q$ with Hardy–Littlewood
+weights**. Tested on $3.87\cdot10^6$ even $N$, chosen a multiple of
+$30030$ so every such frequency lands exactly on a bin: the atomic bins
+carry **$525\times$** an equal number of others, and on a coin the
+per-frequency mass tracks $\mu^2(q)/\varphi^2(q)$ at
+**$\mathrm{corr}=+0.9864$** across sixteen moduli. ⚠️ The coin
+reproduces it, so **the dynamics are $\Lambda$'s through the shift, not
+$\mu$'s** — the fourth structure in the wall to turn out that way. ⚠️ And
+it is a law, not a bound: the decomposition it suggests reduces to a
+pointwise Siegel–Walfisz for $\mu*\Lambda$, which is the parity problem
+again (#162).
 
 > **$C(N) = m(N) + \sqrt{V(N)}\cdot G(N)$**, with
 > $V(N)=\sum_v\mu^2(v)\Lambda(N-v)^2$ exact, $m(N)$ the location mask,
