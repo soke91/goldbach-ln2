@@ -327,7 +327,13 @@ def main():
             if ("Var C" in line or "cancellation ratio" in line
                     or "NOTATION" in line or r"\mathrm{Var}" in line):
                 continue
-            near = "\n".join(lines[max(0, i - 4):i + 5])
+            # The vocabulary must be on THIS line or the one before it,
+            # so that a wrapped sentence still counts. A +/-4 window
+            # was the first try and it flagged two paragraphs that
+            # merely sat next to a NOTATION note mentioning Theorem D.
+            # LIMIT, stated: a bare rho three or more lines below its
+            # own Theorem D sentence is not caught.
+            near = "\n".join(lines[max(0, i - 1):i + 1])
             if dvocab.search(near):
                 fails.append(f"H {rel}:{i+1} bare rho near Theorem D "
                              f"vocabulary: {line.strip()[:60]!r}")
