@@ -1,0 +1,21 @@
+n = 3873870, 32 cells   t=9s
+    7507 atomic bins at q | 30030
+
+(S1)(S2)(S3) energy shares of Z, and the two projections
+                     cell           atom              ratio         containment
+    real   cell   0.04599   atom   0.07002   atom/cell    1.523   containment  1.0000
+    coin   cell   0.00876   atom   0.14776   atom/cell   16.869   containment  1.0000
+
+    (S1) the cell projection lies inside the atomic span (>95%): PASS  (real 1.0000, coin 1.0000)
+    (S2) atom/cell energy: real 1.523, coin 16.869
+    (S3) the two ratios agree within 20%: FAIL  (real/coin = 0.090)
+
+(S4) the two sign sequences at the atomic frequencies
+    mean |sum mu(v) e(v j/q)|^2 / Q  =       0.9492
+    mean |sum eps(v) e(v j/q)|^2 / Q =       0.9975
+    coin / real                      =         1.05x
+    energy gap to explain (coin/real atom-to-cell) =   11.08x
+    (S4) mu's exponential sum is small at rationals where a coin's is not: FAIL  (1.1x)
+
+    the coin carries 11.08x the real's atom-to-cell ratio and the exponential-sum mechanism does not account for it; the difference needs its own explanation before anything is claimed
+DONE

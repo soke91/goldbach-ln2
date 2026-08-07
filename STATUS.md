@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 325 (2026-08-07). 6 days, 165 recorded corrections,
+*Increment 326 (2026-08-07). 6 days, 167 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 8 named hazards.*
 
@@ -377,6 +377,22 @@ $+0.9110$, stable to $4.7\%$. Of the eight largest peaks outside the
 exact set, three are DC residue, three are leakage skirts of atoms
 already counted, and two are **genuine atoms at $q = 17$ and $q = 23$**,
 the moduli the set excludes. Nothing unexplained.
+⚠️ **And at 326 the coin control came out backwards** (#166). The mask
+and the atoms are exactly nested — the cell projection sits inside the
+atomic span at containment $1.0000$ — and the mask does *not* exhaust
+them: the atomic projection carries $1.52\times$ the cell projection's
+energy. But **the coin's atom-to-cell ratio is $16.87$ against the
+real's $1.52$**, and in absolute share the coin carries $14.78\%$ of its
+energy in the atoms against the real's $7.00\%$. The real's cell energy
+is $5.25\times$ the coin's, which is the mask behaving as it should;
+its *non-mask* atomic energy is several-fold **below**. So $\mu$
+**suppresses** the periodic covariance $\Lambda$ supplies, except where
+M.1 creates one — the first place in this program where $\mu$ has looked
+*unlike* a coin in a direction that is not an estimator defect. ⚠️ The
+mechanism I proposed (Davenport smallness at rationals) was tested and
+**refuted**: $|\sum_v\mu(v)e(vj/q)|^2/Q = 0.9492$ against the coin's
+$0.9975$, a factor $1.05$ (#167). One run is not a finding, and the
+mechanism is left open rather than guessed at.
 
 > **$C(N) = m(N) + \sqrt{V(N)}\cdot G(N)$**, with
 > $V(N)=\sum_v\mu^2(v)\Lambda(N-v)^2$ exact, $m(N)$ the location mask,
