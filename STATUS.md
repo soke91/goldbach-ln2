@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 319 (2026-08-07). 6 days, 156 recorded corrections,
+*Increment 320 (2026-08-07). 6 days, 158 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 8 named hazards.*
 
@@ -126,8 +126,18 @@ $\mu(k)$.
   method's loss at $N^{0.498}$ — the margin's own size, which is why
   "zero margin" is exact rather than rhetorical — while Theorem D's is
   only $N^{0.233}$ and it still fails, its obstruction being the absence
-  of mass at the truncation point rather than a size deficit. **Two
-  routes, two reasons, one wall** (#156). One new exact identity came
+  of mass at the truncation point rather than a size deficit.
+  ⚠️ **Corrected at 320 (#157): that comparison used the wrong
+  reference.** A proof needs *bound ≤ target*, not *bound ≈ truth*. In
+  the target's own units, trivial sits $(\log N)^A$ above the target,
+  Cauchy–Schwarz $(\log N)^{A+1/2}$ above it, and the truth a power of
+  $N$ **below** it. **The entire difficulty is a log power** — the parity
+  problem in its own units — and the two routes are then the *same*
+  failure in one currency: both must supply $(\log N)^A$ over trivial,
+  the circle method instead loses $\sqrt{\log N}$ and the divisor switch
+  loses $\exp(c\sqrt{\log N})$. $\rho$ and $\mathfrak A$ **cancel out of
+  the comparison entirely**, which is why sharpening the Möbius input
+  cannot help. One new exact identity came
   out of the attempt, verified to $1.5\cdot10^{-16}$:
   $\sum_N C(N)^2=\sum_h M(h)P(h)$ with $M$ the Möbius autocorrelation
   and $P$ the prime-pair count — the global form of Proposition W. It

@@ -1,0 +1,40 @@
+sieve  t=12s
+
+(V1)(V3) every quantity in units of N, and of the target
+          N      CS/N  sqrt(6(lnN-1)/pi2)   ratio    rms C/N  trivial/CS
+  1.500e+05    2.5766              2.5764  1.0001  7.712e-03      0.3881
+  3.000e+05    2.6577              2.6569  1.0003  5.484e-03      0.3763
+  6.000e+05    2.7360              2.7350  1.0004  3.919e-03      0.3655
+  1.200e+06    2.8123              2.8110  1.0005  2.798e-03      0.3556
+  2.400e+06    2.8864              2.8850  1.0005  2.011e-03      0.3465
+  4.800e+06    2.9586              2.9571  1.0005  1.457e-03      0.3380
+  9.600e+06    3.0291              3.0275  1.0005  1.048e-03      0.3301
+  1.440e+07    3.0679              3.0680  1.0000  8.647e-04      0.3260
+
+    (V1) CS/N equals sqrt(6(ln N-1)/pi^2) to 3%, with no rho and no A(N) in it: PASS
+    (V2) rms(C)/N falls like N^(-1/2): PASS  (fitted -0.4784)
+
+(V3) the wall in the units a proof is written in, at N = 1e8
+    A = 1:
+      target   N(log N)^-1        5.4287e+06   ratio 1
+      trivial  psi(N)              1.0000e+08   ratio  1.842e+01  = (log N)^1.00
+      Cauchy-Schwarz               3.2543e+08   ratio  5.995e+01  = (log N)^1.41
+      measured truth               3.4778e+04   ratio  6.406e-03  = N^-0.274
+    A = 2:
+      target   N(log N)^-2        2.9471e+05   ratio 1
+      trivial  psi(N)              1.0000e+08   ratio  3.393e+02  = (log N)^2.00
+      Cauchy-Schwarz               3.2543e+08   ratio  1.104e+03  = (log N)^2.41
+      measured truth               3.4778e+04   ratio  1.180e-01  = N^-0.116
+
+    The truth is a POWER OF N below the target and every
+    bound is a LOG POWER above it. The whole difficulty is
+    a log power -- which is the parity problem in its own
+    units: no method gives ANY saving over trivial for a
+    Mobius-weighted sum.
+    Both routes are then the same failure in one currency:
+    the circle method must supply (log N)^A and instead
+    LOSES sqrt(log N); the divisor switch loses
+    exp(c sqrt(log N)), beyond every fixed log power.
+
+    increment 319's comparison was against the wrong reference -- bound versus truth, where a proof needs bound versus target. In the right units the margin to be closed is a LOG POWER, not a power of N, and the two routes fail in the same currency rather than for different reasons. rho and A(N) cancel out of it entirely, which is why sharpening the Mobius input cannot help
+DONE
