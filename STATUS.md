@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 326 (2026-08-07). 6 days, 167 recorded corrections,
+*Increment 327 (2026-08-07). 6 days, 169 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 8 named hazards.*
 
@@ -391,8 +391,18 @@ M.1 creates one — the first place in this program where $\mu$ has looked
 *unlike* a coin in a direction that is not an estimator defect. ⚠️ The
 mechanism I proposed (Davenport smallness at rationals) was tested and
 **refuted**: $|\sum_v\mu(v)e(vj/q)|^2/Q = 0.9492$ against the coin's
-$0.9975$, a factor $1.05$ (#167). One run is not a finding, and the
-mechanism is left open rather than guessed at.
+$0.9975$, a factor $1.05$ (#167). ⚠️ **Suspended at 327 (#169).** The first suspect — that the
+$1/\sqrt{V}$ rescaling created it — is cleared: the **raw** $C(N)$
+already shows $5.155\times$ and the rescaling contributes about $1\%$
+(#168). But two of my own measurements of the same object now disagree
+by a factor 5. The atoms sit at $j/(2q)$, not $j/q$ — the periodogram
+runs over even $N$ — and #167 measured at the wrong frequencies; **at
+the corrected ones the ratio is $0.91$, still nothing like $5.155$.**
+Since the spectrum of $C$ is exactly $|\hat\mu|^2|\hat\Lambda|^2$, a
+share ratio of 5 with a per-frequency ratio of 1 requires
+$|\hat\mu|^2$ to differ elsewhere in the spectrum, and where is not
+identified. **#166 is suspended until they are reconciled — neither
+withdrawn nor standing.**
 
 > **$C(N) = m(N) + \sqrt{V(N)}\cdot G(N)$**, with
 > $V(N)=\sum_v\mu^2(v)\Lambda(N-v)^2$ exact, $m(N)$ the location mask,

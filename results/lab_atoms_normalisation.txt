@@ -1,0 +1,25 @@
+n = 3873870, 7507 atomic bins   t=8s
+
+(N1)(N2) atomic energy share, four ways
+object                           real       coin   coin/real
+raw  C(N)                     0.06490    0.33456       5.155
+scaled  C(N)/sqrt(V(N))       0.07002    0.36475       5.210
+
+    (N1) the RAW objects agree within 20%: FAIL  (coin/real = 5.155)
+    (N2) the scaled ratio is 5.210 against a raw 5.155
+
+(N3) the multiplier itself
+    atomic energy share of 1/sqrt(V(N)) alone: 0.00592
+    (V = W*A(N), and A depends only on which small primes
+     divide N, so 1/sqrt(V) is nearly periodic mod 30030
+     and multiplying by it CONVOLVES the spectrum with its
+     own atoms.)
+
+(N4) the exponential sums at the frequencies the atoms actually sit at
+evaluated at               mu         coin    coin/mu
+j/q                    0.9492       1.0087       1.06
+j/(2q)                 1.1174       1.0156       0.91
+    (N4) at j/(2q) the coin's sum exceeds mu's by more than 2x: FAIL  (0.91x)
+
+    the RAW objects already differ by 5.15x, so #166 survives at the level of C(N) itself, and #167's 1.05 was measured at j/q while the atoms sit at j/(2q) -- but even there the sums differ by only 0.91x, so the mechanism is still not identified
+DONE
