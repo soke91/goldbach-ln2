@@ -1,0 +1,30 @@
+sieve + S_2 + V + C  t=17s
+15 half-octave bands
+  band 5/15  t=99s
+  band 10/15  t=181s
+  band 15/15  t=271s
+
+(P1) measured against predicted, both raw and centred
+ depth    a_meas       SE      334    a_pred       SE  D_c sign
+     5    0.1434   0.0155   0.1434   -0.0052   0.0007         +
+     4    0.2152   0.0065   0.2152   -0.0070   0.0007         +
+     3    0.2713   0.0040   0.2713   -0.0017   0.0002         +
+     2    0.3686   0.0052   0.3686   -0.0005   0.0001         +
+     1    0.0437   0.0556   0.0437   -0.0002   0.0000         +
+     0    0.6289   0.0121   0.6289   -0.0003   0.0001         +
+
+    (P1) the measured column reproduces 334 to 0.0000: PASS
+
+    centred, over the five measurable depths (depth 1 excluded before the run)
+ depth   measured   predicted   residual
+     5    -0.1590     -0.0023    -0.1568
+     4    -0.0872     -0.0040    -0.0832
+     3    -0.0312      0.0012    -0.0324
+     2     0.0662      0.0024     0.0637
+     0     0.3264      0.0026     0.3238
+
+    (P2) the mechanism orders the depths (Spearman >= +0.9): PASS  (rho = +0.900)
+    (P3) it explains the size (residual rms <= raw/3): FAIL  (raw 0.1702, residual 0.1682, ratio 0.99)
+
+    the mechanism has the right direction and the wrong magnitude: it orders the depths (Spearman +0.90) but leaves 99% of the exponent spread as residual. A2's closed form governs the floor's size within a band and only partly its decay
+DONE
