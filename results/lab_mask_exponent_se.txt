@@ -1,0 +1,21 @@
+sieve + V + C  t=17s
+15 half-octave bands
+  band 5/15  t=97s
+  band 10/15  t=179s
+  band 15/15  t=262s
+
+(E1) the exponent per depth, with the error it never had
+ depth  pts         a     SE(a)    a/SE  305b quoted
+     5   14    0.1434    0.0155     9.2       0.1434
+     4   15    0.2152    0.0065    33.2       0.2152
+     3   15    0.2713    0.0040    67.2       0.2713
+     2   15    0.3686    0.0052    70.6       0.3686
+     1   15    0.0437    0.0556     0.8       0.0437
+     0   15    0.6289    0.0121    52.0       0.6289
+
+    (E2) a common exponent is REJECTED (chi2/dof > 2): YES  (chi2 = 1255.78 on 5 dof, chi2/dof = 251.16)
+    (E3) inverse-variance-weighted common exponent: a = 0.3018 +/- 0.0027
+         spread of the six point estimates: 14.4x, which is what A3 quotes
+
+    the spread is real: chi2/dof = 251.2 rejects a common exponent, so A3 stands as written and #69's single g was indeed fitting a mixture
+DONE
