@@ -1,0 +1,42 @@
+Re-verification of Conjecture 14, measurement 1
+Z = C(N)/sqrt(V(N)); cells keyed by (3, 5, 7, 11, 13, 17, 19, 23); min cell occupancy 200
+
+  RAW  = Z            MEAN = Z - cell mean  (item 1's stated
+  protocol)          STD  = (Z - cell mean)/cell sd
+
+                  band         n  cells  RAW kurt  MEAN kurt       z  STD kurt       z  mixture pred  accounts
+--------------------------------------------------------------------------------------------------------------
+         100000-200000     46224     25    1.7664     0.0166     0.7    0.0075     0.3        0.0078    47.2%
+         200000-400000     95518     36    1.2174    -0.0144    -0.9   -0.0198    -1.3        0.0064   -44.4%
+         400000-800000    195073     50    0.8340     0.0131     1.2    0.0087     0.8        0.0049    37.5%
+        800000-1600000    394497     65    0.5114     0.0130     1.7    0.0089     1.1        0.0037    28.0%
+       1600000-3200000    794166     83    0.3122     0.0078     1.4    0.0041     0.7        0.0036    45.9%
+       3200000-6400000   1594151    103    0.1805     0.0036     0.9    0.0006     0.2        0.0029    80.1%
+      6400000-12800000   3194426    124    0.0963    -0.0017    -0.6   -0.0039    -1.4        0.0024  -142.0%
+     12800000-16000000   1594154    103    0.0627    -0.0053    -1.4   -0.0075    -1.9        0.0021   -39.5%
+
+(1) RULE was: item 1 stands as written if MEAN leaves
+    |excess kurtosis| < 3 sigma. Read the 'MEAN kurt' z.
+(2) RULE was: the scale-mask reading is declared if the
+    mixture prediction accounts for >= 70% of the MEAN
+    excess. Read the last column.
+
+    v1's own lab_gaussian_half_audit.txt, depth 8, centring
+    only: excess kurtosis +0.1704 at z = 98; per-cell
+    standardisation removes 101.1%, the depth ladder -3.3%;
+    its pre-registered rule then declares a VARIANCE MASK.
+    The paper attributes +0.1704 to 'an S N-based scale' and
+    attributes the near-zero value to 'removing cell means
+    alone'.
+
+(3) occupancy sensitivity of the STD column (top octave)
+      min occ    n kept  cells  MEAN kurt  STD kurt
+           50   3998895    172    -0.0031   -0.0055
+          200   3994392    130    -0.0032   -0.0054
+         1000   3970886     83    -0.0033   -0.0054
+         5000   3878498     45    -0.0034   -0.0051
+
+    a STD column that keeps collapsing as the occupancy floor
+    RISES is removing real scale structure; one that only
+    collapses at low occupancy is fitting noise.
+DONE

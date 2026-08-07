@@ -1,0 +1,44 @@
+Re-verification of the E1 normalisation and the Conjecture 11
+Gaussian stamps.
+
+joint-squarefree density prod(1-2/q^2) = 0.32263
+
+N = 10000000   log N = 16.118   N^(1/3) = 215
+          K    #k  sum|D|^2/sum M_k  sum|D|^2/sum M_k^2  band ratio  exc kurt     +-  E|D|/sqrt(E_k)
+    ------------------------------------------------------------------------------------------------
+        100    40            0.3578           5.176e-06      0.6768    -0.351  0.775          0.6464
+        300   120            0.5512           2.621e-05      1.0372     0.151  0.447          0.8046
+       1000   300            0.4378           1.019e-04      0.8248    -0.174  0.283          0.7312
+    (half-normal target sqrt(2/pi) = 0.7979)
+
+    (2) the margin (N/K)(log N)^(-2A-2) at this N:
+        K =   100, A = 1: 1.482
+        K =   100, A = 2: 0.005703   -- BELOW 1
+        K =   300, A = 1: 0.4939   -- BELOW 1
+        K =   300, A = 2: 0.001901   -- BELOW 1
+        K =  1000, A = 1: 0.1482   -- BELOW 1
+        K =  1000, A = 2: 0.0005703   -- BELOW 1
+
+N = 40000000   log N = 17.504   N^(1/3) = 342
+          K    #k  sum|D|^2/sum M_k  sum|D|^2/sum M_k^2  band ratio  exc kurt     +-  E|D|/sqrt(E_k)
+    ------------------------------------------------------------------------------------------------
+        100    40            0.5111           1.809e-06      0.9666    -0.651  0.775          0.8405
+        300   120            0.4683           5.196e-06      0.8810     0.687  0.447          0.7274
+       1000   300            0.5246           2.292e-05      0.9872    -0.109  0.283          0.7895
+    (half-normal target sqrt(2/pi) = 0.7979)
+
+    (2) the margin (N/K)(log N)^(-2A-2) at this N:
+        K =   100, A = 1: 4.261
+        K =   100, A = 2: 0.01391   -- BELOW 1
+        K =   300, A = 1: 1.42
+        K =   300, A = 2: 0.004635   -- BELOW 1
+        K =  1000, A = 1: 0.4261   -- BELOW 1
+        K =  1000, A = 2: 0.001391   -- BELOW 1
+
+(1) v1 quotes 0.305, 0.310, 0.319 for sum|D|^2/sum M_k at
+    N = 1e8. Compare the third column, and compare both
+    against the joint-squarefree density above.
+(3) v1 quotes band ratios 0.966/0.950/0.922 at N = 1e9 over
+    K ~ 1e3/3e3/1e4, and kurtosis 2.99-3.03 (excess -0.01 to
+    +0.03). Compare the last three columns.
+DONE

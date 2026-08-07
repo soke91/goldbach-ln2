@@ -1,0 +1,65 @@
+Re-verification of the Proposition 15 reconstruction of rho-1
+and of the shift-mass table, under the two normalisations of
+S(h) = <mu(u) mu(u-h)>:  M(h)/X   vs   M(h)/(X-h).
+
+X = 1000000
+    M(0) = 607926   (6X/pi^2 = 607927)
+    V(X) = sum_v mu^2(v) Lambda(X-v)^2 = 1.00841e+07   <- what
+           Proposition 15 divides by
+    W(X) = sum_w Lambda(w)^2           = 1.28030e+07   <- the
+           same sum with the mu^2 dropped; W/V = 1.26962
+
+         numerator sum_{h!=0} c(h)S(h)    / W  (v1)  / V  (correct)
+          S(h) = M(h)/X    (v1 choice) -1.01425e+06 -> -0.07922        -0.10058
+           S(h) = M(h)/(X-h)  (a mean) -1.49400e+05 -> -0.01167        -0.01482
+    ratio B/A          : +0.1473
+
+    shift-resolved mass (v1's convention: |bin total|)
+                 shift range   contrib (den X)    share   contrib (den X-h)    share
+                   [1, 1000)       -2.4055e+10    1.2%         -2.4045e+10    0.8%
+               [1000, 10000)       -3.1342e+11   15.6%         -3.1432e+11   10.6%
+             [10000, 100000)       -1.1719e+12   58.5%         -1.2184e+12   41.1%
+           [100000, 1000000)        4.9513e+11   24.7%          1.4074e+12   47.5%
+          [1000000, 1000001)        0.0000e+00    0.0%          0.0000e+00    0.0%
+    net -1.0142e+12 vs gross 2.0045e+12 (cancellation 2.0x)   |   net -1.4940e+11 vs gross 2.9641e+12 (cancellation 19.8x)
+
+X = 4000000
+    M(0) = 2431736   (6X/pi^2 = 2431708)
+    V(X) = sum_v mu^2(v) Lambda(X-v)^2 = 4.46842e+07   <- what
+           Proposition 15 divides by
+    W(X) = sum_w Lambda(w)^2           = 5.67847e+07   <- the
+           same sum with the mu^2 dropped; W/V = 1.27080
+
+         numerator sum_{h!=0} c(h)S(h)    / W  (v1)  / V  (correct)
+          S(h) = M(h)/X    (v1 choice) -5.54645e+06 -> -0.09768        -0.12413
+           S(h) = M(h)/(X-h)  (a mean) -2.31665e+06 -> -0.04080        -0.05185
+    ratio B/A          : +0.4177
+
+    shift-resolved mass (v1's convention: |bin total|)
+                 shift range   contrib (den X)    share   contrib (den X-h)    share
+                   [1, 1000)        4.9630e+11    1.1%          4.9639e+11    0.8%
+               [1000, 10000)       -1.3358e+12    3.0%         -1.3368e+12    2.2%
+             [10000, 100000)       -1.0234e+13   23.1%         -1.0375e+13   17.0%
+           [100000, 1000000)       -2.1647e+13   48.9%         -2.3459e+13   38.4%
+          [1000000, 4000001)        1.0536e+13   23.8%          2.5407e+13   41.6%
+    net -2.2186e+13 vs gross 4.4249e+13 (cancellation 2.0x)   |   net -9.2666e+12 vs gross 6.1073e+13 (cancellation 6.6x)
+
+VERDICTS
+  (1) v1's lab_offdiag_chowla.py reports, at X = 4e6,
+        'reconstructed off-diagonal Sum_h c(h)M(h)/X = -5.5380e+06'
+        'V(X) = Sum_v mu^2 Lambda^2                  = +5.6771e+07'
+        'reconstructed (rho - 1)                     = -0.09755'
+      The numerator reproduces (row A above). The number
+      labelled V(X) does not: it is W(X), the same sum with
+      the mu^2 dropped. V(X) is smaller by exactly the
+      factor A(N) of Proposition 12 -- the paper's own
+      correction, not applied where Proposition 15 needs it.
+  (2) sensitivity rule was: immaterial if the two
+      normalisations of S(h) differ by less than 20%.
+      See the ratio B/A.
+  (3) the paper's 'a factor 0.54' is the ratio of the
+      reconstruction to the measured -0.18. Recomputed:
+        v1 as run          (M/X, /W) : 0.54
+        correct denominator (M/X, /V): see row A, column V
+        S(h) a true mean  (M/(X-h), /V): see row B, column V
+DONE

@@ -1,0 +1,26 @@
+Re-verification of C-I (the abelian spectrum) and its null
+  N = 199999998, 6 k values, FFT length 2^18,
+  323 rational peak bins (q <= 32)
+
+  mu ready t=14s
+       k        M  E_rat/E_tot  z (8 draws)    z (64)   z (400)  z (perm)  hit?
+  -----------------------------------------------------------------------------
+    2001    85808      0.00126        +0.65     +0.21     +0.22     -0.06         t=20s
+    2311    72400      0.00143        +2.60     +1.50     +1.59     +1.70         t=26s
+    2731    59091      0.00131        +1.08     +0.69     +0.78     +0.53         t=32s
+    3001    52502      0.00125        -0.13     +0.19     +0.17     +0.07         t=38s
+    3511    42821      0.00121        -0.31     -0.34     -0.31     -0.34         t=43s
+    3911    36995      0.00127        +0.03     +0.23     +0.30     +0.34         t=49s
+
+(2) hits at z >= 4:  8 draws 0/6,  64 draws 0/6,  400 draws 0/6
+    v1 reports 0/6 at 8 draws. Closure needs 0.
+
+(1) the 8-draw standard deviation is biased low by the
+    factor c_4(8) = 0.9650, so an 8-draw z is about 3.6%
+    larger in magnitude than the truth on average, and its
+    own relative spread is about 27%. For a NULL result
+    that bias is conservative -- it makes hits easier, and
+    none occurred. But a bar at z >= 4 cannot be located
+    from 8 draws: the 8-draw z is not a measurement, and
+    the closure should be quoted at the 400-draw column.
+DONE

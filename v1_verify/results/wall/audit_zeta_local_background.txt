@@ -1,0 +1,29 @@
+Local-background test for the zeta ordinates in G
+n = 1950001, log-N span 3.689
+
+     gamma   amplitude  local med  local p99    /p99      rank  above?
+   14.1347     0.06766    0.03279    0.05353    1.26   100.0%     YES
+   21.0220     0.02532    0.03207    0.03527    0.72    43.3%      no
+   25.0109     0.03423    0.01307    0.02436    1.41   100.0%     YES
+   30.4249     0.02952    0.01475    0.02495    1.18   100.0%     YES
+   32.9351     0.02899    0.02071    0.02561    1.13   100.0%     YES
+   37.5862     0.03304    0.02097    0.02534    1.30   100.0%     YES
+   40.9187     0.01825    0.01951    0.02516    0.73    22.5%      no
+   43.3271     0.01946    0.01936    0.02305    0.84    54.2%      no
+   48.0052     0.02573    0.01911    0.02293    1.12   100.0%     YES
+   49.7738     0.01730    0.01640    0.02265    0.76    64.2%      no
+    6 of 10 above their LOCAL 99th percentile
+    chance expectation at the 1% level: 0.1 of 10
+
+joint R^2, ten ordinates vs ten frequencies from the same
+neighbourhoods (200 draws):
+    measured R^2      4.640130e-03
+    local-null mean   1.819372e-03
+    local-null max    2.964178e-03
+    measured rank     100.0%
+    clears the local-null maximum: YES
+
+    for reference, v1's value-permutation null on the same
+    data gives a maximum near 2e-5, i.e. two orders of
+    magnitude below this band's own background.
+DONE

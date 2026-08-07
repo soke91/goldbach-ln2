@@ -1,0 +1,42 @@
+Recovering the definition behind the Heath-Brown weight table
+
+  A_j(a) = #{(m_1..m_j): prod m_i = a, m_i <= z, mu(m_i)!=0}
+  D_j(y) = sum_{b<=y} tau_j(b)
+  W(a)   = sum_j binom(J,j) A_j(a) D_j(M/a)
+  z      = M^(1/J)
+
+        M   J  zmode    z  frac a > M^0.05  v1 quotes     diff
+--------------------------------------------------------------
+   100000   3   ceil   47           0.9331      0.939   -0.006
+   100000   3  floor   46           0.9325      0.939   -0.007
+   100000   4   ceil   18           0.9422      0.949   -0.007
+   100000   4  floor   17           0.9422      0.949   -0.007
+   100000   6   ceil    7           0.9575      0.960   -0.002
+   100000   6  floor    6           0.9490      0.960   -0.011
+   100000   8   ceil    5           0.9612      0.947   +0.014
+   100000   8  floor    4           0.9440      0.947   -0.003
+  1000000   3   ceil  100           0.9519         --       --
+  1000000   3  floor   99           0.9519         --       --
+  1000000   4   ceil   32           0.9611         --       --
+  1000000   4  floor   31           0.9611         --       --
+  1000000   6   ceil   10           0.9695      0.961   +0.009
+  1000000   6  floor    9           0.9657      0.961   +0.005
+  1000000   8   ceil    6           0.9771      0.969   +0.008
+  1000000   8  floor    5           0.9692      0.969   +0.000
+
+(2) per-j concentration, z = ceil(M^(1/J)), M = 1e5
+    J = 3:  j=1: 0.006  j=2: 0.183  j=3: 0.811
+      v1 quotes 0.824 at j=3; here 0.811
+    J = 8:  j=1: 0.000  j=2: 0.000  j=3: 0.003  j=4: 0.028  j=5: 0.129  j=6: 0.310  j=7: 0.365  j=8: 0.165
+      v1 quotes 0.847 at j in {6,7,8}; here 0.840
+
+(4) how much does the convention move the table?
+    M =   100000, J = 3: ceil 0.9331 vs floor 0.9325   (moves 0.0006)
+    M =   100000, J = 4: ceil 0.9422 vs floor 0.9422   (moves 0.0000)
+    M =   100000, J = 6: ceil 0.9575 vs floor 0.9490   (moves 0.0085)
+    M =   100000, J = 8: ceil 0.9612 vs floor 0.9440   (moves 0.0172)
+    M =  1000000, J = 3: ceil 0.9519 vs floor 0.9519   (moves 0.0000)
+    M =  1000000, J = 4: ceil 0.9611 vs floor 0.9611   (moves 0.0000)
+    M =  1000000, J = 6: ceil 0.9695 vs floor 0.9657   (moves 0.0039)
+    M =  1000000, J = 8: ceil 0.9771 vs floor 0.9692   (moves 0.0079)
+DONE

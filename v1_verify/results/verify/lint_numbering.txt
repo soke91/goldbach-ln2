@@ -1,0 +1,70 @@
+numbered statements in v1/paper/wall_v1.tex (one shared counter, 24 entries)
+
+      Theorem  1   thm:A
+    Corollary  2   cor:B
+      Theorem  3   thm:C
+       Remark  4   (unlabelled)
+      Theorem  5   thm:D
+      Theorem  6   thm:Dprime
+  Proposition  7   prop:E
+  Proposition  8   prop:Dpp
+       Remark  9   rem:scale
+   Conjecture 10   conj:L
+  Proposition 11   prop:V
+       Remark 12   (unlabelled)
+        Lemma 13   lem:MP
+   Conjecture 14   conj:wall
+  Proposition 15   prop:W
+       Remark 16   rem:rho
+        Lemma 17   lem:coin
+        Lemma 18   lem:placebo
+        Lemma 19   lem:cellmom
+  Proposition 20   prop:coh
+       Remark 21   (unlabelled)
+  Proposition 22   prop:scaleinv
+       Remark 23   (unlabelled)
+       Remark 24   (unlabelled)
+
+numbered statements in v1/paper/theorem_A.tex (one shared counter, 28 entries)
+
+      Theorem  1   thm:A
+       Remark  2   (unlabelled)
+    Corollary  3   cor:B
+      Theorem  4   thm:C
+        Lemma  5   lem:complete
+        Lemma  6   lem:degen
+       Remark  7   rem:trap
+        Lemma  8   lem:BV
+        Lemma  9   lem:density
+       Remark 10   rem:loadbearing
+        Lemma 11   lem:mu
+  Proposition 12   prop:MT
+       Remark 13   rem:bound
+        Lemma 14   lem:completelog
+       Remark 15   (unlabelled)
+        Lemma 16   lem:Gb
+        Lemma 17   lem:extract
+        Lemma 18   lem:bv
+      Theorem 19   thm:D
+       Remark 20   rem:bombieri
+       Remark 21   (unlabelled)
+       Remark 22   (unlabelled)
+      Theorem 23   thm:Dprime
+       Remark 24   (unlabelled)
+  Proposition 25   prop:Dpp
+       Remark 26   (unlabelled)
+       Remark 27   (unlabelled)
+  Proposition 28   prop:E
+
+
+citations of the form  <Kind> <n> (`label`)  in live documents
+  MISMATCH v1/PROVENANCE.md:34  cites Conjecture 11 for `conj:L`, which is Conjecture 10
+  MISMATCH v1/PROVENANCE.md:66  cites Proposition 12 for `prop:V`, which is Proposition 11
+  MISMATCH v1/PROVENANCE.md:74  cites Proposition 16 for `prop:W`, which is Proposition 15
+  MISMATCH v1/PROVENANCE.md:79  cites Lemma 18 for `lem:coin`, which is Lemma 17
+  MISMATCH v1/PROVENANCE.md:81  cites Lemma 19 for `lem:placebo`, which is Lemma 18
+  MISMATCH v1/PROVENANCE.md:82  cites Lemma 20 for `lem:cellmom`, which is Lemma 19
+  MISMATCH v1/PROVENANCE.md:83  cites Proposition 21 for `prop:coh`, which is Proposition 20
+  33 resolvable citations, 7 mismatched
+
+DONE (failed)

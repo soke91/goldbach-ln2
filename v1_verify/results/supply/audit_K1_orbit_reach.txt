@@ -1,0 +1,33 @@
+Is K1's 'full 63-divisor orbit' full?
+
+(1) live columns: D(sk) is empty unless s*k < sqrt(N)
+                 N    sqrt N       k range   live cols (min..max of 63)
+         199999998     14142    [500, 900]                     10 .. 13
+         199999998     14142       [2, 10]                     51 .. 60
+       10000000000    100000    [500, 900]                     27 .. 33
+     1000000000000   1000000    [500, 900]                     49 .. 52
+    the whole orbit is live only when N > (30030 k)^2,
+    i.e. N > 3.607e+09 even at k = 2.
+
+(2) v1's configuration, N = 199999998, sqrt N = 14142
+    columns with at least one non-empty row: 13 of 63
+    columns non-empty for every row: 10 of 63
+    live entries in the design matrix: 17.3%
+    the 50 columns that are identically zero:
+      [30, 33, 35, 39, 42, 55, 65, 66, 70, 77, 78, 91, 105, 110, 130, 143, 154, 165, 182, 195, 210, 231, 273, 286, 330, 385, 390, 429, 455, 462, 546, 715, 770, 858, 910, 1001, 1155, 1365, 1430, 2002, 2145, 2310, 2730, 3003, 4290, 5005, 6006, 10010, 15015, 30030]
+
+    building the field (this is the slow part)
+    mu ready t=14s
+    field ready t=22s
+    R^2 on all 63 columns        0.4664   (v1 quotes 0.466)
+    R^2 on the 13 live columns   0.4664
+    pure-noise R^2 = p/n: quoted basis 63/400 = 0.1575, actual 13/400 = 0.0325
+    adjusted R^2 on the live columns  0.4484   -> blind share 0.5516
+
+(4) the same design on the FULL field, all 63 columns live
+    (audit_K1_orbit.py, N = 1e8, k coprime to 30030):
+      R^2 = 0.9040, adjusted 0.8860
+      permutation null 0.165 +- 0.051, coin null 0.44
+      K1's own thresholds: >= 0.95 alive, <= 0.9 dead
+      -> MARGINAL, and the coin reaches 0.44 of it
+DONE

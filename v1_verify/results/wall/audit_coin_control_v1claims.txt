@@ -1,0 +1,47 @@
+The coin control of Lemma 18, applied to two figures the
+correction record withdrew.
+
+(1) rho = mean(C^2)/mean(V) per octave, cell means removed
+                      band  real rho  coin mean  coin sd  z of real
+    ---------------------------------------------------------------
+             100000-200000    0.9952     3.0511   2.1778      -0.94
+             200000-400000    0.8564     1.6191   0.8352      -0.91
+             400000-800000    0.8241     1.0453   0.2765      -0.80
+            800000-1600000    0.8136     0.8664   0.1023      -0.52
+           1600000-3200000    0.8232     0.8314   0.0473      -0.17
+           3200000-4000000    0.8323     0.8606   0.0954      -0.30
+    v1's #106 coin curve: 0.761 0.780 0.787 0.792 0.813 0.828 0.851 0.860
+    |z| of the real value against the coin: max 0.94
+    (1) a coin reproduces the measured rho: YES -- the estimator cannot tell mu from a coin
+
+(2) the zeta-ordinate regression, same pipeline
+    real R^2            4.640130e-03
+    coin mean           3.273149e-03
+    coin max of 20      6.654933e-03
+    coin draws >= real  4 of 20
+    ratio real/coin mean 1.42x
+    v1's #110: real 3.896e-3, coin mean 2.994e-3, coin max
+    5.515e-3, 6 of 20 coin draws at or above real, ratio 1.30x
+    the paper quotes a 200-surrogate maximum of 5.09e-6, i.e. a
+    ratio near 770x, against a null that is not a wall.
+
+(3) the local-background test of round 5, re-run on a coin
+         gamma  real above p99  coin above p99
+       14.1347             YES              no
+       21.0220              no              no
+       25.0109             YES              no
+       30.4249             YES              no
+       32.9351             YES              no
+       37.5862             YES              no
+       40.9187              no              no
+       43.3271              no              no
+       48.0052             YES              no
+       49.7738              no              no
+    real: 6/10 above their local 99th percentile
+    coin: 0/10 above their local 99th percentile
+
+    If the coin clears comparably, then round 5's finding
+    'the effect is real' is a statement about Lambda, which
+    carries the zeros by the explicit formula, and NOT about
+    the wall's mu-fluctuation. That is #110's verdict.
+DONE

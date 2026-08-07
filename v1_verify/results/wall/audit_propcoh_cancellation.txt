@@ -1,0 +1,46 @@
+Re-verification of the derivation in Proposition 21 (prop:coh)
+Lemma 20's three terms, computed exactly, per depth cell.
+
+X = 1048576   band = even N in (X/2, X],  n = 262145
+    the quantity Proposition 21 evaluates:
+      (sum_v mu^2(v))/V  = 0.079449     1/log N = 0.072135
+
+     d      n_c   Q_cc/n_c^2  -2Q_ca/(n_c n)    Q_aa/n^2    Var (sum)  Var/(Q_cc/n_c^2)
+    -----------------------------------------------------------------------------------
+     0   100563   1.5047e-01     -2.7594e-01  1.4249e-01   1.7020e-02        1.1311e-01
+     1   110622   1.4759e-01     -2.8767e-01  1.4249e-01   2.4060e-03        1.6302e-02
+     2    42876   1.7782e-01     -2.9594e-01  1.4249e-01   2.4366e-02        1.3703e-01
+     3     7472   2.2425e-01     -3.0202e-01  1.4249e-01   6.4719e-02        2.8861e-01
+     4      595   2.8685e-01     -3.0656e-01  1.4249e-01   1.2278e-01        4.2804e-01
+    (identity check: Var from the three terms equals
+     sum_v mu^2 (u_c/n_c - u_a/n)^2 to 1.7e-14 relative)
+
+X = 4194304   band = even N in (X/2, X],  n = 1048577
+    the quantity Proposition 21 evaluates:
+      (sum_v mu^2(v))/V  = 0.071550     1/log N = 0.065577
+
+     d      n_c   Q_cc/n_c^2  -2Q_ca/(n_c n)    Q_aa/n^2    Var (sum)  Var/(Q_cc/n_c^2)
+    -----------------------------------------------------------------------------------
+     0   402252   1.3547e-01     -2.4842e-01  1.2828e-01   1.5324e-02        1.1312e-01
+     1   442476   1.3287e-01     -2.5898e-01  1.2828e-01   2.1662e-03        1.6303e-02
+     2   171515   1.6008e-01     -2.6642e-01  1.2828e-01   2.1931e-02        1.3701e-01
+     3    29890   2.0188e-01     -2.7190e-01  1.2828e-01   5.8256e-02        2.8857e-01
+     4     2374   2.5789e-01     -2.7602e-01  1.2828e-01   1.1015e-01        4.2711e-01
+     5       70   3.4087e-01     -2.7918e-01  1.2828e-01   1.8997e-01        5.5732e-01
+    (identity check: Var from the three terms equals
+     sum_v mu^2 (u_c/n_c - u_a/n)^2 to 1.5e-13 relative)
+
+(1) RULE was: the derivation stands if Var/(Q_cc/n_c^2) is of
+    order 1. Read the last column above.
+
+(3) does the CONCLUSION survive anyway?  Var * log N across
+    the two bands (a factor 4 in N):
+     d   Var*logN @X1   Var*logN @X2    ratio  n_c ratio  sqrt law pred
+     0     2.3594e-01     2.3368e-01    0.990       4.00          0.250
+     1     3.3354e-02     3.3032e-02    0.990       4.00          0.250
+     2     3.3779e-01     3.3444e-01    0.990       4.00          0.250
+     3     8.9720e-01     8.8836e-01    0.990       4.00          0.250
+     4     1.7021e+00     1.6796e+00    0.987       3.99          0.251
+    A (log N)^{-1/2} error bar makes the 'ratio' column ~1;
+    an n_c^{-1/2} error bar makes it equal the last column.
+DONE

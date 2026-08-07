@@ -1,0 +1,29 @@
+Re-verification of kill-test K1 (the multiplicative orbit)
+
+  N = 100000000, orbit s | 30030 (63 non-trivial),
+  400 base points k coprime to 30030, k <= 2083,
+  largest s*k = 62552490 <= N: yes
+  pure-noise R^2 = 63/400 = 0.1575
+
+  sieve t=11s
+  field on 25600 points  t=19s
+  real R^2                       0.9040   (v1 quotes 0.466)
+  adjusted R^2                   0.8860
+  1 - R^2  ('half is invisible') 0.0960
+  1 - adjusted R^2               0.1140
+
+  PERM null (orbit of a different k, 200 draws)
+    mean 0.1654, sd 0.0508, max 0.3424
+    real R^2 clears it: YES   z = +14.5
+
+  COIN draw 1: R^2 = 0.4816   t=30s
+  COIN draw 2: R^2 = 0.4257   t=39s
+  COIN draw 3: R^2 = 0.4136   t=48s
+  COIN null: mean 0.4403, range [0.4136, 0.4816]
+
+(1) the DEAD verdict: R^2 <= 0.9 -> NOT DEAD
+    the sentence: '1 - R^2' is the orbit's blind share only
+    after the 63 free parameters are paid for, which makes
+    it 0.114 and not 0.096.
+    Whether the reach is mu's is the COIN line above.
+DONE

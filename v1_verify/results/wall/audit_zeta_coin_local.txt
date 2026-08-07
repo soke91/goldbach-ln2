@@ -1,0 +1,25 @@
+Local-background test: does a coin reproduce the LINES?
+X = 4000000, 40 local controls per ordinate, 8 coin draws
+
+         field   aggregate R^2   ordinates above
+                                local p99, of 10
+------------------------------------------------
+       real mu      4.6401e-03                 6
+        coin 1      2.9443e-03                 0
+        coin 2      2.1987e-03                 3
+        coin 3      1.4289e-03                 3
+        coin 4      3.5576e-03                 0
+        coin 5      2.6977e-03                 0
+        coin 6      3.4573e-03                 1
+        coin 7      3.5433e-03                 0
+        coin 8      5.3202e-03                 2
+
+    coin aggregate R^2: mean 3.1435e-03, max 5.3202e-03   (real 4.6401e-03)
+    coin hits: [np.int64(0), np.int64(3), np.int64(3), np.int64(0), np.int64(0), np.int64(1), np.int64(0), np.int64(2)], mean 1.12   (real 6)
+    chance expectation at the 1% level: 0.1 of 10
+
+(1) RULE was: if the coin hit counts sit around the real
+    one, #110 is right and the lines are Lambda's. If they
+    cluster at chance while the real field does not, the
+    aggregate statistic #110 used cannot see the lines.
+DONE

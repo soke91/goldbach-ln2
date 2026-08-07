@@ -1,0 +1,48 @@
+sieve + convolutions  t=5s
+
+n = 1950001   log-N span = 3.689   fundamental = 1.7033
+gamma_1 = 14.1347 is Fourier bin 8.3 of 975000
+white-noise chance R^2 = 20/n = 1.026e-05
+    lag-1    autocorrelation of Z = +0.0003
+    lag-2    autocorrelation of Z = -0.0001
+    lag-5    autocorrelation of Z = -0.0068
+    lag-20   autocorrelation of Z = +0.0004
+    lag-100  autocorrelation of Z = +0.0014
+
+measured R^2 = 4.640130e-03   (0.4640% of Var Z)
+
+                      null     mean R^2   max of 200  measured/max  clears?
+---------------------------------------------------------------------------
+  P value permutation (v1)   1.0287e-05   2.0125e-05        230.56      YES
+     F phase randomisation   1.8464e-03   3.2888e-03          1.41      YES
+       C circular rotation   1.8208e-03   3.3201e-03          1.40      YES
+
+the paper also claims "every ordinate individually at z >= 23".
+per-ordinate amplitude z, against each null's own spread:
+     gamma   amplitude  z (null P, v1)  z (null F)  z (null C)
+   14.1347     0.06864           99.38        3.52        3.48
+   21.0220     0.03835           50.25        1.53        1.49
+   25.0109     0.03296           49.05        1.62        1.48
+   30.4249     0.02148           25.35        0.47        0.37
+   32.9351     0.01699           21.61        0.14        0.17
+   37.5862     0.02048           26.63        0.55        0.62
+   40.9187     0.01193           13.96       -0.05       -0.29
+   43.3271     0.01389           16.84        0.33        0.15
+   48.0052     0.01794           22.11        1.26        1.05
+   49.7738     0.00943           10.60       -0.48       -0.47
+    min z over the ten ordinates, null P: +10.60
+    min z over the ten ordinates, null F: -0.48
+    min z over the ten ordinates, null C: -0.47
+
+(1) RULE was: the claim stands only if R^2 clears the
+    autocorrelation-preserving nulls F and C, not merely the
+    value-permutation null P.
+
+    NOTE on conservatism. Nulls F and C preserve the whole
+    N-domain power spectrum, hence also whatever power sits
+    at the tested frequencies; they are therefore if
+    anything too strict a comparison for a real line. They
+    are nevertheless the right order of magnitude for the
+    null, and null P is not: P is white, and the regressors
+    live in the lowest few dozen Fourier bins.
+DONE

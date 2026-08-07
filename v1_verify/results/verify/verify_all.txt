@@ -1,0 +1,18 @@
+v1_verify reproduction stamp
+row                                                         value             interval       
+----------------------------------------------------------------------------------------------
+Lemma 13 as stated, LHS/RHS at X=2000                    0.626097 [  0.5500,   0.7000]     ok   must not be 1
+Lemma 13 repaired, |LHS/RHS - 1| at X=2000               0.000000 [  0.0000,   0.0000]     ok   exact
+Lemma 13 as stated, LHS/RHS at X=8000                    0.616997 [  0.5500,   0.7000]     ok   must not be 1
+Lemma 13 repaired, |LHS/RHS - 1| at X=8000               0.000000 [  0.0000,   0.0000]     ok   exact
+Proposition 11: W(X)/V(X) against 1/A(N)                 0.999541 [  0.9950,   1.0050]     ok   1/A = 1.27020
+Gamma(N) log N / N at N=100000                           1.388651 [  1.3000,   1.5000]     ok   -> 1/A = 1.270
+Gamma(N) log N / N at N=1000000                          1.368877 [  1.3000,   1.5000]     ok   -> 1/A = 1.270
+Gamma growth over a factor 10 in N                       8.214668 [  7.0000,  11.0000]     ok   must diverge, not be O(1)
+Proposition 20: Var / (Q_cc/n_c^2) at depth 1            0.016302 [  0.0100,   0.0300]     ok   the three terms cancel
+Lemma 17: |z| of the real rho against a coin             0.855921 [  0.0000,   3.0000]     ok   a coin reproduces it
+conj:wall item 4: rotation null / permutation null      64.714997 [ 20.0000, 400.0000]     ok   the white null is wrong by ~10^2
+R4: the full-range switch identity                       0.000000 [  0.0000,   0.0000]     ok   = mu(N-1) exactly
+
+12 rows, 0 failed
+DONE

@@ -1,0 +1,29 @@
+mu ready t=2s
+y and cache ready, M = 13676 terms per k, t=3s
+R^2_zeros = 0.2960   (v1 quotes 0.2152)
+  null draw 10/40  t=22s
+  null draw 20/40  t=38s
+  null draw 30/40  t=56s
+  null draw 40/40  t=74s
+
+  regressors p = 60, points n = 300, chance floor p/n = 0.2000
+  R^2_zeros            0.2960   adjusted +0.1193
+  R^2_random,  6 draws 0.2938 +- 0.0026   (v1 quotes 0.2196 +- 0.0055)
+  R^2_random, 40 draws 0.2935 +- 0.0047
+  6-draw sd / 40-draw sd = 0.55
+
+(1) the verdict: ALIVE needs R^2_zeros >= 2 x 0.2935 = 0.5870; measured 0.2960 -> DEAD
+    z of the measurement against the 40-draw null: +0.54   (v1 quotes -0.80)
+
+(2) what three standard errors excludes:
+      3 sd                          = 0.0141 in R^2
+      as a fraction of R^2_random   = 4.8%   <- the form the paper quotes
+      as a fraction of the genuine
+        component R^2_random - p/n  = 15.1%
+
+    Both template sets carry the same 60 free parameters,
+    so the floor cancels from the comparison and the DEAD
+    verdict is sound. It does not cancel from the quoted
+    precision: a percentage of R^2 is a percentage of a
+    quantity that is mostly free parameters.
+DONE

@@ -1,0 +1,22 @@
+Re-verification of Proposition 8's measured table
+
+         N    r=1 /N    r=2 /N   r2/r1    CP_2/N  CP_2/(NlogN)      G/N  CPtuned/N
+----------------------------------------------------------------------------------
+   1000000     22.51     17.36   0.771     39.88         2.887   1.7565      37.85
+ v1 quotes     22.51     17.36   0.771                   2.886   1.7565      37.85
+   4000000     25.04     19.79   0.790     44.84         2.949   1.7633      42.80
+ v1 quotes     25.04     19.79   0.790                   2.949   1.7633      42.80
+  16000000     27.46     22.25   0.810     49.71         2.997   1.7614      47.68
+ v1 quotes     27.46     22.25   0.810                   2.997   1.7614      47.67
+
+(1) calibration target: S(N) for N = 2^a 5^b is 2*C_2*(1+1/3) = 1.7604; v1 quotes 1.7604
+
+(2) internal relation CP_tuned = CP_2 - 2*gamma*G:
+    N=  1000000: from v1's own quoted CP_2 and G  -> 37.84   v1 quotes CP_tuned/N = 37.85
+    N=  4000000: from v1's own quoted CP_2 and G  -> 42.79   v1 quotes CP_tuned/N = 42.80
+    N= 16000000: from v1's own quoted CP_2 and G  -> 47.68   v1 quotes CP_tuned/N = 47.67
+
+(3) is CP_2/(N log N) settling?
+    fitted CP_2/(N log N) ~ N^+0.0135 over a factor 16 in N
+    a constant would give 0. The column rises by 3.8% over that range.
+DONE

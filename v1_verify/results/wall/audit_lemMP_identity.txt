@@ -1,0 +1,40 @@
+Re-verification of Lemma 13 (lem:MP) of v1/paper/wall_v1.tex
+Both sides computed by direct enumeration, from the statement.
+
+  LHS_paper = sum_{N<=X} C(N)^2        (the lemma's left side)
+  RHS_paper = sum_{|h|<X} M(h) P(h)    (the lemma's right side)
+  LHS_trunc = sum_{all N} C_X(N)^2     (truncated convolution,
+                                        full support up to 2X)
+
+      X        LHS_paper        RHS_paper   LHS/RHS        LHS_trunc   trunc/RHS - 1
+------------------------------------------------------------------------------------
+    500   8.97505893e+05   1.51571850e+06   0.59213   1.51571850e+06        2.22e-16
+   1000   3.92446822e+06   6.27056630e+06   0.62586   6.27056630e+06       -1.11e-16
+   2000   1.63768835e+07   2.61570895e+07   0.62610   2.61570895e+07        0.00e+00
+   4000   6.49720655e+07   1.02724672e+08   0.63249   1.02724672e+08        0.00e+00
+   8000   2.46003622e+08   3.98711419e+08   0.61700   3.98711419e+08       -4.44e-16
+  16000   9.41242508e+08   1.57287636e+09   0.59842   1.57287636e+09        2.22e-16
+
+(1) the lemma as stated holds to 1e-10 : FAIL
+(3) the repaired identity holds to 1e-10 : PASS
+
+(2) the pre-registered prediction was LHS/RHS near 0.5-0.6,
+    not tending to 1. Measured:
+      X =    500   LHS/RHS = 0.59213
+      X =   1000   LHS/RHS = 0.62586
+      X =   2000   LHS/RHS = 0.62610
+      X =   4000   LHS/RHS = 0.63249
+      X =   8000   LHS/RHS = 0.61700
+      X =  16000   LHS/RHS = 0.59842
+
+(D) where the difference sits, at X = 4000:
+      max_N<=X |C_X(N) - C(N)|            = 0.000e+00   (0 => the two agree on N <= X)
+      sum_{N<=X}   C_X(N)^2               = 6.49720655e+07
+      sum_{X<N<=2X} C_X(N)^2              = 3.77526069e+07
+      share of the RHS carried by N > X   = 0.3675
+
+      The right-hand side of the published lemma counts the
+      block X < N <= 2X, which the left-hand side excludes.
+      That block is not an error term: it carries the share
+      printed above.
+DONE

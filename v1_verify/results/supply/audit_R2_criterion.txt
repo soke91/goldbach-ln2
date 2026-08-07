@@ -1,0 +1,43 @@
+mu ready t=13s
+primes p in [24999, 49998] : 2370
+  k 10/40  t=14s
+  k 20/40  t=14s
+  k 30/40  t=15s
+  k 40/40  t=15s
+
+pairs used: 11572   (design is 40 x 600 = 24000; the paper says 48,000)
+
+(a) coherent gain, over 26 usable k of 40
+    the design's bar is the ABSOLUTE value 2, stated
+    against a theoretical null of 1. The null's own spread
+    is not computed there; it is computed here.
+    random-phase null over 26 k, 400 draws: mean 0.994, sd 0.187
+          G1 (phase e(-N kbar'/k)) = 1.513   z = +2.78   vs bar 2: below
+                 G2 (mirror phase) = 1.184   z = +1.02   vs bar 2: below
+         the run's own random draw = 0.760   z = -1.25   vs bar 2: below
+    the bar 2 sits at z = +5.38 of this null.
+
+(b) regression      R2_det   = -0.000118
+    random-phase control, 50 draws: mean mr = +0.000022, sd = 0.000302
+    permutation control, 50 draws : mean +0.000047, sd 0.000244
+    adjusted R^2 (4 predictors, n = 11572) = -0.000463
+    pure-noise R^2 = 4/n = 0.000346
+
+(1) the criterion, as IMPLEMENTED:
+      mr > 0                : True
+      R2d >= 2*mr           : False (2*mr = +0.000044)
+      regression arm fires  : False
+    the criterion, as PRE-REGISTERED ('capture >= 2x random control', no sign guard):
+      R2d >= 2*mr           : False
+    coherent-gain arms fire : False
+
+(2) the measurement, which is what the paper says the
+    verdict rests on: R2_det against the control
+      z = -0.46   (paper quotes -0.38 s.e.)
+
+    A criterion of the form 'X >= 2 * control' is not a bar
+    when the control is a quantity whose own mean is zero to
+    within its spread. The verdict here stands on the z, as
+    the paper says; the criterion it is written against does
+    not decide anything.
+DONE

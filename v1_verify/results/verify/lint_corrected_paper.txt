@@ -1,0 +1,11 @@
+(1) environments balance: OK
+(2) braces balance: OK
+(3) every \ref resolves: OK   (29 labels, 28 referenced)
+(4) no astral characters: OK
+(5) refuted forms absent from the body:
+      OK -- none of 9 forms present
+(6) v1 original: 1258 lines; corrected: 1417 lines; 38 leading lines identical
+    v1/paper/wall_v1.tex is read-only, as the freeze requires
+
+no problems
+DONE

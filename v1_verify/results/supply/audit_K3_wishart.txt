@@ -1,0 +1,32 @@
+Re-verification of kill-test K3 (the pair matrix and its
+Wishart null)
+
+  N = 10000000, primes p in [10000, 20000) : 1033
+  k values: 199 in [2, 500], (k,N) = 1
+  M = X^T X with X[p,k] = mu(N - p k)   (1033 x 199)
+
+  support density (mu != 0) = 0.8440   (6/pi^2 = 0.6079)
+
+   statistic            real       coin mean       coin sd        z  v1 quotes
+------------------------------------------------------------------------------
+     tr(M^2)    1.813207e+08    1.814183e+08    2.8221e+05    -0.35      -0.48
+     tr(M^3)    2.159798e+11    2.162623e+11    9.0087e+08    -0.31       0.42
+     tr(M^4)    2.814700e+14    2.819500e+14    2.1199e+12    -0.23      -0.03
+  lambda_max    1.827561e+03    1.809864e+03    2.3861e+01     0.74      -0.19
+
+    (1) every statistic within 3 sd of the coin null: PASS
+    (2) same order as v1's z's: measured ['-0.35', '-0.31', '-0.23', '+0.74']
+    (4) 60 coin draws; the null spreads above are the
+        test's power. The smallest effect this design could
+        detect at 3 sd is, per statistic:
+               tr(M^2): 3 sd / mean = 0.0047   (a 0.47% deficit)
+               tr(M^3): 3 sd / mean = 0.0125   (a 1.25% deficit)
+               tr(M^4): 3 sd / mean = 0.0226   (a 2.26% deficit)
+            lambda_max: 3 sd / mean = 0.0396   (a 3.96% deficit)
+
+    A 'sub-Wishart surplus to fund the exchange' would have
+    to exceed those percentages. The chain's currency is a
+    fixed power of log N; at N = 1e7 that is (log N)^-1 =
+    0.0620, i.e. a 6.2% effect at A = 1,
+    which this design CAN see, and does not.
+DONE

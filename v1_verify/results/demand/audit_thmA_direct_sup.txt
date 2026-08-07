@@ -1,0 +1,26 @@
+Direct test of Theorem 1: sup_t |T_1(t)| computed exactly
+theta' = 0.56
+
+        N       K      #k     sup|T_1|   sup|T_1|/N   |C(N)|/N       B(K)    Tabs/N
+-----------------------------------------------------------------------------------
+   200000     930     314   1.5698e+04   7.8491e-02 9.7594e-04 -8.043e-03     0.154
+   400000    1371     463   2.4717e+04   6.1793e-02 7.1766e-03 -5.126e-03     0.133
+   800000    2021     683   3.8633e+04   4.8292e-02 4.5463e-03 -3.024e-03     0.124
+  1600000    2980    1005   6.0877e+04   3.8048e-02 2.4073e-03 -6.701e-03     0.104
+  3200000    4394    1486   9.2162e+04   2.8801e-02 1.8754e-03 -3.210e-03     0.088
+  6400000    6478    2187   1.5519e+05   2.4248e-02 2.1433e-03 -3.080e-03     0.078
+
+(1) does sup|T_1|/N fall?  fitted exponent b in N^{-b}:
+      sup|T_1|/N  ~  N^(-0.3463)
+      Tabs/N      ~  N^(-0.2002)
+
+    for reference, over this range:
+      (log N)^-1: 8.1926e-02 -> 6.3809e-02   (a factor 1.28)
+      (log N)^-2: 6.7119e-03 -> 4.0716e-03   (a factor 1.65)
+      (log N)^-3: 5.4989e-04 -> 2.5980e-04   (a factor 2.12)
+      measured    : 7.8491e-02 -> 2.4248e-02   (a factor 3.24)
+
+(3) the signed sum must fall while the absolute-value form
+    (what EH_mu asserts) does not. Compare the two exponents
+    and the Tabs/N column above.
+DONE

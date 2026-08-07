@@ -1,0 +1,44 @@
+Re-verification of the error bars on Conjecture 14, items 1 and 3
+Everything WITHIN octaves; no cross-octave pooling.
+
+(1) per-octave statistics, count-based error bars
+                    octave         n   exc kurt       z   E|G|/sd        dev       z
+    --------------------------------------------------------------------------------
+             100000-200000     50000   +0.38327   17.49   0.78962   -0.00827   -3.07
+             200000-400000    100000   +0.19004   12.27   0.79436   -0.00353   -1.85
+             400000-800000    200000   +0.10539    9.62   0.79519   -0.00269   -2.00
+            800000-1600000    400000   +0.04775    6.16   0.79648   -0.00140   -1.47
+           1600000-3200000    800000   +0.02551    4.66   0.79721   -0.00067   -1.00
+           3200000-6400000   1600000   +0.00929    2.40   0.79744   -0.00044   -0.92
+          6400000-12800000   3200000   +0.00058    0.21   0.79798   +0.00009    0.28
+         12800000-16000000   1600000   -0.00306   -0.79   0.79793   +0.00004    0.09
+    v1 item 1 quotes exc kurt -0.0005 (z -0.3) and E|G|/sd dev -0.00018 (z -0.8)
+
+    scatter of the z's across 8 disjoint octaves:
+      kurtosis   mean +6.50, sd 5.88   (a correct error bar gives sd = 1)
+      E|G|/sd    mean -1.24, sd 1.03
+    (1) count-based bar is the right width for kurtosis: FAIL
+
+(2) moving-block bootstrap inside the top octave
+       block    SE(kurt)  /count SE   SE(E|G|/sd)  /count SE
+    --------------------------------------------------------
+           1    0.003624       0.94      0.000172       0.36
+         100    0.004412       1.14      0.000181       0.38
+        1000    0.003793       0.98      0.000163       0.34
+       10000    0.003886       1.00      0.000148       0.31
+
+(3) tail counts per octave, with error bars v1 does not quote
+                    octave   t      obs        exp   ratio      +-       z
+           3200000-6400000   3     4382     4319.7   1.014   0.015    0.95
+           3200000-6400000   4      115      101.3   1.135   0.106    1.36
+           3200000-6400000   5        2        0.9   2.180   1.542    1.13
+          6400000-12800000   3     8676     8639.3   1.004   0.011    0.39
+          6400000-12800000   4      206      202.7   1.016   0.071    0.23
+          6400000-12800000   5        2        1.8   1.090   0.771    0.12
+         12800000-16000000   3     4257     4319.7   0.985   0.015   -0.95
+         12800000-16000000   4      100      101.3   0.987   0.099   -0.13
+         12800000-16000000   5        1        0.9   1.090   1.090    0.09
+    v1 item 3 quotes aggregate ratios 0.999 / 0.997 / 0.878
+    at t = 3/4/5. The +- column is the Poisson error bar the
+    paper does not quote; at t = 5 it is the whole story.
+DONE
