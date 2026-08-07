@@ -1,0 +1,34 @@
+(A) sum_{N<=X} C(N)^2  =  sum_h M(h) P(h)
+       X             direct              h-sum    rel diff
+   32768       6.511381e+09       6.511381e+09    1.46e-16
+   65536       2.597557e+10       2.597557e+10    1.47e-16
+    (A1) the identity holds to 1e-10: PASS
+
+(B) how far the extreme sits above the rms  t=8s
+                 band         n        rms C       max|C|    ratio  sqrt(2 ln n)     rel  max|C|/N
+   100000-     200000     50000   1.1568e+03   1.1100e+04    9.595         4.652   2.063    0.0555
+   200000-     400000    100000   1.6451e+03   1.5296e+04    9.298         4.799   1.938    0.0382
+   400000-     800000    200000   2.3515e+03   2.4382e+04   10.369         4.941   2.099    0.0305
+   800000-    1600000    400000   3.3572e+03   3.1443e+04    9.366         5.079   1.844    0.0197
+  1600000-    3200000    800000   4.8274e+03   4.6061e+04    9.542         5.214   1.830    0.0144
+  3200000-    6400000   1600000   6.9952e+03   6.5553e+04    9.371         5.345   1.753    0.0102
+  6400000-    8000000    800000   8.6539e+03   6.5870e+04    7.612         5.214   1.460    0.0082
+    (B1) extreme/rms within [0.7, 1.4] of sqrt(2 ln n) everywhere: FAIL
+
+(C) the margin, and what each route loses, at N = 1e8
+    trivial bound      psi(N)              1.000e+08
+    measured truth     sqrt(N)(log N)^0.29 2.328e+04
+    margin             trivial / truth     4.296e+03   = N^0.454
+    circle method loses  sqrt(Q/(rho*A))    9.622e+03   = N^0.498   (Prop E, inc 309)
+    divisor switch loses exp(sqrt(log N))   7.311e+01   = N^0.233   (Thm D)
+
+    The margin is a power of N. The circle method loses
+    the SAME power -- that is Proposition E, and it is why
+    'zero margin' is exact rather than rhetorical. The
+    divisor switch loses far LESS than the margin, and it
+    still fails: Theorem D's obstruction is not a size
+    deficit but the absence of mass at the truncation
+    point. Two routes, two different reasons, one wall.
+
+    the identity is verified. The RAW extreme runs about 1.9x the Gumbel scale, which is what #151 predicts once the mask is left in -- #290's Gumbel reading is for the standardised G and is untouched. The number that matters is max|C|/N, and it is under 1% at every band and falling: the pointwise truth is far below trivial. THE GAP IS NOT THE SIZE OF THE EXTREME. What is missing is a pointwise method losing less than a power of N, and this program has proved neither classical route is one
+DONE

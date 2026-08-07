@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 318 (2026-08-07). 6 days, 152 recorded corrections,
+*Increment 319 (2026-08-07). 6 days, 156 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 8 named hazards.*
 
@@ -117,6 +117,21 @@ $\mu(k)$.
   correction, so `OPEN_QUESTIONS.md`'s triage mis-assigned it (#130).
 - **Net progress toward Goldbach: zero.** Theorem A removes only the
   half of the demand that carries no Goldbach content.
+- **Where the wall is, in numbers** (inc. 319). Measured truth
+  $C(N)\asymp\sqrt N(\log N)^{0.29}$ against trivial $\psi(N)\sim N$: the
+  margin at $N=10^8$ is $N^{0.454}$, **a full power of $N$**, and measured
+  $\max|C|/N$ falls $0.056\to0.0082$ across the octaves. **The gap is not
+  the size of the extreme.** What is missing is a *pointwise method
+  losing less than a power of $N$*: Proposition E puts the circle
+  method's loss at $N^{0.498}$ — the margin's own size, which is why
+  "zero margin" is exact rather than rhetorical — while Theorem D's is
+  only $N^{0.233}$ and it still fails, its obstruction being the absence
+  of mass at the truncation point rather than a size deficit. **Two
+  routes, two reasons, one wall** (#156). One new exact identity came
+  out of the attempt, verified to $1.5\cdot10^{-16}$:
+  $\sum_N C(N)^2=\sum_h M(h)P(h)$ with $M$ the Möbius autocorrelation
+  and $P$ the prime-pair count — the global form of Proposition W. It
+  buys almost-all $N$ by Chebyshev, which is 1938, and no more (#155).
 - By-product: a genuine defect in the published equation (18) — a
   dropped $n$-dependent truncation — with its repair
   (`paper/defect_report_18.md`, not sent).

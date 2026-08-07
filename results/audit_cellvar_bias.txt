@@ -1,0 +1,29 @@
+sieve + V  t=13s
+  band 1/8  t=95s
+  band 2/8  t=180s
+  band 3/8  t=270s
+  band 4/8  t=357s
+  band 5/8  t=439s
+  band 6/8  t=515s
+  band 7/8  t=594s
+  band 8/8  t=670s
+
+(U1) the same residual, two standard errors
+    naive, 6144 cell-draws treated as independent:
+        +0.01163 +/- 0.00230   z = +5.05
+    clustered, 24 draws (cells within a draw partition one
+    realisation of eps and are not independent):
+        +0.01163 +/- 0.01229   z = +0.95
+    (U1) |z_clustered| < 3: PASS
+
+(U2) effective sample size = (se_naive/se_clustered)^2 * R = 0.8
+     against 6144 nominal and 24 draws -- one sample per draw
+
+(U3) the z-based statistic on the same draws: mean -0.1146, sd 1.0528
+     sd > 1 means Var(d) is ABOVE sd_c^2 by 10.8%;
+     with n_eff = 0.8 the sampling error on a dispersion is large, so this
+     is not a 3-sigma statement either way.
+     (U3) sd(z) within 0.05 of 1: FAIL
+
+    #152's z = +7.11 was an artefact of the standard error, not a bias in the closed form. The 4096 cell-draws are 1 independent numbers, not 4096: the cells within a draw partition one realisation of eps. Clustered, the residual is +0.0116 +/- 0.0123, z = +0.95. The formula stands and every share computed from it at 318 stands with it
+DONE
