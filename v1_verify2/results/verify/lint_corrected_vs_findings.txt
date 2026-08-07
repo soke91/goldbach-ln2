@@ -1,0 +1,30 @@
+lint_corrected_vs_findings   (v1_verify2 Phase 2)
+target: v1_verify\paper\wall_v1_corrected.tex (1538 lines)
+==========================================================================
+
+  id    sev    still present?  finding
+  --------------------------------------------------------------------------------------
+  A1    high   YES -- unfixed  conj:wall item 2: gap +-0.0056 quoted as forty s.e.
+  M2    high   YES -- unfixed  conj:wall item 1: -0.0005 on 6.3e6, cell means alone
+  M3    high   YES -- unfixed  conj:wall item 3: the t=5 ratio and the extremes claim
+  M14   high   YES -- unfixed  sec:floor decay table: depth-0 exponent 0.6289+-0.0121
+  M14b  high   YES -- unfixed  sec:floor: chi^2/dof = 251 rejects a common exponent
+  A2    med    YES -- unfixed  sec:floor: 'steps at 5 to 30 standard errors'
+  M7    med    YES -- unfixed  sec:margin: the margin at N=1e8 is N^{0.454}
+  M4    med    YES -- unfixed  sec:coin: major-arc factors 8.40 and 15.16
+  M5    med    YES -- unfixed  sec:coin: the 1.051-1.068 excess over sqrt(0.32264(X-h))
+  A4    low    YES -- unfixed  sec:closures: the undefined 'C4' and its 8.8%
+  A6    low    YES -- unfixed  thm:A: the one-line mechanism, completion step missing
+  A7    low    YES -- unfixed  prop:E: '>> N by Parseval'
+  A8    low    YES -- unfixed  rem:rho: the 1e8 conversion 0.810 -> 0.841
+  A9    low    YES -- unfixed  prop:E: four values at seven abscissae, 'decaying'
+  M10   low    YES -- unfixed  lem:placebo: 'a fixed permutation of the label set'
+  A3    low    no -- repaired  abstract: 'ten kill-tested technique designs'
+  M6    low    YES -- unfixed  sec:coin: the shift shares, at an unstated X
+
+  surviving: 16 of 17  (5 of them high severity)
+  repaired : 1
+
+  For contrast, the first pass's own findings ARE repaired in
+  this file; that is what it was written to do. What it does
+  not carry is any repair for the findings it never made.

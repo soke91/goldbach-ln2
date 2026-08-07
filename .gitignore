@@ -8,3 +8,7 @@ v2_log/
 
 __pycache__/
 *.pyc
+
+# Build products. No PDF has ever been tracked here; the sources and a
+# TeX engine are the deliverable, so this only records the convention.
+*.pdf

@@ -1,0 +1,16 @@
+lint_paper_refs
+target: v2\paper\wall_v2.tex   (1240 lines)
+==================================================================
+  dangling \ref (no matching \label)         ok
+  dangling \cite (no \bibitem)               ok
+  statement number written by hand           ok
+  orphaned \label (never referenced)         ok
+  uncited \bibitem                           ok
+
+  labels: 26   refs: 26   cites: 10   bibitems: 10
+  problems: 0
+
+  note: orphaned labels and uncited bibitems are listed but not
+  counted -- an unused anchor or a background reference breaks
+  nothing. Dangling pointers and hand-written statement numbers
+  do, and are counted.

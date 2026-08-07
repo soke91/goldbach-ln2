@@ -1,0 +1,40 @@
+audit_zero_coin_dist   (v1_verify2 Phase 1, blind)
+field: 1e5 < N <= 16,000,000  ->  7,950,000 values
+==========================================================================
+  R^2(mu, ten ordinates) = 4.1935e-03   [paper: 3.90e-3]
+
+--- (a) the coin distribution, 12 independent sign fields --
+    coin  1: R^2 = 6.4823e-03   <- exceeds mu
+    coin  2: R^2 = 6.7467e-03   <- exceeds mu
+    coin  3: R^2 = 4.7546e-03   <- exceeds mu
+    coin  4: R^2 = 1.5573e-03
+    coin  5: R^2 = 2.0707e-03
+    coin  6: R^2 = 1.6485e-03
+    coin  7: R^2 = 3.7916e-03
+    coin  8: R^2 = 2.8626e-03
+    coin  9: R^2 = 1.6914e-03
+    coin 10: R^2 = 1.6670e-03
+    coin 11: R^2 = 1.8451e-03
+    coin 12: R^2 = 1.3564e-03
+
+    coin distribution: mean 3.0395e-03, sd 1.9579e-03, max 6.7467e-03
+    R^2(mu) = 4.1935e-03
+    coin draws at or above mu: 3 of 12   -> one-sided p = 0.308
+    z of mu in the coin distribution = +0.59
+    VERDICT: FAILS H7 -- the statistic is reproduced with mu destroyed
+
+--- (b) which surrogate gives the paper's 5.09e-6? ---------------
+    frequency surrogate (field intact, freqs redrawn):
+      max 3.6390e-03   mean 1.8683e-03   sd 7.3425e-04
+    permutation surrogate (field shuffled, zeros kept):
+      max 5.6151e-06   mean 2.5561e-06   sd 7.6787e-07
+    iid expectation 2k/n = 2.5157e-06
+    [paper's quoted surrogate maximum: 5.09e-6]
+
+    ratio, frequency max / permutation max = 648
+
+    G(N) and G(N+2) share almost every summand, so shuffling
+    the field destroys the very correlation that makes a smooth
+    regressor fit it. A permutation null is therefore the wrong
+    null for this statistic, and it is the one that lands near
+    the paper's figure.

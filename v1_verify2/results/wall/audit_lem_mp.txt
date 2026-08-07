@@ -1,0 +1,29 @@
+audit_lem_mp -- is Lemma MP an identity?  (v1_verify2 Phase 1)
+pre-registered rule: PASS iff |RHS/LHS - 1| < 1e-9 at every X
+prediction on record: FAIL, ratio near 2, slowly drifting
+
+     X                LHS            RHS(<X)           RHS(<=X)   RHS/LHS(<X)  RHS/LHS(<=X)
+   200       1.095543e+05       2.263524e+05       2.263524e+05      2.066121      2.066121
+   400       5.554389e+05       9.515805e+05       9.515805e+05      1.713204      1.713204
+   800       2.482602e+06       3.818671e+06       3.818671e+06      1.538173      1.538173
+  1600       1.036013e+07       1.622240e+07       1.622240e+07      1.565849      1.565849
+  3200       4.192978e+07       6.564373e+07       6.564373e+07      1.565563      1.565563
+
+cross-check of the derivation: the simplex-coupled form
+(what the expansion actually gives) against the LHS
+  X=  200  LHS=1.0955429438e+05  simplex=1.0955429438e+05  ratio=1.000000000000
+  X=  400  LHS=5.5543893819e+05  simplex=5.5543893819e+05  ratio=1.000000000000
+  X=  800  LHS=2.4826015804e+06  simplex=2.4826015804e+06  ratio=1.000000000000
+
+the repair: truncated convolution, summed over ALL N (to 2X)
+            against the same box-range RHS
+  X=  200  sum_N Chat(N)^2=2.2635237752e+05  RHS=2.2635237752e+05  ratio=1.000000000000
+  X=  400  sum_N Chat(N)^2=9.5158048780e+05  RHS=9.5158048780e+05  ratio=1.000000000000
+  X=  800  sum_N Chat(N)^2=3.8186707991e+06  RHS=3.8186707991e+06  ratio=1.000000000000
+  X= 1600  sum_N Chat(N)^2=1.6222401658e+07  RHS=1.6222401658e+07  ratio=1.000000000000
+
+VERDICT (paper's literal range, args < X) : FAIL
+VERDICT (alternative range, args <= X)    : FAIL
+  ratio RHS/LHS over X=[200, 400, 800, 1600, 3200]: 2.0661, 1.7132, 1.5382, 1.5658, 1.5656
+  drift across the range: 0.7577
+  => Lemma MP is NOT an identity under either reading.

@@ -1,0 +1,44 @@
+audit_propV_readings   (v1_verify2 Phase 1, blind)
+target: 0.000323 for A, 0.245235 for S, ratio 760
+==========================================================================
+  every even N <= 1.6e7 (as written) n=7,999,999
+    ratio    A=0.000582  S=0.245236  factor=  421.1   <== S MATCHES
+    resid    A=0.000564  S=0.299040  factor=  530.5   
+    residC   A=0.000564  S=0.299040  factor=  530.5   
+
+  1e5 .. 1.4e7                       n=6,950,000
+    ratio    A=0.000341  S=0.245235  factor=  718.4   <== S MATCHES
+    resid    A=0.000335  S=0.299040  factor=  893.8   
+    residC   A=0.000335  S=0.299040  factor=  893.8   
+
+  1e6 .. 1.6e7                       n=7,500,000
+    ratio    A=0.000242  S=0.245235  factor= 1011.5   <== S MATCHES
+    resid    A=0.000238  S=0.299041  factor= 1258.5   
+    residC   A=0.000238  S=0.299041  factor= 1258.5   
+
+  3.4e6 .. 1.6e7  (6.3e6 values)     n=6,300,000
+    ratio    A=0.000197  S=0.245234  factor= 1241.8   <== S MATCHES
+    resid    A=0.000194  S=0.299041  factor= 1544.2   
+    residC   A=0.000194  S=0.299041  factor= 1544.2   
+
+  top octave                         n=4,000,000
+    ratio    A=0.000166  S=0.245234  factor= 1477.9   <== S MATCHES
+    resid    A=0.000163  S=0.299041  factor= 1836.7   
+    residC   A=0.000163  S=0.299041  factor= 1836.7   
+
+--- at what lower cutoff does the A figure become 0.000323? ---
+    N >          0   n=7,999,999   sd_A=0.000582   sd_S=0.245236   factor= 421.1
+    N >     50,000   n=7,975,000   sd_A=0.000346   sd_S=0.245235   factor= 708.3
+    N >    100,000   n=7,950,000   sd_A=0.000323   sd_S=0.245235   factor= 759.3
+    N >    200,000   n=7,900,000   sd_A=0.000300   sd_S=0.245235   factor= 817.8
+    N >    500,000   n=7,750,000   sd_A=0.000268   sd_S=0.245235   factor= 916.4
+    N >  1,000,000   n=7,500,000   sd_A=0.000242   sd_S=0.245235   factor=1011.5
+    N >  2,000,000   n=7,000,000   sd_A=0.000218   sd_S=0.245234   factor=1124.3
+    N >  3,400,000   n=6,300,000   sd_A=0.000197   sd_S=0.245234   factor=1241.8
+    N >  5,000,000   n=5,500,000   sd_A=0.000183   sd_S=0.245234   factor=1340.1
+    N >  8,000,000   n=4,000,000   sd_A=0.000166   sd_S=0.245234   factor=1477.9
+
+  note: the S figure is stable across every cutoff (it is
+  dominated by S's wrong SHAPE, not by small-N noise), while the
+  A figure is entirely a small-N effect. So the two quoted
+  numbers cannot be pinned to the same field by their values.

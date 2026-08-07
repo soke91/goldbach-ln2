@@ -1,0 +1,99 @@
+audit_propV_and_wall  (v1_verify2 Phase 1, blind)
+field: every even N <= 16,000,000   ->   8,000,000 values
+       degenerate (V=0 or W=0, i.e. N <= 4): 1
+       non-degenerate field: 7,999,999 values
+       [conj:wall item 1 quotes '6.3e6 values' for this field;
+        that is 1.270x smaller than what is here]
+========================================================================
+
+--- prop:V: is the local factor A, and how well ------------------
+  top octave: 4,000,000 values (N > 8,000,000)
+  V/W divided by A(N):  mean 1.000000   sd 0.000166   [paper: mean 1.000000, sd 0.000145]
+  V/W divided by S(N):  mean 0.446404   sd 0.109474
+
+  'rescaling each candidate to the measured mean, so that only
+   its shape in N is judged' -- residual sd over every even N:
+    A: residual sd of (V/W)/A, rescaled to mean 1 = 0.000582
+    S: residual sd of (V/W)/S, rescaled to mean 1 = 0.245236
+    A: residual sd of V/(A*N*logN), rescaled = 0.005680
+    S: residual sd of V/(S*N*logN), rescaled = 0.245304
+  paper: 0.000323 for A, 0.245235 for S, factor 760
+  here : 0.000582 for A, 0.245236 for S, factor 421.1
+
+  the six radical cells (2|N, 2*3|N, ..., 2*3*5*7*11*13|N):
+    2*1      | N :  7,999,999 values   mean (V/W)/A = 1.0000012
+    2*3      | N :  2,666,666 values   mean (V/W)/A = 1.0000001
+    2*15     | N :    533,333 values   mean (V/W)/A = 0.9999996
+    2*105    | N :     76,190 values   mean (V/W)/A = 0.9999992
+    2*1155   | N :      6,926 values   mean (V/W)/A = 0.9999990
+    2*15015  | N :        532 values   mean (V/W)/A = 0.9999981
+
+--- sec:margin: max|C|/N over the range --------------------------
+                  octave      count     max|C|/N         max|C|
+       8e+06-1.6e+07     4,000,000      0.01007       117064.4
+       4e+06-8e+06       2,000,000      0.01340        65869.9
+       2e+06-4e+06       1,000,000      0.01858        49620.4
+       1e+06-2e+06         500,000      0.02980        34409.1
+       5e+05-1e+06         250,000      0.04152        27779.6
+     2.5e+05-5e+05         125,000      0.04136        15601.2
+    1.25e+05-2.5e+05        62,500      0.06555        11446.4
+    6.25e+04-1.25e+05       31,250      0.08315         8182.0
+    3.12e+04-6.25e+04       15,625      0.11352         6537.5
+
+  paper: 'max|C|/N falls from 0.056 to 0.0082 over the range computed'
+  here : 0.1135 at the bottom octave -> 0.0101 at the top
+
+  other readings of 'max|C|/N', since the paper does not say
+  over what window the max is taken:
+    max|C|/N over N <= 1e5           = 0.71010
+    max|C|/N over N <= 1.4e7         = 0.71010
+    max|C|/N over N <= 1.6e7         = 0.71010
+    max|C|/N over 1e5 < N <= 1.4e7   = 0.06812
+    max|C| over   N <= 1e5           = 6891.8   /hi = 0.06892
+    max|C| over   N <= 1.4e7         = 110137.5   /hi = 0.00787
+
+  margin N/max|C| at the top octave = 99.3 = N^0.2772
+  paper claims the margin at N=1e8 is N^0.454 = 4285
+  fitting max|C|/N ~ N^-a across the octaves above:
+    a = 0.4332  ->  margin ~ N^0.4332, and at N=1e8 the extrapolated margin is 249
+
+--- conj:wall item 1: the Gaussian bulk --------------------------
+  two readings of 'cell', since the paper defines only the index:
+    32 divisibility patterns  : excess kurtosis +0.025202  z=+14.6
+    6 depths                  : excess kurtosis +0.058812  z=+34.0
+
+  n = 7,999,999  (paper says 6.3e6)
+  excess kurtosis            = +0.025202   z = +14.55   [paper: -0.0005, z=-0.3]
+  E|G|/sd(G)                 = 0.797334   sqrt(2/pi) = 0.797885
+  shortfall                  = -0.000550   z = -2.58   [paper: -0.00018, z=-0.8]
+
+  under the S(N)*N scale:
+  excess kurtosis            = +0.182194   z = +105.2   [paper: +0.1704, z=98]
+
+  (no cell-mean removal: excess kurtosis +0.238762)
+
+--- conj:wall item 3: the tail -----------------------------------
+     t   observed     expected    ratio   Poisson se of ratio
+     3     22,572      21598.4    1.045               +-0.007
+     4        813        506.7    1.604               +-0.056
+     5         59          4.6   12.864               +-1.675
+     6          4          0.0  253.399             +-126.699
+  [paper: 0.999 at t=3, 0.997 at t=4, 0.878 at t=5, no spread quoted]
+
+  max|G| per octave against the Gumbel expectation:
+                  octave      n_oct    max|G|    E[max]      dev  dev/scale
+       8e+06-1.6e+07     4,000,000     5.145     5.271   -0.126      -0.71
+       4e+06-8e+06       2,000,000     5.206     5.142   +0.063      +0.35
+       2e+06-4e+06       1,000,000     5.564     5.011   +0.553      +2.98
+       1e+06-2e+06         500,000     5.612     4.876   +0.736      +3.87
+       5e+05-1e+06         250,000     5.935     4.737   +1.197      +6.13
+     2.5e+05-5e+05         125,000     5.531     4.595   +0.936      +4.67
+    1.25e+05-2.5e+05        62,500     5.887     4.449   +1.438      +6.97
+    6.25e+04-1.25e+05       31,250     6.569     4.298   +2.272     +10.68
+    3.12e+04-6.25e+04       15,625     5.821     4.142   +1.680      +7.64
+  mean deviation over 9 octaves = +0.972 +- 0.256   [paper: +0.54 +- 0.45 over eight octaves]
+
+  extremes: are they at deep radicals or generic N?
+    depth of the 20 largest |G|: [0, 0, 0, 10, 9, 1] (by depth 0..5)
+    depth distribution of the whole field: [0.3836, 0.422, 0.1636, 0.0285, 0.0023, 0.0001]
+

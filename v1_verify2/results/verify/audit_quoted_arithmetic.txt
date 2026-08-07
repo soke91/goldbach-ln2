@@ -1,0 +1,154 @@
+audit_quoted_arithmetic -- wall_v1.tex against itself
+========================================================================
+
+--- 1. sec:floor, the mask-decay exponent table -------------------
+  depth 5: a/se recomputed     9.25   paper    9.2   ok
+  depth 4: a/se recomputed    33.11   paper   33.2   ok
+  depth 3: a/se recomputed    67.82   paper   67.2   ok
+  depth 2: a/se recomputed    70.88   paper   70.6   ok
+  depth 1: a/se recomputed     0.79   paper    0.8   ok
+  depth 0: a/se recomputed    51.98   paper   52.0   ok
+
+[CONSISTENT  ] chi^2/dof for a common decay exponent (5 dof)
+               paper says 251.0, recomputed 251.4877636742351  (rel dev 0.194%)
+               weighted common exponent = 0.30184
+
+  successive steps along the paper's own ordering (depth 1 dropped):
+    depth 5 -> 4:  delta=0.0718  se=0.0168  z=4.27
+    depth 4 -> 3:  delta=0.0561  se=0.0076  z=7.35
+    depth 3 -> 2:  delta=0.0973  se=0.0066  z=14.83
+    depth 2 -> 0:  delta=0.2603  se=0.0132  z=19.76
+
+  recomputed step range: 4.27 to 19.76 standard errors
+  paper claims         : 5 to 30 standard errors
+[INCONSISTENT] sec:floor step significances '5 to 30 s.e.'
+               smallest step is 4.27 s.e. (paper's floor is 5),
+               largest step is 19.76 s.e. (paper's ceiling is 30).
+               alt reading: steps taken including depth 1 -> 4.3, 7.4, 14.8, 5.8, 10.3
+               alt reading: the a_d/s.e. column itself -> 9.2, 33.2, 67.2, 70.6, 0.8, 52.0
+               neither alternative reaches 30.
+
+--- 2. conj:wall item 2, the deep-vs-shallow gap at N ~ 1e8 -------
+[CONSISTENT  ] gap value 0.9476 - 0.7238
+               paper says 0.2238, recomputed 0.2238  (rel dev 0.000%)
+
+[INCONSISTENT] s.e. of the gap, arms independent
+               paper says 0.0056, recomputed 0.03819345493667731  (rel dev 582.026%)
+               paper's 0.0056 is 6.8x SMALLER than either arm's own s.e.;
+               significance is 5.9 sigma, not the 40 the paper quotes
+               alt reading: arms paired/positively correlated: needs corr rho with var(gap)=0.0056^2 => rho=0.9942 (i.e. ~0.99 correlation), which the paper does not state
+               alt reading: the +- on the arms are SDs not SEs, n=300 each: then se(gap)=0.00221, still not 0.0056
+
+  correlation between the two arms needed to give s.e. 0.0056: rho = 0.9942
+
+--- 3. conj:wall item 1, the Gaussian-bulk z scores ----------------
+[CONSISTENT  ] z of excess kurtosis -0.0005 on 6.3e6 values
+               paper says -0.3, recomputed -0.25617376914899  (rel dev 14.609%)
+               se(excess kurtosis) = sqrt(24/n) = 0.001952
+
+[INCONSISTENT] z of the SS*N-scaled excess kurtosis +0.1704 on 'the same data'
+               paper says 98.0, recomputed 87.30402052597577  (rel dev 10.914%)
+               the paper says 'the same data' -- so the same n must be used
+               alt reading: n = 7.938e+06 reproduces z=98, i.e. 1.26x the stated n (this is 8.0e6 = every even N <= 1.6e7, un-thinned)
+
+[CONSISTENT  ] z of the E|G| shortfall 0.00018 on 6.3e6 values
+               paper says -0.8, recomputed -0.7494835988596579  (rel dev 6.315%)
+               se(mean|G|) = sqrt(1-2/pi)/sqrt(n) = 0.0002402
+
+--- 4. prop:coh and 'a count is not an error bar' ------------------
+[CONSISTENT  ] count-based shrink over the measured range
+               paper says 11.8, recomputed 11.832159566199232  (rel dev 0.273%)
+               factor 140 in N, sqrt = 11.83
+
+[CONSISTENT  ] (log N)^{-1/2} shrink over the same range
+               paper says 1.21, recomputed 1.1955022405397857  (rel dev 1.198%)
+
+[CONSISTENT  ] 'about ten times too narrow at the top'
+               paper says 10.0, recomputed 9.897229101684367  (rel dev 1.028%)
+
+[CONSISTENT  ] shortfall growth exponent N^{0.46}
+               paper says 0.46, recomputed 0.4638649730619868  (rel dev 0.840%)
+
+[CONSISTENT  ] apparent power exponent 1/(2<log N>)
+               paper says 0.036, recomputed 0.03575579646678744  (rel dev 0.678%)
+
+[CONSISTENT  ] 'agreement to five percent' of 0.036 with the measured 0.0379
+               paper says 0.05, recomputed 0.0565752911137879  (rel dev 13.151%)
+               paper compares its prediction against depths 2,1,0 = 0.0379, 0.0378, 0.0379
+
+--- 5. prop:V, the A-versus-S residual --------------------------
+[CONSISTENT  ] factor by which A beats S on residual sd
+               paper says 760.0, recomputed 759.2414860681115  (rel dev 0.100%)
+
+--- 6. sec:closures, the C4 threshold -----------------------------
+[INCONSISTENT] false-pass rate of a 0.5x threshold sitting 1.29 s.e. below null
+               paper says 0.088, recomputed 0.09852532904974785  (rel dev 11.961%)
+               one-sided normal tail at z=-1.29
+               alt reading: z reproducing 8.8% is 1.3535, not 1.29
+               alt reading: two-sided at 1.29 would be 0.1971, further away
+
+  'C4' is named nowhere else in the paper; the classes are C-I, C-II, C-III, C-IV
+  and the kill-tests are K1-K4, R1-R5. The referent is undefined.
+
+--- 7. sec:closures R1 row ---------------------------------------
+[CONSISTENT  ] R1 z against its own null
+               paper says -0.8, recomputed -0.7999999999999977  (rel dev 0.000%)
+
+[CONSISTENT  ] R1 'excludes a 7.5% enhancement at three standard errors'
+               paper says 0.075, recomputed 0.07513661202185792  (rel dev 0.182%)
+
+--- 8. supply side, the square-root-normalisation demand ----------
+[CONSISTENT  ] the sqrt-scale demand quoted as 8.8e-6 at N=1e8
+               paper says 8.8e-06, recomputed 8.685149475000205e-06  (rel dev 1.305%)
+               (log N)^(-2A-2) at N=1e8, A=1 = 8.685e-06; identifies A=1
+
+--- 9. rem:rho, the three rhos -----------------------------------
+[CONSISTENT  ] conversion of the half-normal arm 0.810 into prop:W units
+               paper says 0.841, recomputed 0.841  (rel dev 0.000%)
+               the conversion is a factor 1.0383, i.e. 3.83%, at N~1e8;
+               the same remark says the three summaries agree to 0.75% at N~1.4e7
+               and that the disagreement SHRINKS with N (10.3% at 1e5 -> 0.75% at 1.4e7).
+               A 3.8% spread at N~1e8 runs against that trend by 5x.
+
+[CONSISTENT  ] prop:W reconstruction shortfall
+               paper says 0.54, recomputed 0.5422222222222223  (rel dev 0.412%)
+
+--- 10. sec:margin, the extrapolated margins ----------------------
+  N=1e12: a_n=6.943, N/max|C| = 10^4.50   paper: 10^4.4
+  N=1e50: a_n=14.888, N/max|C| = 10^22.86   paper: 10^22.8
+
+  measured max|C|/N falls 0.056 -> 0.0082 across N=1e5..1.6e7:
+    implies max|C|/N ~ N^-0.3786, i.e. margin ~ N^0.3786
+    margin at the top of the measured range = 122 = N^0.2896
+    extrapolated to N=1e8: 244 = N^0.2984
+  paper claims 'the margin at N=1e8 is a factor N^0.454' = 4285
+  paper's OWN formula at N=1e8 gives 490 = N^0.3363
+[INCONSISTENT] sec:margin 'the margin at N=1e8 is a factor N^0.454'
+               the paper's own Gumbel formula gives N^0.336 and its own measured trend
+               extrapolates to N^0.298. Both are far below 0.454.
+
+--- 11. the closure count ----------------------------------------
+  abstract: 'eighteen pre-registered closures --- five route
+            adjudications, ten kill-tested technique designs, and
+            three representation-class experiments'
+  body    : '5.1 Adjudication of existing machinery (5)'   -> 5 rows
+            '5.2 Technique designs, kill-tested (9)'       -> 9 rows
+                 K1 K2 K3 K4 R1 R2 R3 R4 R5
+            '5.3 Representation classes (3, plus one open)'-> 3 rows
+  body total = 5 + 9 + 3 = 17
+[INCONSISTENT] abstract says eighteen (with ten kill-tests); the body states
+               and tabulates nine kill-tests, total seventeen.
+
+--- 12. prop:E, the measured margins ------------------------------
+  quoted at 'N = 2^14, ..., 2^20': [0.168, 0.175, 0.158, 0.152]
+  2^14..2^20 inclusive is 7 exponents; 4 values are given.
+  described as 'below 1 and decaying'; the sequence rises 0.168 -> 0.175 first.
+
+========================================================================
+checks run: 22   INCONSISTENT: 6
+  - sec:floor step significances '5 to 30 s.e.'
+  - s.e. of the gap, arms independent
+  - z of the SS*N-scaled excess kurtosis +0.1704 on 'the same data'
+  - false-pass rate of a 0.5x threshold sitting 1.29 s.e. below null
+  - sec:margin N^0.454 at N=1e8
+  - abstract closure count

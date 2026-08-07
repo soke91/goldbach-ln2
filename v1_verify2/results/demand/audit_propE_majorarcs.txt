@@ -1,0 +1,37 @@
+audit_propE_majorarcs   (v1_verify2 Phase 1, blind)
+==========================================================================
+
+--- (a) prop:E, the measured margin ------------------------------
+    margin := N / (sup_alpha|S_mu| * ||S_Lambda||_1)
+    sup and L1 are computed on a grid of 8N points; a grid sup
+    UNDER-estimates the true sup, so the margin printed is an
+    upper bound on the true margin.
+
+             N     sup|S_mu|  sup/sqrt(N)    ||S_L||_1    margin    paper
+        16,384         391.5       3.0585       249.19    0.1679    0.168
+        32,768         523.9       2.8940       365.55    0.1711         
+        65,536         702.0       2.7423       533.68    0.1749    0.175
+       131,072        1031.1       2.8480       780.50    0.1629         
+       262,144        1464.0       2.8594      1136.08    0.1576    0.158
+       524,288        2094.0       2.8919      1654.48    0.1513         
+     1,048,576        2868.5       2.8012      2402.70    0.1521    0.152
+
+    the paper names seven exponents (2^14,...,2^20) and gives
+    four values, so the abscissa of each is not recoverable.
+
+--- (b) sec:coin, the major arcs ---------------------------------
+    N = 1,048,576,  squarefree support = 637,461,  (6/pi^2)N = 637,458
+    coin rms        = 798.4
+    coin mean |.|   = 637.0   (= sqrt(2/pi) x rms)
+
+       q  |S_mu(j/q)| rms over j   ratio vs coin rms   ratio vs coin mean    paper
+       2                   13.00               61.42                49.00         
+       3                  332.56                2.40                 1.92     8.40
+       4                  273.70                2.92                 2.33         
+       5                  289.01                2.76                 2.20    15.16
+       6                  568.38                1.40                 1.12         
+       7                  276.57                2.89                 2.30         
+      11                  622.27                1.28                 1.02         
+     143                  849.98                0.94                 0.75         
+
+    the two coin conventions differ by sqrt(pi/2) = 1.2533; the paper states neither.

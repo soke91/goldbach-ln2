@@ -8,6 +8,77 @@ code/       new computations
 results/    their outputs
 ```
 
+## The v2 paper
+
+`paper/wall_v2.tex` — **the submission candidate.** It is not `v1` with
+patches; it is a narrower paper built only from what survived two
+independent adversarial passes (`v1_verify`, `v1_verify2`).
+
+**What it keeps.** The demand side entire (Theorem A and its corollary,
+the equivalence, the weight-space no-go, the circle-method margin, the
+polynomial-weight closure); the Huang--Li equation (18) defect report,
+which was confirmed against the source text; and the wall's *exact*
+results — the second moment `prop:V`, the aggregate identity `lem:MP`
+in its repaired form, the exact cell floor `lem:cellmom`, the coherence
+law `prop:coh`, the scale-invariance obstruction `prop:scaleinv`, and
+the two controls. It adds one result the earlier draft did not state:
+the amplification `Gamma ~ N/(A log N)` (`prop:W`), which shows Chowla
+does not give `Var C ~ V` and that no bound on `|S(h)|` can.
+
+**What it drops, and where that went.** Conjecture `conj:wall` and all
+four of its measurements, `sec:floor`'s decay table, the `rho`
+reconstruction, the major-arc factors, the autocorrelation excess, and
+the margin exponent. §"What this version does not claim" says so in the
+paper itself rather than leaving the reader to notice. Those questions
+are the ones listed below, and the mask's decay law is added to them.
+
+**The bundle is two files.** `paper/wall_v2.tex` cites
+`paper/theorem_A.tex` as its companion note, so the note ships with it
+and carries its own copy here (`v1/` is frozen and cannot be edited).
+The note's defective one-line mechanism is fixed in **both** places it
+appeared — the overview of \S"Notation and the mechanism" and the remark
+after the theorem statement. The proof itself was already correct; only
+the two summaries of it were not.
+
+That defect turned out to have three homes: `wall_v1.tex`,
+`theorem_A.tex`'s overview, and `theorem_A.tex`'s remark. The first fix
+missed the third, and the findings lint caught it. Keep the lint in the
+gate for that reason.
+
+**Gates.** Two lints, both exiting nonzero on failure, run over both
+files:
+
+```
+python v2/code/lint_paper_refs.py v2/paper/wall_v2.tex        # 0
+python v2/code/lint_paper_refs.py v2/paper/theorem_A.tex      # 0
+python v1_verify2/code/verify/lint_corrected_vs_findings.py \
+       v2/paper/wall_v2.tex                                   # 0 of 17
+python v1_verify2/code/verify/lint_corrected_vs_findings.py \
+       v2/paper/theorem_A.tex                                 # 0 of 17
+```
+
+For contrast the same findings lint reports 17 of 17 against
+`v1/paper/wall_v1.tex`, 16 of 17 against
+`v1_verify/paper/wall_v1_corrected.tex`, and 1 of 17 against the frozen
+`v1/paper/theorem_A.tex`.
+
+**Before submission.** Four items, none of them mathematical:
+
+1. `\author{[author]}` is a placeholder.
+2. The defect report is against arXiv:2005.03811**v2** (2022). Check
+   whether a later version already repairs equation (18), and tell the
+   authors before publishing a defect report about them.
+3. Three of the first pass's corrections are still single-witness — K1's
+   reopening, R2's coherent-gain figure, R1's six-draw spread. The paper
+   states K1 as *open* and withdraws R1's and R2's quoted precisions, so
+   nothing rests on them; do not reintroduce their numbers.
+4. One citation was **added** by the repair and has not been checked
+   against its source: `prop:E` now attributes
+   `\|S_\Lambda\|_1 \gg N^{1/2}` to Vaughan (1988). Verify the reference
+   and the exact form of the statement, or weaken the sentence to "an
+   unconditional lower bound of this order is known". The old text
+   attributed the step to Parseval, which does not cover it.
+
 ## What v2 inherits
 
 The four questions `v1` states and does not answer, in the order of how

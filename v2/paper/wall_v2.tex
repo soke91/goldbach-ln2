@@ -1,0 +1,1240 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1.05in]{geometry}
+\usepackage{longtable}
+\usepackage{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\renewcommand{\SS}{\mathfrak{S}}
+\newcommand{\AAA}{\mathfrak{A}}
+
+\title{The demand side of the Elliott--Halberstam route to binary
+Goldbach,\\ and the wall's exact second moment}
+
+\author{[author]}
+\date{Version 2\\
+\small All measurements reproducible from the accompanying repository}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Huang and Li proved that binary Goldbach for large even $N$ follows
+from $EH_\mu(N^{\theta'})$ for a single $\theta' > 1/2$. This paper
+maps that hypothesis from both of its sides and establishes what is
+exactly computable about the single scalar it reduces to.
+
+On the \emph{demand} side we prove one unconditional theorem
+(Theorem~\ref{thm:A}): the M\"obius-weighted, fixed-class correlation
+sum with weight $w_k = 1$ is $\ll_A N(\log N)^{-A}$, so Huang--Li's
+$E_4$ consumption of $EH_\mu$ is unnecessary and the whole demand
+collapses to the single scalar $E_3$. That scalar is \emph{equivalent}
+to binary Goldbach by Huang--Li's own equation~(22)
+(Theorem~\ref{thm:C}), so the demand-side search for a weaker
+sufficient condition is closed at the level of identities. We then
+close the interior of the design space those two endpoints open
+(Theorems~\ref{thm:D} and~\ref{thm:Dprime},
+Propositions~\ref{prop:E} and~\ref{prop:Dpp}). We also report a defect
+in equation~(18) of the source paper, and its repair.
+
+The demand side reduces everything to
+$C(N)=\sum_{n<N}\Lambda(n)\mu(N-n) = o(N)$.
+Sections~\ref{sec:wall}--\ref{sec:floor} give the exact facts about
+that quantity: its second moment in closed form
+(Proposition~\ref{prop:V}), an exact identity for the aggregate second
+moment (Lemma~\ref{lem:MP}), an exact closed form for the fluctuation
+of any cell mean (Lemma~\ref{lem:cellmom}), and the observation that
+this error bar falls like $(\log N)^{-1/2}$ and not like $n_c^{-1/2}$
+(Proposition~\ref{prop:coh}), which changes the width of every interval
+in this subject built from a count. Two controls
+(Lemmas~\ref{lem:coin} and~\ref{lem:placebo}) delimit what can be
+measured at all: in particular the excess of $\mathrm{Var}\,C$ over its
+random-sign value cannot be estimated by any centred statistic, because
+such a statistic returns the same value on a coin.
+
+We also quantify the obstruction to the natural conditional route:
+Chowla's conjecture does \emph{not} give $\mathrm{Var}\,C \sim V$,
+because the coefficient amplifying $S(h)$ grows like $N/\log N$
+(Proposition~\ref{prop:W}), and since that coefficient is nonnegative
+no bound on $|S(h)|$ suffices at all.
+
+The deliverable is the map and the exact facts, not a theorem toward
+Goldbach. Net progress toward Goldbach: zero. We state throughout what
+is and is not claimed, and \S\ref{sec:notclaimed} states what has been
+deliberately withheld from this version.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+\subsection{The conditional frame}
+
+Let $N$ be a large even integer,
+$\tilde r(N) = \sum_{n<N}\Lambda(n)\Lambda(N-n)$, and $\SS(N)$ the
+singular series. Write $EH_\mu(Q)$ for the assertion that for every
+$A>0$
+\[
+  \sum_{q\le Q}\max_{y<N}\max_{(a,q)=1}
+  \Bigl|\sum_{\substack{n\le y\\ n\equiv a\,(q)}}\Lambda(n)\mu(N-n)
+   -\frac{1}{\varphi(q)}\sum_{n\le y}\Lambda(n)\mu(N-n)\Bigr|
+  \ll_A \frac{N}{(\log N)^A}.
+\]
+Huang and Li~\cite{HL}, continuing Pan~\cite{Pan}, proved that
+$EH(N^{\theta}(\log N)^{2A+8})$ together with $EH_\mu(N^{1-\theta})$
+implies $\tilde r(N)\ge \SS(N)(1-A(N))N + O(N(\log N)^{-A})$, and
+deduced (their Corollary~1) that in view of Bombieri--Vinogradov,
+binary Goldbach for all sufficiently large even integers follows from
+$EH_\mu(N^{\theta'})$ alone for any single $\theta' > 1/2$.
+
+This is the sharpest conditional frame we are aware of: one sentence
+stands between classical technology and Goldbach. This paper asks what
+that sentence actually costs.
+
+\subsection{The organizing principle: two couplings}
+
+The hypothesis contains a product of two M\"obius factors, and there
+are exactly two ways their arguments can be coupled. This turns out to
+organize everything.
+
+\begin{itemize}
+\item \textbf{Divisibility-coupled} (the \emph{demand} side). Inside
+  Huang--Li's proof, $EH_\mu$ is consumed only in the fixed residue
+  class $n \equiv N \pmod k$, i.e.\ $k \mid N-n$: one M\"obius
+  argument divides the other. Section~\ref{sec:demand}.
+\item \textbf{Difference-coupled} (the \emph{supply} side). Any attempt
+  to \emph{prove} $EH_\mu$ by dispersion arrives at the dilate field
+  $D(k) = \sum_m \mu(m)\mu(N-mk)$, where the two arguments are related
+  by a difference, not a divisibility. Section~\ref{sec:supply}.
+\end{itemize}
+
+\noindent
+The two behave completely differently, and each is closed for its own
+reason:
+
+\begin{center}
+\begin{tabular}{p{0.20\textwidth}p{0.34\textwidth}p{0.34\textwidth}}
+\hline
+ & \textbf{Divisibility-coupled} & \textbf{Difference-coupled}\\
+\hline
+Divisor switch & exact, and free & exact, but useless\\
+M\"obius lands on & the \emph{short} variable, $m\le N^{1/2-\delta}$ &
+ the \emph{long} variable, $m \asymp N/K \ge N^{2/3}$\\
+Consequence & Bombieri--Vinogradov closes it: Theorem~\ref{thm:A} &
+ no known machine applies\\
+But & the weighted version is \emph{equivalent} to Goldbach
+ (Theorem~\ref{thm:C}) & no named coupling surface found, internal or
+ external (\S\ref{sec:closures})\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{What this paper claims}\label{sec:claims}
+
+\begin{itemize}
+\item \textbf{Claimed}: Theorem~\ref{thm:A}, Corollary~\ref{cor:B},
+  Theorem~\ref{thm:C}, Theorems~\ref{thm:D} and~\ref{thm:Dprime},
+  Propositions~\ref{prop:E}, \ref{prop:Dpp}, \ref{prop:V},
+  \ref{prop:W}, \ref{prop:scaleinv} and~\ref{prop:coh},
+  Lemmas~\ref{lem:MP}, \ref{lem:cellmom}, \ref{lem:coin}
+  and~\ref{lem:placebo}; the defect in \cite{HL}'s equation~(18) and
+  its repair; the measurements reported here, which are reproducible.
+\item \textbf{Conjectured}: Conjecture~\ref{conj:L}.
+\item \textbf{Not claimed}: any theorem toward Goldbach.
+  Theorem~\ref{thm:A} is unconditional but Goldbach-neutral: it
+  removes exactly the half of the demand that carries no Goldbach
+  content. See also \S\ref{sec:notclaimed}.
+\end{itemize}
+
+\section{The demand side}\label{sec:demand}
+
+\subsection{Where $EH_\mu$ is actually consumed}
+
+For $(k,N)=1$ and $1\le t<N$ put
+\[
+  E_\mu(t;k) = \sum_{\substack{n\le t\\ n\equiv N\,(k)}}
+    \Lambda(n)\mu(N-n) - \frac{1}{\varphi(k)}\sum_{n\le t}
+    \Lambda(n)\mu(N-n).
+\]
+With $K = (N-1)/\alpha$, Huang--Li's two consumption sites are
+\[
+  E_3(\alpha)=\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!\mu(k)\log k\,
+  E_\mu(N;k),
+  \qquad
+  E_4(\alpha)=\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!\mu(k)\,
+  \bigl[\text{$E_\mu$ with the extra weight }\log(N-n)\bigr].
+\]
+They differ in exactly one respect: the weight $w_k$ is $\log k$ in
+$E_3$ and $1$ in $E_4$ (the $\log(N-n)$ inside $E_4$ is
+$k$-independent and comes off by partial summation). In both cases
+Huang--Li discard the signs $\mu(k)$ on the first line by the triangle
+inequality, and only then appeal to $EH_\mu$. Keeping the signs is
+what the following results exploit.
+
+\subsection{The theorem}
+
+\begin{theorem}[$w_k = 1$]\label{thm:A}
+Fix $\theta' \in (1/2,1)$ and put $K = N^{\theta'}$. Then for every
+$A>0$,
+\[
+  \sup_{1\le t<N}\Bigl|
+   \sum_{\substack{k<K\\(k,N)=1}}\mu(k)\,E_\mu(t;k)\Bigr|
+  \;\ll_{A,\theta'}\; \frac{N}{(\log N)^A}.
+\]
+Every ingredient except Bombieri--Vinogradov contributes only
+$O(Ne^{-c\sqrt{\log N}})$.
+\end{theorem}
+
+The mechanism is short, but it has three steps and not one. The class
+$n \equiv N \pmod k$ is $k \mid N-n$, so with $u = N-n$ the $k$-sum is
+the incomplete divisor sum $\sigma_K(u) = \sum_{k\mid u,\,k<K}\mu(k)$.
+\emph{First} one completes it: for squarefree $u$,
+$\sum_{k\mid u,\,(k,N)=1}\mu(k) = \mathbf 1_{\mathrm{rad}(u)\mid N}$,
+which forces $u\mid \mathrm{rad}(N)$ and so contributes $N^{o(1)}$
+terms. \emph{Then} the complementary sum, over $k\ge K$, is the one
+that carries the work --- and it is only there that writing $u = mk$
+gives
+\[
+  m \;=\; u/k \;<\; N/K \;=\; N^{1-\theta'} \;\le\; N^{1/2-\delta}.
+\]
+\emph{Finally}, for squarefree $u=mk$ one has $(m,k)=1$ and
+$\mu(u)\mu(k) = \mu(m)\mu^2(k)$: the M\"obius on the long variable $k$
+squares itself away and the surviving M\"obius sits on the short
+variable $m$. That is the classical ``M\"obius on the short variable
+plus Bombieri--Vinogradov'' configuration.
+
+The completion step is not decorative. Over the range $k<K$ as it
+stands, the cofactor $u/k$ runs up to $u$ itself, and the M\"obius
+would sit on the \emph{long} variable --- the configuration the table
+of \S1.2 records as having no known machine. Full proofs are in the
+companion note~\cite{ThmA}.
+
+The bound is $N(\log N)^{-A}$ for each fixed $A$ and no better. It is
+not $Ne^{-c\sqrt{\log N}}$: Bombieri--Vinogradov's internal
+Siegel--Walfisz range is $q\le(\log N)^B$ with $B$ fixed, and that is
+what caps the saving.
+
+\begin{corollary}\label{cor:B}
+$E_4(\alpha) \ll_A N(\log N)^{-A}$ unconditionally, via the exact
+identity $E_4(\alpha) = \int_1^{N-1} T_1(t)\,dt/(N-t)$, where
+$T_1(t)$ is the sum of Theorem~\ref{thm:A}. Hence Huang--Li's Lemma~4
+is not needed and the entire $EH_\mu$ demand collapses to the single
+scalar $E_3(\alpha)$.
+\end{corollary}
+
+\begin{proof}[Derivation]
+$\int_n^{N-1}dt/(N-t) = \log(N-n)$, so for any coefficients $a_n$,
+$\sum_n a_n\log(N-n) = \int_1^{N-1}\bigl(\sum_{n\le t}a_n\bigr)
+dt/(N-t)$. Applying this with $a_n$ the summands of $T_1$ and bounding
+$|E_4|\le \sup_t|T_1(t)|\cdot\log(N-1)$ gives the corollary, $A$ being
+arbitrary.
+\end{proof}
+
+\begin{theorem}[$w_k = \log k$: the permanent closure]\label{thm:C}
+Unconditionally,
+\[
+  E_3(\alpha) = \sum_{n<N}\Lambda(n)\Lambda(N-n)
+   - \SS(N)\Bigl(N - \sum_{n<N}\Lambda(n)\mu(N-n)\Bigr)
+   + O_A\!\left(N(\log N)^{-A}\right),
+\]
+which is Huang--Li's own equation~(22). Hence
+$E_3(\alpha)\ll_A N(\log N)^{-A}$ --- the weakest form of the
+hypothesis their argument needs --- is \emph{equivalent} to
+$\tilde r(N)\sim\SS(N)N$.
+\end{theorem}
+
+Theorem~\ref{thm:C} is not new: \cite{HL} state the equivalence
+themselves, immediately after their equation~(22). It is recorded here
+because it is the other endpoint of the design space that
+Theorem~\ref{thm:A} opens, and because the next subsection closes the
+interior between them.
+
+\begin{remark}
+The two theorems are the same computation with two weights. For
+$w_k = \log k$ the complete divisor sum is $-\Lambda$ rather than an
+indicator, because $\mu * \log = \Lambda$ --- and that identity is
+where Huang--Li \emph{start} (their~(10)). The $\log k$ weight is the
+carrier of the Goldbach content, so every divisor switch must hand it
+back. This is closure at the level of identities, not of estimates: no
+choice of $\theta'$, truncation, or smoothing can evade it.
+\end{remark}
+
+\subsection{The interior of the weight space is empty}
+
+Theorems~\ref{thm:A} and~\ref{thm:C} are the two endpoints of a design
+space: the weight $w_k$ attached to $\mu(k)$ in the demand functional.
+It is natural to look for a weight between them --- complete divisor
+sum still cheap, main-term coefficient still of size $1$ --- that would
+extract $C(N)=\sum_{n<N}\Lambda(n)\mu(N-n)$ from
+Bombieri--Vinogradov alone. There is none.
+
+Write $b := \mu*w$, so $w_k=\sum_{d\mid k}b_d$; every weight has this
+form. For squarefree $u$ one has $\sum_{k\mid u}\mu(k)w_k=\mu(u)b_u$,
+so the switch identity reads
+$B_w\,C(N)=\sum_{u<N}\Lambda(N-u)\mu^2(u)b_u-\mathcal R_w$ with
+$B_w=\sum_{k<K,(k,N)=1}\mu(k)w_k/\varphi(k)$. Two exact facts then
+oppose each other:
+
+\begin{itemize}
+\item \emph{Extraction}:
+  $B_w=\sum_{d<K}b_d\,\frac{\mu(d)}{\varphi(d)}\rho_{dN}(K/d)$ with
+  $\rho \ll e^{-c\sqrt{\log x}}$, so $B_w$ is controlled by the part of
+  $b$ sitting \emph{at} the truncation point $K=N^{\theta'}$.
+\item \emph{BV-accessibility}: expanding $w$ inside the residual gives
+  moduli $md$ with $m<N^{1-\theta'}$, so $b$ may only be supported on
+  $d\le N^{\theta'-1/2-\delta}$.
+\end{itemize}
+
+\begin{theorem}[no weight extracts $C(N)$]\label{thm:D}
+Fix $\delta>0$. If $b=\mu*w$ is supported in
+$[1,N^{\theta'-1/2-\delta}]$ then
+$\|b\|_1/|B_w| \gg \exp\bigl(c\sqrt{(1/2+\delta)\log N}\bigr)$, and the
+switch identity yields at best
+\[
+  |C(N)|\;\ll\;\exp\bigl(c\sqrt{(\tfrac12+\delta)\log N}\bigr)\,
+  N(\log N)^{-A},
+\]
+which is no saving of any power of $\log N$. Letting $\delta\to0$ the
+loss exponent tends to $\sqrt{\tfrac12\log N}$ and never below it.
+\end{theorem}
+
+\begin{theorem}[the no-go survives $EH$]\label{thm:Dprime}
+If $\Lambda$ has level of distribution $\theta_E<1$, the same argument
+gives $\|b\|_1/|B_w| \gg \exp(c\sqrt{(1-\theta_E)\log N})$. Closing the
+gap requires $\theta_E=1$: equidistribution of $\Lambda$ to moduli of
+size $N$ itself, where each progression holds $O(1)$ terms.
+\end{theorem}
+
+\begin{proposition}[the circle method has zero margin]\label{prop:E}
+Writing $C(N)=\int_0^1 S_\Lambda S_\mu e(-N\alpha)d\alpha$, both
+standard estimates lie at or above the trivial bound $\psi(N)\sim N$.
+Cauchy--Schwarz gives
+$\|S_\Lambda\|_2\|S_\mu\|_2 \sim (6/\pi^2)^{1/2}N(\log N)^{1/2}$,
+exceeding it by a growing factor. For the pointwise route, Parseval
+gives $\sup_\alpha|S_\mu| \ge \|S_\mu\|_2 = (6N/\pi^2)^{1/2}$, so no
+improvement in M\"obius exponential-sum technology can push the first
+factor below the scale $N^{1/2}$; and $\|S_\Lambda\|_1 \gg N^{1/2}$ by
+Vaughan~\cite{Vau88}, so the product is $\gg N$.
+The measured margin $N/(\sup|S_\mu|\,\|S_\Lambda\|_1)$ is
+$0.1679,\,0.1749,\,0.1576,\,0.1521$ at
+$N=2^{14},2^{16},2^{18},2^{20}$ --- below $1$ throughout, and falling
+over the last three.
+\end{proposition}
+
+Davenport's uniform bound $S_\mu\ll_A N(\log N)^{-A}$ is useless here:
+it saves against $N$, while the pairing needs the scale $N^{1/2}$,
+which Parseval forbids. This is the parity obstruction in
+circle-method language; compare \cite{MV17} for the same barrier stated
+in sieve terms.
+
+Theorem~\ref{thm:D} assumes $b$ is supported low enough for BV, which
+excludes the most natural family: $w_k=f(\log k)$ with $f$ polynomial.
+There $b=\mu*\log^D=\Lambda_D$, the generalised von Mangoldt function,
+so the complete part splits by the number of prime factors of $u$ into
+a Goldbach-type piece ($r=1$) and Chen-type pieces ($r\ge2$).
+
+\begin{proposition}[polynomial weights]\label{prop:Dpp}
+$D=0$ gives $B_w\ll e^{-c\sqrt{\log K}}$. For a monomial $x^D$,
+$D\ge1$, every term of the complete part is nonnegative
+($\Lambda\ge0$, $\Lambda_D\ge0$), so it is $\asymp N(\log N)^{D-1}$
+with a fixed sign. Cancelling across monomials requires tuning against
+the asymptotics of the $r=1$ piece, which at $D=1$ is the binary
+Goldbach sum --- circular. No polynomial weight makes the complete
+part a classically known object.
+\end{proposition}
+
+Measured at $N=10^6,4\cdot10^6,1.6\cdot10^7$: the two pieces of
+$\mathrm{CP}_2$ are the same order, with ratio
+$0.7712,\,0.7903,\,0.8103$, and
+$\mathrm{CP}_2/(N\log N) = 2.8864,\,2.9493,\,2.9966$. The closure rests
+on nonnegativity, not on one piece dominating; the drift of the ratio
+is real over the range computed but reaching $1$ at its observed rate
+would take $N$ near $10^{13}$, so nothing is claimed about its limit.
+The one analytically canonical tuning, $f(x)=x^2-2\gamma x$, which
+makes $b$ mean-zero by killing the pole of $\zeta W$ at $s=1$, moves
+the complete part by $-5.1\%$, $-4.5\%$, $-4.1\%$ at the three $N$:
+mean-zero is not smallness, because it removes the average of $b$ and
+not its correlation with $\Lambda(N-\cdot)$.
+
+The loss exponent $\sqrt{(1/2)\log N}$ is the $\sqrt N$ barrier itself:
+it is the gap between where a weight must live to see $C(N)$ and where
+Bombieri--Vinogradov permits it to live. This is a no-go for one
+precisely specified method --- divisor switching with BV as the only
+input --- over that method's entire weight space; it is not an
+obstruction to other methods. Its purpose is to close the design space
+that Theorems~\ref{thm:A} and~\ref{thm:C} opened.
+
+\subsection{A defect in the published paper}
+
+Equation~(18) of \cite{HL} replaces the $n$-dependent constraint
+$k < (N-n)/\alpha$, present three displays earlier in the derivation of
+$S_2(\alpha)$, by the $n$-free $k < (N-1)/\alpha$. The terms thereby
+included are exactly those with $d=(N-n)/k \le \alpha$, and they sum to
+\[
+  \Delta = -\sum_{2\le m\le\alpha}\mu(m)\log m
+    \sum_{\substack{k<(N-1)/\alpha\\ (k,m)=1}}\mu^2(k)\Lambda(N-mk),
+\]
+whose trivial bound $\ll N(\log N)^2$ exceeds the target. It closes by
+the same machinery --- M\"obius again on the short variable --- under
+hypotheses already assumed: unconditionally by Bombieri--Vinogradov in
+the Corollary-1 regime, and under the assumed $EH$ in the Theorem-1
+regime. Theorem~1 and Corollary~1 of \cite{HL} stand as stated.
+
+\section{The supply side}\label{sec:supply}
+
+\subsection{The consumable}
+
+The chain's supply-side consumable, distilled, is
+\[
+  \textbf{E1 (weak form).}\quad
+  D(k) = \!\!\sum_{\sqrt N < m \le N/k}\!\! \mu(m)\mu(N-mk),
+  \qquad
+  \sum_{k\sim K}|D(k)|^2 \ll (\log N)^{-2A-2}\sum_{k\sim K} M_k^2,
+\]
+for $K \le N^{1/3}$ dyadic, where $M_k$ is the length of the $m$-range.
+A fixed log-power saving is the currency; $o(1)$ and $\log\log$ savings
+are not consumable.
+
+The normalisation is $M_k^2$, i.e.\ the \emph{trivial} bound, not
+$M_k$, the square-root scale: the wall is
+$T_{II} = \sum_{k\sim K}b_kD(k)$ with $|b_k|\ll\log N$, needed at
+$N(\log N)^{-A}$, and Cauchy--Schwarz in $k$ gives
+$\sum_k|D(k)|^2 \ll N^2/(K(\log N)^{2A+2})$ with
+$\sum_{k\sim K}M_k^2 \asymp N^2/K$. The distinction is load-bearing:
+at the square-root normalisation the demand would be
+$\sum|D|^2/\sum M_k \ll 8.8\cdot10^{-6}$ at $N=10^8$, $A=1$, which our
+own measurements refute directly --- the measured ratio is
+$0.34,\,0.39,\,0.32$ over three dyadic bands, since
+$\prod_p(1-2/p^2) = 0.32263$ is the density of $m$ for which both
+$\mu(m)$ and $\mu(N-mk)$ are nonzero. Normalised by that surviving
+support the ratio is $1.04,\,1.17,\,0.96$: the field exhibits
+\emph{exact} square-root cancellation on the terms that survive. At the
+correct normalisation the target is cleared with margin
+$(N/K)(\log N)^{-2A-2}$, which is asymptotic and is below $1$
+everywhere accessible, so no computation is offered as evidence for it.
+
+\begin{remark}[the mandatory comparison]\label{rem:scale}
+A target must be checked against one's own measurement of the same
+quantity before it is used to adjudicate anything. Writing a target at
+the square-root scale when the chain consumes it at the trivial scale
+inflates every demand by a power of $N$, and no verdict passed on a
+budget basis survives it. We record this as a standing rule because
+the same slip occurred twice in the course of this work, and both times
+it was caught only by that comparison.
+\end{remark}
+
+\subsection{Conjecture L}
+
+\begin{conjecture}[the factorization law]\label{conj:L}
+Each M\"obius family probed in this program --- prime-indexed dilate
+pairs $C_{k,k'} = \sum_{p\sim P}\mu(N-pk)\mu(N-pk')$, integer-indexed
+dilates and their pairs, and M\"obius sums over thin progressions ---
+factorizes as
+\[
+  \text{field} \;=\; \mathbf M \times \mathbf G,
+\]
+where $\mathbf M$ is the deterministic local mask, computed exactly by
+finite modular enumeration from the $v_q$-data of $(N,k,k')$, and
+$\mathbf G$ is, on the surviving support, a fluctuation with no mean
+field and no class structure.
+\end{conjecture}
+
+The evidence is of two kinds and we separate them. The E1 arm is stated
+above and has been reproduced independently. The remaining stamps ---
+pair statistics, the exact $(v_2,v_3)$ cells, the blind mask
+prediction, and the Wishart pair spectrum --- are recorded in the
+repository and have \emph{not} been independently re-verified; they are
+cited here as the reason the conjecture is stated, not as measurements
+this paper vouches for.
+
+Conjecture~\ref{conj:L} is \emph{stronger} than the chain needs: E1
+requires only square-root cancellation on average. What is missing is
+therefore not knowledge of the structure --- the mask is an algorithm
+and $\mathbf G$ is featureless in every measurement --- but a proof
+technique for the amplitude of a featureless object.
+
+\section{The wall, exactly}\label{sec:wall}
+
+The chain of Section~\ref{sec:demand} reduces the whole problem to one
+scalar,
+\[
+  C(N) \;=\; \sum_{n<N}\Lambda(n)\mu(N-n) \;=\; o(N).
+\]
+This section gives that scalar its exact second moment, an exact
+identity for its aggregate second moment, and the two controls that
+delimit what can be measured about it at all.
+
+\subsection{The exact scale}
+
+\begin{proposition}[The exact scale]\label{prop:V}
+Let
+\[
+  V(N) \;=\; \sum_{v<N}\mu^2(v)\,\Lambda(N-v)^2,
+  \qquad
+  W(N) \;=\; \sum_{w<N}\Lambda(w)^2,
+\]
+and let
+\[
+  \AAA(N) \;=\; \prod_{q\,\nmid\,N}\Bigl(1-\frac{1}{q(q-1)}\Bigr).
+\]
+Then $V(N) = W(N)\,\AAA(N)\,(1+o(1))$, and consequently
+$V(N) \sim \AAA(N)\,N\log N$.
+\end{proposition}
+
+\begin{proof}[Derivation]
+$\Lambda(w)^2$ is supported on prime powers with weight $(\log p)^2$,
+so with $w=N-v$,
+\[
+  V(N) \;=\; \sum_{p^k<N}(\log p)^2\mu^2(N-p^k)
+        \;=\; \sum_{p<N}(\log p)^2\mu^2(N-p) + O(\sqrt N\log^2 N),
+\]
+a $(\log p)^2$-weighted count of \emph{squarefree shifted primes}. Its
+local density at a prime $q$ is $1$ when $q\mid N$ --- there
+$q^2\mid N-p$ forces $q\mid p$, hence $p=q$, a single term --- and
+$1-1/\varphi(q^2) = 1-1/(q(q-1))$ when $q\nmid N$, since the bad class
+$p\equiv N \pmod{q^2}$ is then a unit class. The statement is Mirsky's
+theorem on squarefree values of shifted primes \cite{Mir49} together
+with partial summation; it is recalled here, not claimed.
+\end{proof}
+
+\paragraph{The local factor is $\AAA$, not $\SS$.}
+The singular series $\SS(N)$ is Hardy--Littlewood's and is correct for
+the Goldbach \emph{count}; the right object for the second moment of
+$C(N)$ is $\AAA(N)$. Both are products over the primes dividing $N$,
+which is why the substitution is easy to make and hard to see.
+Rescaling each candidate to the measured mean, so that only its shape
+in $N$ is judged, the residual standard deviation over even $N$ in
+$[10^5,\,1.6\cdot10^7]$ is $0.000323$ for $\AAA$ against $0.245235$ for
+$\SS$ --- a factor of $759$. Dividing through by $W(N)$ removes the
+analytic factor exactly, so no asymptotic for $\sum(\log p)^2$ is
+assumed: the ratio $V(N)/W(N)$ against $\AAA(N)$ has mean $1.000000$
+with standard deviation $0.000166$ in the top octave, and agrees to six
+decimals in each of the six radical cells from $2\mid N$ through
+$2\cdot3\cdot5\cdot7\cdot11\cdot13\mid N$. At $N=4\cdot10^6$ the ratio
+$W/V$ is $1.27080$ against the predicted $1/\AAA(N) = 1.27020$.
+
+The lower cutoff $10^5$ is not cosmetic. Below it the residual is
+dominated by small-$N$ noise and the figure for $\AAA$ degrades to
+$0.000582$; the figure for $\SS$ is unaffected, because it is dominated
+by $\SS$'s wrong shape rather than by noise. Any comparison of the two
+must state its range.
+
+\subsection{The aggregate second moment, exactly}
+
+\begin{lemma}[the second-moment identity]\label{lem:MP}
+Fix $X$ and let
+\[
+  \widehat C(N) \;=\; \sum_{\substack{n+v=N\\ n\le X,\ v\le X}}
+    \Lambda(n)\,\mu(v)
+\]
+be the truncated convolution, whose support runs to $2X$. Then
+\[
+  \sum_{N\le 2X} \widehat C(N)^2 \;=\; \sum_{|h|<X} M(h)\,P(h),
+  \qquad
+  M(h) = \sum_{v,\,v+h\le X} \mu(v)\mu(v+h),
+  \quad
+  P(h) = \sum_{w,\,w+h\le X} \Lambda(w)\Lambda(w+h).
+\]
+\end{lemma}
+
+\begin{proof}
+Expanding the square as a double sum over $(n,v)$ and $(n',v')$ with
+$n+v=n'+v'$ and summing over \emph{all} $N$ leaves the single
+constraint $n-n' = v'-v =: h$, with $(n,n')$ and $(v,v')$ otherwise
+ranging independently over $[1,X]^2$. Collecting the $\Lambda$-pairs
+and the $\mu$-pairs separately gives the two factors.
+\end{proof}
+
+\begin{remark}
+The truncation on the left is necessary and it is easy to lose. If one
+writes instead $\sum_{N\le X}C(N)^2$ with $C$ the untruncated
+convolution, the three surviving indices $(n,v,h)$ are constrained by
+$n+v\le X$ --- a \emph{simplex} --- while $M(h)P(h)$ ranges them over
+the \emph{box} $[1,X]^2$ and so also counts every pair with
+$X< n+v\le 2X$. The two sides then differ by a factor near $1.57$ at
+$X$ from $800$ to $3200$, and the ratio does not tend to $1$. The form
+above is exact to machine precision at every $X$ tested, to
+$X=1.6\cdot10^7$.
+\end{remark}
+
+The identity is exact and unconditional, and it makes the aggregate
+size of the wall a statement about two shifted correlations, one of
+which ($P$) is the Hardy--Littlewood prime-pair sum and the other of
+which ($M$) is the binary Chowla sum.
+
+\subsection{What the excess is, and why Chowla does not control it}
+
+Write $\rho(N) = \mathrm{Var}\,C(N)/V(N)$, which is $1$ if the $\mu(v)$
+on the surviving support are replaced by independent signs. Pointwise,
+$C(N)^2 = V(N) + \mathrm{OffDiag}(N)$ with
+\[
+  \mathrm{OffDiag}(N)
+  = \sum_{h\ne0}\ \sum_{\substack{p,\,p+h\ \mathrm{prime}}}
+    (\log p)(\log(p+h))\,\mu(N-p)\mu(N-p-h),
+\]
+which is algebra. Passing from there to $\sum_{h\ne0}c(h)S(h)$ with
+$c(h)=\sum_{p'-p=h}(\log p)(\log p')$ and
+$S(h)=\langle\mu(u)\mu(u-h)\rangle$ is \emph{not} algebra: it replaces
+the values $\mu(N-p)\mu(N-p-h)$, sampled on the sparse set of $p$ with
+$p$ and $p+h$ both prime, by an average over all $u$. We do not assume
+that decoupling. What we do record is that even granting it, the
+conditional route does not close.
+
+\begin{proposition}[the amplification]\label{prop:W}
+Let $\Gamma(N) = \bigl(\sum_{h\ne0}c(h)\bigr)/V(N)$. Then
+$\Gamma(N) \sim N/(\AAA(N)\log N)$, and consequently a hypothesis
+$|S(h)|\le\varepsilon$ yields nothing better than
+$|\rho-1| \le \varepsilon\,\Gamma(N)$. Since $c(h)\ge0$, no bound on
+$|S(h)|$ alone can give $\rho\to1$.
+\end{proposition}
+
+Measured, $\Gamma = 1.5489\cdot10^{3},\ 1.8517\cdot10^{4},\
+3.5798\cdot10^{5}$ at $N=10^4,\,1.6\cdot10^5,\,4\cdot10^6$, with
+$\Gamma\log N/N = 1.4266,\,1.3868,\,1.3605$ against the predicted
+$1/\AAA \to 1.270$.
+
+Two consequences. First, Chowla's conjecture asserts $S(h)=o(1)$ for
+fixed $h$; the strength the display needs is $S(h) = o(\log N/N)$, so
+the gap is a factor $N/\log N$. Second, and independently, since
+$c(h)\ge0$ the only route to $\rho\to1$ is \emph{signed cancellation
+across $h$}, which is a different object from Chowla's smallness and
+from the averaged absolute bound of \cite{MRT15}. Naming what supplies
+that cancellation is an open question and is stated as such.
+
+\subsection{Two controls, and what they invalidate}
+
+\begin{lemma}[the coin control]\label{lem:coin}
+Let $\varepsilon(v)=\pm1$ be arbitrary signs on $\{v : \mu(v)\neq0\}$
+and zero elsewhere. Then $\varepsilon^2 = \mu^2$ pointwise, so
+$V(N)$ is unchanged, and the field
+$C_\varepsilon(N)=\sum_v\varepsilon(v)\Lambda(N-v)$ has the same exact
+second moment as $C(N)$ for every $N$. Consequently any estimator whose
+output is reproduced when $\mu$ is replaced by $\varepsilon$ is not
+measuring $\mu$.
+\end{lemma}
+
+\begin{lemma}[the placebo key]\label{lem:placebo}
+Let the cells be indexed by a labelling $\ell(N)$, and let $\pi$ be a
+permutation of the even integers in the band. Replacing $\ell$ by
+$\ell\circ\pi$ preserves every cell size and leaves the field
+$Z(N)=C(N)/\sqrt{V(N)}$ byte-identical, while destroying the
+correspondence between cells and arithmetic. Any cell-indexed statistic
+that survives this replacement is a property of the cell sizes and not
+of that correspondence.
+\end{lemma}
+
+These are trivial and they are load-bearing. Lemma~\ref{lem:coin}
+invalidates the natural measurement of $\rho$: the centred estimator
+returns the same value on $\varepsilon$ as on $\mu$, so a quoted level
+for $\rho$ calibrates nothing. \textbf{Any claim about
+$\mathrm{Var}\,C$ relative to $V$ must first exhibit an estimator that
+distinguishes $\mu$ from a coin, and show that it does.} With one
+realisation of $\mu$ that may not be possible at all, and saying so
+would itself be a result. Lemma~\ref{lem:placebo} is what confirms, in
+Section~\ref{sec:floor}, that the cell floor is a property of the
+arithmetic and not of the partition.
+
+\section{The cell floor}\label{sec:floor}
+
+Throughout, cells are indexed by \emph{depth} $d$, the number of
+$3,5,7,11,13$ dividing $N$, and $Z(N)=C(N)/\sqrt{V(N)}$.
+
+\subsection{The floor, in closed form}
+
+\begin{lemma}[exact cell moments]\label{lem:cellmom}
+Let a band of even $N$ be partitioned into cells, let $c$ be a cell of
+size $n_c$ inside a band of size $n$, let $m_c$ and $\overline m$ be
+the means of $Z$ over $c$ and over the band, and set
+\[
+  u_c(v) \;=\; \sum_{N\in c}\frac{\Lambda(N-v)}{\sqrt{V(N)}},
+  \qquad
+  Q_{cd} \;=\; \sum_v \mu^2(v)\,u_c(v)\,u_d(v).
+\]
+Then, when the $\mu(v)$ on the surviving support are replaced by
+independent signs,
+\[
+  \mathrm{Var}\bigl(m_c-\overline m\bigr)
+  \;=\; \frac{Q_{cc}}{n_c^{2}}
+  \;-\; \frac{2\,Q_{ca}}{n_c\,n}
+  \;+\; \frac{Q_{aa}}{n^{2}},
+\]
+where $a$ denotes the whole band. Every term is computable exactly by
+one convolution; no simulation is involved.
+\end{lemma}
+
+\begin{proof}
+Under independent signs $E[\varepsilon(v)\varepsilon(v')]
+=\mu^2(v)\delta_{vv'}$, so
+$\mathrm{Cov}(n_c m_c, n_d m_d) = Q_{cd}$ exactly. Expanding
+$\mathrm{Var}(m_c-\overline m)$ bilinearly gives the three terms.
+\end{proof}
+
+The lemma has been checked against simulation even though it does not
+need it: over $60$ independent sign draws in the band
+$(10^5,2\cdot10^5]$, the Monte-Carlo standard deviation of
+$m_c-\overline m$ agrees with the closed form at every depth, the
+ratios running $0.88$ to $0.98$ against a Monte-Carlo precision of
+$\pm0.09$.
+
+\textbf{All three terms are needed.} The substitution
+$u_c(v)\approx n_c/\sqrt V$, which gives the right scale for
+$Q_{cc}/n_c^2$, is not specific to $c$; applied to all three terms it
+returns the same value $S$ for each and hence $S-2S+S=0$. So it cannot
+be used to estimate the variance of the difference. Exactly, the
+variance is smaller than $Q_{cc}/n_c^2$ by a factor that is a
+structural constant rather than noise: measured at the top octave of
+$1.6\cdot10^7$, $\mathrm{Var}/(Q_{cc}/n_c^2)$ is
+$0.113,\,0.016,\,0.289,\,0.551$ at depths $0,1,3,5$, reproducing to
+three digits the same ratios at a quarter of that $N$.
+
+\subsection{The floor's uncertainty does not fall like a count}
+
+\begin{proposition}[coherent sums]\label{prop:coh}
+The error bar of Lemma~\ref{lem:cellmom} does \emph{not} decay like
+$n_c^{-1/2}$. For fixed $v$, about $n_c/\log N$ of the terms of
+$u_c(v)$ are nonzero, each of size $\log N/\sqrt V$, so
+$u_c(v)\approx n_c/\sqrt V$ and
+\[
+  \frac{Q_{cc}}{n_c^2}
+  \;\approx\; \frac{\sum_v\mu^2(v)}{V}
+  \;\asymp\; \frac{1}{\log N},
+\]
+independently of $n_c$; and by the previous subsection the variance
+itself is a fixed fraction of this. So the standard error falls like
+$(\log N)^{-1/2}$.
+\end{proposition}
+
+The heuristic is quantitatively loose --- measured
+$Q_{cc}/n_c^2$ runs $0.124$ to $0.307$ by depth at
+$N=1.6\cdot10^7$ against the heuristic's $0.049$ --- so it is offered
+for the \emph{form} and not the constant. The form is confirmed
+directly. Fitting $\mathrm{se}\propto N^{-b}$ to the exact floor across
+eight octaves gives $b = 0.0395,\,0.0397,\,0.0394$ at depths $2,1,0$,
+against the apparent exponent $1/(2\langle\log N\rangle) = 0.0358$ that
+a $(\log N)^{-1/2}$ law predicts over that range.
+
+\begin{remark}[a count is not an error bar]
+The consequence is not confined to this paper. Over the factor $140$ in
+$N$ measured here, $n_c^{-1/2}$ says the error bar shrinks by $11.8$;
+it shrinks by $1.21$. \textbf{An interval built from a count is
+therefore about ten times too narrow at the top of this range relative
+to the bottom}, and in absolute terms the discrepancy is larger still:
+at the top octave the exact floor exceeds
+$\mathrm{sd}(Z)/\sqrt{n_c}$ by factors of $5.8$ to $160$, growing with
+the cell, exactly as $Q_{cc}/n_c^2 \asymp 1/\log N$ predicts. The cause
+is that $u_c(v)$ is a coherent sum, not a self-averaging one, and the
+same is true of any cell mean of a field whose summands share a common
+arithmetic input.
+\end{remark}
+
+\subsection{The mask exists}
+
+Against the exactly computed floor of Lemma~\ref{lem:cellmom}, the cell
+means are not zero. Over every octave from $6.25\cdot10^4$ to
+$1.6\cdot10^7$, $\max_c|z_c|$ runs $9.1$ to $13.0$ and clears
+Bonferroni in each. The signal is carried by the deep cells: at the top
+octave the depths $3,4,5$ sit at $z = -1.6,\,-4.5,\,-9.1$ while depths
+$0,1,2$ sit at $+0.0,\,+0.7,\,-0.1$. Under the permutation of
+Lemma~\ref{lem:placebo} the floor collapses to the independent-sign
+value, so what is being detected is the correspondence between cells
+and divisibility and not the cell sizes.
+
+\begin{proposition}[the size mechanism is scale-invariant]
+\label{prop:scaleinv}
+$D_c := E_{\mathrm{same},c}[\SS_2] - E_{\mathrm{all}}[\SS_2]$ depends
+only on the distribution of the shift $h$ in the residue classes mod
+$3,5,7,11,13$ that the cell fixes. That distribution is the same at
+every scale, so $D_c$ is scale-invariant and predicts an exponent of
+zero at every depth.
+\end{proposition}
+
+\textbf{How the mask decays is open, and this version does not answer
+it.} The amplitudes at depths $3,4,5$ fall with $N$; at depths $0,1,2$
+they are within the exact floor at every octave measured, so no decay
+exponent can be fitted there at all. Whether the exponents differ by
+depth is therefore not decided by the range accessible here. What
+Proposition~\ref{prop:scaleinv} does settle is that whatever produces
+the decay, it is not the arithmetic excess that produces the size.
+
+None of this threatens $C(N)=o(N)$: the mask is lower order under every
+parameterisation considered.
+
+\section{The negative map}\label{sec:closures}
+
+Every entry below was pre-registered: the decision rule was fixed in
+writing before the computation ran. Route adjudications were done in
+fresh context against the source papers' verbatim lemma hypotheses. The
+verdicts are stated here without their supporting statistics; those
+live in the repository, where each carries its own null and its own
+error bar. Where a design's threshold was chosen as an effect size
+rather than in standard errors of its own null, the repository records
+that too, and the verdict rests on the measurement rather than on the
+criterion.
+
+\subsection{Adjudication of existing machinery (5)}
+
+\begin{longtable}{p{0.24\textwidth}p{0.10\textwidth}p{0.56\textwidth}}
+\hline
+Route & Verdict & Blocking coordinate\\
+\hline
+\endhead
+MRT \cite{MRT15} / Lichtman \cite{Li20}, shift $\to$ dilate & Blocked &
+ the orthogonality factorization needs a \emph{linear} pair
+ constraint ($h = m-n$); the dilate constraint
+ $m'u - mu' = N(m'-m)$ is bilinear. The $h$-average is a translation;
+ the $k$-average is a dilation, with no diagonalizing character
+ family.\\
+Tao 2016 \cite{Tao} entropy decrement, $k$-averaged & Blocked $\times 3$ &
+ (i) no $k$-analog of approximate affine invariance; (ii) the sampling
+ prime enters the phase multiplicatively, so the sparsification fails
+ and the surviving input is the target itself; (iii) the saving is
+ triple-log, below spec.\\
+Lichtman rerun in dilate coordinates \cite{Li23} & Blocked &
+ the congruence coupling is a genuine isomorphism but powers only the
+ typical-set restriction; the decoupling blocks at the same bilinear
+ coordinate, and the uniformity slot would need an $EH_\mu$-grade
+ input (circular).\\
+Dirichlet-polynomial fourth moment / Perron & Blocked &
+ every log-saving mean-value pillar assumes coefficient
+ multiplicativity in its own variable; $\mu(N-u)$ has none. Unfolding
+ by Perron costs $T \gtrsim N^{1-o(1)}$; opening the fourth moment
+ reproduces the binary correlation.\\
+Partial slices & Partial &
+ the type-I slice is already consumed; the \emph{$N$-averaged}
+ theorem is provable but lands in exceptional-set territory, which
+ Huang--Li cannot consume; no nontrivial fixed-$N$ slice exists.\\
+\hline
+\end{longtable}
+
+\noindent
+\textbf{The common obstruction.} $\mu(m)\mu(N-mk)$ couples its
+variables simultaneously through the product $mk$ and the difference
+$N-mk$; the pair constraint is bilinear and is diagonalized by no
+single character family, additive or multiplicative, while each
+route's decisive lemma consumes exactly that diagonalization as a
+hypothesis.
+
+\subsection{Technique designs, kill-tested (9)}
+
+\begin{longtable}{p{0.05\textwidth}p{0.30\textwidth}p{0.55\textwidth}}
+\hline
+\# & Design & Result (pre-registered rule applied)\\
+\hline
+\endhead
+K1 & multiplicative Fej\'er kernel on the exact dilation ladder &
+ \textbf{open}. On the type-II field the design is not computable: the
+ $\sqrt N$ cut empties all but thirteen of the sixty-three orbit
+ columns, so what was measured is a fifth of the orbit the design
+ names. On the untruncated field, where the whole orbit is live, the
+ statistic lands in the band the pre-registration reserved for
+ ``repeat at a second $N$ before deciding''.\\
+K2 & manufactured pair congruence (determinant/Kloosterman) &
+ \textbf{dead}: congruent pairs are statistically $h$-blind, and the
+ verdict is quantitative --- the design would need several orders of
+ magnitude more than its own detection floor.\\
+K3 & Wishart / operator moment method &
+ \textbf{dead}: the second, third and fourth traces sit on the Wishart
+ null. No sub-Wishart surplus to fund the exchange.\\
+K4 & $N$-average descent &
+ \textbf{dead}: the dual field is $\delta$-blind and
+ $m$-uncorrelated.\\
+R1 & zero-spectrum visibility (explicit formula) &
+ \textbf{dead} on the measurement, which sits below its own null. The
+ quoted precision of that null is not supportable --- its spread was
+ estimated from six draws --- so no exclusion interval is claimed.\\
+R2 & determinant / Kloosterman phase &
+ \textbf{dead} on the measurement, which sits below its control. Its
+ two criteria are uncalibrated and neither decides; and the
+ coherent-gain arm is not blind but sits about $2.8$ standard errors
+ above its own null, under a bar that was set at $5.4$.\\
+R3 & character transform of the $k$-average &
+ \textbf{dead by analysis}: for $K \le N^{1/3}$ the transform deposits
+ every component into thin progressions (moduli $\ge N^{2/3}$);
+ Parseval forbids a statistical gain.\\
+R4 & divisor switch &
+ \textbf{dead}: see \S\ref{sec:R4}.\\
+R5 & the circle method applied directly to $C(N)$ &
+ \textbf{dead, zero margin}: both bills lie at or above the trivial
+ bound, and the cap on the pointwise route is Parseval
+ (Proposition~\ref{prop:E}).\\
+\hline
+\end{longtable}
+
+\begin{remark}[what a null verdict costs]
+A kill-test that does not fire is evidence of absence only against a
+stated floor, and a threshold chosen as an effect size is not a
+threshold. Three of the rows above have been restated on that basis:
+K1 is reopened because its design was not computable on the field it
+was run on; R1's and R2's verdicts are retained but their quoted
+precisions are withdrawn. In each case the DEAD direction, where it
+stands, stands on the measurement --- never systematically below the
+null --- and not on the count of flagged levels.
+\end{remark}
+
+\subsection{Representation classes (3, plus one open)}
+
+\begin{longtable}{p{0.10\textwidth}p{0.25\textwidth}p{0.55\textwidth}}
+\hline
+Class & Test & Result\\
+\hline
+\endhead
+C-I abelian & rational-peak energy vs mask-null &
+ \textbf{closed}: the abelian spectrum is mask-exact.\\
+C-II inverse domain & special-frequency excess in the
+ modular-inverse re-indexing &
+ \textbf{closed on verification}: fired under eight-draw nulls,
+ collapsed under sixty-four-draw nulls, permutation null concurring,
+ second-$N$ replication empty.\\
+C-IV manufactured modularity & approximate Fricke law for
+ $\Phi(z) = \sum t_m e(mz)$ &
+ \textbf{closed}. A true modular form drives the defect to
+ $\approx 0$, so absence is meaningful.\\
+C-III Motohashi type & (no finite test) &
+ \textbf{open}, needing exactly the three items of \S\ref{sec:c3}.\\
+\hline
+\end{longtable}
+
+\subsection{R4 in detail: the divisor switch does not
+localize}\label{sec:R4}
+
+Applied to the dilate field over its \emph{full} ranges the switch
+gives an exact identity
+\[
+  \sum_{k\ge1}\ \sum_{m:\,mk\le N-1}\mu(m)\mu(N-mk)
+  = \sum_{u<N}\mu(N-u)\sum_{m\mid u}\mu(m)
+  = \mu(N-1),
+\]
+verified by brute force at six values of $N$. This is perfect
+cancellation: $O(1)$ for a double sum of $\sim N\log N$ terms, far
+beyond square root, and it is the strongest cancellation found
+anywhere in this work.
+
+E1 imposes two restrictions that make the inner divisor sum
+incomplete: the type-II cut $m > \sqrt N$ and the dyadic band
+$k \sim K$. The kill-test asked whether any of the cancellation
+survives, by measuring block sums $S_B(j) = \sum_{k\in\text{block}}D(k)$
+against the $B$-independence that Conjecture~\ref{conj:L} predicts.
+
+\emph{The statistic, stated.} Two normalisations of a block sum both
+equal $1$ under independence, and they disagree; we use the
+unweighted mean of per-block ratios,
+\[
+  r(B) \;=\; \Bigl\langle\,
+    S_B(j)^2 \Big/ \sum_{k\in\text{block }j}\mathrm{supp}(k)
+  \,\Bigr\rangle_j ,
+\]
+whose $B=1$ baseline is $1$ under exact square-root cancellation on the
+surviving support. (The ratio-of-sums normalisation gives a $B=1$
+baseline of $1.78$, because the five smallest $k$ carry a third of
+$\sum_k\mathrm{supp}(k)$; it is reported in the repository and is not
+used here.)
+
+\emph{Result: none of the cancellation survives.} Over the entire band
+on which the type-II field is non-empty --- $k<\sqrt N$, since
+$m>\sqrt N$ forces it --- $r(B)$ reads $1.024,\,1.017,\,1.016,\,1.024$
+at $B=1,2,4,8$: flat. It degrades only at block sizes where its own
+sampling spread swamps it. The sharper diagnostic, the lag-1
+autocorrelation of $D(k)/\sqrt{\mathrm{supp}(k)}$, reads $+0.0055$ at
+$N=10^8$ against a $400$-draw permutation null of standard deviation
+$0.0119$ --- $+0.5$ standard errors, dead zero, and if anything mildly
+positive rather than the negative coherence a surviving residue would
+require.
+
+\emph{The mirror.} Switching the banded $L^1$ sum gives
+$\sum_{k\sim K}D_{\text{full}}(k)
+ = \sum_{u<N}\mu(N-u)\sum_{m\mid u,\ u/2K<m\le u/K}\mu(m)$, where
+$m \asymp N/K \ge N^{2/3}$: the surviving M\"obius sits on the
+\emph{long} variable, the exact opposite of the assignment that makes
+Theorem~\ref{thm:A} work. The switch is not a technique that happens
+to fail on the supply side; its single requirement --- M\"obius on the
+short variable --- is precisely what the type-II cut forbids.
+
+\subsection{C-III: what it needs}\label{sec:c3}
+
+C-III is the one representation class with no finite test, and it is
+open. Three requirements are identified; two are settled here against
+the natural construction, and the third is external.
+
+\paragraph{(1) A legitimate transform --- closed for changes of
+variable.} Put $A = N-a$, $B = N-b$, so $A = mk$ and $B = m'k$; then
+$m'A - mB = 0$ exactly. In centered coordinates the dilate family is
+therefore the \emph{pencil of lines through the origin}, while the
+shift family $B = A - h$ is a family of \emph{parallel} lines. A
+pencil is characterised by its vertex, here a finite point; a parallel
+family is a pencil whose vertex is at infinity. Affine maps send
+finite points to finite points, and since $\mu$ lives on $\mathbb Z$
+the available changes of variable are exactly the integral affine
+ones. So no change of variable carries one family to the other. This
+proves what a direct probe had only measured: the obvious re-indexing
+is circular, the off-diagonal computed directly and via that
+re-indexing agreeing exactly. What remains is the summation-formula
+class, blocked in general by the roughness of the outer weight $\mu$,
+with every named candidate in it already closed.
+
+\paragraph{(2) A classification covering the type-II region ---
+settled against the natural bookkeeping.} That bookkeeping needs the
+M\"obius-side $a$ to satisfy $a \le y^{O(1)} = M^{o(1)}$. Measuring the
+absolute Heath--Brown weight of the identity of level $J$ with cut
+$z = M^{1/J}$, the overwhelming majority of it sits outside any region
+of the form $a \le M^{\eta}$ with $\eta$ small, and the fraction
+increases with $M$. We do not quote the fraction to three decimals:
+its value depends on conventions the source statement leaves open ---
+the rounding of $z$ alone moves the $J=8$ entry by $0.017$ --- and two
+independent reconstructions of the weight differ by about one percent.
+
+The obstruction is parameter-independent, and that is what carries the
+paragraph. The identity with cut $z$ needs $z^J \ge x$, and its $j$-th
+term has $a \le z^j$, which at $j = J$ is $x$ for every admissible
+$(z,J)$ --- while the weight concentrates in exactly those high-$j$
+terms: the top-$j$ share is about $0.82$ at $J=3$ and the
+$j\in\{6,7,8\}$ share about $0.85$ at $J=8$, in both reconstructions.
+A repair would have to bound
+$\sum_a\sum_b \alpha(a)\beta(b)\mu(N-abk)$ with $\alpha$ rough and $a$
+long, where every individual piece is trivial and all the content is
+cancellation across $a$ --- a type-II estimate for $\mu(N-\cdot)$,
+i.e.\ the wall. Every identity decomposing $\mu$ produces such a term;
+one whose every piece had either a long free variable or a
+divisor-structured rough coefficient would dispose of the parity
+obstruction. \textbf{Completing the construction and breaking the wall
+are the same task.}
+
+\paragraph{(3) Quantitative averaged Chowla.} Shift-averaged binary
+$\mu\mu$ correlations at a \emph{fixed} log-power saving, against a
+best known of $(\log)^{1-c}$. This is a named external open problem
+and is where C-III stands.
+
+That third item sets the character of the obstruction. The
+adjudication's central finding was that the \textbf{dilate} average
+admits no diagonalizing character family; but the \textbf{shift}
+average is precisely the home ground of the
+Matom\"aki--Radziwi\l\l--Tao machinery. If a legitimate transform
+converting one into the other exists, what remains is quantitative
+strength inside an active area rather than the absence of any coupling
+surface.
+
+\section{What the closures constrain}
+
+Any transform or invariance $T$ that linearizes the pair constraint at
+a cost of at most a log power must satisfy all of the following.
+
+\begin{enumerate}
+\item \textbf{(K2)} $T$ cannot manufacture its congruence externally:
+  collapse structure pays only when it arises inside an intrinsic
+  average that is already present.
+\item \textbf{(K3)} $T$ cannot bootstrap from the field's own moments:
+  every moment consumes higher $\mu$-correlations and the field
+  carries no sub-Wishart surplus.
+\item \textbf{(K4)} $T$ cannot descend from the $N$-average: its
+  linearization is load-bearing and the $k$-average holds no shadow
+  of it.
+\item \textbf{(R4)} $T$ cannot be the divisor switch or a relative:
+  the switch's cancellation is a property of \emph{complete} divisor
+  sums, and the type-II cut makes every divisor sum incomplete.
+\end{enumerate}
+
+\noindent
+The constraint that K1 was to have supplied --- that $T$ cannot act
+through divisibility sub-sums --- is \emph{not} asserted here, because
+K1 is reopened above. Together with the round-2 findings ---
+characters merely relocating the difficulty into thin progressions,
+determinant phases not reaching their bar --- the field offers no
+coupling surface in any direction that has an existing mathematical
+name. In the automorphic world, shifted convolutions
+$\sum a(n)a(n+h)$ are controlled because the coefficients $a(n)$
+\emph{come with} a spectral representation; $\mu$ has none, and every
+route above failed exactly where it tried to borrow one. The technique
+to be created is a spectral (or equivalent structural) representation
+of $\mu$-pairs themselves, not a projection onto existing spectra ---
+and its construction is a purely theoretical act, beyond what
+kill-testing can reach.
+
+\section{The margin, and where the difficulty is}
+
+The requirement constrains every $N$, so the figure to quote is the one
+at the extreme, not at a typical $N$. With $\max|C|\approx
+a_n\sqrt{V(N)}$ and $a_n$ the Gumbel location for the number of even
+$N$ below the point,
+\[
+  \frac{N}{\max_{N\le X}|C(N)|}\;\approx\;
+  \frac{\sqrt N}{a_n\sqrt{\AAA\log N}},
+\]
+which is $10^{4.5}$ at $N=10^{12}$ and $10^{22.9}$ at $N=10^{50}$.
+Measured, $\max|C|/N$ falls from $0.114$ in the octave at
+$3\cdot10^4$ to $0.0101$ in the octave at $1.6\cdot10^7$, so the margin
+at the top of the computed range is a factor $99$, and the fitted decay
+$\max|C|/N \sim N^{-0.43}$ extrapolates to a factor near $250$ at
+$N=10^8$. The requirement is not remotely tight.
+
+Placing the two standard estimates in the same units makes the shape of
+the difficulty explicit. The target is $N(\log N)^{-A}$. The trivial
+bound sits a factor $(\log N)^{A}$ above it; Cauchy--Schwarz gives
+$N\sqrt{6(\log N-1)/\pi^2}$, a factor $(\log N)^{A+1/2}$ above it; and
+the truth sits a \emph{power of $N$ below} it. \textbf{The entire
+difficulty is a power of $\log N$}, and it is not the size but the
+proof that is missing --- by Theorems~\ref{thm:D} and~\ref{thm:Dprime}
+the one classical route to proving it is closed over its whole design
+space.
+
+\begin{remark}
+Everything measured here is at $N\le1.6\cdot10^7$, with two arms at
+$N\approx10^8$. The no-go theorems of Section~\ref{sec:demand} are
+asymptotic and acquire content only near $N\approx10^{480}$; nothing
+measured here constrains that range, and nothing there is contradicted
+by these measurements.
+\end{remark}
+
+\section{What this version does not claim}\label{sec:notclaimed}
+
+Stated so the gap is visible rather than inferred, and read against the
+claim list of \S\ref{sec:claims}.
+
+\begin{itemize}
+\item \textbf{No law for $C(N)$ is conjectured here.} An earlier draft
+  stated a conjecture of the form
+  $C(N) = m(N) + \sqrt{V(N)}\,G(N)$ with $G$ Gaussian, supported by
+  four measurements of the bulk, the tail, and the phase content in
+  $\log N$. Re-verification found that the bulk and tail figures are
+  not reproducible under the cell index and pooling the text specifies,
+  that the phase-content measurement is reproduced by a coin and so by
+  Lemma~\ref{lem:coin} is not measuring $\mu$, and that the mask's
+  quoted significance was overstated. The conjecture may well be true;
+  the evidence offered for it was not sound, and it is withheld until
+  the statistics it rests on are defined and re-measured.
+\item \textbf{No level or rate for $\rho$ is quoted.} By
+  Lemma~\ref{lem:coin} the centred estimator cannot distinguish $\mu$
+  from a coin, so any such figure calibrates nothing.
+\item \textbf{No decay exponent for the mask is quoted.} At the three
+  shallowest depths the amplitude does not clear the exact floor at any
+  scale measured, so nothing can be fitted there.
+\item Conjecture~\ref{conj:L}'s non-E1 stamps are single-witness and are
+  cited as motivation, not as verified measurement.
+\end{itemize}
+
+Each of these is an open question rather than a retraction of a
+mechanism, and each is carried forward in the repository's continuation
+notes.
+
+\section{Methodology}
+
+Four rules were followed throughout, and they are the reason we believe
+the negative results.
+
+\begin{enumerate}
+\item \textbf{Pre-registration.} Every design's decision rule was
+  written before its computation ran, including the rule that would
+  refute the hypothesis under test.
+\item \textbf{Adversarial review in fresh context}, against the source
+  papers' verbatim lemma hypotheses rather than against summaries of
+  them, and repeated: every numbered statement here has been
+  re-verified by a second reviewer working from the statements alone,
+  without access to the first reviewer's findings or code.
+\item \textbf{Nulls before thresholds.} A threshold means nothing until
+  the spread of the quantity it judges has been measured, and a null
+  must preserve the structure of the field it is a null for. A null
+  built by shuffling a correlated field is not a null for a statistic
+  that reads its correlation.
+\item \textbf{Weights and fields before comparisons.} Two summaries of
+  one object are not comparable until each one's weight is stated
+  (Remark~\ref{rem:scale}), and a measured figure is not interpretable
+  until the range it was measured on is stated. Both rules were adopted after the
+  corresponding mistakes were made and caught.
+\end{enumerate}
+
+\noindent
+Three traps are worth recording because they are traps and not slips.
+
+\begin{itemize}
+\item \emph{The $(q,N)>1$ main-term trap.} In the proof of
+  Theorem~\ref{thm:A}, assigning a main term $T_m/\varphi(q)$ to a
+  residue class with $(q,N)>1$ --- which is degenerate, its true
+  contribution being $O(\log^2 N)$ --- shifts the density by exactly
+  $N/\varphi(N)$. Carried into the $\log k$ branch, that error
+  produces an apparent \emph{refutation of $EH_\mu$}. This is the most
+  plausible false positive we met.
+\item \emph{Nulls estimated from too few draws} inflate maxima across a
+  family of tests; one representation-class ``hit'' survived
+  eight-draw nulls and died under sixty-four-draw nulls plus
+  replication, and one kill-test's quoted precision rests on a
+  six-draw spread.
+\item \emph{Local factors evaluated at the wrong modulus.} A
+  reconstruction of the wall's excess divided by $W(N)$ where the
+  definition calls for $V(N)$; the two differ by exactly $\AAA(N)$, the
+  object Proposition~\ref{prop:V} is about.
+\end{itemize}
+
+\section{Reproducibility}
+
+All measurements run on a laptop with Python and numpy. The
+repository's \texttt{PROVENANCE.md} maps every numbered statement in
+this paper to the code that verifies it and the result file it was
+read from. One-shot verification of the core corpus is
+\texttt{python code/verify/verify\_all.py}. The consistency gate, which
+runs every consistency checker and exits nonzero if any fails, belongs
+to the program's own record rather than to this paper.
+
+\section{Summary}
+
+\begin{itemize}
+\item The demand side of the Huang--Li reduction is closed: one half
+  is now an unconditional theorem, the other half is equivalent to the
+  conclusion, and the interior of the design space between them is
+  empty.
+\item The supply side is closed to measurement: the object is
+  featureless in every direction with a name, and the pre-registered
+  closures say precisely which directions were checked and why each
+  fails. One of them, K1, is reopened here.
+\item The wall has an exact second moment, an exact aggregate identity,
+  an exact closed form for the fluctuation of any cell mean, and a
+  deterministic mask that is detected against that floor at every scale
+  measured. Its error bar falls like $(\log N)^{-1/2}$ and not like a
+  count.
+\item The natural conditional route does not close: the coefficient
+  amplifying $S(h)$ grows like $N/\log N$ and is nonnegative, so no
+  bound on $|S(h)|$ gives $\mathrm{Var}\,C\sim V$; only signed
+  cancellation across $h$ would, and nothing in the literature supplies
+  it.
+\item Net progress toward Goldbach is zero. The contribution is the
+  map, the exact facts, one unconditional theorem that removes a
+  Goldbach-neutral demand, one conjecture that any future construction
+  must reproduce, and one defect report for the source paper.
+\end{itemize}
+
+\begin{thebibliography}{9}
+\bibitem{HL} Jing-Jing Huang and Huixi Li, \emph{On the connection
+between the Goldbach conjecture and the Elliott--Halberstam
+conjecture}, arXiv:2005.03811v2 [math.NT], 2022.
+\bibitem{ThmA} \emph{An unconditional bound for a M\"obius-weighted
+correlation sum in fixed residue classes}, companion note,
+\texttt{paper/theorem\_A.tex} in this repository.
+\bibitem{Pan} Cheng-Dong Pan, \emph{A new attempt on Goldbach
+conjecture}, Chinese Ann. Math. \textbf{3} (1982), 555--560.
+\bibitem{Tao} Terence Tao, \emph{The logarithmically averaged Chowla
+and Elliott conjectures for two-point correlations}, Forum Math. Pi
+\textbf{4} (2016).
+\bibitem{Li20} Jared Duker Lichtman, \emph{Averages of the M\"obius
+function on shifted primes}, arXiv:2009.08969.
+\bibitem{Mir49} L. Mirsky, \emph{The number of representations
+of an integer as the sum of a prime and a $k$-th power free
+integer}, Amer. Math. Monthly \textbf{56} (1949), 17--19.
+\bibitem{MRT15} Kaisa Matom\"aki, Maksym Radziwi\l{}\l{}
+and Terence Tao, \emph{An averaged form of Chowla's conjecture},
+Algebra Number Theory \textbf{9} (2015), 2167--2196.
+\bibitem{Vau88} R. C. Vaughan, \emph{The $L^1$ mean of exponential
+sums over primes}, Bull. London Math. Soc. \textbf{20} (1988),
+121--123.
+\bibitem{Li23} Jared Duker Lichtman, \emph{Primes in arithmetic
+progressions to large moduli, and shifted primes without large prime
+factors}, arXiv:2309.08522.
+\bibitem{MV17} M. Ram Murty and Akshaa Vatwani, \emph{Twin primes and
+the parity problem}, J. Number Theory \textbf{180} (2017), 643--659.
+\end{thebibliography}
+
+\end{document}

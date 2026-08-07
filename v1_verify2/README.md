@@ -153,5 +153,49 @@ corrected one is 22 pages with no undefined references.
 
 ## Status
 
-Empty. Nothing has been re-verified yet. Phase 1 has not started, and
-starting it means not reading `v1_verify/paper/` first.
+All three phases have run.
+
+**Phase 1 — blind recall.** Done. `paper/FINDINGS.md`, written against
+`v1/paper/wall_v1.tex` alone with `v1_verify/paper/` and
+`v1_verify/code/` unopened. Twenty-seven findings, six of them serious,
+plus a reproduction table. Both sealed hashes verified before and after.
+
+**Phase 2 — the corrections themselves.** Done.
+
+* `paper/RECALL.md` — the scoring. The second pass independently found
+  7 of the first pass's 15 standing findings outright and 1 partially:
+  **raw recall 50%, and 68% over the region it covered.** It added
+  fifteen findings the first pass missed, four of them serious, three of
+  which contradict statements the first pass positively confirmed. Two
+  of the second pass's own findings were withdrawn on comparison and are
+  recorded as such.
+* `paper/CORRECTIONS_CHECK.md` — the first pass's own repairs, checked.
+  Eight of eleven checked; six confirmed outright (Lemma 13's repair,
+  Proposition 15's `Gamma`, all four reconstruction cells, the `W`-vs-`V`
+  diagnosis, Proposition 20's ratio, item 4's nulls), one qualified
+  (item 3's tail counts are sound for the treatment used, which is not
+  the treatment the paper states), one a definitional difference
+  (§`sec:c3`).
+
+**Phase 3 — what neither pass has covered.** Narrowed, not closed. This
+tree covered kill-test R3 only by reading, and did cover E1, `sec:R4`,
+`sec:c3`, `prop:Dpp` and the Huang--Li source check (the eq. (18) defect
+report holds against the source). Still single-witness:
+
+* K1's `13 of 63` and `0.904`, R2's `G_1 = 1.513`, R1's six-draw spread
+  — the three first-pass corrections nobody has independently checked.
+  K1's is the one that reopens a design from "dead" to "open".
+* Table `tab:L`'s dilate-pair rows and `conj:L`; representation classes
+  C-II and C-IV.
+* Four of the five route adjudications of §7.1.
+* `v1/paper/e1_proof.tex`, and `theorem_A.tex`'s numerics.
+* The reproduction stamps' own pre-registered intervals.
+
+## What a third pass should do first
+
+Not "look again". The three contradictions of Phase 1 all turn on one
+thing: **a statistic the paper leaves undefined** — what a "cell" is,
+what field a figure was computed on, whether an aggregate was pooled or
+normalised per octave. Both passes silently chose a reading, and chose
+differently. The cheapest large gain is to fix the definitions and
+recompute once, not to run a third adversarial sweep.

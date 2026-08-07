@@ -1,0 +1,50 @@
+e1_dilate_field   (v1_verify2 Phase 1, blind)
+==========================================================================
+
+--- (1) the exact divisor-switch identity ------------------------
+    sum_{k>=1} sum_{m: mk<=N-1} mu(m)mu(N-mk) =?= mu(N-1)
+    N=  5000:  sum =     -1.0   mu(N-1) =  -1   ok
+    N= 20000:  sum =      1.0   mu(N-1) =   1   ok
+    N=  7919:  sum =     -1.0   mu(N-1) =  -1   ok
+    N= 30030:  sum =     -1.0   mu(N-1) =  -1   ok
+    N= 40001:  sum =      0.0   mu(N-1) =   0   ok
+    N= 50000:  sum =     -1.0   mu(N-1) =  -1   ok
+    identity: CONFIRMED
+
+--- sieving mu to 100,000,000 ---
+    sqrt N = 10,000;  the type-II field is non-empty exactly for k < 10,000
+    [paper: 'on 8000 values of k --- the entire band']
+
+--- (2) E1 at the two normalisations, dyadic bands, N=1e8 -------
+          band k~K   count   sum|D|^2/sum M_k   sum|D|^2/sum supp   sum|D|^2/sum M_k^2
+        100-199        100             0.3435              1.0421            4.807e-07
+        200-399        200             0.3874              1.1729            1.101e-06
+        400-799        400             0.3161              0.9564            1.849e-06
+    [paper: 0.305, 0.310, 0.319 at N=1e8]
+    prod_p (1-2/p^2) = 0.3226340989 -- the density of m with
+    mu(m) and mu(N-mk) both nonzero
+    [paper's target at the trivial normalisation: 8.8e-6]
+
+--- (3)-(4) sec:R4 over the whole non-empty band -----------------
+    k = 1..9,999;  non-degenerate (supp>0): 7,200
+
+    the block ratio: the paper does not state its weight, and
+    the two natural weightings disagree at B=1, where a
+    baseline of 1 is what square-root cancellation predicts.
+         B   blocks   ratio of sums   mean of ratios   live-k only
+         1     9999          1.7839           1.0241        1.0241
+         2     4999          0.9512           1.0169        1.0347
+         4     2499          0.9369           1.0164        1.0366
+         8     1249          0.9967           1.0241        1.0348
+        16      624          0.7261           1.0835        1.0106
+        64      156          0.6948           1.0775        1.0545
+       512       19          0.2306           1.2461        1.3389
+    [paper: B=8 gives 0.958 and 1.023 at two N, against B=1
+     baselines 0.980 and 0.979]
+
+    lag-1 autocorrelation of D(k)/sqrt(supp(k)) = +0.0055
+    count-based s.e. 1/sqrt(n) = 0.0118   (n = 7,200)
+    [paper: +0.0104 and +0.0127 against a s.e. of 0.0112]
+    permutation null (400 draws): mean -0.00065, sd 0.01185
+    z against the permutation null = +0.52
+    1/sqrt(8000) = 0.0112  <- the paper's quoted 0.0112 is a COUNT-based bar

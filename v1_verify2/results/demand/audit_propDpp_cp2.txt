@@ -1,0 +1,21 @@
+audit_propDpp_cp2   (v1_verify2 Phase 1, blind)
+==========================================================================
+  sieving to 16,000,000 ...
+
+             N       piece r=1       piece r=2    r1/r2    r2/r1            CP_2  CP_2/(N logN)
+     1,000,000      2.2514e+07      1.7363e+07   1.2967   0.7712      3.9877e+07         2.8864
+     4,000,000      1.0018e+08      7.9165e+07   1.2654   0.7903      1.7934e+08         2.9493
+    16,000,000      4.3933e+08      3.5601e+08   1.2340   0.8103      7.9533e+08         2.9966
+  [paper: ratio 0.771, 0.790, 0.810; CP_2/(N log N) = 2.886, 2.949, 2.997]
+
+  the mean-zero tuning f(x) = x^2 - 2 gamma x:
+             N            CP_2            CP_1           tuned     shift
+     1,000,000      3.9877e+07      1.7565e+06      3.7849e+07    -5.09%
+     4,000,000      1.7934e+08      7.0534e+06      1.7120e+08    -4.54%
+    16,000,000      7.9533e+08      2.8183e+07      7.6280e+08    -4.09%
+  [paper: 'moves the complete part by about five percent']
+
+  'drifting towards 1': the increments, and where they arrive
+    ratios      : 1.2967, 1.2654, 1.2340
+    increments  : -0.0313, -0.0314 per 4x in N
+    all measurements in this paper are at N <= 1.6e7, with two arms at 1e8.

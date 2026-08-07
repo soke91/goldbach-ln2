@@ -1,0 +1,26 @@
+lint_paper_refs
+target: v2\paper\theorem_A.tex   (1234 lines)
+==================================================================
+  dangling \ref (no matching \label)         ok
+  dangling \cite (no \bibitem)               ok
+  statement number written by hand           ok
+  orphaned \label (never referenced)         8 (not fatal)
+      - eq:Delta
+      - lem:completelog
+      - prop:Dpp
+      - rem:bound
+      - sec:D
+      - sec:Dpp
+      - sec:circle
+      - thm:Dprime
+  uncited \bibitem                           2 (not fatal)
+      - MV
+      - Pan
+
+  labels: 50   refs: 42   cites: 5   bibitems: 7
+  problems: 0
+
+  note: orphaned labels and uncited bibitems are listed but not
+  counted -- an unused anchor or a background reference breaks
+  nothing. Dangling pointers and hand-written statement numbers
+  do, and are counted.
