@@ -1,0 +1,26 @@
+n = 3873870, 7507 atomic bins  t=7s
+
+(L1) the share, split into its parts (absolute)
+                numerator    denominator      share
+real          2.01826e+19    3.10960e+20    0.06490
+coin          8.85979e+19    3.54596e+20    0.24986
+
+(L2) which side carries the factor
+    numerator   coin/real =    4.390
+    denominator coin/real =    1.140
+    product of the two    =    3.850   share ratio = 3.850
+    (L2) the split multiplies back to the share ratio: PASS
+
+(L3) where the energy sits, each side as a fraction of its own total
+             low (1..1000)      atoms       rest
+real               0.00595    0.06490    0.92915
+coin               0.03607    0.24986    0.71408
+    low-band coin/real =    6.913   rest coin/real =    0.876
+
+(L4) the odd-restricted sums, which is what an even-N periodogram sees
+evaluated at                     mu         coin    coin/mu
+all v                        1.1174       0.9920       0.89
+odd v only                   1.1113       0.9967       0.90
+
+    the ATOMS differ by 4.39x while the denominators agree, and the even-N aliasing does not account for it either: restricted to odd v the ratio is 0.90x. Third mechanism refuted; the contradiction stands
+DONE

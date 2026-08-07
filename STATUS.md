@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 327 (2026-08-07). 6 days, 169 recorded corrections,
+*Increment 328 (2026-08-07). 6 days, 171 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 8 named hazards.*
 
@@ -402,7 +402,18 @@ Since the spectrum of $C$ is exactly $|\hat\mu|^2|\hat\Lambda|^2$, a
 share ratio of 5 with a per-frequency ratio of 1 requires
 $|\hat\mu|^2$ to differ elsewhere in the spectrum, and where is not
 identified. **#166 is suspended until they are reconciled — neither
-withdrawn nor standing.**
+withdrawn nor standing.** ⚠️ **Localised at 328 (#170):** split
+absolutely, the **numerator** ratio is $4.390$ and the **denominator**
+ratio $1.140$, so the factor lives in the atomic bins and not in the
+window's total. ⚠️ And a third mechanism — the even-$N$ subsampling,
+which aliases $f$ with $f+1/2$ and, since $\Lambda$ lives on odd
+numbers, should leave $2\hat\Lambda(f)\sum_{v\ \mathrm{odd}}\mu(v)e(vf)$
+— was **refuted too**, at $0.90\times$ (#171). Three mechanisms
+proposed and three refuted. **The rule that follows: stop proposing
+mechanisms.** When every direct measurement of $|\hat\mu|^2$ says
+$\approx 1$ and an aggregate says $4.39$, the likeliest explanation is
+that one of the two computations is wrong, and the next step is to
+verify the periodogram against the exponential sum **at a single bin**.
 
 > **$C(N) = m(N) + \sqrt{V(N)}\cdot G(N)$**, with
 > $V(N)=\sum_v\mu^2(v)\Lambda(N-v)^2$ exact, $m(N)$ the location mask,
