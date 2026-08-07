@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 328 (2026-08-07). 6 days, 171 recorded corrections,
+*Increment 329 (2026-08-07). 6 days, 173 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 8 named hazards.*
 
@@ -414,6 +414,22 @@ mechanisms.** When every direct measurement of $|\hat\mu|^2$ says
 $\approx 1$ and an aggregate says $4.39$, the likeliest explanation is
 that one of the two computations is wrong, and the next step is to
 verify the periodogram against the exponential sum **at a single bin**.
+✅ **Resolved at 329 (#172, #173), and it reverses the reading.** The two
+summaries carried different weights: the periodogram sums
+$|\hat\mu|^2|\hat\Lambda|^2$ and $|\hat\Lambda(j/q)|^2\approx(X/\varphi(q))^2$,
+so $q=3$ outweighs $q=143$ by $3600$, while every exponential-sum check
+reported an **unweighted mean** over 255 frequencies. Per modulus both
+objects move together: the coin exceeds the real by $8.40\times$ at
+$q=3$, $15.16\times$ at $q=5$, $4.97\times$ at $q=7$, $3.60\times$ at
+$q=11$, falling to $\approx1$ from $q=13$ up — and only 22 of the 255
+frequencies sit at $q\le11$, so the mean drowned them. **So #167's
+refutation was itself the artefact**: $\mu$'s exponential sums at
+small-denominator rationals really are far smaller than a coin's, which
+is the classical major-arc cancellation, and **#166 is restored with
+that as its mechanism**. ⚠️ It is not a new fact about $\mu$ — it is this
+program measuring a classical one for the first time, after three wrong
+refutations — and the reconciliation is qualitative: $13.0$ against
+$8.4$ at $q=3$, so **#166 stands as a direction, not as a number**.
 
 > **$C(N) = m(N) + \sqrt{V(N)}\cdot G(N)$**, with
 > $V(N)=\sum_v\mu^2(v)\Lambda(N-v)^2$ exact, $m(N)$ the location mask,
