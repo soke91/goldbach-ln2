@@ -27,9 +27,10 @@ and one defect report for the source paper.
 | `v2/` | The continuation. Open questions `v1` states but does not answer. | yes |
 | `lib/goldbach/` | Shared helper package, imported by scripts in every tree. | yes |
 | `v1_log/` | The program's own record for `v1`: process documents, exploratory code, uncited results. | **no** |
+| `v1_verify_log/` | The re-verification's own record, including disagreements while they are unresolved. | **no** |
 | `v2_log/` | The same, for `v2`. | **no** |
 
-The `_log` trees are a lab notebook. They are on disk and they are not
+The three `_log` trees are a lab notebook. They are on disk and they are not
 distributed: `.gitignore` excludes them. Nothing in `v1/` depends on
 them, so a clone is complete without them.
 
