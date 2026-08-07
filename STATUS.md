@@ -1,6 +1,6 @@
 # STATUS — single-page state of the program
 
-*Increment 331 (2026-08-07). 6 days, 176 recorded corrections,
+*Increment 332 (2026-08-07). 6 days, 177 recorded corrections,
 18 recorded closures (13 standing), 15 documented "teeth",
 9 named hazards.*
 
@@ -12,7 +12,7 @@ other an unweighted mean over 255 frequencies of which only 22 mattered.
 It cost three invented mechanisms, and the first of them was right and
 discarded (#174). Distinct from #30: there a quantity met a **target**
 at the wrong scale; here two measurements of the **same object** met
-each other under different aggregations. ✅ **First swept at 331 (#175)** at the quantity most claims rest on: `ρ = Var C / V` names **three** quantities — a ratio of means, a mean of ratios, and the half-normal arm `(π/2)mean(|C|/√V)²`. They agree to `0.75%` at `N ≈ 1.4·10⁷` and differ by `10.3%` at `10⁵`, ordered `A > B > C`. **Proposition W wants the ratio of totals, so #121's `ρ = 0.810` is `0.841` in its units.**
+each other under different aggregations. ✅ **First swept at 331 (#175)** at the quantity most claims rest on: `ρ = Var C / V` names **three** quantities — a ratio of means, a mean of ratios, and the half-normal arm `(π/2)mean(|C|/√V)²`. They agree to `0.75%` at `N ≈ 1.4·10⁷` and differ by `10.3%` at `10⁵`, ordered `A > B > C`. **Proposition W wants the ratio of totals, so #121's `ρ = 0.810` is `0.841` in its units.** ✅ **Swept across every quoted ratio at 332 (#177), and the two that carry the most weight are exactly unambiguous**: `𝔄(N) = V/W` — Proposition V's local factor and increment 309's `0.8106` — gives `0.00%` between the two summaries in every band, and `Q(N)/N` likewise. Flagged: `ρ` at `3.10%` and the Cauchy–Schwarz deficit `C²/(W·Q)` at `9.10%`, both at the smallest band and both falling below `1%` at the largest. The deficit's ambiguity does not threaten 309, whose conclusion is that `deficit/√N` is **bounded** rather than equal to a constant.
 
 **What is trusted, and what is not: `DEPENDENCY_AUDIT.md`.** The
 theorems proved here do not rest on Huang–Li; the strategic frame does.
