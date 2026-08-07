@@ -1,6 +1,0 @@
-Z:\업무\소수증명\goldbach-ln2\code\e1_forge_r2b.py:88: RuntimeWarning: invalid value encountered in scalar divide
-  G1 = abs(np.sum(v * e1))**2 / base
-Z:\업무\소수증명\goldbach-ln2\code\e1_forge_r2b.py:89: RuntimeWarning: invalid value encountered in scalar divide
-  G2 = abs(np.sum(v * e2))**2 / base
-Z:\업무\소수증명\goldbach-ln2\code\e1_forge_r2b.py:91: RuntimeWarning: invalid value encountered in scalar divide
-  Gr = abs(np.sum(v * np.exp(-1j*rphase)))**2 / base

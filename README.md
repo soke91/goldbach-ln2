@@ -1,140 +1,77 @@
 # goldbach-ln2
 
-**An empirical program on the Goldbach conjecture: from a sub-Poissonian
-fluctuation constant (≈ ln 2) to a complete empirical map of the
-Huang–Li conditional chain — including a direct measurement of the final
-axiom (EH_μ) at its own coordinate.**
+A computational and analytic map of the Elliott–Halberstam route to the
+binary Goldbach conjecture, and of the single scalar that route reduces
+the problem to:
 
-> Status: **numerical / exploratory — measurements and conjectures, not
-> theorems.** Produced in AI-assisted exploratory sessions (2026-08-03 → 05)
-> with 24 documented self-corrections and three pre-registered blind
-> extrapolation tests (all hits). Expert scrutiny is explicitly welcome —
-> if anything here is known, wrong, or provable, please open an issue.
-
-## The program in one picture
-
-By a known conditional theorem (Huang–Li 2022, continuing Pan 1982;
-arXiv:2005.03811), Goldbach for large even N follows from
-Bombieri–Vinogradov **plus one sentence**:
-
-> **EH_μ(N^{θ′}) for some θ′ > 1/2**: the correlation sequence
-> c(n) = Λ(n)·μ(N−n) equidistributes in arithmetic progressions with
-> moduli past the √N barrier — needed only for the fixed residue class
-> N mod q.
-
-This repository measures that landscape (and everything feeding it):
-
-| Result | Measurement |
-|---|---|
-| **Final axiom, directly** | Fixed-residue discrepancy of c(n): mean 0.6–1.0× random walk through θ = 0.30 → **0.70** (3 values of N at 10⁸) — **no visible change at the √N barrier** |
-| Möbius landscape | Discrepancy = (0.27 ln Q) × random walk to θ = 1/2; flat 3.2–3.8×√(x/q) deep into the unproven zone θ ≤ 0.88 |
-| **Conjecture P** (sifted primes) | Sifted-prime counts sit on the Buchstab curve e^γω(u) to ±0.0002 through the sieve-blind zone, fine structure reproducing across a decade |
-| Minimal target (P_loc) | Two aggregates per n (S, P2) to ~60% accuracy suffice for g > 0 at 10⁸; nature delivers 0.48% worst-case (**factor-125 slack** over 3000 n) while classical lower bounds are blind |
-| Structure law at θ = 1/8 | s(n) = s₀(x)·∏_{q|n, q>y}(q−1)/(q−2) to 3–4 decimals at three scales; worst class identified (smooth n), no downward anomalies |
-| χ² fiber uniformity | Sub-Poisson (0.49–0.57) from 10⁶ to 10¹²; Poisson-convergence rejected at 26σ in a pre-registered test |
-| The ln 2 constant | Canonical dispersion ratio of g/HL → 0.6931 ± 0.0061 ≡ ln 2 (18 octaves, 3 independent constructions); a ≥3-point additive-correlation invariant |
-| Loss anatomy | Classical upper-bound loss integral 4.08 vs required 1.26 at u = 8; all parity content condenses into the P2 core / small-s sifted asymptotics |
-
-Full write-up: [RESEARCH_NOTE.md](RESEARCH_NOTE.md) (self-contained, with
-methods, corrections, and honest caveats). Current single-page state:
-[STATUS.md](STATUS.md). Measurement-only condensed document:
-[MEASUREMENTS.md](MEASUREMENTS.md).
-
-**Proof-program attempt (refuted).** The repository also contains a
-proof-program attempt for the final bound
-([PROOF_SKETCH_E1.md](PROOF_SKETCH_E1.md) →
-[paper/e1_proof.tex](paper/e1_proof.tex)). An independent adversarial
-review **refuted its core reductions** — see
-[REVIEW_VERDICT.md](REVIEW_VERDICT.md) before reading the sketch. The
-exact identities and all measurements survive; the documents are
-retained as a record of the attempt and its precise failure
-coordinates.
-
-**Start here: [paper/negative_map.tex](paper/negative_map.tex)** — the
-consolidated working paper. The whole campaign in one document: the two
-couplings of the Huang–Li hypothesis, the unconditional theorem and the
-equivalence on the demand side, Conjecture L on the supply side, all
-**eighteen pre-registered closures** with their blocking coordinates, the
-five constraints any future technique must satisfy, and the methodology
-(pre-registration, fresh-context adversarial review, power before
-belief) that produced the negative results.
-
-**Read alongside it: [CLOSURE_REAUDIT.md](CLOSURE_REAUDIT.md).** The
-program discovered that it had been carrying its own target written at
-the wrong scale (square-root where the chain consumes at trivial — a
-factor N/K ≥ N^{2/3}), so every closure decided on a magnitude or
-budget basis was re-examined. **Two are void, one downgraded, two moot, the rest stand**, and C-III
-is re-opened as a route. The negative map is smaller than it was, and the part
-that shrank is exactly the part measured with the wrong ruler.
-
-**One unconditional result (survived review).** The demand side of the
-Huang–Li reduction was audited rather than attacked, and one derivation
-came through: [THEOREM_A.md](THEOREM_A.md) (summary) →
-[paper/theorem_A.tex](paper/theorem_A.tex) (full proof). It shows the
-Möbius-weighted fixed-class correlation sum with weight w_k = 1 is
-≪_A N(log N)^{−A} unconditionally, so Huang–Li's E₄ / Lemma 4
-consumption of EH_μ is unnecessary and their whole EH_μ demand collapses
-to the single scalar E₃ — which the same document proves *equivalent* to
-binary Goldbach (their own equation (22); the root cause is μ ∗ log = Λ).
-**Net progress toward Goldbach is therefore zero**; what the result buys
-is the permanent closure of the demand-side search. A defect in the
-published equation (18) is reported, with its repair, in
-[paper/defect_report_18.md](paper/defect_report_18.md).
-
-## What is claimed / not claimed
-
-- **Claimed (facts)**: the computed values and verifications; the exact
-  identities used (Theorem-1 dichotomy, Buchstab bookkeeping); the
-  documented reductions; Theorem A and its corollaries above.
-- **Conjectured**: the ln 2 constant; Conjecture P; the empirical structure
-  laws.
-- **Not claimed**: any theorem toward Goldbach. The conditional frame
-  (Goldbach ⟸ BV + EH_μ) is Huang–Li's theorem, not ours; our contribution
-  on that axis is measurement.
-
-## Reproduce (Python + numpy; laptop-scale)
-
-```bash
-pip install -r requirements.txt
-cd code
-
-# Final axiom landscape (c(n) = Lambda*mu(N-n) fixed-residue discrepancy)
-python ehmu_final.py
-
-# Mobius-in-APs landscape to theta = 0.88
-python ehmu_probe2.py && python ehmu_beyond.py
-
-# Conjecture P profile (sifted primes vs Buchstab through the blind zone)
-python p_profile.py
-
-# P_loc slack ledger (two aggregates per n vs the winning threshold)
-python ploc_scan.py
-
-# Structure law at theta = 1/8 (segmented sieve, controlled per-q experiment)
-python s_th18_qlaw.py
-
-# chi2 fiber uniformity ladder
-python s1_chi2_envelope.py
-
-# The original ln 2 dispersion series
-python e4_dense_sample.py
-
-# One-shot reproducibility suite (mu sanity, ladder identity, dispersion,
-# seam band — all four stamps in ~15 min)
-python verify_all.py
+```
+C(N) = sum_{n<N} Lambda(n) mu(N-n) = o(N)
 ```
 
-Each script prints its reported numbers to stdout. `code/goldbach/` is the
-shared sieve library. ~40 scripts document every measurement in the note.
+Huang and Li proved that binary Goldbach for large even `N` follows from
+`EH_mu(N^theta')` for a single `theta' > 1/2`. This repository asks what
+that one sentence costs, from both of its sides, and then studies the
+wall itself.
 
-## Falsification
+**Net progress toward Goldbach: zero.** What is here is a map, a law for
+the wall, one unconditional theorem that removes a Goldbach-neutral half
+of the demand, one conjecture any future construction must reproduce,
+and one defect report for the source paper.
 
-Each claim carries its own kill condition in the note: fitted limits that
-drift, structure that fails at the next scale, or a classical account of any
-constant. Three campaigns in this program died exactly this way (R² → ln 2,
-thin-class habitat, Λ²-family headroom) and are documented as corrections —
-the surviving claims are the ones that passed.
+## Layout
 
-## License
+| Directory | Contents | In git |
+|---|---|---|
+| `v1/` | **Version 1 — frozen.** The paper, and the code and results it cites. | yes |
+| `v1_verify/` | Independent re-verification of `v1`, mirroring its structure. | yes |
+| `v2/` | The continuation. Open questions `v1` states but does not answer. | yes |
+| `lib/goldbach/` | Shared helper package, imported by scripts in every tree. | yes |
+| `v1_log/` | The program's own record for `v1`: process documents, exploratory code, uncited results. | **no** |
+| `v2_log/` | The same, for `v2`. | **no** |
 
-Code: MIT. Text: CC BY 4.0.
+The `_log` trees are a lab notebook. They are on disk and they are not
+distributed: `.gitignore` excludes them. Nothing in `v1/` depends on
+them, so a clone is complete without them.
+
+`v1/` and `v1_verify/` share one structure:
+
+```
+paper/                the document and its companion notes
+code/verify/          the reproduction stamps
+code/demand/          Theorems A, C, D, D' and Propositions E, D''
+code/supply/          E1, Conjecture L, the kill-tests, the C-classes
+code/wall/            Propositions V, W, the lemmas, the location mask
+results/{...}/        one output file per script, same subdivision
+```
+
+## Reproducing
+
+```
+python v1/code/verify/verify_all.py     # the core corpus, minutes
+python v1/code/verify/verify_deep.py    # the deep-N arm at N ~ 1e8
+```
+
+Every script is standalone: `python <path>` runs it, and each prints its
+own pre-registered pass/fail criteria and exits nonzero on failure.
+Python and numpy on a laptop is the whole requirement.
+
+`v1/PROVENANCE.md` maps every numbered statement in the paper to the
+code that verifies it and the result file the figure was read from.
+
+## The rules this program ran under
+
+Stated because they are the reason the negative results are believable,
+and because each was adopted after the corresponding mistake was made.
+
+1. **Pre-registration.** Every design's decision rule, including the one
+   that would refute the hypothesis under test, was written before its
+   computation ran.
+2. **Adversarial review in fresh context**, against source papers'
+   verbatim lemma hypotheses rather than against summaries of them.
+3. **Power before belief.** A threshold means nothing until the spread
+   of the quantity it judges has been measured.
+4. **Weights before comparisons.** Two summaries of one object are not
+   comparable until each one's weight is stated.
+5. **A count is not an error bar.** The uncertainty of a mean of
+   correlated summands does not fall like `1/sqrt(n)`; see
+   Proposition 15 of the paper.

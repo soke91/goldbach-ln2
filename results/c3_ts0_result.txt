@@ -1,8 +1,0 @@
-mu ready 10s
-W-range 50000000..100000000, support 30396350
-pairs used: 9
-mean r = 0.968  (half-normal 0.798)
-max r  = 1.949
-=== T-S0 ===
-verdict: HEALTHY (Lemma S's object shows uniform square-root cancellation -- theory tasks T-S1..T-S3 proceed)
-DONE

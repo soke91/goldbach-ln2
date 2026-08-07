@@ -1,9 +1,8 @@
+# The program's own record: process documents, exploratory code and the
+# results that the paper does not cite. Kept on disk, deliberately not
+# distributed -- it is a lab notebook, not a deliverable.
+v1_log/
+v2_log/
+
 __pycache__/
 *.pyc
-
-# Never commit third-party papers or their extractions (copyright).
-# The reference library lives OUTSIDE this repo, at ../papers/.
-*.pdf
-*_text.txt
-papers/
-arxiv_*
