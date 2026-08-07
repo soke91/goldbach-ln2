@@ -23,11 +23,13 @@ and one defect report for the source paper.
 | Directory | Contents | In git |
 |---|---|---|
 | `v1/` | **Version 1 — frozen.** The paper, and the code and results it cites. | yes |
-| `v1_verify/` | Independent re-verification of `v1`, mirroring its structure. | yes |
+| `v1_verify/` | Independent re-verification of `v1`, mirroring its structure. Seventeen findings, and a corrected paper. | yes |
+| `v1_verify2/` | The second pass. Blind recall against the first, plus the corrections the first pass is the only witness to. | yes |
 | `v2/` | The continuation. Open questions `v1` states but does not answer. | yes |
 | `lib/goldbach/` | Shared helper package, imported by scripts in every tree. | yes |
 | `v1_log/` | The program's own record for `v1`: process documents, exploratory code, uncited results. | **no** |
 | `v1_verify_log/` | The re-verification's own record, including disagreements while they are unresolved. | **no** |
+| `v1_verify2_log/` | The second pass's own record. | **no** |
 | `v2_log/` | The same, for `v2`. | **no** |
 
 The three `_log` trees are a lab notebook. They are on disk and they are not

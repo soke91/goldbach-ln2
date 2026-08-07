@@ -3,6 +3,7 @@
 # distributed -- it is a lab notebook, not a deliverable.
 v1_log/
 v1_verify_log/
+v1_verify2_log/
 v2_log/
 
 __pycache__/
