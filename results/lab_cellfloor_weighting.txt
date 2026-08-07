@@ -1,0 +1,38 @@
+sieve + V  t=13s
+  band 1/8 target 0.05819  t=32s
+  band 2/8 target 0.05406  t=52s
+  band 3/8 target 0.05047  t=71s
+  band 4/8 target 0.04733  t=90s
+  band 5/8 target 0.04456  t=109s
+  band 6/8 target 0.04210  t=130s
+  band 7/8 target 0.03990  t=150s
+  band 8/8 target 0.04204  t=170s
+
+(W1) how hard the 40000 cap binds
+                 band  cells capped  mass capped
+   100000-     200000      2/8            68.57%
+   200000-     400000      3/8            80.00%
+   400000-     800000      5/8            93.33%
+   800000-    1600000      6/8            97.14%
+  1600000-    3200000      7/8            99.05%
+  3200000-    6400000      8/8           100.00%
+  6400000-   12800000      8/8           100.00%
+ 12800000-   16000000      8/8           100.00%
+
+(W2)(W3) how much the weighting alone moves the prediction
+                 band     E_all    capped  weighted  capped/weighted
+   100000-     200000   2.00107   2.87266   2.73424            1.189
+   200000-     400000   1.99508   2.95162   2.73103            1.300
+   400000-     800000   1.99975   3.06444   2.72237            1.473
+   800000-    1600000   2.00271   3.12903   2.72216            1.566
+  1600000-    3200000   1.99956   3.19161   2.72391            1.646
+  3200000-    6400000   1.99502   3.23035   2.72318            1.696
+  6400000-   12800000   1.99717   3.23024   2.72232            1.700
+ 12800000-   16000000   1.99777   3.23106   2.72841            1.688
+
+    (W3) the capped construction is increment 312's, reproduced by definition
+    (W2) the weighting alone inflates the prediction, growing with N, reaching >=1.4 at the top: PASS  (1.19 -> 1.69)
+         312's unexplained overshoot ran 1.13 -> 1.82
+
+    A2's unexplained factor is the weighting. The closed form averages same-cell pairs with weight n_c/n; increment 312 pooled a capped sample, which under-weights the large shallow cells whose same-cell excess is smallest, inflating the prediction by 1.19 at the bottom band and 1.69 at the top -- against an unexplained overshoot that ran 1.13 to 1.82. Direction, size and trend all match
+DONE
