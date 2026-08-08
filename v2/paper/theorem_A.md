@@ -4192,6 +4192,95 @@ predicts: refining the partition manufactures more of the artefact and
 leaves less room for the real thing.
 
 
+#### Remark (the inner sums already cancel; the sign is what does not) {#rem:headsign}
+<!-- evidence: audit_head_sign.py -->
+
+Remark [rem:gainopposition] left item 4(b) with one demand: raise the
+internal cancellation of the top blocks by magnitude, since the
+opposition route is a bounded factor and the honest exponent from
+within-block cancellation is $0.098386$ against a ceiling
+$\theta'/2=0.28$. Those blocks fail to cancel because
+$0.8274$ to $1.0000$ of the top decile carries one sign
+([rem:gainsplit]), and **why** had never been asked.
+
+Split the inner sum of [eq:layers] where its sign is. With
+$P_k=\sum_{\mu(m)=+1}\Lambda(N-mk)$, $M_k$ the same over
+$\mu(m)=-1$, $H_k=P_k-M_k$, $T_k=P_k+M_k$ and $I_k=H_k/T_k$, the
+magnitude factors as $|a_k|=(\log k)\,T_k\,|I_k|$ — a mass and an
+imbalance. The split reproduces [rem:gainsplit]'s head fractions and
+gains to $0.000046$ (Q1).
+
+**Q2 is refuted: the head is both.** The top decile's average $|I_k|$
+exceeds the whole range's by $2.0992$ to $2.5633$, as predicted, but so
+does its average $T_k$, by $1.4707$ to $4.6521$ — and that mass
+enrichment *grows* along the sweep where the imbalance enrichment does
+not. The registered dichotomy, mass selection washes out and imbalance
+selection does not, was the wrong frame.
+
+**Q3 holds and is an identity, which is a warning about the check and
+not a strength of it.** $T_k>0$, so
+$\operatorname{sign}I_k=\operatorname{sign}H_k=\operatorname{sign}a_k$
+and the share of the head with $I_k<0$ *is* its one-sign fraction
+whenever the majority is negative; the difference is $0.0000$ at all
+eight $N$ because the two columns are one column. What Q3 measures is
+only that the majority is negative, which is [rem:headidentity]'s
+finding.
+
+**Q4 holds, and the reference it needed changes what it means.** The
+average $|I_k|$ falls at $-0.191871$, $40.29$ standard errors. But
+independent signs would not give zero: the inner sum has $n_k$
+contributing terms and random cancellation leaves an imbalance of order
+$1/\sqrt{n_k}$, a quantity computable term by term that had never been
+put beside $|I_k|$. The average $n_k$ runs $100.33$ to $843.03$ and its
+own reference falls at $-0.184058$; the ratio of the measured imbalance
+to it runs $1.0310$ to $1.0995$ with a drift of $-0.007812$ at $1.78$
+standard errors, **unresolved**. So:
+
+> **the inner sums already cancel at the independent-sign rate, to
+> within three to ten per cent and no resolved drift. There is nothing
+> to win inside $k$, and the whole deficit against $\theta'/2$ is
+> across $k$.**
+
+**And the sign is not random even though the size is.** Under
+independent signs every decile would sit at a half. Cut on $|a_k|$ the
+share with $I_k<0$ runs $0.8274$ down to $0.4989$; the top-minus-bottom
+spread is $+0.3284$. Cut on each factor alone it is $+0.3389$ on
+$|I_k|$, $+0.1537$ on $T_k$ and $+0.0126$ on $k$. **The correlation
+lives on the imbalance axis and essentially not on $k$** — so the
+$|a_k|$ profile is inheriting $|I_k|$'s, and the head's alignment is
+not the $k$-size effect the discussion around [eq:layers] proposed when
+it observed that small $N/k$ leaves the $m$ almost all prime.
+
+That discussion is not wrong about the bias, only about where to look
+for it. The signed mean of $I_k$ is negative at every $N$,
+$-0.106299$ to $-0.017828$, and by $k$-decile at the top $N$ it runs
+$-0.0023,\,-0.0074,\,-0.0082,\,-0.0129,\,-0.0185,\,-0.0191,\,-0.0291,\,
+-0.0273,\,-0.0240,\,-0.0295$ — growing in size with $k$, a spread of
+$0.027147$ against a mean of $-0.017828$, which is the direction
+[eq:layers] predicted. **The bias is $k$-dependent; the head is not
+$k$-selected; those are consistent, and [rem:headidentity] is why** —
+the head's median sits at the $0.22$ to $0.32$ point of $k$-order.
+
+**The bias is also disappearing, measured against the only scale it can
+be measured against.** In units of $1/\sqrt{n_k}$ it runs $0.6339$ down
+to $0.2590$, falling at $-0.185280$ with $20.72$ standard errors, and
+the whole range's share with $I_k<0$ runs $0.6169$ down to $0.5128$.
+A bias that is a quarter of the noise and shrinking is not, on its own,
+an obstruction.
+
+**Which leaves one thing unexplained, and it is now the whole of item
+4(b).** The top decile by $|I_k|$ is $0.8547$ negative at the top $N$
+and falls only at $-0.032100$ ($6.94$ standard errors) — far slower
+than the bias that is supposed to produce it. A bias of $0.2590$ of the
+fluctuation scale does not obviously put $85$ per cent of the largest
+deviations on one side; reconciling the two needs a null that signs the
+observed $|I_k|$ at the observed rate and reads off the tail, and this
+script did not run one. **So the demand on item 4(b) is no longer
+"cancel the top fifth" — the inner sums are already at the
+independent-sign rate — it is: account for a tail asymmetry that the
+measured bias appears too small to explain.**
+
+
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
 <!-- evidence: audit_slope_significance.py -->
 
