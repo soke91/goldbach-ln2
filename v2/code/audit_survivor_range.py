@@ -229,6 +229,8 @@ def main():
         print(s)
         lines.append(s)
 
+    MAJS = []          # the predictor's own majority share
+
     pub = read_published()
     wsrc = io.open(os.path.join(RES, "audit_oddmertens_range.txt"),
                    encoding="utf-8").read()
@@ -271,6 +273,8 @@ def main():
                & (modd[inner] != 0))
         sh = np.sign(H[sel])
         sp = np.sign(P[sel])
+        MAJS.append(max(float((sp > 0).mean()),
+                        float((sp < 0).mean())))
         sm = np.sign(modd[inner[sel]])
         ap = float((sh == sp).mean())
         am = float((sh == sm).mean())
@@ -295,6 +299,8 @@ def main():
         a = np.log(ks.astype(np.float64)) * H
         l1 = float(np.abs(a).sum())
         sh, sp = np.sign(H), np.sign(P)
+        MAJS.append(max(float((sp > 0).mean()),
+                        float((sp < 0).mean())))
         ok = (sh != 0) & (sp != 0)
         # where P vanishes it predicts nothing, so it is scored as a
         # coin for the lean rather than dropped: the lean needs a
@@ -412,6 +418,19 @@ def main():
     ok = s1 and s2 and s3 and s4
     say("the sieve-weighted predictor carries the lean where the "
         "lean is measured" if ok else "REFUTED")
+
+    mj = max(MAJS)
+    say()
+    say("  the predictor's own majority sign share, at its worst over "
+        "everything")
+    say("  reported above: %.4f. An agreement is only a measurement "
+        "where the" % mj)
+    say("  predictor has variance; where it takes one sign almost "
+        "everywhere,")
+    say("  the agreement is the other side's marginal rate read back.")
+    say("MARGINAL %s %.4f" % ("audit_survivor_range", mj))
+    if mj >= 0.9:
+        say("DEGENERATE %s" % "audit_survivor_range")
 
     head = [
         "STATISTIC: the agreement of sign H(N;k) with the sign of the",

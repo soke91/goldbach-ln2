@@ -113,6 +113,7 @@ python gate/gate.py > gate/gate.txt 2>&1; echo $?
 | G70 | 번호 붙은 진술만이 아니라 **모든** evidence 마커의 스크립트·결과가 실재 — G1은 115개 중 22개만 본다 |
 | G71 | 잔차 목록을 인쇄하면 `SIGNRUN` 으로 같은 부호 개수를 낸다 — r.m.s.는 부호를 못 본다 |
 | G72 | '사이'의 상쇄를 진술하면 `CROSSSHARE` 를 세 해상도 이상에서 내고, 1.5배 넘게 벌어지면 `RESOLUTION DEPENDENT` 를 붙인다 |
+| G73 | "sign X 가 sign Y 와 같은 비율"을 재면 `MARGINAL` 로 예측자 자신의 다수 부호 몫을 내고, `0.9` 를 넘으면 `DEGENERATE` 를 붙인다 |
 
 # 3. 방법 규칙
 

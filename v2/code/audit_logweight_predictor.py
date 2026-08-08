@@ -229,6 +229,8 @@ def main():
         print(s)
         lines.append(s)
 
+    MAJS = []          # the predictor's own majority share
+
     pagr, prat = read_published()
     say("read %d agreements and lean ratios from "
         "results/audit_survivor_range.txt" % len(pagr))
@@ -257,6 +259,9 @@ def main():
     for N in NS:
         ks, H, P, L = scan(N, lam, mu, oddsqf, sqf, vmask, qs)
         sh, sp, sl = np.sign(H), np.sign(P), np.sign(L)
+        for _s in (sp, sl):
+            MAJS.append(max(float((_s > 0).mean()),
+                            float((_s < 0).mean())))
         ok = (sh != 0) & (sp != 0)
         ap = float((sh[ok] == sp[ok]).mean())
         ok2 = (sh != 0) & (sl != 0)
@@ -389,6 +394,19 @@ def main():
     say("=" * 70)
     ok = k1 and k2 and k3 and k4
     say("the missing weight is log(N - mk)" if ok else "REFUTED")
+
+    mj = max(MAJS)
+    say()
+    say("  the predictor's own majority sign share, at its worst over "
+        "everything")
+    say("  reported above: %.4f. An agreement is only a measurement "
+        "where the" % mj)
+    say("  predictor has variance; where it takes one sign almost "
+        "everywhere,")
+    say("  the agreement is the other side's marginal rate read back.")
+    say("MARGINAL %s %.4f" % ("audit_logweight_predictor", mj))
+    if mj >= 0.9:
+        say("DEGENERATE %s" % "audit_logweight_predictor")
 
     head = [
         "STATISTIC: on the squarefree k < N^" + str(THETA)

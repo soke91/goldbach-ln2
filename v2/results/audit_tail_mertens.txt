@@ -119,6 +119,10 @@ R4  is it the predictor or the marginals?
   12800000     0.8854      0.8824                   +0.0031
   25600000     0.8547      0.8481                   +0.0066
   R4 REFUTED
+  the predictor's own majority sign share, at its worst over the sweep,
+  is 0.9970 -- which is the whole of R4.
+MARGINAL audit_tail_mertens 0.9970
+DEGENERATE audit_tail_mertens
 
   and where the two are going:
   quantity      exponent     s.e.       t

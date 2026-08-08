@@ -4408,6 +4408,26 @@ falls at $-0.032100$ ($6.94$ standard errors) and the whole range's
 agreement at $-0.035401$ ($4.88$), so both drift at the same slow rate
 and neither is on a path to a half within reach of computation.
 
+**And the gate now checks this everywhere, which is what says how far
+the fault reaches.** Check G73 requires any result file declaring a sign
+agreement to publish the predictor's own majority sign share — the
+largest over every set it reports on, so that one degenerate window
+cannot hide behind a well-conditioned one. The convention started as the
+smallest, and [rem:oddmertensrange]'s two windows, $0.7928$ against
+$0.9970$, are what forced the change. Nine files declare such an
+agreement and all nine now publish the share. **Only two are
+degenerate**: this remark's, at $0.9970$, and [rem:oddmertensrange]'s, at
+the same $0.9970$ from its $k<N^{	heta'}$ window. Every other predictor
+has real variance — $0.8316$ and $0.8081$ for the Mertens predictor on
+$2\le N/k\le1000$, so [rem:leanmertens]'s agreement stands as a
+measurement; and $0.7726$, $0.7091$, $0.6686$, $0.5879$, $0.5801$ for
+the sieve predictors of the survivor, level-threshold, survivor-range,
+log-weight and [rem:sievedepth] results. So the degeneracy is not a
+fault of agreement measurements in this programme. **It is specific to
+the Mertens predictor pushed onto the range where the gain lives**, and
+every other agreement claim in the paper survives the check that caught
+it.
+
 
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
 <!-- evidence: audit_slope_significance.py -->

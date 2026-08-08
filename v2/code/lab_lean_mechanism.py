@@ -199,12 +199,14 @@ def main():
     say("P3  does the sign of H track the Mertens function at N/k?")
     say("  N            #k in range   agreement   draws max   draws median")
     p3 = True
+    majs = []                       # the predictor's own majority share
     rng = np.random.default_rng(SEED)
     for N, ks, H, w, Minner in rows:
         sel = (Minner >= 2) & (Minner <= MCAP) & (H != 0)
         mm = Minner[sel]
         sh = np.sign(H[sel])
         sm = np.sign(mert[mm]).astype(np.float64)
+        majs.append(max(float((sm > 0).mean()), float((sm < 0).mean())))
         agree = float((sh == sm).mean())
         uniq = np.unique(mm)
         base = np.searchsorted(uniq, mm)
@@ -220,6 +222,12 @@ def main():
             % (N, int(sel.sum()), agree, float(got.max()),
                float(np.median(got))))
     say("  P3 %s" % ("hold" if p3 else "REFUTED"))
+    say("  the predictor's own majority sign share, which is what an")
+    say("  agreement has to be read against: %.4f to %.4f"
+        % (min(majs), max(majs)))
+    say("MARGINAL lab_lean_mechanism %.4f" % max(majs))
+    if max(majs) >= 0.9:
+        say("DEGENERATE lab_lean_mechanism")
 
     say()
     say("P4  where the lean lives")

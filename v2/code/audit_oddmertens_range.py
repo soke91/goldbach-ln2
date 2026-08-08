@@ -233,6 +233,7 @@ def main():
     say("  N            #k        odd Mertens  published   "
         "full Mertens  published")
     p1 = True
+    majs = []                       # the predictor's own majority share
     for N in CTRL:
         ks, H = hvec(N, N // 2, lam, mu, sqf)
         inner = N // ks
@@ -245,6 +246,8 @@ def main():
         # failure to predict on a k the other side does predict, so
         # it counts as a miss -- the published convention
         ok = pm != 0
+        majs.append(max(float((pm[ok] > 0).mean()),
+                        float((pm[ok] < 0).mean())))
         a1 = float((s1[ok] == pm[ok]).mean())
         a2 = float((s1[ok] == pf[ok]).mean())
         po, pfu = pub[N]
@@ -271,6 +274,8 @@ def main():
         pm = np.sign(modd[inner])
         s1 = np.sign(H)
         ok = (pm != 0) & (s1 != 0)
+        majs.append(max(float((pm[ok] > 0).mean()),
+                        float((pm[ok] < 0).mean())))
         agr = float((s1[ok] == pm[ok]).mean())
         f_mu = float(a[a > 0].sum() / l1)
         w = np.abs(a)
@@ -296,6 +301,20 @@ def main():
         % ("hold" if p2 else "REFUTED"))
     say("  P3 the predicted lean is within a factor two   %s"
         % ("hold" if p3 else "REFUTED"))
+    say()
+    say("  and the predictor's own majority sign share, over both "
+        "windows,")
+    say("  which is what any of these agreements has to be read "
+        "against:")
+    say("  %.4f to %.4f" % (min(majs), max(majs)))
+    say("MARGINAL audit_oddmertens_range %.4f" % max(majs))
+    if max(majs) >= 0.9:
+        say("DEGENERATE audit_oddmertens_range")
+        say("  so on at least one of these windows the predictor is")
+        say("  informationless: it takes one sign almost everywhere, "
+            "and an")
+        say("  agreement with it is the marginal rate of sign H read "
+            "back.")
     say()
     say("  the two windows of inner length N/k, side by side:")
     say("    the agreement was demonstrated on   [%d, %d]" % (2, XHI))

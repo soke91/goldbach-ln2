@@ -29,6 +29,9 @@ Q1/Q2  sign agreement over 2 <= N/k <= 1000
   800000       40536     0.7693        0.5699      0.5534
   1600000      78196     0.7669        0.5721      0.5545
   3200000      151343    0.7657        0.5738      0.5563
+  the predictor's own majority sign share, which is what an
+  agreement has to be read against: 0.7928 to 0.8081
+MARGINAL lab_lean_oddmertens 0.8081
   Q1 beats every permutation draw   hold
   Q2 beats the full Mertens function   hold
 

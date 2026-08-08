@@ -330,6 +330,13 @@ def main():
         say("  %-12d %-11.4f %-24.4f %+.4f"
             % (N, ag_top[N], perm_top[N], ag_top[N] - perm_top[N]))
     say("  R4 %s" % ("hold" if r4 else "REFUTED"))
+    maj = max(max(negshare_s[N], 1.0 - negshare_s[N]) for N in NS)
+    say("  the predictor's own majority sign share, at its worst over "
+        "the sweep,")
+    say("  is %.4f -- which is the whole of R4." % maj)
+    say("MARGINAL audit_tail_mertens %.4f" % maj)
+    if maj >= 0.9:
+        say("DEGENERATE audit_tail_mertens")
 
     say()
     et, _rt, set_ = fit_(xl, np.log(np.array([ag_top[N] for N in NS])))

@@ -95,3 +95,9 @@ WINDOWS DISJOINT lab_survivor_selection lab_lean_decay
 
 ======================================================================
 REFUTED
+
+  the predictor's own majority sign share, at its worst over everything
+  reported above: 0.6686. An agreement is only a measurement where the
+  predictor has variance; where it takes one sign almost everywhere,
+  the agreement is the other side's marginal rate read back.
+MARGINAL audit_survivor_range 0.6686

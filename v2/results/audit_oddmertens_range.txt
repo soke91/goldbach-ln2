@@ -45,6 +45,15 @@ P2/P3/P4  on the k-range the lean is measured on, k < N^0.56
   P2 the agreement is below 0.70 there   hold
   P3 the predicted lean is within a factor two   REFUTED
 
+  and the predictor's own majority sign share, over both windows,
+  which is what any of these agreements has to be read against:
+  0.7928 to 0.9970
+MARGINAL audit_oddmertens_range 0.9970
+DEGENERATE audit_oddmertens_range
+  so on at least one of these windows the predictor is
+  informationless: it takes one sign almost everywhere, and an
+  agreement with it is the marginal rate of sign H read back.
+
   the two windows of inner length N/k, side by side:
     the agreement was demonstrated on   [2, 1000]
     the lean is measured on             [215, 2133333]

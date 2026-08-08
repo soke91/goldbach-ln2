@@ -190,6 +190,7 @@ def main():
     say("Q1/Q2  sign agreement over 2 <= N/k <= %d" % MCAP)
     say("  N            #k        odd Mertens   draws max   full Mertens")
     q1 = q2 = True
+    majs = []                       # the predictor's own majority share
     keep = []
     rng = np.random.default_rng(SEED)
     for N, ks, H, Minner in rows:
@@ -202,6 +203,8 @@ def main():
         ao, mx, _ = beats_draws(sh, key,
                                 np.sign(modd[uniq]).astype(np.float64),
                                 rng, DRAWS)
+        pm = np.sign(modd[mm]).astype(np.float64)
+        majs.append(max(float((pm > 0).mean()), float((pm < 0).mean())))
         af = float((sh == np.sign(mfull[mm])).mean())
         if ao <= mx:
             q1 = False
@@ -210,6 +213,12 @@ def main():
         keep.append((N, ks, H, Minner, sel, mm, sh))
         say("  %-12d %-9d %-13.4f %-11.4f %.4f"
             % (N, int(sel.sum()), ao, mx, af))
+    say("  the predictor's own majority sign share, which is what an")
+    say("  agreement has to be read against: %.4f to %.4f"
+        % (min(majs), max(majs)))
+    say("MARGINAL lab_lean_oddmertens %.4f" % max(majs))
+    if max(majs) >= 0.9:
+        say("DEGENERATE lab_lean_oddmertens")
     say("  Q1 beats every permutation draw   %s"
         % ("hold" if q1 else "REFUTED"))
     say("  Q2 beats the full Mertens function   %s"

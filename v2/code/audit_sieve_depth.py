@@ -202,6 +202,8 @@ def main():
         print(s)
         lines.append(s)
 
+    MAJS = []          # the predictor's own majority share
+
     pagr, prat = read_published()
     say("read %d agreements and lean ratios from "
         "results/audit_survivor_range.txt" % len(pagr))
@@ -268,6 +270,8 @@ def main():
         for q in qs_here:
             P = np.array(Ps[q])
             sp = np.sign(P)
+            MAJS.append(max(float((sp > 0).mean()),
+                            float((sp < 0).mean())))
             ok = (sh != 0) & (sp != 0)
             agr[(N, q)] = float((sh[ok] == sp[ok]).mean())
             spz = np.where(sp == 0, 1.0, sp)
@@ -435,6 +439,19 @@ def main():
     say("=" * 70)
     ok = r1 and r2 and r3 and r4
     say("the missing piece is sieve depth" if ok else "REFUTED")
+
+    mj = max(MAJS)
+    say()
+    say("  the predictor's own majority sign share, at its worst over "
+        "everything")
+    say("  reported above: %.4f. An agreement is only a measurement "
+        "where the" % mj)
+    say("  predictor has variance; where it takes one sign almost "
+        "everywhere,")
+    say("  the agreement is the other side's marginal rate read back.")
+    say("MARGINAL %s %.4f" % ("audit_sieve_depth", mj))
+    if mj >= 0.9:
+        say("DEGENERATE %s" % "audit_sieve_depth")
 
     head = [
         "STATISTIC: on the squarefree k < N^" + str(THETA)

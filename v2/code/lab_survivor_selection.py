@@ -149,6 +149,8 @@ def main():
         print(s)
         lines.append(s)
 
+    MAJS = []          # the predictor's own majority share
+
     NMAX = max(NS)
     say("sieving to %d ..." % NMAX)
     pr, lam, mu = sieves(NMAX)
@@ -216,6 +218,9 @@ def main():
         sh = np.array(sh)
         sp = np.array(sp)
         sm = np.array(sm)
+        for _s in (sp, sm):
+            MAJS.append(max(float((_s > 0).mean()),
+                            float((_s < 0).mean())))
         res.append((N, cand.size, one_is_1, one_tot,
                     float(np.mean(relpos)) if relpos else float("nan"),
                     sh, sp, sm,
@@ -267,6 +272,19 @@ def main():
     ok = r1 and r2 and r3 and r4
     say("the survivors are selected by prime density, which biases them "
         "to large m and deepens the lean" if ok else "REFUTED")
+
+    mj = max(MAJS)
+    say()
+    say("  the predictor's own majority sign share, at its worst over "
+        "everything")
+    say("  reported above: %.4f. An agreement is only a measurement "
+        "where the" % mj)
+    say("  predictor has variance; where it takes one sign almost "
+        "everywhere,")
+    say("  the agreement is the other side's marginal rate read back.")
+    say("MARGINAL lab_survivor_selection %.4f" % mj)
+    if mj >= 0.9:
+        say("DEGENERATE lab_survivor_selection")
 
     head = [
         "STATISTIC: among sampled k with 2 <= N/k <= 1000, the fraction of",

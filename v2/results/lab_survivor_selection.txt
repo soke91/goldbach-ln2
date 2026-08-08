@@ -53,3 +53,9 @@ R3/R4  the sieve-weighted predictor
 
 ======================================================================
 the survivors are selected by prime density, which biases them to large m and deepens the lean
+
+  the predictor's own majority sign share, at its worst over everything
+  reported above: 0.7726. An agreement is only a measurement where the
+  predictor has variance; where it takes one sign almost everywhere,
+  the agreement is the other side's marginal rate read back.
+MARGINAL lab_survivor_selection 0.7726

@@ -129,3 +129,9 @@ UNBOUNDED LEVEL sieve_to_sqrtN
 
 ======================================================================
 REFUTED
+
+  the predictor's own majority sign share, at its worst over everything
+  reported above: 0.5801. An agreement is only a measurement where the
+  predictor has variance; where it takes one sign almost everywhere,
+  the agreement is the other side's marginal rate read back.
+MARGINAL audit_sieve_depth 0.5801

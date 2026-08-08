@@ -198,6 +198,8 @@ def main():
         print(s)
         lines.append(s)
 
+    MAJS = []          # the predictor's own majority share
+
     tagr, trat = read_top()
     say("read %d top-rung agreements and lean ratios from "
         "results/audit_sieve_depth.txt" % len(tagr))
@@ -268,6 +270,8 @@ def main():
         for q in here:
             P = np.array(Ps[q])
             sp = np.sign(P)
+            MAJS.append(max(float((sp > 0).mean()),
+                            float((sp < 0).mean())))
             ok = (sh != 0) & (sp != 0)
             agr[(N, q)] = float((sh[ok] == sp[ok]).mean())
             spz = np.where(sp == 0, 1.0, sp)
@@ -391,6 +395,19 @@ def main():
     ok = t1 and t2 and t3 and t4
     say("the sign is held below the square root but not by a bounded "
         "level" if ok else "REFUTED")
+
+    mj = max(MAJS)
+    say()
+    say("  the predictor's own majority sign share, at its worst over "
+        "everything")
+    say("  reported above: %.4f. An agreement is only a measurement "
+        "where the" % mj)
+    say("  predictor has variance; where it takes one sign almost "
+        "everywhere,")
+    say("  the agreement is the other side's marginal rate read back.")
+    say("MARGINAL %s %.4f" % ("audit_level_threshold", mj))
+    if mj >= 0.9:
+        say("DEGENERATE %s" % "audit_level_threshold")
 
     head = [
         "STATISTIC: on the squarefree k < N^" + str(THETA)

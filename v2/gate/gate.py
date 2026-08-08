@@ -3771,6 +3771,90 @@ def g72_within_between_splits_declare_their_resolution():
     return n
 
 
+# ----------------------------------------------------------------- G73
+SIGNAGREE = re.compile(r"at which\s+sign|sign agreement of|"
+                       r"agreement of\s+sign")
+MARGINAL = re.compile(r"^MARGINAL (\S+) ([\d.eE+-]+)\s*$", re.M)
+DEGENERATE = re.compile(r"^DEGENERATE (\S+)\s*$", re.M)
+DEGCAP = 0.9
+
+
+def g73_agreements_declare_the_predictor_s_marginals():
+    """일치율은 예측자에 분산이 있을 때만 측정이다.
+
+    audit_oddmertens_range.py 가 `k < N^theta'` 에서 sign H 와
+    sign Modd(floor(N/k)) 의 일치를 0.5201 로 재고 "0.70 아래"라고 적었다.
+    그 문장은 참이지만 약한 예측자를 기술하는 것처럼 읽힌다. 실제로는
+    audit_tail_mertens.py 가 재보니 그 범위에서 예측자가 k 의 0.9829 …
+    0.9970 에서 음이고 꼬리에서는 **전부** 음이다 -- 상수다. 상수 예측자는
+    어느 집합에서든 그 집합이 그 값을 갖는 비율만큼 일치하므로, 0.5201 은
+    예측이 아니라 sign H 의 주변 음수율을 되읽은 값이다. 실제로 꼬리에서는
+    일치가 관측 음수 몫과 자릿수까지 같고 순열 기준선이 그것을 따라잡는다.
+
+    lab_lean_mechanism.py 의 NULL 은 이 함정을 알고 있었다 -- "H도 대개
+    음이고 M(x)도 대개 음이라 일치가 우연히 높다"고 적고 순열로 보정한다.
+    그런데 그 사실이 **수치로 발표되지 않아서** 다음 스크립트가 같은
+    함정에 다시 걸렸고, 게이트의 어느 검사도 울지 않았다. G54 는 두
+    예측자를 비교할 때의 점수 규약을 강제하지만 예측자 하나의 분산은
+    보지 않는다.
+
+    그래서 부호 일치를 선언하는 결과 파일은 같은 이름으로
+    MARGINAL <이름> <몫> 을 내야 한다 -- 그 파일이 일치를 보고하는 모든
+    집합 위에서 예측자가 다수 부호를 갖는 몫 가운데 **가장 큰 것**
+    (예측자에게 가장 불리한 경우)이다. 처음엔 가장 작은 것으로 썼다가
+    audit_oddmertens_range 에서 걸렸다: 그 파일은 창 둘을 보고하는데 통제
+    창이 0.7928, 문제의 창이 0.9970 이어서, 최솟값을 내면 축퇴한 창이
+    표시를 피해 간다. 하나라도 축퇴면 파일이 표시를 달아야 한다. 그 몫이 0.9 를
+    넘으면 DEGENERATE <이름> 을 붙이고, 넘지 않으면 붙이지 않아야 한다.
+    RESOLUTION DEPENDENT 와 같은 규약이고, 붙이는 쪽과 안 붙이는 쪽이
+    모두 진술이다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        if not SIGNAGREE.search(src):
+            continue
+        lab = f[:-4]
+        rates = {a: b for a, b in MARGINAL.findall(src)}
+        deg = set(DEGENERATE.findall(src))
+        if lab not in rates:
+            fails.append(
+                f"G73 results/{f} declares a statistic of the form "
+                f"'the fraction at which sign X equals sign Y' and no "
+                f"MARGINAL {lab}; the one such predictor this "
+                f"repository followed up took one sign on 0.9829 of "
+                f"its range, so its agreement was the other side's "
+                f"marginal rate read back")
+            n += 1
+            continue
+        try:
+            r = float(rates[lab])
+        except ValueError:
+            fails.append(f"G73 results/{f} has an unparsable MARGINAL "
+                         f"value for {lab}")
+            n += 1
+            continue
+        if not (0.0 <= r <= 1.0 + 1e-9):
+            fails.append(
+                f"G73 results/{f} declares MARGINAL {lab} {r:g}, which "
+                f"is not a share; a majority share lies in [0.5, 1]")
+            n += 1
+            continue
+        if (r >= DEGCAP) != (lab in deg):
+            fails.append(
+                f"G73 results/{f} declares MARGINAL {lab} {r:.4f} and "
+                f"the DEGENERATE {lab} marker "
+                f"{'is present anyway' if r < DEGCAP else 'is missing'}; "
+                f"above {DEGCAP:g} an agreement carries no information "
+                f"about the pairing")
+            n += 1
+    return n
+
+
 def main():
     docs = [(p, read(p)) for p in paper_files()]
     print("gate")
@@ -3905,6 +3989,8 @@ def main():
          g71_residual_signs_are_declared()),
         ("G72 within/between splits declare their resolution",
          g72_within_between_splits_declare_their_resolution()),
+        ("G73 agreements declare the predictor's marginals",
+         g73_agreements_declare_the_predictor_s_marginals()),
     ]
     print()
     for name, c in counts:
