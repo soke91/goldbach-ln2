@@ -94,6 +94,23 @@ python gate/gate.py > gate/gate.txt 2>&1; echo $?
 | G51 | `WINDOWS DISJOINT` 를 냈으면 표적 창 위에서 실제로 잰 `CARRIES` 도 낸다 |
 | G52 | "둘 다 함께 움직인다"로 널을 사양하면 한쪽만 깬 무작위화 결과 `ONESIDED` 를 낸다 |
 | G53 | `SHAPESURVIVE` 판정은 `SHAPECURRENT` 로 현행을 밝히고, 그 점 개수는 선언된 것 중 최대여야 한다 |
+| G54 | 예측자를 둘 이상 실으면 `PREDICTOR` 로 두 점수를 다 내고 `CRITERION`·`BEST` 로 순위 기준을 못박는다 |
+| G55 | 예측자는 `LEVEL` 로 체 깊이를 선언하고, 자라는 레벨이 `BEST` 면 `UNBOUNDED LEVEL` 을 붙인다 |
+| G56 | `LEVEL <이름>_threshold` 는 `THRESHOLD FROM` 으로 출처 통계량을 밝히고, 그 통계량의 첫 미해소 `alpha` 와 같아야 한다 |
+| G57 | 문턱을 선언한 축은 그 위 **모든** 통계량의 `AXIS` 문턱을 내고, 다르면 `THRESHOLDS DIFFER` 를 붙인다 |
+| G58 | 상한이 `0.02` 아래인 `PERN` 나머지는 직접 잰 설명 `ACCOUNT` 를 대고, 안 겹치면 `ACCOUNT UNEXPLAINED` 를 적는다 |
+| G59 | 폭을 상한으로 판정하면 추정량 자신의 표집 폭 `CONSTSPREAD` 를 대고, 두 배를 넘을 때만 `CONST DRIFTS` 를 |
+| G60 | `SHAPESURVIVE` 표적은 `SHAPEGAP` 으로 r.m.s. 차를 그 표준오차에 대고, 이하면 `SHAPES TIED` 를 붙인다 |
+| G61 | 전체 구간 이득 지수는 `GAINSPLIT` 으로 머리·꼬리 지수를 대고, 머리 ≤ 전체 ≤ 꼬리여야 한다 |
+| G62 | `GAINSPLIT` 은 `SPLITOVERLAP` 으로 대응 구간 십분위와의 겹침을 낸다 — 질량 분할을 구간 제한으로 읽지 않는다 |
+| G63 | `PERN <이름>_residual` 은 `RESIDSCALE` 로 규모별 폭과 바닥을 내고, 가로지르면 `CROSSES FLOOR` 를 붙인다 |
+| G64 | `SHAPESURVIVE` 표적은 `TRUST` 로 모양이 갈라지는 자리와 예보를 내고, 예보가 넘으면 `FORECAST OUTSIDE` 를 붙인다 |
+| G65 | 상수를 얼려 잰 추세는 `FROZEN` 으로 점별 기울기도 내고, 부호가 다르면 `TREND CONVENTION` 을 붙인다 |
+| G66 | 언 상수가 예보를 먹이면 `FORECAST BOTH` 로 풀었을 때의 값도 내고, 밖이면 `FORECAST CONVENTION SPLIT` 을 붙인다 |
+| G67 | 한 축에서 최대를 취한 상수는 `CROSSAXIS` 로 다른 축의 상승 수와 질량 몫을 내고, 있으면 `AXIS RISE` 를 붙인다 |
+| G68 | `_nohead`/`_whole` 짝비를 내면 `SITSIN` 으로 그 부분집합이 나르는 몫을 대고 비와 맞춘다 |
+| G69 | 자유 계수를 유도 계수와 대면 `CORR <이름>_regressors` 를 대고, `0.99` 이상이면 `COEFF NOT SEPARABLE` 을 붙인다 |
+| G70 | 번호 붙은 진술만이 아니라 **모든** evidence 마커의 스크립트·결과가 실재 — G1은 115개 중 22개만 본다 |
 
 # 3. 방법 규칙
 

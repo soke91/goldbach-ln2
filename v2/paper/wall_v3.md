@@ -1133,6 +1133,228 @@ uniformly, and that is what the miss measures. Q1 to Q3 are about the
 first and hold; Q4 was about the second and does not.
 
 
+#### Remark (the weights are free; the survivor set is everything) {#rem:levelweighted}
+<!-- evidence: audit_level_weighted.py -->
+
+Remark [rem:leveldemand] leaves $0.2271$–$0.2525$ of the demand
+standing at $\alpha=1/2$ and OPEN asked whether that is a floor. It is
+not, and the sieve family has no room above $1/2$ either: past
+$\sqrt N$ nothing composite is left to remove and raising $Q$ only
+strikes the small primes, which Remark [rem:sievedepth] measured as a
+fall. So there is no $0.5<\alpha\le0.56$ inside this family.
+
+**The $0.23$ is the cost of counting.** At $\alpha=1/2$ the survivors
+are the primes, so $\log(N-mk)$ *is* $\log p$ on them — the
+log-weighted predictor that Remark [rem:logweightpredictor] found
+unhelpful at level $29$ becomes essentially exact at level $\sqrt N$.
+**V1, V2, V3 and V4 all hold.** The log-weighted residual share at
+$\alpha=1/2$ is
+
+$$
+0.0090,\ 0.0079,\ 0.0070,\ 0.0080,\ 0.0064 ,
+$$
+
+against $0.2525$ down to $0.2271$ unweighted — a factor of about
+$28$. And what is left is identified rather than tolerated: the sieve
+strikes each small prime along with its multiples, so the terms whose
+$N-mk$ is a prime at or below $\sqrt N$ are true contributors it
+removes, and their share of the demand measured directly is
+$0.009755$ to $0.007108$ — the same interval.
+
+**So the whole difficulty is the survivor set and none of it is the
+weight**, which reverses how Remark [rem:logweightpredictor]'s failure
+reads: the weight was useless there because the survivor set was
+wrong, not because weights do not matter.
+
+**And V4 is the part that costs.** At $\alpha=0.3$, the level at which
+the sign stops slipping, the free weights take the share only from
+$0.4866$–$0.6022$ to $0.4592$–$0.5858$ — a factor $0.93$ to $0.97$.
+The demand's threshold does not move at all: it stays at
+$\alpha=0.5$, well above the sign's $0.3$. What the weights change is
+the size of what is left at the top, from $0.2525$ to $0.008981$.
+
+
+#### Remark (holding the sign is not cutting the demand) {#rem:leveldemand}
+<!-- evidence: audit_level_demand.py -->
+
+Remark [rem:levelthreshold] put the level at which the wall's sign
+stops slipping between $N^{0.2}$ and $N^{0.3}$, below the
+$\theta'=0.56$ the reduction consumes, and left the question of
+whether the shortfall there is usable. The currency is not the lean
+but the demand: Remark [rem:predictable]'s residual share
+$\sum(\log k)|H-\beta P_Q|\big/\sum(\log k)|H|$, which at level $29$
+is $0.6310$ down to $0.5307$. Its far end is fixed by arithmetic —
+at $\alpha=1/2$ the survivors are the primes, so $H$ and $P_{1/2}$ run
+over the same terms and differ only by the weights $\log p$.
+
+**U1 holds** — $\beta$ and all five shares reproduce exactly — and
+**U3 holds**: at $\alpha=1/2$ the share is $0.2271$ to $0.2525$, so
+the spread of $\log p$ alone accounts for under a quarter of the
+demand and the rest is reachable in principle.
+
+**U4 is refuted, and that is the answer.** At $\alpha=0.3$ the share
+is $0.6022,\,0.5526,\,0.5147,\,0.4986,\,0.4866$ — against $0.6310$
+down to $0.5307$ at the fixed level $29$. The level that holds the
+sign takes almost nothing off the demand:
+
+$$
+\frac{\text{share}(29)-\text{share}(0.3)}
+     {\text{share}(29)-\text{share}(0.5)}
+= 0.0760,\,0.1288,\,0.1261,\,0.1383,\,0.1475 .
+$$
+
+**Eight to fifteen per cent of what an unbounded level would buy.**
+Taken at matching $N$, the affordable level still leaves $2.10$ to
+$2.39$ times what primality leaves. So the shortfall of Remark
+[rem:levelthreshold] is the residue: the sign is held cheaply and the
+demand is not.
+
+**U2 is refuted by the ladder, not the data.** The fixed $Q=29$ is a
+deeper sieve than $N^{0.1}$ and $N^{0.2}$ at every $N$ here — $29$
+against $3$–$4$ and $11$–$20$ — so the first steps of the ladder go
+backwards in depth. On the $\alpha$ ladder proper the share is
+monotone at every $N$.
+
+The two thresholds on this one axis are therefore different, and the
+cheap one may not be carried to the other statistic: the sign's lean
+stops slipping at $\alpha=0.3$, the demand halves only at
+$\alpha=0.5$.
+
+
+#### Remark (the level at which the sign stops slipping) {#rem:levelthreshold}
+<!-- evidence: audit_level_threshold.py -->
+
+Remark [rem:sievedepth] leaves the sign of the wall between two
+extremes: held exactly at level $\sqrt N$, and degrading at the fixed
+level $29$. Between them lies the only quantity this programme trades
+in — the level as a power of $N$ — so sieving to $Q=N^\alpha$ and
+asking where the degradation stops turns "not bounded" into a number
+to set beside $\theta'=0.56$.
+
+**T1 holds**, reproducing the top rung exactly. **T3 holds**:
+$\alpha=0.4$ is flat, $+0.001564$ at $0.34$ standard errors.
+
+**T2 and T4 are refuted, and both by want of power rather than by
+direction.** Every level's agreement slope is negative and **none**
+reaches two standard errors, the fixed level included at $1.10$. Six
+points of a ratio of counts do not carry that much. The lean does, and
+it is the statistic the route cares about:
+
+$$
+\begin{array}{l|ccc}
+\text{level} & \text{slope} & \text{s.e.} & t\\\hline
+Q=29 & -0.048145 & 0.013664 & 3.52\\
+Q=N^{0.1} & -0.088359 & 0.012460 & 7.09\\
+Q=N^{0.2} & -0.066398 & 0.015393 & 4.31\\
+Q=N^{0.3} & -0.015265 & 0.010024 & 1.52\\
+Q=N^{0.4} & +0.001937 & 0.008989 & 0.22\\
+Q=N^{0.5} & +0.001303 & 0.000546 & 2.39
+\end{array}
+$$
+
+**So the slipping stops between $\alpha=0.2$ and $\alpha=0.3$** — well
+below the $\theta'=0.56$ the reduction consumes. What is held there is
+not everything: at $\alpha=0.3$ the predicted lean is $0.87$–$0.91$ of
+$\mu$'s, flat but short, and it climbs to $0.92$–$0.99$ at $0.4$ and
+$0.99$ at $0.5$. The degradation and the level are two different
+statements, and only the first has a threshold.
+
+*Correcting Remark [rem:sievedepth].* It says of the fixed level that
+the agreement and the lean ratio are "both getting worse as $N$
+grows". The lean ratio is, at $3.52$ standard errors. The agreement's
+slope is $-0.010101$ at $1.10$, and on six points that is not
+resolved.
+
+
+#### Remark (the missing piece is sieve depth, and that is the bad news) {#rem:sievedepth}
+<!-- evidence: audit_sieve_depth.py -->
+
+Remark [rem:logweightpredictor] ruled out the $\Lambda$ weight. What
+had never been varied is the other half of $P$'s definition: the sieve
+runs over the odd primes below $30$, a number that was inherited.
+Sweeping it is not a search over models — a term survives $P_Q$ when
+$N-mk$ has no odd prime factor at or below $Q$, and at
+$Q=\lceil\sqrt N\rceil$ that set is the primes, so the sweep is a path
+from the published predictor to $H$'s own support. (The published
+weight's skip of primes dividing $k$ is vacuous: $k$ is coprime to
+$N$, so such a prime never divides $N-mk$.)
+
+**R1 holds** at $Q=29$ on both the agreements and the lean ratios.
+**R3 and R4 hold, decisively.** At $Q=\lceil\sqrt N\rceil$ the
+agreement is $0.9884$ to $0.9969$, the predicted lean is $0.9885$ to
+$0.9942$ of $\mu$'s, and the decay slope is $-0.165946$ against
+$\mu$'s $-0.167260$ — **$0.05$ standard errors.** The sign of the
+dilated wall is carried, essentially exactly, by which $m$ make
+$N-mk$ prime.
+
+**And that is the bad news.** The agreement climbs
+$0.7579\to0.7830\to0.7998\to0.8408\to0.8688\to0.9124\to0.9962$ across
+$Q=29,\,53,\,101,\,211,\,503,\,1009,\,\lceil\sqrt N\rceil$ at the top
+$N$: it reaches $\mu$ only as the level reaches $\sqrt N$. At the
+fixed level $29$ it is $0.7367$–$0.8129$ and the lean ratio
+$0.6571$–$0.8676$, **both getting worse as $N$ grows**. So the lean is
+not a bounded-modulus object. Remark [rem:provablehalf] calls $P$
+elementary because every condition defining its summation set is
+multiplicative or a residue condition to a *bounded* modulus; the
+predictor that carries the lean is exactly the one that gives that up.
+
+**R2 is refuted, by arithmetic and not by data.** The agreement ties
+at $N=8\cdot10^5$ and falls by $0.0001$ at $N=4\cdot10^5$, both past
+$\lceil\sqrt N\rceil$, where the ladder's rungs overshoot: beyond the
+square root no composite has a factor left to remove, and raising $Q$
+further only strikes the small primes themselves, which are true
+contributors. That is why the top rung is $\lceil\sqrt N\rceil$.
+
+So OPEN's item — what carries the lean where the lean is measured —
+closes, in the direction that costs the programme rather than helps
+it. Nothing of bounded level carries it, and the thing that does is
+primality itself.
+
+
+#### Remark (the missing weight is not log(N-mk)) {#rem:logweightpredictor}
+<!-- evidence: audit_logweight_predictor.py -->
+
+Remarks [rem:oddmertensrange] and [rem:survivorrange] leave the sign
+lean without an elementary carrier on its own $k$, and they fail in
+opposite directions — $M_{\rm odd}$ overshoots with a flat decay, the
+sieve-weighted $P$ undershoots and decays too fast. Opposite failures
+say something is missing, and one thing is: $H(N;k)$ weights each
+surviving $m$ by $\Lambda(N-mk)=\log p$ while $P$ counts it. Over a
+short inner sum that hardly matters; over a long one $N-mk$ runs from
+about $N$ down to about $k$, a factor of seven in the logarithm here.
+So the natural candidate is
+$P_{\log}=\sum_m\mu(m)w(m,k)\log(N-mk)$, elementary in the same sense
+$P$ is.
+
+**K1 holds** — $P$'s agreements and lean ratios reproduce exactly —
+and **K2, K3 and K4 are all refuted.** The log weight *lowers* the
+sign agreement at every $N$, $0.7955$ down to $0.7484$ against $P$'s
+$0.8129$ down to $0.7579$. It improves the lean, $0.7018$–$0.9212$ of
+$\mu$'s against $P$'s $0.6571$–$0.8676$, but not to within the
+registered factor $1.2$. And its decay is $-0.231781$ against $\mu$'s
+$-0.167260$, $2.48$ standard errors out — no better than $P$'s $2.11$.
+
+**So the missing piece is not the $\Lambda$ weight**, and the two
+scores move in opposite directions, which is worth recording as a
+methodological point: a candidate that is best of three on the lean
+ratio and worst on the agreement can be called an improvement by
+choosing the score afterwards. The criterion registered here is the
+agreement, the score these predictors were built for, and on it $P$
+remains the best of the three.
+
+The ledger, on $k<N^{0.56}$:
+
+$$
+\begin{array}{l|ccc}
+ & \text{agreement} & \text{lean ratio} & \text{decay slope}\\\hline
+M_{\rm odd} & 0.52\text{–}0.62 & 1.73\text{–}2.96 & -0.004298\\
+P & 0.74\text{–}0.81 & 0.66\text{–}0.87 & -0.230633\\
+P_{\log} & 0.72\text{–}0.80 & 0.70\text{–}0.92 & -0.231781\\
+\mu & 1 & 1 & -0.167260
+\end{array}
+$$
+
+
 #### Remark (which half of the predictor does the cutting) {#rem:predictablenull}
 <!-- evidence: audit_predictable_null.py -->
 
@@ -1594,6 +1816,236 @@ for $H$. That is a smaller object than the one the program started
 with, and no easier: it is still a Möbius–prime correlation of length
 $N/k$ with the elementary part removed. Remark [rem:residuecancel]
 asks whether that size is bought or given.
+
+
+#### Remark (the head is not a range, but its sign is the lean) {#rem:headidentity}
+<!-- evidence: audit_head_identity.py -->
+
+Remark [rem:gainsplit] left the shortfall in the top tenth by mass and
+OPEN item 5 turning on where that tenth's single-sign fraction goes.
+Before fitting a shape to it, two structural questions. Since
+$|a_k|=(\log k)|H(N;k)|$ and $|H|$ is largest where the inner sum is
+longest, the head ought to be the small-$k$ end; and its sign ought to
+be the lean of Remark [rem:signmass].
+
+**Z2 is refuted.** The overlap between the top decile by $|a|$ and the
+smallest decile of $k$ is $0.2174$ to $0.3263$ — the head is spread
+across the range, with its median member at the $0.22$–$0.32$ point of
+the $k$-order. The $\log k$ weight grows with $k$ while $|H|$ falls,
+and the two pull against each other. Dropping the weight recovers the
+expected picture: the head overlaps the top decile by $|H|$ alone at
+$0.7794$ to $0.8863$. **So a mass-ranked split is not a range
+restriction**, and looking for an arithmetic description of "the
+head" as a set of small $k$ is looking for something that is not
+there.
+
+**Z1, Z3 and Z4 hold.** The head's majority sign is negative at every
+$N$, and its single-sign fraction minus the whole range's
+mass-weighted negative share is
+
+$$
+0.2273,\ 0.2010,\ 0.1853,\ 0.1868,\ 0.1924,\ 0.2097,\ 0.2078,\
+0.1882 ,
+$$
+
+a spread of $0.0421$. The head's fraction is a proportion over $31$
+to $475$ terms, so it carries a binomial error of its own; the
+expected span of eight such draws is $0.0626$, **larger than the
+spread observed**. The difference is constant to within its own
+estimation error.
+
+So the head's fraction is not a free quantity with a limit of its
+own: it is the lean of Remark [rem:signmass], offset by a constant and
+read over the heaviest tenth. OPEN item 5 is the lean question again,
+and Remarks [rem:sievedepth] and [rem:levelweighted] have already
+found what carries the lean — the primality of $N-mk$, at a level no
+bounded modulus reaches.
+
+
+#### Remark (half of the lean is in the head, and half is not) {#rem:signmasshead}
+<!-- evidence: audit_signmass_head.py -->
+
+Remark [rem:signmass] is where the lean was first located, and it is
+titled *the correlation sits in the large terms*. Remark
+[rem:gainsplit] later put the cross-$k$ shortfall in the top tenth by
+mass and Remark [rem:headidentity] locked that tenth's sign to the
+same lean. Those readings ought to be one object. They are not, and
+the title is half true.
+
+The control reproduces Remark [rem:signmass] exactly: over the
+squarefree $k<N^{0.56}$ coprime to $N$, the share of $\sum(\log k)|H|$
+carried by $H>0$ is $0.2273$ to $0.3207$, the share of $k$ with $H>0$
+is $0.4121$ to $0.4808$, and split at the median of $|H|$ the small
+walls sit at $0.5096$–$0.5774$ against the large ones' $0.3141$–$0.3841$.
+
+**H2 is refuted: the two splits are different objects.** The high half's
+positive-mass share minus the top decile's is $0.3141$, $0.2711$,
+$0.2440$, $0.2641$, $0.2704$ — a span of $0.0701$, not a constant
+offset. The median of $|H|$ and the top decile of $(\log k)|H|$ are
+not two names for one cut, as Remark [rem:headidentity] should have
+warned: mass ranking is not range ranking, and it is not magnitude
+ranking either.
+
+**H3 is refuted: the head does not carry the whole correlation.** The gap
+between counting and weighting is $0.1848$, $0.1603$, $0.1561$,
+$0.1325$, $0.1601$; with the top tenth by $|a|$ removed it is
+$0.1038$, $0.0863$, $0.0881$, $0.0637$, $0.0884$. Taken at the same
+$N$ the ratio is $0.4810$ to $0.5642$: **the heaviest tenth carries
+$44$ to $52$ per cent of the correlation, and the other half is spread
+over the remaining nine tenths.** What is left is not noise — under
+$256$ re-signings that hold the magnitudes and destroy only the sign
+pattern, the gap is $0.0040$, $0.0044$, $0.0004$, $0.0027$, $0.0004$,
+so the residual $0.06$–$0.10$ is $\mu$'s doing at a scale twenty times
+the null's.
+
+So Remark [rem:signmass]'s title is exact only in the weak sense that
+the large terms carry more than their share. **Removing them does not
+remove the lean**, and an argument that controls the head alone
+controls about half of what has to be controlled. This does not move
+OPEN item 5's conclusion — the residual half is still $\mu$'s and
+still carried by the primality of $N-mk$ (Remarks [rem:sievedepth],
+[rem:levelweighted]) — but it removes the hope that the obstruction
+lives on a thin set.
+
+
+#### Remark (the tail cancels better than randomly; the head not at all) {#rem:gainsplit}
+<!-- evidence: audit_gain_split.py -->
+
+Remark [rem:flatnessshape] left OPEN item 5 as one question: has
+$e(G)=0.153911$ any reason to reach $\theta'/2$? Remark
+[rem:nocrossk] read the shortfall as the dilated walls moving
+together, and its rule T4 measured the top decile's *mass* share at
+$0.3486$–$0.3587$ — but never asked how much that decile cancels.
+Splitting the $k$ by mass rank, in a fixed fraction so that each part
+keeps $\#S\asymp N^{\theta'}$ and the same reference $\theta'/2$:
+
+$$
+\begin{array}{l|ccc}
+\text{part} & \text{exponent} & \text{s.e.} & t\\\hline
+\text{whole} & +0.153911 & 0.011253 & 13.68\\
+\text{top tenth} & +0.077963 & 0.009252 & 8.43\\
+\text{bottom nine tenths} & +0.340006 & 0.025785 & 13.19
+\end{array}
+$$
+
+**Y1, Y2 and Y3 hold** — the control reproduces $G$ and its exponent
+exactly, the head is below the whole and the tail above it. **Y4 is
+refuted, and in the strong direction**: the tail is not below
+$\theta'/2$ but $2.33$ standard errors **above** it. The many small
+terms cancel *better* than random signs would; the whole shortfall
+lives in the largest tenth, whose gain runs $1.0000$ to $1.4639$
+where $\sqrt{\#\text{head}}$ is $5.6$ to $21.8$.
+
+And they move together in the plain sense. The fraction of the head
+carrying a single sign is
+
+$$
+1.0000,\ 0.9783,\ 0.9118,\ 0.8800,\ 0.8716,\ 0.8721,\ 0.8545,\
+0.8274 ,
+$$
+
+above four fifths at every $N$ — at $N=2\cdot10^5$ every term in the
+top decile has the same sign, which is why its gain is exactly one.
+
+So Remark [rem:nocrossk]'s reading survives and sharpens: it is not
+that every dilation fails to cancel, but that **a positive proportion
+of them — a tenth, growing like $N^{\theta'}$ — carries one sign**,
+and that alone holds $e(G)$ down. Reading the whole range's $0.154$
+without the split hides a part that already exceeds square root and a
+part that does not cancel at all.
+
+
+#### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
+<!-- evidence: audit_flatness_shape.py -->
+
+Remark [rem:leanidentity] left one exponent loose: $e(\ell^1/\ell^2)$
+measures $0.287798\pm0.002472$ against its own ceiling $\theta'/2$,
+and the excess is carried by the flatness
+$F=(\ell^1/\ell^2)/\sqrt{\#k}$, which is still rising. **That rise
+cannot continue**: $F\le1$ by Cauchy–Schwarz, so no power of $N$
+describes it past the point where it reaches one.
+
+**X1 and X2 hold.** The $\#k$ reproduce exactly and $F$ reproduces
+Remark [rem:crosskreference]'s $0.6622$–$0.6854$ on the five $N$ it
+published. And $\#k$ is a clean power: its exponent is $0.560706$ with
+r.m.s. residual $0.000853$, so the ceiling of $e(\ell^1/\ell^2)$ is
+$\theta'/2$ as a fact about the $k$-set and not a fitted quantity.
+
+**X4 holds and X3 is refuted**, and the refutation is empty as a
+discrimination. Fitted to eight points,
+
+$$
+\begin{array}{l|cc}
+\text{shape} & \text{r.m.s.} & \\\hline
+F\sim N^{e} & 0.006479 & e=+0.007445,\ F=1 \text{ at } 10^{28.68}\\
+F=a+b/\log N & 0.006641 & a=0.754152
+\end{array}
+$$
+
+The power fits better by $0.000163$, and an r.m.s. from eight points
+with two parameters carries a standard error of $0.001870$ — $28.9$
+per cent. **The gap is $0.09$ of that.** The two shapes are not
+separated by the data at all; what separates them is that
+Cauchy–Schwarz forbids one of them. At $\log_{10}N=12$ they still
+disagree by only $0.0349$ in $F$.
+
+So the flatness saturates — below $1$, at a fitted $0.754$ — and
+asymptotically $e(\ell^1/\ell^2)=\theta'/2$. Item 5 then does reduce
+to $e(G)$, and the lean-over-floor exponent tends to
+$\theta'/2-e(G)=+0.126442$ against the $+0.159294$ measured over this
+range. **The lean still grows; a fifth less fast than the accessible
+range shows.**
+
+
+#### Remark (three exponents, one identity) {#rem:leanidentity}
+<!-- evidence: audit_lean_identity.py -->
+
+Remark [rem:leanextended] reports the lean growing against its floor
+with no mechanism attached, and it does not need one. Writing
+$a_k=(\log k)H(N;k)$, the three quantities in play are ratios of the
+same three norms: $G=\ell^1/|\!\sum a|$, the concentration
+$\ell^1/\ell^2$, and $\text{lean}/\text{floor}=|\!\sum a|/(c\,\ell^2)$
+with $c$ the constant a median sign sum sits on. So
+
+$$
+\frac{\text{lean}}{\text{floor}}
+= \frac{\ell^1/\ell^2}{G}\cdot\frac1c
+$$
+
+identically. **The lean grows against its floor for exactly one
+reason: the magnitude concentration outruns the cancellation.**
+
+**W1 holds** — $G$ reproduces the published values to $0.00042$ — and
+**W3 holds**: the exponents satisfy
+$e(\ell^1/\ell^2)-e(G)-e(\text{lean}/\text{floor})=-0.025407$ against
+two standard errors of $0.040473$. Measured over eight $N$,
+
+$$
+e(G)=+0.153911,\quad e(\ell^1/\ell^2)=+0.287798,\quad
+e(\text{lean}/\text{floor})=+0.159294 .
+$$
+
+**So what would have to change is one number.** The lean stops growing
+against its floor exactly when $e(G)$ reaches $e(\ell^1/\ell^2)$, and
+that is a factor $1.87$ in the exponent — from $0.154$ to $0.288$.
+
+**W4 is refuted, narrowly and in the awkward direction.**
+$\ell^1/\ell^2$ is bounded by $\sqrt{\#k}$ and $\#k\asymp N^{\theta'}$
+here, so its exponent cannot exceed $\theta'/2=0.28$; it measures
+$0.287798\pm0.002472$, **$3.15$ standard errors above**. The ratio
+$(\ell^1/\ell^2)/\sqrt{\#k}$ is $0.6760,\,0.6622,\,0.6854,\,0.6764,\,
+0.6802,\,0.6872,\,0.6986,\,0.6909$ — Remark [rem:crosskreference]
+called it flat on five points and on eight it is mildly rising. So
+the concentration is still gaining on its own ceiling and item 5 does
+not reduce to $e(G)$ alone.
+
+**W2 is refuted by its cap.** The constant $c$ was asked to hold to
+$0.02$ in the log; it runs over $0.219062$. But $c$ is a *median* over
+$256$ draws. Splitting them into sixteen groups and measuring the
+estimator's own scatter puts the sampling spread of eight such medians
+at $0.237831$ — the same size. $c$ does not drift; it is estimated to
+about a quarter by $256$ draws, and the cap was set without asking
+that.
 
 
 #### Remark (and it holds over a factor 128) {#rem:leanextended}
@@ -3060,15 +3512,20 @@ the grid \S[sec:floor] uses — $\max|C|/N$ falls from $0.113524$ on
 $(31250,\,62500]$ to $0.010068$ on
 $(8\cdot10^6,\,1.6\cdot10^7]$, so the margin at the top of the computed
 range is a factor $99.325$, and extrapolating by $N^{-0.43}$ gives
-$99.325\cdot 6.25^{0.43}=218.42$ at $N=10^8$. The requirement is not
-remotely tight.
+$99.325\cdot 6.25^{0.43}=218.42$ at $N=10^8$. At $N=10^8$ the factor
+is not extrapolated any more: Remark [rem:marginoos] measures it at
+$278.4734$, which no exponent this grid supports would have given. The
+requirement is not remotely tight either way.
 
 The maximum is attained at primorials — the argmax runs
 $30030,\,66990,\,139230,\,300300,\,510510,\,1021020,\,2042040,\,
 4084080,\,9699690$ up the grid — which is what
 Proposition [prop:V] predicts, since $\AAA(N)$ is largest exactly
 where $N$ has the most prime factors and $\max|C|\approx
-a_n\sqrt{V(N)}$.
+a_n\sqrt{V(N)}$. Above the grid it is attained at near-primorials
+instead, for the same reason and with the same consequence: Remark
+[rem:marginoos] is what happens when a fit is run across the steps of
+that staircase and pushed past the last one.
 
 
 #### Remark (the octave grid, and the fitted exponent) {#rem:grid}
@@ -3091,6 +3548,9 @@ the paragraph uses it for. **The claim that followed — that the
 extrapolated factor $218.42$ is insensitive to the third decimal of
 $b$ — is withdrawn**; Remark [rem:marginbracket] measures the
 sensitivity and $218.42$ falls outside the range the data support.
+That range is itself withdrawn by Remark [rem:marginoos], which
+measures the octave rather than extrapolating to it: no exponent this
+fit supports reaches the answer.
 
 Placing the two standard estimates in the same units makes the shape of
 the difficulty explicit. The target is $N(\log N)^{-A}$. The trivial
@@ -3154,6 +3614,84 @@ the assumption is three times too generous and therefore safe. Remark
 [rem:residueconstant] is the third: measured drift $0.1436$ against
 any $\pm10\%$ one might assume, so **no bracket was published and the
 forecast was refused.**
+
+**That grading is withdrawn.** Remark [rem:marginoos] measures the
+octave this bracket forecasts and finds it outside.
+
+
+#### Remark (the bracket, tested on the octave it forecasts) {#rem:marginoos}
+<!-- evidence: audit_margin_oos.py -->
+
+The paragraph above graded this the safest of the three brackets
+because it assumes no wobble. That grade was about how the bracket was
+built, and it is correct about that. It was never about whether the
+fitted shape continues past the data, and the shape is the whole of
+what an extrapolation rests on.
+
+The forecast is testable. $1/\max|C|/N$ on the octave
+$(5\cdot10^7,\,10^8]$ is a quantity and not a projection, and a
+length-$2^{28}$ transform reaches it. Two controls come first: the new
+transform reproduces the published maximum on
+$(8\cdot10^6,\,1.6\cdot10^7]$ at the published argmax to
+$3.91\cdot10^{-8}$ (W1), and direct summation
+$C(N)=\sum_{n<N}\Lambda(n)\mu(N-n)$ at each new argmax reproduces the
+transform to $4.34\cdot10^{-18}$, a few units in the last place (W2).
+
+**W3 is refuted.** The measured factor at $N=10^8$ is $278.4734$
+against the published $[219.71,\,245.98]$ — outside it, and $1.1321$
+times its top. No exponent the grids support reaches it: landing
+$278.4734$ takes $b=0.562554$ where the two grids gave
+$[0.433213,\,0.494841]$.
+
+**W4 is refuted as well.** The three new octave-to-octave exponents are
+$0.568360$, $0.616593$ and $0.302358$, none inside the published
+spread and not on one side of it either. Locally there is no power law
+to have a bracket about.
+
+Why it had to fail is already stated two remarks above. That paragraph
+records that the maximum is attained at primorials, which is what
+Proposition [prop:V] predicts, since $\AAA(N)$ is largest where $N$ has
+the most prime factors. A smooth $N^{-b}$ was then fitted across the
+steps of that staircase and pushed a factor $6.25$ past the last one.
+The published grids contain three octave steps on which $\max|C|/N$
+*rises* rather than falls — $b_{\mathrm{local}}=-0.028471$ where
+$30030$ first becomes available and $-0.005500$ where $510510$ does —
+so the fitted $b$ averages over jumps, and the stretch it was
+extrapolated across contains none: the last primorial below $10^8$ is
+$9699690$, which entered at the top of the fitted range, and the next
+one is past $1.28\cdot10^8$. What the maximum does instead is move onto
+near-primorials that trade one prime for a larger one,
+$16546530=2\cdot3\cdot5\cdot7\cdot11\cdot13\cdot19\cdot29$ and
+$70450380=2^2\cdot3^2\cdot5\cdot7\cdot11\cdot13\cdot17\cdot23$, and it
+falls faster than every fitted $b$ while doing so — $0.495770$ over the
+whole new stretch against a largest fitted $0.494841$. That was W5,
+registered before the run, and it holds.
+
+One caveat on the top octave. $(6.4\cdot10^7,\,1.28\cdot10^8]$ and
+$(5\cdot10^7,\,10^8]$ both peak at $N=70450380$, so the last local
+exponent is not an independent measurement of the decay — it records
+where the maximum stopped moving. The whole-stretch $0.495770$ is
+therefore a lower bound on the true decay, which is the direction that
+makes W5's reading safe rather than the one that makes it lucky.
+
+**What is left is smaller and is enough.** A bracket whose wobble
+equals its drift is honest about its own construction and says nothing
+about its reach: the drift of $b$ is measured *inside* the fitted range
+and cannot see a step that lies outside it. The extrapolation is
+withdrawn and the measurement replaces it — at $N=10^8$ the margin is a
+factor $278.4734$, and the requirement $C(N)=o(N)$ is not remotely
+tight. **The general lesson is the one this section can least afford to
+forget: a self-consistent bracket is not a tested one, and all three
+brackets graded above were graded on construction alone.** This is the
+first of the three to be tested against a measurement on the other
+side of it. The comparison to draw is with Remark
+[rem:primorialreach], the only other bracket in these papers that has
+been run out of sample: there the point estimate failed and the
+*interval survived*, which is what an interval is for. Here the
+interval failed too — and the difference is not care but shape. That
+bracket extrapolated a slope along a ladder built to be smooth; this
+one extrapolated across a staircase whose next step was known, from
+Proposition [prop:V], to lie outside the range.
 
 
 #### Remark

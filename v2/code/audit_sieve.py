@@ -106,9 +106,11 @@ THETA = 0.56
 # must be added to the comparison below before it may be used.
 SIEVE_HASHES = {
     "7bb7194175": "cofactor trick; returns (pr, lam, mu) -- 15 scripts",
-    "26c5a67453": "the same body, returning (lam, mu) -- 1 script",
+    "26c5a67453": "the same body, returning (lam, mu) -- 2 scripts",
     "0b65a7a7c7": "spf plus the mu recurrence, (spf, mu, lam) -- 3",
     "07bb6ddc89": "the same recurrence, returning (mu, lam) -- 1",
+    "53cbebea46": "the cofactor trick with Lambda in float32 and a "
+                  "small-prime bitmask, (lam, mu, rmask) -- 1; W7",
 }
 
 
@@ -228,6 +230,53 @@ def sieves_by_recurrence(n):
                 break
             q *= p
     return spf, mu, lam
+
+
+def sieves_bitmask(n, qs):
+    """Lambda in float32, mu in int8, and a bitmask of the small qs
+
+    Independent of audit_ladder_model.py in the weight: there the
+    weight is a product over q of 0 or q/(q-1), which is a constant
+    times the indicator that no admissible q divides N-mk. Here the
+    indicator is read off one bitmask instead of nine remainders.
+    """
+    pr = primes_upto(n)
+    lgp = np.log(pr.astype(np.float64))
+    lam = np.zeros(n + 1, dtype=np.float32)
+    lam[pr] = lgp
+    for i, p in enumerate(pr):
+        p = int(p)
+        if p * p > n:
+            break
+        q = p * p
+        while q <= n:
+            lam[q] = lgp[i]
+            if q > n // p:
+                break
+            q *= p
+    del pr, lgp
+    mu = np.ones(n + 1, dtype=np.int8)
+    cof = np.arange(n + 1, dtype=np.int32)
+    for p in primes_upto(int(math.isqrt(n))):
+        p = int(p)
+        mu[p::p] = -mu[p::p]
+        if p * p <= n:
+            mu[p * p::p * p] = 0
+        q = p
+        while q <= n:
+            cof[q::q] //= p
+            if q > n // p:
+                break
+            q *= p
+    big = cof > 1
+    del cof
+    mu[big] = -mu[big]
+    del big
+    mu[0] = 0
+    rmask = np.zeros(n + 1, dtype=np.uint16)
+    for i, q in enumerate(qs):
+        rmask[::q] |= np.uint16(1 << i)
+    return lam, mu, rmask
 
 
 def phi_of(k):
@@ -371,11 +420,35 @@ def main():
     say("    mu disagreements with the factorisation route: %d" % dm)
     say("    Lambda worst relative difference: %.3e" % dl)
     say("    W6 %s" % ("hold" if w6 else "REFUTED"))
-    say("    So all three constructions in code/ agree. The manifest this")
+    say("    So the constructions in code/ agree. The manifest this")
     say("    script declares has %d entries, one per distinct body; the"
         % len(SIEVE_HASHES))
     say("    gate holds it against what is on disk.")
-    del muR, lamR, lamB, muB
+    del muR, lamR
+
+    say()
+    say("W7  the fourth implementation, float32 Lambda and a bitmask,")
+    say("    on 1..%d" % NREC)
+    qs = [int(q) for q in primes_upto(30) if q > 2]
+    lamK, muK, rmK = sieves_bitmask(NREC, qs)
+    dm7 = int(np.flatnonzero(muK[1:] != muB[1:NREC + 1]).size)
+    den7 = np.maximum(np.abs(lamB[1:NREC + 1]), 1.0)
+    dl7 = float((np.abs(lamK[1:].astype(np.float64)
+                        - lamB[1:NREC + 1]) / den7).max())
+    nn7 = np.arange(NREC + 1, dtype=np.int64)
+    dr7 = 0
+    for i, q in enumerate(qs):
+        want = (nn7 % q) == 0
+        got = (rmK & np.uint16(1 << i)) != 0
+        dr7 += int(np.flatnonzero(want != got).size)
+    w7 = dm7 == 0 and dl7 < 1e-6 and dr7 == 0
+    say("    mu disagreements with the factorisation route: %d" % dm7)
+    say("    Lambda worst relative difference: %.3e   (float32, "
+        "cap 1e-6)" % dl7)
+    say("    bitmask disagreements over %d small primes: %d"
+        % (len(qs), dr7))
+    say("    W7 %s" % ("hold" if w7 else "REFUTED"))
+    del lamK, muK, rmK, den7, nn7
 
     say()
     say("W5  the two global consequences at the top of the range, %d"
@@ -403,8 +476,8 @@ def main():
 
     say()
     say("=" * 70)
-    ok = w1 and w2 and w3 and w4 and w5 and w6
-    say("all three sieve implementations in code/ agree with an "
+    ok = w1 and w2 and w3 and w4 and w5 and w6 and w7
+    say("all four sieve implementations in code/ agree with an "
         "independent factorisation" if ok else "REFUTED")
 
     head = [

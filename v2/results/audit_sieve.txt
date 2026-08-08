@@ -38,9 +38,16 @@ W6  the third implementation, on 1..500000
     mu disagreements with the factorisation route: 0
     Lambda worst relative difference: 0.000e+00
     W6 hold
-    So all three constructions in code/ agree. The manifest this
-    script declares has 4 entries, one per distinct body; the
+    So the constructions in code/ agree. The manifest this
+    script declares has 5 entries, one per distinct body; the
     gate holds it against what is on disk.
+
+W7  the fourth implementation, float32 Lambda and a bitmask,
+    on 1..500000
+    mu disagreements with the factorisation route: 0
+    Lambda worst relative difference: 5.820e-08   (float32, cap 1e-6)
+    bitmask disagreements over 9 small primes: 0
+    W7 hold
 
 W5  the two global consequences at the top of the range, 25600000
     x            M(x)        sqrt(x)     |M|/sqrt(x)
@@ -56,4 +63,4 @@ W5  the two global consequences at the top of the range, 25600000
     W5 hold
 
 ======================================================================
-all three sieve implementations in code/ agree with an independent factorisation
+all four sieve implementations in code/ agree with an independent factorisation

@@ -1,0 +1,131 @@
+STATISTIC: on the squarefree k < N^0.56 coprime to N, the
+           sign agreement of H(N;k) with
+           P_Q = sum_m mu(m) [N - mk has no odd prime factor
+           at or below Q], for Q = 29, 53, 101, 211, 503, 1009
+           and for Q = ceil(sqrt(N)), where the survivors are
+           exactly the primes; the mass-weighted lean each
+           gives on mu's own (log k)|H| magnitudes; the top
+           rung's slope against log N with its standard
+           error; and all of it against the median lean of 256
+           sign vectors on those magnitudes.
+NULL: 256 global sign vectors on the identical
+      magnitudes, the convention of audit_lean_floor.py. The
+      permutation control for this predictor family was run
+      in lab_survivor_selection.py at 0.5372 to 0.5414.
+FIELD: N = 2e5 through 6.4e6 by doubling; k squarefree and
+       coprime to N with 2 <= k < N^0.56; m odd,
+       squarefree and coprime to k, m <= N//k, the convention
+       of lab_survivor_selection.py; Lambda and mu from an
+       integer sieve to 6400000; numpy default_rng
+       seed 20260808. The published weight's skip of
+       primes dividing k is vacuous here and is dropped: k is
+       coprime to N, so such a prime never divides N - mk.
+       Every N is 2^a 5^b, one odd radical, as RADICALS says.
+       The published agreements and ratios are read from
+       results/audit_survivor_range.txt.
+
+read 6 agreements and lean ratios from results/audit_survivor_range.txt
+sieving to 6400000 ...
+RADICALS 1
+the sweep runs over Q = 29, 53, 101, 211, 503, 1009 and, at each N, the top rung Q = ceil(sqrt(N))
+  where the survivors are exactly the primes: 200000->448, 400000->633, 800000->895, 1600000->1265, 3200000->1789, 6400000->2530
+  N = 200000     #k = 313    done
+  N = 400000     #k = 462    done
+  N = 800000     #k = 682    done
+  N = 1600000    #k = 1004   done
+  N = 3200000    #k = 1485   done
+  N = 6400000    #k = 2186   done
+
+R1/R2  the sign agreement as the sieve deepens
+  N            Q=29      Q=53      Q=101     Q=211     Q=503     Q=1009    Q=sqrt(N)
+  200000       0.8129    0.8225    0.8658    0.9223    0.9897    0.9896    0.9931    
+  400000       0.7632    0.7831    0.8157    0.8767    0.9700    0.9885    0.9884    
+  800000       0.7446    0.7863    0.8213    0.8804    0.9389    0.9969    0.9969    
+  1600000      0.7367    0.7710    0.7958    0.8466    0.9107    0.9778    0.9926    
+  3200000      0.7759    0.7845    0.7901    0.8213    0.8933    0.9439    0.9888    
+  6400000      0.7579    0.7830    0.7998    0.8408    0.8688    0.9124    0.9962    
+  R1 Q = 29 reproduces the published agreement   hold   (cap 0.001)
+  R2 the agreement rises with Q at every N   REFUTED
+  DIAGNOSTIC on R2 (post hoc). Every failure is past
+  ceil(sqrt(N)), and both kinds are arithmetic rather
+  than statistical.
+  Ties at N = 800000: beyond the square root no composite
+  below N has a factor left to remove, so the columns
+  saturate. The sweep's ladder overshoots sqrt(N)
+  there -- 895 against the rungs 29, 53, 101, 211, 503, 1009.
+  Falls, 2 of them, the largest 0.0001:
+    N = 200000     Q = 503 to 1009, by 0.0000
+    N = 400000     Q = 1009 to 633, by 0.0001
+  A sieve strikes a small prime along with its
+  multiples, so raising Q past sqrt(N) removes true
+  contributors -- the primes at or below Q -- without
+  removing any composite. That is why the top rung is
+  ceil(sqrt(N)) and not the largest rung on the
+  ladder, and it is where R3 and R4 are judged.
+
+R3  the lean each depth gives, as a ratio to mu's
+  N            Q=29      Q=53      Q=101     Q=211     Q=503     Q=1009    Q=sqrt(N)
+  200000       0.8676    0.8979    0.9478    0.9773    0.9885    0.9873    0.9885    
+  400000       0.8052    0.8885    0.9408    0.9635    0.9879    0.9913    0.9912    
+  800000       0.8021    0.8454    0.8844    0.9332    0.9808    0.9938    0.9942    
+  1600000      0.7364    0.7835    0.8508    0.9034    0.9691    0.9848    0.9937    
+  3200000      0.7884    0.8885    0.8805    0.9193    0.9398    0.9785    0.9928    
+  6400000      0.6571    0.7909    0.8618    0.9101    1.0036    0.9770    0.9939    
+  R1 also covers the published lean ratios   hold
+  R3 the top rung is within a factor 1.05   hold
+PERN sievedepth_top_over_mu 6 0.9885 0.9942
+
+R4  and the trends
+  mu            slope -0.167260, standard error 0.018594
+  Q = sqrt(N)   slope -0.165946, standard error 0.018667
+  difference    -0.001314 against 0.052695 = 2 s.e., i.e. 0.05 s.e.
+SCATTER slope_audit_sieve_depth 0.0442
+TSTAT slope_audit_sieve_depth 8.89
+SPREAD slope_audit_sieve_depth 3.4657
+  R4 hold
+
+  the ledger, on the criterion these predictors were built
+  for. Modd and the log-weighted variant are read from
+  results/audit_oddmertens_range.txt and
+  results/audit_logweight_predictor.txt:
+  predictor        worst agreement  worst lean ratio  slope
+  modd             0.5201           2.9564            -0.004298
+PREDICTOR ladder_lean modd 0.5201 2.9564 -0.004298
+  sieve_P          0.7367           0.8676            -0.230633
+PREDICTOR ladder_lean sieve_P 0.7367 0.8676 -0.230633
+  sieve_P_log      0.7241           0.9212            -0.231781
+PREDICTOR ladder_lean sieve_P_log 0.7241 0.9212 -0.231781
+  sieve_to_sqrtN   0.9884           0.9942            -0.165946
+PREDICTOR ladder_lean sieve_to_sqrtN 0.9884 0.9942 -0.165946
+PREDICTOR CRITERION ladder_lean agreement
+PREDICTOR BEST ladder_lean sieve_to_sqrtN
+
+  and the sieve level each one uses, which is what decides
+  whether it is elementary in the sense {#rem:provablehalf}
+  needs -- every condition to a BOUNDED modulus:
+  predictor        level
+  modd             0
+LEVEL modd 0
+  sieve_P          29
+LEVEL sieve_P 29
+  sieve_P_log      29
+LEVEL sieve_P_log 29
+  sieve_to_sqrtN   sqrt
+LEVEL sieve_to_sqrtN sqrt
+UNBOUNDED LEVEL sieve_to_sqrtN
+  so the winner on the declared criterion is the one whose
+  level grows with N. At fixed level 29 the agreement is
+  0.7367 to 0.8129 and the lean ratio 0.6571 to 0.8676, and both
+  get worse as N grows.
+
+  and against the floor of {#rem:leanfloor}:
+  N            mu/floor   Q=sqrt(N)/floor
+  200000       9.9761     9.8613
+  400000       9.9370     9.8493
+  800000       12.8908    12.8159
+  1600000      12.2313    12.1548
+  3200000      12.9821    12.8885
+  6400000      15.9032    15.8067
+
+======================================================================
+REFUTED

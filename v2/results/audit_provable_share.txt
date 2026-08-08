@@ -1,0 +1,91 @@
+STATISTIC: the share of the budget S(N)(1-A(N))N that the
+           classical bound
+           A x exp(-c sqrt(log x)) L(k) with x = N/k would
+           spend over the admissible k < N^0.56, at A = 1
+           and at A each N's own maximum ratio |P|/bound;
+           each arm's least-squares slope against log N with
+           its standard error; and the r.m.s. of fitting the
+           share against log N and against log log N.
+NULL: none is run and none applies. A deterministic bound is
+      evaluated on a measured summation set and divided by a
+      computed budget. The coin arm for this field is
+      lab_elementary_provable.py's sixteen coins on the
+      identical sifted set.
+FIELD: N = 2e5 through 3.2e6 by doubling; k odd, squarefree
+       and coprime to N with 2 <= k < 30000, the cap
+       lab_elementary_provable.py uses; m odd, squarefree and
+       coprime to k, m <= (N-1)/k; the sieve weight over the
+       odd primes below 30; c = 0.2098
+       and the Euler products at the fixed bound 4000000.
+       Every N is 2^a 5^b, one odd radical, as RADICALS says.
+       The published shares are read from
+       results/lab_elementary_provable.txt.
+
+read 5 published shares from results/lab_elementary_provable.txt
+sieving to 3200000, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N = 200000     share 13.98     A here 1.2119     
+  N = 400000     share 15.38     A here 1.0222     
+  N = 800000     share 16.82     A here 0.7768     
+  N = 1600000    share 18.29     A here 0.5391     
+  N = 3200000    share 19.83     A here 0.3487     
+RADICALS 1
+
+D1  the control: the published shares
+  N            here       published  diff
+  200000       13.98      13.98      0.0027
+  400000       15.38      15.38      0.0022
+  800000       16.82      16.82      0.0025
+  1600000      18.29      18.29      0.0014
+  3200000      19.83      19.83      0.0043
+  D1 hold   (cap 0.01)
+
+D2/D3  is the rise resolved, and is it the constant?
+  arm            slope        s.e.       t
+  A = 1          +0.125950    0.002502   50.35
+  A per N        -0.325836    0.046365   7.03
+SCATTER slope_provable_share 0.0042
+TSTAT slope_provable_share 50.35
+SPREAD slope_provable_share 2.7726
+SCATTER slope_provable_share_aperN 0.0787
+TSTAT slope_provable_share_aperN 7.03
+SPREAD slope_provable_share_aperN 2.7726
+  A itself runs 1.2119 down to 0.3487 over the sweep
+  D2 the rise is resolved with A = 1   hold
+  D3 and with A per N   REFUTED
+FROZEN provableshare +0.125950 -0.325836
+TREND CONVENTION provableshare
+  DIAGNOSTIC on D3 (post hoc). The two arms disagree in
+  SIGN, so the direction of W3's trend is a fact about
+  the convention and not about the object. Neither
+  convention is wrong: {#rem:provablehalf} freezes A at
+  the sweep maximum because it wants an upper bound, and
+  says so -- A is a function of where one looks and the
+  largest value is the conservative choice. What may not
+  be said is that the overspend worsens, full stop; with
+  each N's own constant it improves at 7.03 standard
+  errors. The forecast is untouched either way, since it
+  uses the frozen constant deliberately.
+PERN provableshare_A 5 0.3487 1.2119
+  the two arms' shares at the same N differ by exactly A,
+  and both extremes fall at the same N -- the smallest
+  share with A frozen and the largest with A per N are both
+  at N = 200000 -- so a paired ratio adds nothing here and only
+  the constant's own range is declared:
+
+D4  can five points tell the mechanism?
+  shape                 r.m.s.     exponent
+  share ~ N^e           0.004248   +0.125950
+  share ~ (log N)^e     0.000653   +1.707104
+  the gap is 0.003594 and the r.m.s.'s own standard error is
+  0.000267 on 3 degrees of freedom, so the gap is 13.47 of it
+SHAPEGAP provableshare 0.003594 0.000267
+SHAPESURVIVE provableshare 5 1 0.0036
+SHAPECURRENT provableshare 5
+  the two shapes part, in the share itself, at log10 N =
+  6.5051, and no forecast is made from this fit -- the only
+  value read off it is at the top of the data, 6.5051.
+TRUST provableshare 6.5051 6.5051
+  D4 REFUTED
+
+======================================================================
+REFUTED

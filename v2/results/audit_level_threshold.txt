@@ -1,0 +1,148 @@
+STATISTIC: on the squarefree k < N^0.56 coprime to N, the
+           sign agreement of H(N;k) with
+           P_Q = sum_m mu(m) [N - mk has no odd prime factor
+           at or below Q], at the fixed Q = 29
+           and at Q = N^alpha for alpha = 0.1, 0.2, 0.3, 0.4, 0.5;
+           each level's least-squares slope of that agreement
+           against log N with its standard error; and the
+           mass-weighted lean each gives on mu's own
+           (log k)|H| magnitudes.
+NULL: none for the agreement -- a deterministic predictor is
+      compared with a deterministic sign and the
+      no-information value was measured by
+      lab_survivor_selection.py's permutation control at
+      0.5372 to 0.5414. The leans are read against the 256
+      global sign vectors of audit_lean_floor.py on the
+      identical magnitudes.
+FIELD: N = 2e5 through 6.4e6 by doubling; k squarefree and
+       coprime to N with 2 <= k < N^0.56; m odd,
+       squarefree and coprime to k, m <= N//k; Lambda and mu
+       from an integer sieve to 6400000; numpy
+       default_rng seed 20260808. The skip of primes
+       dividing k is vacuous and dropped, as in
+       audit_sieve_depth.py. Every N is 2^a 5^b, one odd
+       radical, as RADICALS declares. The top-rung control is
+       read from results/audit_sieve_depth.txt.
+
+read 6 top-rung agreements and lean ratios from results/audit_sieve_depth.txt
+sieving to 6400000 ...
+RADICALS 1
+the levels swept, Q = N^alpha:
+  N            a=0.0     a=0.1     a=0.2     a=0.3     a=0.4     a=0.5     
+  200000       29        3         11        39        132       447       
+  400000       29        4         13        48        174       632       
+  800000       29        4         15        59        230       894       
+  1600000      29        4         17        73        303       1265      
+  3200000      29        4         20        89        400       1789      
+  6400000      29        5         23        110       528       2530      
+  N = 200000     #k = 313    done
+  N = 400000     #k = 462    done
+  N = 800000     #k = 682    done
+  N = 1600000    #k = 1004   done
+  N = 3200000    #k = 1485   done
+  N = 6400000    #k = 2186   done
+
+T1  the control: alpha = 1/2 against the published top rung
+  N            agree here  published   lean here  published
+  200000       0.9931      0.9931      0.9885     0.9885
+  400000       0.9884      0.9884      0.9912     0.9912
+  800000       0.9969      0.9969      0.9942     0.9942
+  1600000      0.9926      0.9926      0.9937     0.9937
+  3200000      0.9888      0.9888      0.9928     0.9928
+  6400000      0.9962      0.9962      0.9939     0.9939
+  T1 hold   (cap 0.001)
+
+T2/T3/T4  does the agreement hold up as N grows?
+  level          200000     400000     800000     1600000    3200000    6400000    slope        t
+  Q = 29         0.8129     0.7632     0.7446     0.7367     0.7759     0.7579     -0.010101    1.10
+SCATTER slope_levelthreshold_a0.0 0.0217
+TSTAT slope_levelthreshold_a0.0 1.10
+SPREAD slope_levelthreshold_a0.0 3.4657
+UNRESOLVED SIGN slope_levelthreshold_a0.0
+  Q = N^0.1      0.7243     0.6831     0.7143     0.6937     0.7394     0.7273     +0.006739    0.89
+SCATTER slope_levelthreshold_a0.1 0.0178
+TSTAT slope_levelthreshold_a0.1 0.89
+SPREAD slope_levelthreshold_a0.1 3.4657
+UNRESOLVED SIGN slope_levelthreshold_a0.1
+  Q = N^0.2      0.7703     0.7465     0.7094     0.7269     0.7594     0.7543     -0.000972    0.11
+SCATTER slope_levelthreshold_a0.2 0.0205
+TSTAT slope_levelthreshold_a0.2 0.11
+SPREAD slope_levelthreshold_a0.2 3.4657
+UNRESOLVED SIGN slope_levelthreshold_a0.2
+  Q = N^0.3      0.8367     0.7808     0.7831     0.7835     0.7971     0.8057     -0.004375    0.55
+SCATTER slope_levelthreshold_a0.3 0.0188
+TSTAT slope_levelthreshold_a0.3 0.55
+SPREAD slope_levelthreshold_a0.3 3.4657
+UNRESOLVED SIGN slope_levelthreshold_a0.3
+  Q = N^0.4      0.8805     0.8490     0.8719     0.8831     0.8746     0.8705     +0.001564    0.34
+SCATTER slope_levelthreshold_a0.4 0.0109
+TSTAT slope_levelthreshold_a0.4 0.34
+SPREAD slope_levelthreshold_a0.4 3.4657
+UNRESOLVED SIGN slope_levelthreshold_a0.4
+  Q = N^0.5      0.9931     0.9884     0.9969     0.9926     0.9888     0.9962     +0.000506    0.37
+SCATTER slope_levelthreshold_a0.5 0.0032
+TSTAT slope_levelthreshold_a0.5 0.37
+SPREAD slope_levelthreshold_a0.5 3.4657
+UNRESOLVED SIGN slope_levelthreshold_a0.5
+  T2 the fixed level falls (-0.010101, 1.10 s.e.)   REFUTED
+  T3 alpha = 0.4 is flat (+0.001564, 0.34 s.e.)   hold
+  T4 alpha = 0.2 still falls (-0.000972, 0.11 s.e.)   REFUTED
+
+  the same sweep in the lean, as a ratio to mu's:
+  level          200000     400000     800000     1600000    3200000    6400000    
+  Q = 29         0.8676     0.8052     0.8021     0.7364     0.7884     0.6571     
+  Q = N^0.1      0.6390     0.5404     0.4379     0.4062     0.4033     0.2989     
+  Q = N^0.2      0.8945     0.8178     0.6888     0.7117     0.6935     0.6423     
+  Q = N^0.3      0.9067     0.9049     0.8494     0.8230     0.8578     0.8662     
+  Q = N^0.4      0.9593     0.9581     0.9320     0.9442     0.9218     0.9880     
+  Q = N^0.5      0.9885     0.9912     0.9942     0.9937     0.9928     0.9939     
+PERN levelthreshold_a04_over_mu 6 0.9218 0.9880
+
+  DIAGNOSTIC on T2 and T4 (post hoc). Neither fails by
+  direction: both slopes are negative, and NEITHER is
+  resolved -- no level's agreement clears two standard
+  errors, the fixed one included at 1.10. Six points of a
+  ratio of counts do not carry that much power. The lean is
+  the statistic that does, and it is the one the route
+  cares about:
+  level          slope        s.e.       t
+  Q = 29         -0.048145    0.013664   3.52
+SCATTER slope_leanratio_a0.0 0.0324
+TSTAT slope_leanratio_a0.0 3.52
+SPREAD slope_leanratio_a0.0 3.4657
+  Q = N^0.1      -0.088359    0.012460   7.09
+SCATTER slope_leanratio_a0.1 0.0295
+TSTAT slope_leanratio_a0.1 7.09
+SPREAD slope_leanratio_a0.1 3.4657
+  Q = N^0.2      -0.066398    0.015393   4.31
+SCATTER slope_leanratio_a0.2 0.0364
+TSTAT slope_leanratio_a0.2 4.31
+SPREAD slope_leanratio_a0.2 3.4657
+  Q = N^0.3      -0.015265    0.010024   1.52
+SCATTER slope_leanratio_a0.3 0.0237
+TSTAT slope_leanratio_a0.3 1.52
+SPREAD slope_leanratio_a0.3 3.4657
+UNRESOLVED SIGN slope_leanratio_a0.3
+  Q = N^0.4      +0.001937    0.008989   0.22
+SCATTER slope_leanratio_a0.4 0.0213
+TSTAT slope_leanratio_a0.4 0.22
+SPREAD slope_leanratio_a0.4 3.4657
+UNRESOLVED SIGN slope_leanratio_a0.4
+  Q = N^0.5      +0.001303    0.000546   2.39
+SCATTER slope_leanratio_a0.5 0.0013
+TSTAT slope_leanratio_a0.5 2.39
+SPREAD slope_leanratio_a0.5 3.4657
+  falling at two standard errors: 0.0, 0.1, 0.2
+  not resolved:                   0.3, 0.4, 0.5
+  the threshold is taken by rule and not by eye: the
+  smallest alpha whose trend is unresolved at two standard
+  errors, on the named statistic.
+LEVEL sieve_alpha_threshold 0.3
+THRESHOLD FROM sieve_alpha_threshold leanratio
+UNBOUNDED LEVEL sieve_alpha_threshold
+  so the lean stops slipping between alpha = 0.2 and
+  alpha = 0.3, and theta' = 0.56 is what the route
+  consumes -- the sign is held at a level lower than that.
+
+======================================================================
+REFUTED

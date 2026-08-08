@@ -287,6 +287,10 @@ def main():
             % (LABEL[nm], "none" if cross12[nm] is None
                else "%.4f" % cross12[nm]))
     say("  spread %.4f decades   (floor 1 decade)" % spread)
+    two = sorted(f12[nm][1] for nm in NAMES)[:2]
+    say("SHAPEGAP ladder_theta %.6f %.6f" % (two[1] - two[0], se12))
+    if two[1] - two[0] <= se12:
+        say("SHAPES TIED ladder_theta")
     say("SHAPESURVIVE ladder_theta %d %d %.4f"
         % (len(ns) + 1, len(surv12), spread))
     say("SHAPECURRENT ladder_theta %d" % (len(ns) + 1))

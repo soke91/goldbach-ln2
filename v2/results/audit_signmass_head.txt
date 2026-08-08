@@ -1,0 +1,71 @@
+STATISTIC: for a_k = (log k)H(N;k) over the squarefree
+           k < N^0.56 coprime to N: the fraction of
+           sum(log k)|H| carried by k with H > 0, the fraction
+           of k with H > 0, both again split at the median of
+           |H| and again with the top tenth by |a| removed,
+           and both under 256 re-signings that
+           hold the magnitudes.
+NULL: the re-signing of {#rem:signmass} -- the magnitudes are
+      held and the signs drawn at random, which fixes all
+      heterogeneity and destroys only the sign pattern.
+FIELD: N = 2e5 through 3.2e6 by doubling; k squarefree and
+       coprime to N with 2 <= k < N^0.56; m over
+       1 <= m < N/k with (m,k) = 1; Lambda and mu from an
+       integer sieve to 3200000; numpy default_rng
+       seed 20260808. Every N is 2^a 5^b, one odd
+       radical, as RADICALS declares. The published fractions
+       are read from results/lab_sign_structure.txt.
+
+read 5 published rows from results/lab_sign_structure.txt
+sieving to 3200000 ...
+256 re-signings per N, seed 20260808
+RADICALS 1
+  N = 200000     #k 313    mass 0.2273 count 0.4121 low 0.5096 high 0.3141
+  N = 400000     #k 462    mass 0.2228 count 0.3831 low 0.4762 high 0.2900
+  N = 800000     #k 682    mass 0.2735 count 0.4296 low 0.5396 high 0.3196
+  N = 1600000    #k 1004   mass 0.3068 count 0.4392 low 0.5000 high 0.3785
+  N = 3200000    #k 1485   mass 0.3207 count 0.4808 low 0.5774 high 0.3841
+
+H1  the control: the four published fractions
+  N            mass/pub        count/pub       low/pub         high/pub
+  200000       0.2273/0.2273   0.4121/0.4121   0.5096/0.5096   0.3141/0.3141
+  400000       0.2228/0.2228   0.3831/0.3831   0.4762/0.4762   0.2900/0.2900
+  800000       0.2735/0.2735   0.4296/0.4296   0.5396/0.5396   0.3196/0.3196
+  1600000      0.3068/0.3068   0.4392/0.4392   0.5000/0.5000   0.3785/0.3785
+  3200000      0.3207/0.3207   0.4808/0.4808   0.5774/0.5774   0.3841/0.3841
+  H1 hold   (cap 0.001)
+
+H2  the median split against the decile split
+  N            high half   top decile   difference
+  200000       0.3141      0.0000       0.3141
+  400000       0.2900      0.0190       0.2711
+  800000       0.3196      0.0757       0.2440
+  1600000      0.3785      0.1144       0.2641
+  3200000      0.3841      0.1137       0.2704
+  the difference spans 0.0701   (cap 0.05)
+  H2 REFUTED
+
+H3/H4  where the gap between counting and weighting lives
+  N            whole gap   without the head   re-signed gap
+  200000       0.1848      0.1038             0.0040
+  400000       0.1603      0.0863             0.0044
+  800000       0.1561      0.0881             0.0004
+  1600000      0.1325      0.0637             0.0027
+  3200000      0.1601      0.0884             0.0004
+  H3 the gap closes without the head   REFUTED   (cap 0.05)
+  H4 and re-signing shows no gap   hold   (cap 0.05)
+PERN signmass_gap_whole 5 0.1325 0.1848
+PERN signmass_gap_nohead 5 0.0637 0.1038
+  and the two taken at the same N:
+RATIO signmass_gap_nohead signmass_gap_whole 0.4810 0.5642
+
+  so the sentence 'the correlation sits in the large terms'
+  is exact in this sense: the top tenth by mass carries
+  44 to 52 per cent of the whole gap between counting
+  and weighting, and what is left behind is NOT balanced --
+  the remaining gap is 0.0637 to 0.1038, still far above the
+  0.0044 a re-signing leaves.
+SITSIN signmass_gap 0.4358 0.5190
+
+======================================================================
+REFUTED

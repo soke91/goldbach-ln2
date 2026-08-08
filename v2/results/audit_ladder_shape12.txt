@@ -52,6 +52,8 @@ J4  and what the survivors say about theta' = 0.56
   a + b log N              11.0762
   a + b log log N          13.8607
   spread 2.7845 decades   (floor 1 decade)
+SHAPEGAP ladder_theta 0.000626 0.000828
+SHAPES TIED ladder_theta
 SHAPESURVIVE ladder_theta 12 2 2.7845
 SHAPECURRENT ladder_theta 12
   J4 hold

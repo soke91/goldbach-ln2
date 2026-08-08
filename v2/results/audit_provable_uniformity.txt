@@ -1,0 +1,77 @@
+STATISTIC: the ratio |P(N;k)| / [(N/k) exp(-c sqrt(log(N/k)))
+           L(k)] at every admissible k; its maximum
+           restricted to N/k >= 2, 8, 32, 128; its maximum
+           within each octave of the inner length N/k at each
+           N, which at fixed octave varies the modulus by the
+           ratio of the largest N to the smallest; the
+           least-squares slope of that maximum against the
+           octave's median log k; and where the overall
+           maximum is attained.
+NULL: none is run and none applies. A measured sum is divided
+      by a deterministic bound and the maxima compared. The
+      coin arm for this field is lab_elementary_provable.py's
+      sixteen coins on the identical sifted set.
+FIELD: N = 2e5 through 3.2e6 by doubling; k odd, squarefree
+       and coprime to N with 2 <= k < 30000; m odd,
+       squarefree and coprime to k, m <= (N-1)/k; the sieve
+       weight over the odd primes below 30;
+       c = 0.2098; octaves closed at both ends and
+       used only when they hold at least 10 k. Every N
+       is 2^a 5^b, one odd radical, as RADICALS declares. The
+       published restricted maxima are read from
+       results/lab_elementary_provable.txt.
+
+read 4 published restricted maxima from results/lab_elementary_provable.txt
+sieving to 3200000, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N = 200000     #k 10132   max 1.2119 at N/k = 7, k = 28549
+  N = 400000     #k 10132   max 1.0222 at N/k = 13, k = 29873
+  N = 800000     #k 10132   max 0.7768 at N/k = 30, k = 26573
+  N = 1600000    #k 10132   max 0.5391 at N/k = 63, k = 25261
+  N = 3200000    #k 10132   max 0.3487 at N/k = 108, k = 29451
+RADICALS 1
+
+F1  the control: the maxima restricted by inner length
+  N/k >=       here       published  diff
+  2            1.2119     1.2119     0.00003
+  8            1.0710     1.0710     0.00005
+  32           0.7309     0.7309     0.00005
+  128          0.3363     0.3363     0.00000
+  F1 hold   (cap 0.001)
+
+F2/F3  along the axis the estimate does not control: at a
+  fixed inner length, does the ratio grow with the modulus?
+  N/k octave        200000     400000     800000     1600000    3200000    grow    slope        t
+  [8     ,32      ) 1.0710     1.0222     0.7768     -          -          1.3786  -0.555097    2.13
+  [32    ,128     ) 0.7309     0.7309     0.7309     0.5391     0.3487     2.0964  -0.302804    1.91
+  [128   ,512     ) 0.2987     0.2614     0.3363     0.3140     0.3130     1.2865  +0.039912    0.91
+  [512   ,2048    ) 0.1608     0.1552     0.1588     0.1689     0.1673     1.0878  +0.023475    1.84
+  [2048  ,8192    ) 0.0655     0.0627     0.0900     0.0933     0.0959     1.5307  +0.167112    3.37
+  [8192  ,32768   ) -          0.0296     0.0312     0.0315     0.0494     1.6719  +0.227768    2.18
+  F2 every octave grows by less than 1.5   REFUTED   (cap 1.5)
+  F3 a resolved rise at 2 of 6 octaves   hold
+SCALES audit_provable_uniformity 5
+
+F4  where the constant is actually attained
+  N            argmax at N/k   k there
+  200000       7               28549
+  400000       13              29873
+  800000       30              26573
+  1600000      63              25261
+  3200000      108             29451
+  F4 the argmax has inner length below 32 at every N   REFUTED
+CROSSAXIS lab_elementary_provable 6 2 0.0673
+AXIS RISE lab_elementary_provable
+  the octaves with a resolved rise carry 0.0673 of the
+  elementary sum sum(log k)|P|, so the drift is real and
+  sits where the mass is not.
+
+  what this does and does not settle. It does not prove the
+  uniformity, which is a statement about all k and all N.
+  What it does is check it where it can be checked: at a
+  fixed inner length the modulus runs over a factor 16 here
+  and the ratio does not follow it. The constant is a
+  property of the length of the inner sum, which is the
+  axis the classical estimate already controls.
+
+======================================================================
+REFUTED

@@ -1,0 +1,83 @@
+STATISTIC: the implied constant
+           A = max_k |P| / [(N/k) exp(-c sqrt(log(N/k))) L(k)]
+           at each N; its least-squares decay against log N
+           and against log log N with their r.m.s. residuals;
+           and the N solving A dL I(u) = S(N)(1-A(N)) with A
+           frozen at the sweep maximum and with A
+           extrapolated by each shape.
+NULL: none is run and none applies. A deterministic equation
+      is solved with measured inputs. The coin arm for this
+      field is lab_elementary_provable.py's sixteen coins on
+      the identical sifted set.
+FIELD: N = 2e5 through 3.2e6 by doubling; k odd, squarefree
+       and coprime to N with 2 <= k < 30000; m odd,
+       squarefree and coprime to k, m <= (N-1)/k; the sieve
+       weight over the odd primes below 30;
+       c = 0.2098 and theta' = 0.56; the Euler
+       products at the fixed bound 4000000; the
+       crossing searched over log N up to 40000.0.
+       Every N is 2^a 5^b, one odd radical, as RADICALS says.
+       The published dL, A and bracket are read from
+       results/lab_elementary_provable.txt.
+
+read dL 0.3994, A 1.2119 and the bracket 5474.8 [2092.7, 13093.3] from
+  results/lab_elementary_provable.txt
+sieving to 3200000, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N = 200000     A 1.2119    dL 0.3994    S(1-A) 0.374487
+  N = 400000     A 1.0222    dL 0.3994    S(1-A) 0.374487
+  N = 800000     A 0.7768    dL 0.3994    S(1-A) 0.374487
+  N = 1600000    A 0.5391    dL 0.3994    S(1-A) 0.374487
+  N = 3200000    A 0.3487    dL 0.3994    S(1-A) 0.374487
+RADICALS 1
+
+E1  the control
+  dL 0.3994 against 0.3994; A frozen 1.2119 against 1.2119
+  forecast 5474.8 against 5474.8
+  E1 hold   (cap 0.001 on dL, cap 0.001 on A, cap one decade)
+
+E2/E3  what A itself does
+  shape                 slope        r.m.s.     s.e.
+  log A ~ log N         -0.451786    0.074485   0.043870
+  log A ~ log log N     -6.085957    0.087846   0.700862
+  A runs 1.2119 down to 0.3487, at 10.30 standard errors
+  the two r.m.s. differ by 0.013361 against the r.m.s.'s own
+  standard error 0.030408 on 3 degrees of freedom, i.e. 0.44
+SHAPEGAP provableforecast 0.013361 0.030408
+SHAPES TIED provableforecast
+  E2 the decay is resolved   hold
+  E3 and its shape is not   hold
+
+E4  the forecast under each extrapolation of A
+  A frozen at the sweep maximum   log10 N = 5474.8
+  A ~ N^-0.451786                     log10 N = 9.0
+  A ~ (log N)^-6.085957               log10 N = 10.3
+  the two differ by 1.3 decades
+  E4 hold   (floor one decade)
+SHAPESURVIVE provableforecast 5 2 1.3383
+SHAPECURRENT provableforecast 5
+TRUST provableforecast 6.5051 10.2935
+FORECAST OUTSIDE provableforecast
+FORECAST BOTH provableforecast 5474.8243 8.9551 10.2935
+FORECAST CONVENTION SPLIT provableforecast
+
+  and what the two answers are answers TO, which is not the
+  same question. A is a measured maximum ratio, not a
+  constant any theorem supplies: freezing it at the largest
+  observed value is the conservative choice for an UPPER
+  BOUND on the spend, and letting it fall is a description
+  of what the data do, which would eventually put the
+  'bound' below |P| itself and stop being a bound at all.
+  So 5474.8 is where the bound provably pays and 9.0 to 10.3
+  is where the measured ratio would; the two differ by
+  5465 decades and neither corrects the other.
+
+  what that leaves. The published 5474.8 is a forecast about
+  a frozen constant, and the constant is not one: it falls
+  at 10.30 standard errors and its shape is tied at 0.44 of
+  the r.m.s.'s own error. Nothing here corrects the figure,
+  because correcting it would need A's shape over four
+  thousand decades -- an extrapolation this repository
+  refuses on its own standard, {#rem:forecastbracket}.
+
+======================================================================
+the forecast is undefined once the constant is allowed to move

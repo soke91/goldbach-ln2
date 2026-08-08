@@ -1,0 +1,90 @@
+STATISTIC: the cross-k gain G = sum|a| / |sum a| for
+           a_k = (log k)H(N;k) over the squarefree
+           k < N^0.56 coprime to N, computed on
+           the whole range, on the top tenth of k by |a| and
+           on the remaining nine tenths; each part's
+           least-squares exponent against log N with its
+           standard error; and the head's share of
+           sum(log k)|H|.
+NULL: none for the split, which is a deterministic partition
+      of a measured sequence. The coin arms for G were run in
+      audit_crossk_reference.py, where random signs on mu's
+      own magnitudes gave 9.94 to 12.98 times mu's gain.
+FIELD: N = 2e5 through 2.56e7 by doubling; k squarefree and
+       coprime to N with 2 <= k < N^0.56; m over
+       1 <= m < N/k with (m,k) = 1; Lambda and mu from an
+       integer sieve to 25600000. The split is by a
+       FIXED FRACTION of the k, so each part has #S of order
+       N^theta' and the same square-root reference theta'/2.
+       Every N is 2^a 5^b, one odd radical, as RADICALS says.
+       The published gains are read from
+       results/lab_lean_decay.txt and the exponent from
+       results/audit_lean_identity.txt.
+
+read 6 published gains from results/lab_lean_decay.txt and the exponent
+  +0.153911 from results/audit_lean_identity.txt
+sieving to 25600000 ...
+RADICALS 1
+  N = 200000     #k = 313    head 31    G 1.8337   head 1.0000   tail 3.4166   mass 0.3572
+  N = 400000     #k = 462    head 46    G 1.8036   head 1.0395   tail 3.0632   mass 0.3587
+  N = 800000     #k = 682    head 68    G 2.2074   head 1.1784   tail 4.1440   mass 0.3486
+  N = 1600000    #k = 1004   head 100   G 2.5876   head 1.2966   tail 5.6078   mass 0.3510
+  N = 3200000    #k = 1485   head 148   G 2.7893   head 1.2944   tail 7.2939   mass 0.3485
+  N = 6400000    #k = 2186   head 219   G 3.0787   head 1.3721   tail 8.9816   mass 0.3457
+  N = 12800000   #k = 3226   head 323   G 3.4075   head 1.3799   tail 12.8987  mass 0.3337
+  N = 25600000   #k = 4754   head 475   G 3.5925   head 1.4639   tail 14.3074  mass 0.3400
+
+Y1  the control: the whole-range gain
+  N            G here     published  diff
+  200000       1.8337     1.8340     0.00028
+  400000       1.8036     1.8040     0.00037
+  800000       2.2074     2.2070     0.00042
+  1600000      2.5876     2.5880     0.00036
+  3200000      2.7893     2.7890     0.00025
+  6400000      3.0787     3.0790     0.00028
+  exponent +0.153911 against the published +0.153911, diff 0.000000
+  Y1 hold   (cap 0.01 and cap 0.001)
+
+Y2/Y3/Y4  the gain on each part, and its exponent
+  part           200000     400000     800000     1600000    3200000    6400000    12800000   25600000   
+  whole          1.8337     1.8036     2.2074     2.5876     2.7893     3.0787     3.4075     3.5925     
+  head tenth     1.0000     1.0395     1.1784     1.2966     1.2944     1.3721     1.3799     1.4639     
+  tail           3.4166     3.0632     4.1440     5.6078     7.2939     8.9816     12.8987    14.3074    
+  part           exponent     s.e.       t
+  whole          +0.153911    0.011253   13.68
+SCATTER slope_gainsplit_whole 0.0438
+TSTAT slope_gainsplit_whole 13.68
+SPREAD slope_gainsplit_whole 4.8520
+  head tenth     +0.077963    0.009252   8.43
+SCATTER slope_gainsplit_head_tenth 0.0360
+TSTAT slope_gainsplit_head_tenth 8.43
+SPREAD slope_gainsplit_head_tenth 4.8520
+  tail           +0.340006    0.025785   13.19
+SCATTER slope_gainsplit_tail 0.1003
+TSTAT slope_gainsplit_tail 13.19
+SPREAD slope_gainsplit_tail 4.8520
+  Y2 the head is below the whole range   hold
+  Y3 the tail is above it   hold
+  Y4 and still below theta'/2 = 0.28 by more than two s.e. (-2.33)   REFUTED
+
+  and the head's share of the mass, which is what
+  {#rem:nocrossk}'s rule T4 measured:
+  N            top-decile share  same sign in the head
+  200000       0.3572            1.0000
+  400000       0.3587            0.9783
+  800000       0.3486            0.9118
+  1600000      0.3510            0.8800
+  3200000      0.3485            0.8716
+  6400000      0.3457            0.8721
+  12800000     0.3337            0.8545
+  25600000     0.3400            0.8274
+  the head's gain is 1 exactly where that fraction is 1:
+  a positive proportion of the dilations -- a tenth of them,
+  growing like N^0.56 -- carries one sign.
+GAINSPLIT crossk +0.077963 +0.340006 +0.153911
+PERN gainsplit_head_mass 8 0.3337 0.3587
+PERN gainsplit_head_agree 8 0.8274 1.0000
+RATIO gainsplit_head_mass gainsplit_head_agree 0.3572 0.4109
+
+======================================================================
+REFUTED

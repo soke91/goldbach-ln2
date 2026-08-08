@@ -1,0 +1,113 @@
+STATISTIC: for a_k = (log k)H(N;k) over the squarefree
+           k < N^0.56 coprime to N: the top tenth
+           by |a|, its cross-k gain, the fraction of it
+           carrying a single sign, its overlap with the
+           smallest tenth of k, and the whole range's
+           mass-weighted share of negative terms.
+NULL: none applies -- a deterministic set is compared with
+      another and a sign is counted. The coin arms were run
+      in audit_lean_floor.py for the lean and in
+      audit_crossk_reference.py for the gain.
+FIELD: N = 2e5 through 2.56e7 by doubling; k squarefree and
+       coprime to N with 2 <= k < N^0.56; m over
+       1 <= m < N/k with (m,k) = 1; Lambda and mu from an
+       integer sieve to 25600000. Every N is 2^a 5^b,
+       one odd radical, as RADICALS declares. The published
+       head gains and fractions are read from
+       results/audit_gain_split.txt.
+
+read 8 head gains and 8 single-sign fractions from results/audit_gain_split.txt
+sieving to 25600000 ...
+RADICALS 1
+  N = 200000     #k 313    head 31    gain 1.0000   frac 1.0000   overlap 0.2258  neg mass 0.7727
+  N = 400000     #k 462    head 46    gain 1.0395   frac 0.9783   overlap 0.2174  neg mass 0.7772
+  N = 800000     #k 682    head 68    gain 1.1784   frac 0.9118   overlap 0.2353  neg mass 0.7265
+  N = 1600000    #k 1004   head 100   gain 1.2966   frac 0.8800   overlap 0.2900  neg mass 0.6932
+  N = 3200000    #k 1485   head 148   gain 1.2944   frac 0.8716   overlap 0.2703  neg mass 0.6793
+  N = 6400000    #k 2186   head 219   gain 1.3721   frac 0.8721   overlap 0.2785  neg mass 0.6624
+  N = 12800000   #k 3226   head 323   gain 1.3799   frac 0.8545   overlap 0.3096  neg mass 0.6467
+  N = 25600000   #k 4754   head 475   gain 1.4639   frac 0.8274   overlap 0.3263  neg mass 0.6392
+
+Z1  the control: the head's gain and single-sign fraction
+  N            gain here  published  frac here  published
+  200000       1.0000     1.0000     1.0000     1.0000
+  400000       1.0395     1.0395     0.9783     0.9783
+  800000       1.1784     1.1784     0.9118     0.9118
+  1600000      1.2966     1.2966     0.8800     0.8800
+  3200000      1.2944     1.2944     0.8716     0.8716
+  6400000      1.3721     1.3721     0.8721     0.8721
+  12800000     1.3799     1.3799     0.8545     0.8545
+  25600000     1.4639     1.4639     0.8274     0.8274
+  Z1 hold   (cap 0.001)
+
+Z2/Z3  is the head the small-k end, and is its sign the lean's?
+  N            overlap with the smallest decile  majority
+  200000       0.2258                            negative
+  400000       0.2174                            negative
+  800000       0.2353                            negative
+  1600000      0.2900                            negative
+  3200000      0.2703                            negative
+  6400000      0.2785                            negative
+  12800000     0.3096                            negative
+  25600000     0.3263                            negative
+  Z2 the overlap is above 0.8 at every N   REFUTED   (floor 0.8)
+  Z3 the majority sign is negative at every N   hold
+PERN headidentity_overlap 8 0.2174 0.3263
+
+  DIAGNOSTIC on Z2 (post hoc). The head is not the small-k
+  end, so what is it? |a_k| = (log k)|H(N;k)| and the log k
+  factor grows with k while |H| falls, so the two pull
+  against each other. Dropping the weight:
+  N            overlap with the top decile by |H|  median rank of the head
+  200000       0.8065                              0.2460
+  400000       0.7826                              0.3193
+  800000       0.7794                              0.2786
+  1600000      0.8500                              0.2356
+  3200000      0.8514                              0.2929
+  6400000      0.8767                              0.2466
+  12800000     0.8638                              0.2216
+  25600000     0.8863                              0.2167
+SPLITOVERLAP crossk 0.2174 0.3263
+  the head sits at the 0.22 to 0.32 point of the k-order, so
+  it is spread across the range and not a restriction of it.
+
+Z4  is the head's fraction the lean read on a sub-range?
+  N            head fraction  negative mass  difference
+  200000       1.0000         0.7727         0.2273
+  400000       0.9783         0.7772         0.2010
+  800000       0.9118         0.7265         0.1853
+  1600000      0.8800         0.6932         0.1868
+  3200000      0.8716         0.6793         0.1924
+  6400000      0.8721         0.6624         0.2097
+  12800000     0.8545         0.6467         0.2078
+  25600000     0.8274         0.6392         0.1882
+  the difference runs 0.1853 to 0.2273, a spread of 0.0421
+  (cap 0.05)
+  and the head's fraction is a proportion over 31 to 475
+  terms, so it carries a binomial error of its own:
+  N            head size  s.e. of the fraction
+  200000       31         0.000000
+  400000       46         0.021502
+  800000       68         0.034396
+  1600000      100        0.032496
+  3200000      148        0.027497
+  6400000      219        0.022565
+  12800000     323        0.019620
+  25600000     475        0.017341
+  the expected span of 8 such draws is 2.8534 times the
+  standard error, i.e. 0.0626 against the observed 0.0421
+CONSTSPREAD headidentity_diff 0.042074 0.062566
+PERN headidentity_headfrac 8 0.8274 1.0000
+PERN headidentity_negmass 8 0.6392 0.7772
+RATIO headidentity_headfrac headidentity_negmass 1.2550 1.3212
+  Z4 hold
+
+  what that settles. If the head is the small-k end and its
+  sign is the lean's, then its single-sign fraction is not a
+  free quantity with a limit of its own -- it is the lean of
+  {#rem:signmass} read over the longest inner sums, and
+  {#rem:sievedepth} has already found what carries that: the
+  primality of N - mk, at a level no bounded modulus reaches.
+
+======================================================================
+REFUTED

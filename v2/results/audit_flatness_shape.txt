@@ -1,0 +1,101 @@
+STATISTIC: the flatness F = (l1/l2)/sqrt(#k) of the weighted
+           wall a_k = (log k)H(N;k) over the squarefree
+           k < N^0.56 coprime to N; the exponent
+           of #k against log N; and two shapes fitted to F --
+           the power F ~ N^e and the bounded a + b/log N --
+           with their r.m.s. residuals and the log10 N at
+           which the power would reach the Cauchy-Schwarz
+           bound F = 1.
+NULL: none is run and none applies. Deterministic shapes are
+      fitted to the same measurements and compared by r.m.s.
+      The coin arms for this field were run in
+      lab_positive_weights.py and audit_crossk_reference.py.
+FIELD: N = 2e5 through 2.56e7 by doubling; k squarefree and
+       coprime to N with 2 <= k < N^0.56; m over
+       1 <= m < N/k with (m,k) = 1; Lambda and mu from an
+       integer sieve to 25600000. Every N is 2^a 5^b,
+       one odd radical, as RADICALS declares, so the density
+       of admissible k is fixed and #k is a clean power. The
+       published #k are read from
+       results/lab_positive_weights.txt and the flatness
+       range from results/audit_crossk_reference.txt.
+
+read 5 published #k from results/lab_positive_weights.txt and the flatness
+  range 0.6622 to 0.6854 from results/audit_crossk_reference.txt
+sieving to 25600000 ...
+RADICALS 1
+  N = 200000     #k = 313    l1/l2 = 11.9596   F = 0.6760
+  N = 400000     #k = 462    l1/l2 = 14.2336   F = 0.6622
+  N = 800000     #k = 682    l1/l2 = 17.8995   F = 0.6854
+  N = 1600000    #k = 1004   l1/l2 = 21.4312   F = 0.6764
+  N = 3200000    #k = 1485   l1/l2 = 26.2111   F = 0.6802
+  N = 6400000    #k = 2186   l1/l2 = 32.1297   F = 0.6872
+  N = 12800000   #k = 3226   l1/l2 = 39.6783   F = 0.6986
+  N = 25600000   #k = 4754   l1/l2 = 47.6367   F = 0.6909
+
+X1  the control: #k and the flatness
+  N            #k here  #k pub   F
+  200000       313      313      0.6760
+  400000       462      462      0.6622
+  800000       682      682      0.6854
+  1600000      1004     1004     0.6764
+  3200000      1485     1485     0.6802
+  6400000      2186     -        0.6872
+  12800000     3226     -        0.6986
+  25600000     4754     -        0.6909
+  the five published N give F from 0.6622 to 0.6854 against 0.6622 to 0.6854
+  X1 hold   (cap 0.001)
+
+X2  is #k a clean power of N?
+  exponent of #k against log N = 0.560706, against theta' = 0.56
+  r.m.s. residual 0.000853, standard error 0.000219
+  so the ceiling of e(l1/l2) is 0.280353
+  X2 hold   (cap 0.001)
+REFERENCE audit_flatness_shape 8 0.6622 0.6986
+
+X3/X4  two shapes for the flatness
+  shape                 r.m.s.     what it does
+  F ~ N^e               0.006479   e = +0.007445, so F reaches 1
+                                   at log10 N = 28.6782
+  F = a + b/log N       0.006641   a = 0.754152, b = -1.041689
+  X3 the bounded shape is no worse   REFUTED
+  X4 its ceiling a is inside (0, 1)   hold
+
+  DIAGNOSTIC on X3 (post hoc). The two r.m.s. differ by
+  0.000163, and an r.m.s. from 8 points with two parameters
+  carries its own standard error of rms/sqrt(2(n-2)):
+    best r.m.s. 0.006479, standard error 0.001870 (28.9 per cent)
+    the gap between the shapes is 0.09 of that
+  so X3 fails as registered and the two shapes are not
+  separated at all. What separates them is not the fit:
+  Cauchy-Schwarz forbids the power past F = 1.
+  and what they say where it matters, at log10 N = 12:
+    power     F = 0.751329
+    bounded   F = 0.716452
+SHAPEGAP flatness 0.000163 0.001870
+SHAPES TIED flatness
+SHAPESURVIVE flatness 8 2 0.0349
+SHAPECURRENT flatness 8
+
+  the power law is excluded by arithmetic and not by fit:
+  F <= 1 by Cauchy-Schwarz, and the fitted power crosses 1
+  at log10 N = 28.6782, so it cannot describe the sequence past
+  there. The bracket a leave-one-out refit gives:
+BRACKET log10_N_flatness_reaches_one 28.6782 24.2459 28.6782
+DRIFT log10_N_flatness_reaches_one 0.1546
+  and the bounded shape's own answer to the same question:
+  it tends to 0.754152 and never reaches 1, so within the search
+  ceiling log10 N = 173.7 it gives no crossing at all.
+FORECAST BOTH flatness 28.6782 28.6782 173.7178
+  which is wide because e is small; what is not wide is the
+  conclusion, since any positive e crosses 1 eventually.
+
+  what saturation would do to {#rem:leanidentity}. If F
+  tends to 0.754152 then e(l1/l2) tends to theta'/2 = 0.2804, and
+  the lean/floor exponent tends to that minus e(G):
+  e(G) = +0.153911, read from results/audit_lean_identity.txt
+  so the limit is +0.126442 against the +0.159294 measured over this
+  range -- the lean still grows, by a fifth less.
+
+======================================================================
+REFUTED

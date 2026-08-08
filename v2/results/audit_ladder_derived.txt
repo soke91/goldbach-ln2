@@ -1,0 +1,122 @@
+STATISTIC: at each rung of N = 30030*2^j, j = 0..11, the
+           crossing K*_R of sum(log k)|H-beta P| against
+           S(N)(1-A(N))N, its exponent, and the constant
+           c_R = mean |R|/sqrt(N/k) below it; then c_R's own
+           law gamma (log N)^rho, the crossings that law
+           predicts with nothing fitted to the exponents,
+           and the shape e = 1 - 2(1+rho) loglog N/log N +
+           d/log N it derives, read against the fitted
+           shapes' r.m.s.
+NULL: none is run and none applies. A deterministic model
+      with no freedom in the crossing is compared with a
+      measured crossing of the same measured sum at twelve
+      N; there is no background to detect against. The sign
+      controls for R on this ladder were run in
+      lab_primorial_ladder.py.
+FIELD: N = 30030*2^j, j = 0..11, one odd radical throughout
+       so the budget is constant; k squarefree and coprime
+       to N with 2 <= k < 100000; m odd, squarefree, coprime
+       to the odd part of k, m < N/k; the sieve weight uses
+       the odd primes up to 30, read off one bitmask; beta
+       refitted as sum(HP)/sum(P^2) on that k-range; S(N)
+       and A(N) from Euler products at the fixed bound
+       4000000. The published exponents, c_R and law are
+       read from results/audit_ladder_model.txt, the twelfth
+       exponent from results/audit_primorial_rung11.txt and
+       the fitted shapes from
+       results/audit_ladder_shape12.txt.
+
+read 12 published exponents, 11 published c_R, the law (log N)^1.3838
+  correlation 0.98535, the best fitted r.m.s. on twelve 0.00370, and 2 shape answers
+sieving to 61501440 over 9 small primes ...
+  N = 30030     K*_R 109    exp 0.4550  c_R 1.1956  thr 0.087306
+  N = 60060     K*_R 157    exp 0.4595  c_R 1.4048  thr 0.087306
+  N = 120120    K*_R 239    exp 0.4682  c_R 1.4497  thr 0.087306
+  N = 240240    K*_R 311    exp 0.4633  c_R 1.6742  thr 0.087306
+  N = 480480    K*_R 461    exp 0.4688  c_R 1.8753  thr 0.087306
+  N = 960960    K*_R 691    exp 0.4746  c_R 1.9077  thr 0.087306
+  N = 1921920   K*_R 1159   exp 0.4876  c_R 1.8963  thr 0.087306
+  N = 3843840   K*_R 1501   exp 0.4824  c_R 2.1981  thr 0.087306
+  N = 7687680   K*_R 2621   exp 0.4965  c_R 2.1723  thr 0.087306
+  N = 15375360  K*_R 3557   exp 0.4941  c_R 2.4278  thr 0.087306
+  N = 30750720  K*_R 5773   exp 0.5023  c_R 2.5492  thr 0.087306
+  N = 61501440  K*_R 9367   exp 0.5099  c_R 2.5790  thr 0.087306
+
+M1  the control: the ladder recomputed
+  N            exp        published   diff      c_R      published   diff
+  30030        0.4550     0.4550      0.000031  1.1956   1.1956      0.000014
+  60060        0.4595     0.4595      0.000029  1.4048   1.4048      0.000044
+  120120       0.4682     0.4682      0.000024  1.4497   1.4497      0.000007
+  240240       0.4633     0.4633      0.000017  1.6742   1.6742      0.000041
+  480480       0.4688     0.4688      0.000023  1.8753   1.8753      0.000050
+  960960       0.4746     0.4746      0.000014  1.9077   1.9077      0.000008
+  1921920      0.4876     0.4876      0.000021  1.8963   1.8963      0.000037
+  3843840      0.4824     0.4824      0.000017  2.1981   2.1981      0.000019
+  7687680      0.4965     0.4965      0.000048  2.1723   2.1723      0.000043
+  15375360     0.4941     0.4941      0.000010  2.4278   2.4278      0.000006
+  30750720     0.5023     0.5023      0.000034  2.5492   2.5492      0.000028
+  61501440     0.5099     0.5099      0.000006  2.5790   -           0.000000
+  M1 hold   (cap 0.0001 in the exponent, cap 0.001 in c_R)
+
+M2  the law the constant actually follows
+  eleven rungs   c_R ~ (log N)^1.3838   correlation 0.98535
+  published      c_R ~ (log N)^1.3838   correlation 0.98535
+  twelve rungs   c_R ~ (log N)^1.3518   correlation 0.98651
+  M2 hold   (cap 0.001 on eleven, cap 0.05 on twelve)
+  so gamma = 0.053849 and rho = 1.351815, both fitted to c_R alone
+
+M3  the crossings with the corrected constant
+  N            measured   corrected  ratio    published ratio
+  30030        109        109        1.0000   -
+  60060        157        157        1.0000   -
+  120120       239        227        0.9498   -
+  240240       311        331        1.0643   -
+  480480       461        479        1.0390   -
+  960960       691        709        1.0260   -
+  1921920      1159       1051       0.9068   -
+  3843840      1501       1583       1.0546   -
+  7687680      2621       2411       0.9199   -
+  15375360     3557       3709       1.0427   -
+  30750720     5773       5779       1.0010   -
+  61501440     9367       9109       0.9725   -
+  the ratios span 0.9068 to 1.0643
+  M3 REFUTED   (cap 5 per cent, the same cap the uncorrected model was read at)
+PERN ladder_derived_ratio 12 0.9068 1.0643
+
+M4  the derived shape against the fitted ones
+  the derived coefficient is 2(1+rho) = 4.7036 and the one free constant
+  fits at d = 5.1498
+  N            exponent   derived    residual
+  30030        0.4550     0.4351     +0.0200
+  60060        0.4595     0.4429     +0.0167
+  120120       0.4682     0.4513     +0.0169
+  240240       0.4633     0.4601     +0.0031
+  480480       0.4688     0.4692     -0.0003
+  960960       0.4746     0.4783     -0.0036
+  1921920      0.4876     0.4873     +0.0003
+  3843840      0.4824     0.4962     -0.0138
+  7687680      0.4965     0.5050     -0.0085
+  15375360     0.4941     0.5135     -0.0194
+  30750720     0.5023     0.5219     -0.0196
+  61501440     0.5099     0.5301     -0.0201
+  r.m.s. 0.01419 against the best fitted shape's 0.00370, a factor of 3.84
+  M4 REFUTED   (cap 1.5 times 0.00370)
+
+  post hoc, not pre-registered: freeing the coefficient
+  free coefficient 5.7691 against the derived 4.7036, r.m.s. 0.00395
+  but the two regressors correlate at 0.99883, so the coefficient and
+  the constant are not separable on this ladder: the free fit buys
+  0.01024 of r.m.s. for one more parameter.
+CORR ladder_derived_regressors 0.99883
+COEFF NOT SEPARABLE ladder_derived
+
+  and where the derived shape reaches the two levels
+  level    log10 N   fitted shapes say
+  0.50     6.7141    -
+  0.56     8.9794    11.0762, 13.8607
+
+  the arithmetic and the budget, declared:
+  12 N, 1 distinct odd radical: 15015
+
+======================================================================
+REFUTED

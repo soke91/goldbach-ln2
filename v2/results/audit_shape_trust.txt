@@ -1,0 +1,64 @@
+STATISTIC: the two shapes that survive at one standard error
+           on the primorial ladder's twelve rungs, their
+           r.m.s. residuals and their crossings of
+           theta' = 0.56 and of 1/2; the log10 N
+           at which they first differ by more than that
+           r.m.s.; and the same parting point for the two
+           shapes of {#rem:flatnessshape}.
+NULL: none is run and none applies. Fitted shapes are
+      evaluated and compared with a measured scatter; there
+      is no background to detect against. The scatter is the
+      ladder's, measured in audit_primorial_rung11.py with
+      the coin arms of lab_primorial_ladder.py behind it.
+FIELD: the eleven rungs read from
+       results/audit_primorial_rung10.txt, the twelfth from
+       results/audit_primorial_rung11.txt, the published
+       shape table from results/audit_ladder_shape12.txt and
+       the flatness parameters from
+       results/audit_flatness_shape.txt. The ladder is
+       N = 30030*2^j, one odd radical throughout.
+
+read 12 rungs and 5 published shape rows
+
+C1  the control: the two surviving shapes on twelve rungs
+  shape                    r.m.s.    published  0.56 here  published
+  a + b log N              0.00370   0.00370    11.0762    11.0762
+  a + b log log N          0.00433   0.00433    13.8607    13.8607
+  C1 hold   (cap 0.0001 and 0.001)
+
+C2/C3  where the two surviving shapes part
+  the ladder's own r.m.s. on twelve rungs is 0.00370, and the
+  top rung is at log10 N = 7.7889
+  log10 N     line      loglog    gap
+  7.50        0.5023    0.5009    0.001308
+  8.00        0.5103    0.5072    0.003176
+  9.00        0.5265    0.5185    0.007998
+  10.00       0.5426    0.5286    0.014014
+  11.00       0.5588    0.5378    0.020997
+  12.00       0.5749    0.5461    0.028777
+  14.00       0.6072    0.5610    0.046250
+  they first differ by more than 0.00370 at log10 N = 8.1253,
+  which is 0.3364 decades above the top rung
+  C2 the agreement reaches two decades past the top   REFUTED
+  the two theta' forecasts are at 11.0762 and 13.8607
+  C3 both lie above the parting point   hold
+TRUST ladder_theta 8.1253 11.0762
+FORECAST OUTSIDE ladder_theta
+  both surviving shapes' answers, so the forecast is read
+  as a range and not a point:
+FORECAST BOTH ladder_theta 11.0762 11.0762 13.8607
+  and where 1/2 is, which is behind the ladder:
+    line 7.3605, loglog 7.4266, apart by 0.0662
+
+C4  the same for the flatness of {#rem:flatnessshape}
+  read from results/audit_flatness_shape.txt: the power's
+  r.m.s. 0.006479 with e = 0.007445, the bounded shape's 0.006641 with
+  a = 0.754152, b = -1.041689, and the power reaching 1 at 28.6782
+  matched at the top of its own range, the two part at
+  log10 N = 8.6994, against the bound reached at 28.6782
+TRUST flatness 8.6994 28.6782
+FORECAST OUTSIDE flatness
+  C4 they part before the bound   hold
+
+======================================================================
+REFUTED

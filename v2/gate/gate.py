@@ -2608,6 +2608,1009 @@ def g53_shape_survival_is_redone_on_every_point():
     return n
 
 
+PREDICTOR = re.compile(r"^PREDICTOR (\S+) (\S+) ([\d.eE+-]+) "
+                       r"([\d.eE+-]+) ([-+][\d.eE+-]+)\s*$", re.M)
+PREDCRIT = re.compile(r"^PREDICTOR CRITERION (\S+) (\S+)\s*$", re.M)
+PREDBEST = re.compile(r"^PREDICTOR BEST (\S+) (\S+)\s*$", re.M)
+
+
+def g54_predictors_are_ranked_on_a_declared_score():
+    """두 점수가 반대로 움직이면 이긴 점수를 고를 수 있다.
+
+    기울기를 나르는 초등 예측자를 찾으면서 세 후보가 모였다 -- Modd,
+    체 가중 P, 그리고 P 에 log(N-mk) 를 실은 P_log. 마지막은 **기울기
+    비에서는 가장 좋고**(0.7018-0.9212 대 P 의 0.6571-0.8676) **부호
+    일치도에서는 더 나쁘다**(0.7241-0.7955 대 0.7367-0.8129). 두 점수가
+    반대로 움직이므로 기준을 밝히지 않으면 이긴 쪽을 골라 "개선"이라고
+    쓸 수 있다.
+
+    그래서 한 표적에 예측자를 둘 이상 실으면
+    PREDICTOR <표적> <이름> <일치도> <기울기비> <감쇠기울기> 를 각각
+    내고, PREDICTOR CRITERION <표적> <점수> 로 순위 기준을 밝히고,
+    PREDICTOR BEST <표적> <이름> 이 그 기준의 최선과 일치해야 한다.
+    기준은 agreement(큰 쪽) 또는 leanratio(1 에 가까운 쪽)다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        rows = {}
+        for tgt, nm, ag, rt, sl in PREDICTOR.findall(src):
+            try:
+                rows.setdefault(tgt, {})[nm] = (float(ag), float(rt))
+            except ValueError:
+                pass
+        if not rows:
+            continue
+        crit = dict(PREDCRIT.findall(src))
+        best = dict(PREDBEST.findall(src))
+        for tgt, r in sorted(rows.items()):
+            if len(r) < 2:
+                continue
+            if tgt not in crit or tgt not in best:
+                fails.append(
+                    f"G54 results/{f} lists {len(r)} predictors for "
+                    f"{tgt} and declares no CRITERION or no BEST; the "
+                    f"one candidate this repository tested was the "
+                    f"best of three on one score and the worst on "
+                    f"another")
+                n += 1
+                continue
+            c = crit[tgt]
+            if c == "agreement":
+                want = max(r, key=lambda nm: r[nm][0])
+            elif c == "leanratio":
+                want = min(r, key=lambda nm: abs(r[nm][1] - 1.0))
+            else:
+                fails.append(
+                    f"G54 results/{f} declares CRITERION {tgt} {c}, "
+                    f"which is not agreement or leanratio")
+                n += 1
+                continue
+            if best[tgt] != want:
+                fails.append(
+                    f"G54 results/{f} declares BEST {tgt} "
+                    f"{best[tgt]} while the criterion {c} makes it "
+                    f"{want}")
+                n += 1
+    return n
+
+
+LEVEL = re.compile(r"^LEVEL (\S+) (\S+)\s*$", re.M)
+UNBOUNDED = re.compile(r"^UNBOUNDED LEVEL (\S+)\s*$", re.M)
+
+
+def g55_predictors_declare_their_sieve_level():
+    """레벨이 `N` 과 함께 자라면 그건 초등 예측자가 아니다.
+
+    기울기를 나르는 예측자를 찾다가 답이 나왔다: 체의 깊이 Q 를
+    29 에서 ceil(sqrt(N)) 까지 올리면 부호 일치도가 0.74-0.81 에서
+    0.99 로 오르고 기울기 비가 0.9885-0.9942, 감쇠 기울기가 μ 와
+    0.05 표준오차 안에 든다. 그런데 Q = sqrt(N) 에서 생존자는 곧
+    소수이므로 그건 **유계 모듈러스 대상이 아니다** --
+    {#rem:provablehalf} 가 P 를 "모든 조건이 곱셈적이거나 유계
+    모듈러스"라고 부른 그 뜻에서 초등이 아니다. 고정 레벨 29 에서는
+    일치도가 0.7367-0.8129 이고 `N` 이 커질수록 나빠진다.
+
+    G54 는 점수 기준만 못박으므로, 그 기준의 최선이 레벨이 자라는
+    대상이면 "초등 예측자를 찾았다"로 읽힐 수 있다. 그래서
+    PREDICTOR 로 실린 이름은 LEVEL <이름> <값> 을 가져야 하고, 값이
+    정수가 아니면(레벨이 자라면) BEST 로 지명될 때
+    UNBOUNDED LEVEL <이름> 이 함께 있어야 한다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    lev, unb = {}, set()
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        for nm, v in LEVEL.findall(src):
+            lev[nm] = v
+        unb.update(UNBOUNDED.findall(src))
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        names = set(nm for _t, nm, _a, _r, _s
+                    in PREDICTOR.findall(src))
+        if not names:
+            continue
+        for nm in sorted(names):
+            if nm not in lev:
+                fails.append(
+                    f"G55 results/{f} lists the predictor {nm} and no "
+                    f"file declares LEVEL {nm}; the one predictor that "
+                    f"carried the lean here did so at a level growing "
+                    f"like sqrt(N), which is not a bounded modulus")
+                n += 1
+        for _t, nm in PREDBEST.findall(src):
+            if nm not in lev:
+                continue
+            if not lev[nm].isdigit() and nm not in unb:
+                fails.append(
+                    f"G55 results/{f} names {nm} best and its LEVEL "
+                    f"is {lev[nm]}, which grows with N, without an "
+                    f"UNBOUNDED LEVEL {nm}; a predictor whose sieve "
+                    f"level grows is not elementary in the sense the "
+                    f"programme needs")
+                n += 1
+    return n
+
+
+THRESHFROM = re.compile(r"^THRESHOLD FROM (\S+) (\S+)\s*$", re.M)
+TSTATA = re.compile(r"^TSTAT slope_(\S+?)_a([\d.]+) ([\d.eE+-]+)\s*$",
+                    re.M)
+
+
+def g56_thresholds_follow_from_the_declared_statistic():
+    """문턱은 눈으로 고르는 게 아니라 규칙으로 나와야 한다.
+
+    체 레벨을 Q = N^alpha 로 쓸어 부호 기울기가 언제 미끄러지기를
+    멈추는지 물었더니, **일치도**는 어느 레벨에서도 두 표준오차에
+    못 미치고(고정 레벨조차 1.10) **기울기 비**는 3.52, 7.09, 4.31,
+    1.52, 0.22, 2.39 로 alpha = 0.3 에서 해소되지 않게 된다. 두
+    통계량이 다른 답을 주므로 문턱은 어느 것에서 나왔는지 밝히지
+    않으면 고를 수 있다. 지난 사이클 {#rem:sievedepth} 가 "둘 다
+    나빠진다"고 적은 것도 그 둘을 가르지 않았기 때문이다.
+
+    그래서 LEVEL <이름>_threshold <값> 을 내면
+    THRESHOLD FROM <이름> <통계량> 으로 출처를 밝혀야 하고, 그 값은
+    그 통계량의 TSTAT slope_<통계량>_a<alpha> 중 **처음으로 2 미만이
+    되는 alpha** 와 같아야 한다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        lv = dict(LEVEL.findall(src))
+        thr = dict(THRESHFROM.findall(src))
+        fams = {}
+        for fam, a, t in TSTATA.findall(src):
+            try:
+                fams.setdefault(fam, {})[float(a)] = abs(float(t))
+            except ValueError:
+                pass
+        for nm, val in sorted(lv.items()):
+            if not nm.endswith("_threshold"):
+                continue
+            if nm not in thr:
+                fails.append(
+                    f"G56 results/{f} declares LEVEL {nm} {val} and "
+                    f"no THRESHOLD FROM {nm}; the two statistics on "
+                    f"this sweep disagree, one resolving at 3.52 and "
+                    f"the other at 1.10, so the source decides the "
+                    f"answer")
+                n += 1
+                continue
+            fam = thr[nm]
+            if fam not in fams:
+                fails.append(
+                    f"G56 results/{f} says {nm} comes from {fam} and "
+                    f"no TSTAT slope_{fam}_a* is declared")
+                n += 1
+                continue
+            unres = sorted(a for a, t in fams[fam].items() if t < 2.0)
+            want = "%.1f" % unres[0] if unres else "none"
+            if val != want:
+                fails.append(
+                    f"G56 results/{f} declares LEVEL {nm} {val} while "
+                    f"the first unresolved alpha of {fam} is {want}; "
+                    f"a threshold is the rule applied, not the level "
+                    f"chosen")
+                n += 1
+    return n
+
+
+AXIS = re.compile(r"^AXIS (\S+) (\S+) (\S+)\s*$", re.M)
+THRDIFFER = re.compile(r"^THRESHOLDS DIFFER (\S+)\s*$", re.M)
+
+
+def g57_one_axis_carries_every_statistic_s_threshold():
+    """한 축 위의 문턱은 통계량마다 다르다 -- 싼 쪽을 옮겨 쓰면 안 된다.
+
+    체 레벨 alpha 축 위에서 두 통계량이 서로 다른 곳에서 꺾인다.
+    부호 기울기 비는 alpha = 0.3 에서 미끄러짐이 멈추고
+    ({#rem:levelthreshold}), 수요의 잔여 몫은 거기서 0.4866-0.6022 로
+    레벨 29 의 0.5307-0.6310 에서 거의 안 내려가며 절반이 되는 건
+    alpha = 0.5 에서다. 감당 가능한 레벨이 사는 것은 무한 레벨이 살
+    것의 **8-15%** 뿐이다.
+
+    즉 "부호는 alpha = 0.3 에서 붙잡힌다"를 수요로 옮겨 읽으면 경로가
+    싸 보인다. 그래서 문턱을 선언하는 축은 그 위에서 잰 **모든**
+    통계량에 대해 AXIS <축> <통계량> <문턱> 을 내야 하고, 두 문턱이
+    다르면 THRESHOLDS DIFFER <축> 을 붙여야 한다. 같은데 붙여도
+    실패한다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        rows = {}
+        for ax, st, th in AXIS.findall(src):
+            rows.setdefault(ax, {})[st] = th
+        if not rows:
+            continue
+        diff = set(THRDIFFER.findall(src))
+        for ax, r in sorted(rows.items()):
+            if len(r) < 2:
+                fails.append(
+                    f"G57 results/{f} declares one statistic on the "
+                    f"axis {ax}; a threshold on an axis is a fact "
+                    f"about the statistic, and the one axis this "
+                    f"repository swept carries two thresholds that "
+                    f"differ")
+                n += 1
+                continue
+            same = len(set(r.values())) == 1
+            if same == (ax in diff):
+                fails.append(
+                    f"G57 results/{f} declares thresholds "
+                    f"{sorted(r.items())} on {ax} and the "
+                    f"THRESHOLDS DIFFER {ax} marker "
+                    f"{'is present anyway' if same else 'is missing'}")
+                n += 1
+    return n
+
+
+ACCOUNT = re.compile(r"^ACCOUNT (\S+) ([\d.eE+-]+) ([\d.eE+-]+) "
+                     r"([\d.eE+-]+) ([\d.eE+-]+)\s*$", re.M)
+ACCUNEXPL = re.compile(r"^ACCOUNT UNEXPLAINED (\S+)\s*$", re.M)
+
+
+def g58_negligible_remainders_are_accounted_for():
+    """0 에 가깝다고 적은 나머지는 무엇으로 이루어졌는지 대야 한다.
+
+    {#rem:leveldemand} 는 alpha = 1/2 에서 잔여 몫 0.2271-0.2525 를
+    남기고 그것이 바닥인지 물었다. 답은 바닥이 아니라 **세는 규약의
+    값**이었다: 그 레벨에서 생존자가 곧 소수이므로 log(N-mk) 가 log p
+    와 같고, 로그 가중 예측자를 쓰면 몫이 0.006403-0.008981 로 떨어진다.
+    남는 그 조각도 정체가 있다 -- 체가 소수를 그 배수와 함께 지우므로
+    sqrt(N) 이하 소수는 진짜 기여자인데 제거된다. 그 질량을 직접 재면
+    0.007108-0.009755 로 잔여와 겹친다.
+
+    0 에 가까운 나머지는 "무시할 만하다"로 넘어가기 쉽고, 그러면 그것이
+    규약의 값인지 진짜 바닥인지가 흐려진다. 그래서 상한이 0.02 아래인
+    PERN 범위는 ACCOUNT <이름> <잔여 최소> <잔여 최대> <설명 최소>
+    <설명 최대> 로 직접 잰 설명을 함께 내야 하고, 두 구간이 겹치지
+    않으면 ACCOUNT UNEXPLAINED <이름> 을 적어야 한다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    acc, unexp = {}, set()
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        for lab, a, b, c, d in ACCOUNT.findall(src):
+            try:
+                acc[lab] = (float(a), float(b), float(c), float(d))
+            except ValueError:
+                pass
+        unexp.update(ACCUNEXPL.findall(src))
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        for lab, _cnt, lo, hi in PERN.findall(src):
+            try:
+                hiv = float(hi)
+            except ValueError:
+                continue
+            if hiv >= 0.02:
+                continue
+            if lab not in acc:
+                fails.append(
+                    f"G58 results/{f} declares PERN {lab} with an "
+                    f"upper end of {hiv:g} and no ACCOUNT {lab}; the "
+                    f"one near-zero remainder this repository checked "
+                    f"was the cost of a counting convention and not a "
+                    f"floor")
+                n += 1
+                continue
+            rlo, rhi, clo, chi = acc[lab]
+            if not (rlo <= chi and clo <= rhi) and lab not in unexp:
+                fails.append(
+                    f"G58 ACCOUNT {lab} gives a remainder "
+                    f"[{rlo:g}, {rhi:g}] and an account "
+                    f"[{clo:g}, {chi:g}] that do not overlap, with no "
+                    f"ACCOUNT UNEXPLAINED {lab}")
+                n += 1
+    return n
+
+
+SPREADCAP = re.compile(r"a spread of [\d.]+\s+\(cap [\d.]+\)")
+CONSTSPREAD = re.compile(r"^CONSTSPREAD (\S+) ([\d.eE+-]+) "
+                         r"([\d.eE+-]+)\s*$", re.M)
+CONSTDRIFT = re.compile(r"^CONST DRIFTS (\S+)\s*$", re.M)
+
+
+def g59_capped_spreads_declare_their_sampling_error():
+    """추정량 자신의 표집오차보다 좁은 상한을 걸면 반드시 걸린다.
+
+    세 비의 항등식을 확인하면서 그것들을 잇는 상수 c 가 N 에 걸쳐
+    상수인지 0.02 상한으로 물었다. 관측된 로그 폭은 0.219062 로 상한을
+    열 배 넘었지만, c 는 256 뽑기의 **중앙값**이라 자기 표집오차를
+    갖는다. 뽑기를 16 개씩 열여섯 조로 갈라 조별 중앙값의 산포를 재면
+    전체 중앙값의 표준오차가 나오고, 그것이 주는 폭이 0.237831 --
+    관측된 폭과 같은 크기다. 즉 c 는 흐르지 않고, 상한이 추정량보다
+    정밀했을 뿐이다.
+
+    그래서 `a spread of X (cap Y)` 로 폭을 판정하는 결과 파일은
+    CONSTSPREAD <이름> <관측 폭> <표집 폭> 을 내야 하고, 관측이
+    표집의 두 배를 넘으면 CONST DRIFTS <이름> 을, 안 넘으면 그것을
+    붙이지 않아야 한다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        if not SPREADCAP.search(src):
+            continue
+        rows = CONSTSPREAD.findall(src)
+        if not rows:
+            fails.append(
+                f"G59 results/{f} judges a spread against a cap and "
+                f"declares no CONSTSPREAD; the one such cap this "
+                f"repository set was ten times tighter than the "
+                f"estimator behind the quantity")
+            n += 1
+            continue
+        drifts = set(CONSTDRIFT.findall(src))
+        for lab, obs, samp in rows:
+            try:
+                o, s = float(obs), float(samp)
+            except ValueError:
+                continue
+            if (o > 2.0 * s) != (lab in drifts):
+                fails.append(
+                    f"G59 results/{f} declares CONSTSPREAD {lab} "
+                    f"{o:g} against a sampling spread {s:g} and the "
+                    f"CONST DRIFTS {lab} marker "
+                    f"{'is present anyway' if o <= 2.0 * s else 'is missing'}")
+                n += 1
+    return n
+
+
+SHAPEGAP = re.compile(r"^SHAPEGAP (\S+) ([\d.eE+-]+) ([\d.eE+-]+)"
+                      r"\s*$", re.M)
+SHAPETIED = re.compile(r"^SHAPES TIED (\S+)\s*$", re.M)
+
+
+def g60_shape_gaps_are_read_against_their_own_error():
+    """모양 사이의 r.m.s. 차는 r.m.s. 자신의 표준오차로 재야 한다.
+
+    평탄도 F 에 두 모양을 맞추니 멱법칙이 유계 모양보다 r.m.s. 로
+    0.000163 앞선다. 그런데 여덟 점 두 모수의 r.m.s. 는 자기
+    표준오차가 0.001870 (28.9%) 이고, 그 차는 그것의 **0.09 배**다 --
+    자료는 두 모양을 전혀 가르지 못한다. 가른 것은 적합이 아니라
+    코시-슈바르츠(F <= 1)였다. 사다리 쪽도 같다: 열두 가로대에서 최선
+    둘의 차가 0.000626, 표준오차가 0.000828 이다.
+
+    "무엇이 더 잘 맞는다"는 문장은 그 차가 표준오차보다 클 때만
+    뜻이 있다. 그래서 SHAPESURVIVE 를 내는 표적은
+    SHAPEGAP <표적> <차> <표준오차> 도 내야 하고, 차가 표준오차 이하면
+    SHAPES TIED <표적> 을, 넘으면 그것을 붙이지 않아야 한다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    gaps, tied, targets = {}, set(), set()
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        for lab, g, e in SHAPEGAP.findall(src):
+            try:
+                gaps[lab] = (float(g), float(e))
+            except ValueError:
+                pass
+        tied.update(SHAPETIED.findall(src))
+        targets.update(t for t, _p, _s, _sp
+                       in SHAPESURVIVE.findall(src))
+    n = 0
+    for t in sorted(targets):
+        if t not in gaps:
+            fails.append(
+                f"G60 SHAPESURVIVE {t} is declared and no SHAPEGAP "
+                f"{t}; the two shape comparisons this repository ran "
+                f"were separated by 0.09 and 0.76 of the r.m.s.'s own "
+                f"standard error, which is to say not at all")
+            n += 1
+            continue
+        g, e = gaps[t]
+        if (g <= e) != (t in tied):
+            fails.append(
+                f"G60 SHAPEGAP {t} is {g:g} against a standard error "
+                f"{e:g} and the SHAPES TIED {t} marker "
+                f"{'is present anyway' if g > e else 'is missing'}")
+            n += 1
+    return n
+
+
+GAINSPLIT = re.compile(r"^GAINSPLIT (\S+) ([-+][\d.eE+-]+) "
+                       r"([-+][\d.eE+-]+) ([-+][\d.eE+-]+)\s*$", re.M)
+GAINEXP = re.compile(r"^TSTAT slope_leanidentity_G ", re.M)
+
+
+def g61_whole_range_gains_declare_their_split():
+    """전체 구간의 상쇄 이득은 부분들의 반대 거동을 가린다.
+
+    확대에 걸친 이득 G 의 지수가 전체에서 +0.153911 인데, 크기 순으로
+    가르면 위 10분의 1 에서 +0.077963, 아래 10분의 9 에서 +0.340006
+    이다. 즉 작은 항들은 제곱근보다 **잘** 상쇄되고(θ'/2 = 0.28 을
+    2.33 표준오차 넘김) 큰 항들은 거의 상쇄되지 않는다 -- 머리에서
+    같은 부호를 갖는 비율이 1.0000 에서 0.8274 로, 여덟 N 내내 8할이
+    넘는다. 전체 수치 하나만 보면 이 대비가 통째로 사라진다.
+
+    {#rem:nocrossk} 의 T4 는 최상위 십분위의 **질량 몫**(0.3337-0.3587)
+    만 보고 "무거운 꼬리가 아니다"라고 읽었는데, 물었어야 할 것은 그
+    십분위가 얼마나 상쇄되는가였다.
+
+    그래서 전체 구간의 이득 지수를 발표하면
+    GAINSPLIT <이름> <머리 지수> <꼬리 지수> <전체 지수> 도 내야 하고,
+    세 값이 머리 <= 전체 <= 꼬리를 만족해야 한다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    rows, seen = {}, False
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        if GAINEXP.search(src):
+            seen = True
+        for lab, h, t, w in GAINSPLIT.findall(src):
+            try:
+                rows[lab] = (float(h), float(t), float(w))
+            except ValueError:
+                pass
+    n = 0
+    if seen and not rows:
+        fails.append(
+            "G61 a whole-range cross-k gain exponent is declared and "
+            "no file declares a GAINSPLIT; the one such exponent this "
+            "repository split ran from +0.078 on the top tenth to "
+            "+0.340 on the rest")
+        n += 1
+    for lab, (h, t, w) in sorted(rows.items()):
+        if not (h <= w <= t):
+            fails.append(
+                f"G61 GAINSPLIT {lab} gives head {h:g}, whole {w:g}, "
+                f"tail {t:g}, which do not bracket; the whole range "
+                f"must lie between its parts")
+            n += 1
+    return n
+
+
+SPLITOVERLAP = re.compile(r"^SPLITOVERLAP (\S+) ([\d.eE+-]+) "
+                          r"([\d.eE+-]+)\s*$", re.M)
+
+
+def g62_mass_splits_declare_their_overlap_with_the_range():
+    """질량 순 분할을 구간 제한으로 읽으면 틀린다.
+
+    {#rem:gainsplit} 의 머리는 |a_k| = (log k)|H(N;k)| 의 상위 10분의
+    1 이고, |H| 는 안쪽 합이 길수록 크므로 그 머리는 작은 k 쪽일 것
+    같다. 실제로 재 보니 가장 작은 10분의 1 과의 겹침이 0.2174 에서
+    0.3263 뿐이다 -- log k 인자가 k 와 함께 자라 |H| 의 감소와 맞서기
+    때문이고, 머리는 k-순서의 0.22 에서 0.32 지점에 중앙값을 두고
+    구간 전체에 퍼져 있다. (가중을 떼면 |H| 상위 십분위와는 0.7794 에서
+    0.8863 으로 겹친다.)
+
+    질량 순 분할을 "작은 k 쪽"으로 읽으면 그 부분집합에 대한 산술적
+    설명을 찾게 되는데, 그런 설명은 없다. 그래서 GAINSPLIT 을 내는
+    이름은 SPLITOVERLAP <이름> <최소 겹침> <최대 겹침> 도 내야 하고,
+    겹침은 0 과 1 사이여야 한다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    ov, labs = {}, set()
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        for lab, lo, hi in SPLITOVERLAP.findall(src):
+            try:
+                ov[lab] = (float(lo), float(hi))
+            except ValueError:
+                pass
+        labs.update(lab for lab, _h, _t, _w in GAINSPLIT.findall(src))
+    n = 0
+    for lab in sorted(labs):
+        if lab not in ov:
+            fails.append(
+                f"G62 GAINSPLIT {lab} is declared and no "
+                f"SPLITOVERLAP {lab}; the one mass split this "
+                f"repository checked overlapped the corresponding "
+                f"range decile by only 0.22 to 0.33")
+            n += 1
+            continue
+        lo, hi = ov[lab]
+        if not (0.0 <= lo <= hi <= 1.0):
+            fails.append(
+                f"G62 SPLITOVERLAP {lab} declares [{lo:g}, {hi:g}], "
+                f"which is not a range of overlaps")
+            n += 1
+    return n
+
+
+RESIDSCALE = re.compile(r"^RESIDSCALE (\S+) (\d+) ([\d.eE+-]+) "
+                        r"([\d.eE+-]+) ([\d.eE+-]+)\s*$", re.M)
+CROSSFLOOR = re.compile(r"^CROSSES FLOOR (\S+)\s*$", re.M)
+
+
+def g63_residual_spreads_are_reported_at_every_scale():
+    """한 규모의 잔차로 "설명한다"를 판정하면 방향을 못 본다.
+
+    {#rem:residuearithmetic} 는 일곱 산술형의 수준 지수를 예산의 로그에
+    회귀해 상관 0.97565 를 얻고 예산이 퍼짐을 설명한다고 읽었다 -- 한
+    규모에서. 네 규모에서 다시 하니 잔차 폭이 0.0218, 0.0240, 0.0129,
+    0.0103 으로 **바닥 0.0133 을 x2 와 x4 사이에서 가로지르고** 상관이
+    0.97565 에서 0.99577 로 오른다. 즉 두 번째 변수는 작은 N 에서만
+    보이고 커지면 사라진다 -- 한 규모만 보면 그 방향을 알 수 없다.
+
+    그래서 잔차 폭을 `PERN <이름>_residual` 로 발표하면
+    RESIDSCALE <이름> <규모 수> <최소> <최대> <바닥> 도 내야 하고,
+    바닥이 그 사이에 있으면 CROSSES FLOOR <이름> 을 붙여야 한다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    rows, cross, labs = {}, set(), set()
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        for lab, n_, lo, hi, fl in RESIDSCALE.findall(src):
+            try:
+                rows[lab] = (int(n_), float(lo), float(hi), float(fl))
+            except ValueError:
+                pass
+        cross.update(CROSSFLOOR.findall(src))
+        for lab, _c, _lo, _hi in PERN.findall(src):
+            if lab.endswith("_residual"):
+                labs.add(lab[:-len("_residual")])
+    n = 0
+    for lab in sorted(labs):
+        if lab not in rows:
+            fails.append(
+                f"G63 a residual spread {lab}_residual is published "
+                f"and no RESIDSCALE {lab}; the one such spread this "
+                f"repository followed up the scale crossed its floor "
+                f"between the second and third rung")
+            n += 1
+            continue
+        cnt, lo, hi, fl = rows[lab]
+        if cnt < 2:
+            fails.append(
+                f"G63 RESIDSCALE {lab} covers {cnt} scale, which "
+                f"cannot show a crossing either way")
+            n += 1
+            continue
+        if (lo < fl < hi) != (lab in cross):
+            fails.append(
+                f"G63 RESIDSCALE {lab} spans [{lo:g}, {hi:g}] about "
+                f"a floor {fl:g} and the CROSSES FLOOR {lab} marker "
+                f"{'is present anyway' if not (lo < fl < hi) else 'is missing'}")
+            n += 1
+    return n
+
+
+TRUST = re.compile(r"^TRUST (\S+) ([\d.eE+-]+) ([\d.eE+-]+)\s*$",
+                   re.M)
+OUTSIDETRUST = re.compile(r"^FORECAST OUTSIDE (\S+)\s*$", re.M)
+
+
+def g64_shape_forecasts_declare_their_trust_range():
+    """모양이 갈라지는 자리를 넘어서면 그건 자료가 아니라 모양의 말이다.
+
+    원시근사 사다리의 열두 가로대에서 두 모양이 살아남고 theta' = 0.56
+    을 2.78 자릿수 떨어진 곳에 놓는다. 그런데 그 둘이 사다리 자신의
+    r.m.s. 0.00370 보다 많이 갈라지기 시작하는 자리는 log10 N = 8.1253
+    -- 꼭대기 가로대(7.7889)에서 겨우 **0.34 자릿수** 위다. 두 예보는
+    11.0762 와 13.8607 로 그보다 훨씬 멀리 있다. 평탄도 쪽도 같아서
+    8.6994 에서 갈라지는데 경계는 28.6782 에 있다.
+
+    "두 모양이 X 자릿수 어긋난다"만 적으면 어디까지가 자료의 말인지가
+    빠진다. 그래서 SHAPESURVIVE 를 내는 표적은
+    TRUST <표적> <갈라지는 log10 N> <예보 log10 N> 도 내야 하고,
+    예보가 그 자리를 넘으면 FORECAST OUTSIDE <표적> 을 붙여야 한다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    tr, out, targets = {}, set(), set()
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        for lab, t, fc in TRUST.findall(src):
+            try:
+                tr[lab] = (float(t), float(fc))
+            except ValueError:
+                pass
+        out.update(OUTSIDETRUST.findall(src))
+        targets.update(t for t, _p, _s, _sp
+                       in SHAPESURVIVE.findall(src))
+    n = 0
+    for t in sorted(targets):
+        if t not in tr:
+            fails.append(
+                f"G64 SHAPESURVIVE {t} is declared and no TRUST {t}; "
+                f"the one ladder this repository measured parts only "
+                f"0.34 decades above its top rung, far below either "
+                f"forecast")
+            n += 1
+            continue
+        trust, fc = tr[t]
+        if (fc > trust) != (t in out):
+            fails.append(
+                f"G64 TRUST {t} puts the shapes parting at {trust:g} "
+                f"and the forecast at {fc:g}, and the "
+                f"FORECAST OUTSIDE {t} marker "
+                f"{'is present anyway' if fc <= trust else 'is missing'}")
+            n += 1
+    return n
+
+
+FROZEN = re.compile(r"^FROZEN (\S+) ([-+][\d.eE+-]+) "
+                    r"([-+][\d.eE+-]+)\s*$", re.M)
+TRENDCONV = re.compile(r"^TREND CONVENTION (\S+)\s*$", re.M)
+
+
+def g65_frozen_constants_declare_the_other_convention():
+    """상수를 쓸기 최댓값에 얼려 두면 추세의 부호가 바뀔 수 있다.
+
+    {#rem:provablehalf} 의 규칙 W3 은 고전적 한계가 예산의 13.98 에서
+    19.83 배를 쓰며 "게다가 나빠진다"고 적는다. 그 계산은 함축 상수 A 를
+    1 로(사실상 쓸기 최댓값으로) 얼려 둔 것이다. A 를 각 N 자신의
+    최댓값으로 두면 A 가 1.2119 에서 0.3487 로 무너지고 기울기가
+    +0.125950 에서 **-0.325836** 으로 뒤집힌다 -- 7.03 표준오차로
+    나빠지는 게 아니라 좋아진다.
+
+    어느 규약도 틀리지 않았다. 그 remark 는 상한을 원해서 최댓값을
+    쓴다고 스스로 적고 있다. 말할 수 없는 것은 "나빠진다"를 규약 없이
+    적는 것이다.
+
+    그래서 상수를 얼려 계산한 추세를 발표하면
+    FROZEN <이름> <언 기울기> <점별 기울기> 도 내야 하고, 두 부호가
+    다르면 TREND CONVENTION <이름> 을 붙여야 한다. 같은데 붙여도
+    실패한다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    rows, conv, labs = {}, set(), set()
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        for lab, a, b in FROZEN.findall(src):
+            try:
+                rows[lab] = (float(a), float(b))
+            except ValueError:
+                pass
+        conv.update(TRENDCONV.findall(src))
+        for lab, _c, _lo, _hi in PERN.findall(src):
+            if lab.endswith("_A"):
+                labs.add(lab[:-2])
+    n = 0
+    for lab in sorted(labs):
+        if lab not in rows:
+            fails.append(
+                f"G65 a constant range {lab}_A is published and no "
+                f"FROZEN {lab}; the one trend this repository "
+                f"recomputed with the constant taken per point "
+                f"changed sign")
+            n += 1
+    for lab, (a, b) in sorted(rows.items()):
+        if ((a > 0) != (b > 0)) != (lab in conv):
+            fails.append(
+                f"G65 FROZEN {lab} gives {a:g} frozen and {b:g} per "
+                f"point and the TREND CONVENTION {lab} marker "
+                f"{'is present anyway' if (a > 0) == (b > 0) else 'is missing'}")
+            n += 1
+    return n
+
+
+FORECASTBOTH = re.compile(r"^FORECAST BOTH (\S+) ([\d.eE+-]+) "
+                          r"([\d.eE+-]+) ([\d.eE+-]+)\s*$", re.M)
+CONVSPLIT = re.compile(r"^FORECAST CONVENTION SPLIT (\S+)\s*$", re.M)
+
+
+def g66_forecasts_on_frozen_constants_declare_both():
+    """언 상수 위의 예보는 상수를 풀었을 때의 값도 함께 대야 한다.
+
+    {#rem:provablehalf} 의 10^5474.8 은 함축 상수 A 를 쓸기 최댓값에
+    얼려 푼 것이다. A 는 상수가 아니라 각 N 의 최댓값이고 10.30
+    표준오차로 1.2119 에서 0.3487 로 떨어지며, 그 감쇠의 모양은 두
+    후보가 r.m.s. 자기 오차의 0.44 배 안에서 묶여 가려지지 않는다.
+    A 를 각 모양으로 외삽해 같은 방정식을 풀면 교차가 10^8.96 과
+    10^10.29 로 나온다 -- 얼린 값과 5465 자릿수 차이다.
+
+    두 답은 서로 다른 물음의 답이다. A 를 최댓값에 얼리는 것은 지출의
+    상한을 원할 때 옳고, 떨어뜨리는 것은 자료가 하는 일의 기술이다.
+    그러나 하나만 적으면 읽는 쪽은 그 차이를 볼 수 없다.
+
+    그래서 TREND CONVENTION 을 단 이름이 예보를 먹이면(TRUST 로
+    확인된다) FORECAST BOTH <이름> <언 예보> <풀린 최소> <풀린 최대>
+    를 내야 하고, 언 예보가 그 구간 밖이면
+    FORECAST CONVENTION SPLIT <이름> 을 붙여야 한다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    both, split, conv, trust = {}, set(), set(), set()
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        for lab, a, lo, hi in FORECASTBOTH.findall(src):
+            try:
+                both[lab] = (float(a), float(lo), float(hi))
+            except ValueError:
+                pass
+        split.update(CONVSPLIT.findall(src))
+        conv.update(SHAPETIED.findall(src))
+        trust.update(OUTSIDETRUST.findall(src))
+    n = 0
+    for lab in sorted(conv & trust):
+        if lab not in both:
+            fails.append(
+                f"G66 {lab} forecasts outside its trust range on an "
+                f"input whose shape is tied, and declares no "
+                f"FORECAST BOTH {lab}; the "
+                f"one such forecast this repository unfroze moved by "
+                f"5465 decades")
+            n += 1
+            continue
+        a, lo, hi = both[lab]
+        inside = lo <= a <= hi
+        if inside == (lab in split):
+            fails.append(
+                f"G66 FORECAST BOTH {lab} puts the frozen answer at "
+                f"{a:g} against [{lo:g}, {hi:g}] and the "
+                f"FORECAST CONVENTION SPLIT {lab} marker "
+                f"{'is present anyway' if inside else 'is missing'}")
+            n += 1
+    return n
+
+
+MAXOVER = re.compile(r"max ratio over every")
+CROSSAXIS = re.compile(r"^CROSSAXIS (\S+) (\d+) (\d+) ([\d.eE+-]+)"
+                       r"\s*$", re.M)
+AXISRISE = re.compile(r"^AXIS RISE (\S+)\s*$", re.M)
+
+
+def g67_maximised_constants_are_checked_off_axis():
+    """한 축에서 최대를 취한 상수는 다른 축에서도 봐야 한다.
+
+    {#rem:provablehalf} 는 고전적 모양의 상수 A 를 안쪽 길이 N/k 로
+    잘라 가며 최대를 취한다 -- 1.2119, 1.0710, 0.7309, 0.3363. 그건
+    고전적 추정이 이미 통제하는 축이다. 통제하지 않는 축은 k 이고,
+    "k 에 대해 균일하게"가 바로 그 축의 진술이다.
+
+    안쪽 길이를 옥타브로 고정하고 그 안에서 k 를 (다섯 N 에 걸쳐 인수
+    16 만큼) 움직여 보면 축이 평평하지 않다: 짧은 안쪽합에서는 비가
+    떨어지고(기울기 -0.555) 긴 쪽에서는 오른다(+0.167 에 3.37 표준오차,
+    +0.228 에 2.18). 여섯 옥타브 중 둘에서 해소된 상승이 있고, 그 둘이
+    초등 합의 0.0673 을 나른다 -- 드리프트는 실재하지만 질량이 있는
+    곳은 아니다.
+
+    그래서 한 축에서 최대를 취한 상수를 발표하는 결과 파일은
+    CROSSAXIS <파일이름> <옥타브 수> <상승 수> <상승분의 질량 몫> 으로
+    덮여야 하고, 상승이 하나라도 있으면 AXIS RISE <파일이름> 를
+    붙여야 한다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    rows, rise = {}, set()
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        for lab, n_, r_, m_ in CROSSAXIS.findall(src):
+            try:
+                rows[lab] = (int(n_), int(r_), float(m_))
+            except ValueError:
+                pass
+        rise.update(AXISRISE.findall(src))
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        if not MAXOVER.search(src):
+            continue
+        lab = f[:-4]
+        if lab not in rows:
+            fails.append(
+                f"G67 results/{f} maximises a constant over one axis "
+                f"and no file declares CROSSAXIS {lab}; the one such "
+                f"constant this repository checked off axis rises "
+                f"resolvably at two octaves of six")
+            n += 1
+            continue
+        cnt, ris, mass = rows[lab]
+        if (ris > 0) != (lab in rise):
+            fails.append(
+                f"G67 CROSSAXIS {lab} reports {ris} rising octaves "
+                f"of {cnt} and the AXIS RISE {lab} marker "
+                f"{'is present anyway' if ris == 0 else 'is missing'}")
+            n += 1
+        elif not (0.0 <= mass <= 1.0):
+            fails.append(
+                f"G67 CROSSAXIS {lab} declares a mass share {mass:g}, "
+                f"which is not a share")
+            n += 1
+    return n
+
+
+SITSIN = re.compile(r"^SITSIN (\S+) ([\d.eE+-]+) ([\d.eE+-]+)\s*$",
+                    re.M)
+
+
+def g68_subset_claims_declare_the_share_they_carry():
+    """"큰 항들에 있다"는 그 부분집합이 얼마를 나르는지 대야 한다.
+
+    {#rem:signmass} 는 "상관은 큰 항들에 있다"고 적는다. 세는 부호는
+    0.4121-0.4808 로 균형이고 무게를 주면 0.2273-0.3207 이라 간격이
+    0.1325-0.1848 인데, 상위 십분위를 빼도 간격이 0.0637-0.1038 남는다 --
+    머리가 나르는 것은 전체의 44 에서 52 퍼센트뿐이다. 같은 크기를
+    다시 부호매기면 간격이 0.0004-0.0044 로 사라지므로 남은 절반도
+    mu 의 것이다.
+
+    "X 에 있다"는 문장은 X 를 빼고도 남는 양을 함께 적을 때만 뜻이
+    있다. 그래서 <이름>_whole 과 <이름>_nohead 의 PERN 을 짝지어 RATIO
+    를 내는 파일은 SITSIN <이름> <최소 몫> <최대 몫> 으로 그 부분집합이
+    나르는 몫을 대야 하고, 그 몫은 1 에서 비를 뺀 값과 맞아야 한다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        sits = {}
+        for lab, lo, hi in SITSIN.findall(src):
+            try:
+                sits[lab] = (float(lo), float(hi))
+            except ValueError:
+                pass
+        for a, b, lo, hi in RATIO.findall(src):
+            if not (a.endswith("_nohead") and b.endswith("_whole")):
+                continue
+            lab = a[:-len("_nohead")]
+            if lab not in sits:
+                fails.append(
+                    f"G68 results/{f} compares {a} with {b} and "
+                    f"declares no SITSIN {lab}; the one subset this "
+                    f"repository checked carried only 44 to 52 per "
+                    f"cent of the effect it was said to hold")
+                n += 1
+                continue
+            try:
+                rlo, rhi = float(lo), float(hi)
+            except ValueError:
+                continue
+            slo, shi = sits[lab]
+            if (abs(slo - (1.0 - rhi)) > 1e-3
+                    or abs(shi - (1.0 - rlo)) > 1e-3):
+                fails.append(
+                    f"G68 SITSIN {lab} declares [{slo:g}, {shi:g}] "
+                    f"while the RATIO [{rlo:g}, {rhi:g}] makes it "
+                    f"[{1.0 - rhi:g}, {1.0 - rlo:g}]")
+                n += 1
+    return n
+
+
+REGCORR = re.compile(r"^CORR (\S+)_regressors ([-\d.eE+]+)\s*$",
+                     re.M)
+NOTSEP = re.compile(r"^COEFF NOT SEPARABLE (\S+)\s*$", re.M)
+
+
+def g69_two_regressor_fits_declare_their_collinearity():
+    """두 회귀변수가 겹치면 계수를 따로 읽으면 안 된다.
+
+    {#rem:ladderderived} 는 유도된 계수 4.7036 을 자유 적합의 5.7691 과
+    비교했다. 자유 적합은 r.m.s. 를 0.01419 에서 0.00395 로 떨어뜨리니
+    "자료가 더 큰 계수를 원한다"고 읽고 싶어진다. 그런데 두 회귀변수
+    loglog N/log N 과 1/log N 은 이 2.78 자릿수 위에서 상관이 0.99883 --
+    계수와 상수가 서로를 먹는다. 그 비교는 값이 아니라 축의 짧음을
+    잰 것이다.
+
+    그래서 자유 계수를 유도 계수와 대는 파일은 CORR <이름>_regressors
+    로 두 회귀변수의 상관을 대야 하고, 그 절댓값이 0.99 이상이면
+    COEFF NOT SEPARABLE <이름> 을 붙여 계수를 따로 읽지 말라고 적어야
+    한다. 상관이 그 아래인데 그 표지를 붙이는 것도 막는다 -- 표지는
+    잰 값을 따라야지 그 반대가 아니다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        cor = {}
+        for lab, v in REGCORR.findall(src):
+            try:
+                cor[lab] = float(v)
+            except ValueError:
+                pass
+        sep = set(NOTSEP.findall(src))
+        if "free coefficient" in src and not cor:
+            fails.append(
+                f"G69 results/{f} reads a free coefficient against a "
+                f"derived one and declares no CORR <label>_regressors; "
+                f"the one such fit this repository made had its two "
+                f"regressors correlated at 0.99883")
+            n += 1
+        for lab, v in cor.items():
+            if abs(v) >= 0.99 and lab not in sep:
+                fails.append(
+                    f"G69 results/{f} has CORR {lab}_regressors "
+                    f"{v:g} and no COEFF NOT SEPARABLE {lab}")
+                n += 1
+        for lab in sep:
+            if lab in cor and abs(cor[lab]) < 0.99:
+                fails.append(
+                    f"G69 results/{f} declares COEFF NOT SEPARABLE "
+                    f"{lab} while CORR {lab}_regressors is "
+                    f"{cor[lab]:g}, below 0.99")
+                n += 1
+    return n
+
+
+# ----------------------------------------------------------------- G70
+def g70_every_citation_exists(docs):
+    """번호 붙은 진술만이 아니라 **모든** evidence 마커가 실재해야 한다.
+
+    G1은 statements() 를 쓴다 -- Theorem·Proposition·Lemma·Corollary·
+    Conjecture 만 본다. 그런데 이 작업의 발견은 거의 전부 Remark 에
+    있고, cited() 의 docstring 이 그것을 이유로 G10·G12·G14 를 옮겨
+    놓았는데 **존재 검사만 statements() 에 남았다.**
+
+    세어 보면 마커 115개 중 G1이 22개를 보고, G10의 백틱이 7개를 더
+    잡고, 나머지 **91개는 아무 검사도 보지 않는다.** G12와 G14는 파일이
+    없으면 "G1이 보고한다", "G10이 보고한다"며 건너뛰는데 Remark 마커에
+    대해서는 둘 다 틀린 가정이다.
+
+    그래서 code/ 가 통째로 사라져도 논문은 그대로 남고 게이트는 조용히
+    통과한다. 그건 가상의 사고가 아니라 이 프로그램의 다른 갈래가 지금
+    겪고 있는 사고이고, 거기서는 인용된 96개 중 21개만 남아 있다.
+    복원은 재작성이지 복구가 아니다 -- 원본이 없으면 논문이 인쇄한
+    숫자를 맞히는 것 말고 검증할 방법이 없고, 숫자를 인쇄하지 않은
+    주장은 그것조차 안 된다. 그러니 조용히 통과하는 경로를 막는다.
+    """
+    n = 0
+    for path, src in docs:
+        for label, ev, ln in cited(src):
+            s = os.path.join(CODE, ev)
+            r = os.path.join(RESULTS, os.path.splitext(ev)[0] + ".txt")
+            if not os.path.exists(s):
+                fails.append(f"G70 {rel(path)}:{ln} cites code/{ev} for "
+                             f"'{label}', which does not exist")
+                n += 1
+            elif not os.path.exists(r):
+                fails.append(f"G70 {rel(path)}:{ln} cites code/{ev} for "
+                             f"'{label}' but results/"
+                             f"{os.path.basename(r)} is missing")
+                n += 1
+    return n
+
+
 def main():
     docs = [(p, read(p)) for p in paper_files()]
     print("gate")
@@ -2704,6 +3707,40 @@ def main():
          g52_declined_nulls_meet_a_one_sided_randomisation()),
         ("G53 shape survival is redone on every point",
          g53_shape_survival_is_redone_on_every_point()),
+        ("G54 predictors are ranked on a declared score",
+         g54_predictors_are_ranked_on_a_declared_score()),
+        ("G55 predictors declare their sieve level",
+         g55_predictors_declare_their_sieve_level()),
+        ("G56 thresholds follow from the declared statistic",
+         g56_thresholds_follow_from_the_declared_statistic()),
+        ("G57 one axis carries every statistic's threshold",
+         g57_one_axis_carries_every_statistic_s_threshold()),
+        ("G58 negligible remainders are accounted for",
+         g58_negligible_remainders_are_accounted_for()),
+        ("G59 capped spreads declare their sampling error",
+         g59_capped_spreads_declare_their_sampling_error()),
+        ("G60 shape gaps are read against their own error",
+         g60_shape_gaps_are_read_against_their_own_error()),
+        ("G61 whole-range gains declare their split",
+         g61_whole_range_gains_declare_their_split()),
+        ("G62 mass splits declare their overlap with the range",
+         g62_mass_splits_declare_their_overlap_with_the_range()),
+        ("G63 residual spreads are reported at every scale",
+         g63_residual_spreads_are_reported_at_every_scale()),
+        ("G64 shape forecasts declare their trust range",
+         g64_shape_forecasts_declare_their_trust_range()),
+        ("G65 frozen constants declare the other convention",
+         g65_frozen_constants_declare_the_other_convention()),
+        ("G66 forecasts on frozen constants declare both",
+         g66_forecasts_on_frozen_constants_declare_both()),
+        ("G67 maximised constants are checked off axis",
+         g67_maximised_constants_are_checked_off_axis()),
+        ("G68 subset claims declare the share they carry",
+         g68_subset_claims_declare_the_share_they_carry()),
+        ("G69 two-regressor fits declare their collinearity",
+         g69_two_regressor_fits_declare_their_collinearity()),
+        ("G70 every citation exists, not just the numbered ones",
+         g70_every_citation_exists(docs)),
     ]
     print()
     for name, c in counts:

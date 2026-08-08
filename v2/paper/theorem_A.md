@@ -2798,7 +2798,11 @@ twenty past the top rung, not the eight thousand orders of magnitude
 of Remark [rem:provablehalf] or the nine decades of Remark
 [rem:leanbracket]. **Extending this ladder three more doublings would
 settle it**, and the bracket is narrow for the reason Remark
-[rem:marginbracket] gives: the reach is short.
+[rem:marginbracket] gives: the reach is short. Narrow is not the same
+as right — Remark [rem:marginoos] measured the octave that bracket
+forecast over exactly that short reach and found it outside — so what
+the reach buys here is that the ladder can be extended and the bracket
+tested, which Remark [rem:primorialreach] then does.
 
 
 #### Remark (the first bracket to be tested, and it failed) {#rem:primorialreach}
@@ -3195,6 +3199,105 @@ about six times its scatter and stands; what does not survive is any
 comparison of the $k$-exponent between radicals at a single $N$.
 
 
+#### Remark (repairing the model's constant does not derive the shape) {#rem:ladderderived}
+<!-- evidence: audit_ladder_derived.py -->
+
+Remark [rem:laddermodel] refuted the heuristic's derived crossing and
+identified where: the constant it rests on is not $\gamma\sqrt{\log
+N}$ but $c_R\asymp(\log N)^{1.3838}$. It was refuted with its own
+replacement in hand. Since OPEN item 1's bottleneck is that every
+surviving shape is *fitted* (Remarks [rem:laddershape12],
+[rem:shapetrust]), the repair is worth making: with $|R|=\gamma(\log
+N)^{\rho}\sqrt{N/k}$ and $\sum_{k<K}(\log k)k^{-1/2}\sim
+2\sqrt{K}(\log K-2)$, writing $K=N^{e}$ gives
+
+$$
+e \;=\; 1 \;-\; 2(1+\rho)\,\frac{\log\log N}{\log N}
+\;+\; \frac{d}{\log N},
+$$
+
+whose leading coefficient is *derived* and which has one free constant
+against every rival's two. Both are computed here from a ladder
+recomputed off its own sieve; the control M1 reproduces all eleven
+published exponents and constants and Remark [rem:primorialrung11]'s
+twelfth exponent to $5\cdot10^{-5}$, and adds that rung's constant,
+$c_R=2.5790$. M2 holds: eleven rungs give $1.3838$ at correlation
+$0.98535$, twelve give $1.3518$ at $0.98651$.
+
+**M3 is refuted, and not marginally.** With $\gamma=0.053849$ and
+$\rho=1.351815$ fitted to $c_R$ alone and nothing fitted to the
+exponents, the predicted crossings run $0.9068$ to $1.0643$ of the
+measured — *wider* than the $0.9479$ to $1.0367$ the uncorrected model
+gave. Correcting the constant's law does not improve the crossing at
+all, so what fails is the $\sqrt{N/k}$ profile underneath it, not the
+constant sitting in front.
+
+**M4 is refuted at $3.84$ times the fitted r.m.s.** The derived shape
+fits at $0.01419$ against $0.00370$, with residuals $+0.0200$,
+$+0.0167$, $+0.0169$ at the bottom of the ladder and $-0.0194$,
+$-0.0196$, $-0.0201$ at the top — a systematic curvature, not scatter.
+Freeing the coefficient recovers the fit exactly ($5.7691$ against the
+derived $4.7036$, r.m.s. $0.00395$), so the functional form is right
+and the derived *coefficient* is $23$ per cent low. But the ladder
+cannot say so: the two regressors $\log\log N/\log N$ and $1/\log N$
+correlate at $0.99883$ over $2.78$ decades, so the coefficient and the
+constant are not separable here, and the extra parameter buys
+$0.01024$ of r.m.s. without being measurable on its own.
+
+The consequence for OPEN item 1 is worse than a third opinion. The
+derived shape reaches $0.56$ at $10^{8.9794}$ — within $0.05$ decades
+of Remark [rem:laddermodel]'s $10^{9.0269}$, so the answer is stable
+under the repair — against the fitted survivors' $10^{11.0762}$ and
+$10^{13.8607}$. **But it reaches $1/2$ at $10^{6.7141}$, while the
+ladder measures $0.5023$ at $10^{7.4879}$ and $0.5099$ at
+$10^{7.7889}$.** The derivation is wrong *inside* the measured range,
+by seven tenths of a decade, so its forecast carries no authority
+against the fits. The fitted shapes are all there is, and Remark
+[rem:shapetrust]'s reading stands: statements about $1/2$ are the
+data's, statements about $\theta'$ are the shape's.
+
+
+#### Remark (how far the ladder can be read) {#rem:shapetrust}
+<!-- evidence: audit_shape_trust.py -->
+
+Remark [rem:laddershape12] leaves $\theta'=0.56$ between two shapes
+$2.78$ decades apart, and Remark [rem:primorialrung11] reads the same
+ladder confidently at $\tfrac12$. Both are true, and the number that
+reconciles them had not been computed: the $N$ up to which the
+surviving shapes are interchangeable — differing by less than the
+ladder's own r.m.s. scatter.
+
+**C1 holds** (the fits reproduce exactly) and **C2 is refuted, badly.**
+With the twelve-rung scatter at $0.00370$ and the top rung at
+$\log_{10}N=7.7889$, the line and $a+b\log\log N$ first differ by more
+than that scatter at
+
+$$
+\log_{10}N = 8.1253 ,
+$$
+
+**$0.34$ decades above the top rung**, not the two decades registered.
+The gap grows to $0.0080$ at $10^9$, $0.0140$ at $10^{10}$ and
+$0.0288$ at $10^{12}$.
+
+**C3 holds**, which is the consequence: both $\theta'$ forecasts,
+$11.0762$ and $13.8607$, lie far outside that range, so neither is a
+reading of the data. The crossings of $\tfrac12$, at $7.3605$ and
+$7.4266$, lie inside it — which is why Remark [rem:primorialrung11]'s
+statement about $\tfrac12$ stands while the $\theta'$ statement does
+not.
+
+**C4 holds**: the flatness adjudication of Remark
+[rem:flatnessshape] has the same structure — its two shapes part at
+$\log_{10}N=8.6994$ while the bound one of them would reach sits at
+$28.6782$.
+
+So the operative statement about this ladder is narrow and exact:
+**it can be read to about $N=10^{8.1}$, a factor $2.2$ past its top
+rung, and no further.** Everything the papers say about $\tfrac12$ is
+inside that; everything about $\theta'$ is outside it.
+
+
 #### Remark (what one more rung buys the shape question) {#rem:laddershape12}
 <!-- evidence: audit_ladder_shape12.py -->
 
@@ -3233,6 +3336,138 @@ within $0.07$ of a decade ($7.3605$ and $7.4266$), which is behind the
 ladder and so not an extrapolation at all. The remaining ambiguity is
 entirely about where the ladder meets $0.56$, and closing it by rungs
 costs a doubling of $N$ for each factor of about three.
+
+
+#### Remark (the premise, checked along the axis it is about) {#rem:provableuniformity}
+<!-- evidence: audit_provable_uniformity.py -->
+
+Remark [rem:provablehalf]'s premise is uniformity **in $k$**. What it
+tests is the shape, and it reports the constant maximised by inner
+length: $1.2119,\,1.0710,\,0.7309,\,0.3363$ at $N/k\ge2,8,32,128$.
+That is the axis the classical estimate already controls. Holding the
+inner length in an octave and letting $N$ run, the modulus $k=N/x$
+moves by a factor $16$ — and nobody had looked there.
+
+**F1 holds** (all four restricted maxima reproduce to $0.00005$) and
+**F3 holds**: a resolved rise at two octaves of six. **F2 and F4 are
+refuted, and each says something.**
+
+$$
+\begin{array}{l|ccc}
+ N/k \text{ octave} & \text{growth} & \text{slope in } \log k & t\\\hline
+ [8,32) & 1.3786 & -0.555097 & 2.13\\
+ [32,128) & 2.0964 & -0.302804 & 1.91\\
+ [128,512) & 1.2865 & +0.039912 & 0.91\\
+ [512,2048) & 1.0878 & +0.023475 & 1.84\\
+ [2048,8192) & 1.5307 & +0.167112 & 3.37\\
+ [8192,32768) & 1.6719 & +0.227768 & 2.18
+\end{array}
+$$
+
+**The axis is not flat, and it changes sign.** At short inner sums the
+ratio *falls* with the modulus; at long ones it *rises*, resolvably at
+$3.37$ and $2.18$ standard errors. So the uniformity is not merely
+unproved: along the axis it is about, the accessible range shows a
+resolved upward drift.
+
+**But not where the mass is.** The two rising octaves carry $0.0673$
+of $\sum(\log k)|P|$ — Remark [rem:predictable] put $0.77$ to $0.90$
+of it at $N/k\le10^3$, which is the falling side. The drift is real
+and sits where the elementary sum is thin.
+
+F4 failed on a badly chosen threshold rather than on the object: the
+argmax's inner length is $7,\,13,\,30,\,63,\,108$ — rising with $N$
+because the argmax sits at the $k$-cap ($28549$ to $29451$) at every
+$N$, exactly as Remark [rem:provablehalf] says. Asking it to stay
+below a fixed $32$ was asking the wrong question.
+
+
+#### Remark (two answers to two questions, 5465 decades apart) {#rem:provableforecast}
+<!-- evidence: audit_provable_forecast.py -->
+
+Remark [rem:provableshare] showed the implied constant $A$ is not one:
+it is each $N$'s maximum ratio and falls from $1.2119$ to $0.3487$.
+Remark [rem:provablehalf]'s forecast solves $A\,d_L\,I(u)=\SS(1-A)$
+with $A$ frozen at that maximum, so the question is what the forecast
+becomes when $A$ is allowed to move.
+
+**E1 holds** — $d_L$, the frozen $A$ and the forecast $5474.8$
+reproduce exactly. **E2 holds**: $A$'s decay is $-0.451786$ per unit
+$\log N$ at $10.30$ standard errors. **E3 holds**: its shape is not
+pinned — fitting $\log A$ against $\log N$ and against $\log\log N$
+gives r.m.s. $0.074485$ and $0.087846$, a gap of $0.44$ of the
+r.m.s.'s own standard error.
+
+**E4 holds, and the size of it is the point.** Extrapolating $A$ by
+each shape and solving the same equation:
+
+$$
+\begin{array}{l|c}
+A \text{ frozen at the sweep maximum} & 10^{5474.8}\\
+A\sim N^{-0.451786} & 10^{8.96}\\
+A\sim(\log N)^{-6.085957} & 10^{10.29}
+\end{array}
+$$
+
+The two unfrozen answers differ from each other by $1.34$ decades and
+from the frozen one by **$5465$**.
+
+**They answer different questions and neither corrects the other.**
+$A$ is a measured maximum ratio, not a constant any theorem supplies.
+Freezing it at the largest observed value is the conservative choice
+for an *upper bound* on the spend, which is what Remark
+[rem:provablehalf] wants; letting it fall describes what the data do,
+and extrapolated far enough would put the "bound" below $|P|$ itself
+and stop being a bound. So $10^{5475}$ is where the bound *provably*
+pays and $10^{9}$–$10^{10}$ is where the measured ratio *would* — and
+the gap between them is the whole distance between a theorem's
+constant and a measurement.
+
+What this settles for OPEN item 2: the published figure is exact
+about a frozen constant and says nothing about the bound's behaviour
+once the constant moves, because $A$'s shape over four thousand
+decades is an extrapolation this repository refuses on its own
+standard (Remark [rem:forecastbracket]).
+
+
+#### Remark (the overspend worsens only with the constant frozen) {#rem:provableshare}
+<!-- evidence: audit_provable_share.py -->
+
+Remark [rem:provablehalf]'s rule W3 reports the classical bound
+spending $13.98$ to $19.83$ times the budget at accessible $N$ — "not
+merely useless but *getting worse* across the sweep". Two things had
+never been asked of that: whether the rise clears its own standard
+error, and what it does when the implied constant $A$ is not held
+fixed.
+
+**D1 and D2 hold.** The five shares reproduce to $0.0043$, and with
+$A=1$ the rise is $+0.125950$ per unit $\log N$ at **$50.35$ standard
+errors** — as firm as anything in these papers.
+
+**D3 is refuted, and it reverses the sentence.** $A$ is a per-$N$
+maximum and it collapses from $1.2119$ to $0.3487$ across the sweep.
+With each $N$'s own constant the slope is
+
+$$
+-0.325836 \quad\text{at } 7.03 \text{ standard errors} ,
+$$
+
+so the overspend **improves** with $N$ rather than worsening. Neither
+convention is wrong — Remark [rem:provablehalf] freezes $A$ at the
+sweep maximum because it wants an upper bound and says so, noting that
+$A$ "is a function of where one looks". What may not be said is that
+the overspend worsens, full stop: the direction is a fact about the
+convention. The forecast at $10^{4785}$ is untouched, since it uses
+the frozen constant deliberately.
+
+**D4 is refuted the other way, and usefully.** Five points *can* tell
+the mechanism: fitting the share against $\log N$ gives r.m.s.
+$0.004248$ and against $\log\log N$ gives $0.000653$, a gap of
+$13.47$ standard errors of the r.m.s. itself. The share grows like
+$(\log N)^{1.707104}$, which is the shape W3's stated mechanism
+predicts — $\exp(-c\sqrt{\log x})$ falling more slowly than a power of
+$\log$ rises. **The mechanism is confirmed; only the direction of the
+trend was convention-dependent.**
 
 
 #### Remark (the exposure that remark names, tested) {#rem:provablearithmetic}
@@ -3311,6 +3546,48 @@ not $0.1084$. The disagreement is not the averaging: it survives at
 roughly a factor two either way, and remains what that remark said it
 was — the harder radicals admit fewer $k$, so their truncation moves
 less than the budget alone would move it.
+
+
+#### Remark (one variable, and it explains more as N grows) {#rem:arithmeticonevar}
+<!-- evidence: audit_arithmetic_onevar.py -->
+
+Remark [rem:arithmeticreach] leaves the arithmetic spread standing at
+seven times its floor over a factor $8$ in $N$, and says nothing about
+whether the spread is *one* thing. Remark [rem:residuearithmetic]
+attributed it to the budget with a correlation of $0.97565$ — at one
+scale, and Remark [rem:kexponent] is the standing warning about what
+one scale can show.
+
+The regressor does not move here. Doubling $N$ leaves the odd radical
+alone, so $\SS(N)(1-A(N))$ is the same number at $1,2,4,8$ times each
+of the seven $N$: the abscissae are fixed and only the exponents move.
+
+**A1, A2 and A4 hold.** The base scale reproduces to $0.00004$ with
+slope $0.0516$ and correlation $0.97565$ exactly; the correlation
+stays above $0.9$; the slope's spread over the four scales is
+$0.0063$.
+
+**A3 is refuted, and in the direction that favours one variable.** The
+residual spread after removing the budget is
+
+$$
+0.0218,\quad 0.0240,\quad 0.0129,\quad 0.0103
+$$
+
+against a floor of $0.0133$ — **it crosses the floor between $2N$ and
+$4N$**, and the correlation rises $0.97565\to0.98390\to0.99433\to
+0.99577$. So a second arithmetic variable is visible at the accessible
+sizes and gone at four and eight times them.
+
+Two of the seven types keep the sign of their residue at all four
+scales — $\text{odd}=5$ above the line and $17\cdot47059$ below — which
+is what a second variable would look like; both shrink, from $+0.0090$
+to $+0.0056$ and from $-0.0128$ to $-0.0047$.
+
+So OPEN item 3 stands as a limitation but not as a mystery: the
+caveat does not close, and what it is made of is one measured
+quantity, the budget, with the residue falling inside the noise by
+$4N$.
 
 
 #### Remark (the one-radical caveat does not close) {#rem:arithmeticreach}
