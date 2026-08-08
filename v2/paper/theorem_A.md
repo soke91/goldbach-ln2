@@ -4281,6 +4281,72 @@ independent-sign rate — it is: account for a tail asymmetry that the
 measured bias appears too small to explain.**
 
 
+#### Remark (a null refuted before it could adjudicate) {#rem:tailasymmetry}
+<!-- evidence: lab_tail_asymmetry.py -->
+
+Remark [rem:headsign] left one thing between item 4(b) and a statement:
+the inner sums of [eq:layers] already cancel at the independent-sign
+rate, so the whole deficit against $\theta'/2$ is a sign correlation
+across $k$, and that correlation shows as a top decile of the $k$ by
+$|I_k|$ which is $0.8547$ negative at the top $N$ while the bias
+supposed to produce it is only $0.2590$ of the fluctuation scale. Three
+arms were registered to settle whether the bias accounts for the tail.
+**T1 gates and T1 is refuted, so it does not settle it**, and the shape
+of that failure is the result.
+
+**Two things failed in T1 and they are not the same kind of thing.**
+The calibration cap was $10^{-6}$ on the arm's average $|I_k|$, which is
+a Monte Carlo mean over $400$ draws and therefore carries a sampling
+error of its own; it came in at $1.938\cdot10^{-3}$. **That rule was
+badly written and it is reported as written, not relaxed.** The second
+failure is not a cap. The arm's bias profile is the measured one, so its
+mean $I_k$ is the observed mean by construction — and its sign share is
+not the observed sign share, standing above it by $+0.0615$ to
+$+0.1076$ at all eight $N$. A shifted symmetric law with the right mean
+gets the sign share wrong, in the direction of too many negatives; so
+the observed distribution carries the same negative mean with **fewer
+small negatives and larger ones**, which is to say the negativity is
+concentrated in the tail rather than spread as a shift. The script exits
+non-zero on this, as its own rule requires.
+
+That blocks T3. Its numbers are computable — the observed tail stands
+$+1.72$ to $+7.60$ of the structured arm's spreads above it, and the
+arm reaches only $0.6976$ against the observed $0.8547$ at the top $N$ —
+but they are a comparison against a model already known to be the wrong
+shape, and the registered rule says they may not be read as evidence
+about the tail. T2 and T4 are unaffected by the shape question and
+stand: signing the observed magnitudes at one overall rate falls short
+by $+4.66$ to $+14.91$ of its own binomial spreads (T2), and letting the
+bias vary over $k$ rather than holding it flat is worth $+0.97$ to
+$+2.06$ spreads (T4).
+
+**What does settle the question is an arm with no distributional
+assumption, and it was not registered.** Keep every $|I_k|$ exactly as
+measured and draw only the signs, each $k$ at the negative rate its own
+decile in $k$ exhibits. This assumes nothing about the law and keeps
+whatever $k$-dependence the sign rate has; the top decile by $|I_k|$ is
+then a fixed set, so the arm is closed form. It gives $0.5162$ to
+$0.6395$ against an observed $0.8547$ to $1.0000$ — the observed tail
+stands **$+4.28$ to $+14.77$ of that arm's spreads above it**, and the
+sign rate by $k$-decile at the top $N$ is flat, $0.4853$ to $0.5420$.
+
+So three ways of accounting for the tail have been tried and all three
+miss it: a uniform sign rate on the observed magnitudes, a
+$k$-dependent sign rate on the observed magnitudes, and a shifted
+symmetric law with the measured bias — the last of which is also the
+wrong shape independently. **The coupling between the size of $I_k$ and
+its sign is direct: it is not mediated by $k$, it is not a shift, and it
+is what item 4(b) is now about.** It has no name in this programme and
+no measurement beyond the deciles of [rem:headsign].
+
+One number is worth keeping for whoever measures it. The observed tail
+falls at $-0.032100$ ($6.94$ standard errors) while the structured arm's
+falls at $-0.054160$ ($18.28$): the thing that is unexplained is not
+merely present, it is **decaying more slowly than the bias-driven part
+of it**, so the gap between them widens along the sweep rather than
+closing.
+
+
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
 <!-- evidence: audit_slope_significance.py -->
 

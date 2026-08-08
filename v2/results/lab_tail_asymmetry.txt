@@ -1,0 +1,157 @@
+STATISTIC: the negative share of the top decile by |I_k| of the
+           imbalance I_k = (P_k - M_k)/(P_k + M_k) of
+           {#rem:headsign}, measured and under three arms: the
+           observed |I_k| signed independently at the observed
+           overall negative rate, in closed form because the
+           top decile is then a fixed set; a structured draw
+           I_k = b_k + c sigma_k Z with b_k the measured signed
+           mean of that k's decile in k, sigma_k = 1/sqrt(n_k)
+           for n_k the number of contributing m, and c
+           calibrated so the arm reproduces the observed
+           average |I_k|; and the same draw with b_k replaced
+           by the whole range's signed mean. 400
+           draws for each structured arm.
+NULL: three arms are run and none is declined. The crude arm
+      keeps every |I_k| and breaks only the signs -- it is the
+      M4 arm, with the structure deliberately destroyed. The
+      structured arm keeps the measured bias profile and the
+      measured fluctuation scale and breaks only the draw; M3
+      is met by calibrating c so the arm's average |I_k| is the
+      observed one, without which it would be a null for a
+      different field. The flat-bias arm keeps the scale and
+      flattens the bias, isolating its k-dependence.
+FIELD: N = 2e5 through 2.56e7 by doubling, every one 2^a 5^b so
+       the odd radical is one throughout, as RADICALS says; k
+       squarefree and coprime to N with 2 <= k < N^theta';
+       m over 1 <= m < N/k with (m,k) = 1, and n_k counts the m
+       with both Lambda(N-mk) and mu(m) nonzero; Lambda and mu
+       from an integer sieve to 25600000; the split,
+       the sieve and theta' are imported from
+       code/audit_head_sign.py and the published shares are read
+       from results/audit_head_sign.txt. Seed 20260809.
+
+read from results/audit_head_sign.txt: 8 rows, and the top decile by
+  |I| running 0.8547 to 1.0000
+  the split is imported from code/audit_head_sign.py and the sieve
+  through it from code/audit_gain_split.py, so the field is the same.
+
+sieving to 25600000 ...
+RADICALS 1
+
+  N            #k      obs top   obs neg   crude mu  crude sd  struct mu  struct sd  struct neg  flat mu
+  200000       313     1.0000    0.5879    0.5879    0.0884    0.9166     0.0485     0.6954      0.8559
+  400000       462     1.0000    0.6169    0.6169    0.0717    0.8790     0.0463     0.6816      0.8236
+  800000       682     0.9853    0.5704    0.5704    0.0600    0.8326     0.0437     0.6436      0.7675
+  1600000      1004    0.9600    0.5608    0.5608    0.0496    0.8005     0.0399     0.6223      0.7391
+  3200000      1485    0.9662    0.5192    0.5192    0.0411    0.7724     0.0351     0.6056      0.7154
+  6400000      2186    0.9315    0.5188    0.5188    0.0338    0.7696     0.0299     0.6009      0.7094
+  12800000     3226    0.8854    0.5146    0.5146    0.0278    0.7240     0.0246     0.5828      0.6718
+  25600000     4754    0.8547    0.5128    0.5128    0.0229    0.6976     0.0207     0.5763      0.6576
+
+T1  the controls
+  the overall negative share departs from the published by 0.000044
+  the top decile's range 0.8547 to 1.0000 against the published 0.8547 to 1.0000
+  the calibration leaves the average |I| off by 1.938e-03
+  and that cap was unachievable as written: the arm's average |I| is
+  a Monte Carlo mean over 400 draws, so it carries a sampling error of
+  its own and cannot be pinned to a cap that tight. The rule was
+  badly written and it is being reported as such, not relaxed.
+  the structured null's overall negative share is off by 0.1076
+  T1 REFUTED   (cap 0.001, 0.001, 1e-6, 0.02)
+  the share failure is not a bad cap. The arm's bias profile is the
+  observed one, so its mean I is the observed mean by construction,
+  and yet its sign share is not the observed sign share:
+  N            obs neg   struct neg  difference
+  200000       0.5879    0.6954      +0.1076
+  400000       0.6169    0.6816      +0.0647
+  800000       0.5704    0.6436      +0.0732
+  1600000      0.5608    0.6223      +0.0615
+  3200000      0.5192    0.6056      +0.0865
+  6400000      0.5188    0.6009      +0.0821
+  12800000     0.5146    0.5828      +0.0682
+  25600000     0.5128    0.5763      +0.0634
+  A shifted symmetric law with the right mean therefore gets the
+  sign share wrong, which says the distribution of I_k is not
+  one. Whichever way the difference points, T3 below is a
+  comparison against a model already known to be wrong and may
+  not be read as evidence about the tail.
+  the calibrated scale runs 1.1515 to 1.3029 times 1/sqrt(n_k)
+
+T2  does signing the magnitudes at the overall rate reach it?
+  N            observed  crude     gap in crude spreads
+  200000       1.0000    0.5879    +4.66
+  400000       1.0000    0.6169    +5.34
+  800000       0.9853    0.5704    +6.91
+  1600000      0.9600    0.5608    +8.04
+  3200000      0.9662    0.5192    +10.88
+  6400000      0.9315    0.5188    +12.22
+  12800000     0.8854    0.5146    +13.34
+  25600000     0.8547    0.5128    +14.91
+  T2 hold   (cap 3 spreads)
+  so the magnitudes alone do not carry it: what the largest
+  |I_k| have in common is a large fluctuation scale, and the
+  crude arm threw that away.
+
+T3  does the measured bias, seen through 1/sqrt(n_k), reach it?
+  N            observed  structured  spread   in spreads  rank of 401
+  200000       1.0000    0.9166      0.0485   +1.72       27
+  400000       1.0000    0.8790      0.0463   +2.61       1
+  800000       0.9853    0.8326      0.0437   +3.49       1
+  1600000      0.9600    0.8005      0.0399   +3.99       1
+  3200000      0.9662    0.7724      0.0351   +5.52       1
+  6400000      0.9315    0.7696      0.0299   +5.42       1
+  12800000     0.8854    0.7240      0.0246   +6.58       1
+  25600000     0.8547    0.6976      0.0207   +7.60       1
+  T3 REFUTED   (cap 2 spreads)
+  so a bias of the measured size, spread over k the way it
+  is measured to be, does NOT account for the tail. The
+  residual is a second structure in the sign of H_k and it
+  has no name and no measurement.
+
+T4  is the bias's k-dependence doing the work?
+  N            structured  flat bias  difference in flat spreads
+  200000       0.9166      0.8559     +0.97
+  400000       0.8790      0.8236     +0.97
+  800000       0.8326      0.7675     +1.31
+  1600000      0.8005      0.7391     +1.43
+  3200000      0.7724      0.7154     +1.48
+  6400000      0.7696      0.7094     +1.79
+  12800000     0.7240      0.6718     +2.06
+  25600000     0.6976      0.6576     +1.73
+  T4 hold
+
+  and the two fall together or they do not:
+  quantity        exponent     s.e.       t
+  observed top    -0.032100    0.004628   6.94
+  structured null -0.054160    0.002963   18.28
+TSTAT slope_tailasym_observed 6.94
+SPREAD slope_tailasym_observed 4.8520
+TSTAT slope_tailasym_null 18.28
+SPREAD slope_tailasym_null 4.8520
+
+X1  the same question with no distributional assumption
+  (written after T1 fell; not pre-registered). Keep every |I_k|
+  exactly as measured and draw only the sign, at the rate that k's
+  own decile in k shows. This assumes nothing about the shape of
+  the law and keeps the k-dependence of the sign rate, so it is the
+  arm T3 should have used. The top decile is a fixed set, so it is
+  closed form.
+  N            observed  arm D     spread   in spreads
+  200000       1.0000    0.6338    0.0855   +4.28
+  400000       1.0000    0.6395    0.0697   +5.17
+  800000       0.9853    0.5810    0.0595   +6.80
+  1600000      0.9600    0.5925    0.0488   +7.52
+  3200000      0.9662    0.5195    0.0409   +10.91
+  6400000      0.9315    0.5370    0.0337   +11.72
+  12800000     0.8854    0.5292    0.0277   +12.84
+  25600000     0.8547    0.5162    0.0229   +14.77
+  the sign rate by k-decile at the top N:
+  0.4926  0.4853  0.4926  0.5420  0.5389  0.5221  0.5378  0.5179  0.4937  0.5053
+  the observed tail stands 4.28 to 14.77 spreads above this arm
+  so the coupling between the size of I_k and its sign is not
+  mediated by k either: the sign rate that k predicts is nowhere
+  near what the largest deviations show. That coupling is the
+  object item 4(b) is now about, and it is unnamed.
+
+======================================================================
+T1 REFUTED  T2 hold  T3 REFUTED  T4 hold
