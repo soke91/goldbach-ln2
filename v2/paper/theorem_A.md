@@ -4347,6 +4347,68 @@ of it**, so the gap between them widens along the sweep rather than
 closing.
 
 
+#### Remark (the one candidate, eliminated for being constant) {#rem:tailmertens}
+<!-- evidence: audit_tail_mertens.py -->
+
+Remark [rem:tailasymmetry] said the coupling between the size of $I_k$
+and its sign has no name in this programme. It said so without testing
+the one predictor of $\operatorname{sign}H(N;k)$ the repository has.
+Remark [rem:leanmertens] found agreement with
+$\operatorname{sign}M_{\mathrm{odd}}(\lfloor N/k\rfloor)$ at $0.7669$ to
+$0.7704$ on inner lengths $2\le N/k\le1000$, and
+[rem:oddmertensrange] found it does not transfer to $k<N^{\theta'}$,
+where the agreement is $0.5201$ to $0.6161$. But the tail was never
+looked at, and it is a different question: a predictor right half the
+time on average can still be right almost always where $|I_k|$ is
+largest. There was a reason to expect it might —
+$M_{\mathrm{odd}}(\lfloor N/k\rfloor)$ is violently non-monotone in $k$,
+so the $k$-decile arm of [rem:tailasymmetry] would have averaged
+exactly this structure away.
+
+**It is eliminated, and the way it fails is the finding.** The controls
+hold to $0.000048$ on the published agreement and exactly on the
+observed tail share (R1). R2 holds too — the tail agreement exceeds the
+whole range's by $+0.3383$ to $+0.4453$ — but **R2 is empty and R3 and
+R4 are what say so.**
+
+The predictor is *constant* on this range. It is negative on $0.9829$
+to $0.9970$ of the $k$, and on **every** $k$ of the tail at every one of
+the eight $N$; of the $3936$ distinct values of $\lfloor N/k\rfloor$ at
+the top $N$, $3843$ have $M_{\mathrm{odd}}<0$. A constant predictor
+agrees with anything at the rate that thing takes its value and carries
+no information, so:
+
+* the tail agreement is numerically **identical** to the tail's negative
+  share, $1.0000,\,1.0000,\,0.9853,\,0.9600,\,0.9662,\,0.9315,\,0.8854,\,
+  0.8547$, and the agreement profile by decile of $|I_k|$ —
+  $0.8547,\,0.5903,\,0.5021,\,0.4370,\ldots$ — is [rem:headsign]'s
+  negative-share profile read back;
+* the permutation baseline reaches it (R4 refuted), gaining $+0.0000$ at
+  six of the eight $N$ and at most $+0.0066$, because permuting a
+  constant changes nothing;
+* and R3 is refuted in the only direction a degenerate predictor can
+  fail: it puts every tail sign negative, so its top-decile share is
+  $1.0000$ exactly, against an observed $0.8547$, and the gap **widens**
+  from $+0.0000$ to $+0.1453$ along the sweep because the observed share
+  falls while the prediction cannot.
+
+**This strengthens [rem:oddmertensrange] rather than contradicting
+it.** Its check P2 recorded that the agreement is below $0.70$ on
+$k<N^{\theta'}$ and held. The truer statement is stronger: on that range
+the predictor is not weak, it is **informationless**, and the $0.5201$
+it reports is $H$'s own marginal negative rate reflected back. An
+agreement fraction is only a measurement when the predictor has
+variance, and nothing in the gate was checking that.
+
+**Where this leaves item 4(b).** The coupling is still unnamed, but the
+statement has changed from "no candidate has been tried" to "the one
+candidate has been tried and is degenerate on the range that matters".
+The two exponents are also worth keeping: the tail's negative share
+falls at $-0.032100$ ($6.94$ standard errors) and the whole range's
+agreement at $-0.035401$ ($4.88$), so both drift at the same slow rate
+and neither is on a path to a half within reach of computation.
+
+
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
 <!-- evidence: audit_slope_significance.py -->
 
