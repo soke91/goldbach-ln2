@@ -1,0 +1,201 @@
+STATISTIC: for a_k = (log k)H(N;k) over the squarefree
+           k < N^theta' coprime to N, the counts #k, the
+           concentration l1/l2, the flatness
+           F = (l1/l2)/sqrt(#k) and the gain l1/|sum a|, at
+           every N = 2^a 5^b in [2e5, 2.56e7]; the
+           least-squares slope of log F inside each octave of N
+           with its r.m.s. residual against the published
+           eight-point r.m.s.; the exponent of l1/l2 on the
+           whole set against the ceiling theta'/2; the top
+           octave's local slope; and the two shapes of
+           {#rem:flatnessshape} refitted on all of them.
+NULL: none is run and none applies. F is a deterministic ratio
+      of two norms of a measured vector and the comparisons are
+      between its own values at different N; there is no
+      background to detect against. Random signs do not change
+      |a_k|, so F is a property of the magnitudes alone and no
+      sign arm can move it -- the coin arm of
+      audit_crossk_reference.py and the sign-vector floor of
+      audit_lean_floor.py are the arms for the gain, not for
+      this.
+FIELD: N = 2^a 5^b in [2e5, 2.56e7], every one with odd radical
+       5, as RADICALS says, so the admissible k-set and the
+       threshold are fixed exactly as along the doublings; k
+       squarefree and coprime to N with 2 <= k < N^theta';
+       m over 1 <= m < N/k with (m,k) = 1; Lambda and mu from an
+       integer sieve to 25600000; the field, the sieve
+       and theta' are imported from code/audit_gain_split.py;
+       the published rows are read from
+       results/audit_flatness_shape.txt and the published gains
+       from results/audit_gain_split.txt.
+
+read from results/audit_flatness_shape.txt: 8 published rows, best
+  r.m.s. 0.006479 with its own standard error 0.001870
+  and from results/audit_gain_split.txt 8 published gains
+  the field and the sieve are imported from code/audit_gain_split.py
+  the ceiling #k ~ N^theta' puts on e(l1/l2) is theta'/2 = 0.2800
+
+the family: every N = 2^a 5^b in [200000, 25600000], odd radical 5 throughout
+  70 of them against the 8 doublings that have been used
+
+sieving to 25600000 ...
+RADICALS 2
+
+  N            log10 N   #k      l1/l2      F         G
+  200000       5.3010    313     11.9596    0.6760    1.8337
+  204800       5.3113    317     12.1521    0.6825    1.8110
+  250000       5.3979    355     12.8723    0.6832    1.7228
+  256000       5.4082    360     12.9816    0.6842    1.9414
+  262144       5.4185    437     15.1523    0.7248    3.7926
+  312500       5.4949    402     13.4028    0.6685    2.0370
+  320000       5.5051    407     13.6455    0.6764    2.0113
+  327680       5.5154    413     13.7491    0.6766    1.9901
+  390625       5.5918    685     18.2793    0.6984    7.9531
+  400000       5.6021    462     14.2336    0.6622    1.8036
+  409600       5.6124    468     14.7337    0.6811    1.8980
+  500000       5.6990    525     15.4332    0.6736    2.2754
+  512000       5.7093    532     15.8077    0.6854    2.0094
+  524288       5.7196    646     18.7784    0.7388    5.0044
+  625000       5.7959    595     16.4542    0.6746    2.1581
+  640000       5.8062    604     16.8368    0.6851    2.2111
+  655360       5.8165    612     16.8510    0.6812    2.3311
+  781250       5.8928    674     17.9616    0.6919    2.3393
+  800000       5.9031    682     17.8995    0.6854    2.2074
+  819200       5.9134    691     17.7913    0.6768    2.1382
+  1000000      6.0000    773     19.1481    0.6887    2.3485
+  1024000      6.0103    782     19.0786    0.6822    2.3465
+  1048576      6.0206    952     21.7672    0.7055    5.9644
+  1250000      6.0969    875     20.4158    0.6902    2.5170
+  1280000      6.1072    886     20.3182    0.6826    2.4712
+  1310720      6.1175    899     20.7424    0.6918    2.5965
+  1562500      6.1938    991     21.5135    0.6834    2.4351
+  1600000      6.2041    1004    21.4312    0.6764    2.5876
+  1638400      6.2144    1018    21.9751    0.6887    2.6395
+  1953125      6.2907    1689    27.6244    0.6722    9.3176
+  2000000      6.3010    1141    23.1688    0.6859    2.6559
+  2048000      6.3113    1157    22.7563    0.6690    2.5521
+  2097152      6.3216    1408    26.4173    0.7040    6.9039
+  2500000      6.3979    1290    24.6588    0.6866    2.5148
+  2560000      6.4082    1308    24.1347    0.6673    2.5163
+  2621440      6.4185    1325    24.7647    0.6803    2.5724
+  3125000      6.4949    1464    26.4102    0.6902    2.8200
+  3200000      6.5051    1485    26.2111    0.6802    2.7893
+  3276800      6.5154    1505    26.4692    0.6823    2.9245
+  3906250      6.5918    1661    27.8499    0.6833    2.8504
+  4000000      6.6021    1680    27.9029    0.6808    2.9647
+  4096000      6.6124    1703    28.3988    0.6882    3.1569
+  4194304      6.6227    2071    32.4055    0.7121    9.1639
+  5000000      6.6990    1904    29.9640    0.6867    2.9380
+  5120000      6.7093    1929    30.4463    0.6932    3.1284
+  5242880      6.7196    1956    30.1444    0.6816    2.9517
+  6250000      6.7959    2158    32.0681    0.6903    2.9548
+  6400000      6.8062    2186    32.1297    0.6872    3.0787
+  6553600      6.8165    2216    31.7263    0.6740    2.9523
+  7812500      6.8928    2442    34.0151    0.6883    3.2553
+  8000000      6.9031    2475    34.0916    0.6853    3.0597
+  8192000      6.9134    2508    33.9905    0.6787    3.1812
+  8388608      6.9237    3054    38.4758    0.6962    12.6968
+  9765625      6.9897    4157    43.4434    0.6738    10.3403
+  10000000     7.0000    2808    36.2882    0.6848    3.2587
+  10240000     7.0103    2846    36.7321    0.6885    3.3042
+  10485760     7.0206    2885    37.0906    0.6905    3.2355
+  12500000     7.0969    3184    39.3910    0.6981    3.4779
+  12800000     7.1072    3226    39.6783    0.6986    3.4075
+  13107200     7.1175    3268    39.5594    0.6920    3.4602
+  15625000     7.1938    3607    41.2153    0.6863    3.3944
+  16000000     7.2041    3654    41.1732    0.6811    3.3485
+  16384000     7.2144    3703    42.0915    0.6917    3.3058
+  16777216     7.2247    4504    46.9509    0.6996    12.1846
+  19531250     7.2907    4084    44.8444    0.7017    3.6191
+  20000000     7.3010    4138    44.5974    0.6933    3.5163
+  20480000     7.3113    4193    44.2963    0.6841    3.5243
+  20971520     7.3216    4249    45.2588    0.6943    3.7589
+  25000000     7.3979    4691    47.0121    0.6864    3.7091
+  25600000     7.4082    4754    47.6367    0.6909    3.5925
+REFERENCE audit_flatness_fill 70 0.6622 0.7388
+
+U1  the controls at the eight doublings
+  N            #k here  #k pub  l1/l2 here  pub        F here    pub       G here   pub
+  200000       313      313     11.9596     11.9596    0.6760    0.6760    1.8337   1.8337
+  400000       462      462     14.2336     14.2336    0.6622    0.6622    1.8036   1.8036
+  800000       682      682     17.8995     17.8995    0.6854    0.6854    2.2074   2.2074
+  1600000      1004     1004    21.4312     21.4312    0.6764    0.6764    2.5876   2.5876
+  3200000      1485     1485    26.2111     26.2111    0.6802    0.6802    2.7893   2.7893
+  6400000      2186     2186    32.1297     32.1297    0.6872    0.6872    3.0787   3.0787
+  12800000     3226     3226    39.6783     39.6783    0.6986    0.6986    3.4075   3.4075
+  25600000     4754     4754    47.6367     47.6367    0.6909    0.6909    3.5925   3.5925
+  worst departure 0.000050 on the three, 0.000046 on a gain
+  U1 hold   (cap 0.001 and 0.01)
+
+U2  is F smooth at sub-doubling spacing?
+  octave   points   slope        s.e.        r.m.s.     |corr|
+  0        9        +0.006324    0.040895    0.022751   0.05835
+  1        9        +0.027659    0.050976    0.028360   0.20090
+  2        9        +0.007882    0.019862    0.011050   0.14834
+  3        10       +0.005178    0.027300    0.015638   0.06691
+  4        10       +0.016210    0.022031    0.012620   0.25177
+  5        11       +0.024044    0.017036    0.010021   0.42571
+  6        12       -0.006772    0.012824    0.008713   0.16471
+  the published eight-point r.m.s. is 0.006479
+  U2 REFUTED
+SWEPT flatness_fill_localslope octave-range 0.034431
+POP flatness_fill_localslope 9
+CORR flatness_fill_localslope 0.05835
+
+U3  does the excess over the ceiling survive?
+  e(l1/l2) on 70 points +0.280072, s.e. 0.004748, r.m.s. 0.055632
+  the published eight-point value was +0.287798 and the ceiling is 0.2800
+  the excess is +0.000072, which is 0.02 standard errors
+TSTAT slope_flatnessfill_conc 58.99
+SPREAD slope_flatnessfill_conc 4.8520
+  U3 REFUTED   (cap 2 standard errors)
+
+U4  is F still rising at the top?
+  the top octave has 12 points over 0.6931 in log N
+  its slope -0.006772, s.e. 0.012824, t = 0.53
+TSTAT slope_flatnessfill_top 0.53
+SPREAD slope_flatnessfill_top 0.6931
+UNRESOLVED SIGN slope_flatnessfill_top
+  over the whole sweep F rises at +0.001803, s.e. 0.001461, t = 1.23
+TSTAT slope_flatnessfill_all 1.23
+SPREAD slope_flatnessfill_all 4.8520
+UNRESOLVED SIGN slope_flatnessfill_all
+  U4 REFUTED
+
+  and the two shapes {#rem:flatnessshape} could not separate, refitted:
+  shape                 r.m.s.
+  F ~ N^e               0.011916   (e = +0.001803)
+  F = a + b/log N       0.011929   (a = 0.702955, b = -0.235984)
+  the gap 0.000014 against the r.m.s.'s own standard error 0.001022 on 70 points
+  on eight points the same gap stood against a published standard
+  error of 0.001870 (published), which is what left the two tied
+  so the denser set does not separate them either: more points in
+  the same range do not decide a shape, only a longer lever would
+
+X1  and the other side of the deficit, on the same 70 points
+  (written after U3 fell; not pre-registered). The deficit
+  {#rem:leanidentity} asks to close is e(l1/l2) - e(G), and only
+  one side of it was refitted above. Both sides have to be on the
+  same points or the difference is not a difference.
+  quantity     exponent     s.e.       r.m.s.     published
+  e(G)         +0.142121    0.033937   0.397647   +0.153911
+  e(l1/l2)     +0.280072    0.004748   0.055632   +0.287798
+  the deficit on 70 points is +0.137951 against the eight-point +0.133887
+TSTAT slope_flatnessfill_gain 4.19
+SPREAD slope_flatnessfill_gain 4.8520
+  and whether the gain is smooth at sub-doubling spacing, which is
+  the same question U2 asked of F:
+  octave   points   r.m.s. of log G
+  0        9        0.384271
+  1        9        0.278278
+  2        9        0.293419
+  3        10       0.449491
+  4        10       0.340811
+  5        11       0.491612
+  6        12       0.345963
+  so the target of item 4(b) is now an arithmetic constant and not
+  a fitted one: e(G) has to reach theta'/2 = 0.2800, and the distance
+  it has to travel is +0.137879.
+
+======================================================================
+U1 hold  U2 REFUTED  U3 REFUTED  U4 REFUTED

@@ -4570,6 +4570,73 @@ $+0.287798$ — which is itself only $+0.007798$ above the ceiling
 $\theta'/2$ that [rem:flatnessshape] shows it cannot pass.
 
 
+#### Remark (the excess over the ceiling was eight points) {#rem:flatnessfill}
+<!-- evidence: audit_flatness_fill.py -->
+
+Remark [rem:levelmagnitude] left item 4(b) with one computational axis:
+the concentration exponent $e(\ell^1/\ell^2)=+0.287798$ sits $3.15$
+standard errors **above** the ceiling $\theta'/2=0.28$ that
+$\#k\asymp N^{\theta'}$ imposes, and [rem:flatnessshape] explained that
+by $F=(\ell^1/\ell^2)/\sqrt{\#k}$ running $0.6622$ to $0.6986$ and
+still rising towards the Cauchy–Schwarz bound $F\le1$. Every $N=2^a5^b$
+has odd radical $5$, so the family can be filled without leaving the
+field: there are $70$ such $N$ in $[2\cdot10^5,\,2.56\cdot10^7]$
+against the $8$ doublings that had been used. The controls are exact —
+$\#k$, $\ell^1/\ell^2$, $F$ and the gain reproduce the published to
+$0.000050$ and $0.000046$ (U1).
+
+**U3 is refuted, and that dissolves the puzzle instead of solving it.**
+On $70$ points $e(\ell^1/\ell^2)=+0.280072$ with a standard error of
+$0.004748$. The ceiling is $0.2800$. **The excess is $+0.000072$,
+which is $0.02$ standard errors.** The concentration exponent sits on
+the ceiling, where the arithmetic says it must; the $3.15$ standard
+errors were eight points.
+
+**U4 is refuted with it: $F$ does not rise.** Over the whole sweep its
+slope is $+0.001803$ at $1.23$ standard errors and over the top octave
+$-0.006772$ at $0.53$ — neither resolved, and the script declares both
+so. $F$ runs $0.6622$ to $0.7388$ over the $70$. So the rise
+[rem:flatnessshape] reported was the eight points wobbling, and **the
+extrapolation built on it is void**: that remark's $e=+0.007445$ giving
+$F=1$ at $10^{28.6782}$, its bracket
+$[10^{24.2459},\,10^{28.6782}]$ and the parting point
+[rem:shapetrust] reads off it all rest on a slope that is not resolved
+on the denser set.
+
+**U2 is refuted too, and it explains why more points do not settle the
+shape.** Fitted inside each octave on its own points, $\log F$ scatters
+by $0.022751,\,0.028360,\,0.011050,\,0.015638,\,0.012620,\,0.010021,\,
+0.008713$ — every one above the published eight-point $0.006479$, which
+was two parameters fitted to eight points and therefore an
+underestimate. Refitting the two shapes on all $70$ gives $0.011916$
+for the power law against $0.011929$ for $a+b/\log N$, a gap of
+$0.000014$ against the r.m.s.'s own standard error $0.001022$. They
+are **more** tied than before. More points in the same range do not
+decide a shape; only a longer lever would.
+
+**And the eight-point standard errors were too small on both sides.**
+Refitted on the $70$, $e(G)=+0.142121$ with a standard error of
+$0.033937$ against the published $+0.153911\pm0.011253$ — the value
+holds, the error triples. $e(\ell^1/\ell^2)$'s error nearly doubles,
+$0.002472\to0.004748$. The gain is the noisy one: its octave-wise
+$\log$ scatter runs $0.278278$ to $0.491612$, so $G$ moves by half
+again between neighbouring $N$ of the same family, where
+$\ell^1/\ell^2$ moves by a twentieth of that. That is what a ratio with
+a cancelling sum in the denominator does, and it is why the doublings
+looked steadier than the family is.
+
+**Where this leaves item 4(b): the target is now an arithmetic
+constant.** The deficit on the dense set is $+0.137951$, against
+$+0.133887$ on eight — unchanged within the errors. What changed is
+what it has to close *to*. It is no longer a fitted $+0.287798$ sitting
+unexplained above a bound; it is $\theta'/2=0.2800$ itself, which
+follows from $\#k\asymp N^{\theta'}$ and not from any fit. So the
+demand reads: **$e(G)$ must travel $+0.137879$, from $+0.142121$ to
+$\theta'/2$, on the vector $\mu$ actually gives** — with the other side
+of the identity pinned by arithmetic rather than by a curve whose shape
+this repository has now twice failed to determine.
+
+
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
 <!-- evidence: audit_slope_significance.py -->
 
