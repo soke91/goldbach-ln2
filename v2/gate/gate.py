@@ -3611,6 +3611,65 @@ def g70_every_citation_exists(docs):
     return n
 
 
+# ----------------------------------------------------------------- G71
+RESIDLINE = re.compile(r"^\s*residuals about [^\n:]*:\s*"
+                       r"([+-][\d.]+(?:\s*,\s*[+-][\d.]+)+)\s*$", re.M)
+SIGNRUN = re.compile(r"^SIGNRUN (\S+) (\d+) (\d+)\s*$", re.M)
+
+
+def g71_residual_signs_are_declared():
+    """잔차를 r.m.s.로만 판정하면 부호가 보이지 않는다.
+
+    {#rem:primorialgap} 이 사다리의 열한 가로대 선 주위로 내부 네 점의
+    잔차를 냈다: +0.0001, +0.0025, +0.0049, +0.0052. r.m.s. 는 0.0038
+    이고 발표된 산포는 0.0037 -- 머리카락 하나 차이라 "산포 안"으로
+    읽고 넘어가기 쉽다. 그런데 **넷이 전부 양수이고 단조 증가**다.
+    그건 흩어지는 게 아니라 선을 떠나는 것이고, r.m.s. 는 정의상
+    그것을 볼 수 없다. 같은 자리에서 실제로 기울기가 +0.006778 에서
+    +0.007139 로 움직였다.
+
+    부호가 다 같을 확률은 교환가능 뽑기에서 2^{1-n} 이다 -- 네 점이면
+    0.125, 여섯 점이면 0.03. r.m.s. 하나로는 절대 도달하지 못하는
+    증거인데 어떤 검사도 읽고 있지 않았다.
+
+    그래서 적합의 잔차 목록을 인쇄하는 결과 파일은 같은 이름으로
+    SIGNRUN <이름> <같은 부호 개수> <전체 개수> 를 내야 한다. 세는
+    것은 게이트가 아니라 스크립트가 하고, 게이트는 냈는지와 그 수가
+    실제 목록과 맞는지만 본다 -- G19 가 손으로 적는 것을 막으므로
+    표지만 붙여 통과시킬 수 없다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        lists = RESIDLINE.findall(src)
+        if not lists:
+            continue
+        declared = {lab: (int(a), int(b)) for lab, a, b
+                    in SIGNRUN.findall(src)}
+        if not declared:
+            fails.append(
+                f"G71 results/{f} prints a residual list and declares "
+                f"no SIGNRUN line; four residuals that are all one "
+                f"sign carry evidence an r.m.s. cannot, and the one "
+                f"such fit here moved the slope by 0.000361")
+            n += 1
+            continue
+        vals = [float(v) for v in re.split(r"\s*,\s*", lists[0])]
+        pos = sum(1 for v in vals if v > 0)
+        run, tot = max(pos, len(vals) - pos), len(vals)
+        for lab, (a, b) in declared.items():
+            if (a, b) != (run, tot):
+                fails.append(
+                    f"G71 results/{f} declares SIGNRUN {lab} {a} {b} "
+                    f"but its residual list is {run} of {tot} one way")
+                n += 1
+    return n
+
+
 def main():
     docs = [(p, read(p)) for p in paper_files()]
     print("gate")
@@ -3741,6 +3800,8 @@ def main():
          g69_two_regressor_fits_declare_their_collinearity()),
         ("G70 every citation exists, not just the numbered ones",
          g70_every_citation_exists(docs)),
+        ("G71 residual lists declare their sign run",
+         g71_residual_signs_are_declared()),
     ]
     print()
     for name, c in counts:

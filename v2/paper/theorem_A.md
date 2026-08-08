@@ -2835,7 +2835,9 @@ $10^{7.36}$ lies *above* the top rung, so a crossing anywhere in
 $[10^{7.19},\,10^{7.36}]$ remains open. **The point estimate failed
 its first live test and the interval survived it** — which is what an
 interval is for, and the first time in these papers that the
-difference has been observable.
+difference has been observable. That interval has since been filled
+and closed by confirmation: Remark [rem:primorialgap] measures four
+$N$ inside it and finds the crossing there.
 
 The point estimate's failure is worth more than its success would have
 been. That bracket was built
@@ -3745,6 +3747,84 @@ What is *not* touched. The shape question of Remark
 [rem:laddershape] is about where the ladder meets $\theta'=0.56$,
 which is ahead of it; $\tfrac12$ is now behind it, and no forecast is
 made here.
+
+
+#### Remark (the void between two rungs, filled) {#rem:primorialgap}
+<!-- evidence: audit_primorial_gap.py -->
+
+Remark [rem:primorialreach] left "a crossing anywhere in
+$[10^{7.19},\,10^{7.36}]$" open, and nothing since has been measured
+in it. The ladder is $N=30030\cdot2^j$, so it steps from rung 9 at
+$10^{7.1868}$ straight to rung 10 at $10^{7.4879}$ and the open
+interval sits in the void between them. **It was never excluded; it
+was stepped over.**
+
+Doubling is not what the ladder holds fixed. What it holds fixed is
+the prime set $P(N)=\{2,3,5,7,11,13\}$ — that is what makes
+$\SS(N)(1-A(N))$ constant along it, and it is the single odd radical
+whose caveat Remark [rem:arithmeticreach] says cannot be computed
+away. Any $N=30030m$ with $m$ composed of those primes holds it just
+as well, and the interval contains more than twenty. Four are taken,
+spread across it, and the controls say they are on the ladder: the
+same code returns the published rung-9 exponent to $0.000010$ and the
+published fitted column to $0.000027$ (Q1), and the threshold reads
+$0.087306$ at all five, to every digit printed, with $18863$ admissible
+$k$ at each (Q4).
+
+**Q2 is refuted, and it is the refutation the rule named as the one
+worth having.** The four exponents are $0.4966,\,0.4998,\,0.5030,\,
+0.5040$: the crossing is *inside* the interval, not above it as the
+eleven-rung line said. So [rem:primorialreach]'s interval closes by
+**confirmation**. Between the last point short of $\tfrac12$ and the
+first point over it the crossing is bracketed to
+$(10^{7.2557},\,10^{7.3049}]$, $0.0492$ decades against the $0.3010$
+that separated the two rungs — a narrowing of $6.12$, and one made by
+the sign of a measurement rather than by a fit.
+
+**Q6 is refuted too, and it bounds how much of that may be said.**
+The registered expectation was that nothing in the interval would
+resolve against $\tfrac12$. One point does: $0.5040$ clears the
+ladder's floor $0.0037$ by $0.0040$. But only one. The other three sit
+inside the floor — $0.0034$, $0.0002$ and $0.0030$ — so **the bracket
+above is a point-estimate bracket and not a resolved one**, and its
+lower end in particular rests on a point $0.0002$ from $\tfrac12$.
+What is resolved is a weaker and still new statement: the exponent is
+observably over $\tfrac12$ already at $10^{7.3526}$, a third of a
+decade below the rung where [rem:primorialrung10] first saw it.
+
+**Q3 is refuted, and the r.m.s. is the least interesting part of it.**
+The four residuals about the eleven-rung line are $+0.0001,\,+0.0025,\,
++0.0049,\,+0.0052$ — four of four positive and monotone increasing.
+They do not scatter about the line, they leave it. The r.m.s.
+$0.0038$ against the published $0.0037$ is a hair over and would be
+easy to dismiss; the sign run is not, and no check in this repository
+was reading it.
+
+What that does *not* license is a claim that the ladder bends.
+Refitting on all fifteen points **lowers** the scatter, $0.0037\to
+0.0035$, with the slope moving $+0.006778\to+0.007139$ — by
+[rem:primorialrung11]'s own test, a ladder that bent would have raised
+it. The systematic residual is therefore a **slope** correction and
+not a curvature: eleven rungs put the slope too shallow, and the
+points in the gap tilt it. The local slope between rung 9 and the top
+interior point is $+0.025989$ per unit $\log N$ against the ladder's
+$+0.006778$, a factor $3.83$ — but it is a two-point slope over a short
+lever, and propagating the ladder's own scatter through that lever puts
+it under two standard errors of itself, so the factor is **not
+resolved** and the script declares it so. Remark [rem:slopes] is the
+standing warning against reading it. The honest version is the one the
+published rungs already contained: rung 9 to rung 10 alone rises at
+$+0.011815$, a factor $1.74$ over the global slope, and there was no
+point between them to say whether that meant anything.
+
+**Where this lands.** The fifteen-point crossing is $10^{7.3191}$,
+inside the $[10^{7.1866},\,10^{7.6631}]$ published on eleven (Q5), so
+no bracket is broken here. What moves is the instrument: any quantity
+read off the eleven-rung slope past the end of the ladder —
+$\theta'=0.56$ included — was read off a line now known to be too
+shallow in the one region where it has been checked at finer than a
+doubling. The fifteen-point refit does not repair that; it is still
+one line through a region whose residuals have a sign.
 
 
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
