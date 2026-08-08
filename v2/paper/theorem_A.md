@@ -4094,7 +4094,102 @@ the weighted sum is flat and the second block is resolved and low as
 well. It is: **raise the internal cancellation of the top fifth by
 magnitude, or find more opposition between blocks than the field
 already supplies** — and the second alternative is new, has a measured
-size, and has nothing said about it anywhere.
+size, and has nothing said about it anywhere. (The second alternative does not
+survive. Remark [rem:gainopposition] runs the two nulls it needs and
+finds $\mu$'s opposition *below* chance at every $N$ with the chance
+level itself flat — by an identity rather than a fit — so that route is
+a bounded factor and not an exponent, and $0.2318$ of the $0.360763$
+above is what a coin gets from the partition alone. What is left is the
+first alternative.)
+
+
+#### Remark (the opposition is below chance and chance does not grow) {#rem:gainopposition}
+<!-- evidence: lab_gain_opposition.py -->
+
+Remark [rem:gainprofile] measured that a third of the decay of $1/G$
+sits between the magnitude blocks rather than inside them and closed by
+naming a second route to $\theta'/2$: find more opposition between
+blocks than the field supplies. **That route does not exist in the form
+it was named, and this remark is the correction.** The sentence rested
+on a difference of exponents, which is a rate; whether opposition can
+be had is a question about a level, and it has an answer that is exact
+rather than fitted.
+
+Two one-sided nulls decide it. The coin arm randomises every sign on
+$\mu$'s own magnitudes, so $\#k$, the block edges and every $w_d$ are
+preserved and only $\mu$'s signs are broken — the arm
+[rem:crosskreference] used. The block-sign arm randomises only the ten
+block signs, keeping every $|w_d s_d|$ exactly as measured, so it breaks
+the blocks' opposition and keeps their internal cancellation; it is
+enumerated over all $1024$ patterns and needs no draws. The controls
+reproduce [rem:gainprofile] to $3.983\cdot10^{-7}$ and the identity
+$1/G=|\sum_d w_d s_d|$ to $1.110\cdot10^{-16}$ (O1).
+
+**O2 is refuted: part of the split is the partition's.** The coin arm
+has a between-block component of its own, $0.083641$ at $10$ blocks,
+separated at $4.95$ standard errors — ordering by magnitude and cutting
+manufactures some opposition all by itself, because the blocks are then
+sorted by size and a sorted partition of a random-sign sequence does not
+have independent block sums of equal scale. So $\mu$'s $0.360763$ is not
+all $\mu$'s: $0.2318$ of it is available to a coin, and what is left,
+a factor $4.31$ more, is the field's. The direction of
+[rem:gainprofile] survives; its size is overstated by about a quarter.
+
+**O3 holds, and it reverses the reading.** Write
+$F=(\sum_d w_d|s_d|)/|\sum_d w_d s_d|\ge1$ for the factor by which
+forbidding opposition raises $1/G$. Measured, $F$ runs $1.0316$ to
+$1.3829$. Under the block-sign arm — same ten magnitudes, random
+signs — it runs $1.6575$ to $1.8296$, and the ratio $F/F_{\text{null}}$
+runs $0.6224$ to $0.8343$: **$\mu$'s blocks are more aligned than chance
+would leave them, at every one of the eight $N$.** The ratio rises at
+$+0.063241$, $8.42$ standard errors. The growth
+[rem:gainprofile] attributed to opposition is $\mu$ closing a gap to
+chance, not opening one past it.
+
+**O4 holds, and it is an identity rather than a measurement.** If the
+largest $|w_d s_d|$ exceeds the sum of the other nine then every signing
+carries that term's sign, the enumerated mean of
+$|\sum_d\pm|w_d s_d||$ is that term itself, and
+
+$$
+F_{\text{null}}=\frac{1}{\text{share of the dominant block}} .
+$$
+
+The largest term does exceed the rest at $8$ of $8$ $N$ — the shares are
+$0.5659$ to $0.6033$, all above a half — and the identity holds to
+$1.776\cdot10^{-15}$. So $e(F_{\text{null}})=-e(\text{top share})$
+exactly, and [rem:gainprofile] already measured that share as flat at
+$0.96$ standard errors. Numerically $F_{\text{null}}$'s own exponent is
+$-0.007716$ at the same $0.96$, as it must be.
+
+**Therefore the route is a bounded factor and not an exponent.**
+Opposition among blocks of these relative sizes is worth a factor
+$1/\!$(top share), that factor does not grow, and $\mu$ sits below it
+with a factor $1.1987$ of it still unspent at the top $N$. The
+$+0.055525$ that [rem:gainprofile] credited to opposition is what
+closing that gap costs; when the gap closes it stops, and going further
+means beating chance among ten numbers, for which nothing in this
+programme names a mechanism. **Item 4(b) is harder than
+[rem:gainprofile] left it, not cheaper**, and the honest exponent
+available from within-block cancellation alone is the $0.098386$ that
+remark measured — against a ceiling of $\theta'/2=0.28$.
+
+**O5 holds and sharpens where the opposition lives.** The $\ell^1$ share
+carried by blocks whose sign differs from the dominant block's runs
+$0.0088$ to $0.0670$ with an exponent of $+0.216756$ at $1.73$ standard
+errors, so it is not resolved as growing and the script declares it so.
+Under $7$ per cent of the mass is doing the opposing at every $N$. A
+mechanism that made the opposing mass grow would be a route even with
+$F$ below chance, since $F$ is a ratio and mass is not; nothing here
+shows one.
+
+Both between-block shares are resolution-dependent, as gate check G72
+requires them to declare: $\mu$'s runs $0.2452,\,0.3684,\,0.3608,\,
+0.3216,\,0.2064$ over $B=2,5,10,20,50$ and the coin's
+$0.0224,\,0.0664,\,0.0836,\,0.1003,\,0.1155$. The coin's rises with $B$
+where $\mu$'s peaks and falls, which is the shape the argument above
+predicts: refining the partition manufactures more of the artefact and
+leaves less room for the real thing.
 
 
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
