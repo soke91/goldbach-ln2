@@ -2897,7 +2897,10 @@ which side of the barrier every rung lies — and F3 holds, $\rho$
 falling with slope $-0.035113$. But $\rho$'s residual scatter is
 $0.0689$ against a trend of $0.0243$ per doubling, a ratio of $2.829$
 where the exponent's is $0.85$, and the forecast bracket **widens**
-from $1.6824$ to $1.7034$ decades. (That comparison has moved since
+from $1.6824$ to $1.7034$ decades. (That factor does not survive. Remark
+[rem:densenoise] recomputes both ratios where the noise is separable
+from the shape and finds the two instruments tied; what was compared
+here was a scatter that carried both.) (That comparison has moved since
 this was first written. The exponent-based bracket it is measured
 against covered only the line's scatter then and was a third as wide;
 Remark [rem:laddershape] has since forced it to cover the choice of
@@ -3919,6 +3922,87 @@ the current adjudication. It now reads, per target, only the file whose
 `SHAPESURVIVE` point count is the largest — the one G53 already forces
 to exist. An older file's marker stays as a statement about its own
 point count and no longer binds the current one.
+
+
+#### Remark (the noise is the field's, and both lenses see it) {#rem:densenoise}
+<!-- evidence: audit_dense_noise.py -->
+
+Remark [rem:primorialdense] showed that the ladder's scatter of
+$0.0037$ is not a shape sampled once per doubling, and left one
+question behind it with two opposite answers available. If the scatter
+is the integrality of $K^*_R$ — which is a location, an integer, where
+a step function first exceeds a level — then the ladder is being read
+through a quantised instrument and the smooth equivalent
+$\rho(N)<1\iff\log K^*_R/\log N>\tfrac12$ is the one to rebuild every
+bracket on. If it is the field $|R(N;k)|$, nothing built on that field
+escapes it. Both statistics are computed here on one walk of the same
+$202$ points, so no two of them can disagree about the field: the
+exponents return the sweep's own to $0.000050$, which is the width of
+its printed column, and $\rho<1$ agrees with the exponent about which
+side of the barrier every one of the $202$ falls on (N1), $\rho$ running
+$0.9119$ to $1.2989$.
+
+**The integrality is measurable and it is small.** The admissible $k$
+are a fixed set of $18863$ values, so the crossing can only land on one
+of them and the exponent moves in steps of
+$(\log k'-\log k)/\log N$ — a quantity nobody had printed. Those steps
+run $0.000019$ to $0.000618$ with median $0.000100$, and a step is a
+bound on what quantisation can move, so its square bounds the share of
+the variance it can account for. Per octave that share is
+$0.0034,\,0.0010,\,0.0008,\,0.0003$: **under a hundredth of the
+variance everywhere, and falling.** N2 is nonetheless refuted, and the
+refutation is the rule's and not the reading's — the rule was written
+against the largest step at any single $N$ and the largest one, in the
+lowest octave, reaches $0.1595$ of the pooled scatter. On any variance
+accounting the integrality is a rounding error and the rest is the
+field.
+
+**N3 is refuted, and it overturns a published comparison rather than
+confirming it.** With the within-octave scatter as noise and the whole
+sweep's slope as trend — two questions [rem:primorialdense] is the
+reason for asking separately — the exponent gives noise $0.003876$
+against $0.006022$ per doubling, a ratio of $0.6435$; $\log\rho$ gives
+$0.039423$ against $0.063539$, a ratio of $0.6204$, on a slope of
+$-0.091668$ at $24.91$ standard errors. Remark
+[rem:primorialshare] measured the same pair on ten rungs at $2.829$
+against $0.85$ and concluded $\rho$ was the worse instrument by a
+factor of more than three. **The factor is gone.** Read against its own
+error — an r.m.s. on $197$ degrees of freedom carries $1/\sqrt{2\,df}$,
+a slope carries its own standard error — the two ratios differ by
+$0.0231$ against a combined $0.0579$, which is $0.40$ of it. The
+instruments are **tied**.
+
+That was recoverable from the earlier remark's own mechanism paragraph,
+which said the two are "the same noise seen through two lenses" and
+computed the conversion. What its ratio comparison lacked was a scatter
+that was only noise: $0.0689$ on ten rungs was noise and shape
+together, and the shape half is what made $\rho$ look worse. **A ratio
+of scatter to trend is a comparison between instruments only when the
+scatter is the instrument's.**
+
+**N4 is refuted too, and its refutation is the most useful thing here.**
+Cutting the sum at $k=N^{1/4}$, the upper part holds $0.9257$ to
+$0.9889$ of the mass, and the registered expectation was that it would
+carry the fluctuation with it. It does not carry it in proportion. The
+lower part's log scatters by $0.280725$ against the upper part's
+$0.038733$ — **per unit of mass it fluctuates $7.25$ times as much** —
+and weighting each by its mass share gives contributions $0.012212$ and
+$0.037048$, so the $0.0435$ of the mass that sits below $N^{1/4}$
+supplies $0.2479$ of what moves $\rho$. The fluctuation is not where
+the mass is. A statistic that reweights toward the mass therefore does
+not average it away, and neither does one anchored lower on the
+$k$-axis, because three quarters of the contribution is still above the
+cut.
+
+**Where this lands.** There is no instrument left to switch to on this
+ladder. The quantisation is a hundredth of the variance, the smooth
+equivalent carries the same noise to within half its error, and the
+noise is spread across the $k$-range rather than sitting on a thin set
+that could be controlled separately. So the boundary
+[rem:primorialdense] measured — the shapes parting at $10^{8.3256}$,
+half a decade above the top point — is not moved by a better statistic
+computed at the same $N$. It is moved by larger $N$, and that is a
+budget.
 
 
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
