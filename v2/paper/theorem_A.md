@@ -4503,6 +4503,73 @@ on. Whether a bounded level can also supply the *magnitudes* is a
 different question and this remark does not touch it.
 
 
+#### Remark (the level's signs, and why swapping them proves nothing) {#rem:levelmagnitude}
+<!-- evidence: audit_level_magnitude.py -->
+
+Remark [rem:tailpredictors] left one factor of
+$|a_k|=(\log k)T_k|I_k|$ untested. [rem:leanidentity] gives the question
+an exact form — the demand is $e(G)\to e(\ell^1/\ell^2)$, measured at
+$+0.153911$ against $+0.287798$ — and both sides are computable for any
+vector, so three surrogates separate the factors on the gain's own
+field: $|a_k|$ with $\operatorname{sign}P_{29}$, $(\log k)|P_{29}|$ with
+$\operatorname{sign}H$, and $(\log k)P_{29}$. No gain had been computed
+for any of them; [rem:sievedepth] and [rem:leveldemand] measure
+one-sided sums, and a gain is a ratio of two norms.
+
+The control is exact: the gain and its exponent reproduce
+[rem:gainsplit]'s to $0.000046$ and to six places (V1).
+
+**V3 and V4 hold and are the durable part.** The level's *magnitudes*
+are ruinous: on $\mu$'s own signs they give $e(G)=+0.066210$, below
+$\mu$'s by $6.95$ standard errors, and a deficit of $+0.219441$. Taken
+whole the level is worse than $\mu$ — $e(G)=+0.103219$, deficit
+$+0.182432$ against $\mu$'s $+0.133887$. **A bounded modulus, used for
+both factors, cancels no better than $\mu$ relative to its own
+concentration.**
+
+**V2 is refuted, and the refutation looked like the best news in this
+programme until it was checked.** Putting the level's signs on $\mu$'s
+magnitudes raises the exponent to $+0.260989$, $5.05$ standard errors
+above $\mu$'s, and cuts the deficit to $+0.026809$ — a fifth of
+$\mu$'s, and within a hair of the ceiling. Read naively that says a
+bounded modulus almost supplies the cancellation item 4(b) needs.
+
+**It does not, and the reason is that a small deficit is what noise
+looks like.** A random sign vector has $|\sum|$ of order $\ell^2$, so
+its gain *is* $\ell^1/\ell^2$ up to a constant and its deficit is zero
+by construction. Measured on $\mu$'s own magnitudes the coin gives
+$e(G)=+0.289456$ and a deficit of $-0.001658$ — zero, as the argument
+says — with gains of $17.3688$ to $72.1485$ against $\mu$'s $1.8337$ to
+$3.5925$, the factor [rem:crosskreference] already published. So
+"deficit near zero" is not a property to aspire to; it is what a
+sign vector carrying no information about $\mu$ achieves.
+
+The arm that decides it is $\mu$'s own signs with **exactly as many
+flipped at random as the predictor gets wrong** — the agreement is
+$0.7367$ to $0.8129$, so $59$ to $1197$ flips. That arm gives
+$e(G)=+0.180978$ and a deficit of $+0.106820$. The sign swap's
+$+0.260989$ sits above it by $+0.080011$, $2.79$ standard errors, so the
+level's signs are not merely $\mu$'s signs with noise added. **But the
+separation is not where it would have to be.** At the top of the sweep
+the two gains are $7.0377$ and $7.2326$ — the arm is *ahead* — and the
+exponent gap is made at the small-$N$ end, where the sign swap gives
+$2.0355$ against the arm's $2.9068$. The level's signs cancel worse than
+random flips of the same count at small $N$ and no better at large $N$;
+what the exponent records is the crossing, not an advantage.
+
+**What is left of the question, stated in the right variables.** The
+deficit scale now has both ends measured: $0$ for a coin, $+0.133887$
+for $\mu$. Item 4(b) asks for $\mu$'s own sum to behave like the coin's
+on $\mu$'s own magnitudes, and nothing measured here does that *for
+$\mu$*. A sign swap cannot, in principle, say anything about it —
+replacing $\mu$'s signs discards the object a proof has to bound, and
+the surrogate's smallness is not $\mu$'s smallness. So the demand is
+unchanged and now has a scale: close $+0.133887$, on the vector
+$\mu$ actually gives, with the concentration $\ell^1/\ell^2$ fixed at
+$+0.287798$ — which is itself only $+0.007798$ above the ceiling
+$\theta'/2$ that [rem:flatnessshape] shows it cannot pass.
+
+
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
 <!-- evidence: audit_slope_significance.py -->
 
