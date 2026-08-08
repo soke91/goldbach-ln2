@@ -3827,6 +3827,100 @@ doubling. The fifteen-point refit does not repair that; it is still
 one line through a region whose residuals have a sign.
 
 
+#### Remark (fifty points to a doubling, and what they buy) {#rem:primorialdense}
+<!-- evidence: audit_primorial_dense.py -->
+
+Remark [rem:primorialgap] left a factor it could not read. The four
+points it put between rung 9 and rung 10 rose at $3.83$ times the
+ladder's global slope, but that was a two-point slope over a lever of
+$0.3817$ in $\log N$, and propagating the ladder's own scatter through
+the lever puts it at $1.90$ standard errors, which [rem:slopes]
+forbids reading. The closing condition was named there and in the
+repository's standing note: fill the space between the rungs until the
+slope is separated by the **number of points** instead of by the length
+of the lever. It is filled here. Every $N=30030m$ whose $m$ is composed
+of $\{2,3,5,7,11,13\}$ with $m\in[2^6,2^{10}]$ — $202$ of them, fifty
+to a doubling, the published rungs 6 through 10 among them — carries
+the identical threshold $0.087306$ and the identical $18863$ admissible
+$k$ (D2), and the imported measurement returns the five rungs the sweep
+contains to $0.000048$ (D1).
+
+**D3 is refuted, and it fixes what the rest can possibly say.** Fitted
+inside each octave on that octave's own points, the exponent scatters
+by $0.004084,\,0.004470,\,0.003975,\,0.003113$ — three of the four at
+or above the ladder's published $0.0037$. That number was therefore
+never an artefact of sampling one point per doubling. It is the
+statistic's own noise: $K^*_R$ is where a step function first exceeds a
+level, so it jumps, and the exponent at one $N$ of this family does not
+predict it at the next. **The rungs' departures from their line are not
+a shape waiting to be sampled**, and the hope that filling in would
+resolve one is dead.
+
+**D4 is refuted with it, and the closing condition is not met.** The
+four octave slopes stand at $t=0.28,\,2.03,\,2.72,\,4.55$: three
+resolve, the first does not. The failure is not one unlucky octave. A
+per-point noise of the ladder's own size against a trend that gains
+less than that across a whole doubling means an octave is too short a
+lever whatever fills it — more points shrink the error of a slope, they
+do not lengthen the base it is taken over. The factor $3.83$ is not
+recoverable by this method and it is not recovered.
+
+**What is recoverable is the slope over the whole sweep, and there D5
+is refuted.** The four local slopes are
+$-0.001039,\,+0.006957,\,+0.007174,\,+0.008091$, and regressed on the
+$\log N$ of their own midpoints they rise at $+0.003983$, $2.17$
+standard errors — a drift, not a constant. Taken as one fit the sweep
+gives $+0.008688$ with standard error $0.000359$, $t=24.17$ over a
+lever of $2.7726$ and correlation $0.86310$, against the eleven rungs'
+$+0.006778$ with standard error $0.000565$: the two are $5.31$ of the
+sweep's errors apart. And $64$ of the top octave's $78$ residuals about
+the eleven-rung line are positive, so [rem:primorialgap]'s four of four
+was not luck — though it is the octave's offset from the line that this
+counts, not curvature within it. **The eleven-rung slope understates
+the ladder in the region where the ladder has now been measured
+densely, and anything read off it past the end — $\theta'$ included —
+inherits that.**
+
+**D6 holds, and it is worth more than the three that fell.** On the
+$209$ distinct $N$ this ladder now has — the twelve published rungs and
+the sweep — the best r.m.s. is $0.003978$ and carries a standard error
+of $0.000196$, which is $4.9$ per cent of itself against the $22.4$ per
+cent twelve rungs gave. **One shape survives at one standard error**,
+$a+b\log N$, where twelve rungs left two. The margin is real and thin:
+the gap to the runner-up is $0.000238$ against that $0.000196$, so it
+separates, where on twelve rungs the same comparison was $0.000626$
+against $0.000828$ and Remark [rem:laddershape12] had to call it tied.
+The $2.7845$ decades that remark could not close are closed, not by an
+argument about which shape is right, but by enough points to tell them
+apart inside the range where both were fitted.
+
+What the survivor says: $\tfrac12$ at $10^{7.3193}$ and
+$\theta'=0.56$ at $10^{10.6180}$, bracketed at one r.m.s. residual
+either way as [rem:primorialreach] brackets, $[10^{10.3993},\,
+10^{10.8367}]$. Twelve rungs put it at $10^{11.0762}$, and the shape
+that no longer survives put it at $10^{13.8607}$.
+
+**And the bracket is a floor on the uncertainty, not the whole of it.**
+Two things say so and neither is repaired here. The two best shapes
+part by more than the fit's own r.m.s. at $10^{8.3256}$, only $0.5367$
+decades above the top point $10^{7.7889}$ — Remark [rem:shapetrust]'s
+boundary moves out by less than a fifth of a decade, so the forecast is
+still far outside the range the data reach, and it is still the shape's
+word and not the data's. What changed is that there is one shape to
+take the word of instead of two. Second, D5: the slope this line
+extrapolates is itself drifting, by $1.724191$ of its own mean across
+the four octaves, and no shift of the level covers that.
+
+The gate needed a repair to state this at all. Check G60 collected
+`SHAPEGAP` by file order but `SHAPES TIED` as a union across files, so
+the tie that twelve rungs correctly declared survived into a namespace
+where $209$ points had separated the same two shapes, and contradicted
+the current adjudication. It now reads, per target, only the file whose
+`SHAPESURVIVE` point count is the largest — the one G53 already forces
+to exist. An older file's marker stays as a statement about its own
+point count and no longer binds the current one.
+
+
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
 <!-- evidence: audit_slope_significance.py -->
 

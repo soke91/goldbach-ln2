@@ -100,7 +100,7 @@ python gate/gate.py > gate/gate.txt 2>&1; echo $?
 | G57 | 문턱을 선언한 축은 그 위 **모든** 통계량의 `AXIS` 문턱을 내고, 다르면 `THRESHOLDS DIFFER` 를 붙인다 |
 | G58 | 상한이 `0.02` 아래인 `PERN` 나머지는 직접 잰 설명 `ACCOUNT` 를 대고, 안 겹치면 `ACCOUNT UNEXPLAINED` 를 적는다 |
 | G59 | 폭을 상한으로 판정하면 추정량 자신의 표집 폭 `CONSTSPREAD` 를 대고, 두 배를 넘을 때만 `CONST DRIFTS` 를 |
-| G60 | `SHAPESURVIVE` 표적은 `SHAPEGAP` 으로 r.m.s. 차를 그 표준오차에 대고, 이하면 `SHAPES TIED` 를 붙인다 |
+| G60 | `SHAPESURVIVE` 표적은 `SHAPEGAP` 으로 r.m.s. 차를 그 표준오차에 대고, 이하면 `SHAPES TIED` 를 붙인다 — 판정은 점수가 가장 큰 파일 것 하나만 읽는다 |
 | G61 | 전체 구간 이득 지수는 `GAINSPLIT` 으로 머리·꼬리 지수를 대고, 머리 ≤ 전체 ≤ 꼬리여야 한다 |
 | G62 | `GAINSPLIT` 은 `SPLITOVERLAP` 으로 대응 구간 십분위와의 겹침을 낸다 — 질량 분할을 구간 제한으로 읽지 않는다 |
 | G63 | `PERN <이름>_residual` 은 `RESIDSCALE` 로 규모별 폭과 바닥을 내고, 가로지르면 `CROSSES FLOOR` 를 붙인다 |

@@ -3005,37 +3005,58 @@ def g60_shape_gaps_are_read_against_their_own_error():
     뜻이 있다. 그래서 SHAPESURVIVE 를 내는 표적은
     SHAPEGAP <표적> <차> <표준오차> 도 내야 하고, 차가 표준오차 이하면
     SHAPES TIED <표적> 을, 넘으면 그것을 붙이지 않아야 한다.
+
+    판정은 **현행 점수의 것 하나**만 읽는다. 처음엔 SHAPEGAP 을
+    파일 순서로 덮어쓰면서 SHAPES TIED 는 파일들의 합집합으로 모았는데,
+    그 둘이 어긋난 채로 실제 사건이 왔다: audit_primorial_dense.py 가
+    같은 표적 ladder_theta 를 209 점에서 다시 판정해 차 0.000238 대
+    표준오차 0.000196 으로 **갈랐는데**, 열두 가로대에서 묶였던 옛
+    SHAPES TIED 가 합집합에 남아 현행 판정과 모순됐다. G53 이 이미
+    "점이 늘면 다시 하라"고 강제하는 마당에, 그 다시 한 판정을 옛
+    표지가 뒤집을 수 있으면 안 된다. 그래서 표적마다 SHAPESURVIVE 의
+    점수가 가장 큰 파일을 현행으로 잡고, 그 파일의 SHAPEGAP 과 그
+    파일의 SHAPES TIED 만 대조한다. 옛 파일의 표지는 자기 점수에 대한
+    역사적 진술로 남되 현행을 구속하지 않는다.
     """
     if not os.path.isdir(RESULTS):
         return 0
-    gaps, tied, targets = {}, set(), set()
+    # 표적 -> (점수, 파일, 자기 파일의 gap, 자기 파일의 tied 여부)
+    current = {}
     for f in sorted(os.listdir(RESULTS)):
         if not f.endswith(".txt"):
             continue
         src = read(os.path.join(RESULTS, f))
+        gaps_f = {}
         for lab, g, e in SHAPEGAP.findall(src):
             try:
-                gaps[lab] = (float(g), float(e))
+                gaps_f[lab] = (float(g), float(e))
             except ValueError:
                 pass
-        tied.update(SHAPETIED.findall(src))
-        targets.update(t for t, _p, _s, _sp
-                       in SHAPESURVIVE.findall(src))
+        tied_f = set(SHAPETIED.findall(src))
+        for t, pts, _s, _sp in SHAPESURVIVE.findall(src):
+            pts = int(pts)
+            if t in current and current[t][0] >= pts:
+                continue
+            current[t] = (pts, f, gaps_f.get(t), t in tied_f)
     n = 0
-    for t in sorted(targets):
-        if t not in gaps:
+    for t in sorted(current):
+        pts, f, ge, istied = current[t]
+        if ge is None:
             fails.append(
-                f"G60 SHAPESURVIVE {t} is declared and no SHAPEGAP "
-                f"{t}; the two shape comparisons this repository ran "
-                f"were separated by 0.09 and 0.76 of the r.m.s.'s own "
-                f"standard error, which is to say not at all")
+                f"G60 results/{f} adjudicates SHAPESURVIVE {t} at "
+                f"{pts} points, the largest declared, and gives no "
+                f"SHAPEGAP {t}; the two shape comparisons this "
+                f"repository first ran were separated by 0.09 and 0.76 "
+                f"of the r.m.s.'s own standard error, which is to say "
+                f"not at all")
             n += 1
             continue
-        g, e = gaps[t]
-        if (g <= e) != (t in tied):
+        g, e = ge
+        if (g <= e) != istied:
             fails.append(
-                f"G60 SHAPEGAP {t} is {g:g} against a standard error "
-                f"{e:g} and the SHAPES TIED {t} marker "
+                f"G60 results/{f} is the current adjudication of {t} "
+                f"({pts} points) with SHAPEGAP {g:g} against a "
+                f"standard error {e:g}, and its SHAPES TIED {t} marker "
                 f"{'is present anyway' if g > e else 'is missing'}")
             n += 1
     return n
