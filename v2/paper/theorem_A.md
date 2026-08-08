@@ -4005,6 +4005,98 @@ computed at the same $N$. It is moved by larger $N$, and that is a
 budget.
 
 
+#### Remark (part of the cancellation is between the blocks) {#rem:gainprofile}
+<!-- evidence: audit_gain_profile.py -->
+
+Remark [rem:leanidentity] reduced item 4(b) of the standing note to one
+exponent: $\mathrm{slope}/\mathrm{floor}=(\ell^1/\ell^2)/G/c$ is exact,
+so the slope stops growing against its floor exactly when $e(G)$
+catches $e(\ell^1/\ell^2)$, and the measurement is $+0.153911$ against
+a ceiling $\theta'/2=0.28$. Remark [rem:gainsplit] split the range by
+magnitude and got the top tenth at $+0.077963$ against the remaining
+nine tenths at $+0.340006$; Remark [rem:signmasshead] found the head
+carries only half of what needs explaining. The note closed on the
+sentence that the rise has to come from the whole range and not from
+one decile.
+
+That sentence rests on a two-way split, which cannot distinguish two
+demands that cost a proof very different things. Order the $k$ by
+$|a_k|$, cut into $B$ blocks of equal count, and write $w_d$ for block
+$d$'s share of $\ell^1$ and $s_d=(\sum_d a)/(\sum_d|a|)\in[-1,1]$ for
+its signed imbalance, so $G_d=1/|s_d|$. Then
+
+$$
+\frac1G=\Bigl|\sum_d w_d s_d\Bigr|
+$$
+
+identically, both sides being $|\sum a|/\ell^1$ — it holds here to
+$1.110\cdot10^{-16}$ at every $N$, and the gains reproduce
+[rem:gainsplit] to $0.000046$ with the same exponent to six places
+(W1). The gain is therefore the reciprocal of a mass-weighted average
+of ten signed imbalances, and it can be small either because each
+$|s_d|$ is small — blocks cancelling internally — or because the $s_d$
+have opposite signs, blocks cancelling against each other. Forbidding
+the second gives $\sum_d w_d|s_d|$, and the two can be compared.
+
+**W2 is refuted, and it names a mechanism nothing had named.** Of the
+$0.153911$ at which $1/G$ decays, only $0.098386$ survives when the
+blocks are forbidden to oppose one another; the difference
+$0.055525$ stands at $3.67$ standard errors. **A third of the measured
+cross-$k$ cancellation is between magnitude blocks, not inside them.**
+That is a cheaper thing to ask a proof for than ten blocks each
+cancelling at the square-root rate, and it was invisible to a two-way
+split because a two-way split has almost no "between" to see.
+
+**But the number is not one number, and saying so is the point.** With
+$B$ blocks the forbidden-opposition value is $1/G$ at $B=1$ and exactly
+$1$ at $B=\#k$, where it does not move with $N$ at all — so the share
+attributed to opposition runs from $0$ to $1$ as the partition is
+refined, and quoting it at one resolution reads as a canonical
+decomposition when it is not. Measured at $B=2,5,10,20,50$ the share
+is $0.2452,\,0.3684,\,0.3608,\,0.3216,\,0.2064$: **a factor $1.7848$
+apart and not even monotone.** What is invariant is the direction — the
+exponent falls at every resolution when opposition is forbidden — and
+the coarsest reading, $B=2$, which is exactly the split
+[rem:gainsplit] published, is the one that claims least at $0.2452$.
+Gate check G72 now forces any such split to declare three resolutions
+and to mark itself resolution-dependent when they disagree by more than
+half again.
+
+**W3 is refuted, and the profile is not a gradient.** The block gains
+do not increase from top to bottom at any $N$, and four of the ten
+blocks have exponents within their own standard error of zero. Only the
+top two are both resolved and low — $+0.077963$ and $+0.112199$ at
+$8.43$ and $8.98$ standard errors — and they hold $0.3400$ and $0.1867$
+of the mass. Below them the blocks carry little mass and their gains
+swing by two orders of magnitude between neighbouring $N$ (block 9
+reaches $663.9864$ at $N=4\cdot10^5$ and $6.0390$ at
+$6.4\cdot10^6$), so their individual exponents are not measurements of
+anything. **The object that fails to cancel is the top fifth by
+magnitude, not the top tenth and not a gradient**; every block is under
+the ceiling and the mass-weighted shortfall is $0.227835$ in the
+exponent.
+
+**W4 holds, and only by the letter of its rule.** The top block
+supplies the largest single term $w_d|s_d|$ at every one of the eight
+$N$ and its share does not fall, which is what the rule asked. But the
+share runs $0.5466$ to $0.6033$ with an exponent of $+0.007716$ at
+$0.96$ standard errors, so the rise is unresolved and the honest
+reading is that it is **flat**: over a factor $128$ in $N$ the top
+block's grip on the whole neither tightens nor loosens. The script
+declares it unresolved rather than reading the sign.
+
+**Where this lands.** The demand on item 4(b) is now stated in the
+right variables. It is not "ten blocks each cancelling to the
+square-root rate", because a quarter to a third of the decay is already
+opposition between blocks and that component is real at every
+resolution. It is not "control the head", because the head's share of
+the weighted sum is flat and the second block is resolved and low as
+well. It is: **raise the internal cancellation of the top fifth by
+magnitude, or find more opposition between blocks than the field
+already supplies** — and the second alternative is new, has a measured
+size, and has nothing said about it anywhere.
+
+
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
 <!-- evidence: audit_slope_significance.py -->
 

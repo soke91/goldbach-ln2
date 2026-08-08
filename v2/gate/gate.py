@@ -3691,6 +3691,86 @@ def g71_residual_signs_are_declared():
     return n
 
 
+# ----------------------------------------------------------------- G72
+BETWEENCLAIM = re.compile(r"cross-block|between the blocks|"
+                          r"between blocks", re.I)
+CROSSSHAREM = re.compile(r"^CROSSSHARE (\S+) (\d+) ([\d.eE+-]+)\s*$",
+                         re.M)
+RESDEP = re.compile(r"^RESOLUTION DEPENDENT (\S+)\s*$", re.M)
+
+
+def g72_within_between_splits_declare_their_resolution():
+    """'안'과 '사이'로 가른 분해는 분할의 해상도를 함께 내야 한다.
+
+    audit_gain_profile.py 가 이득의 감쇠 0.153911 을 블록 안의 상쇄
+    0.098386 과 블록 사이의 상쇄 0.055525 로 갈랐다. 3.67 표준오차로
+    해소된 실측이고, 그 자체로는 옳다. 그런데 **그 수는 분할의 해상도에
+    달려 있다.** 블록 B 개로 자르고 블록 사이의 상쇄를 금지한 값
+    sum_d |sum_d a| / l1 은 B = 1 에서 1/G 이고 B = #k 에서 정확히 1 이라
+    N 에 안 움직이므로, "사이"의 몫은 B = 1 에서 0 이고 B = #k 에서 1 이다.
+    사이의 몫은 그 사이를 걸어가는 함수이지 한 수가 아니다.
+
+    실제로 재 보니 B = 2, 5, 10, 20, 50 에서 0.2452, 0.3684, 0.3608,
+    0.3216, 0.2064 -- 단조도 아니고 1.78 배로 벌어진다. 십분위 하나만
+    발표하면 정칙 분해처럼 읽히고, 그 위에서 "상쇄의 3분의 1이 블록
+    사이의 것"이라는 문장이 만들어진다. 게이트의 어느 검사도 이의를
+    제기하지 않았다 -- G24 는 쓸린 매개변수를 요구하지만 그건 적합
+    지수에만 걸리고, 분해의 분할은 매개변수로 보이지 않기 때문이다.
+
+    그래서 결과 파일이 '사이'의 상쇄를 진술하면 같은 이름으로
+    CROSSSHARE <이름> <블록수> <몫> 을 **셋 이상**의 해상도에서 내야
+    하고, 그 몫이 1.5 배를 넘게 벌어지면 RESOLUTION DEPENDENT <이름> 을
+    붙여야 한다. 넘지 않으면 붙이지 않아야 한다 -- SHAPES TIED 와 같은
+    규약이고, 붙이는 쪽과 안 붙이는 쪽이 모두 진술이다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        if not BETWEENCLAIM.search(src):
+            continue
+        rows = {}
+        for lab, b, v in CROSSSHAREM.findall(src):
+            try:
+                rows.setdefault(lab, {})[int(b)] = float(v)
+            except ValueError:
+                pass
+        dep = set(RESDEP.findall(src))
+        if not rows:
+            fails.append(
+                f"G72 results/{f} attributes part of a decay to "
+                f"cancellation between blocks and declares no "
+                f"CROSSSHARE line; that share is 0 at one block and 1 "
+                f"at one k per block, so without the resolution it is "
+                f"not a measurement")
+            n += 1
+            continue
+        for lab, byb in sorted(rows.items()):
+            if len(byb) < 3:
+                fails.append(
+                    f"G72 results/{f} declares CROSSSHARE {lab} at "
+                    f"{len(byb)} resolution(s); three are the fewest "
+                    f"that can show the dependence, and the one case "
+                    f"measured here was not even monotone in it")
+                n += 1
+                continue
+            vals = [v for v in byb.values() if v > 0]
+            if len(vals) < 2:
+                continue
+            spread = max(vals) / min(vals)
+            if (spread > 1.5) != (lab in dep):
+                fails.append(
+                    f"G72 results/{f} declares CROSSSHARE {lab} over a "
+                    f"spread of {spread:.4f} and the "
+                    f"RESOLUTION DEPENDENT {lab} marker "
+                    f"{'is present anyway' if spread <= 1.5 else 'is missing'}")
+                n += 1
+    return n
+
+
 def main():
     docs = [(p, read(p)) for p in paper_files()]
     print("gate")
@@ -3823,6 +3903,8 @@ def main():
          g70_every_citation_exists(docs)),
         ("G71 residual lists declare their sign run",
          g71_residual_signs_are_declared()),
+        ("G72 within/between splits declare their resolution",
+         g72_within_between_splits_declare_their_resolution()),
     ]
     print()
     for name, c in counts:

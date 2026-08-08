@@ -112,6 +112,7 @@ python gate/gate.py > gate/gate.txt 2>&1; echo $?
 | G69 | 자유 계수를 유도 계수와 대면 `CORR <이름>_regressors` 를 대고, `0.99` 이상이면 `COEFF NOT SEPARABLE` 을 붙인다 |
 | G70 | 번호 붙은 진술만이 아니라 **모든** evidence 마커의 스크립트·결과가 실재 — G1은 115개 중 22개만 본다 |
 | G71 | 잔차 목록을 인쇄하면 `SIGNRUN` 으로 같은 부호 개수를 낸다 — r.m.s.는 부호를 못 본다 |
+| G72 | '사이'의 상쇄를 진술하면 `CROSSSHARE` 를 세 해상도 이상에서 내고, 1.5배 넘게 벌어지면 `RESOLUTION DEPENDENT` 를 붙인다 |
 
 # 3. 방법 규칙
 
