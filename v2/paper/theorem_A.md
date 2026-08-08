@@ -4429,6 +4429,80 @@ every other agreement claim in the paper survives the check that caught
 it.
 
 
+#### Remark (a bounded modulus does reach the tail) {#rem:tailpredictors}
+<!-- evidence: audit_tail_predictors.py -->
+
+Two things were outstanding after [rem:tailmertens]. The Mertens
+predictor was eliminated for being constant on the range that matters,
+and G73's survey then said the fault was narrow: the sieve predictors
+declare majority shares of $0.5801$ to $0.7726$, so they have real
+variance, and none of them had been looked at on the tail. And a
+boundary had never been checked. **Every sign predictor in this
+repository sums over odd $m$; the gain of item 4(b) sums over all $m$.**
+They ought to coincide, since $N$ is even and $k$ coprime to $N$ is odd,
+so an even $m$ makes $N-mk$ even and $\Lambda$ vanishes unless $N-mk$ is
+a power of two — but that is an argument, not a measurement.
+
+**S1 settles the boundary exactly.** $\operatorname{sign}H$ over all $m$
+and over the odd $m$ agree at $1.000000$ of the $k$, at every one of the
+eight $N$ — not approximately, at every $k$. And the $Q=29$ agreement
+reproduces [rem:sievedepth]'s published column to $0.000050$. So the
+predictors were always predictors for the gain's field, and everything
+compared across the two conventions in the preceding remarks was
+compared inside one field.
+
+**S2 is refuted, and it changes how any of this may be read.** The
+sieve predictor at $Q=29$ has a majority sign share of $0.5170$ to
+$0.6255$ on the whole range — genuine variance — but on the top decile
+by $|I_k|$ that rises to $0.8484,\,0.8820,\,0.9309,\,0.9595,\,0.9600,\,
+0.9851,\,1.0000,\,1.0000$. **Selecting the tail pushes the predictor
+towards one sign by itself.** So the level of agreement on the tail is
+not a measurement for this predictor either, and G73 marks this file
+degenerate at $1.0000$ accordingly. What is left as a measurement is the
+*excess* over what the predictor's own marginals give, and unlike the
+Mertens case there is one, because the share stops short of $1$ at the
+larger $N$ and falls as $N$ grows.
+
+**S3 holds.** Replacing every sign by $\operatorname{sign}P_{29}$ on
+$\mu$'s own magnitudes reproduces the observed top-decile negative share
+at every $N$, worst difference $-0.0147$: $0.9706$ against $0.9853$,
+$0.9224$ against $0.9315$, $0.8484$ against $0.8547$. The tail's sign
+pattern is reproduced by a **bounded** modulus.
+
+**S4 is refuted as registered, and where it fails is not where it
+matters.** The matched-marginal arm draws signs independently at the
+predictor's own negative rate on the tail, so it contains everything the
+marginals can explain. The tail agreement beats it by $+3.06,\,+5.36,\,
++8.24,\,+11.94$ standard spreads at the top four $N$ — resolved, and
+**growing with $N$** — but by only $+1.42$ and $+2.88$ at
+$8\cdot10^5$ and $1.6\cdot10^6$, and the two smallest $N$ have no
+spread at all because the arm is already at $1.0000$ there. The rule
+asked for three spreads at every $N$ and does not get them. The honest
+reading is that the excess is unmeasurable at the small $N$, where the
+predictor has no variance on the tail to speak of, and strongly resolved
+at the large ones, where it does.
+
+**Where this leaves item 4(b), which is further than it has been.** The
+tail's sign — the thing [rem:tailasymmetry] could not account for with a
+uniform rate, a $k$-dependent rate or a shifted law, and
+[rem:tailmertens] could not account for with the Mertens function — is
+accounted for by the survivors of a sieve to $Q=29$. That is a bounded
+modulus, which is the property [rem:provablehalf] needs and
+[rem:sievedepth] found nothing had for the *slope*. The agreement does
+not decay away either: on the tail its exponent is $-0.003755$ at
+$4.06$ standard errors, essentially flat across a factor $128$ in $N$,
+while the whole-range agreement's $-0.009494$ is unresolved at $1.49$.
+
+What this does **not** say. It does not say $P_{29}$ carries the gain:
+[rem:sievedepth] measured the slope ratio at a fixed level and found it
+short, and [rem:leveldemand] measured that the residual demand barely
+moves from level $29$ to $\alpha=0.3$. It says the *sign* of the largest
+imbalances is a bounded-modulus object, which is one of the two factors
+$|a_k|=(\log k)T_k|I_k|$ splits into, and the one item 4(b) was stuck
+on. Whether a bounded level can also supply the *magnitudes* is a
+different question and this remark does not touch it.
+
+
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
 <!-- evidence: audit_slope_significance.py -->
 

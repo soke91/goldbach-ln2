@@ -1,0 +1,116 @@
+STATISTIC: on the squarefree k < N^theta' coprime to N, the
+           sign agreement of H(N;k) -- summed over ALL m, the
+           gain's convention -- with sign P_Q for
+           P_Q = sum_m mu(m) [N - mk has no odd prime factor at
+           or below Q], Q = 29 and 211, on the whole range and
+           on the top decile of the k by the imbalance |I_k| of
+           {#rem:headsign}; the predictor's own majority sign
+           share on each; the negative share of that top decile
+           when every sign is replaced by the predictor's on
+           mu's own magnitudes; the same agreement expected from
+           signs drawn independently at the predictor's own
+           negative rate; and, as the control, the fraction of k
+           at which sign H over all m equals sign H over the odd
+           m.
+NULL: the matched-marginal arm of S4. Signs are drawn
+      independently at the predictor's OWN negative rate on the
+      tail set, so the baseline contains everything the
+      predictor's marginal distribution can explain and only the
+      pairing between k and its prediction is destroyed; the
+      tail is a fixed set once the magnitudes are given, so the
+      arm is binomial and needs no draws. The permutation of
+      {#rem:leanmertens} is unavailable because P_Q is not a
+      function of floor(N/k).
+FIELD: N = 2e5 through 2.56e7 by doubling, every one 2^a 5^b so
+       the odd radical is one throughout, as RADICALS says; k
+       squarefree and coprime to N with 2 <= k < N^theta'; for
+       I_k and for sign H the m run over ALL m < N/k coprime to
+       k, the convention of code/audit_gain_split.py, and for
+       the odd-m control and for P_Q over the odd squarefree m,
+       the convention of code/audit_sieve_depth.py; Lambda and mu
+       from an integer sieve to 25600000; the split and
+       the sieve are imported from code/audit_head_sign.py; the
+       published agreements are read from
+       results/audit_sieve_depth.txt and the published tail
+       share from results/audit_head_sign.txt.
+
+read from results/audit_sieve_depth.txt: 6 agreements at Q = 29, 0.7367 to 0.8129
+  from results/audit_head_sign.txt the top decile by |I| running 0.8547 to 1.0000
+  the all-m split is imported from code/audit_head_sign.py; the odd-m
+  convention and the sieve predictor are rebuilt here on the same k-set.
+
+sieving to 25600000 ...
+RADICALS 1
+
+  N            #k      field agree  obs top   agree all  agree tail  maj tail  predicted
+  200000       313     1.000000     1.0000    0.8129     1.0000      1.0000    1.0000
+  400000       462     1.000000     1.0000    0.7632     1.0000      1.0000    1.0000
+  800000       682     1.000000     0.9853    0.7446     1.0000      0.9851    0.9706
+  1600000      1004    1.000000     0.9600    0.7367     1.0000      0.9600    0.9600
+  3200000      1485    1.000000     0.9662    0.7759     0.9932      0.9595    0.9595
+  6400000      2186    1.000000     0.9315    0.7579     0.9954      0.9309    0.9224
+  12800000     3226    1.000000     0.8854    0.7516     0.9814      0.8820    0.8793
+  25600000     4754    1.000000     0.8547    0.7482     0.9853      0.8484    0.8484
+
+S1  are the two conventions one field, and is this that predictor?
+  sign H over all m against sign H over the odd m: 1.000000 to 1.000000 agree
+  N is even and k coprime to N is odd, so an even m makes N - mk even
+  and Lambda vanishes unless N - mk is a power of two -- the measured
+  agreement is what that argument is worth.
+  the Q = 29 agreement against the published, over 6 shared N: worst 0.000050
+  S1 hold   (cap 0.999 on the field, cap 0.01 on the published)
+
+S2  does the predictor keep its variance on the tail?
+  N            maj all   maj tail  Mertens maj tail (published)
+  200000       0.5748    1.0000    1.0000
+  400000       0.5471    1.0000    1.0000
+  800000       0.5170    0.9851    1.0000
+  1600000      0.5349    0.9600    1.0000
+  3200000      0.5628    0.9595    1.0000
+  6400000      0.5828    0.9309    1.0000
+  12800000     0.6133    0.8820    1.0000
+  25600000     0.6255    0.8484    1.0000
+  S2 REFUTED   (cap 0.9)
+
+S3  does it reach the tail?
+  N            observed  predicted  difference
+  200000       1.0000    1.0000     +0.0000
+  400000       1.0000    1.0000     +0.0000
+  800000       0.9853    0.9706     -0.0147
+  1600000      0.9600    0.9600     +0.0000
+  3200000      0.9662    0.9595     -0.0068
+  6400000      0.9315    0.9224     -0.0091
+  12800000     0.8854    0.8793     -0.0062
+  25600000     0.8547    0.8484     -0.0063
+  S3 hold   (cap 0.05)
+
+S4  is it the predictor or the marginals?
+  N            agree tail  matched arm  spread   in spreads
+  200000       1.0000      1.0000       0.0000   +inf
+  400000       1.0000      1.0000       0.0000   +inf
+  800000       1.0000      0.9706       0.0206   +1.42
+  1600000      1.0000      0.9232       0.0266   +2.88
+  3200000      0.9932      0.9284       0.0212   +3.06
+  6400000      0.9954      0.8753       0.0224   +5.36
+  12800000     0.9814      0.7966       0.0224   +8.24
+  25600000     0.9853      0.7472       0.0199   +11.94
+  S4 REFUTED   (cap 3 spreads)
+
+  and where the two agreements are going:
+  quantity      exponent     s.e.       t
+  agree tail    -0.003755    0.000924   4.06
+  agree all     -0.009494    0.006365   1.49
+TSTAT slope_tailpredictors_tail 4.06
+SPREAD slope_tailpredictors_tail 4.8520
+TSTAT slope_tailpredictors_all 1.49
+SPREAD slope_tailpredictors_all 4.8520
+UNRESOLVED SIGN slope_tailpredictors_all
+
+  the predictor's own majority sign share, at its worst over everything
+  reported above: 1.0000. An agreement is only a measurement where the
+  predictor has variance.
+MARGINAL audit_tail_predictors 1.0000
+DEGENERATE audit_tail_predictors
+
+======================================================================
+S1 hold  S2 REFUTED  S3 hold  S4 REFUTED
