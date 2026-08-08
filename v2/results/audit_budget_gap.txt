@@ -1,0 +1,92 @@
+STATISTIC: for each of H and R, the crossings of
+           sum_{k<K}(log k)|.| against S(N)N and against
+           S(N)(1-A(N))N, their exponents log K*/log N, and
+           the difference between them -- what the operative
+           budget costs in the exponent -- with the
+           least-squares slope of that difference against
+           log N, its r.m.s. residual and standard error.
+NULL: none is run and none applies. Two crossings of the same
+      measured sum against two computed thresholds are located
+      and differenced; there is no background to detect
+      against. The sign controls for this field were run in
+      lab_direct_level.py and lab_split_budget.py.
+FIELD: N = 2e5 through 3.2e6 by doubling; k squarefree and
+       coprime to N with 2 <= k < 100000; m odd,
+       squarefree and coprime to k, m <= (N-1)/k; the sieve
+       weight over the odd primes below 30;
+       beta refitted as sum(H P)/sum(P^2) on the same range;
+       S(N) and A(N) from Euler products at the fixed bound 4000000.
+       Every N is 2^a 5^b, one odd radical, as RADICALS says.
+       The published gaps are read from
+       results/audit_model_transfer.txt.
+
+read 5 published gaps and the mean 0.1677 from results/audit_model_transfer.txt
+sieving to 3200000, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N = 200000     budget factor 4.7009   H 0.6552 -> 0.4728   R 0.7477 -> 0.5654
+BUDGET kstar_budgetgap_S1AN_N200000 0.374487
+  N = 400000     budget factor 4.7009   H 0.6620 -> 0.4932   R 0.7417 -> 0.5642
+BUDGET kstar_budgetgap_S1AN_N400000 0.374487
+  N = 800000     budget factor 4.7009   H 0.6614 -> 0.4908   R 0.7393 -> 0.5599
+BUDGET kstar_budgetgap_S1AN_N800000 0.374487
+  N = 1600000    budget factor 4.7009   H 0.6660 -> 0.5025   R 0.7371 -> 0.5675
+BUDGET kstar_budgetgap_S1AN_N1600000 0.374487
+  N = 3200000    budget factor 4.7009   H 0.6716 -> 0.5184   R 0.7382 -> 0.5799
+BUDGET kstar_budgetgap_S1AN_N3200000 0.374487
+RADICALS 1
+
+Y1  the control: the H gap
+  N            here     published  diff
+  200000       0.1824   0.1824     0.00004
+  400000       0.1688   0.1688     0.00001
+  800000       0.1706   0.1706     0.00001
+  1600000      0.1635   0.1635     0.00003
+  3200000      0.1532   0.1532     0.00003
+  Y1 hold   (cap 0.001)
+
+Y2  is the gap a constant?
+  the H gap's least-squares slope against log N = -0.009165
+  r.m.s. residual 0.0031, standard error 0.001819, t = 5.04
+SCATTER slope_audit_budget_gap 0.0031
+TSTAT slope_audit_budget_gap 5.04
+SPREAD slope_audit_budget_gap 2.7726
+  the series and the mean that is quoted from it:
+SERIES gap 5 0.1532 0.1824
+DRIFTS gap -0.009165 5.04
+  quoted mean 0.1677, series 0.1532 to 0.1824, so the mean is 0.1677
+  inside the range but attained at no listed N
+  Y2 the gap falls and clears two s.e.   hold
+
+Y3/Y4  the same gap for the residue
+  N            H gap    R gap    |difference|
+  200000       0.1824   0.1823   0.0001
+  400000       0.1688   0.1775   0.0087
+  800000       0.1706   0.1794   0.0088
+  1600000      0.1635   0.1696   0.0061
+  3200000      0.1532   0.1583   0.0050
+  Y3 the two gaps agree to 0.01 at every N   hold
+  the R gap's slope -0.008079, standard error 0.002079, t = 3.89
+  slopes -0.009165 and -0.008079, difference -0.001087 against 0.005525 = 2 s.e.
+  Y4 the two decline together   hold
+SERIES gapR 5 0.1583 0.1823
+DRIFTS gapR -0.008079 3.89
+
+  DIAGNOSTIC (post hoc). What this does to
+  {#rem:residuearithmetic}'s model comparison. It divided
+  the quoted mean by the log of the budget factor to get a
+  predicted response per natural log of the threshold, and
+  measured about half that across seven radicals. With the
+  gap taken at each N instead of averaged, the prediction
+  runs:
+  N            gap      /log(factor)
+  200000       0.1824   0.1178
+  400000       0.1688   0.1091
+  800000       0.1706   0.1102
+  1600000      0.1635   0.1057
+  3200000      0.1532   0.0990
+  so the prediction the arithmetic sweep should have been
+  compared with, at its own N = 1600000, is 0.1057 and not
+  the 0.1084 the mean gives. The disagreement with the
+  measured cross-arithmetic response survives either way.
+
+======================================================================
+the gap is a declining quantity and both halves pay it alike

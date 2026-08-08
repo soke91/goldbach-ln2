@@ -1,0 +1,129 @@
+STATISTIC: the octave means of |P(N;k)| against the inner length
+           N/k and the exponent fitted from them, at N = 1e7 and
+           1e8, using P(N;k) = C_k sum_{m in S} mu(m) with C_k
+           the constant part of the sieve weight and S the
+           explicit sifted set; and, as a control, beta =
+           sum(H P)/sum(P^2) at the five published N.
+NULL: a coin arm on the same sifted set -- independent signs in
+      place of mu(m), same mask, same binning -- which must give
+      exactly square root and so fixes the scale for mu's
+      exponent. Eight draws. The sum of c independent signs is
+      2 Binomial(c, 1/2) - c exactly, so the draws are taken
+      that way rather than by materialising sign vectors.
+FIELD: N = 1e7 and 1e8, both of the family 2^a 5^b; k odd,
+       squarefree and coprime to N with 2 <= k <= N/8192; m odd,
+       squarefree, coprime to the odd part of k, m < N/k; the
+       sieve weight uses the odd primes up to 30; mu from an
+       integer sieve to 3.3e7 and no Lambda at all. The control
+       arm uses N = 2e5 to 3.2e6 with k < 30000 and Lambda from
+       a sieve to 3.2e6. numpy default_rng seed 20260808.
+
+read from results/: 5 beta cross-checks, 5 published exponents,
+  and the largest published leave-one-out spread 0.0210
+  sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+
+Y1  the control: is this the published P?
+  beta = sum(H P)/sum(P^2) at the published N and k < 30000
+  N            beta (here)   beta (published)   ratio
+  200000       2.699191      2.699191           1.0000
+  400000       2.858827      2.858827           1.0000
+  800000       2.995171      2.995171           1.0000
+  1600000      3.143666      3.143666           1.0000
+  3200000      3.047304      3.047304           1.0000
+  Y1 hold
+
+sieving mu to 33333333 (no Lambda is needed out here) ...
+  factor-4 octaves of N/k from 8192 up: 6 of them
+
+Y2  |P| out where no published fit reaches
+  N = 10000000    #k = 411     octaves 5   exponent 0.2508  corr 0.85042
+    N/k octave        mean |P|
+    15157             125.121
+    60802             227.821
+    240155            463.471
+    844288            583.365
+    3333333           417.861
+  N = 100000000   #k = 4120    octaves 6   exponent 0.3622  corr 0.99724
+    N/k octave        mean |P|
+    15152             123.304
+    60536             211.343
+    243641            365.442
+    975211            493.166
+    3831615           919.811
+    18903319          1725.813
+  Y2 exponent 0.3622 at N = 100000000   (band (0.45, 0.55))   REFUTED
+  leave-one-out on elem_reach: full 0.3622, without the shortest octave 0.3602,
+  without the longest 0.3515 -- spread 0.0107
+SWEPT elem_reach octave-range 0.0107
+  and the bin this fit is thinnest on -- the number that gate
+  check G30 reads, and the whole reason Y2 must not be read as
+  evidence about mu:
+POP elem_reach 3
+CORR elem_reach 0.99724
+
+Y3  does the published drift continue?
+  published exponents 0.5793, 0.5147, 0.4972, 0.5012, 0.4678
+  lowest 0.4678 less the largest spread 0.0210 gives a floor of 0.4468
+  measured here 0.3622   REFUTED
+
+Y4  is the octave fit tight out there?
+  correlation 0.99724 at N = 100000000   (floor 0.99)   hold
+
+  THE NULL. Coins on the same sifted set, same mask, same
+  binning: the exponent they give is what exact square-root
+  cancellation looks like here.
+  N            mu        coin min   coin median   coin max
+  10000000     0.2508    0.1327     0.3782        0.5836
+  100000000    0.3622    0.3810     0.4817        0.5532
+
+Y5/Y6  the sampling inverted: a ladder of N, few k at each
+  17 values of N from 1000000 to 100000000, k < 400 at each
+  pooled pairs: 2376, inner lengths 2506 to 33333333
+  N/k octave        pairs     mean |P|
+  18265             598       100.869
+  70917             668       182.651
+  265770            583       403.924
+  960066            190       621.778
+  3784923           48        866.315
+  16618958          8         1187.196
+  mu exponent 0.3674   corr 0.98087
+  coin band [0.4244, 0.5294] width 0.1050, thinnest octave 8 pairs
+  Y5 REFUTED   (band under 0.10, at least 200 pairs)
+  Y6 exponent 0.3674   (band (0.45, 0.55))   REFUTED
+  leave-one-out on elem_pooled: full 0.3674, without the shortest octave 0.3305,
+  without the longest 0.4162 -- spread 0.0857
+SWEPT elem_pooled octave-range 0.0857
+POP elem_pooled 8
+CORR elem_pooled 0.98087
+
+  DIAGNOSTIC (post hoc). Reach and conditioning cannot both be
+  had at a fixed largest N. The number of (N,k) pairs landing
+  at inner length L is about sum_N (N/L)/(spread of the bin),
+  so it falls like 1/L: every factor of four further out costs
+  a factor of four in sample count. The pooled counts above
+  fall 598, 668, 583, 190, 48, 8 across six octaves.
+
+  What the well-conditioned octaves alone say. Keeping only
+  those with at least 200 pairs:
+  3 octaves, inner lengths 18265 to 265770
+  mu exponent 0.5178 against a coin band [0.4844, 0.5095] width 0.0251
+  and the published measurement already covers that range, so
+  the restricted fit buys conditioning and no reach at all.
+
+  The same trade shows in the two fixed-N sweeps. Their octave
+  means where both reach the same inner length:
+  N/k octave        N = 10000000      N = 100000000     ratio  pairs at 1e8
+  15152             125.121         123.304         0.985  3091
+  60536             227.821         211.343         0.928  771
+  243641            463.471         365.442         0.788  196
+  975211            583.365         493.166         0.845  46
+  3831615           417.861         919.811         2.201  13
+  18903319          -               1725.813        -      3
+  They agree to a few per cent where the bins are full and
+  disagree by a factor of two where they are not. The claim
+  that |P| depends on N/k alone is supported exactly as far
+  as the sampling reaches, and no further.
+
+======================================================================
+Y1 hold  Y2 REFUTED  Y3 REFUTED  Y4 hold  Y5 REFUTED  Y6 REFUTED
+REFUTED

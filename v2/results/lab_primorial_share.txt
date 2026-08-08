@@ -1,0 +1,160 @@
+STATISTIC: rho(N) = sum_{k < sqrt N} (log k) |R(N;k)| divided
+           by S(N)(1-A(N))N, along N = 30030 * 2^j for
+           j = 0..9; rho < 1 is exactly the statement that the
+           residue-only level exceeds N^{1/2}. Its slope
+           against log N, the r.m.s. residual about that fit
+           relative to what the trend gains in one doubling,
+           and the forecast of where rho reaches 1.
+NULL: a coin arm on the identical deviations -- 8 global sign
+      vectors on the odd squarefree m, each held across all k
+      as mu is, carried through the same ratio. It fixes both
+      what rho a coin gives and how quiet the ratio is when
+      the signs carry no arithmetic.
+FIELD: N = 30030 * 2^j, j = 0..9, the odd radical 3*5*7*11*13
+       fixed so the threshold is constant; k squarefree and
+       coprime to N with 2 <= k <= floor(sqrt N); m odd,
+       squarefree, coprime to the odd part of k, m < N/k; the
+       sieve weight uses the odd primes up to 30; beta refitted
+       as sum(H P)/sum(P^2) on that same k-range; S(N) and A(N)
+       from Euler products at the fixed bound 4000000.
+
+read 10 published exponents, the exponent's scatter 0.0039 and
+  its trend 0.0046 per doubling, and the published bracket
+  10^7.4684 [10^7.2189, 10^8.9013]
+sieving to 15375360 ...
+  8 global sign vectors for the null
+  N = 30030     sqrt 173    #k 34     beta 1.9972  rho 1.2364
+  N = 60060     sqrt 245    #k 47     beta 2.0659  rho 1.2997
+  N = 120120    sqrt 346    #k 63     beta 2.0209  rho 1.2914
+  N = 240240    sqrt 490    #k 90     beta 2.0380  rho 1.3489
+  N = 480480    sqrt 693    #k 128    beta 1.9643  rho 1.3791
+  N = 960960    sqrt 980    #k 180    beta 1.9368  rho 1.3414
+  N = 1921920   sqrt 1386   #k 258    beta 2.0013  rho 1.1505
+  N = 3843840   sqrt 1960   #k 368    beta 1.9832  rho 1.1901
+  N = 7687680   sqrt 2772   #k 522    beta 1.9693  rho 1.0336
+  N = 15375360  sqrt 3921   #k 739    beta 1.9821  rho 1.0468
+
+F1  the control: rho and the exponent agree on the side
+  N            rho        below 1?   exponent   above .5?
+  30030        1.2364     no         0.4550     no
+  60060        1.2997     no         0.4595     no
+  120120       1.2914     no         0.4682     no
+  240240       1.3489     no         0.4633     no
+  480480       1.3791     no         0.4688     no
+  960960       1.3414     no         0.4746     no
+  1921920      1.1505     no         0.4876     no
+  3843840      1.1901     no         0.4824     no
+  7687680      1.0336     no         0.4965     no
+  15375360     1.0468     no         0.4941     no
+  F1 hold
+
+F3  is rho falling?  slope of log rho against log N -0.035113, correlation -0.71242
+  F3 hold
+
+F2  which instrument is quieter
+  N            log rho    fitted     residual
+  30030        0.2122     0.3133     -0.1010
+  60060        0.2622     0.2889     -0.0268
+  120120       0.2558     0.2646     -0.0089
+  240240       0.2993     0.2403     +0.0590
+  480480       0.3214     0.2159     +0.1055
+  960960       0.2937     0.1916     +0.1021
+  1921920      0.1402     0.1673     -0.0270
+  3843840      0.1740     0.1429     +0.0311
+  7687680      0.0330     0.1186     -0.0856
+  15375360     0.0458     0.0942     -0.0485
+  ratio:    r.m.s. 0.0689, trend 0.0243 per doubling, ratio 2.829
+  exponent: r.m.s. 0.0039, trend 0.0046 per doubling, ratio 0.848
+  F2 REFUTED
+SCATTER primorial_share_slope 0.0689
+DRIFT primorial_share_slope 0.5119
+SWEPT primorial_share N-range 0.017976
+CORR primorial_share 0.71242
+POP primorial_share 10
+
+F4  the forecast, with the scatter carried
+  rho reaches 1 at log10 N = 8.3524, bracket [7.5007, 9.2041], width 1.7034
+  the exponent-based bracket was [7.2189, 8.9013], width 1.6824
+  F4 REFUTED
+
+  THE SHAPES. That bracket is over the line's parameters and
+  scatter and says nothing about whether log rho is linear in
+  log N. The four two-parameter forms audit_ladder_shape.py
+  compared for the exponent, applied to log rho -- the
+  one-parameter 1 - c log log N / log N has no analogue here,
+  since it is a statement about an exponent bounded by one:
+  shape                        r.m.s.    (r-best)/s.e.  rho = 1 at
+  a + b log N                  0.06886   0.00           8.3524
+  a + b / log N                0.07639   0.44           11.4859
+  a + b log log N              0.07269   0.22           9.1856
+  a + b log log N / log N      0.07404   0.30           9.7957
+  4 shapes fitted, 4 within one standard error of the best
+SHAPES 4
+  the surviving shapes put rho = 1 at 8.3524, 9.1856, 9.7957, 11.4859
+  -- a spread of 3.1336 decades; the line's scatter bracket
+  alone is [7.5007, 9.2041], and with the shapes [7.5007, 11.4859],
+  wider by 2.2818 decades
+BRACKET log10_N_primorial_share_reaches_one 8.3524 7.5007 11.4859
+  So the ratio loses twice over: its scatter is 3.3 times
+  the exponent's relative to trend, and its shape ambiguity
+  is on top of that.
+
+  THE NULL. The same ratio with mu replaced by a coin on the
+  identical deviations, 8 global sign vectors:
+  N            mu         coin min   coin median  coin max
+  30030        1.2364     1.3052     1.5578       1.8742
+  60060        1.2997     1.3110     1.5844       1.7872
+  120120       1.2914     1.3065     1.4299       1.5608
+  240240       1.3489     1.2629     1.4805       1.6246
+  480480       1.3791     1.2785     1.3768       1.6758
+  960960       1.3414     1.2574     1.3744       1.4338
+  1921920      1.1505     1.1545     1.3006       1.3676
+  3843840      1.1901     1.1544     1.1827       1.2624
+  7687680      1.0336     1.0540     1.0881       1.1418
+  15375360     1.0468     1.0012     1.0390       1.0752
+  coin slopes -0.066282, -0.077337, -0.070959, -0.069652, -0.051918, -0.056144, -0.080982, -0.059711
+  coin scatter/trend 1.948, 1.088, 1.685, 1.358, 2.529, 1.012, 0.749, 2.437
+  mu's slope -0.035113 and scatter/trend 2.829
+  The coin's ratio is noisy in the same way and by the same
+  amount, so what F2 refuted is a property of the statistic
+  and not of mu.
+
+  DIAGNOSTIC (post hoc). Why the ratio is the WORSE
+  instrument, which is the opposite of what F2 expected.
+  The two statements are equivalent -- F1 confirms it at all
+  ten rungs -- but they are not equivalent as TRENDS. Near the
+  crossing log rho is about -c (log K* - (1/2) log N), so
+    log rho ~ -c (log N) (e - 1/2),   e the exponent,
+  and the exponent carries a division by log N that the ratio
+  does not. That division damps the fluctuation of K* by a
+  factor log N without damping the trend by as much:
+  mean log N over the ladder            : 13.4291
+  exponent scatter times log N          : 0.0524
+  the ratio's own scatter               : 0.0689
+  -- the same noise, seen through the two lenses.
+  exponent trend per doubling times log N: 0.0618
+  the ratio's own trend per doubling     : 0.0243
+  -- and here they differ, because log rho carries a second
+  drift term, -c (e - 1/2) d log N, that the exponent has
+  divided away. The lesson of {#rem:muvscoin} does not
+  generalise: a ratio at a fixed abscissa beats a fitted
+  exponent when the exponent is a SLOPE THROUGH POINTS, and
+  loses to it when the exponent is itself a ratio whose
+  denominator grows.
+
+  the arithmetic and the budget, declared:
+  10 N, 1 distinct odd radical: 15015
+RADICALS 1
+BUDGET kstar_R_S1AN_N30030 0.087306
+BUDGET kstar_R_S1AN_N60060 0.087306
+BUDGET kstar_R_S1AN_N120120 0.087306
+BUDGET kstar_R_S1AN_N240240 0.087306
+BUDGET kstar_R_S1AN_N480480 0.087306
+BUDGET kstar_R_S1AN_N960960 0.087306
+BUDGET kstar_R_S1AN_N1921920 0.087306
+BUDGET kstar_R_S1AN_N3843840 0.087306
+BUDGET kstar_R_S1AN_N7687680 0.087306
+BUDGET kstar_R_S1AN_N15375360 0.087306
+
+======================================================================
+REFUTED

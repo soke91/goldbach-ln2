@@ -1,0 +1,61 @@
+STATISTIC: the mass-weighted fraction f and B(N)/N recomputed and
+           checked against lab_extend_range.py; the residual sum
+           of squares of the fit log|1/2 - f| = a - c (log N)^alpha
+           as alpha is swept, its minimiser, the span of alpha
+           within 1% of that minimum, and the cost of alpha = 1/2;
+           the same sweep for B/N; and the N at which each of the
+           three canonical laws reaches |1/2 - f| = 0.01.
+NULL: none applies. Nothing here is a detection: the field and
+      its coin reference were measured in lab_sign_structure.py
+      and lab_lean_decay.py, and this script only fits a
+      functional form to numbers already controlled there.
+FIELD: N = 2e5 through 2.56e7 by doubling, theta' = 0.56; k over
+       the squarefree k < N^0.56 coprime to N; m over 1 <= m <
+       N/k; Lambda and mu from an integer sieve to 2.56e7; alpha
+       swept over 0.05 to 1.50 in steps of 0.05, with alpha -> 0
+       evaluated as the log law.
+
+sieving to 25600000 ...
+
+Y1  recomputation against lab_extend_range
+  N            f          pub        B/N        pub
+  200000       0.2273     0.2273     0.8086     0.8086
+  400000       0.2228     0.2228     0.7395     0.7395
+  800000       0.2735     0.2735     0.7303     0.7303
+  1600000      0.3068     0.3068     0.6547     0.6547
+  3200000      0.3207     0.3207     0.5916     0.5916
+  6400000      0.3376     0.3376     0.5526     0.5526
+  12800000     0.3533     0.3533     0.4992     0.4992
+  25600000     0.3608     0.3608     0.4527     0.4527
+  Y1 hold
+
+Y2/Y3  fitting |1/2 - f| = A exp(-c (log N)^alpha)
+  alpha    RSS          RSS / min
+  0.20     1.369861e-02 1.0096
+  0.40     1.395961e-02 1.0289
+  0.60     1.431942e-02 1.0554
+  0.80     1.477729e-02 1.0891
+  1.00     1.533231e-02 1.1300
+  1.20     1.598340e-02 1.1780
+  1.40     1.672931e-02 1.2330
+  minimising alpha = 0.05 ;  1%-of-minimum set spans 0.15 (from 0.05 to 0.20)   (floor 0.5)
+  Y2 REFUTED
+  DIAGNOSTIC (post hoc). The 1% band is my threshold, not a
+  confidence band, and 8 points with 2 fitted parameters do not
+  resolve 13%% of RSS. Under the 95%% band for one parameter with
+  6 degrees of freedom -- RSS within a factor 2.00 -- the
+  admissible alpha runs 0.05 to 1.50, the whole sweep.
+  Y3  alpha = 1/2 costs 1.0412 of the minimum   (cap 1.05)   hold
+
+  the same fit for B/N:
+    minimising alpha = 1.50 ;  RSS at 1/2 over minimum = 1.7538
+
+Y4  where each canonical law puts |1/2 - f| = 0.01
+  alpha    law                    N
+  1.000    power  N^{-c}          10^14.71
+  0.500    exp(-c sqrt(log N))    10^17.46
+  0.000    log    (log N)^{-d}    10^23.74
+  span = 9.02 orders   (floor 5)   hold
+
+======================================================================
+REFUTED

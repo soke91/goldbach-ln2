@@ -1,0 +1,104 @@
+STATISTIC: the truncation K*_R at which
+           sum_{k<K}(log k)|R(N;k)| first reaches
+           S(N)(1-A(N))N, and its exponent log K*_R / log N, at
+           seven N of comparable size and different odd
+           radicals; the spread of that exponent across them;
+           its regression on the log of the threshold; and the
+           constant c_R at each.
+NULL: none is run and none applies. A measured sum is crossed
+      against a computed threshold at seven N and the crossings
+      compared; there is no background to detect against. The
+      sign controls for this field were run in
+      lab_residue_cancellation.py and lab_split_budget.py.
+FIELD: the seven N of the arithmetic test set, read from
+       results/audit_threshold_arithmetic.txt; k squarefree and
+       coprime to N with 2 <= k < 100000; m odd, squarefree,
+       coprime to the odd part of k, m < N/k; the sieve weight
+       uses the odd primes up to 30; beta refitted as
+       sum(H P)/sum(P^2) on the same k-range; S(N) and A(N)
+       from Euler products at the fixed bound 4000000.
+
+read 7 test N from results/audit_threshold_arithmetic.txt, and the
+  family exponent 0.5675 at N = 1600000 from results/audit_residue_level.txt
+sieving to 1621620 ...
+  N = 1572864   odd 3                      thr 0.270682  #k 30397  K*_R 2291
+  N = 1404928   odd 7                      thr 0.370504  #k 35458  K*_R 2735
+  N = 1600000   odd 5                      thr 0.374487  #k 33771  K*_R 3319
+  N = 1620000   odd 3,5                    thr 0.194596  #k 25330  K*_R 1939
+  N = 1531530   odd 3,5,7,11,13,17         thr 0.073312  #k 17814  K*_R 941
+  N = 1621620   odd 3,5,7,11,13            thr 0.087306  #k 18863  K*_R 887
+  N = 1600006   odd 17,47059               thr 0.351148  #k 38274  K*_R 2317
+
+P1  the control: the family member
+  N = 1600000: exponent 0.5675 against the published 0.5675, diff 0.00003
+  P1 hold
+
+P2/P3  the level across arithmetic types
+  N            odd part               threshold  K*_R    exponent  clears .5
+  1572864      3                      0.270682   2291    0.5422    yes
+  1404928      7                      0.370504   2735    0.5591    yes
+  1600000      5                      0.374487   3319    0.5675    yes
+  1620000      3,5                    0.194596   1939    0.5294    yes
+  1531530      3,5,7,11,13,17         0.073312   941     0.4808    NO
+  1621620      3,5,7,11,13            0.087306   887     0.4747    NO
+  1600006      17,47059               0.351148   2317    0.5424    yes
+  P2 every N above 0.5   REFUTED
+  P3 spread 0.0928   (floor 0.05)   hold
+
+  and the noise floor that spread has to beat, which gate
+  check G37 asks for. The five N of results/
+  audit_residue_level.txt are one radical, so their scatter
+  about their own trend is what this statistic does with the
+  arithmetic held fixed:
+    5 N at one radical, r.m.s. about their line 0.0049
+    expected span of 7 draws at that width 0.0134 (20000 sims)
+    measured span across 7 radicals 0.0928, ratio 6.92
+FLOOR level_across_radicals 0.0134
+  The k-exponent of {#rem:kexponent} failed this same test,
+  its span barely exceeding its floor; this one clears its
+  own by 6.9, so P3 is a measurement and not a coincidence
+  of seven draws. The comparison is not read back from that
+  file, which reads this one.
+
+P4  is it the budget that moves the level?
+  exponent against log(threshold): slope +0.0516, correlation 0.97565
+  P4 hold   (floor 0.9)
+
+  the arithmetic this sweep actually covers, which gate check
+  G34 reads. An exponent measured over one odd radical is a
+  statement about that radical:
+  7 N, 7 distinct odd radicals
+RADICALS 7
+
+  the budget constants crossed, declared:
+BUDGET kstar_R_S1AN_N1572864 0.270682
+BUDGET kstar_R_S1AN_N1404928 0.370504
+BUDGET kstar_R_S1AN_N1600000 0.374487
+BUDGET kstar_R_S1AN_N1620000 0.194596
+BUDGET kstar_R_S1AN_N1531530 0.073312
+BUDGET kstar_R_S1AN_N1621620 0.087306
+BUDGET kstar_R_S1AN_N1600006 0.351148
+
+  DIAGNOSTIC (post hoc). What the model of {#rem:modeltransfer}
+  predicts for this. Read from results/audit_model_transfer.txt,
+  a budget factor of 4.7009 costs 0.1677 in the exponent, i.e.
+  0.1677/log(4.7009) per natural log of the threshold. Against the
+  measured slope above:
+  predicted slope +0.1084, measured +0.0516
+
+  and the constant c_R, which {#rem:residueconstant} found
+  drifting by 0.1436 across the FAMILY, read from
+  results/audit_residue_constant.txt. Across types:
+  N            c_R        c_R/sqrt(log N)
+  1572864      2.0379     0.5395
+  1404928      1.9899     0.5289
+  1600000      1.9894     0.5263
+  1620000      2.0275     0.5362
+  1531530      1.7377     0.4605
+  1621620      2.0246     0.5354
+  1600006      2.0284     0.5367
+  spread across types 0.1510 of the mean
+DRIFT residue_cR_across_types 0.1510
+
+======================================================================
+REFUTED

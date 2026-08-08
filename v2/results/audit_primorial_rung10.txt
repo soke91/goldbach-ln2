@@ -1,0 +1,113 @@
+STATISTIC: the truncation K*_R at which
+           sum_{k<K}(log k)|R(N;k)| first reaches
+           S(N)(1-A(N))N, and its exponent log K*_R / log N, at
+           N = 30030 * 2^10 = 30750720 and, as a control, at
+           N = 30030 * 2^9; the offset of the new exponent from
+           the line fitted on the ten published rungs; and the
+           crossing of 1/2 implied by all eleven.
+NULL: none is run and none is needed. The question is where a
+      deterministic curve crosses a line, and the control is
+      G1, the same computation reproducing the rung it
+      extends. The coin arms for this statistic were run in
+      lab_primorial_ladder.py and lab_primorial_share.py,
+      establishing that both the rise and its noise are facts
+      about magnitudes and not about mu.
+FIELD: N = 15375360 and 30750720, the odd radical 3*5*7*11*13
+       fixed so the threshold is constant; k squarefree and
+       coprime to N with 2 <= k < 100000, the range beta is
+       fitted on throughout this ladder; m odd, squarefree,
+       coprime to the odd part of k, m < N/k; the sieve weight
+       uses the odd primes up to 30; S(N) and A(N) from Euler
+       products at the fixed bound 4000000; the ten published
+       rungs and the bracket are read from
+       results/audit_primorial_reach.txt.
+
+read 10 published rungs, the scatter 0.0039 and the bracket
+  10^7.4661 [10^7.2133, 10^8.0621] from results/audit_primorial_reach.txt
+sieving to 30750720 ...
+  N = 15375360  thr 0.087306  #k 18863  K*_R 3557   exp 0.4941
+  N = 30750720  thr 0.087306  #k 18863  K*_R 5773   exp 0.5023
+
+G1  the control at N = 15375360: 0.4941 against the published 0.4941, diff 0.000010
+  G1 hold
+
+G2  the fit one rung further
+  line on the ten published rungs: slope +0.006650
+  at N = 30750720 it predicts 0.5004, measured 0.5023, off by 0.0020
+  published r.m.s. residual 0.0039   within
+  G2 hold
+
+G3  is the barrier crossed?
+  N = 30750720, log10 N = 7.4879, exponent 0.5023   AT OR ABOVE 0.5
+  G3 hold
+
+G4  the crossing implied by eleven rungs
+  slope +0.006780, r.m.s. residual 0.0037
+  crossing at log10 N = 7.4249, bracket [7.1866, 7.6631]
+  published bracket [7.2133, 8.0621]   inside
+  G4 hold
+SCATTER primorial_slope 0.0037
+DRIFT primorial_slope 0.0335
+BRACKET log10_N_primorial_reaches_half_v3 7.4249 7.1866 7.6631
+SWEPT primorial_rung10 N-range 0.000227
+CORR primorial_rung10 0.97008
+POP primorial_rung10 11
+
+  THE SHAPES. A bracket built from one functional form is a
+  bracket over that form's parameters and not over the
+  extrapolation. audit_ladder_shape.py showed these eleven
+  points do not choose the form, so this file fits the same
+  five and brackets over the ones that survive.
+  shape                        r.m.s.    (r-best)/s.e.  0.50 at
+  a + b log N                  0.00372   0.00           7.4249
+  a + b / log N                0.00473   1.16           7.8075
+  a + b log log N              0.00412   0.46           7.5618
+  a + b log log N / log N      0.00433   0.69           7.6394
+  1 - c log log N / log N      0.03764   38.69          6.2370
+  5 shapes fitted, 3 within one standard error of the best
+SHAPES 5
+  the surviving shapes put 0.50 at 7.4249, 7.5618, 7.6394 -- a spread of 0.2146
+  decades, and the line's own scatter bracket [7.1866, 7.6631]
+  already contains all of them, so the shape-aware bracket is
+  [7.1866, 7.6631], wider by 0.0000 decades.
+  At the crossing that has been OBSERVED the choice of form
+  costs nothing: the shapes are pinned there by the data. It
+  is only out at theta' = 0.56, four decades past the top
+  rung, that they separate -- which is exactly the boundary
+  between what these eleven points measure and what they
+  merely extrapolate.
+BRACKET log10_N_primorial_reaches_half_shapes 7.4249 7.1866 7.6631
+
+  the arithmetic and the budget, declared:
+  the ladder is one family, 1 distinct odd radical: 15015
+RADICALS 1
+BUDGET kstar_R_S1AN_N15375360 0.087306
+BUDGET kstar_R_S1AN_N30750720 0.087306
+
+  DIAGNOSTIC (post hoc). The eleven rungs and their residuals
+  about the refitted line:
+  N            log10 N   exponent   fitted     residual
+  30030        4.4776    0.4550     0.4540     +0.0010
+  60060        4.7786    0.4595     0.4587     +0.0008
+  120120       5.0796    0.4682     0.4634     +0.0048
+  240240       5.3806    0.4633     0.4681     -0.0048
+  480480       5.6817    0.4688     0.4728     -0.0040
+  960960       5.9827    0.4746     0.4775     -0.0029
+  1921920      6.2837    0.4876     0.4822     +0.0054
+  3843840      6.5848    0.4824     0.4869     -0.0045
+  7687680      6.8858    0.4965     0.4916     +0.0049
+  15375360     7.1868    0.4941     0.4963     -0.0022
+  30750720     7.4879    0.5023     0.5010     +0.0014
+  the slope moved from +0.006650 on ten rungs to +0.006780 on eleven,
+  and the scatter from 0.0039 to 0.0037
+
+  And what the same line says about the theta' these papers
+  use, which is not 1/2:
+    exponent 0.50 at log10 N = 7.4249
+    exponent 0.56 at log10 N = 11.2680
+  -- four decades past the top rung, so the crossing that has
+  been observed is the square-root barrier and not the
+  route's own requirement.
+
+======================================================================
+the barrier is crossed inside the computable range

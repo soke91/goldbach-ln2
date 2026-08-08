@@ -1,0 +1,68 @@
+STATISTIC: (a) the complete-divisor-sum identity sum_k sum_m
+           mu(m)mu(N-mk) against mu(N-1); (b) the count of
+           surviving moduli and the gaps between them; (c) the
+           block ratio r(B) as the unweighted mean of
+           S_B(j)^2 / sum_{k in block} supp(k); (d) the
+           ratio-of-sums baseline and the share of sum supp
+           carried by the five largest moduli; (e),(f) the lag-1
+           autocorrelation of D(k)/sqrt(supp(k)) with and without
+           the dead moduli, each against a 400-draw permutation
+           null.
+FIELD: N = 10^8; k = 1 .. 9999, i.e. the whole band k < sqrt N on
+       which the type-II field is non-empty; m over
+       (10^4, N/k]; mu on [0,10^8] by a sqrt-sieve with a
+       cofactor array; permutation nulls with numpy default_rng
+       seed 20260808; (a) at N = 1000, 4096, 10^4, 30030, 65536,
+       10^5 with mu sieved to 2*10^5.
+
+D1  the exact identity, brute force
+======================================================================
+  N = 1000      sum = 0     mu(N-1) = 0     ok
+  N = 4096      sum = 0     mu(N-1) = 0     ok
+  N = 10000     sum = 0     mu(N-1) = 0     ok
+  N = 30030     sum = -1    mu(N-1) = -1    ok
+  N = 65536     sum = 1     mu(N-1) = 1     ok
+  N = 100000    sum = 0     mu(N-1) = 0     ok
+  D1 hold
+
+sieving mu to 100000000 ...
+computing D(k) and supp(k) for k = 1 .. 9999 ...
+
+D2  surviving moduli = 7200 of 9999 (dead 2799)   hold
+D7  gaps between consecutive surviving moduli: max 3, values [1, 2, 3]   hold
+
+D3  block ratios over the surviving moduli
+  B    blocks   r(B) = <S_B^2 / sum supp>_j    published
+  1    7200     1.024067                       1.024
+  2    3600     1.034667                       1.017
+  4    1800     1.036551                       1.016
+  8    900      1.034833                       1.024
+  D3  max |deviation| = 0.020551  (tol 0.0005)   REFUTED
+  DIAGNOSTIC (post hoc). B=1 reproduces exactly, so D(k) and
+  supp(k) agree per modulus and only the blocking can differ.
+  'Block' is not defined in the text. Two constructions:
+  B    consecutive survivors   k-ranges of width B   published
+  1    1.024067                1.024067              1.024
+  2    1.034667                1.016910              1.017
+  4    1.036551                1.015973              1.016
+  8    1.034833                1.025319              1.024
+
+D4  ratio-of-sums baseline at B=1 = 1.783927   published 1.78
+    five largest-supp moduli carry 0.3285 of sum supp   hold
+
+D5/D6  lag-1 autocorrelation of D(k)/sqrt(supp(k))
+  convention                     statistic   null sd    ratio    published
+  surviving moduli only          +0.005462   0.011515   +0.474   +0.0055 / 0.0121 / +0.5
+  dead moduli kept at 0          -0.010763   0.010606   -1.015   -0.0108 / 0.0094 / -1.2
+  D5 hold   D6 REFUTED
+  DIAGNOSTIC (post hoc). Both point estimates reproduce exactly;
+  only D6's null does not. 'Permutation null' does not say what
+  is permuted when the dead moduli are kept: the whole vector,
+  or only the surviving entries with the zeros held in place.
+    permuting the whole 9999-vector : sd 0.010606
+    permuting survivors, zeros fixed: sd 0.010246   published 0.0094
+    the point estimate is the same either way: -0.010763
+
+======================================================================
+D1 hold  D2 hold  D3 REFUTED  D4 hold  D5 hold  D6 REFUTED  D7 hold
+REFUTED

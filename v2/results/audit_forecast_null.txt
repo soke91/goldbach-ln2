@@ -1,0 +1,66 @@
+STATISTIC: the mean of |A(N;k)|/sqrt(N/k) over the admissible k,
+           for mu and for 8 coins; the mean-based gamma fitted
+           out of sample on the three smallest N; and the N at
+           which the model K* solved from
+           B/N = gamma sqrt(log N/N) S(K) against the threshold
+           S(N)(1-A(N)) first reaches sqrt(N).
+NULL: the coin, eps(v) = +-1 on supp(mu^2) and zero elsewhere,
+      field, k-range and theta' identical. This is the control
+      lab_level_forecast.py declined by pointing at
+      lab_dilate_extrapolation.py, which measures the MEDIAN of
+      the same ratio; the forecast uses the MEAN, so the pointer
+      does not reach the quantity in question.
+FIELD: N = 2e5 through 3.2e6 by doubling, theta' = 0.56; k over
+       the squarefree k < N^0.56 coprime to N; S(K) enumerated
+       exactly over the squarefree k coprime to 10 up to 2e5;
+       the threshold is that of the family {2,5}; seed 20260808.
+
+sieving to 3200000 ...
+  threshold S(N)(1-A(N)) for the family {2,5} = 0.374487
+  1 mu and 8 coins on supp(mu^2), field and k-range identical
+  N = 200000      #k = 313
+  N = 400000      #k = 462
+  N = 800000      #k = 682
+  N = 1600000     #k = 1004
+  N = 3200000     #k = 1485
+
+X1/X2  the mean of |A(N;k)|/sqrt(N/k)
+  N            mu        coin min   coin median   coin max
+  200000       3.5647    2.3953     2.4882        2.6841
+  400000       3.4840    2.4542     2.5408        2.6124
+  800000       3.7548    2.4601     2.6168        2.6625
+  1600000      3.8034    2.5970     2.6976        2.7474
+  3200000      3.7497    2.6272     2.7481        2.8753
+  X1 hold
+
+X2  the draws' spread of gamma, as a fraction of their median: 0.0434  (cap 0.15)   hold
+X3  mu's gamma 1.0029 against the draws' range [0.6963, 0.7271]   hold
+
+X4  where the model's K* reaches sqrt(N)
+  who       gamma     crossing at 10^x
+  mu        1.0029    6.20
+  coin 0    0.7082    4.57
+  coin 1    0.7088    4.57
+  coin 2    0.7083    4.57
+  coin 3    0.7027    4.48
+  coin 4    0.7271    4.83
+  coin 5    0.7077    4.56
+  coin 6    0.6963    4.46
+  coin 7    0.7217    4.78
+  mu's 6.20 against the draws' range [4.46, 4.83]   hold
+
+  DIAGNOSTIC (post hoc). What the pointer missed. The control
+  lab_level_forecast.py points at measures the MEDIAN of
+  |A|/sqrt(N/k); the forecast uses the MEAN. Both, for mu:
+  N            mean      median    mean/median
+  200000       3.5647    2.1698    1.6429
+  400000       3.4840    2.1428    1.6259
+  800000       3.7548    2.5220    1.4888
+  1600000      3.8034    2.5829    1.4725
+  3200000      3.7497    2.4943    1.5033
+  The two differ by about half again, which is exactly why
+  lab_level_forecast.py rebuilt gamma -- and why the control it
+  pointed at does not reach the quantity it then used.
+
+======================================================================
+the forecast's calibration and crossing are mu's, and the pointer it declined behind did not cover them

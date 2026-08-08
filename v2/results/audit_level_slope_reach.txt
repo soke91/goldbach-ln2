@@ -1,0 +1,73 @@
+STATISTIC: the level exponent log K*_R / log N of Remark
+           {#rem:residuelevel}, recomputed by an independent
+           implementation at the five N it publishes and at
+           two further octaves, 6400000 and 12800000; then
+           the least-squares slope of that exponent against
+           log N over five points and over seven, each with
+           its r.m.s. residual and standard error
+           sqrt(sum r^2/(n-2) / sum (x-xbar)^2).
+NULL: none is run and none applies. A measured sum is crossed
+      against a computed threshold and the crossing located;
+      there is no background to detect against. The sign
+      controls for this field are lab_split_budget.py's size
+      permutation and lab_residue_cancellation.py's coin arm.
+FIELD: k squarefree and coprime to N, from 2 to 100000; m odd, squarefree and coprime to k, up to
+       (N-1)/k; the sieve weight over the odd primes below 30;
+       the Euler products to 4000000. Every N is
+       2^a 5^b, so the sweep has one odd radical, as the
+       RADICALS line above declares.
+
+read 5 published exponents from results/audit_residue_level.txt
+sieving to 12800000, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N = 200000       #k = 33771   beta = 2.668960  K*_R = 993      exponent = 0.5654
+BUDGET kstar_R_S1AN_N200000 0.374487
+  N = 400000       #k = 33771   beta = 2.823233  K*_R = 1447     exponent = 0.5642
+BUDGET kstar_R_S1AN_N400000 0.374487
+  N = 800000       #k = 33771   beta = 2.939980  K*_R = 2019     exponent = 0.5599
+BUDGET kstar_R_S1AN_N800000 0.374487
+  N = 1600000      #k = 33771   beta = 3.078224  K*_R = 3319     exponent = 0.5675
+BUDGET kstar_R_S1AN_N1600000 0.374487
+  N = 3200000      #k = 33771   beta = 3.011859  K*_R = 5923     exponent = 0.5799
+BUDGET kstar_R_S1AN_N3200000 0.374487
+  N = 6400000      #k = 33771   beta = 3.080736  K*_R = 8419     exponent = 0.5767
+BUDGET kstar_R_S1AN_N6400000 0.374487
+  N = 12800000     #k = 33771   beta = 2.924375  K*_R = 14001    exponent = 0.5834
+BUDGET kstar_R_S1AN_N12800000 0.374487
+RADICALS 1
+
+N1  the control: the five N the published sweep covers
+  N            here       published    diff
+  200000       0.5654     0.5654       0.0000
+  400000       0.5642     0.5642       0.0000
+  800000       0.5599     0.5599       0.0000
+  1600000      0.5675     0.5675       0.0000
+  3200000      0.5799     0.5799       0.0000
+  N1 hold   (cap 0.002)
+
+N2  the two new octaves, against the operative budget
+  S(N)(1-A(N))N :
+  N            K*_R      log K*_R/log N  above .5
+  6400000      8419      0.5767          yes
+  12800000     14001     0.5834          yes
+  N2 hold
+
+N3/N4  the slope {#rem:slopes} could not resolve, refitted
+  over seven points instead of five
+  points   log N spread   slope        r.m.s.   s.e.       t
+  five     2.7726         0.004692     0.0049   0.002912   1.61
+  seven    4.1589         0.005112     0.0043   0.001379   3.71
+SCATTER slope_audit_level_slope_reach 0.0043
+TSTAT slope_audit_level_slope_reach 3.71
+SPREAD slope_audit_level_slope_reach 4.1589
+  N3 seven points reach two standard errors (3.71)   hold
+  N4 and the slope is positive (+0.005112)   hold
+  two-sigma interval over seven: [+0.002353, +0.007871]
+
+  what the extra range actually bought. The spread in log N
+  grew by the factor 1.5000 and the standard error moved by
+  the factor 0.4737; had the scatter been unchanged it would
+  have moved by 0.5976. The difference is the scatter, which
+  went from 0.0049 to 0.0043.
+
+======================================================================
+the sign of the level slope is settled over seven octaves

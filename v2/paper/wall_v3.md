@@ -1,0 +1,3435 @@
+# The demand side of the Elliott–Halberstam route to binary Goldbach,  and the wall's exact second moment
+
+```latex
+% 수식이 쓰는 매크로 — 렌더러/역변환용
+\renewcommand{\SS}{\mathfrak{S}}
+\newcommand{\AAA}{\mathfrak{A}}
+```
+
+## Abstract
+
+Huang and Li proved that binary Goldbach for large even $N$ follows
+from $EH_\mu(N^{\theta'})$ for a single $\theta' > 1/2$. This paper
+maps that hypothesis from both of its sides and establishes what is
+exactly computable about the single scalar it reduces to.
+
+On the *demand* side we prove one unconditional theorem
+(Theorem [thm:A]): the Möbius-weighted, fixed-class correlation
+sum with weight $w_k = 1$ is $\ll_A N(\log N)^{-A}$, so Huang–Li's
+$E_4$ consumption of $EH_\mu$ is unnecessary and the whole demand
+collapses to the single scalar $E_3$. An unconditional identity
+(Theorem [thm:C]) then evaluates that scalar: $E_3$ is exactly the
+defect in Huang–Li's equation (22), so $E_3 \ll_A N(\log N)^{-A}$ is
+equivalent to (22) itself, yields binary Goldbach through their
+Theorem 1, and yields the asymptotic $\tilde r(N)\sim\SS(N)N$ precisely
+when $C(N) = o(N)$ — which is the wall. The demand side is closed at
+the level of identities, though not at the level of strength: Goldbach
+itself needs only a one-sided bound on $E_3$, at a threshold
+$\asymp N$ for almost all $N$ (Proposition [prop:onesided]). We then
+close the interior of the design space those two endpoints open
+(Theorems [thm:D] and [thm:Dprime],
+Propositions [prop:E] and [prop:Dpp]). We also report a defect
+in equation (18) of the source paper, and its repair.
+
+The demand side reduces everything to
+$C(N)=\sum_{n<N}\Lambda(n)\mu(N-n) = o(N)$.
+Sections [sec:wall]–[sec:floor] give the exact facts about
+that quantity: its second moment in closed form
+(Proposition [prop:V]), an exact identity for the aggregate second
+moment (Lemma [lem:MP]), an exact closed form for the fluctuation
+of any cell mean (Lemma [lem:cellmom]), and the observation that
+this error bar falls like $(\log N)^{-1/2}$ and not like $n_c^{-1/2}$
+(Proposition [prop:coh]), which changes the width of every interval
+in this subject built from a count. Two controls
+(Lemmas [lem:coin] and [lem:placebo]) delimit what can be
+measured at all: in particular the excess of $\mathrm{Var}\,C$ over its
+random-sign value cannot be estimated by any centred statistic, because
+such a statistic returns the same value on a coin.
+
+We also quantify the obstruction to the natural conditional route:
+Chowla's conjecture does *not* give $\mathrm{Var}\,C \sim V$,
+because the coefficient amplifying $S(h)$ grows like $N/\log N$
+(Proposition [prop:W]); and since that coefficient is nonnegative
+while the true $S$ already overspends the budget it defines, no bound
+on $|S(h)|$ suffices.
+
+The deliverable is the map and the exact facts, not a theorem toward
+Goldbach. Net progress toward Goldbach: zero. We state throughout what
+is and is not claimed, and \S[sec:notclaimed] states what has been
+deliberately withheld from this version.
+
+
+## Introduction
+
+
+### The conditional frame
+
+
+Let $N$ be a large even integer,
+$\tilde r(N) = \sum_{n<N}\Lambda(n)\Lambda(N-n)$, and $\SS(N)$ the
+singular series. Write $EH_\mu(Q)$ for the assertion that for every
+$A>0$
+
+$$
+\sum_{q\le Q}\max_{y<N}\max_{(a,q)=1}
+  \Bigl|\sum_{\substack{n\le y\\ n\equiv a\,(q)}}\Lambda(n)\mu(N-n)
+   -\frac{1}{\varphi(q)}\sum_{n\le y}\Lambda(n)\mu(N-n)\Bigr|
+  \ll_A \frac{N}{(\log N)^A}.
+$$
+
+Huang and Li [HL], continuing Pan [Pan], proved that for each
+fixed $A>0$, $EH(N^{\theta}(\log N)^{2A+8})$ together with
+$EH_\mu(N^{1-\theta})$ implies
+$\tilde r(N)\ge \SS(N)\bigl(1-\AAA(N)\bigr)N + O(N(\log N)^{-A})$, and
+deduced (their Corollary 1) that in view of Bombieri–Vinogradov,
+binary Goldbach for all sufficiently large even integers follows from
+$EH_\mu(N^{\theta'})$ alone for any single $\theta' > 1/2$.
+
+Here $\AAA(N)$ is their equation (7). We have given it the symbol
+$\AAA$, rather than the $A$ of [HL], both because $A$ is already
+the free exponent in the display above and because $\AAA(N)$ is not an
+incidental constant: for even $N$ it is *identically* the local
+factor of Proposition [prop:V], the exact second moment of the
+scalar this paper reduces to. That is not a coincidence. Huang–Li
+reach it by the triangle inequality
+$|C(N)| \le \sum_{n<N}\Lambda(n)\mu^2(N-n)$, whose right-hand side
+counts squarefree shifted primes — which is what
+Proposition [prop:V] evaluates. So the deficiency $1-\AAA(N)$ in
+their lower bound is one minus the wall's own local density, and the
+two halves of this paper meet at a constant neither side names.
+
+This is the sharpest conditional frame we are aware of: one sentence
+stands between classical technology and Goldbach. This paper asks what
+that sentence actually costs.
+
+
+### The organizing principle: two couplings
+
+
+The hypothesis contains a product of two Möbius factors, and there
+are exactly two ways their arguments can be coupled. This turns out to
+organize everything.
+
+
+- **Divisibility-coupled** (the *demand* side). Inside
+  Huang–Li's proof, $EH_\mu$ is consumed only in the fixed residue
+  class $n \equiv N \pmod k$, i.e. $k \mid N-n$: one Möbius
+  argument divides the other. Section [sec:demand].
+
+- **Difference-coupled** (the *supply* side). Any attempt
+  to *prove* $EH_\mu$ by dispersion arrives at the dilate field
+  $D(k) = \sum_m \mu(m)\mu(N-mk)$, where the two arguments are related
+  by a difference, not a divisibility. Section [sec:supply].
+
+
+The two behave completely differently, and each is closed for its own
+reason:
+
+
+```latex
+\begin{center}
+```latex
+\begin{tabular}{p{0.20\textwidth}p{0.34\textwidth}p{0.34\textwidth}}
+\hline
+ & \textbf{Divisibility-coupled} & \textbf{Difference-coupled}\\
+\hline
+Divisor switch & exact, and free & exact, but useless\\
+M\"obius lands on & the \emph{short} variable, $m\le N^{1/2-\delta}$ &
+ the \emph{long} variable, $m \asymp N/K \ge N^{2/3}$\\
+Consequence & Bombieri--Vinogradov closes it: Theorem~\ref{thm:A} &
+ no known machine applies\\
+But & the weighted version is \emph{equivalent} to Goldbach
+ (Theorem~\ref{thm:C}) & no named coupling surface found, internal or
+ external (\S\ref{sec:closures})\\
+\hline
+\end{tabular}
+
+```
+
+\end{center}
+```
+
+
+### What this paper claims {#sec:claims}
+
+
+- **Claimed**: Theorem [thm:A], Corollary [cor:B],
+  Theorem [thm:C], Theorems [thm:D] and [thm:Dprime],
+  Propositions [prop:E], [prop:Dpp], [prop:V],
+  [prop:W], [prop:scaleinv] and [prop:coh],
+  Lemmas [lem:MP], [lem:cellmom], [lem:coin]
+  and [lem:placebo]; the defect in [HL]'s equation (18) and
+  its repair; the measurements reported here, which are reproducible.
+
+- **Conjectured**: Conjecture [conj:L].
+
+- **Not claimed**: any theorem toward Goldbach.
+  Theorem [thm:A] is unconditional but Goldbach-neutral: it
+  removes exactly the half of the demand that carries no Goldbach
+  content. See also \S[sec:notclaimed].
+
+
+## The demand side {#sec:demand}
+
+
+### Where $EH_\mu$ is actually consumed
+
+
+For $(k,N)=1$ and $1\le t<N$ put
+
+$$
+E_\mu(t;k) = \sum_{\substack{n\le t\\ n\equiv N\,(k)}}
+    \Lambda(n)\mu(N-n) - \frac{1}{\varphi(k)}\sum_{n\le t}
+    \Lambda(n)\mu(N-n).
+$$
+
+With $K = (N-1)/\alpha$, Huang–Li's two consumption sites are
+
+$$
+E_3(\alpha)=\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!\mu(k)\log k\,
+  E_\mu(N;k),
+  \qquad
+  E_4(\alpha)=\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!\mu(k)\,
+  \bigl[\text{$E_\mu$ with the extra weight }\log(N-n)\bigr].
+$$
+
+They differ in exactly one respect: the weight $w_k$ is $\log k$ in
+$E_3$ and $1$ in $E_4$ (the $\log(N-n)$ inside $E_4$ is
+$k$-independent and comes off by partial summation). In both cases
+Huang–Li discard the signs $\mu(k)$ on the first line by the triangle
+inequality, and only then appeal to $EH_\mu$. Keeping the signs is
+what the following results exploit.
+
+
+### Results imported from the companion note {#sec:imported}
+
+The demand-side results are stated and proved once, in
+`paper/theorem_A.md`. They are not restated here; this section lists
+what is imported and what each one is used for downstream. References
+of the form [thm:A] resolve there.
+
+| Imported | What it gives this paper |
+|---|---|
+| Theorem [thm:A] | $w_k=1$ is unconditional, so the $E_4$ half of the demand carries no hypothesis |
+| Corollary [cor:B] | hence the whole $EH_\mu$ demand is the single scalar $E_3(\alpha)$ |
+| Theorem [thm:C] | that scalar is Huang–Li's (22); its asymptotic half needs $C(N)=o(N)$, which is §[sec:wall] onward |
+| Theorem [thm:D] | the interior of the weight space is empty, so $E_3$ is not one candidate among a family |
+| Theorem [thm:Dprime] | and stays empty granting $EH$, so the missing ingredient is a mechanism and not a level |
+| Proposition [prop:E] | the circle method has no margin on $C(N)$ either |
+| Proposition [prop:Dpp] | nor does any polynomial weight |
+
+Only one feature of the mechanism is needed below, so it is recorded
+here rather than looked up. The class $n\equiv N\pmod k$ is $k\mid N-u$
+with $u=N-n$, so the $k$-sum is an incomplete divisor sum; completing
+it costs $N^{o(1)}$ and moves the work onto $k\ge K$, where $u=mk$
+forces $m<N/K=N^{1-\theta'}\le N^{1/2-\delta}$ and, for squarefree
+$u$, $\mu(u)\mu(k)=\mu(m)\mu^2(k)$. **The surviving Möbius sits on the
+short variable.** That single assignment is what
+Bombieri–Vinogradov consumes, and §[sec:R4] shows it is exactly what
+the supply side's type-II cut forbids — which is why the switch
+transfers to the supply side as a technique and not as a result.
+
+The two weights differ in one respect only, $w_k=\log k$ against
+$w_k=1$, and the difference decides everything: for $w_k=\log k$ the
+complete divisor sum is $-\Lambda$ rather than an indicator, because
+$\mu*\log=\Lambda$ — the identity Huang–Li *start* from (their
+(10)). Closure on the demand side is therefore at the level of
+identities, not of estimates, and no choice of $\theta'$, truncation
+or smoothing evades it.
+
+The loss exponent $\sqrt{(1/2)\log N}$ of Theorem [thm:D] is the
+$\sqrt N$ barrier itself: it is the gap between where a weight must
+live to see $C(N)$ and where Bombieri–Vinogradov permits it to live.
+That is a no-go for one precisely specified method — divisor
+switching with BV as the only input — over that method's entire
+weight space; it is not an obstruction to other methods.
+
+
+### A defect in the published paper
+
+
+Equation (18) of [HL] replaces the $n$-dependent constraint
+$k < (N-n)/\alpha$, present three displays earlier in the derivation of
+$S_2(\alpha)$, by the $n$-free $k < (N-1)/\alpha$. The terms thereby
+included are exactly those with $d=(N-n)/k \le \alpha$, and they sum to
+
+$$
+\Delta = -\sum_{2\le m\le\alpha}\mu(m)\log m
+    \sum_{\substack{k<(N-1)/\alpha\\ (k,m)=1}}\mu^2(k)\Lambda(N-mk),
+$$
+
+whose trivial bound $\ll N(\log N)^2$ exceeds the target. It closes by
+the same machinery — Möbius again on the short variable — under
+hypotheses already assumed: unconditionally by Bombieri–Vinogradov in
+the Corollary-1 regime, and under the assumed $EH$ in the Theorem-1
+regime. [HL]'s Theorem 1 and their Corollary 1 stand as stated.
+
+
+## The supply side {#sec:supply}
+
+
+### The consumable
+
+
+The chain's supply-side consumable, distilled, is
+
+$$
+\textbf{E1 (weak form).}\quad
+  D(k) = \!\!\sum_{\sqrt N < m \le N/k}\!\! \mu(m)\mu(N-mk),
+  \qquad
+  \sum_{k\sim K}|D(k)|^2 \ll (\log N)^{-2A-2}\sum_{k\sim K} M_k^2,
+$$
+
+for $K \le N^{1/3}$ dyadic, where $M_k$ is the length of the $m$-range.
+A fixed log-power saving is the currency; $o(1)$ and $\log\log$ savings
+are not consumable.
+
+The normalisation is $M_k^2$, i.e. the *trivial* bound, not
+$M_k$, the square-root scale: the wall is
+$T_{II} = \sum_{k\sim K}b_kD(k)$ with $|b_k|\ll\log N$, needed at
+$N(\log N)^{-A}$, and Cauchy–Schwarz in $k$ gives
+$\sum_k|D(k)|^2 \ll N^2/(K(\log N)^{2A+2})$ with
+$\sum_{k\sim K}M_k^2 \asymp N^2/K$. The distinction is load-bearing:
+at the square-root normalisation the demand would be
+$\sum|D|^2/\sum M_k \ll 8.8\cdot10^{-6}$ at $N=10^8$, $A=1$, which our
+own measurements refute directly — the measured ratio is
+$0.34,\,0.39,\,0.32$ over three dyadic bands, which is the density of
+the surviving support, i.e. of the $m$ for which $\mu(m)$ and
+$\mu(N-mk)$ are both nonzero. Normalised by that support, measured
+band by band, the ratio is $1.04,\,1.17,\,0.96$: the field exhibits
+*exact* square-root cancellation on the terms that survive.
+
+
+#### Remark (this row is not reproduced) {#rem:e1row}
+<!-- evidence: audit_support_density.py -->
+
+The two rows just quoted are the audit's rule Z6 and it fails. On the
+bands that Remark [rem:supp] pins — the ones under which the support
+density reproduces to four decimals —
+$\sum_k|D(k)|^2/\sum_k M_k$ measures
+$0.4795,\,0.3393,\,0.3480$ against the printed
+$0.34,\,0.39,\,0.32$, and normalised by the support
+$1.4518,\,1.0286,\,1.0482$ against the printed
+$1.04,\,1.17,\,0.96$. The gap is not a convention: the row was
+recomputed under all nine band offsets from $-4$ to $+4$ and all four
+aggregations (ratio of sums, mean of per-modulus ratios, each with and
+without the dead moduli). Over those offsets band $1$ ranges in
+$[0.4199,\,0.4841]$, band $2$ in $[0.3230,\,0.3714]$ and band $3$ in
+$[0.3441,\,0.3524]$: the printed band-2 value $0.39$ lies above its
+whole range and the printed band-1 value $0.34$ below its whole range.
+Band $1$ is the discrepancy that matters — $0.48$ against $0.34$ is
+not square-root cancellation on the surviving support but half again
+as much.
+
+What survives is weaker and is what the section actually needs: the
+ratio is of order the support density and not of order
+$(\log N)^{-2A-2}\approx 8.8\cdot10^{-6}$, so the square-root
+normalisation is refuted by four orders of magnitude either way. The
+claim of *exact* square-root cancellation is withdrawn pending a
+statement of what was computed.
+
+
+#### Remark (the support density is not $\prod_p(1-2/p^2)$) {#rem:supp}
+<!-- evidence: audit_support_density.py -->
+
+The three bands are $K<k\le 2K$ for $K=58,116,232$, i.e.
+$[59,116],\,[117,232],\,[233,464]$ with
+$464=\lfloor N^{1/3}\rfloor$. The convention has to be stated: the
+other reading of "dyadic", $K\le k<2K$, holds the same $58$, $116$,
+$232$ values of $k$ and so is not excluded by the counts, but it gives
+$0.3345,\,0.3278,\,0.3310$ for the aggregate below instead of
+$0.3303,\,0.3298,\,0.3320$ — a shift larger than the effect the
+paragraph is about. That was the audit's rule Z5, which fails under
+the $K\le k<2K$ reading and holds under this one; the convention is
+recorded here because the counts do not carry it.
+
+It is tempting to read that density as $\prod_p(1-2/p^2)=0.3226341$,
+the value obtained by assuming $p^2\mid m$ and $p^2\mid N-mk$ cut out
+two distinct classes mod $p^2$. At $N=10^8=2^8\cdot5^8$ that assumption
+fails at $p=2$ and $p=5$, where $p^2\mid N$ collapses the second
+condition onto the first, and the true density depends on $v_p(k)$:
+measured exactly over all $k$ in the three bands it ranges from $0$ to
+$0.594330$, and lands within $0.01$ of $0.32263$ for only $1$, $1$ and
+$3$ of the $58$, $116$ and $232$ values of $k$. In particular $D(k)$
+vanishes identically whenever $4\mid k$ or $25\mid k$ — $2799$ of the
+$9999$ values $k<\sqrt N$, or $28.0\%$, and that set is exactly the
+vanishing set, with no other $k$ in the bands giving $D(k)=0$.
+Aggregated the coincidence is close but not exact:
+$\sum_k\mathrm{supp}(k)/\sum_k M_k$ is $0.3303,\,0.3298,\,0.3320$ on
+the three bands, high by $2.2$ to $2.9\%$. The figures above use the
+measured support throughout; the closed form is quoted here only to
+say that it is not the right one.
+
+
+At the
+correct normalisation the target is cleared with margin
+$(N/K)(\log N)^{-2A-2}$, which is asymptotic and is below $1$
+everywhere accessible, so no computation is offered as evidence for it.
+
+
+#### Remark (the mandatory comparison) {#rem:scale}
+
+A target must be checked against one's own measurement of the same
+quantity before it is used to adjudicate anything. Writing a target at
+the square-root scale when the chain consumes it at the trivial scale
+inflates every demand by a power of $N$, and no verdict passed on a
+budget basis survives it. We record this as a standing rule because
+the same slip occurred twice in the course of this work, and both times
+it was caught only by that comparison.
+
+
+### Conjecture L
+
+
+#### Conjecture (the factorization law) {#conj:L}
+<!-- evidence: audit_support_density.py -->
+
+Each Möbius family probed in this program — prime-indexed dilate
+pairs $C_{k,k'} = \sum_{p\sim P}\mu(N-pk)\mu(N-pk')$, integer-indexed
+dilates and their pairs, and Möbius sums over thin progressions —
+factorizes as
+
+$$
+\text{field} \;=\; \mathbf M \times \mathbf G,
+$$
+
+where $\mathbf M$ is the deterministic local mask, computed exactly by
+finite modular enumeration from the $v_q$-data of $(N,k,k')$, and
+$\mathbf G$ is, on the surviving support, a fluctuation with no mean
+field and no class structure.
+
+
+The evidence is of two kinds and we separate them. The E1 arm is stated
+above and has been reproduced independently. The remaining stamps —
+pair statistics, the exact $(v_2,v_3)$ cells, the blind mask
+prediction, and the Wishart pair spectrum — are recorded in the
+repository and have *not* been independently re-verified; they are
+cited here as the reason the conjecture is stated, not as measurements
+this paper vouches for.
+
+Conjecture [conj:L] is *stronger* than the chain needs: E1
+requires only square-root cancellation on average. What is missing is
+therefore not knowledge of the structure — the mask is an algorithm
+and $\mathbf G$ is featureless in every measurement — but a proof
+technique for the amplitude of a featureless object.
+
+
+## The wall, exactly {#sec:wall}
+
+
+The chain of Section [sec:demand] reduces the whole problem to one
+scalar,
+
+$$
+C(N) \;=\; \sum_{n<N}\Lambda(n)\mu(N-n) \;=\; o(N).
+$$
+
+This section gives that scalar its exact second moment, an exact
+identity for its aggregate second moment, and the two controls that
+delimit what can be measured about it at all.
+
+
+### The exact scale
+
+
+#### Proposition (The exact scale) {#prop:V}
+<!-- evidence: lab_second_moment.py -->
+
+Let
+
+$$
+V(N) \;=\; \sum_{v<N}\mu^2(v)\,\Lambda(N-v)^2,
+  \qquad
+  W(N) \;=\; \sum_{w<N}\Lambda(w)^2,
+$$
+
+and let
+
+$$
+\AAA(N) \;=\; \prod_{q\,\nmid\,N}\Bigl(1-\frac{1}{q(q-1)}\Bigr).
+$$
+
+Then $V(N) = W(N)\,\AAA(N)\,(1+o(1))$, and consequently
+$V(N) \sim \AAA(N)\,N\log N$.
+
+
+**Proof (Derivation).** 
+$\Lambda(w)^2$ is supported on prime powers with weight $(\log p)^2$,
+so with $w=N-v$,
+
+$$
+V(N) \;=\; \sum_{p^k<N}(\log p)^2\mu^2(N-p^k)
+        \;=\; \sum_{p<N}(\log p)^2\mu^2(N-p) + O(\sqrt N\log^2 N),
+$$
+
+a $(\log p)^2$-weighted count of *squarefree shifted primes*. Its
+local density at a prime $q$ is $1$ when $q\mid N$ — there
+$q^2\mid N-p$ forces $q\mid p$, hence $p=q$, a single term — and
+$1-1/\varphi(q^2) = 1-1/(q(q-1))$ when $q\nmid N$, since the bad class
+$p\equiv N \pmod{q^2}$ is then a unit class. The statement is Mirsky's
+theorem on squarefree values of shifted primes [Mir49] together
+with partial summation; it is recalled here, not claimed.
+ ∎
+
+
+**The local factor is $\AAA$, not $\SS$..**
+The singular series $\SS(N)$ is Hardy–Littlewood's and is correct for
+the Goldbach *count*; the right object for the second moment of
+$C(N)$ is $\AAA(N)$. Both depend on $N$ only through the set of primes
+dividing $N$ — though in opposite ways, $\SS$ through a product
+*over* those primes and $\AAA$ through a product over the primes
+*not* among them — which is why the substitution is easy to make
+and hard to see.
+The statistic, stated. For a candidate $c\in\{\AAA,\SS\}$ put
+$z_c(N)=\bigl(V(N)/W(N)\bigr)/c(N)$; the figure quoted is
+$\mathrm{sd}\bigl(z_c/\overline{z_c}\bigr)$, i.e. the candidate is
+rescaled to the measured mean so that only its shape in $N$ is judged.
+Over even $N$ in $[10^5,\,1.6\cdot10^7]$ it is $0.000323$ for $\AAA$
+against $0.245235$ for $\SS$ — a factor of $759.3$. The reading has to
+be stated: the other natural one, subtracting a least-mean multiple
+rather than dividing, gives $0.000317$ and $0.299040$ instead, and the
+two disagree in the second figure by more than a fifth.
+
+Dividing through by $W(N)$ removes the analytic factor exactly, so no
+asymptotic for $\sum(\log p)^2$ is assumed: the ratio $V(N)/W(N)$
+against $\AAA(N)$ has mean $1.0000002$ with standard deviation
+$0.0001659$ in the top octave. At $N=4\cdot10^6$ the ratio $W/V$ is
+$1.270800$ against the predicted $1/\AAA(N) = 1.270204$.
+
+By cells, with cell $j$ the even $N$ divisible by $2$ and by the first
+$j-1$ of $3,5,7,11,13$:
+
+$$
+\begin{array}{r|cccccc}
+ \text{modulus} & 2 & 6 & 30 & 210 & 2310 & 30030\\
+ \text{count} & 7950000 & 2650000 & 530000 & 75714 & 6883 & 529\\\hline
+ \overline{V/(W\AAA)} & 1.000000475 & 1.000000147 & 1.000000010
+   & 0.999999570 & 0.999999037 & 0.999999646
+\end{array}
+$$
+
+Version 3 said this "agrees to six decimals in each of the six radical
+cells". Five of the six do; the $2310$ cell reads $0.999999$, missing
+by $1$ in the sixth place on $6883$ values of $N$. The audit
+pre-registered that claim as its rule X5 and it fails there.
+
+The lower cutoff $10^5$ is not cosmetic: the figure for $\AAA$ rises as
+the cutoff falls, reading $0.000346,\,0.000398,\,0.000470,\,0.000529$
+at cutoffs $5\cdot10^4,\,10^4,\,10^3,\,10^2$, while the figure for
+$\SS$ is unaffected because it is dominated by $\SS$'s wrong shape
+rather than by noise. Any comparison of the two must state its range.
+Version 3 put the degraded figure at $0.000582$; under the reading
+above no lower cutoff reaches it — the sweep saturates near
+$0.000555$ as the cutoff approaches the bottom of the range — so that
+one number is withdrawn rather than corrected. It was the audit's rule
+X6.
+
+
+#### Remark (the second-order form) {#rem:secondorder}
+<!-- evidence: lab_second_moment.py -->
+
+Proposition [prop:V]'s $V\sim\AAA N\log N$ is correct but converges
+slowly, and the audit's rule X7 — a $5\%$ band on
+$V/(\AAA N\log N)$ at $N=1.6\cdot10^7$ — fails on it: the measured
+ratio is $0.927137,\,0.933409,\,0.939701$ at
+$N=10^6,\,4\cdot10^6,\,1.6\cdot10^7$. The band was set as an effect
+size and not from the asymptotic, which is the same error as
+Remark [rem:cap] in the companion note. Partial summation from
+$\theta(x)\sim x$ gives $\sum_{p\le x}(\log p)^2 \sim x\log x-x$, so the
+second-order form is $\AAA(N)\,(N\log N-N)$, a factor $1-1/\log N$
+smaller — $0.939716$ at the top, against the measured $0.939701$.
+Against that form the ratio reads
+$0.999482,\,0.999134,\,0.999984$ at the same three $N$.
+
+
+### The aggregate second moment, exactly
+
+
+#### Lemma (the second-moment identity) {#lem:MP}
+<!-- evidence: analytic -->
+
+Fix $X$ and let
+
+$$
+\widehat C(N) \;=\; \sum_{\substack{n+v=N\\ n\le X,\ v\le X}}
+    \Lambda(n)\,\mu(v)
+$$
+
+be the truncated convolution, whose support runs to $2X$. Then
+
+$$
+\sum_{N\le 2X} \widehat C(N)^2 \;=\; \sum_{|h|<X} M(h)\,P(h),
+  \qquad
+  M(h) = \sum_{v,\,v+h\le X} \mu(v)\mu(v+h),
+  \quad
+  P(h) = \sum_{w,\,w+h\le X} \Lambda(w)\Lambda(w+h).
+$$
+
+
+**Proof.** 
+Expanding the square as a double sum over $(n,v)$ and $(n',v')$ with
+$n+v=n'+v'$ and summing over *all* $N$ leaves the single
+constraint $n-n' = v'-v =: h$, with $(n,n')$ and $(v,v')$ otherwise
+ranging independently over $[1,X]^2$. Collecting the $\Lambda$-pairs
+and the $\mu$-pairs separately gives the two factors.
+ ∎
+
+
+#### Remark
+
+The truncation on the left is necessary and it is easy to lose. If one
+writes instead $\sum_{N\le X}C(N)^2$ with $C$ the untruncated
+convolution, the three surviving indices $(n,v,h)$ are constrained by
+$n+v\le X$ — a *simplex* — while $M(h)P(h)$ ranges them over
+the *box* $[1,X]^2$ and so also counts every pair with
+$X< n+v\le 2X$. The two sides then differ by a factor near $1.57$ at
+$X$ from $800$ to $3200$, and the ratio does not tend to $1$. The form
+above is exact to machine precision at every $X$ tested, to
+$X=1.6\cdot10^7$.
+
+
+The identity is exact and unconditional, and it makes the aggregate
+size of the wall a statement about two shifted correlations, one of
+which ($P$) is the Hardy–Littlewood prime-pair sum and the other of
+which ($M$) is the binary Chowla sum.
+
+
+### What the excess is, and why Chowla does not control it
+
+
+Write $\rho(N) = \mathrm{Var}\,C(N)/V(N)$, which is $1$ if the $\mu(v)$
+on the surviving support are replaced by independent signs. Pointwise,
+$C(N)^2 = V(N) + \mathrm{OffDiag}(N)$ with
+
+$$
+\mathrm{OffDiag}(N)
+  = \sum_{h\ne0}\ \sum_{\substack{p,\,p+h\ \mathrm{prime}}}
+    (\log p)(\log(p+h))\,\mu(N-p)\mu(N-p-h),
+$$
+
+which is algebra. Passing from there to $\sum_{h\ne0}c(h)S(h)$ with
+$c(h)=\sum_{p'-p=h}(\log p)(\log p')$ and
+$S(h)=\langle\mu(u)\mu(u-h)\rangle$ is *not* algebra: it replaces
+the values $\mu(N-p)\mu(N-p-h)$, sampled on the sparse set of $p$ with
+$p$ and $p+h$ both prime, by an average over all $u$. We do not assume
+that decoupling. What we do record is that even granting it, the
+conditional route does not close.
+
+
+#### Proposition (the amplification) {#prop:W}
+<!-- evidence: audit_amplification.py -->
+
+Let $\Gamma(N) = \bigl(\sum_{h\ne0}c(h)\bigr)/V(N)$. Then
+$\Gamma(N) \sim N/(\AAA(N)\log N)$, and consequently a hypothesis
+$|S(h)|\le\varepsilon$ yields nothing better than
+$|\rho-1| \le \varepsilon\,\Gamma(N)$. Because $c(h)\ge0$ that
+inequality is sharp, so such a hypothesis can give $\rho\to1$ only for
+$\varepsilon = o(1/\Gamma(N)) = o(\log N/N)$; and no bound of that
+strength is true, because the measured $S$ already exceeds the budget
+— display [eq:budget] below. Hence no bound on $|S(h)|$ alone
+can give $\rho\to1$.
+
+
+Measured with $c$ as defined above — over primes, not prime powers —
+$\Gamma = 1.5128\cdot10^{3},\ 1.8412\cdot10^{4},\ 3.5759\cdot10^{5}$ at
+$N=10^4,\,1.6\cdot10^5,\,4\cdot10^6$, with
+$\Gamma\log N/N = 1.3933,\,1.3789,\,1.3590$ against the predicted
+$1/\AAA(N) = 1.270204$. The numerator needs no correlation: summing
+$c(h)$ over all $h\ne0$ is exactly $\theta(N)^2-\sum_{p<N}(\log p)^2$.
+
+
+#### Remark (one symbol, two meanings, in one paragraph) {#rem:cdef}
+<!-- evidence: audit_amplification.py -->
+<!-- symbol: c = sum_{p'-p=h} (log p)(log p'), over primes only -->
+
+Version 3 printed the row above as
+$1.5489\cdot10^{3},\ 1.8517\cdot10^{4},\ 3.5798\cdot10^{5}$. Those are
+the audit's rules Y1 and Y2 and they fail against the definition of $c$
+given here, by $-2.33\%,\,-0.57\%,\,-0.11\%$ — a gap shrinking like
+$N^{-1/2}$, which is the signature of prime powers, since
+$\psi(x)-\theta(x)\asymp\sqrt x$ and the numerator is squared. Computed
+instead with $c(h)=\sum_n\Lambda(n)\Lambda(n+h)$ the row reproduces to
+every printed digit. The budget $\mathcal B(X)$ below, however,
+reproduces to every printed digit with $c$ over *primes*: so the
+two displays of this one paragraph were computed with two different
+$c$, and the text defines only one of them.
+
+Nothing in Proposition [prop:W] turns on it — the two differ by
+$1+O(N^{-1/2})$ and the claim is the asymptotic $N/(\AAA\log N)$, which
+holds for either. The declaration above fixes the meaning to the one
+the text states, and the row is restated in it.
+
+Two consequences. First, Chowla's conjecture asserts $S(h)=o(1)$ for
+fixed $h$; the strength the display needs is $S(h) = o(\log N/N)$, so
+the gap is a factor $N/\log N$.
+
+Second — and this is what closes the absolute-value route rather than
+merely costing it a power of $\log$ — the true $S$ overspends that
+budget already. Nonnegativity of $c$ says the triangle inequality is
+sharp; the measurement says it is also lost. Define the *absolute
+budget*, which is exactly what the triangle inequality spends,
+
+$$
+\begin{equation}\label{eq:budget}
+  \mathcal B(X) = \frac{1}{V(X)}\sum_{0<|h|<X} c(h)\,\bigl|S(h)\bigr|,
+  \qquad
+  S(h) = \frac{1}{X-|h|}\!\!\sum_{|h|<u\le X}\!\!\mu(u)\,\mu(u-|h|),
+\end{equation}
+$$
+
+with $c(h) = \sum_{p'-p=h,\ p,p'\le X}(\log p)(\log p')$ as above.
+Measured, $\mathcal B(X) = 13.3,\,17.3,\,23.1,\,30.5$ at
+$X = 2\cdot10^4,\ 4\cdot10^4,\ 8\cdot10^4,\ 1.6\cdot10^5$: above $1$ by
+an order of magnitude, and growing. (Normalising $S$ by $X$ rather than
+by the number $X-|h|$ of terms gives $7.9,\,10.3,\,13.8,\,18.2$ —
+smaller, same conclusion. Both are reported because the phrase "binary
+Chowla sum" does not fix the normalisation, and a budget is not
+interpretable until it does.)
+
+So the only route to $\rho\to1$ is *signed cancellation across
+$h$*, which is a different object from Chowla's smallness and from the
+averaged absolute bound of [MRT15]. Naming what supplies that
+cancellation is an open question and is stated as such.
+
+
+### Two controls, and what they invalidate
+
+
+#### Lemma (the coin control) {#lem:coin}
+<!-- evidence: analytic -->
+
+Let $\varepsilon(v)=\pm1$ be arbitrary signs on $\{v : \mu(v)\neq0\}$
+and zero elsewhere. Then $\varepsilon^2 = \mu^2$ pointwise, so
+$V(N)$ is unchanged, and the field
+$C_\varepsilon(N)=\sum_v\varepsilon(v)\Lambda(N-v)$ has the same exact
+second moment as $C(N)$ for every $N$. Consequently any estimator whose
+output is reproduced when $\mu$ is replaced by $\varepsilon$ is not
+measuring $\mu$.
+
+
+#### Lemma (the placebo key) {#lem:placebo}
+<!-- evidence: lab_mask_placebo.py -->
+
+Let the cells be indexed by a labelling $\ell(N)$, and let $\pi$ be a
+permutation of the even integers in the band. Replacing $\ell$ by
+$\ell\circ\pi$ preserves every cell size and leaves the field
+$Z(N)=C(N)/\sqrt{V(N)}$ byte-identical, while destroying the
+correspondence between cells and arithmetic. Any cell-indexed statistic
+that survives this replacement is a property of the cell sizes and not
+of that correspondence.
+
+
+These are trivial and they are load-bearing. Lemma [lem:coin]
+invalidates the natural measurement of $\rho$: the centred estimator
+returns the same value on $\varepsilon$ as on $\mu$, so a quoted level
+for $\rho$ calibrates nothing. **Any claim about
+$\mathrm{Var}\,C$ relative to $V$ must first exhibit an estimator that
+distinguishes $\mu$ from a coin, and show that it does.**
+Lemma [lem:placebo] is what confirms, in Section [sec:floor], that
+the cell floor is a property of the arithmetic and not of the
+partition.
+
+
+#### Proposition (the coin obstruction is arithmetic, not informational) {#prop:coindisc}
+<!-- evidence: lab_coin_discriminator.py -->
+
+An earlier version added that with one realisation of $\mu$ such an
+estimator "may not be possible at all, and saying so would itself be a
+result". It is possible, on both counts:
+
+**(i)** Estimators that separate $\mu$ from a coin are cheap,
+provided they read *multiplicativity* rather than variability.
+$\mu(2v)=-\mu(v)$ for odd $v$ is an exact identity, while
+$\varepsilon(2v)$ and $\varepsilon(v)$ are independent signs, so
+
+$$
+T(x) \;=\; \frac1x\sum_{v\le x}\mu(v)\mu(2v)
+  \;\longrightarrow\; -\frac{4}{\pi^2}
+$$
+
+— minus the density of odd squarefree integers — while its coin
+analogue is $O(x^{-1/2})$. Measured, $T(x)$ reads
+$-0.405600,\,-0.405270,\,-0.405286,\,-0.405295$ at
+$x=10^4,10^5,10^6,2\cdot10^6$ against $-4/\pi^2=-0.405285$, while the
+worst of twenty coin draws on the same support is
+$0.020600,\,0.004570,\,0.001214,\,0.000935$. At the top the separation
+is about $430$ coin standard deviations.
+
+**(ii)** The field itself determines $\mu$. Writing $M=N-2$ and
+$\widehat\Lambda(m)=\Lambda(m+2)$, one has
+$C(N)=(\widehat\Lambda*\mu)(M)$ as an additive convolution with
+$\widehat\Lambda(0)=\Lambda(2)=\log2\neq0$, so $\widehat\Lambda$ is
+invertible and $\mu(M)=\sum_{m<M}a(m)\,C(M-m+2)$ for the inverse
+filter $a$. Lemma [lem:coin] is therefore not an
+information-theoretic obstruction: two different sign patterns give
+two different fields.
+
+
+
+
+#### Remark (but the inverse filter is numerically dead) {#rem:filter}
+<!-- evidence: lab_coin_discriminator.py -->
+
+What kills the constructive route is amplification, not information.
+The inverse filter grows geometrically: $|a(m)|$ runs
+$1.443,\,2.287,\,2.182,\,20.91,\,512.3,\,3.443\cdot10^{5},\,
+1.073\cdot10^{14},\,1.535\cdot10^{28},\,3.146\cdot10^{56}$ at
+$m=0,1,2,5,10,20,50,100,200$, with
+$|a(200)|^{1/200}=1.916413$. The recursion itself is exact — the
+residual of $a*\widehat\Lambda$ against $\delta_0$ is
+$7.018\cdot10^{-17}$ relative to the mass of the sum, i.e. machine
+epsilon — but in double precision the absolute residual passes
+$10^{-9}$ already at $m=31$, where $|a(m)|=4.479\cdot10^{8}$. That
+absolute tolerance was the audit's rule H1 and it fails; the failure
+is the amplification and not the recursion, which is why the relative
+figure is the one quoted. A rule stated as an absolute tolerance on a
+sum whose terms reach $10^{56}$ tests double precision, not the
+mathematics — the same mis-specification as
+Remark [rem:cap], and the third of its kind in this work.
+
+The reconstruction behaves accordingly: it returns $\mu(M)$ to
+$1.5\cdot10^{-5}$ at $M=40$ and is wrong by $4$ at $M=60$ and by
+$1.1\cdot10^{12}$ at $M=100$. So the field carries $\mu$ exactly and
+releases it only through a filter that amplifies by $1.92^{m}$.
+
+That is the sharper form of Lemma [lem:coin], and it is the one to
+apply to a new approach: the pass condition is not "exhibit any
+discriminating estimator" — those exist — but "exhibit one whose
+gain against the coin is not paid for by an amplification of the same
+order".
+
+
+#### Proposition (the demand-side discrepancy is a dilate) {#prop:dilate}
+<!-- evidence: lab_dilate_identity.py -->
+
+Write $A(N;k)=\sum_{n<N,\ n\equiv N\,(k)}\Lambda(n)\mu(N-n)$ for the
+progression sum inside $\Emu(N;k)$. Then, unconditionally,
+
+$$
+\begin{equation}\label{eq:dilate}
+  A(N;k) \;=\; \mu(k)\,H(N;k),
+  \qquad
+  H(N;k) \;=\; \sum_{\substack{m<N/k\\ (m,k)=1}}\Lambda(N-mk)\,\mu(m).
+\end{equation}
+$$
+
+
+
+
+**Proof.** 
+The class $n\equiv N\pmod k$ is $k\mid N-n$, so writing $N-n=mk$ turns
+the sum into $\sum_{m<N/k}\Lambda(N-mk)\mu(mk)$; and
+$\mu(mk)=\mu(m)\mu(k)$ when $(m,k)=1$, zero otherwise.
+ ∎
+
+
+
+
+Two things follow. First, the pass condition above is met, by the
+ratio $r_s(N;k)=A_s(N;k)/\bigl(s(k)H_s(N;k)\bigr)$: it is identically
+$1$ for $s=\mu$ and nothing of the kind for a coin, since
+$\varepsilon(mk)$ is independent of $\varepsilon(m)$ and
+$\varepsilon(k)$. Measured over every squarefree $k<N^{0.56}$ coprime
+to $N$ at $N=2\cdot10^5,\,4\cdot10^5,\,8\cdot10^5$, the worst relative
+error of [eq:dilate] is $2.294\cdot10^{-14}$,
+$1.197\cdot10^{-13}$, $4.591\cdot10^{-14}$; the fraction of $k$ at
+which the ratio is $1$ is $1.000000$ for $\mu$ and $0.000000$ for
+every one of eight coin draws, whose median $|r_\varepsilon-1|$ is
+$1.4366$. **Both sides of the ratio are the same size, so the gain
+costs no amplification at all** — unlike the inverse filter of
+Remark [rem:filter], which pays $1.92^{m}$.
+
+Second, [eq:dilate] qualifies the organising principle of
+\S[sec:claims]. The demand side is divisibility-coupled where
+$EH_\mu$ is *consumed*, but its per-modulus discrepancy is
+$\mu(k)$ times a *difference-coupled* sum at scale $N/k$ — the
+supply side's own object, one dilation down. The two couplings are not
+two fields; they are the same field seen before and after the switch.
+
+
+#### Remark (why the coin beat $\mu$ on the level) {#rem:whycoinwins}
+<!-- evidence: lab_dilate_identity.py -->
+
+Remark [rem:levelmeas] withdrew a level measurement because a coin
+reached a higher $K^*$ than $\mu$ at every $N$, and left the reason
+open. [eq:dilate] supplies it. For $\mu$,
+$|A(N;k)|=|H(N;k)|$ is a Möbius–prime correlation of length $N/k$
+— the wall, dilated — and nothing makes it small. For a coin,
+$\sum_m\Lambda(N-mk)\varepsilon(mk)$ is a sum of $N/k$ independent
+signs, and square-root cancellation is both the best it can do and
+what it does. Measured, $\langle|A_\mu|\rangle/
+\langle|A_\varepsilon|\rangle$ reads
+
+$$
+\begin{array}{r|ccc}
+ k\text{-band} & [2,32) & [32,256) & [256,2048)\\\hline
+ N=2\cdot10^5 & 1.0761 & 1.5306 & 1.4820\\
+ N=4\cdot10^5 & 1.2570 & 1.2671 & 1.4496\\
+ N=8\cdot10^5 & 1.1733 & 1.5013 & 1.4830
+\end{array}
+$$
+
+So $\mu$ is the noisier of the two in progressions, by half again at
+the larger moduli, and the withdrawal of Remark [rem:levelmeas] has
+a structural cause rather than merely a failed null. It also sharpens
+what the demand asks: $B(N)=\sum_k(\log k)|H(N;k)|$ is a weighted sum
+of dilated walls, so Proposition [prop:nolog]'s constant-factor
+bound is a constant-factor bound on the wall itself, summed over
+dilations.
+
+
+#### Proposition (the weights are nonnegative) {#prop:posweights}
+<!-- evidence: lab_positive_weights.py -->
+
+Substituting [eq:dilate] into $E_3$ and using $\mu(k)^2=1$ on the
+squarefree $k$,
+
+$$
+\begin{equation}\label{eq:posweights}
+  E_3(\alpha) \;=\; \sum_{\substack{k<K\\(k,N)=1}}
+    \mu^2(k)\,(\log k)\,H(N;k) \;-\; C(N)\,B_{\log}(K).
+\end{equation}
+$$
+
+**The signs $\mu(k)$ cancel exactly.** They cancel against the
+$\mu(k)$ that [eq:dilate] extracts from the progression sum, and what
+is left is a sum of dilated walls whose weights $\mu^2(k)\log k$ are
+nonnegative. Verified to machine zero — the relative error of
+[eq:posweights] against a direct evaluation of $E_3$ is at most
+$1.8\cdot10^{-16}$ over $N=2\cdot10^5$ to $3.2\cdot10^6$.
+
+This is worth pausing on. Huang–Li discard the $\mu(k)$ by the
+triangle inequality, and \S[sec:demand] says that keeping them is
+what the results here exploit. Keeping them is what
+Theorem [thm:A] exploits, on the $w_k=1$ branch. On the $\log k$
+branch they are not there to keep.
+
+
+#### Remark (there is no cancellation across dilations) {#rem:nocrossk}
+<!-- evidence: lab_positive_weights.py -->
+
+Nonnegative weights mean that whatever smallness $E_3$ has must come
+from the signs of $H(N;k)$ across $k$. It does not come from there.
+Write $G=\sum_k(\log k)|H|\big/\bigl|\sum_k(\log k)H\bigr|$ for the
+gain that cancellation across dilations buys:
+
+$$
+\begin{array}{r|ccccc}
+ N & 2\cdot10^5 & 4\cdot10^5 & 8\cdot10^5 & 1.6\cdot10^6
+   & 3.2\cdot10^6\\\hline
+ \#k & 313 & 462 & 682 & 1004 & 1485\\
+ G & 1.834 & 1.804 & 2.207 & 2.588 & 2.789\\
+ \sqrt{\#k} & 17.7 & 21.5 & 26.1 & 31.7 & 38.5
+\end{array}
+$$
+
+Independent signs would give $\sqrt{\#k}$. The measured gain is $2$ to
+$3$. Equivalently the sum behaves as though it had
+$n_{\mathrm{eff}}=G^2=3.4,\,3.3,\,4.9,\,6.7,\,7.8$ independent signs,
+where it has hundreds to thousands of terms: **the dilated walls move
+together.** For a coin, which keeps signed weights because
+$\varepsilon(k)\varepsilon(mk)$ does not collapse, the same gain reads
+$965.6,\,13.3,\,25.0,\,1000.4,\,96.0$ — erratic, since its
+denominator is a near-cancellation, but always more than five times
+$\mu$'s.
+
+The audit's rule T4 guessed the wrong mechanism, and its failure is
+informative: it proposed that a heavy tail explains the missing
+$\sqrt{\#k}$, but the top decile of $k$ carries only
+$0.3486$ to $0.3587$ of $\sum(\log k)|H|$ — concentrated, not
+dominant — and the $(\log k)$-weighted fraction of $k$ with $H>0$ is
+$0.3763$ to $0.4809$, near balanced. Neither domination nor a sign
+bias: a correlation.
+
+**What this costs the one-sided route, at accessible $N$.**
+Proposition [prop:onesided] weakened the demand from two-sided to
+one-sided, and the value of that depends on how much smaller a signed
+sum can be than its absolute counterpart. Over the range measured here
+the answer is a factor of about two, so [eq:onesided] and [eq:nolog]
+sit within a small constant of each other. Remark [rem:leandecay]
+shows that constant is not a constant — it grows — so this paragraph
+describes the accessible range and not the asymptotics.
+
+
+#### Remark (a Mertens reduction, closed) {#rem:mertens}
+<!-- evidence: lab_mertens_reduction.py -->
+
+Why the $H(N;k)$ move together has an obvious candidate answer, and it
+is wrong. If the weight $\Lambda(N-mk)$ behaved like its mean over
+$m$ — which is what the prime number theorem in progressions gives on
+average — then $H(N;k)$ would be a constant times the
+coprimality-restricted Mertens sum
+$M_k(M)=\sum_{m<M,(m,k)=1}\mu(m)$, whose values at different arguments
+are correlated over long ranges. The demand
+$B(N)\le\SS(N)(1-A(N))N$ would then be a statement about Mertens sums
+over dilations, a far more classical object.
+
+All four pre-registered rules fail. The correlation
+$\mathrm{corr}(H,M_k)$ across $k$ reads
+$0.5066,\,0.5473,\,0.5411,\,0.3242,\,0.2724$ at
+$N=2\cdot10^5$ to $3.2\cdot10^6$ — moderate, and *falling* with
+$N$, where U1 asked for $0.7$. The slope of $H$ against $M_k$ is
+$6.5$ to $11.2$ where U3 asked for $1$, and
+$\sum(\log k)|M_k|$ is $0.058$ to $0.073$ of $\sum(\log k)|H|$ where
+U4 asked for agreement to $30\%$: $|H|$ runs $14$ to $17$ times
+$|M_k|$, against the $\sqrt{\log N}=3.5$ to $3.9$ that a
+sparse-weight heuristic would give.
+
+The control settles what is left. U2 predicted that a coin would
+correlate just as well, so that the reduction would be a fact about
+the weight; measured, the coin gives $0.25$ to $0.33$, and at the
+largest $N$ $\mu$'s own $0.2724$ is *below* the coin's $0.3151$. So
+the reduction fails for both and there is nothing $\mu$-specific in
+what little correlation there is.
+
+Decomposing $H=cM_k+R$, the residual carries
+$0.7434,\,0.7004,\,0.7072,\,0.8949,\,0.9258$ of the variance, and its
+share grows with $N$. **The $\Lambda$ weight is not a constant
+multiplier; it supplies the bulk of $H$'s own fluctuation.** The line
+is closed: the correlation across $k$ that Remark [rem:nocrossk]
+found is not a common Mertens factor, and its mechanism stays open.
+
+
+#### Remark (the correlation sits in the large terms) {#rem:signmass}
+<!-- evidence: lab_sign_structure.py -->
+
+Two explanations of Remark [rem:nocrossk] remained. Either a few $k$
+carry the mass, so the sum fails to cancel for arithmetic reasons with
+no correlation at all; or the signs of the large terms agree while the
+small ones are balanced. They are separated exactly by the null that
+keeps the magnitudes $|H(N;k)|$ and re-signs them at random, and it is
+the second:
+
+$$
+\begin{array}{r|ccccc}
+ N & 2\cdot10^5 & 4\cdot10^5 & 8\cdot10^5 & 1.6\cdot10^6
+   & 3.2\cdot10^6\\\hline
+ G & 1.834 & 1.804 & 2.207 & 2.588 & 2.789\\
+ G\ \text{re-signed} & 49.01 & 67.21 & 66.59 & 82.14 & 339.03\\
+ \text{mass fraction } H>0 & 0.2273 & 0.2228 & 0.2735 & 0.3068
+   & 0.3207\\
+ \text{count fraction } H>0 & 0.4121 & 0.3831 & 0.4296 & 0.4392
+   & 0.4808\\
+ \text{low half} & 0.5096 & 0.4762 & 0.5396 & 0.5000 & 0.5774\\
+ \text{high half} & 0.3141 & 0.2900 & 0.3196 & 0.3785 & 0.3841
+\end{array}
+$$
+
+Re-signing buys $27$ to $122$ times more cancellation, so
+heterogeneity is not the explanation. Counting moduli the signs are
+near balanced; weighting by contribution, $68\%$ to $78\%$ of
+$\sum(\log k)|H|$ is negative; and split at the median of $|H|$, the
+small dilated walls are balanced while the large ones lean negative.
+**That is why $E_3$ is negative at every $N$ measured and why the sum
+does not cancel.**
+
+The control is less clean than the null and is reported as it came.
+Rebuilding the whole field from coin signs, ten draws give mass
+fractions $0.3033,\,0.4977,\,0.5222,\,0.5012,\,0.5165,\,0.3773,\,
+0.4544,\,0.5254,\,0.5085,\,0.4296$ — scattered about $\tfrac12$, one
+of ten below $0.33$ — and half-split gaps that never reach $0.13$ in
+absolute value, where every one of $\mu$'s five exceeds $0.12$ and the
+largest is above $0.21$. So **part of the half-split is
+mechanical**: conditioning on whatever sum was realised makes its
+large terms share its sign, and a coin shows that too. What $\mu$ adds
+is a stronger gap and a direction that is the same at all five $N$,
+where the coin's sign is a fresh flip each draw. That said, the five
+$N$ share one realisation of $\mu$, so the consistency of direction is
+one observation and not five — the same caution
+Remark [rem:mcratios] records for a different statistic.
+
+Why the large dilated walls lean negative is answered next.
+
+
+#### Remark (the lean is not the Mertens function) {#rem:leanmertens}
+<!-- evidence: lab_lean_mechanism.py -->
+
+Remark [rem:leandecay] calls the sign lean a finite-$N$ effect, which
+without a mechanism is a label. [eq:dilate] offers one to test:
+$H(N;k)$ sums $m$ over $1\le m<N/k$, so large $k$ means a *short*
+inner sum, and $\sum_{m\le M}\mu(m)=M(M)$ is negative at most small
+$M$. If $\Lambda(N-mk)$ were flat in $m$ the sign of $H(N;k)$ would be
+the sign of $M(\lfloor N/k\rfloor)$.
+
+**All four pre-registered rules fail.** The correspondence is not
+there: over $2\le N/k\le10^3$ the agreement between
+$\operatorname{sign}H(N;k)$ and $\operatorname{sign}M(\lfloor
+N/k\rfloor)$ reads $0.5472,\,0.5483,\,0.5513,\,0.5522,\,0.5535$, while
+shuffling the Mertens signs among the distinct values of $\lfloor
+N/k\rfloor$ — which preserves both marginal sign distributions
+exactly — reaches $0.6607,\,0.5610,\,0.6343,\,0.6297,\,0.6371$ at its
+best draw. **P3** therefore fails at every $N$: the real alignment
+does no better than a shuffle, and usually worse. **P4** fails too,
+and in the opposite direction to the prediction: $|1/2-f_+|$ is
+$0.1446$ where $N/k<10^3$ and $0.1667$ where $N/k\ge10^3$ at the
+largest $N$, so the lean is not concentrated in the short sums at all.
+The premise was only half true in any case — the fraction of
+$2\le x\le10^4$ with $M(x)<0$ is $0.5630$, not one.
+
+What the run does establish is a profile nobody had looked at. Binning
+$k$ by the length $N/k$ of its inner sum, the mass-weighted $f_+$ runs
+
+$$
+\begin{array}{lccccc}
+ N/k & [2,4) & [8,16) & [16,32) & [256,2^{10}) & [2^{12},\infty)\\\hline
+ f_+ & 0.7325 & 0.1897 & 0.0936 & 0.2196 & 0.3849
+\end{array}
+$$
+
+at $N=3.2\cdot10^6$ — **positive at the shortest sums, a sharp minimum
+at $N/k\in[16,32)$, and a slow return toward $1/2$**. That is not
+monotone, so **P1** and **P2** fail as stated, and the minimum sits at
+the same octave at every $N$, drifting only from $0.0769$ to $0.0936$
+across a factor $16$ in $N$.
+
+The positive end is elementary and carries no information: $N$ is even,
+so $N-mk$ is even whenever $mk$ is, and $\Lambda$ vanishes on even
+numbers above $2$; for odd $k$ only odd $m$ survive, leaving the
+nonnegative $m=1$ term almost alone. The minimum is not explained
+here. What is closed is the Mertens reading of Remark
+[rem:signmass]'s lean, and the closure is worth the cycle: it was the
+only elementary mechanism on offer.
+
+
+#### Remark (it is the Mertens function the parity leaves) {#rem:leanodd}
+<!-- evidence: lab_lean_oddmertens.py -->
+
+Remark [rem:leanmertens]'s own diagnostic supplies the repair. $N$ is
+even, so $\Lambda(N-mk)$ vanishes whenever $mk$ is even; every *even*
+$m$ contributes nothing to $H(N;k)$, while $M(x)=\sum_{m\le x}\mu(m)$
+counts them. The predictor was summing over a set half of which cannot
+appear. The object the parity leaves standing is
+$M_{\rm odd}(x):=\sum_{m\le x,\ m\ \text{odd}}\mu(m)$.
+
+With that one change the correspondence appears. Over
+$2\le N/k\le10^3$ the agreement between $\operatorname{sign}H(N;k)$ and
+$\operatorname{sign}M_{\rm odd}(\lfloor N/k\rfloor)$ is $0.7657$ at
+$N=3.2\cdot10^6$, against $0.5738$ for the best of sixteen
+permutations of the predictor's signs and $0.5563$ for the full
+Mertens function — the same test, the same null, and the parity
+restriction is the whole difference. Requiring $m$ coprime to $k$ as
+well, which is the exact summation range of [eq:dilate], changes the
+agreement by $+0.0000$ at every $N$: the coprimality is redundant
+once the parity is imposed.
+
+**So the sign lean of the dilated walls is $M_{\rm odd}$ read at the
+length of the inner sum**, and Remark [rem:leandecay]'s "finite-$N$
+effect" has a name. It also explains the decay without appeal:
+$M_{\rm odd}(x)/\#\{m\le x\ \text{odd squarefree}\}$ runs
+$-0.3333,\,-0.5610,\,-0.4756,\,-0.3407,\,-0.2262,\,-0.1352,\,-0.0535,
+\,-0.0175$ across the octaves from $[4,8)$ up, so a fixed $k$-range
+sees a shallower lean as $N$ grows and $N/k$ with it.
+
+The fourth pre-registered rule fails and the failure is instructive.
+**Q4** asked the predictor's deepest octave to be $[16,32)$, where the
+measurement's minimum sits; it is $[8,16)$. The model behind the
+prediction — that a contributing $k$ has one surviving $m$, so
+$\operatorname{sign}H=\mu(m)$ and $f_+\approx\tfrac12(1+M_{\rm
+odd}/{\rm count})$ — tracks the shape but under-predicts the depth,
+by $-0.0298$ at $[8,16)$ and $-0.1686$ at $[16,32)$, widening to
+$-0.2699$ at $[64,128)$. The sign of $H$ term by term is $M_{\rm
+odd}$; how the surviving terms are *selected* is not one term drawn
+uniformly, and that is what the miss measures. Q1 to Q3 are about the
+first and hold; Q4 was about the second and does not.
+
+
+#### Remark (which half of the predictor does the cutting) {#rem:predictablenull}
+<!-- evidence: audit_predictable_null.py -->
+
+Remark [rem:predictable] declines a control: "a randomisation would
+move both parts together". That is true of one that moves both. Two do
+not — keep $\operatorname{sign}P$ and permute $|P|$ across $k$, or
+keep $|P|$ and redraw the sign — and each breaks exactly half the
+predictor while leaving $H$ untouched. Given Remark
+[rem:survivorrange], which half is doing the work now matters: the
+sign field is the part validated only on short inner sums.
+
+**D1 holds** — $\beta$ and all five residual shares reproduce exactly
+— and **D2 holds**: the fall is $-0.037002$ per unit $\log N$ at
+$6.61$ standard errors, so "the share it cuts is growing with $N$"
+survives the test that withdrew rule U4.
+
+**D4 holds and D3 is refuted, narrowly and informatively.** Scored on
+the residual share, the sign-only null leaves $0.9252$ to $0.9543$,
+just under the $0.95$ registered. Scored on the *cut*, which is what
+the remark claims, the picture is unambiguous:
+
+$$
+\begin{array}{r|ccccc}
+N & 2\cdot10^5 & 4\cdot10^5 & 8\cdot10^5 & 1.6\cdot10^6 &
+  3.2\cdot10^6\\\hline
+\text{true cut} & 0.3690 & 0.4021 & 0.4446 & 0.4579 & 0.4693\\
+\text{signs only} & 0.1012 & 0.1465 & 0.1512 & 0.1158 & 0.0984\\
+\text{magnitudes only} & -0.0325 & -0.0173 & -0.0065 & -0.0032 &
+  -0.0014
+\end{array}
+$$
+
+The sign field alone reaches a tenth to a seventh of the cut; the
+magnitudes alone reach none of it and are slightly worse than nothing,
+as a random relative sign must be. **The $37$ to $47$ per cent needs
+the per-$k$ pairing of the two.**
+
+So the declined null was not empty, and what it settles is favourable
+to the split as a statement about $P$ and unfavourable to reading it
+through the sign agreement alone. The split does not inherit Remark
+[rem:survivors]'s window restriction, because it is not the sign
+agreement that carries it.
+
+
+#### Remark (the sieve-weighted predictor on the lean's own k) {#rem:survivorrange}
+<!-- evidence: audit_survivor_range.py -->
+
+Remark [rem:oddmertensrange] withdrew $M_{\rm odd}$'s claim on the
+lean and left one predictor standing. Remark [rem:survivors]'s
+sieve-weighted $P(N;k)=\sum_m\mu(m)w(m,k)$ agrees with
+$\operatorname{sign}H$ at $0.9274$ down to $0.9080$ — but on the same
+window, $2\le N/k\le10^3$, which Remark [rem:predictable] states
+plainly. The lean runs to $N/k=2.1\cdot10^6$.
+
+**S1 holds.** Over every admissible $k$ in the published window rather
+than its $60000$-$k$ subsample, the agreement comes back at $0.9106$
+against $0.9080$ at the top $N$ and within $0.005$ throughout, and the
+$M_{\rm odd}$ column likewise.
+
+**S2, S3 and S4 are refuted, and narrowly.** On $k<N^{0.56}$ the
+agreement is $0.8129,\,0.7632,\,0.7446,\,0.7367,\,0.7759,\,0.7579$ —
+well below the $0.91$ of the demonstration. The lean $P$ predicts on
+$\mu$'s own magnitudes is $0.6571$ to $0.8676$ of $\mu$'s, and its
+slope is $-0.230633$ against $\mu$'s $-0.167260$, $2.11$ standard
+errors apart.
+
+Set beside the other predictor on the same window:
+
+$$
+\begin{array}{l|ccc}
+ & \text{ratio to }\mu\text{'s lean} & \text{slope} &
+   \text{agreement}\\\hline
+ M_{\rm odd} & 1.73\text{–}2.96 & -0.004298 & 0.52\text{–}0.62\\
+ P & 0.66\text{–}0.87 & -0.230633 & 0.74\text{–}0.81\\
+ \mu & 1 & -0.167260 &
+\end{array}
+$$
+
+**So no elementary predictor carries the lean where the lean is
+measured**, and the two fail in opposite directions: $M_{\rm odd}$
+overshoots by $73$ to $196$ per cent with no decay at all, $P$
+undershoots by $13$ to $34$ per cent and decays too fast. $P$ is much
+the closer of the two and its misses are marginal — a factor
+$0.6571$ against a tolerance of $0.667$, a slope $2.11$ standard
+errors out — but they are misses, and they are one-directional.
+
+What this leaves of Remark [rem:survivors] is its own sentence with
+the window attached: nine tenths of the sign of the dilated wall is a
+sieve-weighted Möbius sum **over a short inner range**. On the range
+the lean is measured over it is three quarters, and the quarter it
+misses is where the lean's own trend lives.
+
+
+#### Remark (the mechanism was shown on the wrong window) {#rem:oddmertensrange}
+<!-- evidence: audit_oddmertens_range.py -->
+
+Remark [rem:leanodd] establishes the agreement over $2\le N/k\le10^3$
+with $k<N/2$ — **short inner sums** — and then credits it with
+explaining Remark [rem:leandecay]'s decay. That lean is measured on
+$k<N^{0.56}$, whose inner lengths run from $215$ to $2.1\cdot10^6$.
+The two windows do not nest: the statistic overruns the demonstration
+by a factor $2133$.
+
+**P1 holds.** The agreement reproduces to four decimals at all five
+$N$, $0.7704$ down to $0.7657$, and the full Mertens at $0.5472$ to
+$0.5563$. Nothing in the mechanism as measured is in doubt.
+
+**P2 holds, P3 and P4 are refuted.** On the lean's own $k$-range the
+agreement is $0.5815,\,0.6161,\,0.5718,\,0.5618,\,0.5209,\,0.5201$ —
+weaker than the demonstration and falling. Replacing each
+$\operatorname{sign}H$ by $\operatorname{sign}M_{\rm odd}$ on $\mu$'s
+own magnitudes gives a predicted lean of $0.48$–$0.50$ at every $N$,
+which is **$1.8$ to $3.0$ times** $\mu$'s, and its slope is
+$-0.004298$ at $0.94$ standard errors — flat, against $\mu$'s
+$-0.167257$, a gap of $8.51$ standard errors. Against the floor of
+Remark [rem:leanfloor] the two also part: $\mu$ rises at $+0.126950$
+and the predictor at $+0.289908$, $3.40$ standard errors apart.
+
+So the sentence to withdraw is "it also explains the decay without
+appeal". **Where the lean is measured, $M_{\rm odd}$ predicts a lean
+nearly twice too deep and predicts no decay at all** — it tracks the
+floor's own decay instead, which is what a predictor blind to the
+magnitudes would do. What stands is Remark [rem:leanodd]'s first
+half, which is what P1 confirms: on short inner sums the sign of $H$
+is the sign of $M_{\rm odd}$, and the parity restriction is the whole
+difference. That is a fact about individual terms and Remark
+[rem:survivors] is where its limits were already being measured.
+
+
+#### Remark (which $m$ survive, and why the lean is deeper) {#rem:survivors}
+<!-- evidence: lab_survivor_selection.py -->
+
+Remark [rem:leanodd] settled the sign of each term and left the
+selection open: the uniform single-survivor model under-predicts the
+depth. The candidate is elementary. A term survives when
+$\Lambda(N-mk)\ne0$, and $N-mk$ *shrinks* as $m$ grows — at the top of
+the range it is of order $k$, where primes are far denser than near
+$N$. So survivors should lean towards large $m$, and over a short
+range the large odd squarefree $m$ are mostly primes, with $\mu=-1$.
+The same argument makes $m=1$, the one guaranteed $\mu=+1$, the least
+likely survivor, since $N-k$ is the largest value in the range.
+
+Both consequences are there. Among sampled $k$ with exactly one
+surviving $m$, the fraction whose survivor is $m=1$ reads
+$0.4710,\,0.4678,\,0.4670,\,0.4601,\,0.4550$ against the uniform
+expectation on the *same* $k$, $0.5420,\,0.5381,\,0.5305,\,0.5209,\,
+0.5159$ — a deficit of $12$ to $13$ percent. And the survivors' mean
+relative position $m/(N/k)$ is $0.5298,\,0.5293,\,0.5290,\,0.5286,\,
+0.5268$ against the $0.5$ a uniform draw would give.
+
+Replacing the count by the density each term actually has settles it.
+With the standard sieve weight for $N-mk$ to be prime,
+$w(m,k)=\prod_{q\nmid k}\bigl[N\not\equiv mk\ (q)\bigr]\,q/(q-1)$ over
+the odd $q\le30$, the predictor $P(N;k)=\sum_m\mu(m)w(m,k)$ agrees
+with $\operatorname{sign}H(N;k)$ at
+$0.9274,\,0.9224,\,0.9204,\,0.9154,\,0.9080$ — against $0.8377$ down
+to $0.8238$ for the odd Mertens function of Remark [rem:leanodd], and
+against $0.5372$ to $0.5414$ for the best of sixteen permutations.
+**Nine tenths of the sign of the dilated wall is a sieve-weighted
+Möbius sum over its own inner range.**
+
+That closes the chain [rem:signmass] opened. The lean is not a
+property of $\mu$ that cancellation across $k$ might undo: it is
+$\sum_m\mu(m)$ over a short range, biased by the prime density that
+selects which $m$ appear. What it does not do is help. The
+$9$ percent that $P$ misses is where any saving would have to live,
+and it is the part no elementary weight predicts.
+
+
+#### Remark (how much of the demand is elementary) {#rem:predictable}
+<!-- evidence: lab_predictable_part.py -->
+
+Remark [rem:survivors] validated $P(N;k)=\sum_m\mu(m)w(m,k)$ on short
+inner sums, $N/k\le10^3$, and called the $9\%$ it misses the place a
+saving would live. The demand $B_H(N;K)=\sum_{k<K}(\log k)|H(N;k)|$
+runs down to $k=2$, where the inner sum has $N/2$ terms, so the
+question is whether the predictor survives there and whether that is
+where the mass is. Measured over the operative range $2\le k<3\cdot10^4$,
+which covers $K^*$ at every $N$:
+
+**All four pre-registered rules fail, and every one of them fails in
+the direction that makes the elementary part matter more.** **S1**
+predicted the correlation of $H$ with $P$ would collapse at long inner
+sums, below $0.2$; it is $0.6149,\,0.8637,\,0.8599,\,0.8621,\,0.8096$
+there against $0.8583$ down to $0.8492$ at the short end. **S2**
+predicted the mass would sit at the long end; the share of
+$\sum(\log k)|H|$ coming from $N/k\ge10^4$ is
+$0.0171$ to $0.0384$, while $N/k\le10^3$ carries
+$0.7705$ to $0.8991$ — there are simply far more $k$ at the short end.
+**S4** predicted the sign agreement would be void where the mass is;
+at $N/k\ge10^4$ it is $0.8462,\,0.8148,\,0.7925,\,0.8148$ at the four
+largest $N$.
+
+**S3** is the consequential one. With $\beta$ the least-squares scale
+through the origin — $\beta=2.6992,\,2.8588,\,2.9952,\,3.1437,\,
+3.0473$, stable — the elementary part is not a correction but most of
+the object: $\sum(\log k)|\beta P|$ is $0.8595$ to $0.9553$ of
+$\sum(\log k)|H|$, and subtracting it leaves
+$\sum(\log k)|H-\beta P|/\sum(\log k)|H| = 0.6310,\,0.5979,\,0.5554,\,
+0.5421,\,0.5307$. Removing everything an elementary sieve weight
+predicts cuts the demand by $37$ to $47$ percent, and the share it
+cuts is *growing* with $N$.
+
+What that does not do is reduce the difficulty. The residue is still
+of the same order as $B_H$ itself, so no bound follows; and $P$ is a
+Möbius sum over the same short range, not a quantity with a known
+bound. What it establishes is the split: **to within a factor $\beta$
+of about $3$, the dilated wall is an elementary sieve-weighted Möbius
+sum plus a residue of half its size**, and the residue is the only
+part that is a Möbius–prime correlation in any essential sense. That
+is a sharper localisation than Remark [rem:survivors]'s $9\%$, which
+was measured where the mass is thinnest.
+
+
+#### Remark (a copied floor, and the control M3 was owed) {#rem:copiedfloor}
+<!-- evidence: lab_cell_singular.py -->
+
+The fourth and last pointer-style decline. Proposition
+[prop:scaleinv]'s evidence declines a control because $D_c$ "is a
+deterministic arithmetic functional" and "the detection it explains
+has its own control" elsewhere. Both halves are true and neither
+covers **M3**, the surviving claim of that script: a correlation of
+$0.9805$ across depths between $D_c$ and the exact floor $se_c$. The
+control it points at permutes depth labels to test $z_c$, a different
+statistic.
+
+Auditing it turned up something first. The floor $se_c$ was not
+computed there at all — six numbers were typed in, with a comment
+naming the script they came from. **A copied value is a dependency no
+check can see**: the gate compares a script with its own result, and a
+script with the files it reads, and a number that was typed is
+neither. It is now read from that script's result file, which puts it
+under the ordering check, and the program's gate refuses a value whose
+comment names a source it does not read.
+
+**M3 survives the control it was owed, and by the widest margin
+available.** With six depths the permutation null is exact: over all
+$720$ orderings of the depth labels, exactly $1$ reaches
+$|r|=0.9805$ — the identity — against a null median of $0.3475$ and a
+$95$th percentile of $0.8084$. So the floor tracks $D_c$ at
+$p=1/720$, and the tracking is not an artefact of both being monotone
+in depth.
+
+The other three rules of that script were already refuted and remain
+so; what this adds is that its one surviving claim now has the null
+its evidence declined, and that the number it correlates against is
+computed rather than copied.
+
+
+#### Remark (the decay sweep, controlled) {#rem:decaynull}
+<!-- evidence: audit_decayfamily_null.py -->
+
+Remark [rem:decayfamily]'s evidence declines a control by pointing at
+the scripts that measured $f$, on the ground that it "only fits a
+functional form to numbers already controlled there". Fitting a
+functional form is not nothing: the $\alpha$-sweep of
+$\log|1/2-f| = a - c(\log N)^\alpha$ reports a minimiser, a
+one-percent band and a nine-order extrapolation, and none of those is
+controlled by having measured $f$. Eight noisy points will produce a
+minimiser and a band whatever they contain — or so it seemed worth
+checking.
+
+**The pointer missed and the claim survives it.** With the field,
+weight, $k$-range and $\theta'$ identical and only the sign pattern
+changed, $\mu$'s $|1/2-f|$ reads
+$0.2727,\,0.2772,\,0.2265,\,0.1932,\,0.1793,\,0.1624$ against a coin
+maximum of $0.0826$ — every draw an order below $\mu$ at every $N$,
+so the lean the pointed-to control established is confirmed here too.
+And the sweep discriminates decisively, against the prediction:
+**not one** of the eight draws has an interior minimiser, every one
+pinning at $0.05$ or $1.50$, with residual sums of squares from
+$2.991540$ to $10.078929$ against $\mu$'s interior $\alpha^*=1.45$ at
+$0.011556$ — a separation of two to three orders in fit quality.
+
+Two rules fail. **Y3** predicted the sweep would be uninformative and
+it is not, which is the better outcome and the reason the rule was
+written to be falsifiable in that direction. **Y2** asked $\mu$'s
+$|1/2-f|$ to fall monotonically; it rises once, from $0.2727$ to
+$0.2772$ at the first step, and falls cleanly thereafter — while
+$0$ of $8$ draws fall monotonically at all, which is the half of Y2
+that carried the content. **Y4** holds: the median draw's band is
+$1.02$ against $\mu$'s $0.60$, so band width alone remains a weak
+discriminator and Remark [rem:decayfamily]'s own note — that its
+one-percent band is a threshold and not a null — stands, now measured
+rather than conceded.
+
+
+#### Remark (a pointer that missed, and the control it owed) {#rem:forecastnull}
+<!-- evidence: audit_forecast_null.py -->
+
+Remark [rem:forecast]'s evidence declines a control by pointing
+elsewhere: $\gamma$ carries what the sign pattern contributed, and
+that was measured for $\mu$ and for a coin in the dilation
+extrapolation. The pointer is real and it misses. What was measured
+there is the *median* of $|A(N;k)|/\sqrt{N/k}$; the forecast's own
+diagnostic then rejects the median — "$\gamma$ was calibrated on the
+median, but $B$ is a sum and needs the mean" — and rebuilds on a
+mean-based $\gamma$. **The coin was never measured for the mean**, and
+the two differ by half again: $1.6429,\,1.6259,\,1.4888,\,1.4725,\,
+1.5033$ across the range. This is the failure Remark [rem:splitnull]
+found in the split — a named control testing a different statistic
+from the claim.
+
+By the criterion of Remarks [rem:weightgapnull] and [rem:extendnull]
+the control is usable: a mean of absolute values cannot be driven near
+zero, and measured, the eight draws' $\gamma$ spread is $0.0434$ of
+their median. So it is run, and **the calibration is $\mu$'s.** The
+mean of $|A|/\sqrt{N/k}$ is $3.5647$ to $3.7497$ for $\mu$ against a
+draw median of $2.4882$ to $2.7481$, every draw below $\mu$ at every
+$N$ as Remark [rem:whycoinwins] requires; $\mu$'s fitted
+$\gamma=1.0029$ sits outside the draws' range $[0.6963,\,0.7271]$; and
+feeding each $\gamma$ through the same model, the $N$ at which $K^*$
+first reaches $\sqrt N$ is $10^{6.20}$ for $\mu$ against
+$[10^{4.46},\,10^{4.83}]$ for the draws — outside by more than an
+order of magnitude.
+
+Two things are worth stating exactly. The crossing audited here is the
+level-one-half one, $K^*=\sqrt N$, not the $\theta'=0.56$ crossing
+Remark [rem:forecast] quotes; they share the calibration, so what
+transfers is that $\gamma$ is $\mu$'s and therefore so is any crossing
+the model produces from it. And an earlier version of this audit
+returned every crossing at the top of its bracket, because the
+bisection moved the wrong way below the crossing — the numbers above
+are from the corrected solve, and the broken ones were an instrument
+fault, not a measurement.
+
+
+#### Remark (the extrapolation's declined null, run) {#rem:extendnull}
+<!-- evidence: audit_extendrange_null.py -->
+
+Remark [rem:extendrange]'s evidence declines a control — "no new
+detection is claimed, only a longer lever" — and its content is an
+extrapolation, which is exactly the kind of claim a control reaches.
+Remark [rem:weightgapnull] settled when a declined control is worth
+running: when the statistic is well conditioned under it. $B(N)/N$ is
+a sum of absolute values, so a coin cannot drive it near zero; across
+eight draws its spread is $0.1510$ of the median at the smallest $N$
+and $0.0436$ at the largest. This is the well-conditioned case, so the
+control is run.
+
+**The extrapolation is $\mu$'s.** With the field, the weight $\log k$,
+the $k$-range and $\theta'$ identical and only the sign pattern
+changed, the coin's $B/N$ is below $\mu$'s at every $N$ and every
+draw — median $0.5399$ against $0.8086$ at $2\cdot10^5$, $0.3984$
+against $0.5526$ at $6.4\cdot10^6$ — which is what Remark
+[rem:whycoinwins] requires. The fitted log-law exponent is $-1.5274$
+for $\mu$ against a draw range of $[-1.3570,\,-0.8243]$, outside it;
+and the crossing of the Goldbach threshold sits at $10^{8.86}$ for
+$\mu$ against $[10^{7.17},\,10^{7.87}]$ for the draws, outside it by
+more than an order of magnitude. So the bracket Remark
+[rem:extendrange] quotes is a statement about $\mu$ and not about the
+fitting exercise.
+
+One rule fails, and its failure was flagged in advance as the good
+outcome. **W2** predicted that a good fit would be uninformative, every
+coin fitting past $0.98$ in magnitude as $\mu$ does. Three draws do
+not, running down to $0.91992$, so fit quality carries *some*
+information — but not much, since $\mu$'s $0.98333$ is beaten by one
+draw's $0.99494$. **The quality of the fit is a weak discriminator and
+the rate is a strong one**, which is the right way round for an
+extrapolation and was worth establishing rather than assuming.
+
+
+#### Remark (the control the split never had) {#rem:splitnull}
+<!-- evidence: lab_split_null.py -->
+
+Remarks [rem:predictable] and [rem:residue] were built without one.
+lab_survivor_selection.py permuted signs and showed $P$ predicts the
+*sign* of $H$; nothing tested the *size* claim, and the size claim is
+what the split rests on. It could easily have been empty: $P$ and $H$
+are sums of the same length with bounded weights, so a least-squares
+fit will absorb some fixed share of the mass whatever $P$ contains.
+
+Two controls settle it, and each breaks $P$ without changing its
+shape. Replacing $\mu(m)$ by a fixed $\pm1$ on the odd squarefree $m$,
+sieve weights and summation range untouched, the residual share
+$\sum(\log k)|H-\beta P|/\sum(\log k)|H|$ rises from $\mu$'s
+$0.6310,\,0.5979,\,0.5554,\,0.5421,\,0.5307$ to a median over eight
+coins of $0.9879,\,0.9566,\,0.9711,\,0.9905,\,0.9986$ — **the coin
+absorbs essentially nothing**, and the gap $0.3569$ to $0.4680$ is
+twice what the rule required. Replacing the sieve weight by $1$ and
+keeping $\mu$, the plain Möbius sum reaches correlation
+$0.6570$ down to $0.5532$ against $P$'s $0.8575$ to $0.8463$, and
+leaves $0.8710$ to $0.8272$ of the mass against $P$'s $0.53$ to
+$0.63$. So both ingredients earn their place: the arithmetic does the
+work, and the sieve weight roughly halves what is left.
+
+One rule fails, on its band rather than its content. **U2** asked the
+coin correlations to sit in $[-0.1,0.1]$; they run $-0.2918$ to
+$+0.2188$. The naive sampling error at $10132$ points would be
+$0.0099$, but the inner sums are *nested* — consecutive $k$ share
+almost all their $m$ — so the effective degrees of freedom are the
+number of octaves, not the number of $k$, and $\pm0.29$ is the honest
+noise scale. Read against the band the coins themselves span, $\mu$
+clears the far edge by $+0.6300$ to $+0.8291$. The band should have
+been computed from the controls rather than assumed, which is what
+[rem:cap]'s rule says and what U1 did correctly.
+
+
+#### Remark (the residue is square-root) {#rem:residue}
+<!-- evidence: lab_residue_size.py -->
+
+Remark [rem:predictable] split $H=\beta P+R$ and left the question the
+whole route turns on. Remark [rem:directlevel] showed that the measured
+level $K^*_H$ is exactly what square-root cancellation in $H$ would
+predict; the split makes that testable on the part that is actually a
+Möbius–prime correlation.
+
+**It is square-root, and the lean is not in it.** Fitting the octave
+means of $|R|$ against $N/k$ — with each octave's abscissa the mean of
+$N/k$ inside it, not a nominal midpoint; bins closed at both ends and
+required to hold at least ten $k$, as Remark [rem:elemreach] forced —
+gives exponents
+
+$$
+0.4722,\ 0.4923,\ 0.5079,\ 0.5048,\ 0.4869
+$$
+
+at all five $N$, with correlations $0.99582$ to $0.99961$ and
+leave-one-out spreads $0.0106$ to $0.0419$. The floor is a threshold
+and is swept: over $5$, $10$ and $20$ $k$ per octave the exponent
+moves by at most $0.0374$ (rule T5, added with the correction and
+disclosed as such). The thinnest octave any of these five fits stands
+on holds $25,\,13,\,25,\,13,\,25$ values of $k$ — declared to the gate
+now, along with the correlations, rather than left to be discovered,
+as in Remark [rem:elemsize]. Meanwhile the mass-weighted $f_+$ of $P$ is
+$0.0796,\,0.0649,\,0.0941,\,0.1326,\,0.1836$, an order below the
+$0.4854$–$0.5155$ band that sixteen sign draws on $|R|$ span. **The
+elementary sieve part carries the lean; the residue carries the
+square root.**
+
+**This remark first reported something weaker, and the correction is
+the point.** As it stood, its fit ran through an unbounded top bin
+$[32768,\infty)$; T2 and T4 then failed at $N=2\cdot10^5$, and the
+remark diagnosed the cause correctly — at that $N$ the top bin means
+$k\le6$ and holds a handful of them — but treated it as one bad $N$
+rather than as a defect in the estimator. Remark [rem:elemreach]
+later measured how large that defect is on a longer lever. With every
+bin closed and populated, **T2 and T4 hold at all five $N$**, the
+exponents sit on $\tfrac12$ instead of running from $0.47$ to $0.49$,
+and the old numbers are not reprinted here because nothing computes
+them any more.
+
+**T1** still fails everywhere: the residue is not perfectly
+centred, its $f_+$ reading
+$0.5516,\,0.5573,\,0.5484,\,0.5379,\,0.4832$ against draw bands of
+width about $0.02$. So $\beta P$ slightly over-corrects, and the
+residual lean shrinks and changes sign across the range — an order of
+magnitude smaller than $H$'s own $0.09$ to $0.38$, but not zero.
+
+What this gives is a clean statement of the remaining difficulty.
+$\sum_{k<K}(\log k)|H|$ is, to within the factor $\beta\approx3$, an
+elementary sieve-weighted Möbius sum plus a residue of half its size
+that obeys $|R|\asymp(N/k)^{1/2}$ over the whole operative range. The
+heuristic of Remark [rem:directlevel] — $K^*\asymp\SS^2N/(4\log^2K)$
+from square-root cancellation — is therefore a statement about $R$
+alone, and what is unproved is square-root cancellation for $R$, not
+for $H$. That is a smaller object than the one the program started
+with, and no easier: it is still a Möbius–prime correlation of length
+$N/k$ with the elementary part removed. Remark [rem:residuecancel]
+asks whether that size is bought or given.
+
+
+#### Remark (and it holds over a factor 128) {#rem:leanextended}
+<!-- evidence: audit_lean_extended.py -->
+
+Remark [rem:leanfloor] is six points, and this project's record is
+that six points are where a trend can be a short-sweep artefact.
+The longer lever already existed: Remark [rem:extendrange]'s table
+carries the same $f$ to $N=2.56\cdot10^7$, eight octaves. **Its
+control does not.** That file runs no null, on the grounds that "the
+coin reference level for $f$ is $\tfrac12$ and was measured there" —
+in Remark [rem:leandecay]'s evidence, which stops at $6.4\cdot10^6$.
+The two largest $N$ in these papers had never had a floor.
+
+**E1 and E2 hold**: the eight mass fractions reproduce to $0.00002$
+with the same $\#k$ at every $N$, and the power exponent comes back
+at $-0.153911$ against the published $-0.1539$.
+
+**E3 and E4 hold, over the whole factor $128$.** The median lean of
+$256$ sign vectors on the identical magnitudes falls at $-0.313205$
+($24.21$ standard errors) against $\mu$'s $-0.153911$ — a difference
+of $+0.159294$, **$9.29$ standard errors**. In units of that floor
+the lean is
+
+$$
+8.49,\ 11.31,\ 11.92,\ 13.43,\ 13.25,\ 15.79,\ 16.84,\ 21.36 ,
+$$
+
+rising at $+0.159294$ per unit $\log N$, $9.58$ standard errors.
+
+And the two sweeps agree on the thing that was in doubt: the
+floor-relative slope is $+0.152263$ on six points and $+0.159294$ on
+eight, a difference of $0.22$ standard errors. **The longer lever does
+not soften it; it sharpens it.** Over every range measured, the sign
+lean grows relative to what chance gives on the same magnitudes.
+
+
+#### Remark (the floor moved faster than the lean) {#rem:leanfloor}
+<!-- evidence: audit_lean_floor.py -->
+
+Remark [rem:leandecay] reads the lean's decay as the thing that
+rescues the asymptotic picture, and reads its coin arm — two draws per
+$N$ — only for whether it "sits at $\tfrac12$ throughout, as it must".
+Sitting at $\tfrac12$ is not the question. A random sign field on
+these magnitudes leans by about $\ell^2/2\ell^1$, and Remark
+[rem:crosskreference] has just measured $\ell^1/\ell^2$ growing, so
+that floor **moves**.
+
+**L1 and L2 hold.** The six mass fractions come back to $0.00042$ and
+the raw decay is resolved: slope $-0.167257$ at $9.00$ standard
+errors, reproducing the published $-0.1673$.
+
+**But the floor falls faster.** With $256$ global sign vectors on the
+identical magnitudes, the median coin lean runs
+$0.0276,\,0.0237,\,0.0192,\,0.0162,\,0.0116,\,0.0095$ and its slope
+is $-0.315933$ at $17.68$ standard errors — steeper than $\mu$'s by
+$5.77$ standard errors. **L4 holds** and says the same thing
+directly: $\mu$'s lean measured in units of its own floor is
+
+$$
+9.86,\ 11.71,\ 11.79,\ 11.95,\ 15.44,\ 17.14 ,
+$$
+
+rising at $+0.148676$ per unit $\log N$, $5.81$ standard errors.
+
+**L3 is refuted by its instrument, not its direction.** It asked
+$\mu$'s slope to sit above the $97.5$th percentile of the $256$
+per-draw slopes; a single draw's six leans are so noisy that those
+slopes run from $-1.63$ to $+0.63$, and no fixed quantity could clear
+that percentile. The floor is not one draw but where the draws sit,
+and that is what the median series estimates.
+
+What survives and what does not. The raw table is right, $G=1/|2f-1|$
+does rise, and Remark [rem:leandecay]'s first consequence — that
+Remark [rem:nocrossk] is a statement about the accessible range — is
+untouched. What does not follow is the second reading. **Over this
+sweep the lean does not go away relative to chance; it grows.** That
+the raw lean shrinks is the floor moving under it.
+
+
+#### Remark (what independent signs would actually give) {#rem:crosskreference}
+<!-- evidence: audit_crossk_reference.py -->
+
+Remark [rem:nocrossk] measures the cross-$k$ gain at $1.834$ to
+$2.789$ and says "independent signs would give $\sqrt{\#k}$" —
+$17.7$ to $38.5$. **$\sqrt{\#k}$ is what independent signs give on
+equal magnitudes**, and these are not equal: that remark's own rule
+T4 put the top decile at $0.3486$–$0.3587$ of the mass. For unequal
+magnitudes the reference is $\ell^1/\ell^2$, which is below
+$\sqrt{\#k}$ by exactly the concentration and had never been computed.
+
+**T1 holds**, the gain reproducing to $0.00042$ with the same $\#k$ at
+every $N$. Measured,
+
+$$
+\frac{\ell^1/\ell^2}{\sqrt{\#k}}
+= 0.6622\ \text{to}\ 0.6854 ,
+$$
+
+so the deficit factors, with no distributional constant needed on
+either side:
+
+$$
+\frac{\sqrt{\#k}}{G}
+= \underbrace{1.459\text{–}1.510}_{\text{concentration, flat}}
+\ \times\
+\underbrace{6.52\text{–}9.40}_{\text{correlation, rising}} .
+$$
+
+**T3 holds and is the one that matters**: random signs on $\mu$'s own
+magnitudes give a median gain $9.94$ to $12.98$ times $\mu$'s, so a
+correlation across dilations is there and Remark [rem:nocrossk]'s
+conclusion stands. **T4 holds** — the coin's median gain over
+$\ell^1/\ell^2$ runs $1.26$ to $1.59$, straddling the $1/\,\mathbb
+E\text{-median}|Z|$ that a median-convention gain must sit on.
+
+**T2 is refuted, and by its own mixing of conventions.** It asked the
+median coin gain to stay below $\sqrt{\#k}$; a median gain carries a
+factor the equal-magnitude $\ell^1/\ell^2$ does not, so at two $N$ it
+sits just above. The factorisation above is the same comparison made
+in one convention throughout, and it is the statement to keep.
+
+What changes: $n_{\mathrm{eff}}=G^2$ should not be read against
+$\#k$. Against the coin's own $n_{\mathrm{eff}}$ on the same
+magnitudes the walls move together by $98.8$ to $168.5$, not by the
+$313$ to $1485$ the published comparison suggests. The conclusion is
+unchanged and its size is roughly halved in the gain.
+
+
+#### Remark (mu ranks fourth of seventeen) {#rem:coinrank}
+<!-- evidence: audit_residue_coin_rank.py -->
+
+Remark [rem:residuecancel]'s conclusion — "nothing in $R$ is doing
+better than random signs, so no argument that $\mu$ is special against
+$\delta$ can help" — rests on a band, and a band is not a test. The
+published ratio divides $\mu$'s octave mean by the mean of sixteen
+coins, and the scatter of that mean was never computed; nor was the
+sign counted, and reading down the column most entries are below $1$
+with all of them below at the largest $N$.
+
+Since the sixteen sign vectors are global, one per draw and held
+across every $k$ exactly as $\mu$ is, the seventeen are exchangeable
+under the hypothesis and $\mu$'s rank among them is uniform. That is
+an exact test.
+
+**V1 and V2 hold.** The $\ell^1$ exponents come back at
+$0.9745,\,0.9919,\,0.9962,\,0.9963,\,0.9979$ and every octave mean of
+$|R|/\ell^2$ to within $0.00005$; the band this measurement gives is
+$[0.8195,\,1.2871]$, inside the published one.
+
+**V3 holds.** Pooling each draw against the mean of the other sixteen
+and averaging over the thirty octaves, $\mu$ scores $-0.033137$ and
+three of the coins score lower: **rank four of seventeen.** $\mu$ is
+inside the coins' own range, and the conclusion stands.
+
+**V4 is refuted, and what it caught was its own null.** $\mu$ falls
+below the coins' median at $21$ of $30$ octaves against an expected
+$15.0$ — $2.2$ binomial sigma. But the octaves are not independent:
+the same sixteen vectors serve every octave and every $N$, and
+octaves at different $N$ run over overlapping $m$. Counting the same
+statistic for each coin gives $3,\,9,\,9,\,10,\,11,\,11,\,12,\,12,\,
+14,\,16,\,17,\,18,\,19,\,20,\,22,\,24$: **two coins lean at least as
+much as $\mu$**, so $21$ is a three-in-seventeen event and not a
+$2.2$-sigma one. The magnitude test and the sign test agree once the
+dependence is taken out.
+
+What survives is the sentence as written, now with a rank behind it
+rather than a band. What does not survive is reading the column of
+sub-unit ratios as a systematic advantage: at rank four of seventeen
+$\mu$ leans a little, and so do several coins.
+
+
+#### Remark (the residue buys exactly a coin's cancellation) {#rem:residuecancel}
+<!-- evidence: lab_residue_cancellation.py -->
+
+$|R|\asymp(N/k)^{1/2}$ is compatible with two opposite worlds and the
+remark above does not separate them. Writing
+$R(N;k)=\sum_m\mu(m)\delta(m,k)$ with
+$\delta=\Lambda(N-mk)-\beta w(m,k)$ — the deviation of the von Mangoldt
+weight from its own sieve prediction — either $\delta$ is already tiny
+and no cancellation occurs, or $\sum_m|\delta|$ is of full size and
+$\mu$ cancels it down to the square root. Only the second is hard, and
+the two are told apart by comparing $|R|$ with the $\ell^1$ and
+$\ell^2$ norms of its own summands.
+
+**It is the hard world, and $\mu$ buys exactly a coin's worth.** The
+$\ell^1$ norm is linear: fitted against $N/k$ its exponents are
+$0.9745,\,0.9919,\,0.9962,\,0.9963,\,0.9979$ with correlations to
+$1.00000$. Against that, $|R|/\ell^2$ has octave means running $0.91$
+down to $0.67$ — and sixteen global sign vectors summed against the
+*identical* $\delta$ run $0.93$ down to $0.68$, so $\mu/\text{coin}$
+stays in $[0.78,\,1.33]$ and sits on $1$. The scale both are near is
+$\sqrt{2/\pi}=0.7979$, which is what $\mathbb E|Z|/\sigma$ is for a
+random sign sum. The control $\beta$ reproduces the published split to
+six decimals.
+
+The aggregate gain is therefore square-root on the nose:
+
+$$
+\frac{\overline{\ell^1}}{\overline{|R|}}\ \asymp\ (N/k)^{e},\qquad
+e=0.5024,\,0.4997,\,0.4883,\,0.4915,\,0.5109
+$$
+
+with correlations $0.99610$ to $0.99970$. (Rule V4 asked this of
+$\overline{\ell^1/|R|}$ and **is refuted**; its instrument is a mean
+of a ratio whose denominator passes near zero, so a single $k$ at
+which $R$ nearly vanishes sets the octave mean, and its correlations
+wander in sign from $-0.90$ to $+0.98$. The aggregate has no such
+denominator and is what the rule meant to ask.)
+
+Two things follow, and both are negative in a useful way. Nothing in
+$R$ is doing better than random signs, so **no argument that $\mu$ is
+special against $\delta$ can help** — the route cannot be rescued by
+finding extra structure here, because there is none to find. And
+nothing is doing worse, so the square-root heuristic that
+Remark [rem:directlevel] and Remark [rem:heuristic] price the level
+with is not optimistic about $R$; it is exact. What remains is a
+Möbius sum against a bounded, essentially two-valued deviation
+sequence, achieving precisely square-root cancellation, at level $k$
+up to $N^{\theta'}$ — and by Remark [rem:provablehalf] it is the half
+for which no unconditional estimate exists at all.
+
+
+#### Remark (the residue has no law, only a fit) {#rem:residueconstant}
+<!-- evidence: audit_residue_constant.py -->
+
+Remark [rem:heuristic] pinned $H$'s constant: $|H|\approx
+c(N)\sqrt{N/k}$ with $c(N)/\sqrt{\log N}$ reading
+$1.0138,\,0.9854,\,1.0039,\,0.9939,\,0.9844$ — a law to a percent and
+a half, and enough to predict $K^*_H$ to $1.5\%$. Whether the
+knife-edge of Remark [rem:residuelevel] is local or permanent is a
+question about the same constant for $R$, which had never been
+measured.
+
+**$R$ has no such law.** Measured below the operative crossing, the
+control reproducing all five $K^*_R$ exactly,
+
+$$
+c_R(N)=1.5925,\ 1.7303,\ 1.9439,\ 1.9894,\ 1.9188,
+$$
+
+and divided by $\sqrt{\log N}$ these are
+$0.4558,\,0.4818,\,0.5273,\,0.5263,\,0.4958$ — **a spread of $14.4\%$
+of the mean, non-monotone, where $H$'s was under $3\%$ and flat.**
+Rule Q2 asked for $5\%$ and is refuted.
+
+What survives is a fit and not a law, and the distinction is
+operative. Q3 holds and holds well: with $c_R$ taken at each $N$, the
+model $\sum_{k<K}(\log k)c_R\sqrt{N/k}=\SS(1-A)N$ reproduces the
+crossing to $0.998,\,1.000,\,1.007,\,0.994,\,1.002$. Q4 holds too —
+the model's own exponents $0.5652,\,0.5642,\,0.5604,\,0.5671,\,0.5800$
+track the measured $0.5654,\,0.5642,\,0.5599,\,0.5675,\,0.5799$ to
+five decimal places at four of five $N$, and put $N=8\cdot10^5$ at
+$0.5604$ where the measurement reads $0.5599$: **the dip that refuted
+U3 of Remark [rem:residuelevel] sits at the resolution of the model,
+on the barrier rather than under it.**
+
+**But no forecast is made, and the script refuses to make one.** The
+extrapolation was pre-registered as conditional on Q2, and Q2 failed,
+so the model may interpolate and may not be projected. That is the
+finding. Remark [rem:residuelevel] established that the margin over
+$\tfrac12$ is not closing over the accessible range; this establishes
+that **nothing here entitles anyone to say where it goes.** The
+$+0.0047$ slope of the exponent is measured over a factor $16$ in $N$
+against a constant that itself wanders by $14\%$ over the same range.
+
+One number is worth keeping. $c_R\approx0.50\sqrt{\log N}$ against
+$H$'s $c\approx1.00\sqrt{\log N}$: **the split halves the constant and
+buys no exponent**, which is Remark [rem:elemsize]'s conclusion seen
+from the other side, and is why removing the elementary half moves
+$\theta'$ by the $0.06$ that Remark [rem:splitbudget] measured and not
+by more.
+
+
+#### Remark (the lean is finite-$N$ and decays) {#rem:leandecay}
+<!-- evidence: lab_lean_decay.py -->
+
+The table above carries a hint it was not read for: the mass fraction
+rises with $N$. Extending by one octave,
+
+$$
+\begin{array}{r|cccccc}
+ N & 2\cdot10^5 & 4\cdot10^5 & 8\cdot10^5 & 1.6\cdot10^6
+   & 3.2\cdot10^6 & 6.4\cdot10^6\\\hline
+ f & 0.2273 & 0.2228 & 0.2735 & 0.3068 & 0.3207 & 0.3376\\
+ |{\tfrac12}-f| & 0.2727 & 0.2772 & 0.2265 & 0.1932 & 0.1793 & 0.1624\\
+ G = 1/|2f-1| & 1.834 & 1.804 & 2.207 & 2.588 & 2.789 & 3.079\\
+ \text{coin } f & 0.5053 & 0.5124 & 0.5137 & 0.4928 & 0.4619 & 0.4720
+\end{array}
+$$
+
+The coin sits at $\tfrac12$ throughout, as it must; $\mu$'s lean
+shrinks by $0.11$ over a factor $32$ in $N$, and $G$ rises from
+$1.834$ to $3.079$. **So the lean is not a structural fact about
+$\mu$: it is the finite-$N$ error of Theorem [thm:C], the same
+error Remark [rem:thetasweep] measured at $0.17$ to $0.46$ of $N$,
+and it decays.**
+
+Two things follow, and the first corrects the paragraph above.
+Remark [rem:nocrossk]'s "there is no cancellation across dilations"
+is a statement about the accessible range, not an asymptotic one:
+$G=1/|2f-1|\to\infty$ as $f\to\tfrac12$, so the cancellation does
+arrive and the one-sidedness of Proposition [prop:onesided] buys a
+*growing* factor rather than the constant near two that the accessible
+range shows.
+
+The second is that the rate is not determined here, and the two
+candidates are far apart. A power law gives
+$|\tfrac12-f|\asymp N^{-0.1673}$ with correlation $-0.97616$; a log
+law gives $(\log N)^{-2.3166}$ with correlation $-0.97469$. Over a
+factor $32$ in $N$ they are not separable, and they reach
+$|\tfrac12-f|<0.01$ at $N=1.02\cdot10^{14}$ and at
+$N=4.3\cdot10^{22}$ respectively. Since the lean *is* the error term
+of Theorem [thm:C], and that error is a power of $\log$, the log law
+is the more natural of the two — but nothing measured here chooses
+between them, and the projected gains $G\approx3.4,\,7.3,\,23.1$ at
+$N=10^7,10^9,10^{12}$ are the power law's and should be read as its
+upper end. Remark [rem:leanbracket] measures how wide "not
+separable" is.
+
+
+#### Remark (the lean, by a second route, and its bracket) {#rem:leanbracket}
+<!-- evidence: audit_lean_bracket.py -->
+
+Two things are owed here. The lean above is computed from the inner
+sum $H(N;k)=\sum_{m<N/k,(m,k)=1}\Lambda(N-mk)\mu(m)$ directly, and a
+statistic that carries a theorem's error term should not rest on one
+implementation; and the $1.02\cdot10^{14}$ is a forecast eight
+million-fold beyond the computed range with no bracket on it.
+
+The first settles cleanly. Recomputing $f$ from the dilation identity
+[eq:dilate], $H(N;k)=\mu(k)A(N;k)$ with
+$A(N;k)=\sum_{n\equiv N\ (k)}\Lambda(n)\mu(N-n)$ — a strided sum over
+a different array, sharing no arithmetic with the inner sum beyond the
+sieve — reproduces all six published values
+$0.2273,\,0.2228,\,0.2735,\,0.3068,\,0.3207,\,0.3376$ **to every
+printed digit**, and the refitted exponent agrees to $0.0000$. The
+lean is not an artefact of how $H$ was summed.
+
+The second does not. Refitting the power law on each leave-one-out
+subset moves the forecast over $10^{13.17}$ to $10^{14.01}$ — only
+$0.84$ decades, and *less* than the naive $1.99$ the $12.42\%$ spread
+in the exponent would suggest, because the leave-one-out refits the
+intercept alongside the exponent and a steeper decay comes with a
+smaller constant. **The law choice has no such brake.** The log law
+lands at $10^{22.64}$, $10^{18.98}$ and $10^{22.38}$ on the same three
+subsets, and the total bracket is
+
+$$
+|{\tfrac12}-f|<0.01 \ \text{ at }\ N\in[10^{13.17},\,10^{22.64}],
+$$
+
+**nine and a half decades.** So $1.02\cdot10^{14}$ is not a forecast
+and must not be quoted as one; what the data support is that the lean
+decays and that $G\to\infty$, with the scale of the approach undecided
+across nine decades.
+
+Those nine decades are not an error bar, and the distinction matters
+enough to state. Within a law the constant extrapolated is the decay
+exponent $b$, and its own leave-one-out spread — $0.1673$ to
+$0.1880$, a relative $0.1180$ — is what the narrow bracket is built
+from, so bracket and drift are the same number here as in Remark
+[rem:marginbracket]. The wide bracket is a **choice between shapes**:
+the power law and the log law are not separable over the accessible
+range, and no amount of care about a fitted constant addresses that.
+Reporting it as one interval is a convenience for the reader and
+should not be read as precision about anything. The projected $G$ at $10^7,10^9,10^{12}$ inherit
+the same width and are the power law's end of it, as
+Remark [rem:leandecay] already says.
+
+
+#### Remark (two more octaves, and what they settle) {#rem:extendrange}
+<!-- evidence: lab_extend_range.py -->
+
+Three questions in this section were limited by the same thing, the
+length of the $N$-range, so the computation was extended once to
+$N=2.56\cdot10^7$ — a factor $128$ rather than $32$:
+
+$$
+\begin{array}{r|cccccccc}
+ N & 2\!\cdot\!10^5 & 4\!\cdot\!10^5 & 8\!\cdot\!10^5
+   & 1.6\!\cdot\!10^6 & 3.2\!\cdot\!10^6 & 6.4\!\cdot\!10^6
+   & 1.28\!\cdot\!10^7 & 2.56\!\cdot\!10^7\\\hline
+ B/N & 0.8086 & 0.7395 & 0.7303 & 0.6547 & 0.5916 & 0.5526 & 0.4992
+   & 0.4527\\
+ |E_3|/N & 0.4377 & 0.3837 & 0.3172 & 0.2608 & 0.2073 & 0.1855
+   & 0.1459 & 0.1245\\
+ f & 0.2273 & 0.2228 & 0.2735 & 0.3068 & 0.3207 & 0.3376 & 0.3533
+   & 0.3608\\
+ G & 1.834 & 1.804 & 2.207 & 2.588 & 2.789 & 3.079 & 3.407 & 3.592
+\end{array}
+$$
+
+**The decay law is still not settled, and that is the finding.**
+Over the doubled range the power fit is
+$|\tfrac12-f|\asymp N^{-0.1539}$ with correlation $-0.98434$ and the
+log fit $(\log N)^{-2.2380}$ with $-0.98619$ — a difference of
+$0.00185$, with the log law now marginally ahead, as theory says it
+should be. Quadrupling the range moved the discrimination by less than
+$0.002$ in correlation. Extending $N$ is not the way to settle it, at
+any scale this method reaches.
+
+The out-of-sample check on $B(N)/N$ — the audit's rule X3 — fails,
+and its direction is
+useful. The $(\log N)^{-1.4526}$ law fitted on the five smallest $N$
+over-predicts the three it never saw by $2.7\%$, $6.8\%$ and
+$11.1\%$ — monotone, so systematic: $B/N$ falls *faster* than that
+law. Refitting on all eight gives $(\log N)^{-1.7267}$ crossing the
+Goldbach threshold $0.3745$ at $N=10^{8.44}$, or
+$N^{-0.1196}$ crossing at $10^{8.17}$. So Remark [rem:relocate]'s
+$10^{8.9}$ was the conservative end and **[eq:nolog] is projected to
+become true between $10^{8.2}$ and $10^{9.1}$** — two orders above the
+computable range, not twenty. Remark [rem:forecast], reaching the
+same region by an entirely different route, put the $\theta'=0.56$
+level crossing at $2.08\cdot10^8=10^{8.32}$, inside that bracket.
+
+And the one-sided condition is no longer marginal: $|E_3|/N$ is
+$0.1459$ and $0.1245$ at the two new $N$ against a threshold of
+$0.3745$, so [eq:onesided] now holds with a factor of three to spare
+and is still falling.
+
+
+#### Remark (the decay exponent is not determined, and by how much) {#rem:decayfamily}
+<!-- evidence: lab_decay_family.py -->
+
+Extending $N$ will not settle the decay law, so the family is fitted
+instead. The two candidates compared so far are special cases of
+
+$$
+\bigl|\tfrac12-f\bigr| \;=\; A\exp\!\bigl(-c\,(\log N)^{\alpha}\bigr),
+$$
+
+with $\alpha=1$ the power law and $\alpha\to0$ the log law — and
+theory names a third. Remark [rem:thetasweep] found the finite-$N$
+residual is dominated by the main-term cancellation over
+$m<M=N^{1-\theta'}$, which Lemma [lem:mu] bounds by
+$\exp(-c\sqrt{\log M})$: that is $\alpha=\tfrac12$, neither a power of
+$N$ nor a power of $\log N$, and it had never been tested.
+
+Swept over $\alpha\in[0.05,1.50]$ the residual sum of squares moves by
+$23\%$ in total — $1.0096,\,1.0289,\,1.0554,\,1.0891,\,1.1300,\,
+1.1780,\,1.2330$ relative to the minimum at
+$\alpha=0.20,0.40,\dots,1.40$. **The theoretically named
+$\alpha=\tfrac12$ costs $4.12\%$ over the best fit**, which is nothing
+on eight points. And the same sweep applied to $B(N)/N$ prefers the
+*opposite* end, $\alpha=1.50$, with $\alpha=\tfrac12$ costing $75\%$
+there: the two quantities do not even agree on which way the
+preference runs.
+
+The audit's rule Y2 asked whether the data determines $\alpha$, using
+a band of $1\%$ in residual sum of squares, and by that band it does
+— the admissible set spans only $0.15$. **That band is my threshold
+and not a confidence band**, and eight points with two fitted
+parameters do not resolve $13\%$ of RSS. Under the proper $95\%$ band
+for one parameter with six degrees of freedom, RSS within a factor
+$2.00$, the admissible $\alpha$ is the whole sweep from $0.05$ to
+$1.50$. The rule is recorded as refuted and the diagnosis with it;
+this is the fourth threshold in this work stated as an effect size
+rather than against a null, after Remarks [rem:cap], [rem:band]
+and [rem:filter].
+
+What that costs is quantified rather than waved at. The three
+canonical laws put $|\tfrac12-f|<0.01$ at $N=10^{14.71}$,
+$10^{17.46}$ and $10^{23.74}$ — a span of $9.02$ orders. **So no
+crossing scale for the lean should be quoted**, and the projected
+gains at the end of Remark [rem:leandecay] are one law's among
+three. The bracket $10^{8.2}$ to $10^{9.1}$ of
+Remark [rem:extendrange] is a different matter and survives: it
+extrapolates $B/N$ by a factor of at most forty beyond the computed
+range, where this one extrapolates by a factor $10^{7}$.
+
+
+#### Remark (the dilated wall obeys a square-root law, and what that would buy) {#rem:dilateprofile}
+<!-- evidence: lab_dilate_profile.py -->
+
+With [eq:dilate] the demand has one governing profile, the relative
+size of the dilated wall,
+
+$$
+\rho(k) \;:=\; \bigl|A(N;k)\bigr|\,\frac{k}{N}
+  \;=\; \bigl|H(N;k)\bigr| \Big/ \frac{N}{k}.
+$$
+
+At $N=3.2\cdot10^6$, $\rho(k)/\sqrt k$ reads, as an octave median,
+
+$$
+\begin{array}{r|ccccccc}
+ k & [64,128) & [256,512) & [1024,2048) & [4096,8192)
+   & [8192,16384)\\\hline
+ \rho/\sqrt k & 0.001234 & 0.001357 & 0.001268 & 0.001376 & 0.001512
+\end{array}
+$$
+
+— flat to about $\pm10\%$ across eight octaves. Fitted, the exponent
+in $\rho(k)\asymp k^{a}$ is $a=0.4431,\,0.4528,\,0.4686,\,0.4962,\,
+0.5826$ for $\mu$ at $N=2\cdot10^5$ through $3.2\cdot10^6$, against
+$0.3833,\,0.5284,\,0.5081,\,0.5210,\,0.4968$ for a coin on the same
+support. **The two share the exponent $\tfrac12$ and differ only in
+the constant** — by the factor $1.08$ to $1.53$ that
+Remark [rem:whycoinwins] measures.
+
+What $a=\tfrac12$ would buy is worth stating, because it is not small.
+Writing $\rho(k)=c'\sqrt{k/N}$,
+
+$$
+\frac{B(N)}{N} \;=\; \sum_{k<K}(\log k)\,\frac{\rho(k)}{k}
+  \;\approx\; 2c'\sqrt{K/N}\,\log K ,
+$$
+
+so $B(N)\le\SS(N)(1-A(N))N$ holds up to $K\asymp N/(\log N)^{2}$ if
+$c'$ is a constant — an exponent of $1$ in $N$, where Huang–Li need
+only $\theta'>1/2$. The constant is not constant, and
+Remark [rem:extrap] carries the count of $\log$s through properly;
+the exponent $1$ survives. So **the level requirement is not the
+obstruction that a square-root law would leave.** The obstruction is
+that no proof gives square-root cancellation for a dilated
+$\Lambda$–$\mu$ correlation: that is the same shape as the $E1$
+consumable of \S[sec:supply], and of the same difficulty class. The
+demand side's remaining requirement has been carried onto the supply
+side's ground.
+
+Two of the audit's rules fail, and both to a mis-specified field. Q2
+asked the coin's exponent to sit within $0.05$ of $\tfrac12$ and Q3
+asked $\mu$'s to exceed the coin's; both fail at $N=2\cdot10^5$,
+where the fit ran to $k<2\cdot10^4$ and so let the dilate length
+$M=N/k$ fall to $10$ — a range in which a law in $k$ has nothing to
+describe. Refitting over $M\ge1000$ gives the figures quoted above,
+and there Q2 holds at every $N$ with enough moduli. Q3 does not
+recover, and should not have been asked: the two exponents agree and
+the difference between $\mu$ and a coin is in the constant, which is
+what Remark [rem:whycoinwins] already showed. The extrapolation to
+$K\asymp N/(\log N)^2$ is a heuristic from a fitted exponent and not a
+theorem; the directly measured $K^*$ exponent over a factor $16$ in
+$N$ was $0.7057$, which is what that polylog looks like from here.
+
+
+#### Remark (the extrapolation, tested out of sample) {#rem:extrap}
+<!-- evidence: lab_dilate_extrapolation.py -->
+
+The step from $\rho(k)\asymp\sqrt k$ to $K\asymp N/(\log N)^2$ above
+assumed that $c'=|A(N;k)|/\sqrt{N/k}$ does not depend on $N$, and
+nothing tested it. It does depend on $N$, and the reason is visible in
+the control: the summands $\Lambda(N-mk)\varepsilon(m)$ are nonzero at
+about $M/\log N$ places with size $\log N$ each, so
+$|H_\varepsilon|\asymp\sqrt{M\log N}$ and
+$c'_\varepsilon\asymp\sqrt{\log N}$. Measured,
+$c'_\varepsilon/\sqrt{\log N}$ reads
+$0.5619,\,0.6034,\,0.6065,\,0.5861,\,0.6010$ — flat to $1.079$, which
+is the calibration this remark rests on. Carrying that power through,
+
+$$
+\frac{B(N)}{N} \;\approx\; 2\gamma\sqrt{\log N}\,\sqrt{K/N}\,\log K ,
+\qquad
+K^* \;\asymp\; \frac{N}{\log N\,(\log K)^{2}} ,
+$$
+
+**three powers of $\log$, not two.** The exponent $1$ in $N$ is
+unchanged, so nothing in the conclusion moves.
+
+The model is then tested where it can be: $\gamma$ is fitted on
+$N=2\cdot10^5,\,4\cdot10^5,\,8\cdot10^5$ alone and used to predict
+$K^*$ at the two larger $N$ it never saw.
+
+
+#### Remark (that prediction was an artifact; the corrected one is not) {#rem:artifact}
+<!-- evidence: lab_level_forecast.py -->
+
+The prediction just described was first reported as $1599$ against a
+measured $1353$ and $3199$ against $2319$, ratios $1.182$ and
+$1.379$. **It is withdrawn: those were not solutions.** The search
+for $K^*$ ran over $k\le N/1000$, and $1599$ and $3199$ are exactly
+the largest admissible $k$ below $1600$ and $3200$. The cumulative
+sum never reached the threshold inside the range, and the routine
+returned its last index. A prediction that lands on the endpoint of
+its own search range is the endpoint, not a prediction. That was rule R4
+of the extrapolation audit, and with the boundary now detected it
+reads REFUTED there, as it always should have.
+
+Searched properly, to $K=10^7$, the model with $\gamma=0.6520$ gives
+$597,\,937,\,1483,\,2391,\,3903$ against the measured
+$319,\,537,\,767,\,1353,\,2319$ — it overshoots by
+$1.871,\,1.745,\,1.934,\,1.767,\,1.683$, a steady factor near $1.8$,
+so it *understates* $B(N)$. That was the audit's rule S1 and it
+fails.
+
+The cause is a calibration error and it is instructive. $\gamma$ was
+taken as the **median** of $|A(N;k)|/\bigl(\sqrt{N/k}\sqrt{\log N}\bigr)$,
+but $B(N)$ is a **sum**, which needs the mean, and $|A|$ is
+one-sided so the mean is the larger: measured, the ratio is
+$1.4501,\,1.5899,\,1.4832,\,1.4473,\,1.4712$. With the mean-based
+$\gamma=0.9803$ — still fitted on the three smallest $N$ alone — the
+model gives
+
+$$
+\begin{array}{r|ccccc}
+ N & 2\cdot10^5 & 4\cdot10^5 & 8\cdot10^5 & 1.6\cdot10^6
+   & 3.2\cdot10^6\\\hline
+ K^*\ \text{model} & 329 & 569 & 779 & 1271 & 2171\\
+ \text{model}/\text{measured} & 1.031 & 1.060 & 1.016 & 0.939 & 0.936
+\end{array}
+$$
+
+within $6.4\%$ at every $N$, including the two it never saw. **That
+is the out-of-sample validation**, and it is the corrected one that
+Remark [rem:dilateprofile]'s conclusion rests on. Nothing in the
+shape of that conclusion moves — the exponent in $N$ is still $1$ and
+the polylog is still three — but the constant, and every number
+extrapolated from it, does.
+
+
+#### Remark (where the model puts the route's hypothesis) {#rem:forecast}
+<!-- evidence: lab_level_forecast.py -->
+
+With the corrected $\gamma$ the model can be asked the question no
+computation reaches: at which $N$ does
+$B(N)\le\SS(N)(1-A(N))N$ hold at the level Huang–Li need? Solving
+$B(N)/N=\gamma\sqrt{\log N/N}\,S(K)$ against the threshold, with
+$S(K)=\sum_{k<K}(\log k)k^{-1/2}$ over the admissible $k$ enumerated
+exactly to $10^7$:
+
+$$
+\begin{array}{r|cccccc}
+ N & 10^6 & 10^7 & 10^8 & 10^9 & 10^{12}\\\hline
+ K^*/\sqrt N & 0.9570 & 1.4904 & 2.5967 & 4.9203 & 47.1443\\
+ K^*/N^{0.56} & 0.4177 & 0.5666 & 0.8598 & 1.4190 & 8.9832
+\end{array}
+$$
+
+so $K^*$ passes $\sqrt N$ at $N=1.299\cdot10^6$ and passes $N^{0.56}$
+at $N=2.077\cdot10^8$ — each to be read with the bracket Remark
+[rem:forecastbracket] computes, two-thirds of a decade wide. The first
+of those is a check rather than a
+forecast, and it passes: the measured $K^*/\sqrt N$ crossed $1$
+between $8\cdot10^5$ and $1.6\cdot10^6$, which the model reproduces
+without having been shown it. Rule S2 of the forecast audit asked
+for that crossing under the *uncorrected* $\gamma$ and is refuted
+there — under it $K^*/\sqrt N$ already exceeds $1$ at $N=10^5$,
+which is the same overshoot rule S1 records.
+
+Three things this is not. It is a forecast from a model fitted on
+three values of $N$ spanning a factor $4$, extrapolated sixty-fold
+beyond the largest of them. It is about $B(N)$, the aggregate
+absolute sum that Proposition [prop:nolog] needs, and not about
+$EH_\mu$, which asks for a maximum over residue classes as well. And
+— the caution that Remark [rem:levelmeas] was withdrawn for not
+taking — **$B(N)$ does not distinguish $\mu$ from a coin**: by
+Remark [rem:whycoinwins] a coin gives a slightly *smaller* $B$ and
+so a slightly earlier crossing, so this forecast is a statement about
+the size of the object and about square-root cancellation, not about
+any structure special to $\mu$. What it says is that the size is not
+the obstruction, and where the size stops being one.
+
+It also settles the gap Remark [rem:dilateprofile] left open between
+an asymptotic exponent of $1$ and a measured $K^*$ exponent of
+$0.7057$. The approach is slow: the effective exponent of
+$N/(\log N)^3$ is $0.4298$ at $N=10^6$, $0.5612$ at $10^9$ and
+$0.6397$ at $10^{12}$. **A local slope of $0.7$ over a factor $16$ in
+$N$ is not evidence against an asymptote of $1$; it is what the
+asymptote looks like from this range**, and no accessible computation
+distinguishes the two.
+
+Two pre-registered rules fail, and they fail because the range is too
+short. R1 asked $c'(N)$ to increase; it reads
+$2.3951,\,2.1060,\,2.5220,\,2.6162,\,2.5291$ and wobbles. R2 asked
+$c'/\sqrt{\log N}$ to be flat to $15\%$; its spread is $1.1805$. Over
+a factor $16$ in $N$, $\sqrt{\log N}$ moves by only $11\%$, which is
+below the scatter in $c'$ — so $\mu$'s own data cannot separate
+"$c'$ constant" from "$c'\asymp\sqrt{\log N}$", and the extra power of
+$\log$ is carried by the coin calibration and by the count of
+non-zero summands, not by $\mu$.
+
+
+#### Remark (the bracket that forecast has to carry) {#rem:forecastbracket}
+<!-- evidence: audit_forecast_bracket.py -->
+
+Remark [rem:forecast] quotes one number, $N=2.077\cdot10^8$, and
+Remark [rem:modeltransfer] has since shown that this family of models
+fits its constant rather than deriving it — a $5\%$ drift in that
+constant moved a measured crossing by $10\%$. A forecast extrapolated
+sixtyfold past its calibration inherits that. Rebuilt independently
+here, three things hold and the fourth, which was the point, does not.
+
+The reconstruction is exact: solving the published model from an
+independently sieved $S(K)$ reproduces every decade of the published
+table from $10^5$ to $10^{20}$, in both $K^*/\sqrt N$ and
+$K^*/N^{0.56}$, to $0.0001$. The constant is not a free parameter:
+the forecast fits $\gamma=0.9803$ on the mean of $|A|/\sqrt{N/k}$,
+and Remark [rem:heuristic] measures the same constant from a different
+statistic over a different $k$-range at
+$1.0138,\,0.9854,\,1.0039,\,0.9939,\,0.9844$ — **two independent
+measurements agreeing to $3.4\%$**. And the fit is doing almost no
+work: setting $\gamma=1$ exactly moves the two crossings only to
+$1.5370\cdot10^6$ and $2.4181\cdot10^8$, by $18\%$ and $16\%$.
+
+**But W4 fails, and by a factor of two and a half.** Perturbing the
+constant by the $\pm10\%$ that [rem:modeltransfer] measured moves the
+$\theta'=0.56$ crossing over $[9.0996\cdot10^7,\,4.2786\cdot10^8]$, a
+span of $4.7019$; the $\sqrt N$ crossing spans $5.3909$. In logs:
+
+$$
+K^*=\sqrt N:\ 10^{6.11}\ [10^{5.72},10^{6.45}],\qquad
+K^*=N^{0.56}:\ 10^{8.32}\ [10^{7.96},10^{8.63}].
+$$
+
+**Two-thirds of a decade, not the factor $2$ pre-registered.** The
+reason is that the square root of $K$ doubles the exponent: at the
+crossing $K^*=N^e$ the balance reads
+$N^{(1-e)/2}\sim\gamma\sqrt{\log N}\,(e\log N-2)$, so a relative error
+$d$ moves $N$ by $(1+d)^{2/(1-e)}$ — $1.4641$ and $1.5422$ at the two
+exponents — and even that understates the measured $2.1814$ and
+$2.0600$, because the right-hand side *grows* with $N$ and so $N$ must
+move further still. **The logarithms amplify the uncertainty rather
+than damping it.**
+
+The bracket is honest where it can be checked: the measured
+$K^*/\sqrt N$ crossing lies between $8\cdot10^5$ and $1.6\cdot10^6$,
+and both the point estimate and the bracket contain it. **And it is
+honest about itself**, which is the harder test: a bracket made by
+wobbling a constant is worth nothing if the constant drifts by more
+than the wobble. The $\pm10\%$ assumed here is against a measured
+drift of $0.0295$ — the spread of the five independent readings of
+$c(N)/\sqrt{\log N}$ — so the assumed wobble is three times the real
+one. Remark [rem:residueconstant] is the case where that comparison
+goes the other way and the forecast is therefore refused. What changes
+is what may be said. Remark [rem:forecast]'s "$K^*$ passes $N^{0.56}$
+at $N=2.077\cdot10^8$" is a statement about an order of magnitude and
+must be written as one; the qualitative reading it draws — that the
+size is not the obstruction, and roughly where it stops being one —
+survives untouched, since two-thirds of a decade does not reach any
+computable range.
+
+
+## The cell floor {#sec:floor}
+
+
+Throughout, cells are indexed by *depth* $d$, the number of
+$3,5,7,11,13$ dividing $N$, and $Z(N)=C(N)/\sqrt{V(N)}$.
+
+
+### The floor, in closed form
+
+
+#### Lemma (exact cell moments) {#lem:cellmom}
+<!-- evidence: lab_cellmom_montecarlo.py -->
+
+Let a band of even $N$ be partitioned into cells, let $c$ be a cell of
+size $n_c$ inside a band of size $n$, let $m_c$ and $\overline m$ be
+the means of $Z$ over $c$ and over the band, and set
+
+$$
+u_c(v) \;=\; \sum_{N\in c}\frac{\Lambda(N-v)}{\sqrt{V(N)}},
+  \qquad
+  Q_{cd} \;=\; \sum_v \mu^2(v)\,u_c(v)\,u_d(v).
+$$
+
+Then, when the $\mu(v)$ on the surviving support are replaced by
+independent signs,
+
+$$
+\mathrm{Var}\bigl(m_c-\overline m\bigr)
+  \;=\; \frac{Q_{cc}}{n_c^{2}}
+  \;-\; \frac{2\,Q_{ca}}{n_c\,n}
+  \;+\; \frac{Q_{aa}}{n^{2}},
+$$
+
+where $a$ denotes the whole band. Every term is computable exactly by
+one convolution; no simulation is involved.
+
+
+**Proof.** 
+Under independent signs $E[\varepsilon(v)\varepsilon(v')]
+=\mu^2(v)\delta_{vv'}$, so
+$\mathrm{Cov}(n_c m_c, n_d m_d) = Q_{cd}$ exactly. Expanding
+$\mathrm{Var}(m_c-\overline m)$ bilinearly gives the three terms.
+ ∎
+
+
+The lemma does not need simulation, but the simulation is the only
+thing that would catch an error in the formula, and every $z_c$ in this
+paper is divided by it. Run in the band $(10^5,2\cdot10^5]$:
+
+$$
+\begin{array}{r|cccccc}
+ \text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\
+ n_c & 19181 & 21097 & 8183 & 1421 & 115 & 3\\\hline
+ \text{closed form} & 0.140080 & 0.052724 & 0.167579 & 0.273630
+   & 0.378073 & 0.639330\\
+ \text{MC}/\text{closed},\ 2000\ \text{draws} & 0.9920 & 0.9993
+   & 0.9918 & 1.0044 & 1.0157 & 1.0320
+\end{array}
+$$
+
+— worst deviation $0.0320$, at the depth whose cell holds three
+elements, and the six ratios straddle $1$ three and three, which is
+what an exact formula gives.
+
+
+#### Remark (six ratios are one observation) {#rem:mcratios}
+<!-- evidence: lab_cellmom_montecarlo.py -->
+
+Version 3 reported this check at $60$ draws with "the ratios running
+$0.88$ to $0.98$ against a Monte-Carlo precision of $\pm0.09$". The
+precision is right — $1/\sqrt{2\cdot59}=0.092057$ — and the band is an
+ordinary draw: $60$ draws here give $1.0192$ to $1.0647$, on the other
+side of $1$ and equally unremarkable, both inside $1\pm0.276$.
+
+What is worth saying is why neither run is evidence of a bias. All six
+quoted ratios fell below $1$ and all six of mine fall above, and it is
+tempting to read either as $2^{-6}$. It is not: the six depths are
+estimated from the *same* draws, so their deviations are strongly
+correlated and their common sign is one observation, not six. That is
+why the check was repeated at $2000$ draws rather than re-run at
+$60$ — the audit's rule N4 asked for the ratios to straddle $1$, and
+at $2000$ they do.
+
+**All three terms are needed.** The substitution
+$u_c(v)\approx n_c/\sqrt V$, which gives the right scale for
+$Q_{cc}/n_c^2$, is not specific to $c$; applied to all three terms it
+returns the same value $S$ for each and hence $S-2S+S=0$. So it cannot
+be used to estimate the variance of the difference. Exactly, the
+variance is smaller than $Q_{cc}/n_c^2$ by a factor that is a
+structural constant rather than noise: measured at the top octave of
+$1.6\cdot10^7$, $\mathrm{Var}/(Q_{cc}/n_c^2)$ is
+$0.113119,\,0.016302,\,0.288567,\,0.551516$ at depths $0,1,3,5$.
+
+At a quarter of that $N$ the shallow ratios are the same to six
+digits — $0.113118,\,0.016303,\,0.288571$ at depths $0,1,3$ — which
+is what "structural constant rather than noise" means and is stronger
+than stability to three digits. Depth $5$ is not: it reads $0.557654$
+there against $0.551516$ at the top, differing in the third digit.
+Version 3 said the ratios reproduce to three digits without excepting
+it; that was the audit's rule C2 and it fails on that one cell, which
+is also much the smallest — $266$ values of $N$ in the top octave
+against $1{,}687{,}911$ at depth $1$.
+
+
+### The floor's uncertainty does not fall like a count
+
+
+#### Proposition (coherent sums) {#prop:coh}
+<!-- evidence: lab_cell_floor.py -->
+
+The error bar of Lemma [lem:cellmom] does *not* decay like
+$n_c^{-1/2}$. For fixed $v$, about $n_c/\log N$ of the terms of
+$u_c(v)$ are nonzero, each of size $\log N/\sqrt V$, so
+$u_c(v)\approx n_c/\sqrt V$ and
+
+$$
+\frac{Q_{cc}}{n_c^2}
+  \;\approx\; \frac{\sum_v\mu^2(v)}{V}
+  \;\asymp\; \frac{1}{\log N},
+$$
+
+independently of $n_c$; and by the previous subsection the variance
+itself is a fixed fraction of this. So the standard error falls like
+$(\log N)^{-1/2}$.
+
+
+The heuristic is quantitatively loose — at $N=1.6\cdot10^7$,
+$Q_{cc}/n_c^2$ reads
+
+$$
+\begin{array}{r|cccccc}
+ \text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\\hline
+ Q_{cc}/n_c^2 & 0.123577 & 0.121208 & 0.146026 & 0.184159 & 0.235171
+   & 0.307074
+\end{array}
+$$
+
+against the heuristic's $\bigl(\sum_{v<N}\mu^2(v)\bigr)/V(N) =
+0.049540$ — so it is offered for the *form* and not the
+constant. Version 3 said the row "runs $0.124$ to $0.307$"; the
+audit's rule C3 fails on the low end, because the row is not monotone
+in the depth and its minimum is $0.121208$ at depth $1$, not
+$0.123577$ at depth $0$. C3 also fails on the heuristic, which is
+$0.049540$ and so rounds to $0.050$ rather than to the printed
+$0.049$.
+
+The form is confirmed directly. Fitting $\mathrm{se}\propto N^{-b}$ to
+the exact floor across eight octaves gives
+$b = 0.039451,\,0.039671,\,0.039388$ at depths $2,1,0$ —
+reproducing the printed $0.0395,\,0.0397,\,0.0394$ — against the
+$0.5$ that a count would give. The comparison constant is a different
+matter: version 3 put the apparent exponent at
+$1/(2\langle\log N\rangle) = 0.0358$, but $\langle\log N\rangle$ is
+nowhere defined, and the natural reading — the mean of $\log N$ over
+the eight octave midpoints — gives $0.036038$. That was the rest of
+rule C4. Nothing turns on the third decimal here, since the point is
+that $0.039$ is near $0.036$ and nowhere near $0.5$; the constant is
+restated rather than corrected because there is nothing to correct it
+against.
+
+
+#### Remark (a count is not an error bar)
+
+The consequence is not confined to this paper. Over a factor $140$ in
+$N$ — the sub-range of the field $10^5<N\le1.6\cdot10^7$ on which the
+exact floor was fitted, and not that field itself, whose factor is
+$160$ — $n_c^{-1/2}$ says the error bar shrinks by $11.8$; it shrinks
+by $1.21$, against the $1.19$ that $(\log N)^{-1/2}$ predicts over the
+same factor. **An interval built from a count is
+therefore about ten times too narrow at the top of this range relative
+to the bottom**, and in absolute terms the discrepancy is larger still:
+at the top octave the exact floor exceeds
+$\mathrm{sd}(Z)/\sqrt{n_c}$ by factors of $5.8$ to $160$, growing with
+the cell, exactly as $Q_{cc}/n_c^2 \asymp 1/\log N$ predicts. The cause
+is that $u_c(v)$ is a coherent sum, not a self-averaging one, and the
+same is true of any cell mean of a field whose summands share a common
+arithmetic input.
+
+
+### The mask exists
+
+
+Against the exactly computed floor of Lemma [lem:cellmom], the cell
+means are not zero. Over every octave from $6.25\cdot10^4$ to
+$1.6\cdot10^7$, $\max_c|z_c|$ runs $9.1$ to $13.0$ and clears
+Bonferroni in each. The signal is carried by the deep cells: at the top
+octave the depths $3,4,5$ sit at $z = -1.6,\,-4.5,\,-9.1$ while depths
+$0,1,2$ sit at $+0.0,\,+0.7,\,-0.1$.
+
+
+#### Proposition (the mask survives its placebo) {#prop:placebo}
+<!-- evidence: lab_mask_placebo.py -->
+
+The permutation of Lemma [lem:placebo] is the control this claim
+rests on, and until now it had been cited rather than run. Run on the
+octave $(2\cdot10^6,\,4\cdot10^6]$, with cell sizes preserved exactly
+and the floor recomputed from scratch for each permutation:
+
+$$
+\begin{array}{r|cccccc}
+ \text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\
+ n_c & 383617 & 421978 & 163568 & 28507 & 2263 & 67\\\hline
+ z_c\ \text{(true)} & +0.1069 & +1.1133 & -0.2314 & -2.3990
+   & -5.9997 & -11.0258
+\end{array}
+$$
+
+against $\max_c|z_c|$ over ten label permutations reading
+$0.9359,\,1.6073,\,1.9921,\,1.5687,\,2.1392,\,1.1216,\,1.7178,\,
+1.1348,\,3.2040,\,1.3192$ — mean $1.6741$, never above $3.3$. The
+correlation between depth and $z_c$ is $-0.9106$ for the true
+labelling and $+0.0042$ on average under permutation. So what is
+detected is the correspondence between cells and divisibility, not the
+cell sizes.
+
+
+#### Remark (the floor is itself signal) {#rem:floorsignal}
+<!-- evidence: lab_mask_placebo.py -->
+
+The placebo also corrects a reading of Lemma [lem:cellmom]. The
+audit pre-registered, as its rule L3, that the floor $\mathrm{se}_c$
+would be a property of the cell sizes and so move by less than $10\%$
+under permutation. It fails, and badly: the floor **collapses**, by
+factors from $3.8$ at depth $5$ to $105$ at depth $0$ —
+$1.2400\cdot10^{-1}$ against $1.1794\cdot10^{-3}$ there.
+
+The mechanism is the three-term structure. For a random subset of the
+band, $u_c(v)\approx (n_c/n)\,u_a(v)$, and then
+$Q_{cc}/n_c^2-2Q_{ca}/(n_cn)+Q_{aa}/n^2$ cancels to leading order,
+leaving only the fluctuation around proportionality. An arithmetic
+cell breaks that proportionality, and the floor is what is left over.
+**The exact floor is therefore not a noise level but a second
+measurement of the same correspondence**, and quoting $z_c$ against it
+is conservative by about two orders of magnitude: with the permuted
+floor in the denominator the depth-$5$ cell would read $z\approx-42$
+rather than $-11$. The figure kept is the conservative one.
+
+What predicts the floor's *size* is the excess of the shift's
+singular series over same-cell pairs. Write $\SS_2(h)$ for the
+Hardy–Littlewood singular series of the shift $h$ — the local
+density of pairs $(p,p+h)$ — and, for a cell $c$ in the band, let
+$E_{\mathrm{same},c}[\SS_2]$ be the mean of $\SS_2(N-N')$ over pairs
+$N,N'$ both lying in $c$, and $E_{\mathrm{all}}[\SS_2]$ the same mean
+over all pairs in the band. The floor's magnitude tracks
+$D_c := E_{\mathrm{same},c}[\SS_2]-E_{\mathrm{all}}[\SS_2]$, and it
+tracks it including its shape:
+
+$$
+\begin{array}{r|cccccc}
+ \text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\\hline
+ D_c & 0.302138 & 0.046766 & 0.412504 & 1.052129 & 1.946109
+   & 3.171298\\
+ \mathrm{se}_c & 0.12400 & 0.04662 & 0.14834 & 0.24178 & 0.33253
+   & 0.43685
+\end{array}
+$$
+
+with correlation $0.9805$ across depths at the octave
+$(2\cdot10^6,\,4\cdot10^6]$. Neither row is monotone: both dip at
+depth $1$, and that is the mechanism made visible. Depth $0$ is the
+cell on which *none* of $3,5,7,11,13$ divides $N$, and excluding a
+class concentrates the shift just as fixing one does — if
+$3\nmid N$ and $3\nmid N'$ then both lie in $\{1,2\}\bmod 3$ and
+$3\mid h$ with probability $\tfrac12$ against $\tfrac13$ for a random
+pair. Both ends of the depth index concentrate $h$; depth $1$ mixes
+the patterns and washes out. **Depth is a coarse index for $D_c$, and
+the floor follows the same coarse index**, which is why the
+correlation is what it is. An earlier reading of this paragraph, that
+$D_c$ increases with depth, was the audit's rule M1 and is wrong.
+
+
+#### Proposition (the size mechanism is scale-invariant) {#prop:scaleinv}
+<!-- evidence: lab_cell_singular.py -->
+
+$D_c := E_{\mathrm{same},c}[\SS_2] - E_{\mathrm{all}}[\SS_2]$ depends
+only on the distribution of the shift $h$ in the residue classes mod
+$3,5,7,11,13$ that the cell fixes. That distribution is the same at
+every scale, so $D_c$ is scale-invariant and predicts an exponent of
+zero at every depth.
+
+Measured over $(10^6,2\cdot10^6]$, $(2\cdot10^6,4\cdot10^6]$ and
+$(4\cdot10^6,8\cdot10^6]$, the fitted exponents are
+
+$$
+\begin{array}{r|cccccc}
+ \text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\\hline
+ e & -0.000879 & -0.016226 & +0.000936 & +0.002904 & +0.000241
+   & -0.008428
+\end{array}
+$$
+
+— zero to three decimals at every depth but one. The exception is
+depth $1$, and it is the depth at which $D_c=0.046766$ is six times
+smaller than any other while the sampling error of the pair average is
+the same $0.0013$ throughout; its fitted exponent flips sign from
+$+0.065546$ to $-0.016226$ when the sample is taken ten times larger,
+which is the signature of noise rather than of a trend. Depth $1$ is
+also the cell that carries no mask ($z=+1.11$), so nothing rests on
+it.
+
+The audit pre-registered a $2\%$ band on the spread across octaves and
+$|e|<0.01$, as rules M2 and M4, and both fail at depths $0$ and $1$ at
+the original sample size. Depth $0$ passes once resampled — spread
+$0.0043$, exponent $-0.000879$ — so its failure was sampling; depth
+$1$ does not resolve. Two further caveats belong with the verdict: the
+pre-registration allowed three sampling standard errors and the code
+applied the band with no allowance, so the code was the stricter of
+the two, and the verdict quoted is the code's; and the resampling is
+post hoc.
+
+
+**How the mask decays is open, and this version does not answer
+it.** The amplitudes at depths $3,4,5$ fall with $N$; at depths $0,1,2$
+they are within the exact floor at every octave measured, so no decay
+exponent can be fitted there at all. Whether the exponents differ by
+depth is therefore not decided by the range accessible here. What
+Proposition [prop:scaleinv] does settle is that whatever produces
+the decay, it is not the arithmetic excess that produces the size.
+
+None of this threatens $C(N)=o(N)$: the mask is lower order under every
+parameterisation considered.
+
+
+## The negative map {#sec:closures}
+
+
+Every entry below was pre-registered: the decision rule was fixed in
+writing before the computation ran. Route adjudications were done in
+fresh context against the source papers' verbatim lemma hypotheses. The
+verdicts are stated here without their supporting statistics; those
+live in the repository, where each carries its own null and its own
+error bar. Where a design's threshold was chosen as an effect size
+rather than in standard errors of its own null, the repository records
+that too, and the verdict rests on the measurement rather than on the
+criterion.
+
+
+### Adjudication of existing machinery (5)
+
+
+```latex
+\begin{longtable}{p{0.24\textwidth}p{0.10\textwidth}p{0.56\textwidth}}
+\hline
+Route & Verdict & Blocking coordinate\\
+\hline
+\endhead
+MRT \cite{MRT15} / Lichtman \cite{Li20}, shift $\to$ dilate & Blocked &
+ the orthogonality factorization needs a \emph{linear} pair
+ constraint ($h = m-n$); the dilate constraint
+ $m'u - mu' = N(m'-m)$ is bilinear. The $h$-average is a translation;
+ the $k$-average is a dilation, with no diagonalizing character
+ family.\\
+Tao 2016 \cite{Tao} entropy decrement, $k$-averaged & Blocked $\times 3$ &
+ (i) no $k$-analog of approximate affine invariance; (ii) the sampling
+ prime enters the phase multiplicatively, so the sparsification fails
+ and the surviving input is the target itself; (iii) the saving is
+ triple-log, below spec.\\
+Lichtman rerun in dilate coordinates \cite{Li23} & Blocked &
+ the congruence coupling is a genuine isomorphism but powers only the
+ typical-set restriction; the decoupling blocks at the same bilinear
+ coordinate, and the uniformity slot would need an $EH_\mu$-grade
+ input (circular).\\
+Dirichlet-polynomial fourth moment / Perron & Blocked &
+ every log-saving mean-value pillar assumes coefficient
+ multiplicativity in its own variable; $\mu(N-u)$ has none. Unfolding
+ by Perron costs $T \gtrsim N^{1-o(1)}$; opening the fourth moment
+ reproduces the binary correlation.\\
+Partial slices & Partial &
+ the type-I slice is already consumed; the \emph{$N$-averaged}
+ theorem is provable but lands in exceptional-set territory, which
+ Huang--Li cannot consume; no nontrivial fixed-$N$ slice exists.\\
+\hline
+\end{longtable}
+```
+
+
+**The common obstruction.** $\mu(m)\mu(N-mk)$ couples its
+variables simultaneously through the product $mk$ and the difference
+$N-mk$; the pair constraint is bilinear and is diagonalized by no
+single character family, additive or multiplicative, while each
+route's decisive lemma consumes exactly that diagonalization as a
+hypothesis.
+
+
+### Technique designs, kill-tested (9)
+
+
+```latex
+\begin{longtable}{p{0.05\textwidth}p{0.30\textwidth}p{0.55\textwidth}}
+\hline
+\# & Design & Result (pre-registered rule applied)\\
+\hline
+\endhead
+K1 & multiplicative Fej\'er kernel on the exact dilation ladder &
+ \textbf{open}. On the type-II field the design is not computable: the
+ $\sqrt N$ cut empties all but thirteen of the sixty-three orbit
+ columns, so what was measured is a fifth of the orbit the design
+ names. On the untruncated field, where the whole orbit is live, the
+ statistic lands in the band the pre-registration reserved for
+ ``repeat at a second $N$ before deciding''.\\
+K2 & manufactured pair congruence (determinant/Kloosterman) &
+ \textbf{dead}: congruent pairs are statistically $h$-blind, and the
+ verdict is quantitative --- the design would need several orders of
+ magnitude more than its own detection floor.\\
+K3 & Wishart / operator moment method &
+ \textbf{dead}: the second, third and fourth traces sit on the Wishart
+ null. No sub-Wishart surplus to fund the exchange.\\
+K4 & $N$-average descent &
+ \textbf{dead}: the dual field is $\delta$-blind and
+ $m$-uncorrelated.\\
+R1 & zero-spectrum visibility (explicit formula) &
+ \textbf{dead} on the measurement, which sits below its own null. The
+ quoted precision of that null is not supportable --- its spread was
+ estimated from six draws --- so no exclusion interval is claimed.\\
+R2 & determinant / Kloosterman phase &
+ \textbf{dead} on the measurement, which sits below its control. Its
+ two criteria are uncalibrated and neither decides; and the
+ coherent-gain arm is not blind but sits about $2.8$ standard errors
+ above its own null, under a bar that was set at $5.4$.\\
+R3 & character transform of the $k$-average &
+ \textbf{dead by analysis}: for $K \le N^{1/3}$ the transform deposits
+ every component into thin progressions (moduli $\ge N^{2/3}$);
+ Parseval forbids a statistical gain.\\
+R4 & divisor switch &
+ \textbf{dead}: see \S\ref{sec:R4}.\\
+R5 & the circle method applied directly to $C(N)$ &
+ \textbf{dead, zero margin}: both bills lie at or above the trivial
+ bound, and the cap on the pointwise route is Parseval
+ (Proposition~\ref{prop:E}).\\
+\hline
+\end{longtable}
+```
+
+
+#### Remark (what a null verdict costs)
+
+A kill-test that does not fire is evidence of absence only against a
+stated floor, and a threshold chosen as an effect size is not a
+threshold. Three of the rows above have been restated on that basis:
+K1 is reopened because its design was not computable on the field it
+was run on; R1's and R2's verdicts are retained but their quoted
+precisions are withdrawn. In each case the DEAD direction, where it
+stands, stands on the measurement — never systematically below the
+null — and not on the count of flagged levels.
+
+
+### Representation classes (3, plus one open)
+
+
+```latex
+\begin{longtable}{p{0.10\textwidth}p{0.25\textwidth}p{0.55\textwidth}}
+\hline
+Class & Test & Result\\
+\hline
+\endhead
+C-I abelian & rational-peak energy vs mask-null &
+ \textbf{closed}: the abelian spectrum is mask-exact.\\
+C-II inverse domain & special-frequency excess in the
+ modular-inverse re-indexing &
+ \textbf{closed on verification}: fired under eight-draw nulls,
+ collapsed under sixty-four-draw nulls, permutation null concurring,
+ second-$N$ replication empty.\\
+C-IV manufactured modularity & approximate Fricke law for
+ $\Phi(z) = \sum t_m e(mz)$ &
+ \textbf{closed}. A true modular form drives the defect to
+ $\approx 0$, so absence is meaningful.\\
+C-III Motohashi type & (no finite test) &
+ \textbf{open}, needing exactly the three items of \S\ref{sec:c3}.\\
+\hline
+\end{longtable}
+```
+
+
+### R4 in detail: the divisor switch does not
+localize {#sec:R4}
+
+
+Applied to the dilate field over its *full* ranges the switch
+gives an exact identity
+
+$$
+\sum_{k\ge1}\ \sum_{m:\,mk\le N-1}\mu(m)\mu(N-mk)
+  = \sum_{u<N}\mu(N-u)\sum_{m\mid u}\mu(m)
+  = \mu(N-1),
+$$
+
+verified by brute force at six values of $N$. This is perfect
+cancellation: $O(1)$ for a double sum of $\sim N\log N$ terms, far
+beyond square root, and it is the strongest cancellation found
+anywhere in this work.
+
+E1 imposes two restrictions that make the inner divisor sum
+incomplete: the type-II cut $m > \sqrt N$ and the dyadic band
+$k \sim K$. The kill-test asked whether any of the cancellation
+survives, by measuring block sums $S_B(j) = \sum_{k\in\text{block}}D(k)$
+against the $B$-independence that Conjecture [conj:L] predicts.
+
+*The statistic, stated.* Two normalisations of a block sum both
+equal $1$ under independence, and they disagree; we use the
+unweighted mean of per-block ratios,
+
+$$
+r(B) \;=\; \Bigl\langle\,
+    S_B(j)^2 \Big/ \sum_{k\in\text{block }j}\mathrm{supp}(k)
+  \,\Bigr\rangle_j ,
+$$
+
+whose $B=1$ baseline is $1$ under exact square-root cancellation on the
+surviving support. (The ratio-of-sums normalisation gives a $B=1$
+baseline of $1.783927$, because the five largest moduli carry
+$0.3285$ of $\sum_k\mathrm{supp}(k)$; it is reported in the repository
+and is not used here.)
+
+**A block is a range of $k$ of width $B$**, with the dead moduli
+dropped from the sums inside it — not $B$ consecutive *surviving*
+moduli. The distinction is not cosmetic and version 3 left it to be
+inferred: blocking by consecutive survivors gives
+$1.024067,\,1.034667,\,1.036551,\,1.034833$ where blocking by $k$-range
+gives $1.024067,\,1.016910,\,1.015973,\,1.025319$. Both are flat, which
+is the conclusion, but they are flat at different levels and only the
+second is the printed row. That was the audit's rule D3, which fails
+under the first reading.
+
+*The dead moduli.* Over the entire band on which the type-II field
+is non-empty — $k<\sqrt N$, since $m>\sqrt N$ forces it — a
+substantial part of the band carries no field at all. At
+$N=10^8=2^8\cdot5^8$ one has $\mathrm{supp}(k)=0$, hence $D(k)=0$
+identically, exactly when $4\mid k$ or $25\mid k$: $2799$ of the $9999$
+moduli, or $28.0\%$ (Remark [rem:supp]). Both statistics below are
+therefore $0/0$ on more than a quarter of their domain, and we state
+the convention rather than leave it to be inferred: **moduli with
+$\mathrm{supp}(k)=0$ are excluded**, from the blocks and from the
+autocorrelation alike.
+
+*Result: none of the cancellation survives.* $r(B)$ reads
+$1.024067,\,1.016910,\,1.015973,\,1.025319$ at $B=1,2,4,8$: flat. It
+degrades only at block sizes where its own sampling spread swamps it.
+The sharper diagnostic, the lag-1 autocorrelation of
+$D(k)/\sqrt{\mathrm{supp}(k)}$ over the surviving moduli, reads
+$+0.005462$ at $N=10^8$ against a $400$-draw permutation null of
+standard deviation $0.011515$ — $+0.47$ standard errors, dead zero.
+
+We claim nothing from its sign. Under the other convention, keeping the
+dead moduli with $D(k)/\sqrt{\mathrm{supp}(k)}$ set to $0$, the same
+statistic reads $-0.010763$ against its own null of $0.010606$, or
+$-1.01$ standard errors: still dead, but of the opposite sign. Neither
+reading is significant and that is the whole of what this diagnostic
+establishes. (Note also that under the stated convention consecutive
+surviving moduli are $1$, $2$ or $3$ apart — the maximum gap is
+exactly $3$ — so "lag-1" names position in the surviving sequence and
+not a fixed gap in $k$.)
+
+
+#### Remark (a null that is not reproduced) {#rem:r4null}
+<!-- evidence: audit_r4_blocks.py -->
+
+Version 3 put the second null at $0.0094$ and the second reading at
+$-1.2$ standard errors. That was the audit's rule D6 and it fails: the
+point estimate $-0.010763$ reproduces $-0.0108$ exactly, but no reading
+of "permutation null" reaches $0.0094$. Permuting the whole
+$9999$-vector gives $0.010606$; permuting only the surviving entries
+with the zeros held in place gives $0.010246$. Both put the statistic
+at about one standard error rather than $1.2$, which does not change
+the verdict — it is dead either way — but the quoted precision is
+withdrawn. What a permutation null permutes has to be said when part of
+the vector is structurally zero, and $28.0\%$ of this one is.
+
+*The mirror.* Switching the banded $L^1$ sum gives
+$\sum_{k\sim K}D_{\text{full}}(k)
+ = \sum_{u<N}\mu(N-u)\sum_{m\mid u,\ u/2K<m\le u/K}\mu(m)$, where
+$m \asymp N/K \ge N^{2/3}$: the surviving Möbius sits on the
+*long* variable, the exact opposite of the assignment that makes
+Theorem [thm:A] work. The switch is not a technique that happens
+to fail on the supply side; its single requirement — Möbius on the
+short variable — is precisely what the type-II cut forbids.
+
+
+### C-III: what it needs {#sec:c3}
+
+
+C-III is the one representation class with no finite test, and it is
+open. Three requirements are identified; two are settled here against
+the natural construction, and the third is external.
+
+
+**(1) A legitimate transform — closed for changes of
+variable..** Put $A = N-a$, $B = N-b$, so $A = mk$ and $B = m'k$; then
+$m'A - mB = 0$ exactly. In centered coordinates the dilate family is
+therefore the *pencil of lines through the origin*, while the
+shift family $B = A - h$ is a family of *parallel* lines. A
+pencil is characterised by its vertex, here a finite point; a parallel
+family is a pencil whose vertex is at infinity. Affine maps send
+finite points to finite points, and since $\mu$ lives on $\mathbb Z$
+the available changes of variable are exactly the integral affine
+ones. So no change of variable carries one family to the other. This
+proves what a direct probe had only measured: the obvious re-indexing
+is circular, the off-diagonal computed directly and via that
+re-indexing agreeing exactly. What remains is the summation-formula
+class, blocked in general by the roughness of the outer weight $\mu$,
+with every named candidate in it already closed.
+
+
+**(2) A classification covering the type-II region —
+settled against the natural bookkeeping..** That bookkeeping needs the
+Möbius-side $a$ to satisfy $a \le y^{O(1)} = M^{o(1)}$. Measuring the
+absolute Heath–Brown weight of the identity of level $J$ with cut
+$z = M^{1/J}$, the overwhelming majority of it sits outside any region
+of the form $a \le M^{\eta}$ with $\eta$ small, and the fraction
+increases with $M$: measured at $M=10^4,\,10^5,\,10^6$ the
+$j\in\{6,7,8\}$ share at $J=8$ reads
+$0.772590,\,0.833180,\,0.886081$.
+
+The statistic has to be stated, because the section's own point is that
+it is convention-dependent. Take the absolute weight of the $j$-th term
+to be its $L^1$ mass,
+$W_j = \binom{J}{j}\,\#\{(m_1..m_j,n_1..n_j):
+m_i\le z\ \text{squarefree},\ \prod m_i\prod n_i\le x\}$, and the share
+to be $W_j/\sum_i W_i$. Then at $M=10^6$ the top-$j$ share is
+$0.848668$ at $J=3$ and the $j\in\{6,7,8\}$ share is $0.886081$ at
+$J=8$.
+
+The obstruction is parameter-independent, and that is what carries the
+paragraph. The identity with cut $z$ needs $z^J \ge x$, and its $j$-th
+term has $a \le z^j$, which at $j = J$ is $x$ for every admissible
+$(z,J)$ — while the weight concentrates in exactly those high-$j$
+terms, as the shares above show and as the trend in $M$ confirms.
+
+
+#### Remark (the rounding is not a convention) {#rem:hbround}
+<!-- evidence: audit_hb_weight.py -->
+
+Version 3 wrote that "the rounding of $z$ alone moves the $J=8$ entry
+by $0.017$", offering that as the reason not to quote three decimals.
+Two things are wrong with it. First the size: under the statistic
+stated above the three roundings of $z=M^{1/J}$ move the $J=8$ entry by
+$0.004356$, a quarter of the quoted figure — the reason not to quote
+three decimals is a real one but it was overstated. That was the
+audit's rule E3 and it fails.
+
+Second, and this is the substantive part: the rounding is not a free
+convention at all. The identity requires $z^J\ge x$, and rounding
+*down* violates it — at $J=8$ it gives $z=3,4,5$ against
+$x=10^4,10^5,10^6$, so $z^J = 6561,\ 65536,\ 390625$, short at every
+one; the same happens at $J=3$. Only rounding up is admissible at all
+three $M$. So one of the three "conventions" is not a choice between
+readings of the same object but a choice that breaks the identity, and
+a sensitivity computed across all three is measuring partly that.
+A repair would have to bound
+$\sum_a\sum_b \alpha(a)\beta(b)\mu(N-abk)$ with $\alpha$ rough and $a$
+long, where every individual piece is trivial and all the content is
+cancellation across $a$ — a type-II estimate for $\mu(N-\cdot)$,
+i.e. the wall. Every identity decomposing $\mu$ produces such a term;
+one whose every piece had either a long free variable or a
+divisor-structured rough coefficient would dispose of the parity
+obstruction. **Completing the construction and breaking the wall
+are the same task.**
+
+
+**(3) Quantitative averaged Chowla..** Shift-averaged binary
+$\mu\mu$ correlations at a *fixed* log-power saving, against a
+best known of $(\log)^{1-c}$. This is a named external open problem
+and is where C-III stands.
+
+That third item sets the character of the obstruction. The
+adjudication's central finding was that the **dilate** average
+admits no diagonalizing character family; but the **shift**
+average is precisely the home ground of the
+Matomäki–Radziwiłł–Tao machinery. If a legitimate transform
+converting one into the other exists, what remains is quantitative
+strength inside an active area rather than the absence of any coupling
+surface.
+
+
+## What the closures constrain
+
+
+Any transform or invariance $T$ that linearizes the pair constraint at
+a cost of at most a log power must satisfy all of the following.
+
+
+- **(K2)** $T$ cannot manufacture its congruence externally:
+  collapse structure pays only when it arises inside an intrinsic
+  average that is already present.
+
+- **(K3)** $T$ cannot bootstrap from the field's own moments:
+  every moment consumes higher $\mu$-correlations and the field
+  carries no sub-Wishart surplus.
+
+- **(K4)** $T$ cannot descend from the $N$-average: its
+  linearization is load-bearing and the $k$-average holds no shadow
+  of it.
+
+- **(R4)** $T$ cannot be the divisor switch or a relative:
+  the switch's cancellation is a property of *complete* divisor
+  sums, and the type-II cut makes every divisor sum incomplete.
+
+
+The constraint that K1 was to have supplied — that $T$ cannot act
+through divisibility sub-sums — is *not* asserted here, because
+K1 is reopened above. Together with the round-2 findings —
+characters merely relocating the difficulty into thin progressions,
+determinant phases not reaching their bar — the field offers no
+coupling surface in any direction that has an existing mathematical
+name. In the automorphic world, shifted convolutions
+$\sum a(n)a(n+h)$ are controlled because the coefficients $a(n)$
+*come with* a spectral representation; $\mu$ has none, and every
+route above failed exactly where it tried to borrow one. The technique
+to be created is a spectral (or equivalent structural) representation
+of $\mu$-pairs themselves, not a projection onto existing spectra —
+and its construction is a purely theoretical act, beyond what
+kill-testing can reach.
+
+
+## The margin, and where the difficulty is
+
+
+The requirement constrains every $N$, so the figure to quote is the one
+at the extreme, not at a typical $N$. With $\max|C|\approx
+a_n\sqrt{V(N)}$ and $a_n$ the Gumbel location for the number of even
+$N$ below the point,
+
+$$
+\frac{N}{\max_{N\le X}|C(N)|}\;\approx\;
+  \frac{\sqrt N}{a_n\sqrt{\AAA\log N}},
+$$
+
+which is $10^{4.466}$ at $N=10^{12}$ and $10^{22.842}$ at $N=10^{50}$
+with $a_n=\sqrt{2\log(N/2)}$ and $\AAA=0.787275$.
+
+Measured on the octave grid anchored at $1.6\cdot10^7$ and halving —
+the grid \S[sec:floor] uses — $\max|C|/N$ falls from $0.113524$ on
+$(31250,\,62500]$ to $0.010068$ on
+$(8\cdot10^6,\,1.6\cdot10^7]$, so the margin at the top of the computed
+range is a factor $99.325$, and extrapolating by $N^{-0.43}$ gives
+$99.325\cdot 6.25^{0.43}=218.42$ at $N=10^8$. The requirement is not
+remotely tight.
+
+The maximum is attained at primorials — the argmax runs
+$30030,\,66990,\,139230,\,300300,\,510510,\,1021020,\,2042040,\,
+4084080,\,9699690$ up the grid — which is what
+Proposition [prop:V] predicts, since $\AAA(N)$ is largest exactly
+where $N$ has the most prime factors and $\max|C|\approx
+a_n\sqrt{V(N)}$.
+
+
+#### Remark (the octave grid, and the fitted exponent) {#rem:grid}
+<!-- evidence: audit_margin.py -->
+
+Two of the figures above were the audit's rules M1 and M2 and both
+fail as version 3 stated them. The top figure $0.0101$ and the factor
+$99$ reproduce on any grid; the bottom figure $0.114$ reproduces only
+on the grid anchored at $1.6\cdot10^7$, where it is $0.113524$ on the
+octave $(31250,\,62500]$. On a grid anchored at
+$3\cdot10^4$ and doubling, the same octave reads $0.169339$. Note also
+that version 3 named one endpoint by the octave's bottom
+($3\cdot10^4$) and the other by its top ($1.6\cdot10^7$).
+
+The exponent is worse. Fitting $\max|C|/N\propto N^{-b}$ gives
+$b=0.440619$ on the anchored grid and $b=0.477527$ on the doubling
+one; the printed $0.43$ is neither. It is a range-specific number and
+is quoted here only as the input to the extrapolation, which is what
+the paragraph uses it for. **The claim that followed — that the
+extrapolated factor $218.42$ is insensitive to the third decimal of
+$b$ — is withdrawn**; Remark [rem:marginbracket] measures the
+sensitivity and $218.42$ falls outside the range the data support.
+
+Placing the two standard estimates in the same units makes the shape of
+the difficulty explicit. The target is $N(\log N)^{-A}$. The trivial
+bound sits a factor $(\log N)^{A}$ above it; Cauchy–Schwarz gives
+$N\sqrt{6(\log N-1)/\pi^2}$, a factor $(\log N)^{A+1/2}$ above it; and
+the truth sits a *power of $N$ below* it. **The entire
+difficulty is a power of $\log N$**, and it is not the size but the
+proof that is missing — by Theorems [thm:D] and [thm:Dprime]
+the one classical route to proving it is closed over its whole design
+space.
+
+
+#### Remark (the base checked without the transform, and the bracket) {#rem:marginbracket}
+<!-- evidence: audit_margin_bracket.py -->
+
+Two things were owed. The octave maxima come from a single
+length-$2^{26}$ real FFT, which is exactly where a silent error would
+live and where rerunning the same transform would not find one; and
+the extrapolation to $10^8$ carries no bracket.
+
+The base survives an independent route. Summing
+$C(N)=\sum_{n<N}\Lambda(n)\mu(N-n)$ directly, term by term, at each
+octave's argmax — one pass over the sieve, sharing no arithmetic with
+the transform — reproduces every published $\max|C|/N$ to between
+$1.6\cdot10^{-7}$ and $3.4\cdot10^{-7}$, which is the rounding of the
+sixth printed decimal. **The two routes agree to everything that was
+printed.**
+
+The bracket does not vindicate the quoted figure. Refitting over both
+grid anchors and every leave-one-out subset gives $b$ from $0.433213$
+to $0.494841$ and so
+
+$$
+\text{the factor at } N=10^8 \in [219.71,\ 245.98],
+$$
+
+a span of $1.1196$. The paper's "near $220$" is inside it — barely, at
+the very bottom edge — but **the $218.42$ that
+audit\_margin.py prints is outside**, because it is built on the
+published $b=0.43$ that the same audit refutes as M2. The right
+reading is a factor between $220$ and $246$, not a number.
+
+What makes this bracket narrow, where the two others this repository
+has computed span two-thirds of a decade and nine and a half, is
+neither the fit's quality nor its pre-registration record — by both
+measures this is the worst of the three. The extrapolation multiplies
+by $(\text{reach})^b$, so an absolute error $d$ in the exponent costs
+exactly $(\text{reach})^d$: $6.25^{0.061628}=1.1196$, matching the
+measured span to four decimals. **Reach sets the bracket, and this one
+reaches a factor $6.25$ where the others reached millions.**
+
+This bracket is also of the safest of the three kinds the repository
+now carries. A bracket made by *assuming* a wobble is worth nothing if
+the constant drifts by more than the wobble, so the two must be
+compared. Here they are the same number by construction: the bracket
+is the measured spread of $b$ over both grid anchors and every
+leave-one-out subset, $0.433213$ to $0.494841$, a relative $0.1339$,
+and nothing is assumed. Remark [rem:forecastbracket] is the second
+kind — an assumed $\pm10\%$ against a measured drift of $0.0295$, so
+the assumption is three times too generous and therefore safe. Remark
+[rem:residueconstant] is the third: measured drift $0.1436$ against
+any $\pm10\%$ one might assume, so **no bracket was published and the
+forecast was refused.**
+
+
+#### Remark
+
+Everything measured here is at $N\le1.6\cdot10^7$, with two arms at
+$N\approx10^8$. The no-go theorems of Section [sec:demand] are
+asymptotic and acquire content only near $N\approx10^{480}$; nothing
+measured here constrains that range, and nothing there is contradicted
+by these measurements.
+
+
+## What this version does not claim {#sec:notclaimed}
+
+
+Stated so the gap is visible rather than inferred, and read against the
+claim list of \S[sec:claims].
+
+
+- **No law for $C(N)$ is conjectured here.** An earlier draft
+  stated a conjecture of the form
+  $C(N) = m(N) + \sqrt{V(N)}\,G(N)$ with $G$ Gaussian, supported by
+  four measurements of the bulk, the tail, and the phase content in
+  $\log N$. Re-verification found that the bulk and tail figures are
+  not reproducible under the cell index and pooling the text specifies,
+  that the phase-content measurement is reproduced by a coin and so by
+  Lemma [lem:coin] is not measuring $\mu$, and that the mask's
+  quoted significance was overstated. The conjecture may well be true;
+  the evidence offered for it was not sound, and it is withheld until
+  the statistics it rests on are defined and re-measured.
+
+- **No level or rate for $\rho$ is quoted.** By
+  Lemma [lem:coin] the centred estimator cannot distinguish $\mu$
+  from a coin, so any such figure calibrates nothing.
+
+- **No decay exponent for the mask is quoted.** At the three
+  shallowest depths the amplitude does not clear the exact floor at any
+  scale measured, so nothing can be fitted there.
+
+- Conjecture [conj:L]'s non-E1 stamps are single-witness and are
+  cited as motivation, not as verified measurement.
+
+
+Each of these is an open question rather than a retraction of a
+mechanism, and each is carried forward in the repository's continuation
+notes.
+
+
+## Methodology
+
+
+Four rules were followed throughout, and they are the reason we believe
+the negative results.
+
+
+- **Pre-registration.** Every design's decision rule was
+  written before its computation ran, including the rule that would
+  refute the hypothesis under test.
+
+- **Adversarial review in fresh context**, against the source
+  papers' verbatim lemma hypotheses rather than against summaries of
+  them, and repeated: three independent reviews have been run, each
+  from the statements alone and without access to its predecessors'
+  findings or code. Their coverage is uneven and we state that rather
+  than round it up. Material inherited from Version 1 has been through
+  all three. Statements first written for Version 2 — among them
+  Proposition [prop:W] as stated, Lemma [lem:MP]'s truncated
+  form, Proposition [prop:coh]'s derivation,
+  Lemma [lem:placebo]'s statement and \S[sec:R4]'s block-ratio
+  definition — had one reviewer when Version 2 was written and have
+  had one since. The measured detection rate of a single review of this
+  kind is about one half, so nothing here should be read as certified.
+
+- **Nulls before thresholds.** A threshold means nothing until
+  the spread of the quantity it judges has been measured, and a null
+  must preserve the structure of the field it is a null for. A null
+  built by shuffling a correlated field is not a null for a statistic
+  that reads its correlation.
+
+- **Weights and fields before comparisons.** Two summaries of
+  one object are not comparable until each one's weight is stated
+  (Remark [rem:scale]), and a measured figure is not interpretable
+  until the range it was measured on is stated. Both rules were adopted after the
+  corresponding mistakes were made and caught.
+
+
+Three traps are worth recording because they are traps and not slips.
+
+
+- *The $(q,N)>1$ main-term trap.* In the proof of
+  Theorem [thm:A], assigning a main term $T_m/\varphi(q)$ to a
+  residue class with $(q,N)>1$ — which is degenerate, its true
+  contribution being $O(\log^2 N)$ — shifts the density by exactly
+  $N/\varphi(N)$. Carried into the $\log k$ branch, that error
+  produces an apparent *refutation of $EH_\mu$*. This is the most
+  plausible false positive we met.
+
+- *Nulls estimated from too few draws* inflate maxima across a
+  family of tests; one representation-class "hit" survived
+  eight-draw nulls and died under sixty-four-draw nulls plus
+  replication, and one kill-test's quoted precision rests on a
+  six-draw spread.
+
+- *Local factors evaluated at the wrong modulus.* A
+  reconstruction of the wall's excess divided by $W(N)$ where the
+  definition calls for $V(N)$; the two differ by exactly $\AAA(N)$, the
+  object Proposition [prop:V] is about.
+
+
+## Reproducibility
+
+
+All measurements run on a laptop with Python and numpy. The
+repository's `PROVENANCE.md` maps every numbered statement in
+this paper to the code that verifies it and the result file it was
+read from. One-shot verification of the core corpus is
+`python code/verify/verify\_all.py`. The consistency gate, which
+runs every consistency checker and exits nonzero if any fails, belongs
+to the program's own record rather than to this paper.
+
+
+#### Remark (the two constants, and how far they were trusted) {#rem:constants}
+<!-- evidence: audit_constants.py -->
+
+Every threshold in this program is $\SS(N)(1-A(N))$ or $\SS(N)$, and
+both are built from $2C_2=2\prod_{p>2}(1-1/(p-1)^2)$ and
+$\prod_p(1-1/(p(p-1)))$, which nine scripts compute inline. They were
+checked here by a route that enumerates no primes at all: with
+$u=1/p$ each Euler factor is a power series in $u$, so the log of the
+product is $\sum_{n\ge2}g_nP(n)$ with $P$ the prime zeta function,
+obtained from $\zeta$ by Möbius inversion. That route returns
+$1.320323631694$ and $0.373955813619$, missing the published constants
+by $6.261\cdot10^{-12}$ and $1.920\cdot10^{-11}$. The sieved
+production route at bound $10^7$ returns $1.320323639431$ and
+$0.373955815811$, and its miss tracks $1/(P\log P)$ across every
+bound — it is the truncation tail and nothing else.
+
+Three of the four pre-registered rules fail and they fail together,
+for one reason. **W1**, **W2** and **W3** asked a *truncated* Euler
+product to match an *exact* constant to $10^{-9}$, when at the largest
+bound used the tail is already $6.204\cdot10^{-9}$. The tolerance was
+set below a floor the mathematics imposes, which is Remark
+[rem:cap]'s mistake again: an effect size in place of a null. Judged
+against the floor, both routes are correct and the prime-free one is
+three orders inside it.
+
+What the run found instead is worth the cycle. **W4** asked whether
+the bound reaches the printed precision, and the answer is that it
+does. Recomputing the Goldbach threshold at $N=2^a5^b$ from each
+bound gives $0.374486$ at $10^5$ and $0.374487$ from $2\cdot10^5$
+upward: the last digit this program prints depends on how far the
+script that printed it happened to have sieved. Seven of the nine
+implementations took the product over the measurement's own prime
+list. None was low enough to be wrong — the smallest was $10^6$,
+twelve times inside the margin — but the quantity was not pinned, and
+pinning it moved a printed number in this note's companion: $R$ at
+$\theta'=0.51$, $N=8\cdot10^5$ now reads $0.170167$, one unit in the
+last place from what had been recorded. A constant that shifts a
+published digit according to which script computed it is not a
+constant, and it is now fixed at a single bound by the program's
+gate.
+
+
+#### Remark (the arithmetic underneath, audited) {#rem:sieve}
+<!-- evidence: audit_sieve.py -->
+
+Every measurement in this paper and its companion is a sum over
+$\Lambda$ and $\mu$ built inside the measuring script itself. The
+dominant construction's $\mu$ half is not a plain sieve: an `int32`
+cofactor array carries the single prime factor that may exceed
+$\sqrt n$, and a sign flip at the end accounts for it. A fault there
+would be invisible to every consistency check in the repository,
+because every script would be wrong in the same direction and would
+agree with every other script. That is the one failure mode internal
+agreement cannot detect, so it is checked from outside.
+
+Auditing it turned up something first. There is not one construction
+but three: fifteen scripts use the cofactor trick, three build $\mu$
+from the recurrence $\mu(v)=-\mu(v/p)$ off a smallest-prime-factor
+table, and two more differ only in what they return. An audit that
+pins one and reports on "the sieve" claims more than it checked, so
+all three are compared, and the audit carries a manifest of the
+implementations it has seen; the program's gate holds that manifest
+against the repository, so a fourth variant cannot enter unaudited.
+
+$\mu$ and $\Lambda$ were rebuilt on $1\le n\le2\cdot10^6$ by a
+structurally different route — a smallest-prime-factor sieve followed
+by explicit factorisation of each $n$ — and compared elementwise. The
+$\mu$ arrays disagree at $0$ indices, and the worst relative
+difference on $\Lambda$ is $0$: not within tolerance, identical. The
+recurrence construction, compared the same way on $1\le n\le5\cdot10^5$,
+also disagrees at $0$ indices with worst relative $0$ on $\Lambda$. The
+defining identities were then swept directly on the production arrays
+to $2\cdot10^5$: $\sum_{d\mid n}\mu(d)=[n=1]$ fails at $0$ values of
+$n$, and $\sum_{d\mid n}\Lambda(d)=\log n$ holds to a worst relative
+$2.911\cdot10^{-16}$. Rebuilding $B(N)/N$ from the *independent*
+arrays returns $0.808567150$, $0.739493602$, $0.730264309$ at
+$N=2\cdot10^5,\,4\cdot10^5,\,8\cdot10^5$, reproducing the published
+table at its printed width. At the top of the range actually used,
+$n\le2.56\cdot10^7$, the two global consequences a sign error would
+destroy both hold: $|M(x)|/\sqrt x$ stays at $0.3240$ or below over
+eight checkpoints, and $|\psi(x)-x|/x=0.000050$.
+
+This settles nothing mathematical. It removes one way for everything
+else to be wrong at once.
+
+
+## Summary
+
+
+- The demand side of the Huang–Li reduction is closed: one half
+  is now an unconditional theorem, the other half is equivalent to
+  Huang–Li's equation (22) — hence already gives binary Goldbach,
+  and gives the asymptotic $\tilde r(N)\sim\SS(N)N$ exactly when
+  $C(N)=o(N)$ — and the interior of the design space between them is
+  empty.
+
+- The supply side is closed to measurement: the object is
+  featureless in every direction with a name, and the pre-registered
+  closures say precisely which directions were checked and why each
+  fails. One of them, K1, is reopened here.
+
+- The wall has an exact second moment, an exact aggregate identity,
+  an exact closed form for the fluctuation of any cell mean, and a
+  deterministic mask that is detected against that floor at every scale
+  measured. Its error bar falls like $(\log N)^{-1/2}$ and not like a
+  count.
+
+- The natural conditional route does not close: the coefficient
+  amplifying $S(h)$ grows like $N/\log N$ and is nonnegative, and the
+  true $S$ already overspends the budget that coefficient defines, so
+  no bound on $|S(h)|$ gives $\mathrm{Var}\,C\sim V$; only signed
+  cancellation across $h$ would, and nothing in the literature supplies
+  it.
+
+- Net progress toward Goldbach is zero. The contribution is the
+  map, the exact facts, one unconditional theorem that removes a
+  Goldbach-neutral demand, one conjecture that any future construction
+  must reproduce, and one defect report for the source paper.
+
+
+## References
+
+- **[HL]**  Jing-Jing Huang and Huixi Li, *On the connection
+between the Goldbach conjecture and the Elliott–Halberstam
+conjecture*, arXiv:2005.03811v2 [math.NT], 2022.
+
+- **[ThmA]**  *An unconditional bound for a Möbius-weighted
+correlation sum in fixed residue classes*, companion note,
+`paper/theorem\_A.tex` in this repository.
+
+- **[Pan]**  Cheng-Dong Pan, *A new attempt on Goldbach
+conjecture*, Chinese Ann. Math. **3** (1982), 555–560.
+
+- **[Tao]**  Terence Tao, *The logarithmically averaged Chowla
+and Elliott conjectures for two-point correlations*, Forum Math. Pi
+**4** (2016).
+
+- **[Li20]**  Jared Duker Lichtman, *Averages of the Möbius
+function on shifted primes*, arXiv:2009.08969.
+
+- **[Mir49]**  L. Mirsky, *The number of representations
+of an integer as the sum of a prime and a $k$-th power free
+integer*, Amer. Math. Monthly **56** (1949), 17–19.
+
+- **[MRT15]**  Kaisa Matomäki, Maksym Radziwiłł
+and Terence Tao, *An averaged form of Chowla's conjecture*,
+Algebra Number Theory **9** (2015), 2167–2196.
+
+- **[Vau88]**  R. C. Vaughan, *The $L^1$ mean of exponential
+sums over primes*, Bull. London Math. Soc. **20** (1988),
+121–123.
+
+- **[Li23]**  Jared Duker Lichtman (with an appendix by Sary
+Drappeau), *Primes in arithmetic progressions to large moduli, and
+Goldbach beyond the square-root barrier*, arXiv:2309.08522
+[math.NT], 2023.
+
+- **[MV17]**  M. Ram Murty and Akshaa Vatwani, *Twin primes and
+the parity problem*, J. Number Theory **180** (2017), 643–659.

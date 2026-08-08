@@ -1,0 +1,52 @@
+STATISTIC: c'(N) = median over the resolved k of
+           |A(N;k)| / sqrt(N/k), for mu and for coin signs on the
+           same support; c'(N)/sqrt(log N); and an out-of-sample
+           prediction of K*(N) obtained by fitting
+           |A| = gamma sqrt(N/k) sqrt(log N) on the three
+           smallest N and solving sum_{k<K}(log k)|A| =
+           S(N)(1-A(N))N at the two largest.
+NULL: the coin is the control and the calibration -- a sum of
+      independent signs must give |H| ~ sqrt(M log N) exactly, so
+      its c'/sqrt(log N) must be flat; if it were not, the
+      normalisation and not the arithmetic would be at fault.
+      Four draws per N, same support and same k-range as mu.
+FIELD: N = 2e5, 4e5, 8e5, 1.6e6, 3.2e6; k over the squarefree k
+       coprime to N with 2 <= k <= N/1000, so the dilate length
+       M = N/k never falls below 1000; the fit uses only
+       N = 2e5, 4e5, 8e5 and the prediction only N = 1.6e6 and
+       3.2e6, whose K* = 1353, 2319 come from
+       lab_level_of_distribution.py; numpy default_rng seed
+       20260808.
+
+sieving to 3200000 ...
+
+  N          #k     c'(N)      c'/sqrt(log N)   coin c'    coin c'/sqrt(log N)   threshold/N
+  --------------------------------------------------------------------------------------------
+  200000     66     2.3951     0.6855           1.9630     0.5619                0.3745
+  400000     133    2.1060     0.5864           2.1671     0.6034                0.3745
+  800000     272    2.5220     0.6841           2.2360     0.6065                0.3745
+  1600000    540    2.6162     0.6922           2.2151     0.5861                0.3745
+  3200000    1081   2.5291     0.6535           2.3259     0.6010                0.3745
+
+R1  c'(N) increasing: False   REFUTED
+R2  c'/sqrt(log N) spread = 1.1805   (cap 1.15)   REFUTED
+R3  coin c'/sqrt(log N) spread = 1.0794   (cap 1.15)   hold
+
+R4  out of sample: gamma fitted on N = 200000, 400000, 800000 is 0.6520
+  N          K* measured   K* predicted   ratio   status
+  1600000    1353          1599           1.182   CLIPPED at the top of k <= N/1000 -- not a solution
+  3200000    2319          3199           1.379   CLIPPED at the top of k <= N/1000 -- not a solution
+  R4 REFUTED
+
+  what the corrected model says about the level. With
+  |A(N;k)| = gamma sqrt(N/k) sqrt(log N),
+  B(N)/N ~ 2 gamma sqrt(log N) sqrt(K/N) log K, so the threshold
+  is kept up to K ~ N / (log N (log K)^2) -- an exponent of 1 in
+  N with THREE powers of log, not the two the remark wrote.
+    N = 10^6    N/(log N)^3 = 3.792e+02   as an exponent: 0.4298
+    N = 10^9    N/(log N)^3 = 1.124e+05   as an exponent: 0.5612
+    N = 10^12   N/(log N)^3 = 4.740e+07   as an exponent: 0.6397
+
+======================================================================
+R1 REFUTED  R2 REFUTED  R3 hold  R4 REFUTED
+REFUTED

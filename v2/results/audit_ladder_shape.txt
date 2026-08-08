@@ -1,0 +1,103 @@
+STATISTIC: least-squares fits of five shapes to the eleven
+           published exponents of the primorial ladder --
+           a + b log N, a + b/log N, a + b log log N,
+           a + b log log N / log N, and the one-parameter
+           1 - c log log N / log N -- their r.m.s. residuals,
+           and the log10 N at which each reaches 0.50 and 0.56.
+NULL: none is run and none applies. Deterministic shapes are
+      fitted to eleven measured numbers and compared by
+      residual; there is no background to detect against. The
+      coin arms for these exponents were run in
+      lab_primorial_ladder.py and lab_primorial_share.py.
+FIELD: the eleven exponents of N = 30030 * 2^j, j = 0..10, read
+       from results/audit_primorial_rung10.txt, together with
+       the line and bracket that file publishes. No new
+       arithmetic is done here; the k-range, sieve weight and
+       budget are those declared there.
+
+read 11 rungs, the published slope +0.006780, r.m.s. 0.0037 and
+  the bracket 10^7.4249 [10^7.1866, 10^7.6631] from
+  results/audit_primorial_rung10.txt
+
+H1  the control: the line refitted here
+  slope +0.006778 against the published +0.006780, diff 0.000002
+  r.m.s. 0.0037 against the published 0.0037, diff 0.000018
+  H1 hold
+
+H2  how well each shape fits
+  shape                        r.m.s. residual   vs the line
+  a + b log N                  0.00372           -
+  a + b / log N                0.00473           +27.2%
+  a + b log log N              0.00412           +10.8%
+  a + b log log N / log N      0.00432           +16.3%
+  1 - c log log N / log N      0.03764           +912.4%
+  H2 REFUTED
+
+H3/H4  where each shape puts the two levels
+  shape                        log10 N at 0.50   at 0.56
+  a + b log N                  7.4255            11.2700
+  a + b / log N                7.8086            82.5771
+  a + b log log N              7.5627            14.6167
+  a + b log log N / log N      7.6404            19.6207
+  1 - c log log N / log N      6.2371            7.6204
+  among the shapes that fit at least as well as the line:
+    0.56 reached at 11.2700
+    spread 0.0000 decades
+  H3 REFUTED   (floor 1 decade, or one shape never reaching it)
+  1/2 reached at 7.4255, published bracket [7.1866, 7.6631]
+  H4 hold
+
+  the arithmetic and the budget are those of the ladder,
+  declared by the file this reads; nothing new is computed
+  here beyond least squares on eleven published numbers.
+RADICALS 1
+
+  DIAGNOSTIC (post hoc). The residuals, shape by shape, so
+  that 'fits as well' can be seen and not taken on trust:
+  N            line       saturating  loglog     heuristic2  heuristic1
+  30030          +0.0010    +0.0043    +0.0027    +0.0033    +0.0648
+  60060          +0.0008    +0.0015    +0.0013    +0.0014    +0.0469
+  120120         +0.0048    +0.0038    +0.0044    +0.0043    +0.0348
+  240240         -0.0048    -0.0068    -0.0057    -0.0061    +0.0108
+  480480         -0.0040    -0.0064    -0.0052    -0.0056    -0.0015
+  960960         -0.0029    -0.0052    -0.0041    -0.0045    -0.0123
+  1921920        +0.0054    +0.0037    +0.0045    +0.0041    -0.0147
+  3843840        -0.0045    -0.0053    -0.0050    -0.0051    -0.0344
+  7687680        +0.0049    +0.0054    +0.0050    +0.0051    -0.0338
+  15375360       -0.0022    -0.0002    -0.0013    -0.0009    -0.0489
+  30750720       +0.0013    +0.0051    +0.0032    +0.0039    -0.0527
+
+  H2 and H3 asked for a shape that fits AT LEAST AS WELL as
+  the line, and none does; the line is the best of the five.
+  That criterion is too strict and the numbers say why. With
+  11 points and 2 parameters the r.m.s. residual is itself
+  estimated from 9 degrees of freedom, so its own standard
+  error is r.m.s./sqrt(2 df):
+    best r.m.s. 0.00372, its standard error 0.00088, i.e. 23.6%
+  A shape is not excluded unless it sits more than that above
+  the best. Which do:
+  shape                        r.m.s.    (r-best)/s.e.  excluded?
+  a + b log N                  0.00372   0.00           no
+  a + b / log N                0.00473   1.15           yes
+  a + b log log N              0.00412   0.46           no
+  a + b log log N / log N      0.00432   0.69           no
+  1 - c log log N / log N      0.03764   38.71          yes
+  3 of 5 shapes survive: a + b log N, a + b log log N, a + b log log N / log N
+  and where they put the two levels:
+  shape                        0.50      0.56
+  a + b log N                  7.4255    11.2700
+  a + b log log N              7.5627    14.6167
+  a + b log log N / log N      7.6404    19.6207
+  0.56 spans 8.3508 decades among the surviving shapes;
+  0.50 spans 0.2148 decades among them, against a published
+  bracket 0.4765 decades wide
+
+  and what each shape does in the limit:
+  a + b log N                  exponent at log N = 1e6: 6.778e+03
+  a + b / log N                exponent at log N = 1e6: 0.5663
+  a + b log log N              exponent at log N = 1e6: 1.4978
+  a + b log log N / log N      exponent at log N = 1e6: 0.6243
+  1 - c log log N / log N      exponent at log N = 1e6: 1.0000
+
+======================================================================
+REFUTED

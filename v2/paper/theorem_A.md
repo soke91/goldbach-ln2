@@ -1,0 +1,4439 @@
+# An unconditional bound for a Möbius-weighted correlation sum  in fixed residue classes, with two consequences for the  Huang–Li reduction of Goldbach to Elliott–Halberstam
+
+```latex
+% 수식이 쓰는 매크로 — 렌더러/역변환용
+\renewcommand{\SS}{\mathfrak{S}}
+\newcommand{\Emu}{E_\mu}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\lcm}{lcm}
+```
+
+## Abstract
+
+Huang and Li [arXiv:2005.03811] show that the binary Goldbach conjecture
+for large even $N$ follows from $EH$ together with a Möbius-twisted
+variant $EH_\mu$ whose levels sum to more than $1$; by Bombieri–Vinogradov
+their Corollary 1 reduces this to $EH_\mu(N^{\theta'})$ alone for a single
+$\theta' > 1/2$. Their proof consumes $EH_\mu$ at exactly two places, the
+functionals they call $E_3(\alpha)$ and $E_4(\alpha)$. We prove
+unconditionally (Theorem [thm:A]) that the Möbius-weighted
+correlation sum underlying $E_4$ is
+$\ll_A N(\log N)^{-A}$ for every $A>0$, uniformly in the truncation
+point; consequently (Corollary [cor:B]) the $E_4$ consumption of
+$EH_\mu$ is unnecessary and the entire $EH_\mu$ demand of the Huang–Li
+argument collapses to the single scalar $E_3(\alpha)$. We then show
+(Theorem [thm:C]) that the corresponding statement for $E_3$ — the
+same sum with the weight $\log k$ — is not merely hard but, by an
+unconditional identity, *equivalent* to Huang–Li's own
+equation (22): it therefore already yields binary Goldbach for large
+even $N$, and yields the asymptotic $\tilde r(N)\sim\SS(N)N$ exactly
+when $\sum_{n<N}\Lambda(n)\mu(N-n) = o(N)$. The root cause is
+$\mu * \log = \Lambda$. Finally we record a genuine defect in
+the published paper: equation (18) drops an $n$-dependent constraint
+present in the definition of $S_2(\alpha)$; we give the missing term and
+show it is harmless under the hypotheses already assumed
+(Section [sec:delta]).
+
+We state plainly what is *not* claimed: Theorem [thm:A] removes
+only the part of the demand that carries no Goldbach content, and the
+net progress toward the Goldbach conjecture is zero. We also state
+plainly what is *standard*. The ingredients of Theorem [thm:A]
+are classical and its mechanism — a divisor switch that moves the work
+onto a short variable, followed by Bombieri–Vinogradov — is ordinary
+practice; what is offered is the application, together with the
+corrections it turns out to require. Theorem [thm:D] is, in genre, a
+precise form for this particular reduction of the phenomenon Bombieri's
+asymptotic sieve records, and a reader who finds its conclusion
+unsurprising is right to. Section [sec:lit] places both against the
+record, including Lichtman's level of distribution beyond the
+square-root barrier [Li23], which postdates [HL].
+
+
+## Introduction
+
+
+### The Huang–Li reduction
+
+
+Let $N$ be a large even integer, $\Lambda$ the von Mangoldt function,
+$\mu$ the Möbius function, and
+
+$$
+\tilde r(N) \;=\; \sum_{n<N} \Lambda(n)\Lambda(N-n),
+  \qquad
+  \SS(N) \;=\; 2\prod_{p>2}\Bigl(1-\tfrac{1}{(p-1)^2}\Bigr)
+                \prod_{\substack{p\mid N\\ p>2}}\Bigl(1+\tfrac{1}{p-2}\Bigr).
+$$
+
+Write $EH_\mu(Q)$ for the assertion that for every $A>0$
+
+$$
+\begin{equation}\label{eq:EHmu}
+  \sum_{q\le Q}\ \max_{y<N}\ \max_{(a,q)=1}
+  \Bigl|\sum_{\substack{n\le y\\ n\equiv a\ (q)}}\Lambda(n)\mu(N-n)
+        -\frac{1}{\varphi(q)}\sum_{n\le y}\Lambda(n)\mu(N-n)\Bigr|
+  \;\ll_A\; \frac{N}{(\log N)^A}.
+\end{equation}
+$$
+
+Huang and Li [HL] prove that $EH(N^\theta(\log N)^{2A+8})$ together
+with $EH_\mu(N^{1-\theta})$ implies
+$\tilde r(N)\ge \SS(N)(1-A(N))N + O(N(\log N)^{-A})$, where
+
+$$
+\begin{equation}\label{eq:AN}
+  A(N)=\prod_{\substack{p\nmid N\\ p>2}}\Bigl(1-\frac{1}{p(p-1)}\Bigr),
+\end{equation}
+$$
+
+and deduce (their Corollary 1) that, in view of Bombieri–Vinogradov,
+binary Goldbach for all sufficiently large even integers follows from
+$EH_\mu(N^{\theta'})$ alone, for any single $\theta'>1/2$.
+
+Throughout this note we work in that *Corollary-1 regime*: a fixed
+$\theta'\in(1/2,1)$ is given, we put
+
+$$
+\delta := \theta' - \tfrac12 > 0, \qquad K := N^{\theta'},
+  \qquad M := N/K = N^{1-\theta'} \le N^{1/2-\delta}.
+$$
+
+
+### Where $EH_\mu$ is consumed
+
+
+The hypothesis [eq:EHmu] enters the Huang–Li proof at exactly two
+places. With $\alpha$ the Vaughan-type parameter of their §3 and
+$K=(N-1)/\alpha$, these are (their notation, and note the residue class
+is the *fixed* class $a\equiv N$):
+
+$$
+\begin{align}
+  E_3(\alpha) &= \sum_{\substack{k<K\\ (k,N)=1}}\mu(k)\log k
+    \Bigl[\sum_{\substack{n<N\\ n\equiv N\ (k)}}\Lambda(n)\mu(N-n)
+      -\frac{1}{\varphi(k)}\sum_{n<N}\Lambda(n)\mu(N-n)\Bigr],
+      \label{eq:E3}\\
+  E_4(\alpha) &= \sum_{\substack{k<K\\ (k,N)=1}}\mu(k)
+    \Bigl[\sum_{\substack{n<N\\ n\equiv N\ (k)}}\Lambda(n)\mu(N-n)\log(N-n)
+      -\frac{1}{\varphi(k)}\sum_{n<N}\Lambda(n)\mu(N-n)\log(N-n)\Bigr].
+      \label{eq:E4}
+\end{align}
+$$
+
+In both cases Huang–Li discard the signs $\mu(k)$ by the triangle
+inequality on the first line and then appeal to [eq:EHmu] (their
+Lemma 4 for $E_4$). The two functionals differ in exactly one respect:
+$E_3$ carries the weight $w_k=\log k$ and $E_4$ carries $w_k=1$ (the
+$\log(N-n)$ inside $E_4$ is $k$-independent and is removed by partial
+summation). This note shows that this one difference decides everything.
+
+
+### Results
+
+
+For $(k,N)=1$ and $1\le t<N$ put
+
+$$
+\begin{equation}\label{eq:Emu}
+  \Emu(t;k) := \sum_{\substack{n\le t\\ n\equiv N\ (k)}}\Lambda(n)\mu(N-n)
+             - \frac{1}{\varphi(k)}\sum_{n\le t}\Lambda(n)\mu(N-n),
+  \qquad
+  C(t) := \sum_{n\le t}\Lambda(n)\mu(N-n),
+\end{equation}
+$$
+
+and, for a weight $w$,
+
+$$
+T_w(t) \;:=\; \sum_{\substack{k<K\\ (k,N)=1}} \mu(k)\,w(k)\,\Emu(t;k).
+$$
+
+Thus $E_4$ is obtained from $T_1$ and $E_3$ from $T_{\log}$.
+
+
+#### Theorem {#thm:A}
+<!-- evidence: analytic -->
+
+Fix $\theta'\in(1/2,1)$ and put $K=N^{\theta'}$. Then for every $A>0$,
+
+$$
+\sup_{1\le t<N}\ \bigl|T_1(t)\bigr|
+  \;=\;\sup_{1\le t<N}\
+  \Bigl|\sum_{\substack{k<K\\(k,N)=1}}\mu(k)\,\Emu(t;k)\Bigr|
+  \;\ll_{A,\theta'}\; \frac{N}{(\log N)^{A}} .
+$$
+
+Moreover every ingredient of the proof except Bombieri–Vinogradov
+contributes only $O\!\left(N e^{-c\sqrt{\log N}}\right)$: the power of
+$\log$ in the statement is imposed by Bombieri–Vinogradov alone.
+
+
+#### Remark
+
+Theorem [thm:A] is a statement about a *signed* sum in a
+*fixed* residue class. It is not an instance of, and does not
+imply, $EH_\mu(N^{\theta'})$, which asks for absolute values and a
+maximum over residue classes. The mechanism is described in
+Section [sec:mechanism]: after divisor switching one *completes*
+the divisor sum, and on the complementary range $k\ge K$ the Möbius
+factor on the long variable squares itself away while the surviving
+Möbius sits on a variable of size $\le N^{1/2-\delta}$. The completion
+is not a formality — without it the cofactor is not short and the
+configuration is the one with no known machine.
+
+
+#### Corollary {#cor:B}
+<!-- evidence: analytic -->
+
+In the Corollary-1 regime, $E_4(\alpha)\ll_A N(\log N)^{-A}$ for every
+$A>0$, unconditionally. Consequently Huang–Li's estimate
+$S_4(\alpha)=O(N(\log N)^{-A})$ requires no hypothesis, their Lemma 4 is
+not needed, and the entire $EH_\mu$ demand of their argument collapses
+to the single scalar $E_3(\alpha)$ (together with the correction
+$\Delta$ of Section [sec:delta], which is likewise unconditional
+here).
+
+
+#### Theorem {#thm:C}
+<!-- evidence: audit_E3_constant.py -->
+
+In the Corollary-1 regime one has the unconditional identity
+
+$$
+E_3(\alpha) \;=\; \sum_{n<N}\Lambda(n)\Lambda(N-n)
+     \;-\; \SS(N)\Bigl(N-\sum_{n<N}\Lambda(n)\mu(N-n)\Bigr)
+     \;+\; O_A\!\left(\frac{N}{(\log N)^{A}}\right),
+$$
+
+In particular the bound $E_3(\alpha)\ll_A N(\log N)^{-A}$ — the form
+of $EH_\mu$ their argument consumes, though not the weakest that
+suffices; see Proposition [prop:onesided] — is *equivalent* to
+Huang–Li's equation (22). It therefore yields
+binary Goldbach for large even $N$ through their Theorem 1; and granted
+it, the asymptotic $\tilde r(N)\sim\SS(N)N$ holds if and only if
+$C(N)=o(N)$.
+
+
+#### Remark (three statements, not two) {#rem:threeway}
+
+The identity says that the difference displayed above *is*
+$E_3(\alpha)$, so the hypothesis $E_3\ll_A N(\log N)^{-A}$ and
+Huang–Li's (22) are the same assertion. What [HL] record
+immediately after their (22) is a different equivalence, between
+$\tilde r(N)\sim\SS(N)N$ and $C(N)=o(N)$. Chaining the two,
+$E_3\ll_A N(\log N)^{-A}$ delivers binary Goldbach — Huang–Li's
+Theorem 1 supplies $|C(N)|\le A(N)N(1+o(1))$ by the triangle
+inequality, and $A(N)<1$ — but it does not on its own deliver the
+asymptotic, which needs $C(N)=o(N)$ in addition. An earlier version of
+this note stated the last two as one equivalence; the missing
+hypothesis is exactly the quantity the companion paper's
+Sections 4–5 are about.
+
+
+Theorem [thm:C] is the more consequential half. It says that the
+demand side is closed at the level of *identities* rather than of
+estimates: no choice of $\theta'$, of truncation, or of smoothing can
+evade it, because the root cause is the identity $\mu*\log=\Lambda$
+from which Huang–Li start. The weight $\log k$ is the carrier of the
+Goldbach content, so every divisor switch must hand it back.
+
+Closure at the level of identities is not closure at the level of
+*strength*, and the next proposition separates the two. Every
+condition on $E_3$ unwinds, through Theorem [thm:C], to a condition
+on $\tilde r(N)$ and $C(N)$ — that is the identity part, and it is
+permanent. But Huang–Li consume $E_3$ two-sidedly and at a saving of
+every power of $\log$, and Goldbach does not need either.
+
+
+#### Proposition (the demand is one-sided, and its threshold is not a log power) {#prop:onesided}
+<!-- evidence: lab_onesided_margin.py -->
+
+In the Corollary-1 regime, binary Goldbach for all sufficiently large
+even $N$ follows from
+
+$$
+\begin{equation}\label{eq:onesided}
+  E_3(\alpha) \;>\; -\,\SS(N)\bigl(1-A(N)\bigr)N\,\bigl(1+o(1)\bigr),
+\end{equation}
+$$
+
+with $A(N)$ as in [eq:AN]. This is strictly weaker than
+$E_3\ll_A N(\log N)^{-A}$ in two independent ways: it constrains
+$E_3$ from one side only, and its threshold is
+$\SS(N)(1-A(N))N$, which is $\asymp N$ for almost all even $N$ and
+never smaller than $c\,N/(\log N\log\log N)$.
+
+
+
+
+**Proof.** 
+By Theorem [thm:C],
+$\tilde r(N)=\SS(N)(N-C(N))+E_3(\alpha)+O_A(N(\log N)^{-A})$. The
+triangle inequality gives
+$|C(N)|\le U(N):=\sum_{n<N}\Lambda(n)\mu^2(N-n)$, and $U(N)=A(N)N(1+o(1))$
+by Mirsky's theorem on squarefree shifted primes together with partial
+summation — this is the count the companion paper's
+Proposition \ref{prop:V} evaluates. Hence
+$\SS(N)(N-C(N))\ge \SS(N)(1-A(N))N(1+o(1))$, and $A(N)<1$ for every
+$N$, so the right-hand side is positive. Substituting and using that
+the $O_A$ term may be taken below any fixed power of $N/\log N$ gives
+$\tilde r(N)>0$ under [eq:onesided]. For the size of the threshold,
+$A(N)=\prod_{q\nmid N}(1-\tfrac1{q(q-1)})$ is largest when $N$ carries
+the most small primes, so $1-A(N)$ is smallest at primorials, where
+$1-A(N)\asymp\sum_{q>p}\tfrac1{q(q-1)}\asymp 1/(p\log p)$ with
+$p\asymp\log N$; and $\SS(N)\gg1$.
+ ∎
+
+
+
+
+#### Remark (what this does and does not open) {#rem:onesided}
+<!-- evidence: lab_onesided_margin.py -->
+
+Version 3 of this note wrote that "the demand side admits no weaker
+sufficient condition" and called $E_3\ll_A N(\log N)^{-A}$ "the weakest
+form of $EH_\mu$ that their argument actually needs". Both are too
+strong: [eq:onesided] is weaker on both counts, and the gap in the
+threshold alone is a factor $(\log N)^{A}$ for every $A$.
+
+The margin is measured rather than asserted. Over even
+$N\le1.6\cdot10^7$ the quantity $\SS(N)(1-A(N))$ has median
+$0.333459$ and $0.1$-percentile $0.119639$; its minimum is
+$0.060890$, attained at $N=9699690=2\cdot3\cdots19$, the largest
+primorial in range, and the ten smallest values are all
+primorial-like. Multiplied by $\log N\log\log N$ the minimum over
+$N\ge10^5$ is $2.482019$, attained at $N=510510$ — the mechanism of
+the proposition, visible directly. The step that produces the margin
+is exact to five decimals: $U(N)/(A(N)N)$ has mean $0.999996$ with
+standard deviation $0.000170$ over the top octave. Checked against the
+truth: no even $N$ in $[10^5,1.6\cdot10^7]$ has
+$\tilde r(N)<\SS(N)(1-A(N))N$, and the slack between them has minimum
+$3.7038$, median $4.2902$ and maximum $95.0889$ — the maximum at
+$N=9699690$, so the margin is thinnest exactly where the Goldbach
+count is largest.
+
+One pre-registered rule of that audit, F3, is refuted, and by a
+mis-specified field rather than by the mathematics: it asked for
+$\SS(N)(1-A(N))\log N\log\log N>1$ over *all* even $N$, and
+$\log\log N<0$ below $N=e^{e}=15.15$. On $N\ge16$ the minimum is
+$0.810202$, at $N=30$; on $N\ge10^3$ it is $1.737799$, at $N=2310$;
+on $N\ge10^5$ it is $2.482019$. Every one of those argmins is a
+primorial, which is the content. The constant $c$ in the proposition
+is therefore stated as a constant and not as $1$.
+
+What it does not open is the divisor switch. Theorem [thm:D] costs
+$\exp(c_1\sqrt{\tfrac12\log N})$, which exceeds $\log N\log\log N$ as
+it exceeds every power of $\log N$, so the weaker threshold is still
+out of reach of that design space. By the test this program applies to
+any new sufficient condition — does it imply the target, and is it
+*easier* than the target — the first half is proved here. The
+second is what the next proposition is for.
+
+
+#### Proposition (the demand needs no saving in $\log N$) {#prop:nolog}
+<!-- evidence: lab_onesided_demand.py -->
+
+Put
+
+$$
+\begin{equation}\label{eq:Bsum}
+  B(N) \;:=\; \sum_{\substack{k<K\\ (k,N)=1}} (\log k)\,
+  \bigl|\Emu(N;k)\bigr| ,
+\end{equation}
+$$
+
+the quantity Huang–Li reach by the triangle inequality before appealing
+to $EH_\mu$. Then binary Goldbach for all sufficiently large even $N$
+follows from
+
+$$
+\begin{equation}\label{eq:nolog}
+  B(N) \;\le\; (1-\varepsilon)\,\SS(N)\bigl(1-A(N)\bigr)N
+\end{equation}
+$$
+
+for a single fixed $\varepsilon>0$. Since $\SS(N)(1-A(N))\asymp1$ for
+almost all even $N$, [eq:nolog] is a *constant-factor* bound on
+exactly the object $EH_\mu$ bounds — absolute values kept, and no
+saving in $\log N$ whatsoever — where $EH_\mu(N^{\theta'})$ asks for
+$\ll_A N(\log N)^{-A}$ for every $A$.
+
+
+
+
+**Proof.** 
+Immediate from Theorem [thm:C], $|E_3(\alpha)|\le B(N)$, and
+$|C(N)|\le A(N)N(1+o(1))$ as in Proposition [prop:onesided]:
+$\tilde r(N)\ge\SS(N)(1-A(N))N(1+o(1))-B(N)+O_A(N(\log N)^{-A})$.
+ ∎
+
+
+
+
+#### Remark (what the weakening relocates) {#rem:relocate}
+<!-- evidence: lab_onesided_demand.py -->
+
+Measured at $\theta'=0.56$ and $N=2\cdot10^5$ through $3.2\cdot10^6$,
+$B(N)/N$ reads
+$0.8086,\,0.7395,\,0.7303,\,0.6547,\,0.5916$ against a threshold of
+$0.3745N$: the ratio $B(N)/\bigl(\SS(1-A)N\bigr)$ falls
+$2.159,\,1.975,\,1.950,\,1.748,\,1.580$. So the object is already
+within a factor $1.6$ of sufficing, and the factor is falling. For
+contrast, the consumed bound needs $B$ beaten by $9$, $133$ and $1988$
+at $A=1,2,3$ at the same $N$.
+
+**The weakening therefore takes the demand entirely off the
+saving axis and leaves it on the level axis.** Bombieri–Vinogradov
+supplies every power of $\log$ at level $N^{1/2-\delta}$ and nothing at
+$N^{\theta'}$ with $\theta'>1/2$; moving what is asked from "every
+power of $\log$" to "a constant factor" does not move the level, and
+the level is the whole obstruction. That is the honest answer to the
+second half of the test: [eq:nolog] is weaker than $EH_\mu$ by every
+power of $\log N$ and is not thereby easier, because the difficulty was
+never on that axis. What has been gained is that this is now visible
+rather than conjectured — and that the level axis can then be
+measured, which is what Remark [rem:levelmeas] does.
+
+Three pre-registered rules of that audit fail and each one is
+informative. G1 asked $B(N)\asymp N(\log N)^2$, the size
+Brun–Titchmarsh gives through $|\Emu(N;k)|\ll N/\varphi(k)$ and
+$\sum_{k<K}1/\varphi(k)\ll\log K$; measured, $B(N)\asymp N$, so the
+truth already carries both powers of $\log$ and the provable bound is
+a gross overestimate. G2 asked whether keeping the signs $\mu(k)$ is
+what makes $E_3$ small: $|E_3|/B(N)$ reads
+$0.54132,\,0.51889,\,0.43431,\,0.39839,\,0.35041$, so the signs buy a
+factor between $2$ and $3$ and no more — the smallness is inside
+$\Emu$ itself, not in the cancellation across $k$. G3 asked for the
+required saving to grow like $(\log N)^2$; it does not grow at all,
+which is the proposition.
+
+Finally, [eq:nolog] is asymptotic and the accessible range straddles
+it, which rule G4 was written to detect and which it confirms:
+$E_3(\alpha)/N$ reads $-0.4377,\,-0.3837,\,-0.3172,\,-0.2608,\,-0.2073$
+against the threshold $-0.3745$, so [eq:onesided] *fails* at
+$N=2\cdot10^5$ and $4\cdot10^5$ and holds from $8\cdot10^5$ upward. A
+sufficient condition that is false at the bottom of the computable
+range is not thereby suspect, but it cannot be confirmed there either.
+
+
+#### Remark (the threshold is not a constant, and the sweep held it fixed) {#rem:threshfam}
+<!-- evidence: audit_threshold_arithmetic.py -->
+
+The number $0.3745$ above, and everywhere else in this program, is
+$\SS(N)(1-A(N))$ — and both factors depend on which primes divide
+$N$. The $N$ of every sweep here are $2\cdot10^5\cdot2^{\,j}$, and
+$2\cdot10^5=2^6\cdot5^5$, so all eight have odd radical $5$ and hence
+*one* threshold. The sweeps move the size of $N$ by a factor $128$ and
+its arithmetic not at all. Recomputing the constant from Euler
+products truncated at $10^7$ gives $0.374487$, so the published value
+is right; what was never asked is whether the verdict survives
+changing the arithmetic.
+
+It does not survive it, and by a wide margin. At seven $N$ in
+$[1.40\cdot10^6,\,1.63\cdot10^6]$ chosen for their odd radicals, the
+threshold runs from $0.073312$ at $N=2\cdot3^2\cdot5\cdot7\cdot11
+\cdot13\cdot17$ to $0.374487$ at the published family — a factor of
+five, and the published family sits at the *maximum*, not merely above
+the median $0.270682$. The measured $|E_3|/N$ moves the other way over
+the same seven, from $0.1289$ to $2.7763$; the two effects compound,
+and [eq:onesided] holds at three of the seven and fails at four.
+Against the constant $0.3745$ the verdict column is identical, at $0$
+of $7$ — not because the confound is harmless but because the failures
+are gross rather than marginal.
+
+Two things follow, and they point opposite ways. The first is a
+mechanism for the failures. When $N$ has several small odd prime
+factors, $k$ must avoid them, and by [eq:dilate] so must $m$: for
+$N=2\cdot3^2\cdot5\cdot7\cdot11\cdot13\cdot17$ the smallest admissible
+$k$ is $19$, and the $m$ below $N/k$ that are coprime to $\rad(N)$ are
+almost all primes, so $\mu(m)=-1$ dominates and $H(N;k)$ acquires a
+sign. Measured, all $513$ terms of $E_3$ are negative and
+$|E_3|=B(N)$ exactly: at these $N$ there is no cancellation across $k$
+whatsoever. Compare $442$ against $562$ at the published $N$.
+
+The second says the damage is not where it looks. Proposition
+[prop:onesided] reaches its threshold by bounding the wall,
+$|C(N)|\le A(N)N$, and that bound is slack: $|C|/(A N)$ measures
+$0.0012$ to $0.0208$ across the seven. Putting the measured wall in
+its place, Theorem [thm:C] asks for $|E_3|/N<\SS(N)(1-|C(N)|/N)$, and
+*all seven* satisfy it — $2.7763$ against $5.3505$ at the worst one.
+So the arithmetic dependence of the verdict lives entirely in the
+slack of $|C|\le AN$, not in $E_3$. This is a measurement and not a
+proof: $C(N)=o(N)$ is the open problem and nothing here supplies it.
+What it locates is which of [prop:onesided]'s two inequalities is
+doing the damage, and it is not the one this program has been
+measuring.
+
+
+#### Proposition (the wall cancels out of the count) {#prop:direct}
+<!-- evidence: lab_direct_route.py -->
+
+Substitute Proposition [prop:posweights],
+$E_3=\sum_{k<K}(\log k)H(N;k)-C(N)B_{\log}(K)$, into the identity of
+Theorem [thm:C]. The two occurrences of $C(N)$ carry opposite signs
+and cancel:
+
+$$
+\begin{equation}\label{eq:direct}
+  \tilde r(N) \;=\; \SS(N)N
+   \;+\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!(\log k)H(N;k)
+   \;-\; C(N)\bigl(B_{\log}(K)+\SS(N)\bigr)
+   \;+\; O_A\!\left(\frac{N}{(\log N)^{A}}\right).
+\end{equation}
+$$
+
+Since $B_{\log}(K)\to-\SS(N)$, the wall enters the Goldbach count only
+through the vanishing factor $B_{\log}(K)+\SS(N)$. Consequently
+
+$$
+\begin{equation}\label{eq:directcond}
+  \sum_{\substack{k<K\\(k,N)=1}}(\log k)\bigl|H(N;k)\bigr|
+   \;\le\;(1-\varepsilon)\,\SS(N)\,N
+\end{equation}
+$$
+
+suffices for $\tilde r(N)>0$, for all large even $N$.
+
+
+**Proof.** 
+Immediate from [eq:direct] and $|C(N)|\le A(N)N$, the last bound now
+multiplied by $B_{\log}(K)+\SS(N)=o(1)$ rather than by $\SS(N)$.
+ ∎
+
+
+#### Remark (what the cancellation buys) {#rem:directmargin}
+<!-- evidence: lab_direct_route.py -->
+
+[eq:directcond] is the same shape as [eq:nolog] — a constant-factor
+bound at level $N^{\theta'}$, so Remark [rem:relocate]'s verdict
+stands and nothing has moved off the level axis. What has changed is
+the constant, and it has changed by more than a constant's worth.
+
+The old threshold is $\SS(N)(1-A(N))$ and the new one is $\SS(N)$.
+Measured at $\theta'=0.56$ over $N=2\cdot10^5$ to $3.2\cdot10^6$,
+$B_H(N)/(\SS(N)N)$ with
+$B_H=\sum_{k<K}(\log k)|H(N;k)|$ reads
+$0.4578,\,0.4064,\,0.4079,\,0.3769,\,0.3338$ — under $1$ throughout
+and falling — against $2.1591,\,1.9747,\,1.9500,\,1.7483,\,1.5798$ for
+the old ratio, which is above $1$ throughout. So [eq:directcond] is
+*already satisfied* at every accessible $N$ where [eq:nolog] is not.
+
+The gain is largest exactly where Remark [rem:threshfam] found the
+collapse. Across the seven $N$ of that audit the new ratio reads
+$0.2462,\,0.3970,\,0.3769,\,0.3124,\,0.4920,\,0.4716,\,0.4073$ against
+the old $2.3920,\,1.7080,\,1.7483,\,5.6100,\,37.8696,\,28.2303,\,
+1.6290$: the new ratio spans a factor $2.00$ where the old spans
+$23.25$, a spread ratio of $0.0860$. Dropping $A(N)$ removes the
+arithmetic sensitivity along with the slack, because it was the same
+thing. The residual coupling is negligible at these $N$:
+$|B_{\log}+\SS|/\SS$ stays under $0.0383$ and
+$|C(N)(B_{\log}+\SS)|/N$ never exceeds $3.315\cdot10^{-4}$, four
+orders below $\SS(N)$.
+
+Two pre-registered rules of that run fail, and neither touches the
+above. **Y1** asked $|B_{\log}+\SS|/\SS$ to fall monotonically; it
+falls, rises at $N=1.6\cdot10^6$, then falls. Asking a
+Möbius-weighted partial sum to converge monotonically was the error;
+the level is what [eq:direct] uses and the level holds. **Y2** asked
+the residual of [eq:direct] to be under $0.20$ at the largest $N$; it
+is $0.2076$. The cap was an effect size and not a null, which is the
+mistake Remark [rem:cap] recorded before, and the substantive half —
+that the residual falls, $0.4559,\,0.3732,\,0.3110,\,0.2596,\,0.2076$
+— held.
+
+The refutation of Y2 is worth more than the rule was, because the
+run's null came out inverted and explains it. A coin on
+$\operatorname{supp}\mu^2$ gives a residual of median $0.0157$, a
+factor $13.2$ *smaller* than $\mu$'s: for a coin both
+$\sum(\log k)H_\varepsilon$ and $\tilde r-\SS N$ are separately near
+zero, so the null as designed tests nothing about the cancellation.
+What it exposes is that $\mu$'s residual is not noise but tracks
+$\sum(\log k)H$ itself, at ratios
+$1.0373,\,0.9409,\,0.9559,\,1.0124,\,0.9853$. At accessible $N$ the
+unspecified $O_A$ term of Theorem [thm:C] is numerically the very
+quantity [eq:directcond] must bound. That is a sharper form of the
+known fact that [thm:C] cannot be checked numerically here: the
+residual decays as $N^{-0.2794}$ with correlation $0.99930$ and
+reaches $2\%$ of $\SS$ only near $N=10^{10.16}$, so no computation
+below that separates the identity from its error term. [eq:directcond]
+is therefore offered as a *weaker sufficient condition*, proved from
+two identities, and not as something these measurements confirm.
+
+
+#### Remark (where the direct condition's level actually sits) {#rem:directlevel}
+<!-- evidence: lab_direct_level.py -->
+
+[eq:directcond] is a demand at level $K$, so the question it leaves is
+the only one the reduction cares about: where does
+$B_H(N;K)=\sum_{k<K}(\log k)|H(N;k)|$ cross $\SS(N)N$? Write
+$K^*_H(N)$ for that crossing and measure it in units of $\sqrt N$.
+
+Over $N=2\cdot10^5$ to $3.2\cdot10^6$, walking $k$ upward until the
+threshold is passed, $K^*_H$ reads $2973,\,5109,\,8021,\,13557,\,23397$
+and $K^*_H/\sqrt N$ reads
+$6.6478,\,8.0780,\,8.9678,\,10.7177,\,13.0793$ — above $1$ throughout
+and growing. Fitted, $K^*_H\sim N^{0.7361}$ with correlation
+$0.99954$. **At accessible $N$ the direct condition holds well past the
+square-root barrier**, at a measured level near $\theta'=0.74$ where
+the reduction needs any $\theta'>1/2$. Remark [rem:budget] audits that
+exponent against the free parameter in it and it survives, which two
+other exponents this program reported did not.
+
+The control decides whether that is a fact about $\mu$. Replacing
+$\mu$ by $\mu^2$ — same support, every sign $+1$, no cancellation —
+gives $K^*=39,\,37,\,39,\,39,\,39$: bounded, independent of $N$, and
+$K^*/\sqrt N$ falls from $0.0872$ to $0.0218$. The level is bought
+entirely by cancellation and not at all by the size of the terms.
+
+It is bought by *exactly* square-root cancellation, and that is the
+sting. If $|H(N;k)|\asymp\sqrt{N/k}$ then
+$B_H\asymp2\sqrt{NK}\log K$ and $K^*\asymp\SS^2N/(4\log^2K)$;
+evaluated at the measured $K^*$ this predicts
+$2423,\,4251,\,7669,\,13693,\,24496$ against the measured values, a
+miss of $23\%$ at the bottom closing to $4\%$ at the top. Remark
+[rem:heuristic] audits that agreement and finds it a coincidence of two
+omitted factors; with both restored the prediction is within $1.5\%$ at
+every $N$ and does not drift, so the law is confirmed more sharply than
+stated here. So the
+measurement does not reduce the difficulty — it identifies it exactly.
+Everything [eq:directcond] needs, and nothing less, is square-root
+cancellation for the dilated Möbius–prime correlation $H(N;k)$, which
+is the object Remark [rem:dilateprofile] already identified as the
+supply side's own consumable.
+
+One thing this does correct. Remark [rem:levelmeas] withdrew an
+earlier level measurement because a coin reached a higher $K^*$ than
+$\mu$ at every $N$. That happens here too — the coin's $K^*/\sqrt N$
+runs $11.5448$ to $22.7246$ against $\mu$'s $6.6478$ to $13.0793$ —
+but Remark [rem:whycoinwins] has since explained it: by [eq:dilate]
+the coin's progression sum is a sum of independent signs and gets
+square-root cancellation for free, while $\mu$'s *is* the dilated
+wall. The coin is better than $\mu$ by construction, so it is not a
+null for a level measurement; it is a competitor. The withdrawal was
+right about its control and wrong to be read as saying the level axis
+cannot be measured. It can, against a control that is worse than $\mu$
+rather than better.
+
+
+#### Proposition (the untruncated sum is the count) {#prop:untrunc}
+<!-- evidence: lab_direct_identity.py -->
+
+Sum the direct route's terms over *all* $k$, with no truncation and no
+coprimality restriction. Since $A(N;k)$ sums $n$ over $k\mid N-n$,
+exchanging the order and applying $\sum_{d\mid u}\mu(d)\log d=-\Lambda(u)$
+gives
+
+$$
+\begin{equation}\label{eq:untrunc}
+  \sum_{k\ge1}(\log k)\,\mu(k)\,A(N;k)
+   \;=\; -\sum_{n<N}\Lambda(n)\,\mu(N-n)\Lambda(N-n)
+   \;=\; \sum_{p<N}\Lambda(N-p)\log p ,
+\end{equation}
+$$
+
+the last step because $\mu(u)\Lambda(u)=-\log p$ at $u=p$ prime and
+vanishes at every higher prime power. So the untruncated object *is*
+$\tilde r(N)$, up to its prime-power part.
+
+
+**Proof.** 
+Both exchanges are finite sums. $\mu*\log=-\Lambda$ is Möbius
+inversion of $\log = \mathbf 1 * \Lambda$.
+ ∎
+
+
+#### Remark (where the count actually lives) {#rem:whereitlives}
+<!-- evidence: lab_direct_identity.py -->
+
+[eq:untrunc] is not a decoration. It says [eq:direct] is a
+*rearrangement* of $\tilde r(N)$ rather than an approximation waiting
+for an estimate, so all of its content is in the truncation at $K$ —
+and it lets one ask where the count is assembled. Verified at
+$N=2\cdot10^5$ through $3.2\cdot10^6$, [eq:untrunc] holds to a worst
+relative error of $3.136\cdot10^{-15}$, and the quantity is
+$\SS(N)N$ to within a percent: the ratio reads
+$1.0039,\,0.9865,\,0.9893,\,1.0017,\,0.9968$. Restricting $k$ to
+$(k,N)=1$, as the Huang–Li setup does, changes the total by $0.0000$
+at every $N$ — the moduli sharing a factor with $N$ contribute
+nothing.
+
+The pre-registered **Z3** fails and its failure is the finding. It
+predicted that the truncated range carries under $10\%$ of the total.
+It carries far more than $100\%$, with the wrong sign: the partial
+sums over $k<N^{0.90}$ read
+$-4.3412,\,-4.6951,\,-5.0055,\,-5.3075,\,-5.6291$ in units of $N$,
+$2.4564$ to $3.2078$ times the total in magnitude and negative where
+the total is positive. The band $k\in(N^{0.9},N/2]$ then supplies
+$0.8034$ to $0.9146$ of the total, and everything above $N/2$ supplies
+$2.6529$ to $3.2932$ of it. The count is not assembled gradually; it
+is a difference of two large one-signed masses, and the truncation
+cuts through the middle of the cancellation.
+
+That is the sharpest statement so far of why $\theta'$ cannot simply
+be pushed. Above $N/2$ only $m=1$ survives in
+$H(N;k)=\sum_{m<N/k,(m,k)=1}\Lambda(N-mk)\mu(m)$, so that tail is
+$\sum(\log k)\Lambda(N-k)$ — nonnegative, elementary, and carrying
+three times the answer. The reduction truncates it away and asks the
+remaining negative mass to be small, which it is not: it is $-5.6N$ at
+$N=3.2\cdot10^6$ and growing. What [eq:directcond] demands is that the
+*difference* between two quantities of size several $N$ be smaller
+than $\SS(N)N$, and [eq:untrunc] says the difference is exactly
+$\tilde r(N)$. The demand is therefore not merely as hard as binary
+Goldbach at $K=N$; at $K=N$ it *is* binary Goldbach.
+
+
+#### Proposition (the count as signed layers) {#prop:layers}
+<!-- evidence: lab_layer_decomposition.py -->
+
+Cut the same double sum along the inner variable of [eq:dilate]
+instead. Exchanging the order in
+$\sum_k(\log k)H(N;k)=\sum_k(\log k)\sum_{m<N/k,(m,k)=1}
+\Lambda(N-mk)\mu(m)$,
+
+$$
+\begin{equation}\label{eq:layers}
+  \sum_{k}(\log k)H(N;k) \;=\; \sum_{m}\mu(m)\,L(N;m),
+  \qquad
+  L(N;m) := \!\!\sum_{\substack{k<N/m,\ (k,m)=1\\ \mu(k)\neq0}}\!\!
+            (\log k)\,\Lambda(N-mk) .
+\end{equation}
+$$
+
+Every $L(N;m)$ is nonnegative. With [eq:untrunc], the Goldbach count
+is therefore an alternating sum, signed by $\mu$, of nonnegative
+layers.
+
+
+**Proof.** 
+A finite exchange; the coprimality conditions on the pair $(k,m)$ are
+symmetric.
+ ∎
+
+
+#### Remark (what the layers weigh) {#rem:layerdecay}
+<!-- evidence: lab_layer_decomposition.py -->
+
+[eq:layers] holds to a worst relative error of $2.641\cdot10^{-15}$
+over $N=2\cdot10^5$ to $1.6\cdot10^6$, reproducing [eq:untrunc]'s
+totals digit for digit. What it exposes is the size of what cancels.
+The first layer alone is $8.8266$ to $10.4611$ times $N$, which is
+$5.0139$ to $5.9423$ times the whole answer; the layers together weigh
+$24.6N$ to $33.0N$, so the surviving total is
+$7.198\cdot10^{-2}$ down to $5.348\cdot10^{-2}$ of the mass. Growing
+like $\log N$ on the way in and staying at $\SS(N)N$ on the way out,
+this is a Mertens cancellation in $m$ and nothing gentler.
+
+**Here $\mu$ beats a coin, and that is the point.** Remark
+[rem:whycoinwins] showed a coin *beating* $\mu$ when the signs sit on
+$k$, because there a coin buys square-root cancellation inside the
+progression sum while $\mu$'s is the dilated wall. In [eq:layers] the
+layers are fixed and nonnegative, so a sign draw cannot buy anything
+inside them; it can only rearrange the pattern across $m$. Drawing
+$\varepsilon(m)=\pm1$ on the squarefree $m\ge2$, sixteen times,
+$|\sum\varepsilon(m)L|/N$ has minimum $1.8609,\,4.4112,\,4.6742,\,
+7.0547$ against $\mu$'s $1.7673,\,1.7366,\,1.7416,\,1.7634$ — $\mu$ is
+below every draw at every $N$, and the gap widens. The two remarks are
+not in tension: they say the demand's difficulty lives in the outer
+variable and its cancellation lives in the inner one.
+
+Two further readings. The layers with $(m,N)>1$ are empty — if $q\mid
+N$ and $q\mid m$ then $q\mid N-mk$, so $\Lambda(N-mk)$ survives only at
+the single point $N-mk=q$ — and measured, the coprime layers carry
+$0.999986$ to $0.999999$ of the mass. That is the dual of
+[prop:untrunc]'s finding that restricting $k$ to $(k,N)=1$ changes the
+total by nothing. And the pre-registered **Z3** fails: it asked the
+partial sum at $M=N^{0.25}$ to still exceed twice the total, and the
+ratio is $1.5163,\,1.6593,\,1.7090,\,1.6143$. The convergence in $m$
+is faster than predicted — by $m\approx30$ the alternating sum is
+already within a factor $1.7$ of its limit — so the cancellation is
+not spread thinly over all $m$ but is essentially finished at small
+$m$. The threshold $2$ was an effect size and not a null, which is
+Remark [rem:cap]'s mistake; what the run measured is worth more than
+what the rule asked.
+
+
+#### Remark (the truncation in $m$ is cheap, and where the barrier goes) {#rem:layertail}
+<!-- evidence: lab_layer_tail.py -->
+
+$\Lambda(N-mk)$ is supported where $N-mk$ is a prime power, so writing
+$p=N-mk$, the layer $L(N;m)$ of [eq:layers] is a sum over primes
+$p<N$ with $p\equiv N\pmod m$, weighted by $\log\bigl((N-p)/m\bigr)$
+and restricted to $(N-p)/m$ squarefree and coprime to $m$. The layers
+are prime counts in progressions — the *supply* side's object — and
+[eq:layers] turns the demand into a $\mu$-signed average of them. Two
+numbers then decide what that is worth.
+
+**The truncation in $m$ is cheap.** The tail
+$\bigl|\sum_{m\ge M}\mu(m)L(N;m)\bigr|/N$ at
+$M=10,\,30,\,100,\,300,\,1000,\,3000$ reads, at $N=1.6\cdot10^6$,
+$3.5477,\,1.0484,\,0.4088,\,0.0660,\,0.0067,\,0.0015$; at $M=3000$ it
+is between $0.0001$ and $0.0047$ of $\SS(N)$. Taking $M^*(N)$ to be
+the least $M$ past which the tail stays under $0.01N$,
+$M^*=8264,\,8624,\,9332,\,10352$ — a factor $1.25$ while $N$ grows by
+$8$, so $M^*/\sqrt N$ falls from $18.4789$ to $8.1840$ across the
+range.
+
+**That last sentence is as far as the numbers reach, and an earlier
+version of this remark went further than it should have.** It read a
+fitted exponent off those four values and concluded that the
+truncation in $m$ sits strictly inside the Bombieri–Vinogradov range
+and moves further inside as $N$ grows. Remark [rem:tolerance]
+withdraws the exponent: $M^*$ is defined by a tolerance chosen by
+hand, and at other tolerances the fit gives a different answer with no
+correlation to speak of. What survives is what is printed above —
+$M^*$ is of order $10^4$ at these $N$ and grows slowly — together
+with the threshold-free statement that the tail at a *fixed* cut
+grows with $N$, so the truncation cannot be bounded.
+
+That is as far as the good news goes, and the reason is worth stating
+precisely. The cofactor $k=(N-p)/m$ is required *squarefree* — the
+condition $\mu(k)\neq0$ that [eq:layers] inherits from
+$H(N;k)=\mu(k)A(N;k)$, and it is not decoration. Recomputing the same
+alternating sum over $m<2000$ without it gives
+$2.5644,\,2.5168,\,2.5388,\,2.5479$ against
+$1.7882,\,1.7690,\,1.7730,\,1.7819$ — a factor $1.4340,\,1.4227,\,
+1.4319,\,1.4299$, flat in $N$. Detecting it costs
+$\mu^2(k)=\sum_{d^2\mid k}\mu(d)$, which turns each layer into a sum
+over moduli $d^2m$ with $d$ up to $\sqrt{N/m}$. **The cheap truncation
+in $m$ does not remove the square-root barrier; it relocates it inside
+the layer.** That is the same negative as Remark [rem:relocate], now
+in the dual variable, and it is the first place in this program where
+the two truncations can be compared on the same object.
+
+Two pre-registered rules fail. **Z3** normalised the layers as
+$R(m)=\varphi(m)L(N;m)\log N/\bigl(N\log(N/m)\bigr)$ and asked for
+$R(m)\in[0.3,1.5]$; measured, $R$ runs $6.0127$ to $10.4611$. The band
+was mis-specified by a constant — the substantive content, that the
+$1/\varphi(m)$ law captures the layers up to a bounded factor, holds,
+with $R$ spanning $7.2404$ to $10.4611$ at the largest $N$, a spread of
+$1.44$. **Z4** predicted that the tail's smallness is a cancellation
+only $\mu$ can supply, and it is not: $\mu$'s tail beats the minimum
+of sixteen sign draws at two of four $N$ and not at the others. The
+diagnosis is that past $M=3000$ the layers still carry $\ell^1$ mass
+$1.4885$ to $3.9771$ but the largest single layer is $0.0020N$, so the
+$\ell^2$ norm governing a random sign sum is only $0.0240$ to $0.0398$
+— a coin cancels that tail as well as $\mu$ does. The cancellation
+$\mu$ is genuinely needed for is spent at small $m$, which is what
+Remark [rem:layerdecay] measured.
+
+
+#### Proposition (the count over a combined modulus) {#prop:combined}
+<!-- evidence: lab_combined_modulus.py -->
+
+Expand the squarefree condition inside [eq:layers] by
+$\mu^2(k)=\sum_{d^2\mid k}\mu(d)$ and write $k=d^2j$. Then
+
+$$
+\begin{equation}\label{eq:combined}
+  \sum_{p<N}\Lambda(N-p)\log p
+   \;=\!\!\sum_{\substack{m,d\ \text{squarefree}\\ (d,m)=1,\ md^2<N}}\!\!
+     \mu(m)\mu(d)\,L_2(N;m,d),
+\end{equation}
+$$
+
+$$
+L_2(N;m,d) \;=\!\!\sum_{\substack{j<N/(md^2)\\ (j,m)=1}}\!\!
+   \log(d^2j)\,\Lambda\bigl(N-md^2j\bigr),
+$$
+
+and $L_2$ carries no squarefree condition: it is a prime count in the
+progression $p\equiv N\pmod{md^2}$, an unadorned Bombieri–Vinogradov
+object of modulus $q=md^2$.
+
+
+**Proof.** 
+Finite exchange, and $(k,m)=1$ splits as $(d,m)=(j,m)=1$.
+ ∎
+
+
+#### Remark (the modulus the demand really needs) {#rem:combmod}
+<!-- evidence: lab_combined_modulus.py -->
+
+[eq:combined] makes the question a single number: how large must $q$
+be allowed to grow? Remark [rem:layertail] found the truncation in
+$m$ alone of order $10^4$ at these $N$ and argued that the squarefree
+condition puts the barrier back. [eq:combined] lets that be measured
+instead of argued.
+
+Verified over $N=2\cdot10^5$ to $1.6\cdot10^6$ — $166384$ to $1331048$
+pairs — [eq:combined] holds to a worst relative error of
+$4.525\cdot10^{-15}$ and reproduces the totals of [eq:untrunc] and
+[eq:layers] digit for digit. Truncating to $q<Q$ and taking $Q^*(N)$
+to be the least $Q$ past which the deficit stays under $0.01N$,
+
+$$
+Q^*=160112,\ 200848,\ 482589,\ 589203,
+\qquad
+Q^*/\sqrt N = 358.0213,\ 317.5686,\ 539.5509,\ 465.8059,
+$$
+
+so $Q^*$ exceeds $\sqrt N$ by two orders at every $N$ tested, and
+exceeds $M^*$ by a factor between $19$ and $57$. **Expanding the
+squarefree condition costs one to two orders in the modulus**, which
+is Remark [rem:layertail]'s relocation, measured.
+
+An earlier version of this remark said more: it fitted
+$Q^*\sim N^{0.6904}$, concluded that the combined modulus must reach a
+power of $N$ above $1/2$, and observed that the $k$-side crossings of
+Remark [rem:signedlevel] land near the same $N^{0.7}$, so that the
+exponent looked like a property of the count rather than of the
+dissection. Remark [rem:tolerance] withdraws all of that. The
+exponent is not stable in the tolerance that defines $Q^*$, the ratio
+$Q^*/\sqrt N$ has no consistent trend in $N$ across tolerances, and
+the agreement with $0.6716$ and $0.7250$ was a coincidence of one
+choice of cut-off. What is left is the comparison at a fixed
+tolerance, which is what the paragraph above now claims and no more.
+
+Two pre-registered rules fail. **Y2** asked the deficit to fall
+monotonically over $Q=10^2$ to $10^6$; on the finer grid it reads
+$0.22560,\,0.01496,\,0.01058,\,0.00000$ at the largest $N$ — three
+orders of fall and then a wander at the $10^{-3}$ level, which is the
+alternating sum finishing rather than failing to converge. Asking an
+alternating sum for monotone convergence was the error. **Y4**
+predicted that the convergence in $Q$ is bought by $\mu(d)$: it is
+not. Holding every $L_2$ fixed and drawing the sign on $d$ at random,
+sixteen draws bracket $\mu$'s deficit rather than losing to it —
+$\mu$ gives $0.0733$ at the largest $N$ against a draw range of
+$0.0038$ to $0.0825$. What makes the far pairs negligible is their
+size, not their signs. The Möbius structure that does earn its keep is
+the one on $m$, measured in Remark [rem:layerdecay], where $\mu$ beats
+every draw.
+
+
+#### Remark (the withdrawn level measurement, re-examined) {#rem:levelaudit}
+<!-- evidence: audit_levelmeas_budget.py -->
+
+Remark [rem:levelmeas] withdrew $K^*(N)$ on the strength of a coin
+control. Two things have since made that verdict worth re-testing:
+Remark [rem:whycoinwins] showed the coin wins here by construction,
+and Remarks [rem:tolerance] and [rem:budget] established that a
+crossing of a *monotone* sum survives a sweep of its free parameter
+where a crossing of an alternating tail does not.
+$B(N;K)=\sum_{k<K}(\log k)|\Emu(N;k)|$ is a sum of nonnegative terms,
+so this crossing is in the surviving class.
+
+It survives. Scaling the budget to $c\,\SS(N)(1-A(N))N$ and refitting
+at $c=0.3,\,0.5,\,1,\,2,\,3$ gives $K^*$ of
+$69,\,111,\,157,\,273,\,457$ at the loosest through
+$1517,\,2463,\,3877,\,6701,\,11377$ at the tightest, increasing in $c$
+at every $N$, with exponents
+
+$$
+e(c)=0.6753,\ 0.6813,\ 0.7057,\ 0.7299,\ 0.7258,
+$$
+
+spread $0.0545$ and correlations $0.99298$ to $0.99937$ — the
+signature of the surviving class, against the $1.3033$ spread and
+$0.00931$ correlations of the two withdrawn exponents. Every $e(c)$
+exceeds $1/2$, the least being $0.6753$. The parameter-free check
+agrees: $B(N;K)/\bigl(\SS(1-A)N\bigr)$ at $K<N^{0.50}$ reads
+$1.3120,\,1.1459,\,1.1258,\,0.9509,\,0.8369$, falling through $1$
+between $8\cdot10^5$ and $1.6\cdot10^6$, which is the same crossing
+the fit reports and has no free parameter in it. Independently
+recomputed here, $K^*$ at $c=1$ reproduces
+$319,\,537,\,767,\,1353,\,2319$ exactly.
+
+**The control the withdrawal should have used.** Replacing $\mu$ by
+$\mu^2$ — same support, every sign $+1$, main term still subtracted,
+so no cancellation available anywhere — gives $K^*$ of
+$73,\,77,\,69,\,77,\,77$: bounded, independent of $N$, against $\mu$'s
+$319$ to $2319$. The pre-registered **V4** asked its
+$K^*/\sqrt N$ to be under $0.1$ at every $N$ and it reads
+$0.1632,\,0.1217,\,0.0771,\,0.0609,\,0.0430$, so V4 is refuted at the
+two smallest $N$ — the cap was an effect size and not a null, Remark
+[rem:cap]'s mistake once more. What it was written to test holds
+plainly: the control does not grow at all, so the level is bought by
+cancellation and not by the size of the terms.
+
+So Remark [rem:levelmeas]'s numbers stand and its verdict does not.
+The withdrawal was right to demand a null and wrong to accept one that
+had to win. What is claimed is narrow: at accessible $N$, and against
+a control that cannot cancel, $\sum_{k<K}(\log k)|\Emu(N;k)|$ stays
+under the Goldbach budget out to $K$ past $\sqrt N$, at a level whose
+exponent is stable in the budget. Nothing about $\theta'$ asymptotic
+follows; five values of $N$ cannot supply that, and Remark
+[rem:relocate]'s obstruction is untouched.
+
+
+#### Remark (every exponent, swept) {#rem:allswept}
+
+Remarks [rem:tolerance], [rem:budget] and [rem:levelaudit] swept the
+free parameter of the three crossings. The other six exponents these
+notes quote are direct fits of measured values, whose free parameter
+is not a budget but the $N$-range, and the corresponding check is a
+leave-one-out refit — computed from data each script already holds, so
+it costs nothing to run. Every results file that prints a fitted
+exponent now emits the spread on a `SWEPT` line of its own, and the
+gate refuses a file that prints an exponent without one. Each figure
+below is read from the script that produced the exponent it belongs
+to; there is no single source for the table.
+
+The spreads are
+
+$$
+\begin{array}{lc}
+\text{residual decay} & 0.0100\\
+\text{flat sum decay} & 0.0094\\
+|E_3| \text{ decay} & 0.0058\\
+\text{lean decay} & 0.0208\\
+B/N \text{ power} & 0.0084\\
+\text{wall max decay} & 0.0173\\
+K^*_H & 0.0143\\
+M^* & 0.0441\\
+Q^* & 0.1055
+\end{array}
+$$
+
+and they rank the same way the budget sweeps did, without being told
+to. $Q^*$ — the exponent withdrawn in Remark [rem:tolerance] — is the
+least stable by a factor of two and a half over the next worst;
+$M^*$, the other withdrawal, is second. The six direct fits sit
+between $0.0058$ and $0.0208$, and $K^*_H$, the crossing that survived
+its budget sweep, sits with them at $0.0143$. Two independent
+robustness tests — varying the defining tolerance, and dropping an end
+of the $N$-range — agree on which exponents are worth quoting.
+
+
+#### Remark (the surviving exponent, audited) {#rem:budget}
+<!-- evidence: audit_directlevel_budget.py -->
+
+Remark [rem:tolerance] withdrew two exponents by sweeping the free
+parameter that defined them. The same audit is owed to the third.
+$K^*_H$ is the crossing of $B_H(N;K)=\sum_{k<K}(\log k)|H(N;k)|$ above
+$\SS(N)N$, and [eq:directcond] actually asks for
+$B_H\le(1-\varepsilon)\SS(N)N$, so the budget is a free parameter that
+was set to $\varepsilon=0$ and never moved. Scaling it to $c\,\SS(N)N$
+and refitting at $c=0.3,\,0.5,\,1,\,2,\,3$ gives
+
+$$
+e(c)=0.7133,\ 0.7126,\ 0.7361,\ 0.7257,\ 0.6932,
+$$
+
+a spread of $0.0429$ against the $1.3033$ that sank $Q^*$, with fit
+correlations $0.99733$ to $0.99969$ against correlations as low as
+$0.00931$ for $M^*$. All five exceed $1/2$, the smallest being
+$0.6932$, and $K^*_H/\sqrt N$ at the largest $N$ runs $2.1013$ to
+$93.0646$ across the budgets. **The exponent survives.**
+
+The reason it survives is structural and worth stating, because it is
+what distinguishes this crossing from the two that failed. $B_H$ is a
+sum of *nonnegative* terms, so it is monotone in $K$ and its crossing
+is unique; $Q^*$ and $M^*$ were crossings of an alternating tail,
+which oscillates while decaying, so they read the last excursion
+rather than a trend. The parameter-free check confirms it: at a fixed
+cut, $B_H(N;K)/(\SS(N)N)$ reads
+$0.4601,\,0.4081,\,0.4079,\,0.3772,\,0.3341$ at $K<N^{0.56}$ and
+$1.3754,\,1.3566,\,1.3703,\,1.3452,\,1.2953$ at $K<N^{0.70}$ — falling
+with $N$ at every fixed exponent, so the crossing moves outward, which
+is the fit's conclusion reached with no free parameter in it. In the
+withdrawn cases the parameter-free tables and the fitted exponents
+disagreed; here they agree.
+
+
+#### Remark (the exponents were the tolerance, not the count) {#rem:tolerance}
+<!-- evidence: audit_truncation_exponent.py -->
+
+$M^*$ and $Q^*$ are both defined as "the least truncation past which
+the deficit stays under $0.01N$", and that $0.01$ was chosen by hand.
+Sweeping it over $\varepsilon=0.3,\,0.1,\,0.03,\,0.01,\,0.003$ and
+refitting at each value — from one enumeration of the pairs $(m,d)$,
+since grouping them by $m$ reconstitutes $\mu(m)L(N;m)$ exactly — the
+fitted exponent for $Q^*$ reads
+
+$$
+0.2658,\ 0.2922,\ -0.4303,\ 0.6904,\ 0.8730,
+$$
+
+a spread of $1.3033$, with fit correlations of $0.98006$, $0.99066$,
+$-0.56215$, $0.96357$, $0.99474$. For $M^*$ it reads
+$0.2238,\,0.0358,\,0.0022,\,0.1086,\,0.8116$, spread $0.8094$, with
+correlations as low as $0.00931$. **All four pre-registered rules fail — X1 and X2 on the spreads, X3 because the exponent for $Q^*$ drops to $-0.4303$, X4 because the gap between the two goes negative with it — and that is the finding.** The exponents this
+program reported are properties of the tolerance. The one value that
+produced a clean-looking fit, $\varepsilon=0.01$, did so by luck: its
+neighbours give noise.
+
+The reason is visible in the mechanism. Fitting the deficit itself
+against the truncation as a power law gives correlations of
+$-0.42134$ to $-0.54921$ in $Q$: the deficit does not decay like a
+power, it *oscillates* while decaying, because it is the tail of an
+alternating sum. $Q^*(\varepsilon)$ therefore reads the last excursion
+above $\varepsilon N$ rather than a trend, and inverting an erratic
+envelope at four values of $N$ produces a slope that means nothing.
+
+What is threshold-free, and is what should have been reported, is the
+envelope at a *fixed* truncation — the largest deficit at or beyond
+$Q$, in units of $N$:
+
+| cut | $2\cdot10^5$ | $4\cdot10^5$ | $8\cdot10^5$ | $1.6\cdot10^6$ |
+|---|---|---|---|---|
+| $q<10^4$ | $0.03318$ | $0.04266$ | $0.06288$ | $0.08131$ |
+| $q<10^5$ | $0.02248$ | $0.01444$ | $0.01953$ | $0.01172$ |
+| $m<300$ | $0.11679$ | $0.13028$ | $0.16745$ | $0.16424$ |
+| $m<3000$ | $0.01247$ | $0.01890$ | $0.02081$ | $0.02104$ |
+
+Read across, that is the decay at fixed $N$; read down, it is how the
+error at a fixed cut moves with $N$, with no free parameter in it. It
+rises with $N$ at $q<10^4$, at $m<300$ and at $m<3000$, so both
+truncations must be unbounded — which is the qualitative conclusion
+those remarks were entitled to. Neither table supports a clean power
+of $N$ over this range, and saying so is the correct report.
+
+
+#### Remark (what the signs across $k$ are worth) {#rem:signedlevel}
+<!-- evidence: lab_signed_level.py -->
+
+[eq:direct] contains the signed sum; [eq:directcond] discards the
+signs because a bound on $|H(N;k)|$ is what an estimate supplies.
+Walking both first crossings upward over the squarefree $k<N/2$
+coprime to $N$: the absolute sum crosses $\SS(N)N$ at
+$K^*_H=2973,\,5109,\,8021,\,13557,\,23397$, exponents
+$\log K^*/\log N$ of $0.6552$ to $0.6716$; the signed sum crosses
+$-\SS(N)N$ at $5331,\,9077,\,16327,\,29373,\,52017$, exponents
+$0.7030$ to $0.7250$. Keeping the signs is worth a factor $1.793$ to
+$2.223$ in $K^*$ and about $0.053$ in $\theta'$ — a real gain, and a
+bounded one.
+
+Two qualifications, both now declared by the result file. Every $N$
+here is $2^a5^b$ — **one odd radical** — and so is every $N$ in Remark
+[rem:residuesigned], which runs the identical family. What the signs
+across $k$ are worth is therefore known at one arithmetic type, both
+for $H$ ($0.053$) and for the residue ($0.21$ to $0.29$, the largest
+single discard in the chain); Remark [rem:residuearithmetic] shows the
+underlying level moving across $\tfrac12$ as the radical changes, and
+nothing here says the signs are worth the same there.
+
+**And bounded, and smaller than the choice of budget.** Both columns
+are crossed against $\SS(N)N$; Proposition [prop:nolog] asks for
+$\SS(N)(1-A(N))N$, and Remark [rem:modeltransfer] measures that
+difference at $0.1677$ in the exponent — **three times the whole gap
+between the two columns here.** So the signed-versus-absolute question
+that [eq:direct] and [eq:directcond] separate is a smaller effect than
+which budget the crossing is read against, and no exponent from this
+remark may be compared with one from Remark [rem:residuelevel] without
+that correction.
+
+The control says the gain is not $\mu$'s doing. Holding every
+$|H(N;k)|$ fixed and drawing the sign of each term at random, all
+$16$ draws fail to cross anywhere in the walk, at every $N$. So random
+signs cancel and $\mu$'s do not: $\mu$ is *worse* than random here,
+which is Remark [rem:signmass]'s lean seen at the level. Measured
+directly, the signed sum reaches $3.3348$ times its own threshold by
+the end of the walk while the absolute sum reaches $7.9$ times its
+own, a ratio flat in $N$ at $0.2887$ to $0.2918$.
+
+**A correction.** The first version of this measurement summed
+$(\log k)A(N;k)$ where $(\log k)\mu(k)A(N;k)$ was meant — by
+[eq:dilate] the missing factor is exactly $\mu(k)$ — and reported that
+the signed sum never crosses at all. It does. The error was found by
+[prop:untrunc]'s independent recomputation of the same object, which
+is what that check is for; nothing in [prop:direct] or Remark
+[rem:directlevel] depended on it, since both use $|H|$.
+
+
+#### Remark (a level measurement, and its withdrawal) {#rem:levelmeas}
+<!-- evidence: lab_level_coin_null.py -->
+
+Once the demand is a constant-factor bound, the level at which it holds
+becomes a *measurable* quantity rather than a hypothesis. Define
+
+$$
+\begin{equation}\label{eq:Kstar}
+  K^*(N) \;:=\; \max\Bigl\{K \;:\;
+    \sum_{\substack{k<K\\(k,N)=1}} (\log k)\bigl|\Emu(N;k)\bigr|
+    \;\le\; \SS(N)\bigl(1-A(N)\bigr)N \Bigr\},
+\end{equation}
+$$
+
+the largest truncation at which [eq:nolog] still holds. Huang–Li need
+$K=N^{\theta'}$ for a single $\theta'>1/2$; measured,
+
+$$
+\begin{array}{r|ccccc}
+ N & 2\cdot10^5 & 4\cdot10^5 & 8\cdot10^5 & 1.6\cdot10^6 & 3.2\cdot10^6\\\hline
+ K^*(N) & 319 & 537 & 767 & 1353 & 2319\\
+ K^*(N)/\sqrt N & 0.7133 & 0.8491 & 0.8575 & 1.0696 & 1.2964
+\end{array}
+$$
+
+so $K^*(N)\asymp N^{0.7057}$ over this range, and $K^*/\sqrt N$ rises
+monotonically, crossing $1$ between $8\cdot10^5$ and $1.6\cdot10^6$.
+
+**That reads as an empirical level past the square-root barrier,
+and it is withdrawn.** It was published with no null, which is the
+one thing Lemma [lem:coin] exists to forbid. Running the control —
+$\varepsilon(v)=\pm1$ on $\{v:\mu(v)\ne0\}$ and zero elsewhere, with
+the threshold, support, weight and $k$-range held identical, so that
+the sign pattern is the only difference — gives, averaged over eight
+draws,
+
+$$
+\begin{array}{r|ccccc}
+ N & 2\cdot10^5 & 4\cdot10^5 & 8\cdot10^5 & 1.6\cdot10^6
+   & 3.2\cdot10^6\\\hline
+ K^*_\mu & 319 & 537 & 767 & 1353 & 2319\\
+ K^*_\varepsilon & 553.0 & 887.5 & 1386.8 & 2145.5 & 3423.2\\
+ K^*_\mu/K^*_\varepsilon & 0.58 & 0.61 & 0.55 & 0.63 & 0.68
+\end{array}
+$$
+
+The coin survives to a *higher* level than $\mu$ at every $N$
+tested, with $\beta_\varepsilon=0.6534$ against
+$\beta_\mu=0.7057$ — two fits over five points that do not separate.
+So $K^*$ is a statement about the support of $\mu^2$ and about
+square-root cancellation, not about $\mu$: the control's discrepancy
+obeys $|E_\varepsilon(N;k)|\asymp k^{-a}$ with
+$a=0.5082,\,0.4982,\,0.4978,\,0.5053,\,0.5056$, exactly the
+square-root law, and $\mu$ does not beat it.
+
+Four of the null's five pre-registered rules therefore fail — K1
+($K^*_\mu>K^*_\varepsilon$), K2 (ratio $\ge3$), K3
+($\beta_\varepsilon>\beta_\mu$) and K5 — and only K4, the coin's own
+$k^{-1/2}$ scaling, holds. The refutation is of this note's own
+previous claim and it is total: **no level statement is claimed
+here.** What survives is negative and worth keeping: whatever
+carries the Huang–Li route past $\sqrt N$, it is not visible in
+$\sum_{k<K}(\log k)|\Emu(N;k)|$ at accessible $N$, because that sum
+does not distinguish $\mu$ from a coin.
+
+Remark [rem:levelaudit] revisits that verdict. The withdrawal was
+right that the measurement had no null and right to insist on one; it
+was wrong about which null. The coin is better than $\mu$ here by
+construction — Remark [rem:whycoinwins] — so K1 and K2 could only
+come out as they did, and a control that must win is not a control.
+Against the reference that *cannot* win, $\mu$ replaced by $\mu^2$,
+the numbers above survive.
+
+
+The net progress toward the Goldbach conjecture in this note is
+*zero*. Theorem [thm:A] removes precisely the half of the
+$EH_\mu$ demand that carries no Goldbach content, and
+Theorem [thm:C] shows the other half is the conclusion itself. What
+is gained is structural: the demand collapses to one scalar, that
+scalar is proved equivalent to the conclusion, and one defect of the
+published paper is identified with its repair.
+
+
+## Notation and the mechanism {#sec:mechanism}
+
+
+$p$ always denotes a prime. $\varphi$ is Euler's function, $\tau_3$ the
+$3$-fold divisor function, $\rad(u)=\prod_{p\mid u}p$. Constants
+$c,c_1,\dots$ are positive and absolute unless subscripted;
+implied constants may depend on $A$ and $\theta'$. We write
+$P(N)$ for the set of primes dividing $N$.
+
+The mechanism of Theorem [thm:A] is the following. The residue class
+in [eq:Emu] is the fixed class $n\equiv N\pmod k$, i.e.
+
+$$
+n \equiv N \pmod{k}\quad\Longleftrightarrow\quad k \mid N-n .
+$$
+
+So the $k$-sum is a divisor sum over $u=N-n$, namely the incomplete sum
+$\sigma_K(u)=\sum_{k\mid u,\ k<K,\ (k,N)=1}\mu(k)$, and the mechanism
+has three steps rather than one.
+
+*First* one **completes** it. By Lemma [lem:complete], for
+squarefree $u$ the complete sum $\sum_{k\mid u,\,(k,N)=1}\mu(k)$ equals
+$\mathbf 1_{\rad(u)\mid N}$, which forces $u\mid\rad(N)$ and so leaves
+only $N^{o(1)}$ terms. *Then* the work sits entirely in the
+complementary sum, over $k\ge K$ — and it is only on that range that
+writing $u=mk$ gives
+
+$$
+m \;=\; u/k \;<\; N/K \;=\; N^{1-\theta'} \;\le\; N^{1/2-\delta}.
+$$
+
+*Finally*, for squarefree $u=mk$ the factorisation forces
+$(m,k)=1$ and $\mu(u)\mu(k)=\mu(m)\mu^2(k)$: the Möbius factor on the
+*long* variable $k$ cancels against itself and leaves the
+nonnegative $\mu^2$, while the surviving Möbius sits on the
+*short* variable $m$. That is the classical
+"Möbius on the short variable plus Bombieri–Vinogradov"
+configuration.
+
+The completion step is load-bearing and easy to omit. Over the range
+$k<K$ as it stands the cofactor $u/k$ runs up to $u$ itself, so the
+bound $m<N^{1-\theta'}$ is simply false there and the surviving
+Möbius would sit on the *long* variable — the configuration
+this program records as having no known machine. Steps 1–3 of
+\S[sec:proof] carry out the argument in that order.
+
+
+## Proof of Theorem [thm:A
+]{#sec:proof}
+
+Fix $A>0$ and set
+
+$$
+\begin{equation}\label{eq:trunc}
+  D_0 := (\log N)^{A+2}, \qquad E_0 := (\log N)^{2A+4} .
+\end{equation}
+$$
+
+(The truncations must be allowed to depend on $A$; a fixed choice covers
+only bounded $A$.)
+
+
+### Step 0: the subtracted mean term
+
+
+By [eq:Emu],
+
+$$
+\begin{equation}\label{eq:split0}
+  T_1(t) \;=\; D(t) \;-\; C(t)\,B(K),
+  \qquad
+  D(t):=\sum_{\substack{k<K\\(k,N)=1}}\mu(k)
+        \sum_{\substack{n\le t\\ n\equiv N\ (k)}}\Lambda(n)\mu(N-n),
+\end{equation}
+$$
+
+where $B(K)=\sum_{k<K,(k,N)=1}\mu(k)/\varphi(k)$. Huang–Li's Lemma 1
+(a form of Goldston–Y{ı}ld{ı}r{ı}m) gives
+$B(K)\ll e^{-c_1\sqrt{\log K}}$, and trivially
+$|C(t)|\le\sum_{n<N}\Lambda(n)\ll N$. Hence
+
+$$
+\begin{equation}\label{eq:meanterm}
+  |C(t)B(K)| \;\ll\; N e^{-c\sqrt{\log N}}
+\end{equation}
+$$
+
+uniformly in $t$.
+
+
+### Step 1: divisor switching (an exact identity)
+
+
+Since $n\equiv N\pmod k$ with $n\le t<N$ is the same as $u:=N-n$ being a
+multiple of $k$ in $[N-t,N)$,
+
+$$
+\begin{equation}\label{eq:switch}
+  D(t) \;=\; \sum_{N-t\le u<N}\Lambda(N-u)\,\mu(u)\,\sigma_K(u),
+  \qquad
+  \sigma_K(u):=\sum_{\substack{k\mid u,\ k<K\\ (k,N)=1}}\mu(k) .
+\end{equation}
+$$
+
+This is a finite rearrangement, hence exact. (Machine-verified in
+`code/audit\_switch\_identity.py`, which accumulates the two sides in
+genuinely different index orders — the $k$-side by modular slices, the
+$u$-side against a divisor-sum array — and finds them equal to
+$10^{-16}$ relative to $N$.)
+
+
+### Step 2: the complete divisor sum
+
+
+#### Lemma {#lem:complete}
+<!-- evidence: audit_switch_identity.py -->
+
+For squarefree $u\ge1$,
+$\displaystyle\sum_{k\mid u,\ (k,N)=1}\mu(k)=\mathbf 1_{\rad(u)\mid N}$.
+
+
+**Proof.** 
+The sum is multiplicative in $u$ with local factor $1$ at $p\mid N$ and
+$1-1=0$ at $p\nmid N$. Hence it vanishes unless every prime of $u$
+divides $N$.
+ ∎
+
+
+Splitting $\sigma_K(u)$ into the complete sum minus the tail $k\ge K$,
+[eq:switch] becomes $D(t)=P(t)-R(t)$ with
+
+$$
+\begin{equation}\label{eq:PR}
+  P(t)=\!\!\sum_{\substack{N-t\le u<N\\ \rad(u)\mid N}}\!\!\Lambda(N-u)\mu(u),
+  \qquad
+  R(t)=\!\!\sum_{N-t\le u<N}\!\!\Lambda(N-u)\mu(u)
+       \sum_{\substack{k\mid u,\ k\ge K\\ (k,N)=1}}\mu(k).
+\end{equation}
+$$
+
+In $P(t)$ the conditions $\mu(u)\ne0$ and $\rad(u)\mid N$ force
+$u\mid\rad(N)$, so there are at most $2^{\omega(N)}=N^{o(1)}$ terms, each
+$\ll\log N$:
+
+$$
+\begin{equation}\label{eq:P}
+  P(t)\ll N^{o(1)} .
+\end{equation}
+$$
+
+
+### Step 3: the residual, and the degeneracy lemma
+
+
+Write $u=mk$ with $k\ge K$, so $m=u/k<N/K=M$. For squarefree $u$ the
+factorisation forces $(m,k)=1$ and $\mu(u)\mu(k)=\mu(m)\mu^2(k)$, so
+
+$$
+\begin{equation}\label{eq:R1}
+  R(t)=\sum_{m<M}\mu(m)
+      \sum_{\substack{k\ge K,\ (k,m)=1,\ (k,N)=1\\ N-t\le mk<N}}
+      \mu^2(k)\,\Lambda(N-mk).
+\end{equation}
+$$
+
+
+#### Lemma (degeneracy) {#lem:degen}
+<!-- evidence: analytic -->
+
+The contribution to [eq:R1] of the terms with $(k,N)>1$ is
+$O(N^{o(1)})$. The same bound holds for the terms in which the modulus
+constructed in Step 4 is not coprime to $N$.
+
+
+**Proof.** 
+Suppose $p\mid(k,N)$ and $\Lambda(N-mk)\ne0$, say $N-mk=q^\ell$. Since
+$p\mid k$ and $p\mid N$ we get $p\mid N-mk$, hence $q=p$ and
+$n:=N-mk=p^\ell$ with $p\mid N$. The number of such $n<N$ is
+$\le\sum_{p\mid N}\log N/\log p\ll(\log N)^2$; for each, the pairs
+$(m,k)$ with $mk=N-n$ number $\le\tau(N-n)\ll N^{o(1)}$, and each term is
+$\ll\log N$.
+ ∎
+
+
+By Lemma [lem:degen] we may drop the condition $(k,N)=1$ from
+[eq:R1] at a cost of $O(N^{o(1)})$. This is essential: expanding
+$\mathbf 1_{(k,N)=1}$ by Möbius over $e\mid N$ would multiply the number
+of Bombieri–Vinogradov calls by $2^{\omega(N)}=N^{o(1)}$ and destroy the
+budget.
+
+
+### Step 4: unfolding $\mu^2$ and the coprimality
+
+
+Insert $\mu^2(k)=\sum_{d^2\mid k}\mu(d)$ and
+$\mathbf 1_{(k,m)=1}=\sum_{e\mid(k,m)}\mu(e)$ and truncate at $D_0,E_0$
+of [eq:trunc].
+
+*Tail $d>D_0$.* Such terms have $d^2\mid k$, hence
+$n=N-mk\equiv N\pmod{md^2}$; the number of $n\le N$ in that progression
+is $\ll N/(md^2)+1$ and each $\Lambda\ll\log N$. Summing,
+
+$$
+\ll \log N\sum_{m<M}\sum_{d>D_0}\Bigl(\frac{N}{md^2}+1\Bigr)
+  \ll \frac{N(\log N)^2}{D_0} + \sqrt{NM}
+  \ll \frac{N}{(\log N)^{A}} + N^{1-\theta'/2}.
+$$
+
+
+*Tail $e>E_0$.* Such terms have $e\mid k$ and $e\mid m$, hence
+$n\equiv N\pmod{me}$, and
+
+$$
+\ll \log N\sum_{m<M}\sum_{\substack{e\mid m\\ e>E_0}}
+      \Bigl(\frac{N}{me}+1\Bigr)
+  \ll \frac{N\log N}{E_0}\sum_{m<M}\frac{\tau(m)}{m} + M
+  \ll \frac{N(\log N)^{3}}{E_0}+M .
+$$
+
+
+Both are $\ll N(\log N)^{-A}$. In the remaining range put
+$L:=\lcm(d^2,e)$ and $q:=mL$; the conditions $d^2\mid k$, $e\mid k$ and
+$n=N-mk$ give $n\equiv N\pmod q$, and $mk<N$, $mk\ge\max(N-t,mK)$ give
+$1\le n\le T_m(t)$ where
+
+$$
+\begin{equation}\label{eq:Tm}
+  T_m(t) := \min\bigl(t,\ N-mK\bigr).
+\end{equation}
+$$
+
+Therefore, with $\psi(y;q,a)=\sum_{n\le y,\,n\equiv a\,(q)}\Lambda(n)$,
+
+$$
+\begin{equation}\label{eq:R2}
+  R(t) = \sum_{m<M}\mu(m)\sum_{d\le D_0}\mu(d)
+         \sum_{\substack{e\mid m\\ e\le E_0}}\mu(e)\,
+         \psi\bigl(T_m(t);\,q,\,N\bigr)
+         \;+\;O\!\left(\frac{N}{(\log N)^{A}}\right).
+\end{equation}
+$$
+
+By Lemma [lem:degen] we may further restrict to $(q,N)=1$: if
+$g=(q,N)>1$ then $g\mid n$ forces $n$ to be a power of a prime dividing
+$N$, and the total over the $\ll MD_0E_0\tau$-many triples is
+$\ll N^{1-\theta'+o(1)}$.
+
+
+#### Remark (the false-positive trap) {#rem:trap}
+
+Restricting the *main terms* to classes with $(q,N)=1$ is not
+cosmetic. Assigning a main term $T_m/\varphi(q)$ to a degenerate class
+shifts the density of the whole computation by the factor
+$N/\varphi(N)$. Carried into the $\log k$ branch of
+Section [sec:C], that error produces an apparent *refutation*
+of $EH_\mu$. It is recorded here because it is the most plausible
+false-positive we have encountered.
+
+
+Note the size of the modulus: $q=m\lcm(d^2,e)\le MD_0^2E_0$, so by
+[eq:trunc]
+
+$$
+\begin{equation}\label{eq:level}
+  q \;\le\; N^{1-\theta'}(\log N)^{4A+8} \;=\; N^{1/2-\delta}(\log N)^{4A+8}
+  \;\le\; N^{1/2-\delta/2}
+\end{equation}
+$$
+
+for $N$ large. This is the level at which Bombieri–Vinogradov is
+applied.
+
+
+### Step 5: Bombieri–Vinogradov
+
+
+#### Lemma ($\tau$-weighted Bombieri–Vinogradov) {#lem:BV}
+<!-- evidence: analytic -->
+
+For all $A,B>0$ there is $C=C(A,B)$ such that for
+$Q\le N^{1/2}(\log N)^{-C}$,
+
+$$
+\sum_{q\le Q}\tau_3(q)^{B}\ \max_{y\le N}\ \max_{(a,q)=1}
+  \Bigl|\psi(y;q,a)-\frac{y}{\varphi(q)}\Bigr|
+  \;\ll_{A,B}\; \frac{N}{(\log N)^{A}} .
+$$
+
+
+**Proof.** 
+Write $\mathcal E_q$ for the inner maximum. By Cauchy–Schwarz,
+$\sum_q\tau_3^B\mathcal E_q\le
+(\sum_q\tau_3^{2B}\mathcal E_q)^{1/2}(\sum_q\mathcal E_q)^{1/2}$.
+For the first factor use the trivial bound
+$\mathcal E_q\ll (N/\varphi(q))\log N$, giving
+$\ll N(\log N)^{C_1(B)}$; for the second use Bombieri–Vinogradov with
+exponent $2A+C_1(B)$.
+ ∎
+
+
+A modulus $q$ arises in [eq:R2] from at most
+$\sum_{m\mid q}\tau(q/m)^2 \le \tau(q)^3 \le \tau_3(q)^3$ triples
+$(m,d,e)$: given $m\mid q$ there are at most $\tau(q/m)$ choices of $d$
+with $d^2\mid q/m$ and at most $\tau(q/m)$ of $e$ with
+$\lcm(d^2,e)=q/m$. Writing $\psi(T_m;q,N)=T_m/\varphi(q)+\mathcal E$
+and applying Lemma [lem:BV] with $B=3$ and [eq:level],
+
+$$
+\begin{equation}\label{eq:R3}
+  R(t) \;=\; \mathrm{MT}(t) \;+\; O\!\left(\frac{N}{(\log N)^{A}}\right),
+  \qquad
+  \mathrm{MT}(t)=\sum_{\substack{m<M\\ (m,N)=1}}\mu(m)\,T_m(t)\,c_{D_0,E_0}(m),
+\end{equation}
+$$
+
+where
+$c_{D_0,E_0}(m)=\sum_{d\le D_0}\sum_{e\mid m,\,e\le E_0}
+\mu(d)\mu(e)\mathbf 1_{(d,N)=1}/\varphi(m\lcm(d^2,e))$.
+
+
+### Step 6: the density
+
+
+#### Lemma {#lem:density}
+<!-- evidence: audit_density_identity.py -->
+
+Let $m$ be squarefree with $(m,N)=1$ and put
+
+$$
+c(m):=\sum_{d\ge1}\ \sum_{e\mid m}
+     \frac{\mu(d)\mu(e)\mathbf 1_{(d,N)=1}}{\varphi(m\lcm(d^2,e))} .
+$$
+
+Then $c(m)=A(N)\lambda(m)/m$ with $A(N)$ as in [eq:AN] and
+$\lambda(m)=\prod_{p\mid m}\bigl(1-\tfrac{1}{p(p-1)}\bigr)^{-1}$.
+Moreover $c_{D_0,E_0}(m)=c(m)+O(1/(mD_0))$.
+
+
+**Proof.** 
+The sum is multiplicative. If $p\nmid m$ then $p\nmid e$ and the local
+factor is $1-1/\varphi(p^2)=1-1/(p(p-1))$ for $p\nmid N$, and $1$ for
+$p\mid N$. If $p\mid m$ (so $p\nmid N$) the $p$-part of
+$m\lcm(d^2,e)$ is $p^{1+\max(2v_p(d),v_p(e))}$, and the four choices
+$(v_p(d),v_p(e))\in\{0,1\}^2$ contribute
+
+$$
+\frac{1}{p-1}-\frac{1}{p(p-1)}-\frac{1}{p^2(p-1)}+\frac{1}{p^2(p-1)}
+  \;=\;\frac{1}{p}.
+$$
+
+Hence $c(m)=\prod_{p\mid m}p^{-1}\cdot
+\prod_{p\nmid m,\ p\nmid N}(1-\tfrac{1}{p(p-1)})
+= m^{-1}A(N)\lambda(m)$. The truncation error is the tail
+$\sum_{d>D_0}1/\varphi(md^2)\ll 1/(mD_0)$ and similarly for $e$.
+ ∎
+
+
+#### Remark (the load-bearing line) {#rem:loadbearing}
+
+Equivalently, for squarefree $m$,
+$\sum_{g\mid m}\mu(g)/(\varphi(m/g)\,g\,\varphi(g))=1/m$: the local
+factor is exactly $p^{-1}$, so the density exponent is exactly $1$ and
+$1/\zeta$ occurs to the *first* power in Lemma [lem:mu]
+below. A non-integral exponent would give, by Selberg–Delange, only
+$(\log x)^{-c}$ for a fixed $c$ in Lemma [lem:mu], and
+Theorem [thm:A] would be false. The identity is verified in exact
+rational arithmetic for all squarefree $m<400$, with zero mismatches
+(`code/audit\_density\_identity.py`).
+
+
+#### Lemma {#lem:mu}
+<!-- evidence: analytic -->
+
+Let $f(m):=\mu(m)\lambda(m)\mathbf 1_{(m,N)=1}$ and
+$G(x):=\sum_{m\le x}f(m)/m$. Then
+$G(x)\ll \frac{N}{\varphi(N)}\,e^{-c\sqrt{\log x}}
+ + x^{-1/4}e^{C\sqrt{\log N}}$
+for $x\ge2$.
+
+
+**Proof.** 
+Write $F(s)=\sum_m f(m)m^{-s}=\prod_{p\nmid N}(1-\lambda(p)p^{-s})$ and
+$F(s)=\zeta(s)^{-1}H(s)$, so $f=\mu*h$ with $h$ multiplicative,
+$h(p^j)=1$ for $p\mid N$ and $h(p^j)=1-\lambda(p)=O(p^{-2})$ for
+$p\nmid N$. Then
+$G(x)=\sum_{b\le x}\frac{h(b)}{b}\sum_{a\le x/b}\frac{\mu(a)}{a}$.
+For $b\le\sqrt x$ use
+$\sum_{a\le y}\mu(a)/a\ll e^{-c\sqrt{\log y}}$ (the classical
+zero-free region) together with
+$\sum_b|h(b)|/b\ll\prod_{p\mid N}(1-1/p)^{-1}\ll N/\varphi(N)$. For
+$b>\sqrt x$ bound $\sum_{b>y}|h(b)|/b\le
+y^{-1/2}\sum_b|h(b)|b^{-1/2}\ll y^{-1/2}\prod_{p\mid N}(1-p^{-1/2})^{-1}
+\ll y^{-1/2}e^{C\sqrt{\log N}}$.
+ ∎
+
+
+Since $M=N^{1-\theta'}$ is a fixed power of $N$, the second term of
+Lemma [lem:mu] is negligible at $x\asymp M$, and
+$N/\varphi(N)\ll\log\log N$; so $G(x)\ll e^{-c'\sqrt{\log x}}$ in the
+relevant range.
+
+
+### Step 7: the main term dies, uniformly in $t$
+
+
+#### Proposition {#prop:MT}
+<!-- evidence: analytic -->
+
+$\displaystyle \sup_{1\le t<N}|\mathrm{MT}(t)|\ll N e^{-c\sqrt{\log N}}$.
+
+
+**Proof.** 
+By Lemma [lem:density],
+$\mathrm{MT}(t)=A(N)\sum_{m<M}\frac{f(m)}{m}T_m(t)+O(M\log N/D_0)$
+with $T_m(t)$ as in [eq:Tm]. Put $m_0:=(N-t)/K$, so
+$T_m(t)=t$ for $m\le m_0$ and $T_m(t)=N-mK$ for $m>m_0$; in particular
+$x\mapsto T_x(t)$ is non-increasing, is constant on $[1,m_0]$, has
+derivative $-K$ on $(m_0,M)$, and $T_M(t)=0$. Abel summation against
+$G$ of Lemma [lem:mu] gives
+
+$$
+\sum_{m<M}\frac{f(m)}{m}T_m(t)
+  = G(M)\,T_M(t) + K\!\int_{m_0}^{M}\! G(x)\,dx
+  = K\!\int_{m_0}^{M}\! G(x)\,dx .
+$$
+
+Hence, uniformly in $t$,
+
+$$
+\Bigl|\sum_{m<M}\frac{f(m)}{m}T_m(t)\Bigr|
+  \le K\int_{1}^{M}|G(x)|\,dx
+  \ll K\int_1^M e^{-c\sqrt{\log x}}dx
+  \ll KM e^{-c'\sqrt{\log M}} \ll N e^{-c''\sqrt{\log N}},
+$$
+
+using $\log M\asymp\log N$. The truncation error is
+$\ll M\log N/D_0=o(N(\log N)^{-A})$.
+ ∎
+
+
+Note that the cancellation is genuine and global: the term $m=1$ alone
+contributes $T_1(t)\asymp N$, so the smallness of $\mathrm{MT}$ is
+entirely due to the cancellation in $\sum f(m)/m$.
+
+
+### Conclusion
+
+
+Combining [eq:split0], [eq:meanterm], [eq:P],
+[eq:R3] and Proposition [prop:MT]:
+
+$$
+T_1(t) = \underbrace{P(t)}_{N^{o(1)}}
+         - \underbrace{\mathrm{MT}(t)}_{\ll Ne^{-c\sqrt{\log N}}}
+         - \underbrace{O\!\left(N(\log N)^{-A}\right)}_{\text{BV}}
+         - \underbrace{C(t)B(K)}_{\ll Ne^{-c\sqrt{\log N}}},
+$$
+
+uniformly in $t<N$. This proves Theorem [thm:A], and exhibits
+Bombieri–Vinogradov as the only ingredient that does not give an
+exponential saving. \qed
+
+
+#### Remark {#rem:bound}
+
+An earlier version of this statement claimed the bound
+$Ne^{-c\sqrt{\log N}}$ outright. That is not justified: the
+Bombieri–Vinogradov input yields $N(\log N)^{-A}$ for each fixed $A$
+and no more, because the Siegel–Walfisz range in its proof is
+$q\le(\log N)^{B}$ with $B$ fixed. The corrected statement is the one
+given above; it is what Corollary [cor:B] needs.
+
+
+## Proof of Corollary [cor:B
+]
+
+Fix $k$ and set
+$a_n:=\Lambda(n)\mu(N-n)\bigl(\mathbf 1_{n\equiv N (k)}-1/\varphi(k)\bigr)$,
+so that $\Emu(t;k)=\sum_{n\le t}a_n$ and the bracket in [eq:E4] is
+$\sum_{n<N}a_n\log(N-n)$. Since $\log(N-n)$ vanishes at $n=N-1$ and has
+derivative $-1/(N-t)$, Abel summation gives
+
+$$
+\sum_{n<N}a_n\log(N-n) \;=\; \int_{1}^{N-1}\frac{\Emu(t;k)}{N-t}\,dt .
+$$
+
+The weight $\log(N-n)$ does not depend on $k$, so multiplying by
+$\mu(k)$ and summing over $k<K$ with $(k,N)=1$ (a finite sum) gives the
+exact identity
+
+$$
+E_4(\alpha) \;=\; \int_{1}^{N-1}\frac{T_1(t)}{N-t}\,dt .
+$$
+
+Hence $|E_4(\alpha)|\le\bigl(\sup_{t<N}|T_1(t)|\bigr)\log N
+\ll_A N(\log N)^{1-A}$ by Theorem [thm:A]. As $A$ is arbitrary this
+is Corollary [cor:B]. Huang–Li's Lemma 4 is invoked only to bound
+$E_4$; with the above it is not needed, and the only remaining
+appearance of $EH_\mu$ in their §3 is through $E_3(\alpha)$. \qed
+
+
+## The correction $\Delta$ to equation (18) {#sec:delta}
+
+
+We record a genuine defect in the published paper, together with its
+repair.
+
+Huang–Li define
+$S_2(\alpha)=\sum_{n<N}\Lambda(n)\tilde\Lambda_\alpha(N-n)$ with
+$\tilde\Lambda_\alpha(u)=\sum_{d\mid u,\ d>\alpha}\mu(d)\log(1/d)$, and
+substitute $k=u/d$, so that the constraint $d>\alpha$ becomes
+
+$$
+\begin{equation}\label{eq:constraint}
+  k \;<\; \frac{N-n}{\alpha},
+\end{equation}
+$$
+
+an *$n$-dependent* bound. Their displayed equation (18) reads
+
+$$
+S_2(\alpha) \;=\; \sum_{k<\frac{N-1}{\alpha}}\mu(k)
+    \sum_{\substack{n<N\\ n\equiv N\ (k)}}
+    \Lambda(n)\mu(N-n)\log\Bigl(\frac{k}{N-n}\Bigr),
+$$
+
+in which [eq:constraint] has been replaced by the $n$-free bound
+$k<(N-1)/\alpha$. The two differ. Writing $N-n=mk$, the condition
+[eq:constraint] is $m>\alpha$, so the right-hand side of (18)
+contains, in addition to $S_2(\alpha)$, exactly the terms with
+$m\le\alpha$. On those terms
+$\mu(k)\mu(N-n)=\mu(m)\mu^2(k)\mathbf 1_{(k,m)=1}$ and
+$\log(k/(N-n))=-\log m$, so
+
+$$
+\begin{equation}\label{eq:Delta}
+  S_2(\alpha) \;=\; \text{RHS of (18)} \;+\; \Delta,
+  \qquad
+  \Delta \;=\; \sum_{2\le m\le\alpha}\mu(m)\log m
+    \sum_{\substack{k<(N-1)/\alpha\\ (k,m)=1}}\mu^2(k)\,\Lambda(N-mk).
+\end{equation}
+$$
+
+(The term $m=1$ drops out since $\log1=0$.) The trivial bound is
+$\Delta\ll N(\log N)^2$, which exceeds the target
+$O(N(\log N)^{-A})$, so $\Delta$ is not negligible and needs its own
+lemma.
+
+It does close, by the machinery already used above and under hypotheses
+Huang–Li already assume. Indeed $\Delta$ has exactly the shape of the
+residual [eq:R1]: the Möbius factor sits on the *short*
+variable $m\le\alpha$, and the long variable $k$ carries only
+$\mu^2\ge0$. Expanding $\mu^2(k)$ and $\mathbf 1_{(k,m)=1}$ as in Step 4
+reduces $\Delta$ to sums of $\Lambda$ over progressions to moduli
+$\ll\alpha(\log N)^{4A+8}$, plus a main term
+$A(N)\sum_{m\le\alpha}\mu(m)\lambda(m)(\log m)\,T_m/m$ which is
+$O(Ne^{-c\sqrt{\log N}})$ by Lemma [lem:mu] and partial summation.
+Hence:
+
+
+- In the Corollary-1 regime, $\alpha=N^{1-\theta'}<N^{1/2}$ and
+      Bombieri–Vinogradov closes $\Delta$ *unconditionally*.
+
+- In the general Theorem-1 regime, $\alpha\asymp N^{\theta}$ and
+      $\Delta$ closes under the hypothesis
+      $EH(N^{\theta}(\log N)^{2A+8})$ which is assumed there.
+
+
+So [HL]'s Theorem 1 and their Corollary 1 stand as stated; what is
+missing is the treatment of $\Delta$.
+
+
+## Proof of Theorem [thm:C
+: the permanent closure]{#sec:C}
+
+Now take the weight $w_k=\log k$, i.e. the functional $E_3$ of
+[eq:E3]. Steps 0–1 are unchanged, and the complete divisor sum of
+Lemma [lem:complete] is replaced by the following.
+
+
+#### Lemma {#lem:completelog}
+<!-- evidence: analytic -->
+
+For squarefree $u$, write $u=u_N u'$ where $u_N$ is the largest divisor
+of $u$ composed of primes dividing $N$. Then
+$\sum_{k\mid u,\ (k,N)=1}\mu(k)\log k=-\Lambda(u')$.
+
+
+**Proof.** 
+The sum is over $k\mid u'$ and equals $-\Lambda(u')$ by
+$\mu*\log=\Lambda$.
+ ∎
+
+
+Hence the complete piece of $E_3$ is
+
+$$
+-\sum_{1\le u<N}\Lambda(N-u)\,\mu(u)\,\Lambda(u')
+  \;=\; -\sum_{\substack{u<N,\ (u,N)=1}}\Lambda(N-u)\mu(u)\Lambda(u)
+        + O(N^{o(1)}\log^2 N).
+$$
+
+Now $\mu(u)\Lambda(u)$ is supported on primes $u=p$, where it equals
+$-\log p$; prime powers $u=p^\ell$, $\ell\ge2$, have $\mu(u)=0$. So the
+complete piece equals
+
+$$
+\begin{equation}\label{eq:goldbachback}
+  \sum_{p<N}\Lambda(N-p)\log p \;+\;O\bigl(N^{o(1)}\log^2N\bigr)
+  \;=\;\sum_{n<N}\Lambda(n)\Lambda(N-n)+O\bigl(N^{1/2+\varepsilon}\bigr),
+\end{equation}
+$$
+
+the binary Goldbach sum itself. The door is free: divisor switching
+costs nothing, and immediately behind it stands the object one was
+trying to avoid.
+
+Two further terms have to be evaluated, and neither vanishes.
+
+*(i) The residual main term.* Repeating Steps 3–6 with the extra
+factor $\log k=\log((N-n)/m)$ produces the main term
+$A(N)\sum_{m<M}\mu(m)\lambda(m)m^{-1}\int_{mK}^{N}\log(v/m)\,dv$.
+Substituting $v=mt$ evaluates the integral as
+$N\log(N/m)-N-mK\log K+mK$, of which only the $-N\log m$ piece survives
+the cancellation: by Lemma [lem:mu] the coefficients $\sum f(m)/m$ and
+$\sum f(m)$ both die, and what is left is
+$-A(N)\,N\,\widetilde G(1)$ with
+$\widetilde G(1)=\lim_x\sum_{m\le x}\mu(m)\lambda(m)\mathbf 1_{(m,N)=1}
+\log m/m$. The constant is fixed by
+
+$$
+\begin{equation}\label{eq:Gtilde}
+  A(N)\,\widetilde G(1) \;=\; -\SS(N),
+\end{equation}
+$$
+
+so that the residual main term is $+\SS(N)\,N+O(N(\log N)^{-A})$.
+
+
+#### Remark (the sign, and why it is the whole identity) {#rem:sign}
+<!-- evidence: audit_E3_constant.py -->
+
+Version 3 of this note printed [eq:Gtilde] as
+$A(N)\widetilde G(1)=+\SS(N)$ and the residual main term as
+$-\SS(N)N$. Since $T=P-\mathrm{MT}-C\,B$, that pair delivers
+$E_3=\tilde r(N)+\SS(N)N+\SS(N)C(N)$, which differs from
+Theorem [thm:C] by $2\SS(N)N$ — the size of the object itself. The
+sign above is the one that makes the section agree with its own
+theorem, and it is forced: with
+$F(s)=\sum_m f(m)m^{-s}=\zeta(s)^{-1}H(s)$ as in Lemma [lem:mu] one
+has $\widetilde G(1)=-F'(1)=-H(1)<0$, while
+$A(N)H(1)=\SS(N)$ identically — the local factors pair as
+$\bigl(1-\tfrac{1}{p(p-1)}\bigr)\bigl(1-\tfrac{1}{(p^2-p-1)(p-1)}\bigr)
+=1-\tfrac1{(p-1)^2}$ at $p\nmid N$, and as $p/(p-1)$ at $p\mid N$.
+Measured, $A(N)\widetilde G(x)=-1.760250$ at $x=4\cdot10^6$ against
+$\SS(N)=1.760432$, and the brute-force $E_3$ sits within $0.26N$ of
+$\tilde r-\SS(N-C)$ and $2\SS N$ away from the other candidate.
+
+
+#### Remark (the identity cannot be tested numerically, at any $N$) {#rem:thetasweep}
+<!-- evidence: lab_theta_sweep.py -->
+
+That $0.26N$ is the finite-$N$ residual
+$R(N,\theta')=\bigl|E_3(N;\theta')-(\tilde r(N)-\SS(N)(N-C(N)))\bigr|/N$,
+and it decides only the sign of the identity because the right-hand
+side it is compared against is $\asymp10^{-3}N$. Two ways out suggest
+themselves and both are closed.
+
+$\theta'$ does not help. Swept over $0.51$ to $0.95$, $R$ is
+essentially monotone *increasing*: at $N=8\cdot10^5$ it runs
+$0.170167$ at $\theta'=0.51$ to $4.991178$ at $\theta'=0.90$, a factor
+$29$ worse. The finite-$N$ error is dominated by the main-term
+cancellation over $m<M=N^{1-\theta'}$, which $\theta'\to1$ destroys,
+and the gain in $B_{\log}(K)$ is second order against it. The best
+$\theta'$ is the smallest admissible one, sitting just above the
+$\tfrac12$ barrier. Pre-registered as rules I1, I2 and I3 — an
+interior optimum at $\theta'\ge0.70$ giving $R<0.10$ — all three
+fail, and they fail as a hypothesis rather than as a mis-stated
+threshold. Rule I4 ties the sweep to the earlier audit and holds:
+$R$ at $\theta'=0.56$ recomputes as
+$0.4558,\,0.3729,\,0.3108$ against $0.456,\,0.373,\,0.311$.
+
+$N$ does not help either — it makes matters worse. At the best
+$\theta'$ the ratio of error to signal reads
+$15.19,\,18.38,\,26.84$ at $N=2\cdot10^5,\,4\cdot10^5,\,8\cdot10^5$:
+it *widens*. The signal falls by factors $0.598$ and $0.586$ per
+doubling-and-a-bit while the error falls only by $0.723$ and $0.856$,
+because $C(N)=o(N)$ being true kills the right-hand side fast while
+the finite-$N$ error dies only at a slow power of $\log$. So there is
+no $N$ at which a brute-force computation confirms
+Theorem [thm:C]'s content, and waiting for larger $N$ points the
+wrong way.
+
+*(ii) The subtracted mean term.* It carries the factor
+
+$$
+B_{\log}(K):=\sum_{\substack{k<K\\ (k,N)=1}}\frac{\mu(k)\log k}{\varphi(k)}
+  \;=\;-\SS(N)+O\bigl(e^{-c\sqrt{\log K}}\log K\bigr),
+$$
+
+which is exactly Huang–Li's Lemma 1: subtracting
+$\sum_{k\le K}\mu(k)\varphi(k)^{-1}\log(K/k)=\SS(N)+O(e^{-c_1\sqrt{\log K}})$
+from $\log K\cdot\sum_{k\le K}\mu(k)/\varphi(k)=O(\log K\,e^{-c_1\sqrt{\log K}})$
+gives the claim. (Independently: with
+$f(s)=\prod_{p\nmid N}\bigl(1-\frac{p^{-s}}{p-1}\bigr)$ one has
+$f(s)=\zeta(s+1)^{-1}h(s)$ with $h(0)=\SS(N)$, so
+$B_{\log}(\infty)=-f'(0)=-\SS(N)$.) Since the mean term is
+$-C(N)B_{\log}(K)$ with $C(N)=\sum_{n<N}\Lambda(n)\mu(N-n)$, it
+contributes $+\SS(N)\,C(N)$.
+
+Collecting [eq:goldbachback], (i) and (ii):
+
+$$
+E_3(\alpha) = \sum_{n<N}\Lambda(n)\Lambda(N-n)
+    -\SS(N)N+\SS(N)C(N)+O_A\!\left(\frac{N}{(\log N)^{A}}\right),
+$$
+
+which is the assertion of Theorem [thm:C]. Since $\SS(N)\asymp1$,
+the bound $E_3(\alpha)\ll_A N(\log N)^{-A}$ is therefore equivalent to
+
+$$
+\tilde r(N)=\SS(N)\bigl(N-C(N)\bigr)+O_A\!\left(N(\log N)^{-A}\right),
+$$
+
+which is Huang–Li's equation (22). Given that, $\tilde r(N)$ is
+positive for large even $N$ — binary Goldbach — because
+$|C(N)|\le A(N)N(1+o(1))$ with $A(N)<1$; and
+$\tilde r(N)\sim\SS(N)N$ holds if and only if $C(N)=o(N)$, which is not
+implied and is the subject of the companion paper. \qed
+
+
+#### Remark
+
+The mechanism is structural, not accidental. The identity
+$\mu*\log=\Lambda$ is the starting point of the Huang–Li argument
+(their (10)); it is therefore also what any divisor switch inside their
+$\log k$-weighted functional must return. No choice of $\theta'$,
+truncation, or smoothing can circumvent an identity. What the identity
+does not fix is the *strength* at which $E_3$ must be bounded, and
+Proposition [prop:onesided] weakens that.
+
+
+## The demand side is empty: a no-go over all weights {#sec:D}
+
+
+Theorem [thm:A] and Theorem [thm:C] treat the two weights that
+occur in [HL], $w_k = 1$ and $w_k = \log k$. It is natural to ask
+whether some *other* weight sits between them: one whose complete
+divisor sum is still cheap (as for $w=1$) but whose main-term
+coefficient is still of size $1$ (as for $w=\log k$), and which would
+therefore extract the scalar $C(N)=\sum_{n<N}\Lambda(n)\mu(N-n)$ from
+Bombieri–Vinogradov alone. This section shows that no such weight
+exists, and that the obstruction is quantitatively the $\sqrt N$
+barrier.
+
+
+### The design space
+
+
+Let $w:\mathbb N\to\mathbb R$ be arbitrary and let
+$b := \mu * w$, so that $w_k=\sum_{d\mid k}b_d$; every weight has this
+form, and $b$ is determined by $w$. Put
+
+$$
+B_w := \sum_{\substack{k<K\\(k,N)=1}}\frac{\mu(k)w_k}{\varphi(k)},
+  \qquad
+  \|b\|_1 := \sum_{u<N}|b_u| .
+$$
+
+Running the switch of Section 3 with the weight $w$ gives the identity
+
+$$
+\begin{equation}\label{eq:extract}
+  B_w\cdot C(N) \;=\; \underbrace{\sum_{u<N}\Lambda(N-u)\mu^2(u)\,b_u}
+  _{\text{complete part}} \;-\; \underbrace{\mathcal R_w}_{\text{residual}}
+  \;+\;O\!\left(N^{o(1)}\right),
+\end{equation}
+$$
+
+the complete part being evaluated by the following lemma, which
+identifies $b$ as exactly the complete divisor transform.
+
+
+#### Lemma {#lem:Gb}
+<!-- evidence: analytic -->
+
+For squarefree $u$,
+$\sum_{k\mid u}\mu(k)w_k = \mu(u)\,b_u$.
+
+
+**Proof.** 
+$\sum_{k\mid u}\mu(k)\sum_{d\mid k}b_d
+ = \sum_{d\mid u}b_d\,\mu(d)\sum_{j\mid (u/d)}\mu(j)
+ = \sum_{d\mid u}b_d\,\mu(d)\,[\,u/d=1\,] = \mu(u)b_u$,
+using $(d,u/d)=1$ for squarefree $u$.
+ ∎
+
+
+The two known cases are the two ends of this space: $w=1$ gives
+$b=\delta_1$, $\|b\|_1 = 1$ and (Huang–Li's Lemma 1)
+$B_w\ll e^{-c\sqrt{\log K}}$; while $w=\log$ gives $b=\Lambda$,
+$\|b\|_1\asymp N$ — the complete part *is* the binary Goldbach
+sum — and $B_w\to-\SS(N)\asymp1$.
+
+
+#### Proposition (both ends are the same sum of dilated walls) {#prop:flatsum}
+<!-- evidence: lab_weight_gap.py -->
+
+Put [eq:dilate] into $T_w$. For squarefree $k$,
+$\mu(k)A(N;k)=\mu(k)^2H(N;k)=H(N;k)$, so
+
+$$
+\begin{equation}\label{eq:flatsum}
+  T_w(N) \;=\; \sum_{\substack{k<K\\(k,N)=1}} w_k\,H(N;k)
+           \;-\; B_w\,C(N) .
+\end{equation}
+$$
+
+The two known cases are therefore
+
+$$
+T_1(N) = \!\!\sum_{\substack{k<K\\(k,N)=1}}\!\! H(N;k) \;-\; B_1 C(N),
+\qquad
+E_3(N) = \!\!\sum_{\substack{k<K\\(k,N)=1}}\!\! (\log k)H(N;k) \;-\;
+B_{\log}C(N),
+$$
+
+and both weights are nonnegative on the range. Since
+$B_1\ll e^{-c\sqrt{\log K}}$ kills the second term while
+$B_{\log}\to-\SS(N)$ does not, Theorem [thm:A] — unconditional —
+says exactly that the *flat* sum of dilated walls is
+$\ll_A N(\log N)^{-A}$, and the wall says the same sum weighted by
+$\log k$ is not small. Everything between what is proved and what is
+open is the factor $\log k$ inside a positively weighted sum of the
+same terms.
+
+The identity is not the point; the sizes are. Over
+$N=2\cdot10^5$ to $2.56\cdot10^7$ by doubling at $\theta'=0.56$,
+[eq:flatsum] holds to a worst relative error of
+$1.875\cdot10^{-16}$, and
+
+$$
+\frac{\bigl|\sum_k H(N;k)\bigr|}{\bigl|\sum_k(\log k)H(N;k)\bigr|}
+  \;=\; 0.1807,\ 0.1740,\ 0.1624,\ 0.1389,\ 0.1456,\ 0.1216,\
+        0.1258,\ 0.1188 ,
+$$
+
+falling throughout; at the top $|T_1|/N=0.01425$ against
+$|E_3|/N=0.1245$. Fitted against $\log N$ the flat sum decays as
+$N^{-0.3620}$ and $|E_3|/N$ as $N^{-0.2658}$: the gap is widening, as
+it must if one side is $\ll_A N(\log N)^{-A}$ and the other is
+$\asymp N$.
+
+
+#### Remark (the last declined null, rule by rule) {#rem:identitynull}
+<!-- evidence: audit_directidentity_null.py -->
+
+Remark [rem:whereitlives]'s evidence declines a control by argument
+rather than by pointer: Z1 is an identity, Z2 compares against
+$\SS(N)N$ which is the reference, and Z3 and Z4 "compare two sums over
+the same terms, so a sign control would move both sides together".
+Remark [rem:weightgapnull] fixed how to judge such an argument — a
+control is worth running exactly when the statistic stays well
+conditioned under it — and applied rule by rule it is right in two
+places and wrong in one.
+
+Z3 and Z4 divide by the *total*, and for a coin the total is not a
+fixed reference, so those ratios are ill conditioned and the decline
+is correct. Z2 divides by $\SS(N)N$, a fixed nonzero constant: that is
+well conditioned and the control was owed. Run, it is decisive.
+$T/(\SS(N)N)$ is $1.0039,\,0.9865,\,0.9893,\,1.0017,\,0.9968$ for
+$\mu$ and $4.9835$ to $6.2827$ across eight draws — no draw within a
+factor of five of the reference.
+
+**The pre-registered V1 fails, and its failure is the finding.** It
+predicted the coin's untruncated sum would be a small fluctuation,
+under $0.2$ of the count. It is $4.9641$ to $6.3027$ times the count,
+and *rising* with $N$. So [eq:untrunc] is not a small correction that
+$\mu$ happens to satisfy: without the Möbius identity the same double
+sum is six times the answer and growing, and $\mu$ collapses it to the
+answer exactly — $|T-R|/R$ of $3.294\cdot10^{-16}$ to
+$3.136\cdot10^{-15}$.
+
+Z3 admits a repair the criterion suggests: measured against $N$ rather
+than against the total, its partial sums are well conditioned. So
+measured, $\mu$'s partial over $k<N^{0.90}$ is
+$-4.3412,\,-4.6951,\,-5.0055,\,-5.3075,\,-5.6291$ against draws that
+run $+2.1498$ to $+2.4747$ — larger in magnitude than every draw at
+every $N$, and negative throughout where $0$ of $8$ draws are. The
+one-signed mass Remark [rem:whereitlives] found is $\mu$'s, not a
+property of the truncation.
+
+This was the last of the six results that declined a control. Four
+declined by pointing at another script and all four pointers missed;
+this one declined by argument and the argument was right for two rules
+of four.
+
+
+#### Remark (the declined null, run) {#rem:weightgapnull}
+<!-- evidence: audit_weightgap_null.py -->
+
+The evidence for the next two statements declines a control, on the
+ground that its claims compare two weightings of the same numbers so a
+sign control would move both sides alike. Remark [rem:splitnull]
+refuted a reason of exactly that shape, so it is run here: the coin
+$\varepsilon(v)=\pm1$ on $\operatorname{supp}\mu^2$, field, weights,
+$k$-range and truncation identical, eight draws.
+
+**It was worth running, and it splits the claims in two.** The
+identity survives it — the worst relative error of
+$T_1=\sum H-B_1C(N)$ over $\mu$ and all draws is
+$3.198\cdot10^{-14}$, as algebra requires. And the *decay ordering*
+is $\mu$'s: over $N=2\cdot10^5$ to $3.2\cdot10^6$ the flat sum decays
+as $N^{-0.3698}$ against $|E_3|$'s $N^{-0.2713}$, and only $3$ of $8$
+coins reproduce that ordering, their exponents scattering from
+$-1.1977$ to $1.3741$.
+
+The other two do not survive, and not because they are wrong.
+**V1** asked $\mu$'s ratio $|\sum H|/|\sum(\log k)H|$ to be below every
+coin's; it is not — the coin band is $[0.0735,\,2.4871]$,
+$[0.0000,\,0.2564]$, $[0.0422,\,8.0955]$, $[0.0631,\,0.2236]$,
+$[0.0285,\,1.2501]$, and $\mu$'s $0.1807$ to $0.1456$ sits inside it.
+**V2** asked the same of the profile's spread and gets the same answer,
+the coin reaching $1.0017$ against $\mu$'s $1.0146$ at the smallest
+$N$ and $2217.7429$ at the largest excursion. The reason is visible in
+the bands: a coin drives *both* sums to square-root size, so their
+ratio is a quotient of two near-zero quantities and takes any value it
+likes. **The coin is not a usable reference for a ratio of this kind.**
+
+So the original refusal was right in outcome and wrong in reason. It
+is not that a coin moves both sides alike; it is that a coin makes
+both sides small and the ratio ill-conditioned. What follows is that
+the ratio of Remark [rem:weightgap] and the effective modulus read off
+its profile stand **uncontrolled** — not refuted, and not supported by
+a control either. The decay ordering is the part of that remark a
+control does reach, and it holds.
+
+
+#### Remark (the heuristic, corrected) {#rem:heuristic}
+<!-- evidence: audit_directlevel_heuristic.py -->
+
+Remark [rem:directlevel] reports that the measured crossing is not
+only of the right exponent but of the right size, the naive solution
+of $K=\SS^2N/(4\log^2K)$ missing by $23\%$ at the bottom and $4\%$ at
+the top and "closing as $N$ grows". Two later measurements say that
+heuristic dropped two large factors. The constant in the square-root
+law is not $1$: measured below $K^*$, $\overline{|H|/\sqrt{N/k}}$ is
+$3.5421,\,3.5393,\,3.7012,\,3.7565,\,3.8100$, which divided by
+$\sqrt{\log N}$ is $1.0138,\,0.9854,\,1.0039,\,0.9939,\,0.9844$ —
+**$c(N)=\sqrt{\log N}$ to within a percent and a half**. And the $k$
+are squarefree and coprime to $N$, of density $0.3374$ to $0.3378$,
+where the heuristic integrated over every $k$.
+
+The two nearly cancel: their product is
+$1.1950,\,1.1950,\,1.2496,\,1.2682,\,1.2869$. Reconstructed here, the
+naive prediction reproduces the published ratios exactly —
+$1.2271,\,1.2020,\,1.0458,\,0.9900,\,0.9551$ — and those are not
+converging, they are **drifting monotonically** through $1$ near
+$N=1.6\cdot10^6$. The $4\%$ at the top is where the drift happens to
+cross, not a limit.
+
+**Putting both factors back makes the prediction far better, and the
+pre-registered X3 fails at five of five $N$** — the outcome flagged in
+advance as the good one. Solving
+$\sum_{k<K}(\log k)\,c(N)\sqrt{N/k}=\SS(N)N$ over the *actual*
+admissible $k$ gives $2981,\,5057,\,8061,\,13589,\,23059$ against the
+measured $2973,\,5109,\,8021,\,13557,\,23397$ — ratios
+$0.9973,\,1.0103,\,0.9950,\,0.9976,\,1.0147$, **within $1.5\%$ at
+every $N$ and with no drift at all**.
+
+So the square-root law is confirmed far more sharply than Remark
+[rem:directlevel] claimed, and its stated agreement should be read as
+a coincidence of two omissions rather than as evidence. What the
+corrected form adds is the constant: the crossing is governed by
+$|H|\approx\sqrt{\log N}\sqrt{N/k}$, so
+$K^*\asymp\SS^2N/(4\,c^2\log^2K^*)$ with $c^2=\log N$, and
+$K^*/\sqrt N$ still grows — but as $\sqrt N/\log^3$ rather than
+$\sqrt N/\log^2$. Remark [rem:modeltransfer] asks whether that
+corrected form is a model or a fit.
+
+
+#### Remark (a model of the exponent, not of the constant) {#rem:modeltransfer}
+<!-- evidence: audit_model_transfer.py -->
+
+A prediction that reproduces the crossing it was calibrated on to
+$1.5\%$ has shown nothing yet. The repository holds a second crossing
+of the *same* sum $B_H(N;K)=\sum_{k<K}(\log k)|H(N;k)|$ against a
+different budget: [eq:nolog] asks it against $\SS(N)(1-A(N))N$, a
+factor $4.70$ smaller, and that crossing sits an order of magnitude
+lower. Calibrating $c(N)$ **only below the $\SS N$ crossing** and then
+predicting both is asking the model something it cannot have fitted.
+
+It half survives. Pre-registered V2 holds — the in-sample crossing is
+reproduced at $1.0027,\,0.9898,\,1.0050,\,1.0024,\,0.9856$, confirming
+[rem:heuristic]. V3 holds: the calibration is not local, $c$ taken
+below the small crossing agreeing with $c$ below the large one to
+$5\%$ ($1.0157,\,0.9514,\,1.0136,\,0.9912,\,0.9467$). **But V1 fails
+and V4 with it.** Out of sample the model predicts
+$323,\,521,\,791,\,1283,\,2099$ against the measured
+$321,\,579,\,789,\,1311,\,2357$ — ratios
+$1.0062,\,0.8998,\,1.0025,\,0.9786,\,0.8905$, missing by $10\%$ at two
+of the five $N$, and getting the *ratio* of the two crossings right at
+only three of five.
+
+The failure is not random and it is not small. **The two $N$ at which
+the model misses are exactly the two at which $c$ falls by about $5\%$
+between the two $k$-ranges.** Since $B_H\sim cK^{1/2}\log K$, an error
+in $c$ must be amplified into the crossing by $1/(\tfrac12+1/\log K)$,
+about $1.56$ here; over the three rows where $c$ drifts *down* the
+measured amplification is $2.1814$ against that $1.5587$, some $40\%$
+stronger. Over the rows where $c$ drifts *up* it is $0.2920$: the
+model absorbs an upward drift and not a downward one. That asymmetry
+is unexplained and this audit does not settle it.
+
+What survives is worth stating precisely, because it is what the
+$\theta'$ target actually needs. A budget factor of $4.7009$ moves the
+crossing by $0.1677$ in the exponent — measured gaps
+$0.1824,\,0.1688,\,0.1706,\,0.1635,\,0.1532$ between
+$\log K^*(\SS N)/\log N$ and $\log K^*(\SS(1-A)N)/\log N$ — and the
+single calibration reproduces that shift without being told it. The
+two constants are $\SS(N)=1.760432$ and $\SS(N)(1-A(N))=0.374487$ over
+this family, and this is the measurement that fixes what the
+difference between them is worth; every $K^*$ exponent in either paper
+belongs to one of the two and to no other.
+
+**And this gap is measured at one odd radical.** Every $N$ here is
+$2^a5^b$. Remark [rem:residuearithmetic] measures the same response
+across seven arithmetic types by regressing the exponent on the
+logarithm of the threshold, and gets a slope of $+0.0516$ against the
+$+0.1084$ that $0.1677$ per factor $4.7009$ implies — **half as
+strong**. So the $0.1677$ is the right correction *within this
+family*, and applying it to another arithmetic would overstate the
+cost of a smaller budget by about a factor of two. That is the one
+place in the whole chain where the arithmetic works in the
+programme's favour.
+**So $|H|\approx c(N)\sqrt{N/k}$ is a model of the exponent and only a
+fit of the constant.** A $5\%$ wobble in $c$ costs $10\%$ in $K^*$,
+which is fatal to any argument that has to decide a crossing to better
+than a factor, and harmless to one that only has to place a level.
+Remark [rem:directlevel]'s $K^*/\sqrt N\to\infty$ is of the second
+kind and stands; the forecasts in [rem:forecast] and the bracket in
+[rem:extendrange] are of the first kind and inherit a $10\%$ error bar
+on $K^*$ that neither of them carries. Remark [rem:forecastbracket]
+pays that debt for the first: propagated, the $10\%$ becomes
+two-thirds of a decade on the forecast $N$, because the square root of
+$K$ doubles the exponent and the logarithms amplify rather than damp.
+
+
+#### Remark (the binding half is square-root too) {#rem:elemsize}
+<!-- evidence: lab_elementary_size.py -->
+
+Remark [rem:splitbudget] moved the target to the elementary half, so
+the first thing to know about $P$ is its size. Fitting the octave
+means of $|P(N;k)|$ against $N/k$ — abscissa the mean of $N/k$ inside
+each octave, as Remark [rem:residue] fixed; bins closed at both ends
+and required to hold at least ten $k$, as Remark [rem:elemreach]
+forced — gives exponents
+
+$$
+0.5793,\ 0.5147,\ 0.4972,\ 0.5012,\ 0.4678
+$$
+
+with correlations $0.99810$ to $0.99989$ and leave-one-out spreads
+$0.0031$ to $0.0210$. Against the residue's $0.4869$, read from its
+own result file, the gap at the largest $N$ is $0.0191$. The
+population floor is a threshold and is swept: over $5$, $10$ and $20$
+$k$ per octave the exponent moves by at most $0.0325$ (rule Y5, added
+after the correction and disclosed as such). The thinnest octave any
+of these five fits stands on holds $25,\,13,\,25,\,13,\,25$ values of
+$k$ — a fit is only as good as its emptiest bin, and that number, like
+the correlations above, is now declared to the gate rather than left
+to be discovered.
+
+**These are not the numbers this remark first carried, and the old
+ones are not reprinted here because nothing computes them any more.**
+Version one fitted through an unbounded top bin $[32768,\infty)$. Its
+five exponents fell monotonically across the sweep, ending well below
+$\tfrac12$; its correlations were an order of magnitude looser than
+those above and its leave-one-out spreads several times wider. Remark
+[rem:elemreach] predicted that the drift was the thin end of the fit
+and not the object. Closing the bin and requiring it to be populated
+removes the drift, tightens every correlation, and leaves the
+exponents sitting on $\tfrac12$ — which is what the prediction said
+would happen.
+
+**So every part of $H$ is square-root in $N/k$: $H$ itself, the
+elementary $\beta P$, and the residue $R$.** The split of Remark
+[rem:predictable] buys a constant — the mass shares — and not an
+exponent, and Remark [rem:splitbudget]'s finding that the elementary
+half binds is a statement about that constant. What binds is
+therefore hard in the same shape as what does not: square-root
+cancellation in a Möbius sum, which is the thing that is unproved
+either way. Remark [rem:elemreach] tries to push that exponent
+further out than $H$ can be measured, fails, and finds the drift in
+the numbers above to be an artefact of the thin end of the fit.
+
+
+#### Remark (the reach that cannot be bought) {#rem:elemreach}
+<!-- evidence: lab_elementary_reach.py -->
+
+Every measurement of $H$ here stops at $N=3.2\cdot10^6$ because $H$
+needs $\Lambda(N-mk)$ and so a sieve to $N$. $P$ needs no primes. The
+sieve weight factors as $w(m,k)=C_k\cdot\mathbf1[m\not\equiv
+Nk^{-1}\ (q)\ \forall q]$ with $C_k=\prod_{q\nmid k}q/(q-1)$ over the
+odd $q\le29$, so $P$ is one constant times an integer sum of $\mu$
+over an explicit sifted set — a boolean mask, no $\Lambda$ anywhere.
+That reaches $N=10^8$ and inner lengths $3.3\cdot10^7$ against the
+$1.6\cdot10^6$ above. The control Y1 confirms it is the same $P$:
+$\beta=\sum HP/\sum P^2$ recomputed this way reproduces the published
+cross-check at all five $N$.
+
+**The reach does not buy the measurement, and the reason is
+structural.** At fixed $N$ the longest inner lengths come from the
+fewest $k$; inverting the sampling to a ladder of $N$ with $k<400$
+each does not repair it, because the number of pairs landing at inner
+length $L$ falls like $1/L$. The pooled octave counts are
+$598,\,668,\,583,\,190,\,48,\,8$: **every factor of four further out
+costs a factor of four in sample count.** Declared as gate check G30
+now requires, the two fits here stand on thinnest bins of $3$ and $8$
+pairs — which is the whole finding in two numbers.
+
+**And their correlations are $0.99724$ and $0.98087$.** A fit through
+bins of three pairs is as tight as anything in this paper and means
+nothing at all, which is why the two declarations are needed together:
+correlation measures whether the points lie on a line, and says
+nothing about whether the points are worth anything. Neither number
+alone would have caught this; the pair does. Pre-registered Y5 asked for
+$200$ pairs in every octave and a coin band under $0.10$ wide and
+**is refuted** at both, and Y2, Y3 and Y6 are refuted with it —
+exponents $0.3622$ and $0.3674$, far below square-root. Those
+refutations are not evidence about $\mu$: the coin arm, on the same
+sifted set and the same bins, scatters over $[0.4244,\,0.5294]$, a
+band four times wider than the question. This is the conditioning
+criterion of Remark [rem:weightgapnull] applied to our own statistic.
+
+What the data do support is sharp. Keeping only the octaves with at
+least $200$ pairs — three of them, inner lengths $18265$ to
+$265770$ — gives
+
+$$
+\text{$\mu$: } 0.5178, \qquad
+\text{coins: } [0.4844,\ 0.5095],\ \text{width } 0.0251,
+$$
+
+so **$|P|$ is square-root and if anything marginally above it**, not
+below. The same trade shows in the two fixed-$N$ sweeps: where both
+reach the same inner length their octave means agree to
+$0.985,\,0.928$ while the bins hold thousands of pairs, and diverge to
+$2.201$ where one holds thirteen.
+
+**This corrected the reading of the exponents in Remark
+[rem:elemsize].** As that remark first stood, its exponents drifted
+monotonically downwards across the sweep, in the same direction as
+the artefact isolated here, and its top bin was the unbounded
+$[32768,\infty)$ — precisely the thin end. The prediction made here
+was that the drift belonged to the fit and not to the object. Closing
+the bins and requiring ten $k$ in each confirmed it: the drift is
+gone and the exponents sit on $\tfrac12$.
+
+Two rules still fail, and one of them says something the first
+version did not. **Y2** asked $\mu$ to match a coin on the same sum
+and pinned the coins themselves to $[0.40,\,0.60]$; their exponents
+run $0.3582$ to $0.6031$, which is the noise scale of a six-point
+octave fit repeated eight times, so the band was too tight for the
+control rather than wrong about it. $\mu$'s exponent lies inside the
+coins' observed range at every $N$. **But it lies above their median
+at all five**, by $0.1111,\,0.0576,\,0.0458,\,0.0629,\,0.0269$ — five
+of five on one side, where the coins themselves are symmetric by
+construction. Remark [rem:elemreach] found the same sign
+independently on a longer lever, $0.5178$ against a coin band topping
+out at $0.5095$. Two measurements, different ranges and different
+estimators, both put $|P|$ *above* what random signs give. The offset
+is inside the per-$N$ coin spread each time and so is not resolved at
+any single $N$; what is not accidental is its sign.
+
+Remark [rem:muvscoin] settles that sign with an instrument that does
+not go through a fit, and the answer is far larger than either
+estimate suggested.
+
+**Y3** asked the sieve weight to inflate uniformly and it does not.
+Against the unweighted Möbius sum $F$ over the same range,
+$\overline{|P|}/\overline{|F|}$ climbs from $0.9364$ at
+$N/k\in[32,128)$ to $1.9632$ at $[32768,131072)$ — a spread of
+$2.2338$ at its worst across the octaves fitted. The weight is nearly
+inert where the inner sum is short and doubles the sum where it is
+long, which is the opposite end from where Remark [rem:leanodd] found
+the sign structure. Past the population floor the ratio runs away
+entirely — $3.1071$ and $32.2243$ in the two bins holding a handful of
+$k$ — which is the same thin-end artefact seen from another angle.
+
+
+#### Remark (the elementary sum beats a coin, by a constant) {#rem:muvscoin}
+<!-- evidence: lab_mu_vs_coin_size.py -->
+
+Two measurements had put $|P|$ above what random signs give and
+neither could resolve it: the offset sat inside the per-$N$ coin
+spread every time, and all that was not accidental was its sign. Both
+went through a fitted exponent, which is the wrong instrument. An
+exponent is a slope through six points carrying the noise of all six;
+the question is a ratio of two magnitudes at the *same* inner length,
+which needs no fit. Since the sieve weight is $C_k$ times an
+indicator, $C_k$ cancels from that ratio and what is compared is
+$\sum_{m\in S}\mu(m)$ against $\sum_{m\in S}\varepsilon(m)$ on the
+identical sifted set.
+
+One trap has to be avoided first, and this remark fell into it once.
+$C_k$ cancels from the ratio **at a fixed $k$**; it does not cancel
+from a ratio of *means over $k$*, because $C_k$ depends on which small
+primes divide $k$. The budget carries $C_k$, so the means must, and
+the figures below are the corrected ones. Remark [rem:provablehalf]
+caught the discrepancy by measuring the same constant a second way.
+
+**The effect is not marginal.** Against $32$ global sign vectors —
+global, so the coins carry the same across-$k$ correlation $\mu$ does
+— the ratio of $\mu$'s octave mean to the coins' median runs $1.3$ to
+$1.8$ across the range, $\mu$ ranks $25$ to $32$ of $32$ in almost
+every cell, and it is above the coin median in $29$ of $30$. Rule Z4
+asked $\mu$ to stay inside the coins' range and **is refuted**: at one
+cell $\mu$ beats all thirty-two draws. The control Z1 reproduces every
+published octave mean to $10^{-4}$.
+
+**And it is a constant, not an exponent.** Pooled over the five $N$,
+the ratio by octave reads
+
+$$
+0.8877,\ 1.2454,\ 1.4487,\ 1.3969,\ 1.4879,\ 1.5586,\ 1.4634,\ 1.3172
+$$
+
+from $N/k\in[2,8)$ upwards — it climbs out of the short octaves and
+then flattens. Fitting $\log(\text{ratio})$ on $\log(N/k)$ from
+$N/k=128$ up, where the transient is over, gives a slope of
+$-0.0097$ with a leave-one-out spread of $0.0443$: **indistinguishable
+from zero, around a mean ratio of $1.4621$.** Rule Z3 now holds at
+three of five $N$, but its instrument is still the wrong one and the
+pooled profile says why — each $N$ starts and ends at a different
+octave, so differencing the last against the first compares different
+parts of a non-monotone curve at different $N$.
+
+Three things follow. The exponent measurements of Remarks
+[rem:elemsize] and [rem:elemreach] stand: $|P|$ is square-root, and so
+is a coin, and the factor between them does not touch the exponent.
+The *constant* does not: any heuristic that prices
+$\sum_{k<K}(\log k)|P|$ at what square-root cancellation with a random
+sign pattern would give understates it by about $1.46$, and Remark
+[rem:heuristic]'s calibration $c(N)=\sqrt{\log N}$ is a measurement of
+$|H|$ precisely because no such pricing is available a priori. And the
+one cell where $\mu$ falls *below* every coin is the shortest octave,
+$N/k\in[2,8)$ at ratio $0.8877$ — where parity leaves the
+non-negative $m=1$ term nearly alone, the structure Remark
+[rem:leanodd] identified.
+
+
+#### Remark (size and provability point at opposite halves) {#rem:provablehalf}
+<!-- evidence: lab_elementary_provable.py -->
+
+Remark [rem:splitbudget] puts the target on the elementary half:
+$\beta B_P$ takes $0.81$ to $0.87$ of the budget and $B_R$ about half,
+so **the wall is the sieve-weighted Möbius sum and not the residue.**
+That is a statement about size at accessible $N$. About what can be
+*proved* the two halves are not symmetric at all, and the asymmetry
+runs the other way.
+
+Write $S$ out. $P(N;k)=C_k\sum_{m\in S}\mu(m)$ with
+
+$$
+S=\{\,m<N/k:\ m \text{ odd},\ \mu^2(m)=1,\ (m,k)=1,\
+m\not\equiv Nk^{-1}\ (q)\ \forall q\le29\,\}.
+$$
+
+Every condition here is multiplicative or a residue condition to a
+**bounded** modulus. Coprimality to $k$ is not a residue condition
+modulo $k$ — in the Dirichlet series it deletes Euler factors and
+contributes $L(k)=\prod_{p\mid k}(1-1/p)^{-1}$, nothing worse. So the
+classical unconditional $|\sum_{m\le x}\mu(m)|\le Ax\exp(-c\sqrt{\log
+x})$ is of the *right shape* for $P$ uniformly in $k$, whereas for
+$R$ — a genuine Möbius–prime correlation of length $N/k$ at level $k$
+— nothing of the kind is available past $k=N^{1/2}$. **If the
+uniformity holds then $\sum_{k<K}(\log k)|P|=o(N)$ for every fixed
+$\theta'<1$, the elementary half is asymptotically free, and the
+entire obstruction is the half [rem:splitbudget] measured as the
+smaller one.**
+
+This does not prove the uniformity and does not claim to. What it does
+is test the shape where the shape can be falsified, and then price it.
+
+The shape survives. Rule W1 asked the ratio $|P|/[(N/k)\exp(-c\sqrt{\log
+(N/k)})L(k)]$ at $c=0.2098$ to stay below $1$ everywhere and **is
+refuted** — but the maximum is attained at $N/k=7,13,30,63,108$, which
+is $N$ over the $k$-cap, and an asymptotic estimate has no content at
+$x=7$. Restricted to $N/k\ge2,8,32,128$ the maxima are
+$1.2119,\,1.0710,\,0.7309,\,0.3363$: the violation lives entirely
+below $x=32$ and the constant forced anywhere an estimate could speak
+is under $1$. W2 holds at five of five — the ratio falls monotonically
+across the octaves, from $7.8$ to $174.9$ in looseness at the largest
+$N$, because the truth is $(N/k)^{1/2}$ and the bound is $N/k$ damped
+sub-logarithmically, so the gap is itself a power.
+
+The null separates the two causes. Coins on the identical sifted set,
+measured against the identical bound, sit at
+$0.10836,\,0.08210,\,0.04182,\,0.02266,\,0.01152,\,0.00546$ across the
+octaves at the largest $N$ against $\mu$'s
+$0.12883,\,0.08699,\,0.04734,\,0.02639,\,0.01356,\,0.00572$: **a coin
+falls away from the bound at the same rate**, so the looseness is the
+shape and not $\mu$, and what $\mu$ adds is the constant of Remark
+[rem:muvscoin]. Measuring that constant here a second way is what
+caught the $C_k$ weighting error in it.
+
+**And the price is the whole answer.** At accessible $N$ the bound
+alone would spend $13.98,\,15.38,\,16.82,\,18.29,\,19.83$ times the
+budget at $\theta'=0.56$ — not merely useless but *getting worse*
+across the sweep, since $\exp(-c\sqrt{\log x})$ falls more slowly than
+$(\log K)^2$ rises. Solving
+$A\,d_L\int_0^{\theta'u}v\,e^{-c\sqrt{u-v}}\,dv=\SS(N)(1-A(N))$ with
+$u=\log N$, the measured $d_L=0.3994$ and the conservative
+$A=1.2119$ forced by the data gives
+
+$$
+N\approx10^{5475},\qquad
+[\,10^{2093},\ 10^{13093}\,]\ \text{over } c\in[0.15,0.30].
+$$
+
+That bracket sweeps $c$ and nothing else, which is worth saying now
+that gate check G33 asks what a bracket covers. The forecast also
+rests on the measured $d_L$ and on the implied constant $A$. The first
+does not drift at all here — every $N$ in the sweep has the same odd
+radical, so the admissible $k$-set and $d_L$ are identical across it,
+a fact about this sweep and not a general one. The second is not a
+drifting constant either: $A$ falls monotonically because the maximum
+of the ratio is always at the shortest inner sum, $N$ over the
+$k$-cap, which grows with $N$ — it is a function of where one looks,
+and the *largest* value is the one used, which is the conservative
+choice for an upper bound. Scaling $A\,d_L$ by $2.1071$ either way
+moves the forecast over $[10^{4839},\,10^{6140}]$ against the
+$c$-sweep's $[10^{2093},\,10^{13093}]$. Both matter and neither is
+within nine thousand orders of magnitude of anything computable.
+
+So the reduction is real in shape and empty in size. What it changes
+is where the program should push: **not at $P$.** Any effort spent
+proving a bound for the elementary half is spent on the half that
+already has one in principle; the half with no bound at all past
+$k=N^{1/2}$ is $R$, and [rem:splitbudget]'s ranking is a fact about
+finite $N$ that inverts in the limit. What [rem:residue] measures —
+$|R|\asymp(N/k)^{1/2}$ with the lean removed — is therefore the
+statement the whole route turns on, and it is smaller than $H$ by a
+constant and no easier by an exponent.
+
+
+#### Remark (what the conditional reduction actually buys) {#rem:residuelevel}
+<!-- evidence: audit_residue_level.py -->
+
+Grant Remark [rem:provablehalf]'s uniformity. Then
+$|H|\le\beta|P|+|R|$ gives $B(N)\le B_R(N)+o(N)$ and the route's
+condition is a condition on the residue alone, permitting the level
+$K^*_R$. Remark [rem:splitbudget] prints one — $9191$ to $63399$, at
+exponents $0.7477$ down to $0.7382$ — and $0.74$ would clear
+$\theta'=0.56$ with room to spare.
+
+**It is against the wrong budget.** That table crosses each half
+against $\SS(N)N$; Proposition [prop:nolog] needs
+$\SS(N)(1-A(N))N$, smaller by $4.7009$. Recomputed here — the control
+reproduces all five published $K^*_R$ to $1.0000$ — the operative
+crossings are $993,\,1447,\,2019,\,3319,\,5923$ and the exponents are
+
+$$
+0.5654,\ 0.5642,\ 0.5599,\ 0.5675,\ 0.5799 .
+$$
+
+The gap between the two budgets is $0.1823,\,0.1775,\,0.1794,\,0.1696,\,
+0.1583$, matching the $0.1677$ that Remark [rem:modeltransfer]
+measured for $K^*_H$ — so the effect is the budget and not the half.
+
+**This is the sharpest statement of where the program stands, and it
+is a knife-edge.** Rule U2 holds: the residue alone carries the level
+past the square-root barrier at every $N$, by a margin of $0.06$ to
+$0.08$. Rule U3 asked it to clear $\theta'=0.56$ as well and **is
+refuted** — at $N=8\cdot10^5$ the exponent is $0.5599$, short by one
+part in five thousand. Rule U4 holds under its own registered rule —
+the least-squares slope of the exponent against $\log N$ is
+$+0.004692$, which is not negative — **but its reading is withdrawn.**
+That slope reaches $1.60$ standard errors and its two-sigma interval
+contains zero, and the leave-one-out agreement offered for it is a
+property of least squares rather than of the data (Remark
+[rem:slopes]). Whether the margin is closing is not determined *here*
+— **it is determined two octaves further out**, where the same slope
+over seven points reaches $3.71$ standard errors and is positive
+(Remark [rem:slopereach]). The conclusion U4 drew is right; the five
+points it drew it from could not support it.
+
+What this does and does not say. It does not prove anything: the
+uniformity it is conditional on is unproved, and an exponent measured
+over a factor $16$ in $N$ forecasts nothing (Remark
+[rem:forecastbracket]). **And every $N$ here is $2^a5^b$: the sweep
+has one odd radical, which its own result file now declares.** Remark
+[rem:residuearithmetic] repeats the measurement across arithmetic
+types and finds the barrier not cleared at the primorial-like ones, so
+the figures below are about this family and not about even numbers. What it does is price the reduction. **The
+elementary half, which spends most of the budget, is the half with a
+classical estimate in the right shape; strip it and the half that is
+left carries the level to $0.56$–$0.58$, not to $0.74$ and not to
+$0.50$.** The programme's target $\theta'>1/2$ is cleared by the
+conditional reduction, and cleared by less than a tenth.
+
+
+#### Remark (what the signs cost once the elementary half is gone) {#rem:residuesigned}
+<!-- evidence: lab_residue_signed.py -->
+
+[eq:direct] carries the signed sum over $k$; [eq:directcond] discards
+the signs. Remark [rem:signedlevel] priced that discard for $H$ at a
+factor $1.793$–$2.223$ in $K^*$, about $0.053$ in $\theta'$ — a real
+gain and a bounded one. The same question for $R$, which is what the
+conditional reduction of Remark [rem:provablehalf] leaves behind, had
+not been asked.
+
+**The discard costs four to six times as much there.** Against the
+operative budget, and with the control S1 reproducing the absolute
+crossings $993,\,1447,\,2019,\,3319,\,5923$ exactly, the signed walk
+$\sum_{k<K}(\log k)R(N;k)$ does not leave
+$[-\SS(1-A)N,\,+\SS(1-A)N]$ until
+
+$$
+K=35597,\ 37623,\ 48957,\ 68669,\ \text{and not at all below }10^5,
+$$
+
+factors of $35.8,\,26.0,\,24.2,\,20.7$ and more, at exponents
+$0.8586,\,0.8167,\,0.7945,\,0.7796$ — **a gain of
+$+0.2932,\,+0.2526,\,+0.2346,\,+0.2121$ in $\theta'$**, where $H$'s
+was $0.053$. Rules S2 and S4 hold at every $N$: the signed level
+clears $\theta'=0.56$ with room the absolute level never had.
+
+**Rule S3 is refuted, and its refutation is the caution.** It asked
+$R$'s signs to be random-like — not worse than a redraw. They are not:
+none of the sixteen draws that hold every $|R(N;k)|$ fixed and redraw
+its sign crosses anywhere below $k=10^5$, while $\mu$'s walk crosses
+at four of the five $N$. So the residual lean survives the split.
+Remark [rem:residue] located the lean in the elementary half by mass
+fraction — $P$'s $f_+$ an order below the sign band — but $R$'s own
+$f_+$ of $0.5516$ to $0.4832$ against a band of width about $0.02$ was
+already outside it, and that is what this measures at the level.
+**$\mu$ is still worse than random signs; it is merely much less worse
+than before the split.**
+
+What this changes. It does not open a route: a bound on $|R(N;k)|$ is
+what an estimate supplies, and the signed sum is not that. What it
+does is size the single largest loss in the chain. Of everything the
+programme discards, **the signs across $k$ in the residue are worth
+more than the split itself** — Remark [rem:splitbudget] measured the
+whole elementary/residue division at about $0.06$ in $\theta'$, and
+this one step at $0.21$ to $0.29$. Any future estimate that could
+retain even part of the cancellation across $k$ would buy more than
+every other refinement in these papers put together.
+
+*Added later.* The comparison in the paragraph above takes its two
+sides at different $N$: $0.06$ is the split at the top of the sweep
+and $0.29$ the signs at the bottom. Matched, the ratio is $2.98$ to
+$3.28$ and flat, not $4.41$ — see Remark [rem:splitvalue]. The
+ordering stands; the size of it was overstated.
+
+*Added later.* The fifth $N$ above is censored, not absent: the walk
+was truncated at the same $k=10^5$ at which $\beta$ is fitted, and
+that cap hides exactly the largest crossings. Remark
+[rem:signedgain] separates the two caps, locates the missing
+crossing, and finds the gain **rising** there — so "those four numbers
+fall" was a statement about what the cap left visible. The gain does
+decline, at a rate measured there; it does not decline monotonically.
+
+
+#### Remark (the knife-edge is a fact about one family) {#rem:residuearithmetic}
+<!-- evidence: audit_residue_arithmetic.py -->
+
+Every measurement of $R$ in these papers runs over $N=2\cdot10^5\cdot
+2^j$. Those five $N$ are all $2^a5^b$ and share one odd radical —
+which Remark [rem:provablehalf]'s evidence made visible by accident,
+its density factor $d_L$ coming out identical to four decimals at
+every $N$ because the admissible $k$-set never changes. So the
+knife-edge of Remark [rem:residuelevel] is measured at **one
+arithmetic type**, and the quantity it is measured against is the one
+that varies most with type: $\SS(N)(1-A(N))$ runs from $0.073312$ to
+$0.374487$ across the test set, a factor of five.
+
+**It does not survive.** With the control P1 reproducing the family
+member to $3\cdot10^{-5}$, the seven $N$ of comparable size give
+
+$$
+\begin{array}{r|ccccccc}
+ \text{odd part} & 3 & 7 & 5 & 3\cdot5 & 3\!\cdots\!17 & 3\!\cdots\!13 & 17\cdot47059\\\hline
+ \log K^*_R/\log N & 0.5422 & 0.5591 & 0.5675 & 0.5294 & \mathbf{0.4808} & \mathbf{0.4747} & 0.5424
+\end{array}
+$$
+
+and rule P2 asked every one of them to clear $\tfrac12$. **At the two
+primorial-like $N$ it fails**: $1531530$ gives $0.4808$ and $1621620$
+gives $0.4747$, both *below* the square-root barrier. The conditional
+reduction of Remark [rem:provablehalf] — strip the elementary half and
+let the residue carry the level — **does not reach $\theta'>1/2$ at
+the arithmetic where the budget is thinnest.**
+
+That is exactly the place Proposition [prop:onesided] identified: the
+threshold is $\asymp N$ for almost all even $N$ and sinks towards
+$N/(\log N\log\log N)$ at the primorial-like ones. P3 and P4 confirm
+the mechanism rather than complicating it — the spread across types is
+$0.0928$, and the exponent regressed on $\log$ of the threshold has
+correlation $0.97565$. It is the budget, and nothing else, that moves
+the level.
+
+**And that spread survives the test that killed the $k$-exponent's.**
+The five $N$ of Remark [rem:residuelevel] are one radical, so their
+scatter about their own trend — r.m.s. $0.0049$ — is what this
+statistic does with the arithmetic held fixed; seven draws at that
+width have an expected span of $0.0134$ by simulation, against the
+measured $0.0928$: **a ratio of $6.92$**, where the $k$-exponent of
+Remark [rem:kexponent] managed only $1.40$ and had to be withdrawn.
+The two claims are now judged on the same footing and only one of them
+is a measurement.
+
+Two things to record precisely. The response is weaker than the model
+expects: Remark [rem:modeltransfer] prices a budget factor at
+$0.1677$ per factor $4.7009$, a slope of $+0.1084$ per natural log,
+against a measured $+0.0516$ — **the level is half as sensitive to the
+budget as the model says**, which is the only thing here that works in
+the programme's favour. And $c_R$ across types spreads by $0.1510$,
+matching the $0.1436$ Remark [rem:residueconstant] found across the
+family: the constant has no more law across arithmetic than it has
+across size.
+
+**So Remark [rem:residuelevel]'s $0.5654$–$0.5799$ must be read as a
+statement about $2^a5^b$.** The margin over $\tfrac12$ that Remark
+[rem:betafree] showed could not be tuned away by the split constant is
+nevertheless erased by changing the arithmetic of $N$, and erased at
+the $N$ that were always going to be the hard ones.
+
+
+#### Remark (the primorial failure is finite-$N$, and nearly reachable) {#rem:primorialladder}
+<!-- evidence: lab_primorial_ladder.py -->
+
+Remark [rem:residuearithmetic] found the conditional reduction failing
+at primorial-like $N$ and could not say whether that is about the
+arithmetic or about the size: seven $N$ of one magnitude cannot
+separate them. The arithmetic is not obviously fatal. At $N$ primorial
+to $y$ the one-sided margin collapses — $1-A(N)=\sum_{p>y}1/(p(p-1))
+\approx1/(y\log y)$ — while $\SS(N)$ grows like $\log y$, so the
+budget is of order $N/\log N$ rather than $N$; balancing
+$\sum_{k<K}(\log k)c_R\sqrt{N/k}$ against that still gives
+$K\asymp N/\log^4N$, whose exponent tends to one.
+
+**It is finite-$N$.** Sweeping a second family — $N=30030\cdot2^j$,
+the radical $3\cdot5\cdot7\cdot11\cdot13$ held fixed over a factor
+$64$, four times the lever the main family has, with $N=1621620$
+recomputed as a control and reproducing its published $0.4747$ to
+$10^{-5}$ — the exponent reads
+
+$$
+0.4550,\ 0.4595,\ 0.4682,\ 0.4633,\ 0.4688,\ 0.4746,\ 0.4876 .
+$$
+
+Rule R2 holds: the slope against $\log N$ is $+0.006623$ with
+correlation $0.92378$. R3 holds too — that slope exceeds the
+$2^a5^b$ family's $+0.004692$ — but **the ordering is not a
+measurement**: the family's slope has standard error $0.002914$
+(Remark [rem:slopes]), so the two differ by well under one of them and
+"catching up" is not shown. R4 holds:
+nothing in the ladder reaches $\tfrac12$, the top being $0.4876$.
+
+The null says what the rise is and is not. A coin on the identical
+deviations rises too — eight global sign vectors give slopes from
+$-0.003700$ to $+0.014290$, median $+0.008310$, and $\mu$'s
+$+0.006623$ sits inside that band. **The rise itself is a fact about
+magnitudes, not about $\mu$**, which is what Remark
+[rem:residuecancel] would predict since $R$'s sizes are exactly a
+coin's. What R3 compares is not $\mu$ against a coin but this radical
+against the other, where the budget differs by five — and that
+comparison is the content.
+
+What makes this ladder the clean experiment is that the threshold does
+not move along it at all. With the radical fixed, $\SS(N)$ and $A(N)$
+are constants and $\SS(N)(1-A(N))=0.087306$ at every rung; the rise is
+the level alone, against a budget held still.
+
+**And the barrier is nearly within reach.** On the fitted slope the
+exponent reaches $\tfrac12$ at $N=10^{7.10}$, with a bracket of
+$[10^{7.07},\,10^{7.36}]$ over the leave-one-out extremes of the slope
+— whose own drift is $0.2758$, declared. That is a factor of six to
+twenty past the top rung, not the eight thousand orders of magnitude
+of Remark [rem:provablehalf] or the nine decades of Remark
+[rem:leanbracket]. **Extending this ladder three more doublings would
+settle it**, and the bracket is narrow for the reason Remark
+[rem:marginbracket] gives: the reach is short.
+
+
+#### Remark (the first bracket to be tested, and it failed) {#rem:primorialreach}
+<!-- evidence: audit_primorial_reach.py -->
+
+Remark [rem:primorialladder] forecast that the primorial ladder's
+exponent reaches $\tfrac12$ at $N=10^{7.10}$, bracket
+$[10^{7.07},\,10^{7.36}]$, and said three more doublings would settle
+it. **Every other forecast in these papers is out of reach; this one
+was not, and it has now been run.**
+
+The rungs $j=7,8,9$ put the ladder at $3843840$, $7687680$ and
+$15375360$ — the last at $10^{7.19}$, past the point estimate and
+inside the bracket. The control E1 reproduces all seven published
+rungs, and E2 holds with the slope essentially unchanged: $+0.006623$
+on seven rungs, $+0.006643$ on ten, correlation improving from
+$0.92378$ to $0.95981$ and the leave-one-out spread collapsing from
+$0.001827$ to $0.000195$. **The slope was right.**
+
+**E3 is refuted.** The three new exponents are
+$0.4824,\,0.4965,\,0.4941$ — none reaches $\tfrac12$, so there is no
+crossing inside the ladder, and the point estimate $10^{7.10}$ is
+**excluded**: the top rung sits at $10^{7.19}$ with the exponent still
+short.
+
+**E4 is not refuted, and the distinction is the whole value of having
+had a bracket.** With no crossing to place, E4 cannot be evaluated as
+written; what is decidable is exclusion, and the bracket's upper end
+$10^{7.36}$ lies *above* the top rung, so a crossing anywhere in
+$[10^{7.19},\,10^{7.36}]$ remains open. **The point estimate failed
+its first live test and the interval survived it** — which is what an
+interval is for, and the first time in these papers that the
+difference has been observable.
+
+The point estimate's failure is worth more than its success would have
+been. That bracket was built
+from the leave-one-out spread of the *slope*, and the slope is now
+known to ten times better precision than when it was built. What it
+never covered is the scatter of the rungs about the line:
+
+$$
++0.0007,\ +0.0006,\ +0.0047,\ -0.0048,\ -0.0039,\ -0.0027,\ +0.0057,\
+-0.0041,\ +0.0053,\ -0.0016
+$$
+
+with r.m.s. $0.0039$ against a trend of $0.0046$ per doubling —
+**the scatter is eight tenths of what the trend gains in a whole
+rung.** A level is therefore crossed several rungs before or after the
+line says it will be, and no amount of precision in the slope can know
+that. Remark [rem:forecastbracket] required brackets; Remark
+[rem:residueconstant] required the constant's drift to be checked
+before extrapolating; neither asks the question this failure asks,
+which is how far the data sit off their own fit.
+
+Redone with the scatter carried, the line reaches $\tfrac12$ at
+$N=10^{7.47}$ with a bracket $[10^{7.21},\,10^{7.72}]$ at one r.m.s.
+residual either way. Remark [rem:primorialladder] now publishes the
+same correction on its original seven rungs alone, and **that
+interval, built from the data that existed before the test, is not
+contradicted by the three rungs that refuted the point estimate.** The correction
+is not merely a wider bracket: the widened bracket the original data
+would have given is consistent with what the new data show, and agrees
+with the ten-rung refit to three decimals.
+
+
+#### Remark (a better instrument that turned out worse) {#rem:primorialshare}
+<!-- evidence: lab_primorial_share.py -->
+
+Remark [rem:primorialreach] left a bracket half a decade wide because
+the ladder's rungs scatter about their line by $0.8$ of what the trend
+gains in a rung. That looked like a fault of the instrument. $K^*_R$
+is where a step function first exceeds a level — an integer, discrete,
+sensitive to a single term — whereas the question it encodes is not
+about a location at all:
+
+$$
+\frac{\log K^*_R}{\log N}>\tfrac12
+\iff K^*_R>\sqrt N
+\iff \rho(N):=\frac{\sum_{k<\sqrt N}(\log k)|R(N;k)|}
+{\SS(N)(1-A(N))N}<1 .
+$$
+
+$\rho$ is a ratio of two smooth sums at a fixed abscissa. Remark
+[rem:muvscoin] made exactly this move for a different question and
+resolved in one step what a fitted exponent could not resolve at all.
+
+**It is the worse instrument here, and F2 and F4 are refuted.** The
+control F1 holds at all ten rungs — $\rho$ and the exponent agree on
+which side of the barrier every rung lies — and F3 holds, $\rho$
+falling with slope $-0.035113$. But $\rho$'s residual scatter is
+$0.0689$ against a trend of $0.0243$ per doubling, a ratio of $2.829$
+where the exponent's is $0.85$, and the forecast bracket **widens**
+from $1.6824$ to $1.7034$ decades. (That comparison has moved since
+this was first written. The exponent-based bracket it is measured
+against covered only the line's scatter then and was a third as wide;
+Remark [rem:laddershape] has since forced it to cover the choice of
+shape as well, and the old figure is not reprinted because nothing
+computes it any more. The ratio is still the wider instrument, by far
+less than it was.)
+
+The mechanism is worth keeping. The two statements are equivalent but
+their *trends* are not. Near the crossing
+$\log\rho\approx-c\log N\,(e-\tfrac12)$ with $e$ the exponent, so the
+exponent carries a division by $\log N$ that $\rho$ does not. That
+division damps the fluctuation of $K^*$ without damping the trend by
+as much: the exponent's scatter times the mean $\log N$ of $13.4291$
+is $0.0524$ against $\rho$'s own $0.0689$ — **the same noise seen
+through two lenses** — while the exponent's trend times $\log N$ is
+$0.0618$ against $\rho$'s $0.0243$, because $\log\rho$ carries a
+second drift $-c(e-\tfrac12)\,d\log N$ that the exponent has divided
+away. The null confirms the diagnosis is about the statistic: the coin
+arm's own $\rho$ scatters by $0.749$ to $2.529$ of its trend, the same
+range.
+
+**And it loses twice over.** Gate check G36 has since forced both
+instruments to declare how many functional forms their brackets rest
+on. For the exponent on eleven rungs, three forms survive and put
+$\tfrac12$ within $0.2146$ decades of each other — the scatter bracket
+already covers them and widens by nothing. For $\rho$, **all four
+forms survive** and put $\rho=1$ at
+$8.3524,\,9.1856,\,9.7957,\,11.4859$: a spread of $3.1336$ decades,
+widening its bracket by $2.2818$ to $[10^{7.5007},\,10^{11.4859}]$.
+The ratio's scatter is $3.3$ times the exponent's relative to trend,
+and its shape ambiguity sits on top of that.
+
+**So the lesson of Remark [rem:muvscoin] does not generalise.** A
+ratio at a fixed abscissa beats a fitted exponent when the exponent is
+a slope through points; it loses to one when the exponent is itself a
+ratio whose denominator grows. The bracket of Remark
+[rem:primorialreach] stands as the sharper of the two, by a factor of
+seven once both are made to carry the same uncertainties.
+
+
+#### Remark (the barrier crossed, at the hard arithmetic) {#rem:primorialrung10}
+<!-- evidence: audit_primorial_rung10.py -->
+
+The corrected forecast of Remark [rem:primorialreach] put the
+primorial ladder's crossing of $\tfrac12$ at $N=10^{7.4684}$. The next
+rung is $N=30030\cdot2^{10}=30750720$, at $10^{7.4879}$ — just above
+it, and on the fitted line worth $0.5004$ against a scatter of
+$0.0039$, so a coin flip written down as one.
+
+**It crossed.**
+
+$$
+N=30750720:\qquad K^*_R \text{ gives } \frac{\log K^*_R}{\log N}
+= \mathbf{0.5023}.
+$$
+
+The control G1 reproduces the previous top rung to $10^{-5}$. G2 holds
+— the measured $0.5023$ is $0.0020$ from the line fitted on the ten
+published rungs, half the r.m.s. residual. G4 holds, and is the part
+worth recording: refitting on all eleven puts the crossing at
+$10^{7.4249}$ with bracket $[10^{7.1866},\,10^{7.6631}]$, **inside the
+$[10^{7.2133},\,10^{7.7189}]$ that was published before this rung
+existed.** That bracket is also robust to the choice of functional
+form, which Remark [rem:laddershape] shows is not fixed by these data:
+the three shapes surviving at one standard error put the crossing at
+$7.4249,\,7.5618,\,7.6394$, a spread of $0.2146$ decades, and the
+scatter bracket already contains all of them — so widening it for
+shape changes it by $0.0000$. The scatter-corrected bracket has now survived the test
+that killed its slope-only predecessor's point estimate, and the
+eleven-rung fit is tighter than the ten: slope $+0.006650\to+0.006780$
+with the leave-one-out spread at $0.000227$, scatter
+$0.0039\to0.0037$, correlation $0.97008$.
+
+What this is. **Conditional on Remark [rem:provablehalf]'s uniformity,
+at $N=30750720$ the residue alone carries the truncation past
+$\sqrt N$ — at a primorial-like radical, where Remark
+[rem:residuearithmetic] found the conditional reduction failing and
+Proposition [prop:onesided] locates the worst budget.** The failure
+was finite-$N$, as Remark [rem:primorialladder] argued it should be,
+and the crossing has been observed rather than extrapolated.
+
+*Added later.* "Observed rather than extrapolated" was said of one
+rung, and the margin it clears $\tfrac12$ by is $0.0023$ against this
+ladder's own r.m.s. scatter of $0.0037$. **The margin is inside the
+floor.** By the standard adopted in Remark [rem:kexponent] and gate
+check G37 this rung on its own cannot separate crossed from
+fluctuated. It is separated one rung further out — see Remark
+[rem:primorialrung11], where the margin is $0.0099$ — so the sentence
+above stands, but it did not stand on the evidence given for it here.
+
+What it is not. The uniformity it is conditional on is unproved and
+Remark [rem:provablehalf] prices its unconditional form at
+$10^{5475}$. One $N$ is not all $N$, and this ladder is one radical
+(declared). And $\tfrac12$ is not the $\theta'=0.56$ these papers use:
+the same line puts $0.5$ at $\log_{10}N=7.4249$ and $0.56$ at
+$\log_{10}N=11.2680$ — **a number Remark [rem:laddershape] then
+withdraws, because it is the line's answer and the line is not
+distinguishable from shapes that answer very differently.** **What is settled is that
+the square-root barrier is not where the primorial arithmetic stops
+the residue** — the thing seven $N$ of one size could not tell apart
+from the arithmetic itself.
+
+
+#### Remark (the shape decides, and the data do not fix the shape) {#rem:laddershape}
+<!-- evidence: audit_ladder_shape.py -->
+
+Remark [rem:primorialrung10] quoted $\log_{10}N=11.2680$ for
+$\theta'=0.56$. That is a linear fit in $\log N$ extrapolated four
+decades, and nothing has justified the shape. The heuristic that
+governs the level says otherwise: balancing
+$\sum_{k<K}(\log k)c_R\sqrt{N/k}$ against a budget of order $N/\log N$
+gives $K\asymp N/\log^4N$, an exponent $1-c\log\log N/\log N$, rising
+to one with a falling derivative. A saturating $a+b/\log N$ rises to
+$a$ and stops. Over a factor $1024$ in $N$ these look alike.
+
+Fitted to the eleven rungs, with the control H1 reproducing the
+published line to $2\cdot10^{-6}$:
+
+$$
+\begin{array}{l|cc}
+ \text{shape} & \text{r.m.s.} & \log_{10}N \text{ at } 0.56\\\hline
+ a+b\log N & 0.00372 & 11.2700\\
+ a+b\log\log N & 0.00412 & 14.6167\\
+ a+b\log\log N/\log N & 0.00432 & 19.6207\\
+ a+b/\log N & 0.00473 & 82.5771\\
+ 1-c\log\log N/\log N & 0.03764 & 7.6204
+\end{array}
+$$
+
+Rules H2 and H3 asked for an alternative fitting *at least as well* as
+the line and **are refuted**: the line is the best of the five. But
+that criterion is too strict, and the numbers say by how much. With
+eleven points and two parameters the r.m.s. is estimated from nine
+degrees of freedom, so its own standard error is
+$0.00372/\sqrt{18}=0.00088$, **$23.6\%$**. At one standard error,
+three shapes survive — the line at $0.00$, $a+b\log\log N$ at $0.46$,
+$a+b\log\log N/\log N$ at $0.69$ — and $a+b/\log N$ is excluded by
+only $1.15$.
+
+**They agree about the measurement and disagree about the
+extrapolation.** The three surviving shapes put $\tfrac12$ at
+$7.4255,\,7.5627,\,7.6404$, a spread of $0.2148$ decades inside the
+$0.4765$-decade bracket already published — which is H4, and it holds.
+Remark [rem:primorialrung10] now carries the same comparison and finds
+its bracket **unchanged to four decimals** when the shape ambiguity is
+added to the scatter: at the crossing that was observed, the choice of
+form costs nothing.
+
+**Earlier in the ladder it cost a great deal, and the cost collapses
+monotonically as the data approach the crossing.** The same five
+shapes, fitted to the seven rungs the original forecast had, to the
+ten of Remark [rem:primorialreach], and to the eleven here:
+
+$$
+\begin{array}{r|ccc}
+ \text{rungs} & \text{surviving} & \tfrac12 \text{ spread} &
+ \text{bracket widened by}\\\hline
+ 7 & 4 & 1.4329 & 1.1833\\
+ 10 & 4 & 0.5960 & 0.3432\\
+ 11 & 3 & 0.2146 & 0.0000
+\end{array}
+$$
+
+**The shape ambiguity was real when the forecast was made and
+evaporated once the ladder reached the crossing.** That is the honest
+shape of extrapolation: the further the reach, the more the form
+matters, and the form is the last thing data fix. The line's answer at
+seven rungs, $7.4684$, is the one the eleven went on to confirm; the
+saturating shape's $8.9013$ is excluded by observation, five times its
+own residual scale away.
+They put $0.56$ at $11.2700,\,14.6167,\,19.6207$: **a spread of
+$8.3508$ decades**, and the shape excluded at $1.15$ standard errors
+puts it at $82.5771$ and caps the exponent at $0.5663$ for ever.
+
+So $10^{11.2680}$ is withdrawn. What eleven rungs fix is where the
+square-root barrier is crossed, to a fifth of a decade. What they do
+not fix is anything about $\theta'=0.56$ — not when, and not whether.
+
+
+#### Remark (no derived shape is available either) {#rem:laddermodel}
+<!-- evidence: audit_ladder_model.py -->
+
+Every shape Remark [rem:laddershape] compared was *fitted*. The
+heuristic derives one: $K^*_R$ solves
+$\sum_{k<K}(\log k)|R|=\SS(1-A)N$, and with $|R|\approx
+c_R(N)\sqrt{N/k}$ and $c_R\approx\gamma\sqrt{\log N}$ the crossing
+follows with no shape freedom at all. Remark [rem:residueconstant]
+confirmed that model to $0.7\%$ at the $2^a5^b$ family. **It fails
+here, and at its foundation.**
+
+The control J1 reproduces all eleven exponents to $5\cdot10^{-5}$.
+J2 is refuted, though only just: the model's crossings sit within
+$0.9479$ to $1.0367$ of the measured, one rung past the $5\%$ asked.
+J4 is refuted outright — the model puts $0.56$ at $10^{9.0269}$,
+*below* every fitted shape's answer, so it is a fifth opinion and not
+a resolution.
+
+**J3 says why, and is the finding.** The constant it rests on is not a
+constant:
+
+$$
+\frac{c_R}{\sqrt{\log N}}:\quad
+0.3724,\ 0.4235,\ 0.4239,\ 0.4757,\ 0.5185,\ 0.5140,\ 0.4985,\
+0.5645,\ 0.5456,\ 0.5968,\ 0.6139,
+$$
+
+rising monotonically, a spread of $0.4790$ of its mean against the
+$0.1436$ that family showed. Fitted directly, $c_R\asymp(\log
+N)^{1.3838}$ with correlation $0.98535$ and a leave-one-out spread of
+$0.0740$ — **not $\tfrac12$, and not a wobble around $\tfrac12$ but a
+different law**, growing $2.8$ times faster in the exponent. The
+model's residuals are correspondingly systematic, positive at the
+bottom of the ladder and negative at the top, with r.m.s. $0.0112$
+against the line's $0.0037$.
+
+So the primorial radical does not merely shift the constants of
+Remark [rem:heuristic]. Remark [rem:cRwindow] tried to break that
+reading by attributing the growth to the widening window $c_R$ is
+averaged over, and failed to: the growth is real, and its cause is
+sharper still.
+
+
+#### Remark (the exponent moves, not the constant) {#rem:cRwindow}
+<!-- evidence: audit_cR_window.py -->
+
+Remark [rem:laddermodel]'s headline — $c_R\asymp(\log N)^{1.3838}$ at
+the primorial radical, "a different law" — rests on one convention:
+$c_R$ is averaged over $k<K^*_R$, and $K^*_R$ grows along the ladder
+from $109$ to $5773$. Remark [rem:modeltransfer] found precisely this
+failure for the other constant, $c$ moving by five per cent between
+two $k$-ranges at the *same* $N$. If $|R|=c_R(N)\sqrt{N/k}$ exactly,
+the window cannot matter; if it does, the growth is an artefact.
+
+**The attempt to break it failed, and informatively.** The control K1
+reproduces $1.3838$ exactly. K2 predicted a *smaller* exponent from a
+fixed window and **is refuted**: $k<300$ at every rung gives
+$1.5918$, steeper, and $k<N^{1/4}$ gives $3.5892$. K3 falls with it.
+The growth is not the window.
+
+**K4 finds the real cause and is itself refuted at one rung.** Fitting
+the octave means of $|R|$ against $N/k$ at each rung gives
+
+$$
+0.4223,\ 0.3991,\ 0.4192,\ 0.4648,\ 0.4652,\ 0.4971,\ 0.4791,\
+0.5029,\ 0.4627,\ 0.5168,\ 0.5074,
+$$
+
+**rising** with slope $+0.014647$ against $\log N$, correlation
+$0.85888$, leave-one-out spread $0.000993$ — and $0.3991$ at
+$N=60060$ is outside the $[0.40,0.60]$ the rule asked for. So $|R|$ is
+**not** $(N/k)^{1/2}$ at this radical below $N\approx9.17\cdot10^6$;
+the exponent climbs to $\tfrac12$ from below and only reaches it near
+the top of the ladder.
+
+That settles what $c_R$ was. Dividing $|R|$ by $\sqrt{N/k}$ when the
+true power is $a(N)<\tfrac12$ leaves $(N/k)^{a-1/2}$, which falls with
+$N/k$ — so the "constant" has no value independent of where the
+average stops, and its apparent growth is the mismatch closing as
+$a(N)\to\tfrac12$. **The right statement is not that the residue's
+constant obeys a different law at the hard arithmetic, but that its
+$k$-exponent is still short of a half there and rising.** Remark
+[rem:laddermodel]'s conclusion stands — no derived shape is available
+— for this reason rather than the one it gave.
+
+
+#### Remark (the k-exponent is too noisy to carry an arithmetic) {#rem:kexponent}
+<!-- evidence: audit_residue_kexponent.py -->
+
+Remark [rem:cRwindow] found $|R|$'s $k$-exponent rising towards
+$\tfrac12$ along the primorial ladder, and Remark
+[rem:residuearithmetic] found the level falling with the radical and
+attributed that to the budget. If the $k$-exponent also moved with the
+radical there would be a second source, and the seven $N$ of the
+arithmetic test set — all near $1.6\cdot10^6$ — isolate the radical
+with $N$ nearly fixed.
+
+The control L1 holds, the family member reproducing its published
+$k$-exponent to $0.0061$. L2 holds: the seven span $0.0727$. **L3 and
+L4 are refuted, and in the direction opposite to the one predicted** —
+the exponent *rises* with the number of odd prime factors (slope
+$+0.006207$, correlation $0.52062$) and *anti*-correlates with the
+level ($-0.46098$).
+
+**None of that is a measurement.** The noise floor for this statistic
+is available: the eleven rungs of the primorial ladder sit at one
+radical, so their scatter about their own trend — r.m.s. $0.0191$ — is
+what the exponent does with the arithmetic held fixed. Seven draws at
+that width have an expected range of $0.0519$ by simulation, against
+the measured $0.0727$: **a ratio of $1.40$.** And the same radical
+appears twice across the two files at nearly the same $N$ —
+$1621620$ here at $0.5341$, $1921920$ on the ladder at $0.4791$ —
+**apart by $0.0550$, three quarters of the whole seven-radical span,
+at one radical.**
+
+So L2's "hold" must not be read as arithmetic dependence, and L3's and
+L4's signs must not be read at all. The level's dependence on the
+arithmetic remains what Remark [rem:residuearithmetic] measured — the
+budget, at correlation $0.97565$ — with no second source shown. What
+survives from Remark [rem:cRwindow] is the ladder's own rise, which is
+about six times its scatter and stands; what does not survive is any
+comparison of the $k$-exponent between radicals at a single $N$.
+
+
+#### Remark (what one more rung buys the shape question) {#rem:laddershape12}
+<!-- evidence: audit_ladder_shape12.py -->
+
+Remark [rem:laddershape] adjudicated five shapes on **eleven** rungs
+and left $\theta'=0.56$ undetermined: three shapes survive at one
+standard error of the best r.m.s. and put the crossing $8.35$ decades
+apart. Remark [rem:primorialrung11] then measured a twelfth rung and
+that adjudication was never redone.
+
+**J1 holds** — all five r.m.s. and all five crossings reproduce
+exactly — and **J2 holds**: on twelve the line is still the best.
+**J3 holds too.** The best r.m.s. moves from $0.00372$ to $0.00370$
+and its own standard error from $23.6\%$ to $22.4\%$, and the field
+narrows:
+
+$$
+\begin{array}{l|ccc}
+\text{shape} & \text{r.m.s. on }12 & \text{s.e. from best} &
+  \log_{10}N\text{ at }0.56\\\hline
+a+b\log N & 0.00370 & 0.00 & 11.0762\\
+a+b\log\log N & 0.00433 & 0.76 & 13.8607\\
+a+b\log\log N/\log N & 0.00464 & 1.12 & 17.5614\\
+a+b/\log N & 0.00519 & 1.80 & 41.0798\\
+1-c\log\log N/\log N & 0.03934 & 43.02 & 7.7105
+\end{array}
+$$
+
+Three survivors become **two**, and the spread of their forecasts
+falls from $8.3508$ decades to $2.7845$. **J4 holds**: it is still
+more than a decade, so $\theta'=0.56$ is still not located.
+
+What this prices is the rung itself. One doubling of $N$ — the
+computation of Remark [rem:primorialrung11] — bought a factor $3$ in
+the shape ambiguity, and the two survivors now agree on $\tfrac12$ to
+within $0.07$ of a decade ($7.3605$ and $7.4266$), which is behind the
+ladder and so not an extrapolation at all. The remaining ambiguity is
+entirely about where the ladder meets $0.56$, and closing it by rungs
+costs a doubling of $N$ for each factor of about three.
+
+
+#### Remark (the exposure that remark names, tested) {#rem:provablearithmetic}
+<!-- evidence: audit_provable_arithmetic.py -->
+
+Remark [rem:provablehalf] says of its forecast's inputs: "the first
+does not drift at all here — every $N$ in the sweep has the same odd
+radical, so the admissible $k$-set and $d_L$ are identical across it,
+**a fact about this sweep and not a general one**." That is an
+exposure named and left untested, and since Remark
+[rem:arithmeticreach] the arithmetic dependence is known to be
+standing rather than closing.
+
+Recomputed independently, **Z1 holds**: $d_L=0.3994$ to $0.00004$ and,
+with the published $A$, the forecast to $0.02$ of a decade. Across the
+seven arithmetic types of Remark [rem:residuearithmetic], **Z2
+holds**:
+
+$$
+d_L = 0.3318,\,0.4288,\,0.3994,\,0.2629,\,0.1730,\,0.1848,\,0.4726,
+$$
+
+a relative spread of $0.9309$ against a floor of exactly $0.0000$ —
+with the radical held, the admissible $k$ are literally the same set
+and $d_L$ cannot move at all.
+
+**Z3 holds and Z4 holds.** With every input measured per type the
+forecast runs $4784.6$ to $5984.4$; holding $A$ at the published
+sweep-maximum, which is the remark's own convention, it runs $5474.8$
+to $6184.3$. Over both conventions: $[10^{4784.6},\,10^{6184.3}]$.
+That is inside the $c$-sweep's $[10^{2092.7},\,10^{13093.3}]$ — the
+analytic exponent still dominates — but **outside the $A\,d_L$
+sensitivity the remark declares**, $[10^{4838.5},\,10^{6139.9}]$, at
+both ends.
+
+The mechanism is that the two channels pull against each other. A
+primorial-like $N$ admits fewer $k$, which lowers $A\,d_L$ and brings
+the crossing in; and it carries a thinner budget — $0.0733$ against
+the family's $0.3745$ — which pushes it out. The budget wins: the two
+primorial-like types are the two latest, at $5984.4$ and $5883.9$.
+
+Nothing here changes a conclusion, and nothing could: the whole span
+is nine thousand orders of magnitude from anything computable. What
+changes is the bracket. **The declared sensitivity was not a bound on
+the exposure the remark itself named**, and it is now measured.
+
+
+#### Remark (the budget gap is not a constant, and both halves pay it alike) {#rem:budgetgap}
+<!-- evidence: audit_budget_gap.py -->
+
+"A budget factor of $4.7009$ costs $0.1677$ in the exponent" is quoted
+across these papers as a constant of the method, and three scripts
+read it out of Remark [rem:modeltransfer]'s results file. **It is a
+mean.** The series is $0.1824,\,0.1688,\,0.1706,\,0.1635,\,0.1532$ —
+a fall of more than a tenth of itself across the sweep.
+
+Recomputed independently, **Y1 holds** at every $N$, and **Y2 holds**:
+the gap's least-squares slope against $\log N$ is $-0.009165$ at
+$5.04$ standard errors. It is a declining quantity, and $0.1677$ is
+attained at no $N$ in the sweep it was averaged over.
+
+**Y3 and Y4 hold, and they are the useful part.** The gap had only
+ever been measured on $H$, while every use of it is about $R$.
+Computed for $R$ it is $0.1823,\,0.1775,\,0.1794,\,0.1696,\,0.1583$ —
+within $0.0088$ of $H$'s at every $N$, and declining at $-0.008079$,
+a difference of $-0.001087$ against two standard errors of
+$0.005525$. **What the operative budget costs is a property of the
+budget ratio and not of the half being truncated**, which is what
+using it for $R$ has been assuming without evidence.
+
+One consequence for Remark [rem:residuearithmetic]. It divided the
+quoted mean by $\log$ of the budget factor to predict a response of
+$+0.1084$ per natural log of threshold, and measured $+0.0516$ across
+seven radicals. At its own $N=1.6\cdot10^6$ the gap gives $0.1057$,
+not $0.1084$. The disagreement is not the averaging: it survives at
+roughly a factor two either way, and remains what that remark said it
+was — the harder radicals admit fewer $k$, so their truncation moves
+less than the budget alone would move it.
+
+
+#### Remark (the one-radical caveat does not close) {#rem:arithmeticreach}
+<!-- evidence: audit_arithmetic_reach.py -->
+
+Every level result in these papers carries the caveat that its sweep
+has one odd radical, and Remark [rem:residuearithmetic] is why: a
+spread of $0.0928$ across seven radicals against a floor of $0.0134$.
+**That was measured at one scale.** One scale cannot say whether a
+dependence is standing or is being worked off, and Remarks
+[rem:slopereach] and [rem:primorialrung11] had made the second
+possibility concrete — the ladder rising at $+0.007013$ against the
+family's $+0.005112$.
+
+Multiplying $N$ by $2$ leaves its odd radical alone, so the same seven
+types follow up the scale exactly. At $N,\,2N,\,4N,\,8N$ — twenty-eight
+measurements, with **Q1 reproducing all seven published exponents**
+(worst discrepancy $0.00004$) — the spread is
+
+$$
+0.0928,\quad 0.1063,\quad 0.1011,\quad 0.0981 .
+$$
+
+**Q3 is refuted.** It does not close. Its own slope is $+0.001535$ at
+$0.36$ standard errors: flat, over a factor $8$ in $N$. **Q4 holds** —
+the spread is still $7.4$ times its floor at the top — and **Q5
+holds**: the same two primorial-like radicals are the bottom two at
+every scale. So the caveat is a property of the method at these
+sizes, not an artefact the range removes.
+
+**Q2 holds but must not be over-read, and the reason is the second
+finding.** All seven slopes are positive, but the number of odd prime
+factors does not order them: the slowest is $3\cdot5\cdot7\cdot11\cdot
+13\cdot17$ at $+0.002239$ — six odd primes, and $0.59$ standard
+errors, so not resolved at all — while the fastest is
+$17\cdot47059$ at $+0.012871$ with two. Remark
+[rem:primorialladder]'s rule R3 read one radical rising faster than
+one other as the hard arithmetic catching up; across seven radicals
+there is no such ordering. What survives is that the individual
+ladders rise, which Remark [rem:primorialrung11] establishes for the
+one it measures.
+
+
+#### Remark (both losses decline together) {#rem:splitvalue}
+<!-- evidence: audit_split_value.py -->
+
+Remark [rem:residuesigned] closes with "Remark [rem:splitbudget]
+measured the whole elementary/residue division at about $0.06$ in
+$\theta'$, and this one step at $0.21$ to $0.29$" — a point against a
+range. Both are series, and Remark [rem:signedgain] has since shown
+one of them declining, so the other's shape is not optional.
+
+The independent implementation of Remark [rem:slopereach] reproduces
+Remark [rem:splitbudget] exactly: **V1 holds** on all fifteen
+crossings and **V2 holds** with the worst exponent discrepancy
+$0.000046$. What the split is worth — the residue's exponent minus
+$H$'s, at the same $N$ — is
+
+$$
+0.0925,\ 0.0797,\ 0.0779,\ 0.0711,\ 0.0666 ,
+$$
+
+not $0.06$. **V3 holds**: it falls at $-0.008722$ per unit $\log N$,
+$6.70$ standard errors.
+
+**And V4 holds, which is the point.** Taken at matching $N$, the two
+losses stand in the ratios
+$3.1709,\,3.1681,\,3.0108,\,2.9828,\,3.2772$ — slope $+0.003946$ at
+$0.06$ standard errors, a flat line. The signs are worth about three
+times the split, and that factor is a property of the range and not
+of a particular $N$: both losses are being worked off together.
+
+What the published sentence did was divide the top of one range by the
+bottom of the other, which takes the two sides at different $N$ and
+gives $4.41$ — $1.13$ above the largest matched ratio. The claim
+survives, smaller and better founded: **of everything the programme
+discards, the signs across $k$ in the residue are worth about three
+times the split, at every $N$ measured.**
+
+
+#### Remark (the largest loss is a decline, and it is not monotone) {#rem:signedgain}
+<!-- evidence: audit_signed_gain.py -->
+
+Remark [rem:residuesigned] is the largest number in the chain, and it
+had been computed once. Recomputed by the independent implementation
+of Remark [rem:slopereach], **W1 and W2 hold exactly**: the absolute
+crossings $993,\,1447,\,2019,\,3319,\,5923$ and the signed
+$35597,\,37623,\,48957,\,68669$ come back digit for digit. Nothing in
+that remark's arithmetic is in doubt.
+
+Its *reading* is. $\beta$ is fitted on $k<10^5$ and the walk was
+truncated at the same $k$, and the cap hides exactly the largest
+crossings — the fifth $N$ was printed as "none", the factor as
+$>16.9$. **Censoring that removes the big values is not a missing
+data point, it is a bias in whatever trend the survivors show.** The
+two caps need not be the same number: the fit is a property of the
+split, the walk is a sum. Continuing the walk to $k<4\cdot10^5$ with
+$\beta$ untouched, **W3 holds**:
+
+$$
+N=3.2\cdot10^6:\qquad K^*_{\text{signed}}=155333,\quad
+\frac{\log K^*}{\log N}=0.7980,\quad \text{gain } +0.2181 .
+$$
+
+The factor is $26.2$, not "$>16.9$" — and the gain is **above** the
+$+0.2121$ before it. The published sequence
+$+0.2932,\,+0.2526,\,+0.2346,\,+0.2121$ looked monotone because the
+one point that would have broken the pattern was the one the cap
+removed.
+
+**W4 holds all the same.** Over five points the gain's least-squares
+slope against $\log N$ is $-0.027526$ at $4.20$ standard errors,
+two-sigma interval $[-0.040634,\,-0.014419]$: about $0.0191$ per
+octave, against the $0.0530$ that Remark [rem:signedlevel] measured
+for $H$ as a whole. So the largest single discard in the chain is
+being worked off by the range — **it is not a constant of the
+method** — while remaining, at every $N$ measured, four times $H$'s.
+
+No $N$ at which the gain would vanish is quoted. That is an
+extrapolation over a factor $16$, and Remark [rem:forecastbracket] is
+the standing reason not to make it.
+
+
+#### Remark (the rung that separates crossed from fluctuated) {#rem:primorialrung11}
+<!-- evidence: audit_primorial_rung11.py -->
+
+Remark [rem:primorialrung10]'s crossing clears $\tfrac12$ by $0.0023$
+against a floor of $0.0037$, so the next rung
+$N=30030\cdot2^{11}=61501440$ decides whether it was a crossing or a
+fluctuation. Recomputed by the independent implementation of Remark
+[rem:slopereach] — **P1 reproduces the published rung to $0.000034$** —
+the answer is:
+
+$$
+N=61501440:\qquad \frac{\log K^*_R}{\log N} = \mathbf{0.5099}.
+$$
+
+**P2 and P3 hold.** The barrier stays crossed, and now by $0.0099$,
+which is $2.7$ times the ladder's floor. Two rungs above $\tfrac12$,
+the second outside its own noise: the crossing is an observation.
+
+**P4 is refuted**, and this is where the registered rule was the
+wrong instrument rather than the ladder the wrong shape. The line on
+eleven rungs predicts $0.5057$ and the measurement is $0.5099$, off by
+$0.0042$ against an in-sample r.m.s. of $0.0037$ — but an
+out-of-sample point is not compared with an in-sample r.m.s. The
+prediction standard error at that abscissa,
+$s\sqrt{1+\tfrac1n+(x_0-\bar x)^2/\sum(x-\bar x)^2}$, is $0.0049$,
+and $0.0042$ is $0.87$ of it. **The confirming test is the refit:** on
+twelve rungs the slope is $+0.007013$ at $14.32$ standard errors and
+the scatter is $0.0037$, unchanged. A ladder that bent would have
+raised it.
+
+What is *not* touched. The shape question of Remark
+[rem:laddershape] is about where the ladder meets $\theta'=0.56$,
+which is ahead of it; $\tfrac12$ is now behind it, and no forecast is
+made here.
+
+
+#### Remark (which of these slopes is above its own noise) {#rem:slopes}
+<!-- evidence: audit_slope_significance.py -->
+
+Remark [rem:kexponent] retired a *span* by measuring the scatter it
+had to beat. The same question was never put to the **slopes**, and
+four of them are load-bearing. A least-squares slope's standard error
+is available from residuals the tables already print,
+$\mathrm{s.e.}=\sqrt{\sum r^2/(n-2)\,/\sum(x-\bar x)^2}$, so no new
+arithmetic is needed to put all four on one footing.
+
+M2 holds and M3 holds; **M4 is refuted.** The primorial ladder's level
+slope stands at $11.99$ standard errors and its $k$-exponent at
+$5.03$ — the "six times its scatter" of Remark [rem:kexponent],
+computed properly. The share's $\log\rho$ reaches $2.87$. **But the
+family's level exponent — rule U4's entire basis — reaches $1.60$,
+and its two-sigma interval is $[-0.001169,+0.010489]$, which contains
+zero.** The margin over $\tfrac12$ may be opening at the rate U4
+reports, or closing; five points cannot tell.
+
+The argument U4 actually offered makes the failure sharper. Its three
+leave-one-out refits span $0.000289$ to $0.007892$, which lies
+*inside* that two-sigma interval — as it must, since dropping one
+point of five is a bounded perturbation of a least-squares fit
+whatever the noise. **Agreement among leave-one-out refits is a fact
+about the arithmetic of least squares and not about the data**, and it
+was read here as if it were evidence.
+
+The control M1 is also refuted, at a tolerance of $10^{-5}$ set
+without asking what the printed tables carry. That is answerable
+rather than worrying: a slope is a fixed linear functional
+$\sum c_iy_i$ of the ordinates, so rounding the $y$ column to $d$
+decimals moves the refit by at most $\sum|c_i|\cdot\tfrac12 10^{-d}$.
+Every M1 gap lies inside its own bound — the largest, $0.0000321$
+against $0.0000433$ — so what M1 refutes is the tolerance, and no
+published slope is in doubt from it.
+
+What this costs: **rule U4 is withdrawn as a reading.** Its verdict
+under its own registered rule was "hold", the slope being positive,
+and that rule was the badly chosen thing; the sign it turns on is not
+resolved. Remark [rem:residuelevel]'s $0.5654$–$0.5799$ is unaffected
+— those are measurements, not a trend — but nothing may be inferred
+from them about where the margin goes. The ladder's rise, which is
+what Remark [rem:primorialrung10] rests on, is untouched and is the
+only level trend this project has that clears its own noise.
+
+*Added later.* That last sentence was true when written and is no
+longer. What the table above does not say is over how much range each
+$t$ was earned, and the family's five points span $2.7726$ in
+$\log N$ against the ladder's $6.9315$. Two further octaves resolve
+the family's sign as well; see Remark [rem:slopereach].
+
+
+#### Remark (two more octaves settle it) {#rem:slopereach}
+<!-- evidence: audit_level_slope_reach.py -->
+
+Remark [rem:slopes] left one thing open rather than closed. The
+family's level slope was unresolved at five points — but a slope's
+standard error falls with the spread of the abscissae, and five
+octaves of $N$ give a spread in $\log N$ of only $2.7726$ against the
+primorial ladder's $6.9315$. **Unresolved because the statistic is
+noisy and unresolved because the sweep is short are different
+complaints, and only the second can be answered by computing more.**
+It was the second.
+
+An independent reimplementation — the sieve weight applied by a
+precomputed residue bitmask over $N-mk$, with $C_k$ factored out of
+the sum rather than carried in the weights — reproduces all five
+published exponents. **N1 holds to $0.0000$ at every one of the
+five**, which is the strongest control this project has: two
+independently written codes agreeing on $K^*_R$ exactly.
+
+Pushed to $N=6.4\cdot10^6$ and $N=1.28\cdot10^7$, **N2 holds**: the
+exponents are $0.5767$ and $0.5834$, still clear of $\tfrac12$ and now
+clear of $\theta'=0.56$ at both. Over all seven the spread in $\log N$
+is $4.1589$ and **N3 and N4 hold**: the slope is $+0.005112$ at
+$3.71$ standard errors, two-sigma interval $[+0.002353,+0.007871]$.
+
+**So U4's reading is restored, on seven points and not on five.** The
+margin over $\tfrac12$ is opening, at about $0.005$ per unit
+$\log N$ across the accessible range. What restored it was range and
+not argument: the slope barely moved, $+0.004692\to+0.005112$; the
+standard error fell by the factor $0.4737$, of which $0.5976$ is the
+extra spread and the rest is scatter, which fell from $0.0049$ to
+$0.0043$.
+
+Two things this does not say. It is still a measurement over a factor
+$64$ in $N$ and forecasts nothing (Remark [rem:forecastbracket]).
+And it is still one odd radical: Remark [rem:residuearithmetic]'s
+primorial-like $N$ are not in this sweep, and Remark
+[rem:primorialrung10] is the corresponding statement for those.
+
+
+#### Remark (the split constant is free and buys nothing) {#rem:betafree}
+<!-- evidence: audit_beta_optimal.py -->
+
+Every exponent in Remark [rem:residuelevel] depends on $\beta$, and
+$\beta$ is not given by the problem. $H=\beta P+R$ holds for any
+$\beta$ and so does $|H|\le\beta|P|+|R|$; granting
+Remark [rem:provablehalf] the conditional bound is
+$B(N)\le B_R(\beta;N)+o(N)$ **for any $\beta$ whatever**, so the
+argument is free to choose it. What it has instead is
+$\sum HP/\sum P^2$, which minimises the $\ell^2$ distance from $H$ to
+the ray $\beta P$ — and the budget is spent by
+$\sum_{k<K}(\log k)|H-\beta P|$, an $\ell^1$ norm weighted by $\log k$
+and truncated at the crossing. Two different problems, and nobody had
+checked how far apart their answers are.
+
+**They are not apart, and the freedom is worth nothing.** The control
+T1 reproduces the operative exponents to $5\cdot10^{-5}$. Rule T2
+asked the level to be sensitive to $\beta$ at all and **is refuted**:
+over $\pm10\%$ the exponent moves by
+$0.0092,\,0.0022,\,0.0026,\,0.0018,\,0.0016$ — at the four larger $N$
+by less than a fifth of what the rule called detectable. Maximising
+$K^*_R$ over $241$ values of $\beta$ from $0.25$ to $6.25$ moves it
+from $993,\,1447,\,2019,\,3319,\,5923$ to
+$1023,\,1447,\,2019,\,3323,\,5923$ — at three of the five $N$ not at
+all. **T4 is refuted**: at $N=8\cdot10^5$ the exponent is still
+$0.5599$, so the one $N$ that missed $\theta'=0.56$ misses it under
+every $\beta$ the argument could have chosen.
+
+T3 holds — the optimum is more than $1\%$ from the fit at three of
+five — but the diagnostic shows why that is not a finding. At four of
+the five $N$ the $\ell^2$ residual and the truncated budget sum both
+read $1.000$ to three decimals at the optimum: **the two objectives
+are not merely agreed, they are flat in the same place.** Only at the
+smallest $N$ do they separate, where the optimal $\beta$ is worse by
+$\ell^2$ and better by $\ell^1$ and buys $0.0024$ in the exponent.
+(The optimum is also coarse in a way worth stating: $K^*$ is
+integer-valued and jumps, so an interval of $\beta$ shares one $K^*$
+and a $\beta$-ratio of $0.9829$ can mean the identical crossing.)
+
+So the knife-edge of Remark [rem:residuelevel] is a property of the
+object and not of a fitted constant. **That is the useful reading of a
+negative result: the $0.5599$ cannot be tuned away, and neither can
+the $0.06$ of margin over $\tfrac12$.**
+
+
+#### Remark (which half exhausts the budget) {#rem:splitbudget}
+<!-- evidence: lab_split_budget.py -->
+
+Remark [rem:residue] found $|R|\asymp(N/k)^{1/2}$ and the program's
+open list recorded the next task as proving square-root cancellation
+for $R$. That task is worth its cost only if $R$ is what binds. By the
+triangle inequality $B_H\le\beta B_P+B_R$, and each half has its own
+crossing of the budget $\SS(N)N$.
+
+**It is not $R$ that binds.** At the operative truncation $K^*_H$ the
+elementary half already takes
+$0.8112,\,0.8573,\,0.8484,\,0.8691,\,0.8456$ of the budget while the
+residue takes $0.4737,\,0.5119,\,0.5062,\,0.5214,\,0.5275$. Removing
+the residue *entirely* would move the truncation from
+$K^*_H=2973,\ldots,23397$ only to $K^*_P=4119,\ldots,30369$ — a factor
+$1.2402$ to $1.3855$, which in exponent is a move from
+$0.6552$–$0.6716$ to $0.6799$–$0.6891$, about $0.02$ in $\theta'$.
+Removing the elementary half instead would reach
+$K^*_R=9191,\ldots,63399$, exponent $0.7371$–$0.7477$, about three
+times as much. **So the wall is the sieve-weighted Möbius sum, not the
+residue**, and a perfect result about $R$ moves $\theta'$ from $0.67$
+to $0.69$.
+
+Two qualifications, and each is now declared by the result file
+itself. **Every figure in this remark is against the budget
+$\SS(N)N$, which is not the one the route asks for.** Proposition [prop:nolog] needs
+$\SS(N)(1-A(N))N$, smaller by $4.7009$ and worth about $0.18$ in the
+exponent. The comparison *between* halves above is unaffected — both
+are crossed against the same thing — but the exponents themselves are
+not the ones $\theta'$ is measured against, and Remark
+[rem:residuelevel] recomputes $K^*_R$ against the operative budget,
+where it reads $0.56$–$0.58$ and not $0.74$.
+
+**And every $N$ here is $2^a5^b$: one odd radical.** The *ordering* of
+the two halves — that $\beta P$ takes the larger share — is what this
+remark is for, and an ordering is more robust to arithmetic than a
+level; but the exponents themselves belong to that radical, and Remark
+[rem:residuearithmetic] shows the residue's own level crossing
+$\tfrac12$ downward as the radical changes.
+
+The pre-registered **Z4** capped $K^*_P/K^*_H$ at $1.30$ and it reads
+$1.3855$ at the smallest $N$, so Z4 fails there and holds at the other
+four ($1.2402$ to $1.2980$). The refutation was flagged in advance as
+the outcome that would vindicate the recorded task; at one $N$ out of
+five, and by four percent, it does not.
+
+The control sharpens where the budget goes. Permuting each half's
+magnitudes across $k$, weights left in place, the crossings move
+*outward* by a factor of three to five — $K^*_P=4119$ against a band
+of $[17627,\,20017]$ at the smallest $N$, and similarly throughout,
+with narrow bands. So the crossings are strongly a property of the
+pairing, and in the direction that matters: $|P|$ and $|R|$ are
+largest at the *smallest* $k$, where the inner sum is longest, so the
+measured cumulative front-loads and reaches the budget while a random
+pairing is still climbing. **The budget is consumed at the bottom of
+the $k$-range**, which is exactly where the reduction has no freedom
+to move.
+
+
+#### Remark (the control the ratio could take) {#rem:pairingnull}
+<!-- evidence: audit_weightgap_pairing.py -->
+
+Remark [rem:weightgapnull] found the coin unusable for two of the
+weight-gap statistics — it drives both $|\sum H|$ and
+$|\sum(\log k)H|$ to square-root size, so their ratio is a quotient of
+two near-zero quantities — and left them standing uncontrolled. There
+is a control that keeps them well conditioned: **permute $H(N;k)$
+across $k$**, leaving each weight attached to its own $k$. A
+permutation does not change a plain sum, so $\sum H$ is exactly
+invariant — measured, it drifts by $2.291\cdot10^{-16}$ at worst — the
+ratio's numerator is pinned, and the only thing destroyed is the
+pairing between a modulus and its dilated wall.
+
+**Under it the effective modulus does not survive.** The profile in
+$j$ comes out *more* geometric for the permutations than for $\mu$:
+their spread of consecutive ratios has median
+$1.0054,\,1.0052,\,1.0053,\,1.0036,\,1.0033$ against $\mu$'s
+$1.0146,\,1.0201,\,1.0132,\,1.0099,\,1.0220$. Near-geometry in $j$ is
+therefore what an *unpaired* weighting gives, not evidence of
+concentration — and $k^*$ read off that profile tracks the plain
+geometric mean of the $k$-range, $\log k^*$ running
+$5.5347$ to $6.8669$ against $\overline{\log k}$ of $5.8487$ to
+$7.3930$, a gap of $0.0244$ to $0.0670$ of $\log K$.
+
+The ratio itself does carry a little pairing information, in the
+direction opposite to the withdrawn reading. $\mu$'s
+$|\sum H|/|\sum(\log k)H|$ is $0.1807,\,0.1740,\,0.1624,\,0.1389,\,
+0.1456$ against permutation maxima of
+$0.1790,\,0.1695,\,0.1547,\,0.1481,\,0.1386$ — above the band at four
+of the five $N$, by about four percent. So the $\log k$ weight
+amplifies $\mu$'s sum slightly *less* than it would amplify the same
+values in random order.
+
+All four pre-registered rules fail, on their bands rather than their
+content. **W2** and **W3** asked $\mu$ to sit *inside* the
+permutations' range and it sits just outside at four of five $N$ —
+the outcome flagged in advance as the informative one. **W4** capped
+the gap at $0.05$ of $\log K$ and it reaches $0.0670$. **W1** capped
+the permuted ratio's spread at $0.05$ of its median and it reaches
+$0.0881$; the invariance half of W1 held exactly, and for comparison
+the coin of Remark [rem:weightgapnull] spanned $[0.0000,\,8.0955]$ on
+the same statistic, so this control is better conditioned by two
+orders even where the cap was too tight.
+
+
+#### Remark (where the weight puts its mass) {#rem:weightgap}
+<!-- evidence: lab_weight_gap.py -->
+
+[eq:flatsum] makes it cheap to turn the weight on continuously, through
+$w_k=(\log k)^j$. At $N=2.56\cdot10^7$,
+$|\sum_k(\log k)^jH|/N$ reads $0.01492$, $0.02545$, $0.04335$,
+$0.07379$, $0.12565$ at $j=0,\,0.25,\,0.5,\,0.75,\,1$ — a factor
+$1.7034$ per quarter step, with the five ratios spread by only
+$1.0018$. Geometric in $j$ is what a sum concentrated at a *single*
+effective modulus $k^*$ would give, $\sum(\log k)^jH\approx
+(\log k^*)^j\sum H$; and $k^*$ read off that way sits at
+$\log k^*/\log K=0.8814$ at the top $N$, between $0.7959$ and
+$0.9368$ across the range.
+
+**That reading is withdrawn.** An earlier version concluded from it
+that the $\log k$ weight reweights the sum towards $k\approx K^{0.88}$,
+the top of the range, and joined that to Lemma [lem:extract]'s
+requirement on where a weight must put its mass. Remark
+[rem:pairingnull] supplies the control that was missing, and it does
+not survive: permuting $H$ across $k$ leaves $\sum H$ exactly fixed
+and destroys only the pairing, and under that permutation the profile
+comes out *more* geometric than $\mu$'s while $k^*$ tracks the
+geometric mean of the $k$-range. What is left of this remark is the
+table above and the fact that the log-weighted sum exceeds the flat
+one by a factor near $8$ — not any statement about concentration.
+
+
+### The two opposing constraints
+
+
+#### Lemma (extraction) {#lem:extract}
+<!-- evidence: audit_extraction_tradeoff.py -->
+
+$\displaystyle B_w=\sum_{\substack{d<K\\(d,N)=1}}b_d\,
+ \frac{\mu(d)}{\varphi(d)}\,\rho_{dN}\!\left(\frac{K}{d}\right)$,
+where $\rho_{n}(x)=\sum_{j<x,\,(j,n)=1}\mu(j)/\varphi(j)
+ \ll e^{-c_1\sqrt{\log x}}$.
+
+
+**Proof.** 
+Write $k=dj$; for squarefree $k$ one has $(d,j)=1$,
+$\mu(k)=\mu(d)\mu(j)$ and $\varphi(k)=\varphi(d)\varphi(j)$. The bound
+on $\rho_{HL}$ is Huang–Li's Lemma 1.
+ ∎
+
+
+#### Lemma (BV-accessibility) {#lem:bv}
+<!-- evidence: analytic -->
+
+Expanding $w_k=\sum_{d\mid k}b_d$ inside the residual gives
+$\mathcal R_w=\sum_d b_d\,\mathcal R^{(d)}$, where $\mathcal R^{(d)}$
+is a sum of $\Lambda$ over progressions to moduli $md$ with
+$m<N^{1-\theta'}$. Bombieri–Vinogradov bounds each
+$\mathcal R^{(d)}\ll_A N(\log N)^{-A}$ provided
+$d\le N^{1/2-\delta}/N^{1-\theta'}=N^{\theta'-1/2-\delta}$; hence, on
+that support, $\mathcal R_w\ll_A \|b\|_1\,N(\log N)^{-A}$.
+
+
+The two lemmas pull in opposite directions. Lemma [lem:extract]
+says $B_w$ is controlled by the part of $b$ sitting *at* the
+truncation point $K$: mass at $d\le K^{1-\varepsilon}$ is damped by
+$e^{-c\sqrt{\varepsilon\log K}}$. Lemma [lem:bv] says $b$ may only
+live *below* $N^{\theta'-1/2}$. The two thresholds are separated
+by a factor $N^{1/2}$.
+
+
+#### Theorem (no weight extracts $C(N)$) {#thm:D}
+<!-- evidence: analytic -->
+
+Fix $\theta'\in(1/2,1)$ and $\delta>0$, and let $w$ be any weight
+whose transform $b=\mu*w$ is supported in
+$[1,\,N^{\theta'-1/2-\delta}]$ — the range in which the residual is
+accessible to Bombieri–Vinogradov. Then
+
+$$
+\frac{\|b\|_1}{|B_w|} \;\gg\;
+   \exp\!\left(c_1\sqrt{(\tfrac12+\delta)\log N}\right),
+$$
+
+and consequently [eq:extract] yields at best
+
+$$
+|C(N)| \;\ll_A\; \exp\!\left(c_1\sqrt{\tfrac12\log N}\right)
+   \cdot \frac{N}{(\log N)^{A}},
+$$
+
+which is not a saving of any power of $\log N$. No weight in the
+design space extracts $C(N)$ by divisor switching plus
+Bombieri–Vinogradov.
+
+
+#### Remark (relation to Bombieri's asymptotic sieve) {#rem:bombieri}
+
+The genre of Theorem [thm:D] is classical. Bombieri's asymptotic
+sieve [Bom76] shows that sieve weights alone cannot detect primes,
+however the weights are chosen, and the parity obstruction it isolates
+is the reason one expects a statement of this shape. What
+Theorem [thm:D] adds is not the phenomenon but its precise form
+here: the obstruction is quantified as a separation of $N^{1/2}$ between
+two thresholds — the point at which a weight's transform must carry
+mass in order to extract $C(N)$, and the point below which the residual
+is accessible at all — it is specific to the divisor-switch route, and
+it survives granting the full Elliott–Halberstam conjecture rather than
+merely Bombieri–Vinogradov. The reason the statement is worth making is
+narrow but real: without it, $E_3$ looks like one member of a family of
+candidate consumptions, and Theorem [thm:C] then looks like an
+accident of one choice of weight rather than a property of the route.
+
+
+**Proof.** 
+By Lemma [lem:extract] and $\varphi(d)\ge1$,
+
+$$
+|B_w| \le \sum_{d\le D}\frac{|b_d|}{\varphi(d)}
+    \left|\rho_{dN}\!\left(\frac Kd\right)\right|
+  \le \|b\|_1\max_{d\le D}\left|\rho_{dN}\!\left(\frac Kd\right)\right|
+  \ll \|b\|_1\,e^{-c_1\sqrt{\log(K/D)}},
+$$
+
+with $D=N^{\theta'-1/2-\delta}$, so that
+$K/D=N^{1/2+\delta}$. This is the displayed ratio. Feeding it into
+[eq:extract] together with the complete-part bound
+$\ll\|b\|_1\log N$ (Lemma [lem:Gb]) and Lemma [lem:bv] gives
+the bound on $|C(N)|$; and $e^{c_1\sqrt{\log N/2}}$ exceeds every
+power of $\log N$.
+ ∎
+
+
+#### Remark (what the obstruction is)
+
+The loss factor is $\exp(c_1\sqrt{(1/2)\log N})$, and the $1/2$ in the
+exponent is literally the exponent of the $\sqrt N$ barrier: it is the
+gap between where a weight must live to see $C(N)$ (at $N^{\theta'}$,
+the truncation point) and where it may live for Bombieri–Vinogradov
+to close its residual (below $N^{\theta'-1/2}$). Theorem [thm:C]
+exhibited the two endpoints of this space; Theorem [thm:D] shows
+the interior is empty, and shows why.
+
+
+#### Remark (scope, stated honestly)
+
+Theorem [thm:D] is a no-go for one precisely specified method —
+divisor switching with Bombieri–Vinogradov as the only input — over
+the whole weight space of that method. It is not, and does not claim
+to be, an obstruction to other methods. Its value is that it closes
+the design space that Theorems [thm:A] and [thm:C] opened,
+rather than leaving it to be re-explored.
+
+
+### The no-go survives Elliott–Halberstam
+
+
+The obvious objection to Theorem [thm:D] is that
+Bombieri–Vinogradov is not the only available input: Huang–Li's
+Theorem 1 itself *assumes* $EH$ for $\Lambda$ at level
+$N^{\theta}$. Raising the assumed level does not help.
+
+
+#### Theorem {#thm:Dprime}
+<!-- evidence: analytic -->
+
+Suppose $\Lambda$ has level of distribution $\theta_E \in (0,1)$, i.e.
+$EH(N^{\theta_E})$ holds. Then the residual is accessible only for $b$
+supported on $d \le N^{\theta_E-(1-\theta')}$, while extraction still
+requires mass at $d \asymp K = N^{\theta'}$; the two thresholds are
+separated by $N^{1-\theta_E}$, and
+
+$$
+\frac{\|b\|_1}{|B_w|} \;\gg\;
+  \exp\!\left(c_1\sqrt{(1-\theta_E)\log N}\right),
+$$
+
+which exceeds every power of $\log N$ for each fixed $\theta_E<1$.
+
+
+**Proof.** 
+Identical to Theorem [thm:D] with $N^{1/2-\delta}$ replaced by
+$N^{\theta_E}$: the residual's moduli are $md$ with $m<N^{1-\theta'}$,
+so $d \le N^{\theta_E}/N^{1-\theta'}$, whence
+$K/D = N^{\theta'}/N^{\theta_E-1+\theta'} = N^{1-\theta_E}$, and
+Lemma [lem:extract] gives the ratio.
+ ∎
+
+
+#### Remark
+
+Closing the gap would require $\theta_E = 1$ exactly: equidistribution
+of $\Lambda$ in progressions to moduli of size $N$ itself, where each
+progression contains $O(1)$ terms and the statement carries no
+information. So the demand side stays closed *even granting the
+full Elliott–Halberstam conjecture* — the divisor-switch route needs
+not a stronger level but a different mechanism.
+
+
+### Smooth weights: $\mu * \log^D = \Lambda_D$ {#sec:Dpp}
+
+
+Theorem [thm:D] closes the weights whose transform $b=\mu*w$ is
+supported low enough for Bombieri–Vinogradov. That hypothesis
+excludes the most natural family of all, $w_k = f(\log k)$ with $f$ a
+polynomial, whose transform is spread over every scale. For those the
+structure is explicit:
+
+$$
+b \;=\; \mu * \log^D \;=\; \Lambda_D,
+$$
+
+the generalised von Mangoldt function. $\Lambda_D$ vanishes on
+integers with more than $D$ prime factors, and on a squarefree
+$u=p_1\cdots p_r$ with $r\le D$ it is the $r$-th finite difference of
+$x^D$ at the points $\log p_i$; in particular $\Lambda_D(u) =
+D!\,\log p_1\cdots\log p_D$ when $r=D$. Hence for $f = x^D$ the
+complete part splits by the number of prime factors,
+
+$$
+\mathrm{CP}_D(N) = \sum_{r=1}^{D}\ \sum_{\substack{u<N\ \text{squarefree}\\ \omega(u)=r}}
+   \Lambda(N-u)\,\Lambda_D(u),
+$$
+
+the $r=1$ piece being a Goldbach-type sum and the $r\ge2$ pieces
+Chen-type sums (prime plus $r$-almost-prime).
+
+
+#### Proposition (polynomial weights) {#prop:Dpp}
+<!-- evidence: analytic -->
+
+Let $w_k = f(\log k)$ with $f=\sum_{j\le D}c_jx^j$ real.
+
+
+- **(i)**  If $D=0$ then $B_w \ll e^{-c\sqrt{\log K}}$ (Huang–Li's
+  Lemma 1): no extraction.
+
+- **(ii)**  If $f$ is a single monomial $x^D$, $D\ge1$, then every
+  term of $\mathrm{CP}_D$ is nonnegative, since $\Lambda\ge0$ and
+  $\Lambda_D\ge0$; by classical sieve bounds
+  $\mathrm{CP}_D \asymp N(\log N)^{D-1}$, with a fixed sign. It is
+  never $o(N)$.
+
+- **(iii)**  Cancellation therefore requires coefficients of opposite
+  sign, i.e. tuning $c_1$ against $c_2,\dots$; but the ratio that
+  would have to be matched involves the asymptotics of the $r=1$
+  piece, which for $D=1$ *is* the binary Goldbach sum. The tuning
+  is circular.
+
+
+Consequently no polynomial weight makes the complete part a
+classically known object.
+
+
+#### Remark (a prediction of ours that the measurement refuted) {#rem:toprdom}
+<!-- evidence: audit_polyweight.py -->
+
+We first expected the top-$r$ piece to dominate the others by a power
+of $\log N$, which would have given (ii) without any appeal to
+nonnegativity. That is false: measured at $N = 10^6, 4\cdot10^6,
+1.6\cdot10^7$ (`code/audit\_polyweight.py`), the two pieces of
+$\mathrm{CP}_2$ are the *same* order, with
+
+$$
+\begin{array}{r|ccc}
+ N & 10^6 & 4\cdot10^6 & 1.6\cdot10^7\\\hline
+ r=1:\ \sum_p\Lambda(N-p)\log^2p\ /\,N & 22.5145 & 25.0438 & 27.4579\\
+ r=2:\ 2\sum_{pq}\Lambda(N-pq)\log p\log q\ /\,N
+   & 17.3648 & 19.7926 & 22.2512\\
+ \text{ratio } r_2/r_1 & 0.7713 & 0.7903 & 0.8104\\
+ \mathrm{CP}_2/(N\log N) & 2.8866 & 2.9494 & 2.9967
+\end{array}
+$$
+
+— the ratio drifts towards $1$, not towards $0$ or $\infty$. The
+closure stands, but on nonnegativity rather than on separation of
+scales. Calibration: the $D=1$ column reproduces the Goldbach sum
+$\sum_p\Lambda(N-p)\log p = 1.7565N,\,1.7633N,\,1.7614N$ against
+$\SS(N)=1.76043$, which is the same at all three $N$ because
+$P(N)=\{2,5\}$ for each.
+
+
+#### Remark (the last table was truncated, not rounded) {#rem:trunc}
+<!-- evidence: audit_polyweight.py -->
+
+Version 3 printed the last row of the table above as
+$2.886,\,2.949,\,2.997$. The audit pre-registered, as its rule W4,
+that each entry should sit within half a unit in the last printed
+place; the first entry fails, because $2.8866$ was truncated to
+$2.886$ where rounding gives $2.887$. Nothing turns on it — the row
+is a shape and the shape is unchanged — and it is recorded only
+because it is the one entry in this section that a reader checking to
+the printed precision would find wrong, and because the convention a
+table rounds by is not visible from the table.
+
+
+#### Remark (the canonical tuning moves the wrong way)
+
+Since $b=\mu*w$ we have $w=1*b$ and hence $B(s)=W(s)/\zeta(s)$. That
+series has a *double* pole at $s=1$ for every degree-$2$ $f$, so
+no such $f$ removes it and $b$ cannot be made mean-zero; the most a
+degree-$2$ tuning can do is kill the second-order term. With
+$f=x^2+cx$ one has $W=\zeta''-c\zeta'$, and since neither $\zeta''$ nor
+$\zeta'$ carries a $(s-1)^{-1}$ term,
+
+$$
+B(s) \;=\; \frac{2}{(s-1)^2} \;+\; \frac{c-2\gamma}{s-1} \;+\; O(1),
+  \qquad
+  \sum_{u\le x} b_u \;=\; 2x\log x + (c-2\gamma-2)x + o(x).
+$$
+
+So the $x$-term vanishes for $f(x)=x^2+(2+2\gamma)x$ and for no other
+degree-$2$ choice. Measured to $x=1.6\cdot10^7$
+(`code/audit\_polyweight.py`), the residual coefficient
+$\bigl(\sum_{u\le x}b_u-2x\log x\bigr)/x$ is $+0.0001$ for that $f$,
+$-3.1543$ for the untuned $x^2$, and $-4.3087$ for $x^2-2\gamma x$,
+against the predicted $c-2\gamma-2$ of $0$, $-3.1544$ and $-4.3089$.
+The computation is $\sum_{u\le x}b_u=\psi_2(x)+c\,\psi(x)$ with
+$\psi_2(x)=\sum_{n\le x}\Lambda(n)\log n+\sum_d\Lambda(d)\psi(x/d)$,
+which needs no sieve of $\Lambda_2$ itself.
+
+Neither tuning buys smallness, and the canonical one is the worse:
+against the untuned $\mathrm{CP} = 39.8793N,\,44.8364N,\,49.7091N$, the
+tuning $x^2+(2+2\gamma)x$ *raises* it to
+$45.4201N,\,50.3988N,\,55.2654N$ ($+13.89\%,\,+12.41\%,\,+11.18\%$),
+while $x^2-2\gamma x$ lowers it to $37.8516N,\,42.8008N,\,47.6756N$
+($-5.08\%,\,-4.54\%,\,-4.09\%$). Killing the average of $b$ is not
+smallness: what must be small is $b$'s correlation with
+$\Lambda(N-\cdot)$, not its mean, and the correlation is the whole
+problem.
+
+(Version 2 of the companion paper justified the tuning
+$x^2-2\gamma x$ by a pole cancellation in the product $\zeta W$, and
+concluded that it makes $b$ mean-zero. The series governing $b$ is the
+quotient $W/\zeta$; its pole at $s=1$ is double and not removable by
+any degree-$2$ $f$; and that particular $f$ moves the removable term
+away from zero rather than to it.)
+
+
+### The circle method has zero margin on $C(N)$ {#sec:circle}
+
+
+Since the switch is closed over its whole design space, it is worth
+recording the exact position of the other classical mechanism. Write
+
+$$
+C(N) = \int_0^1 S_\Lambda(\alpha)\,S_\mu(-\alpha)\,e(-N\alpha)\,
+   d\alpha,\qquad
+  S_\Lambda(\alpha)=\sum_{n\le N}\Lambda(n)e(n\alpha),\quad
+  S_\mu(\alpha)=\sum_{m\le N}\mu(m)e(m\alpha).
+$$
+
+
+#### Proposition (zero margin) {#prop:E}
+<!-- evidence: audit_circle_margin.py -->
+
+Both standard ways of estimating this integral lie at or above the
+trivial bound $|C(N)|\le\psi(N)\sim N$:
+
+
+- **(i)**  $\|S_\Lambda\|_2\|S_\mu\|_2
+   = \bigl(\sum_{n\le N}\Lambda(n)^2\bigr)^{1/2}
+     \bigl(\sum_{m\le N}\mu^2(m)\bigr)^{1/2}
+   \sim (6/\pi^2)^{1/2}\,N(\log N)^{1/2}$, exceeding the trivial bound
+   by a factor $\asymp(\log N)^{1/2}$, which *grows*;
+
+- **(ii)**  any bound of the shape
+  $\sup_\alpha|S_\mu(\alpha)|\cdot\|S_\Lambda\|_1$ is at least
+  $\|S_\mu\|_2\|S_\Lambda\|_1 \gg N^{1/2}\cdot N^{1/2}=N$.
+
+
+The two factors in (ii) are bounded below for different reasons, and
+only the first is Parseval's. Parseval gives
+$\sup_\alpha|S_\mu| \ge \|S_\mu\|_2 = (6N/\pi^2)^{1/2}$, an
+identity-level constraint: no improvement in Möbius exponential-sum
+technology can lower $\sup_\alpha|S_\mu|$ below
+$(6/\pi^2)^{1/2}N^{1/2}$. For the second factor Parseval runs the
+*wrong way*: it gives $\|S_\Lambda\|_1\le\|S_\Lambda\|_2
+\ll (N\log N)^{1/2}$, an upper bound. The trivial lower bound
+$\|S_\Lambda\|_1 \ge \bigl|\int_0^1 S_\Lambda(\alpha)
+e(-n\alpha)\,d\alpha\bigr| = \Lambda(n)$ reaches only $\log N$, short
+of $N^{1/2}$ by a full power. The bound $\|S_\Lambda\|_1\gg N^{1/2}$
+that (ii) uses is a theorem of Vaughan [Vau88].
+
+
+Davenport's uniform bound $S_\mu(\alpha)\ll_A N(\log N)^{-A}$ is
+therefore useless here: it is a saving over $N$, whereas the pairing
+needs a bound at the scale $N^{1/2}$, which Parseval forbids. This is
+the parity obstruction in circle-method language — *the binary
+problem sits exactly at the trivial bound with no margin* — and it is
+why the method that settles the ternary problem cannot be pushed to
+the binary one by any sharpening of the Möbius input.
+
+The constants are measured in `code/audit\_circle\_margin.py`
+($N=2^{14}\ldots2^{20}$, exact FFT on a $4N$-point grid):
+
+$$
+\begin{array}{r|cccc}
+ N & 2^{14} & 2^{16} & 2^{18} & 2^{20}\\\hline
+ \|S_\mu\|_2/\sqrt N & 0.7798 & 0.7797 & 0.7797 & 0.7797\\
+ \sup|S_\mu|/\sqrt N & 3.058 & 2.742 & 2.853 & 2.801\\
+ \|S_\Lambda\|_1/\sqrt N & 1.946 & 2.084 & 2.219 & 2.346\\
+ \text{(i) bound}/N & 2.297 & 2.473 & 2.639 & 2.795\\
+ N/\bigl(\sup|S_\mu|\,\|S_\Lambda\|_1\bigr) & 0.168 & 0.175 & 0.158
+  & 0.152
+\end{array}
+$$
+
+The first row reproduces $\sqrt{6/\pi^2}=0.7797$ exactly, confirming
+the computation; the last row — the margin route (ii) would need to
+exceed $1$ — sits near $0.16$ and falls over the last three
+abscissae. Route (i)
+diverges from the trivial bound like $(\log N)^{1/2}$, as predicted.
+For reference the object itself is small: $C(N)/N = -0.0105$, $0.0001$,
+$0.0059$, $0.0032$ at these $N$.
+
+
+### Numerical confirmation of the load-bearing quantity
+
+
+Lemma [lem:extract] carries the theorem, so it is checked directly
+(`code/audit\_extraction\_tradeoff.py`, $N = 99{,}999{,}998$,
+$\theta'=0.56$, $K=\lfloor N^{\theta'}\rfloor=30199$). For the
+single-divisor weights $w_k=[\,d_0\mid k\,]$ (i.e. $b=\delta_{d_0}$)
+the lemma is an identity, and it is verified as one: over **all**
+$10{,}262$ squarefree $d_0<K$ coprime to $N$, the brute-force $B_w$
+over $k<K$ and the factorised $\mu(d_0)\varphi(d_0)^{-1}
+\rho_{d_0N}(K/d_0)$ agree to $6.5\cdot10^{-18}$.
+
+$$
+\begin{array}{r|cccccc}
+ d_0 & 15101 & 3777 & 2159 & 211 & 31 & 1\\
+ \lfloor K/d_0\rfloor & 1 & 7 & 13 & 143 & 974 & 30199\\\hline
+ |B_w|\,\varphi(d_0) & 1.000000 & 0.750000 & 0.066667 & 0.003384
+  & 0.004166 & 0.000529
+\end{array}
+$$
+
+— of order $1$ only when $K/d_0=O(1)$, i.e. only when the weight's
+transform sits at the truncation point, and damped
+throughout the range Bombieri–Vinogradov admits (for these parameters
+$N^{\theta'-1/2}=3$, where the largest value attained is $0.004145$).
+
+
+#### Remark (the ratio does not determine the entry) {#rem:ratiotable}
+<!-- evidence: audit_extraction_tradeoff.py -->
+
+Version 3 of this note printed the table above indexed by
+$K/d_0$ alone. That index does not determine the entry:
+$\rho_{d_0N}$ carries the condition $(j,d_0N)=1$, so the value depends
+on which small primes divide $d_0$, not only on how far $d_0$ sits
+from the truncation point. At $\lfloor K/d_0\rfloor=7$ the $184$
+admissible $d_0$ produce exactly four values, split by $\gcd(d_0,15)$:
+
+$$
+\begin{array}{r|cccc}
+ \gcd(d_0,15) & 1 & 3 & 5 & 15\\\hline
+ |B_w|\,\varphi(d_0) & 0.250000 & 0.750000 & 0.500000 & 1.000000
+\end{array}
+$$
+
+and at $\lfloor K/d_0\rfloor=13$ the $55$ admissible $d_0$ produce six
+values spanning $0.066667$ to $0.566667$. The printed $0.750000$ and
+$0.066667$ are therefore each one column of several, reproduced by
+$37$ of $184$ and by $28$ of $55$ admissible $d_0$ respectively; the
+$d_0$ row above is what makes them reproducible. The three right-hand
+columns are unambiguous — one admissible $d_0$ each — and the
+left-hand column is attained by all $5130$.
+
+The audit also pre-registered a second explanation and **T5 is
+refuted**: it predicted that the printed digits were unreachable under
+the strict $j<K/d_0$ that Lemma [lem:extract] states, so that the
+table had been computed under $j\le K/d_0$ instead. All six columns
+are attained under the strict convention. The defect is the index and
+nothing else.
+
+This changes nothing in Theorem [thm:D], whose proof uses
+$\max_{d\le D}|\rho_{dN}(K/d)|$ and not any particular $d_0$. It is
+recorded because a table whose index does not determine its entries
+cannot be checked by a reader, and this one was offered as the direct
+check of the lemma that carries the theorem.
+
+
+#### Remark (a pre-registered threshold of ours that failed) {#rem:cap}
+<!-- evidence: audit_extraction_tradeoff.py -->
+
+The audit above also pre-registered a cap as its rule T6: no $d_0$
+with $K/d_0>1000$
+should give $|B_w|\varphi(d_0)>0.05$. It is exceeded — the maximum
+over that range is $0.062792$ — and the script exits non-zero on that
+account. The cap was chosen as an effect size and not derived from any
+null, which is the failure the companion paper's methodology section
+names; $\rho\ll e^{-c_1\sqrt{\log x}}$ fixes no constant, so no
+numerical cap follows from it. The damping itself is visible —
+the octave maxima of $|B_w|\varphi(d_0)$ run
+$1.000,\,1.000,\,0.754,\,0.511,\,0.114,\,0.063,\,0.0014,\,0.00053$
+over $K/d_0\in[1,2),[4,8),\dots,[16384,32768)$ — but a properly formed
+test of the *form* $e^{-c\sqrt{\log x}}$ is not offered here and
+the pre-registered verdict stands as failed.
+
+
+## Numerical verification
+
+
+All computations are reproducible from the accompanying repository;
+$\theta'=0.56$ throughout, $N$ ranging over $2.5\cdot10^4$ to
+$8\cdot10^5$ (the ranges are small because the residual is computed
+exactly, by enumeration).
+
+
+- **Switching identity** (`audit\_switch\_identity.py`).
+Both [eq:switch] and the split $D(t)=P(t)-R(t)$ of [eq:PR] hold to
+$10^{-16}$ relative to $N$, at $N=2.5\cdot10^4$ through $4\cdot10^5$
+and five truncations $t$ each. Lemma [lem:complete] is checked not
+numerically but as an integer identity, on *every* squarefree
+$u<N$: zero mismatches. The support of $P$ is exactly the set of
+divisors of $\rad(N)$ below $N$, which is what [eq:P] asserts, and
+$\max_t|P(t)|$ stays an order of magnitude under $2^{\omega(N)}\log N$.
+
+
+- **The residual is its main term**
+(`audit\_residual\_mainterm.py`). With the main terms restricted to
+$(m,N)=1$ as required by Remark [rem:trap], and
+$c(m)=A(N)\lambda(m)/m$ of Lemma [lem:density]:
+
+$$
+\begin{array}{r|ccccc}
+ N & 5\cdot10^4 & 10^5 & 2\cdot10^5 & 4\cdot10^5 & 8\cdot10^5\\\hline
+ R/N               & 0.1140 & 0.0965 & 0.0785 & 0.0618 & 0.0483\\
+ \mathrm{MT}/N     & 0.1190 & 0.0964 & 0.0770 & 0.0616 & 0.0491\\
+ |R-\mathrm{MT}|/R & 0.0437 & 0.0017 & 0.0191 & 0.0033 & 0.0160
+\end{array}
+$$
+
+The residual *is* the predicted main term to between $0.2\%$ and
+$4.4\%$, and that main term decays through the cancellation of
+Lemma [lem:mu]. The observed decay is
+$R\asymp N^{1-\theta'/2}$ (the ratio $R/N^{1-\theta'/2}$ reads
+$2.358,\,2.425,\,2.394,\,2.290,\,2.172$, inside $[2.17,2.46]$ over the
+whole range), not $\asymp N$; a least-squares fit of $\log R$ against
+$\log N$ gives the exponent $0.6880$, against $1-\theta'/2=0.72$.
+
+The $(m,N)=1$ restriction is not a refinement. Dropping it and
+applying the same $c(m)$ to every $m<M$ takes $\mathrm{MT}/N$ to
+$-0.0460,\,-0.0357,\,-0.0293,\,-0.0210,\,-0.0157$ — the wrong sign,
+and $134\%$ to $140\%$ away from $R$. The local factor at $p\mid N$ is
+$1$ and not $p^{-1}\lambda(p)$, so applying the coprime formula there
+is not a small error in a constant.
+
+
+#### Remark (a pre-registered check of ours that failed) {#rem:band}
+<!-- evidence: audit_residual_mainterm.py -->
+
+Version 3 of this note summarised the table above as
+"$1$–$4\%$ agreement". The audit pre-registered that band as its
+rule U3 and it fails: the worst entry is $0.0437$ at
+$N=5\cdot10^4$, so the band is $0.2\%$ to $4.4\%$ and the script exits
+non-zero on that account. Both printed rows themselves reproduce to
+the last digit shown — the recomputed $R/N$ and $\mathrm{MT}/N$
+differ from the printed values by at most $4.8\cdot10^{-5}$ and
+$2.4\cdot10^{-5}$ — so what failed is the sentence describing the
+table and not the table. It is recorded because a stated band is a
+falsifiable claim and this one was false, and because a summary that
+rounds its own worst case downward is the failure that a reader cannot
+detect without recomputing.
+
+
+- **The $\log k$ branch does not decay**
+(`audit\_logweight\_branch.py`). The same quantity with $w_k=\log k$
+has $R_{\log}/N=2.2842,\,2.2625,\,2.2068,\,2.1333,\,2.0669$ against the
+predicted $2.3257,\,2.2589,\,2.1902,\,2.1302,\,2.0754$, agreeing to
+between $0.14\%$ and $1.81\%$ — an object of size $\asymp N$,
+consistent with Theorem [thm:C]. The contrast with the bullet above is
+the whole point: on the same field and the same five $N$, the $w_k=1$
+residual falls from $0.1140N$ to $0.0483N$ while this one stays above
+$2N$, a ratio of $42.8$ at $N=8\cdot10^5$. Both rows fall towards
+$\SS(N)=1.76043$ from above, which is what
+Theorem [thm:C] requires and what fixes the constant.
+
+
+- **The constants** (`audit\_E3\_constant.py`). $B_{\log}(K)$
+approaches $-\SS(N)$, and $A(N)\widetilde G(x)=-1.760250$ at
+$x=4\cdot10^6$ against $-\SS(N)=-1.760432$, as required by (i) and (ii)
+of Section [sec:C]. **Both constants are negative**; an earlier
+version of this bullet printed the second as $+\SS(N)$, which is the
+error Remark [rem:sign] records.
+
+
+- **The load-bearing identity**
+(`audit\_density\_identity.py`). $\sum_{g\mid m}
+\mu(g)/(\varphi(m/g)g\varphi(g))=1/m$ verified in exact rational
+arithmetic for all $243$ squarefree $m<400$: zero mismatches. See
+Remark [rem:loadbearing].
+
+
+## Summary
+
+
+- Theorem [thm:A]: the Möbius-weighted, fixed-class
+correlation sum with weight $w_k=1$ is $\ll_A N(\log N)^{-A}$,
+unconditionally, for any level $N^{\theta'}$ with $\theta'>1/2$.
+
+- Corollary [cor:B]: hence Huang–Li's $E_4$ (their Lemma 4)
+needs no hypothesis, and the whole $EH_\mu$ demand of their reduction
+collapses to the scalar $E_3$.
+
+- Theorem [thm:C]: that scalar is unconditionally equivalent to
+Huang–Li's equation (22), hence already gives binary Goldbach for
+large even $N$, and gives the asymptotic $\tilde r(N)\sim\SS(N)N$
+exactly when $C(N)=o(N)$.
+
+- Proposition [prop:onesided]: Goldbach itself needs only the
+one-sided $E_3 > -\SS(N)(1-A(N))N(1+o(1))$, whose threshold is
+$symp N$ for almost all even $N$ and never below
+$cN/(\log N\log\log N)$ — weaker than the consumed bound by a factor
+$(\log N)^A$ for every $A$. It does not reopen Theorem [thm:D].
+
+- Section [sec:delta]: equation (18) of [HL] omits an
+$n$-dependent constraint; the missing term $\Delta$ is exhibited and
+closes under hypotheses already assumed.
+
+- Section [sec:notclaimed]: the net progress toward Goldbach is
+zero.
+
+
+## Relation to the literature {#sec:lit}
+
+
+This section is a placement, not a survey, and it is deliberately
+conservative about what is offered here as new.
+
+
+**Theorem [thm:A].** The mechanism is standard. After the
+divisor switch the Möbius on the long variable squares away and the
+surviving Möbius sits on a variable of length at most
+$N^{1/2-\delta}$, which is the classical configuration in which
+Bombieri–Vinogradov applies. Every ingredient
+(Bombieri–Vinogradov; the Goldston–Yıldırım estimate
+[GY] as used in [HL]; the elementary density identity of
+Proposition [prop:MT]) is off the shelf. The statement is offered as
+a *lemma about the Huang–Li reduction*, not as a contribution to
+the theory of Bombieri–Vinogradov; its content is that this particular
+consumption of $EH_\mu$ is unnecessary, and what difficulty it has lies
+in the bookkeeping — in particular that the condition $(k,N)=1$ must
+be discarded by the degeneracy argument rather than expanded over
+$e\mid N$, and that main terms may be assigned only to classes with
+$(q,N)=1$, the second of which shifts the density by exactly
+$N/\varphi(N)$ if missed.
+
+
+**Theorem [thm:D.** and Proposition \ref{prop:E].} See
+Remark [rem:bombieri] for the relation to [Bom76].
+Proposition [prop:E] is an observation — Parseval bounds any
+pointwise route from below by the $L^2$ norm — and is recorded because
+the circle method is the first thing one tries on $C(N)$, not because it
+is difficult.
+
+
+**Beyond the square-root barrier..** Since [HL] appeared,
+Lichtman [Li23] has shown that the primes have level of
+distribution $66/107 \approx 0.617$ using triply well-factorable
+weights, and has used it to improve upper bounds for Goldbach
+representations — the first use of a level beyond the square-root
+barrier on that problem. That work does not collide with the present
+one: it concerns the primes rather than
+$\sum_{n<N}\Lambda(n)\mu(N-n)$, and it yields upper bounds rather than
+the asymptotic that [HL] targets. It is nevertheless the state of
+the art against which any claim of the form "beyond $1/2$" must now be
+measured.
+
+A level of distribution $3/5$ for the Möbius function with triply
+well-factorable weights belongs to the earlier part of that line of
+work, [Li20]; we have not verified its precise statement or
+location against the published version, and cite it here as the object
+the question below refers to rather than as a result we have checked.
+It is *not* in [Li23], which does not treat the Möbius
+function at all — the $3/5$ appearing there is Maynard's prior record
+for the *primes*, which [Li23] improves to $66/107$. Since
+[HL] require $EH_\mu(N^{\theta'})$ for a single $\theta'>1/2$, and
+since Theorem [thm:C] identifies $w_k=\log k$ as the weight carrying
+the Goldbach content, the following question is well posed and, so far
+as the present authors know, open:
+
+\begin{quote}
+Does the weight that the Huang–Li consumption actually requires lie in
+the triply well-factorable class for which level $3/5$ is known for
+$\mu$?
+\end{quote}
+
+Two cautions attach to it. First, $EH_\mu$ as stated in [eq:EHmu]
+carries $\max_a|\cdot|$, whereas well-factorable results bound signed
+weighted sums $\sum_q \lambda_q E(x;q,a)$; the comparison must therefore
+be made against what the argument *consumes*, which is a signed
+sum, and not against the absolute-value form as written. Second,
+Theorem [thm:D] closes extraction *by divisor switching*; the
+technology of [Li23] is the Deshouillers–Iwaniec spectral large
+sieve, a different mechanism, and Theorem [thm:D] says nothing about
+it.
+
+
+## References
+
+- **[HL]**  Jing-Jing Huang and Huixi Li,
+*On the connection between the Goldbach conjecture and the
+Elliott–Halberstam conjecture*, arXiv:2005.03811v2 [math.NT], 2022.
+
+- **[GY]**  Daniel Goldston and Cem Y{ı}ld{ı}r{ı}m,
+*Higher correlations of divisor sums related to primes I*, Integers
+**3** (2003), A5.
+
+- **[Pan]**  Cheng-Dong Pan, *A new attempt on Goldbach
+conjecture*, Chinese Ann. Math. **3** (1982), 555–560.
+
+- **[MV]**  Hugh Montgomery and Robert Vaughan,
+*Multiplicative number theory I: classical theory*, CUP, 2007.
+
+- **[Bom76]**  Enrico Bombieri, *The asymptotic sieve*,
+Rend. Accad. Naz. XL (5) **1/2** (1975/76), 243–269.
+
+- **[Li23]**  Jared Duker Lichtman, *Primes in arithmetic
+progressions to large moduli, and Goldbach beyond the square-root
+barrier*, arXiv:2309.08522 [math.NT], 2023.
+
+- **[Li20]**  Jared Duker Lichtman, *Primes in arithmetic
+progressions to large moduli, II: well-factorable estimates*,
+arXiv:2006.07088 [math.NT], 2020.
+
+- **[Vau88]**  R. C. Vaughan, *The $L^1$ mean of exponential
+sums over primes*, Bull. London Math. Soc. **20** (1988),
+121–123.

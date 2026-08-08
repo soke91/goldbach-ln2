@@ -1,0 +1,87 @@
+STATISTIC: the mass-weighted fraction f of k < N^0.56 with
+           H(N;k) > 0, computed from the dilation identity
+           H(N;k) = mu(k) A(N;k) rather than from the inner sum
+           over m; the power-law exponent refitted on it; and
+           the N at which |0.5 - f| reaches 0.01 under each
+           leave-one-out subset and under each of the two laws.
+NULL: none is run and none is needed. lab_lean_decay.py carries
+      the coin arm as the reference level for this statistic;
+      this script recomputes the same quantity on the same
+      field by a second route and then does arithmetic on a
+      published fit, which is not a detection against a
+      background.
+FIELD: N = 2e5 to 6.4e6 by doubling, theta' = 0.56, k squarefree
+       and coprime to N with 2 <= k < N^0.56; Lambda and mu from
+       an integer sieve to 6.4e6; the published f, exponent and
+       forecasts are read from results/lab_lean_decay.txt.
+
+read from results/lab_lean_decay.txt: 6 values of f, exponent 0.1673,
+  forecast 1.021e+14, and the log-law crossing at e^52.1
+
+sieving to 6400000 ...
+
+V1  the lean by the dilation route, H = mu(k) A(N;k)
+  N            #k      f (dilation)   f (published)   diff
+  200000       313     0.2273         0.2273          0.0000
+  400000       462     0.2228         0.2228          0.0000
+  800000       682     0.2735         0.2735          0.0000
+  1600000      1004    0.3068         0.3068          0.0000
+  3200000      1485    0.3207         0.3207          0.0000
+  6400000      2186    0.3376         0.3376          0.0000
+  V1 hold
+
+V2  the power-law exponent refitted on the dilation numbers
+  refitted -0.1673 against the published -0.1673   diff 0.0000   hold
+
+V3  the parameter bracket: the same law refitted on each
+  leave-one-out subset
+  subset                   exponent    forecast N     log10
+  all six N                -0.1673     10^14.01       14.01
+  without the smallest     -0.1880     10^13.17       13.17
+  without the largest      -0.1731     10^13.73       13.73
+  parameter bracket 0.84 decades   (cap 4)   hold
+
+V4  the law bracket, and the total
+  (log N)^-c all six N              forecast N = 10^22.64
+  (log N)^-c without the smallest   forecast N = 10^18.98
+  (log N)^-c without the largest    forecast N = 10^22.38
+  total bracket 9.47 decades   (floor 3)   hold
+
+  Bracket lines, in the form the gate reads, in log10 N -- the
+  log law overflows a double on some subsets. This file
+  supplies them for results/lab_lean_decay.txt, whose forecast
+  is quoted without one:
+BRACKET log10_lean_reaches_0.01_powerlaw 14.0091 13.1688 14.0091
+BRACKET log10_lean_reaches_0.01_anylaw 14.0091 13.1688 22.6372
+
+  And the drift of the constant those brackets extrapolate,
+  which gate check G33 reads. Within a law the constant is the
+  decay exponent b, and the bracket is built from its own
+  leave-one-out spread rather than from an assumed wobble, so
+  the two cannot disagree:
+  b runs 0.1673 to 0.1880, a relative spread of 0.1180
+DRIFT lean_exponent_b 0.1180
+  The wider of the two brackets above is not drift at all but
+  model ambiguity: the power law and the log law are not
+  separable over the accessible range, and that is a choice
+  between shapes, not a wobble in a constant. It is reported
+  as a bracket because the reader needs one number, but it
+  should not be read as an error bar on a fit.
+
+  DIAGNOSTIC (post hoc). Why a twelve per cent uncertainty in
+  the exponent costs whole decades. The forecast solves
+  |0.5-f| = c N^{-b} = 0.01, so log N = log(c/0.01)/b: the exponent
+  sits in the DENOMINATOR of a logarithm, and a relative error
+  d in b multiplies log N by 1/(1-d), i.e. scales N by a power
+  of itself.
+  relative spread in b            : 0.1242
+  so log10 N scales by up to      : 1.1419
+  which on log10 N = 14.01 is      : 1.99 decades
+  measured one-sided spread       : 0.84 decades
+  The measured spread is the smaller of the two because the
+  leave-one-out refits the intercept alongside the exponent,
+  and a steeper decay comes with a smaller constant, which
+  pulls the crossing back. The law choice has no such brake.
+
+======================================================================
+the lean is confirmed by a second route and its forecast is a range, not a number

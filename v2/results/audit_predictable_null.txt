@@ -1,0 +1,90 @@
+STATISTIC: with beta the least-squares scale through the
+           origin, the residual share
+           sum(log k)|H - beta P| / sum(log k)|H| over
+           2 <= k < 30000; its least-squares slope
+           against log N with a standard error; and the same
+           share refitted under two randomisations of P that
+           leave H untouched -- |P| permuted across k at
+           fixed sign, and the sign of P redrawn at fixed
+           |P| -- 64 draws each.
+NULL: the two randomisations above, which is what
+      lab_predictable_part.py declined on the grounds that a
+      randomisation 'would move both parts together'. Neither
+      of these moves H at all; each breaks one half of P and
+      beta is refitted under each draw.
+FIELD: N = 2e5 through 3.2e6 by doubling; k squarefree and
+       coprime to N with 2 <= k < 30000; m odd,
+       squarefree and coprime to k, m <= (N-1)/k; the sieve
+       weight over the odd primes below 30;
+       Lambda and mu from an integer sieve to 3200000;
+       numpy default_rng seed 20260808. Every N is
+       2^a 5^b, one odd radical, as RADICALS declares. The
+       published beta and shares are read from
+       results/lab_predictable_part.txt.
+
+read 5 published beta and residual shares from results/lab_predictable_part.txt
+sieving to 3200000, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+64 draws per null, seed 20260808, beta refitted under each
+  N = 200000     #k = 10132
+  N = 400000     #k = 10132
+  N = 800000     #k = 10132
+  N = 1600000    #k = 10132
+  N = 3200000    #k = 10132
+RADICALS 1
+
+D1  the control: beta and the residual share
+  N            beta here   beta pub   share here  share pub
+  200000       2.6992      2.6992     0.6310      0.6310
+  400000       2.8588      2.8588     0.5979      0.5979
+  800000       2.9952      2.9952     0.5554      0.5554
+  1600000      3.1437      3.1437     0.5421      0.5421
+  3200000      3.0473      3.0473     0.5307      0.5307
+  D1 hold   (cap 0.0001 in beta, cap 0.001 in the share)
+
+D2  is the fall resolved?
+  least-squares slope against log N = -0.037002
+  r.m.s. residual 0.0095, standard error 0.005600, t = 6.61
+SCATTER slope_audit_predictable_null 0.0095
+TSTAT slope_audit_predictable_null 6.61
+SPREAD slope_audit_predictable_null 2.7726
+  D2 hold
+
+D3/D4  the two nulls the published file declined
+  (a) sign P kept, |P| permuted across k
+  (b) |P| kept, sign P redrawn
+  N            true share  (a) median  (b) median  (a) min    (b) min
+  200000       0.6310      0.9626      1.0120      0.9543     1.0002
+  400000       0.5979      0.9411      1.0069      0.9342     1.0000
+  800000       0.5554      0.9328      1.0029      0.9252     0.9997
+  1600000      0.5421      0.9470      1.0015      0.9418     0.9980
+  3200000      0.5307      0.9538      1.0006      0.9465     0.9984
+  D3 signs alone leave above 0.95   REFUTED
+  D4 magnitudes alone leave above 0.95   hold
+
+  DIAGNOSTIC on D3 (post hoc). The right scale for a null
+  here is not the share but the CUT, since that is what the
+  remark claims. Each null's cut as a fraction of the true
+  one:
+  N            true cut   (a) fraction  (b) fraction
+  200000       0.3690     0.1012        -0.0325
+  400000       0.4021     0.1465        -0.0173
+  800000       0.4446     0.1512        -0.0065
+  1600000      0.4579     0.1158        -0.0032
+  3200000      0.4693     0.0984        -0.0014
+ONESIDED lab_predictable_part 0.1512 -0.0014
+ONESIDED audit_predictable_null 0.1512 -0.0014
+  so the sign field alone reaches 10 to 15 per cent of
+  the cut and the magnitudes alone reach none of it -- D3
+  fails because 0.95 was a threshold on the share and the
+  share has 0.47 of its range below 1 to begin with.
+
+  what that means for the split. The cut of 37 to 47 per
+  cent is not carried by either half of P on its own: it
+  needs the per-k pairing of the sign field with the
+  magnitude. So the split is a statement about P as a whole
+  and not about the sign agreement {#rem:survivors}
+  validated, which is the part {#rem:survivorrange} showed
+  does not reach the long inner sums.
+
+======================================================================
+REFUTED

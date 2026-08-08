@@ -1,0 +1,93 @@
+STATISTIC: the constant c_R(N) = mean |R|/sqrt(N/k) over the
+           admissible k below the operative crossing K*_R; its
+           ratio to sqrt(log N); the crossing predicted by
+           sum_{k<K}(log k) c_R sqrt(N/k) = S(N)(1-A(N))N over
+           the actual admissible k; and, if that model holds,
+           the exponent it gives at larger N with a bracket
+           over a +-10 per cent wobble in c_R.
+NULL: none is run and none applies. A measured magnitude is
+      fitted to a deterministic shape and the shape solved;
+      there is no background to detect against. The sign
+      controls for R were run in lab_residue_cancellation.py,
+      whose coin arm on the identical delta established that
+      R's size is bought by cancellation at exactly a coin's
+      rate, and in lab_residue_signed.py.
+FIELD: N = 2e5 to 3.2e6 by doubling; k squarefree and coprime
+       to N with 2 <= k < 100000; m odd, squarefree, coprime to
+       the odd part of k, m < N/k; the sieve weight uses the
+       odd primes up to 30; beta refitted as sum(H P)/sum(P^2)
+       on the same k-range; S(N) and A(N) from Euler products
+       at the fixed bound 4000000; the published crossings are
+       read from results/audit_residue_level.txt.
+
+read 5 operative K*_R from results/audit_residue_level.txt
+sieving to 3200000 ...
+  N = 200000      #k = 33771   K*_R = 993     c_R = 1.5925  density 0.3374
+  N = 400000      #k = 33771   K*_R = 1447    c_R = 1.7303  density 0.3379
+  N = 800000      #k = 33771   K*_R = 2019    c_R = 1.9439  density 0.3378
+  N = 1600000     #k = 33771   K*_R = 3319    c_R = 1.9894  density 0.3381
+  N = 3200000     #k = 33771   K*_R = 5923    c_R = 1.9188  density 0.3378
+
+Q1  the control
+  N            K*_R (here)   published    same
+  200000       993           993          yes
+  400000       1447          1447         yes
+  800000       2019          2019         yes
+  1600000      3319          3319         yes
+  3200000      5923          5923         yes
+  Q1 hold
+
+Q2  is the constant of the same shape as H's?
+  N            c_R        sqrt(log N)   c_R/sqrt(log N)
+  200000       1.5925     3.4937        0.4558
+  400000       1.7303     3.5915        0.4818
+  800000       1.9439     3.6868        0.5273
+  1600000      1.9894     3.7796        0.5263
+  3200000      1.9188     3.8702        0.4958
+  spread 0.1436 of the mean 0.4974   (cap 0.05)   REFUTED
+  Q2 REFUTED
+
+Q3  does the model built from it predict the crossing?
+  N            measured   model      ratio
+  200000       993        991        0.9980
+  400000       1447       1447       1.0000
+  800000       2019       2033       1.0069
+  1600000      3319       3299       0.9940
+  3200000      5923       5933       1.0017
+  Q3 hold
+
+Q4  what the model says about the dip
+  the model's own crossing exponent, against the measured one
+  N            model exponent   measured   clears .56
+  200000       0.5652           0.5654     yes
+  400000       0.5642           0.5642     yes
+  800000       0.5604           0.5599     yes
+  1600000      0.5671           0.5675     yes
+  3200000      0.5800           0.5799     yes
+  Q4 hold
+
+  the budget constant crossed throughout, declared:
+BUDGET kstar_R_S1AN_N200000 0.374487
+BUDGET kstar_R_S1AN_N400000 0.374487
+BUDGET kstar_R_S1AN_N800000 0.374487
+BUDGET kstar_R_S1AN_N1600000 0.374487
+BUDGET kstar_R_S1AN_N3200000 0.374487
+
+  NO FORECAST is made: Q2 or Q3 failed, so the model is
+  not entitled to be extrapolated.
+
+  DIAGNOSTIC (post hoc). How the residue's constant compares
+  with H's. {#rem:heuristic} measured c(N)/sqrt(log N) for H
+  at 1.0138 down to 0.9844, read from
+  results/audit_directlevel_heuristic.txt, spread 0.0295 of its
+  mean against 0.1436 here. Their ratio is what the split buys
+  in the constant, and the exponent it buys is nothing:
+  N            c_R/sqrt(log N)
+  200000       0.4558
+  400000       0.4818
+  800000       0.5273
+  1600000      0.5263
+  3200000      0.4958
+
+======================================================================
+REFUTED

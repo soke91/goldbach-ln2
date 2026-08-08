@@ -1,0 +1,100 @@
+STATISTIC: max |C(N)|/N at each octave's argmax N, recomputed by
+           direct summation rather than by FFT convolution; the
+           decay exponent refitted on each of the two published
+           octave grids and on each leave-one-out subset of
+           each; and the extrapolation base * 6.25^b to N = 1e8
+           under every one of them.
+NULL: none is run and none applies. A published deterministic
+      extrapolation is refitted and perturbed, and one measured
+      statistic is recomputed by a second route; there is no
+      background to detect against. The control for max|C|/N is
+      the Cauchy-Schwarz closed form carried as M5 in
+      audit_margin.py.
+FIELD: even N; Lambda and mu from an integer sieve to 1.6e7; the
+       octave tables, the two exponents and the base 1/max are
+       read from results/audit_margin.txt; the reach 6.25 and
+       the reference value 220 are the paper's.
+
+read from results/audit_margin.txt: 10 octaves anchored low, 10 anchored high,
+  refitted exponents 0.477527 and 0.440619, the published one 0.4300,
+  and the base 1/max = 99.325
+
+sieving to 16000000 ...
+
+U1  the base, by direct summation instead of the FFT
+  C(N) = sum_{n<N} Lambda(n) mu(N-n), one pass per argmax N
+  octave top     argmax N     direct       from the FFT   diff
+  30000          16170        0.16933942   0.169339       4.15e-07
+  60000          30030        0.17271384   0.172714       1.60e-07
+  120000         60060        0.10885009   0.108850       9.34e-08
+  240000         120120       0.06811514   0.068115       1.42e-07
+  480000         300300       0.04136311   0.041363       1.10e-07
+  960000         510510       0.04152101   0.041521       1.05e-08
+  1920000        1021020      0.02979760   0.029798       3.96e-07
+  3840000        2042040      0.01857989   0.018580       1.11e-07
+  7680000        4084080      0.01339829   0.013398       2.86e-07
+  15360000       9699690      0.01006796   0.010068       3.91e-08
+  16000000       9699690      0.01006796   0.010068       3.91e-08
+  8000000        4084080      0.01339829   0.013398       2.86e-07
+  4000000        2042040      0.01857989   0.018580       1.11e-07
+  2000000        1021020      0.02979760   0.029798       3.96e-07
+  1000000        510510       0.04152101   0.041521       1.05e-08
+  500000         300300       0.04136311   0.041363       1.10e-07
+  250000         139230       0.06555220   0.065552       1.99e-07
+  125000         66990        0.08315434   0.083154       3.39e-07
+  62500          39270        0.11352372   0.113524       2.83e-07
+  31250          30030        0.17271384   0.172714       1.60e-07
+  U1 hold
+
+U2  the two published exponents, refitted here
+  grid                     refitted    published   diff
+  anchored at 3e4, doubling 0.477527    0.477527    4.02e-07
+  anchored at 1.6e7, halving 0.440619    0.440619    5.01e-08
+  U2 hold
+
+U3  the bracket: every grid anchor, every leave-one-out subset
+  grid                     subset                 b        6.25^b * base
+  anchored at 3e4          all octaves            0.477527 238.29
+  anchored at 3e4          without the smallest   0.494841 245.98
+  anchored at 3e4          without the largest    0.479020 238.95
+  anchored at 1.6e7        all octaves            0.440619 222.71
+  anchored at 1.6e7        without the smallest   0.436777 221.15
+  anchored at 1.6e7        without the largest    0.433213 219.71
+  bracket [219.71, 245.98], span 1.1196   (cap 1.5)   hold
+
+U4  does the published figure lie inside it?
+  published 'near 220' against [219.71, 245.98]   hold
+  the value audit_margin.py prints, 218.42, is built on the
+  published exponent 0.4300, which its own M2 refutes; on the
+  exponents the data support the extrapolation is 219.71 to 245.98
+
+  Bracket lines, in the form the gate reads. This file supplies
+  them for results/audit_margin.txt, whose extrapolation is
+  quoted without one:
+BRACKET wall_reciprocal_at_1e8 222.7093 219.7073 245.9760
+
+  And the drift of the constant the bracket was built from,
+  which gate check G33 reads. This bracket is not made by
+  assuming a wobble: it IS the measured spread of the exponent
+  across both grid anchors and every leave-one-out subset, so
+  the wobble and the drift are the same number by
+  construction and the bracket cannot understate itself.
+  b runs 0.433213 to 0.494841, a relative spread of 0.1339
+DRIFT wall_exponent_b 0.1339
+
+  DIAGNOSTIC (post hoc). Why this bracket is narrow where the
+  other two the repository has bracketed were not. The
+  extrapolation multiplies the base by (reach)^b, so an
+  absolute error d in the exponent costs exactly (reach)^d:
+  the reach enters only through its logarithm, and this reach
+  is a factor 6.25 rather than millions.
+  spread in b across grids and subsets : 0.061628
+  the factor that buys, 6.25^spread    : 1.1196
+  measured span                        : 1.1196
+  Reach is what sets a bracket, not the quality of the fit:
+  the fit here is the WORST of the three -- its own exponent
+  is refuted against the published one -- and its bracket is
+  the tightest by orders of magnitude.
+
+======================================================================
+the extrapolation is tight and the published figure sits in it

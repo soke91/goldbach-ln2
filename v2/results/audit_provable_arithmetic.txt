@@ -1,0 +1,122 @@
+STATISTIC: the three measured inputs to
+           {#rem:provablehalf}'s forecast -- the
+           density-times-L factor dL = sum L(k) log k / k
+           over the admissible k against log(kmax)^2/2, the
+           constant A = max_k |P|/[(N/k) exp(-c sqrt(log(N/k)))
+           L(k)], and the budget constant S(N)(1-A(N)) -- at
+           each of the seven arithmetic types of
+           {#rem:residuearithmetic}, and the N at which
+           A dL int_0^{theta' u} v exp(-c sqrt(u-v)) dv falls
+           back through that budget constant.
+NULL: none is run and none applies. A deterministic bound is
+      evaluated on a measured summation set and a crossing
+      located; there is no background to detect against. The
+      coin arm for this field is lab_elementary_provable.py's
+      sixteen coins on the identical sifted set.
+FIELD: the seven test N read from
+       results/audit_residue_arithmetic.txt; k squarefree,
+       odd and coprime to N with 2 <= k < 30000,
+       the cap lab_elementary_provable.py uses; m odd,
+       squarefree and coprime to k, m <= (N-1)/k; the sieve
+       weight over the odd primes below 30;
+       c = 0.2098 and theta' = 0.56; the Euler
+       products at the fixed bound 4000000. Seven
+       distinct odd radicals, as RADICALS declares. The
+       published dL, A and brackets are read from
+       results/lab_elementary_provable.txt.
+
+read 7 test N from results/audit_residue_arithmetic.txt
+  and dL 0.3994, A 1.2119, forecast 5474.8, c-bracket [2092.7, 13093.3],
+  A dL bracket [4838.5, 6139.9] from results/lab_elementary_provable.txt
+sieving to 3200000, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N = 1572864    odd 3                      #k 9117   dL 0.3318  A 0.8329  S(1-A) 0.270682
+BUDGET provable_S1A_N1572864 0.270682
+  N = 1404928    odd 7                      #k 10638  dL 0.4288  A 0.5863  S(1-A) 0.370504
+BUDGET provable_S1A_N1404928 0.370504
+  N = 1600000    odd 5                      #k 10132  dL 0.3994  A 0.5391  S(1-A) 0.374487
+BUDGET provable_S1A_N1600000 0.374487
+  N = 1620000    odd 3,5                    #k 7598   dL 0.2629  A 0.9292  S(1-A) 0.194596
+BUDGET provable_S1A_N1620000 0.194596
+  N = 1531530    odd 3,5,7,11,13,17         #k 5347   dL 0.1730  A 0.9725  S(1-A) 0.073312
+BUDGET provable_S1A_N1531530 0.073312
+  N = 1621620    odd 3,5,7,11,13            #k 5659   dL 0.1848  A 0.9691  S(1-A) 0.087306
+BUDGET provable_S1A_N1621620 0.087306
+  N = 1600006    odd 17,47059               #k 11483  dL 0.4726  A 0.4536  S(1-A) 0.351148
+BUDGET provable_S1A_N1600006 0.351148
+RADICALS 7
+
+Z1  the control: the family member N = 1600000
+  dL 0.3994 against the published 0.3994, diff 0.00004
+  forecast with the published A: log10 N = 5474.8 against 5474.8, diff 0.02
+  Z1 hold   (cap 0.001 in dL, cap 1 decade in the forecast)
+
+Z2  does dL depend on the arithmetic?
+  dL by type: 0.3318, 0.4288, 0.3994, 0.2629, 0.1730, 0.1848, 0.4726
+  and the same statistic with the arithmetic held fixed --
+  dL at the five N of the family sweep, computed here:
+    N = 200000     dL 0.3994
+    N = 400000     dL 0.3994
+    N = 800000     dL 0.3994
+    N = 1600000    dL 0.3994
+    N = 3200000    dL 0.3994
+  spread 0.9309   (floor 0.0000)
+FLOOR provable_dL_across_radicals 0.0000
+SCALES audit_provable_arithmetic 1
+ONE SCALE audit_provable_arithmetic
+  the k-set is fixed by N's odd radical and the cap, and the
+  cap binds at every N here, so with the radical held the
+  admissible k are literally the same set and dL cannot
+  move: the floor is exact and not a simulation.
+DRIFT provable_dL_across_radicals 0.9309
+  Z2 hold   (cap 0.05)
+
+Z3/Z4  the forecast, with every input measured per type
+  odd part               dL       A        S(1-A)     log10 N
+  3                      0.3318   0.8329   0.270682   5270.4
+  7                      0.4288   0.5863   0.370504   4923.1
+  5                      0.3994   0.5391   0.374487   4784.6
+  3,5                    0.2629   0.9292   0.194596   5449.4
+  3,5,7,11,13,17         0.1730   0.9725   0.073312   5984.4
+  3,5,7,11,13            0.1848   0.9691   0.087306   5883.9
+  17,47059               0.4726   0.4536   0.351148   4834.7
+  the seven run 4784.6 to 5984.4, a span of 1199.8 decades
+  Z3 all inside the c-sweep bracket [2092.7, 13093.3]   hold
+  Z4 not all inside the A dL bracket [4838.5, 6139.9]   hold
+  outside it: 5, 17,47059
+BRACKET log10_N_provable_across_radicals 4784.6078 4784.6078 5984.3738
+DRIFT log10_N_provable_across_radicals 0.2262
+
+  A held at the published A, which is the max over the whole
+  family sweep and not a per-N quantity, so this row isolates
+  the two channels the remark names -- dL and the budget:
+  odd part               log10 N (A fixed)
+  3                      5596.8
+  7                      5546.4
+  5                      5474.8
+  3,5                    5682.7
+  3,5,7,11,13,17         6184.3
+  3,5,7,11,13            6085.7
+  17,47059               5679.4
+  those run 5474.8 to 6184.3, a span of 709.5 decades
+  so over both conventions the forecast runs 4784.6 to 6184.3
+ACROSS log10_N_elementary_provable 4784.6078 6184.3084
+SENSITIVITY log10_N_elementary_provable 4838.5000 6139.9000
+SENSITIVITY UNDERSTATED log10_N_elementary_provable
+
+  DIAGNOSTIC (post hoc). The two channels pull opposite
+  ways, so the span is smaller than either. Against the
+  family member, per type:
+  odd part               A dL / family   S(1-A) / family   decades
+  3                      1.2836          0.7228            +485.8
+  7                      1.1678          0.9894            +138.5
+  5                      1.0000          1.0000            +0.0
+  3,5                    1.1347          0.5196            +664.8
+  3,5,7,11,13,17         0.7813          0.1958            +1199.8
+  3,5,7,11,13            0.8321          0.2331            +1099.3
+  17,47059               0.9958          0.9377            +50.1
+  A thinner budget pushes the crossing out and a thinner
+  k-set brings it in; at the primorial-like types both are
+  thin at once.
+
+======================================================================
+the arithmetic moves the forecast past its declared sensitivity

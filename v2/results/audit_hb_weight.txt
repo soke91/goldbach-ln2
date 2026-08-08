@@ -1,0 +1,49 @@
+STATISTIC: the share of the j-th term in the absolute (L^1)
+           Heath-Brown weight at level J with cut z, i.e.
+           W_j = C(J,j) #{(m_1..m_j,n_1..n_j) : m_i <= z
+           squarefree, prod m prod n <= x} normalised by sum_i
+           W_i; reported for j = J at J = 3 and for j in {6,7,8}
+           at J = 8; the spread of that share across the three
+           roundings of z = M^{1/J}; and whether z^J >= x holds
+           for each rounding.
+FIELD: x = M = 1e4, 1e5, 1e6; J = 3 and 8; z = M^{1/J} rounded
+       down, to nearest and up; tau_j prefix sums built by
+       repeated divisor convolution to 1e6; A_j by repeated
+       convolution with the squarefree indicator on [1,z].
+
+sieving to 1000000 and building tau prefixes to J = 8 ...
+
+J = 3
+  M          rounding  z      z^J >= x   top-j share
+  10000      floor     21     NO         0.757761
+  10000      round     22     yes        0.758036
+  10000      ceil      22     yes        0.758036
+  100000     floor     46     NO         0.811210
+  100000     round     46     NO         0.811210
+  100000     ceil      47     yes        0.811271
+  1000000    floor     99     NO         0.848668
+  1000000    round     100    yes        0.848668
+  1000000    ceil      100    yes        0.848668
+
+J = 8
+  M          rounding  z      z^J >= x   j in {6,7,8} share   per-j shares
+  10000      floor     3      NO         0.772590            0.000 0.000 0.006 0.047 0.173 0.334 0.319 0.120
+  10000      round     3      NO         0.772590            0.000 0.000 0.006 0.047 0.173 0.334 0.319 0.120
+  10000      ceil      4      yes        0.772590            0.000 0.000 0.006 0.047 0.173 0.334 0.319 0.120
+  100000     floor     4      NO         0.833180            0.000 0.000 0.003 0.030 0.134 0.312 0.360 0.161
+  100000     round     4      NO         0.833180            0.000 0.000 0.003 0.030 0.134 0.312 0.360 0.161
+  100000     ceil      5      yes        0.840039            0.000 0.000 0.003 0.028 0.129 0.310 0.365 0.165
+  1000000    floor     5      NO         0.881725            0.000 0.000 0.002 0.018 0.099 0.282 0.391 0.208
+  1000000    round     6      yes        0.886081            0.000 0.000 0.001 0.017 0.096 0.279 0.394 0.212
+  1000000    ceil      6      yes        0.886081            0.000 0.000 0.001 0.017 0.096 0.279 0.394 0.212
+
+E1  J=3 top-j share at M=1e6 = 0.848668   published 'about 0.82'   hold
+E2  J=8 {6,7,8} share at M=1e6 = 0.886081   published 'about 0.85'   hold
+E3  spread of the J=8 entry across the three roundings = 0.004356
+    published 'the rounding of z alone moves it by 0.017'   REFUTED
+E4  J=8 entry by M (round): 0.772590, 0.833180, 0.886081   hold
+E5  some rounding makes z^J < x, so the identity fails there: True   hold
+
+======================================================================
+E1 hold  E2 hold  E3 REFUTED  E4 hold  E5 hold
+Section {#sec:c3} item (2) reproduces at the stated convention

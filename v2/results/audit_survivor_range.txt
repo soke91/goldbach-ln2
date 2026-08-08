@@ -1,0 +1,97 @@
+STATISTIC: the agreement of sign H(N;k) with the sign of the
+           sieve-weighted P(N;k) = sum_m mu(m) w(m,k), first
+           on the published window 2 <= N/k <= 1000
+           over every admissible k rather than a subsample,
+           then on k < N^0.56, the range the
+           mass-weighted lean f is measured on; the lean that
+           results from replacing each sign H by sign P on
+           mu's own magnitudes; and both against the median
+           lean of 256 sign vectors on those
+           magnitudes.
+NULL: for S1 the published permutation control stands; for S3
+      and S4 the floor is 256 sign vectors on
+      the identical magnitudes, the convention of
+      audit_lean_floor.py, so the predicted lean is read on
+      the same scale as mu's and as Modd's in
+      audit_oddmertens_range.py.
+FIELD: N = 2e5 through 6.4e6 by doubling; k squarefree and
+       coprime to N; m over 1 <= m < N/k with (m,k) = 1 for
+       H and over the odd squarefree such m for P, as
+       published; the sieve weight over the odd primes below 30;
+       Lambda, mu and Modd from an integer sieve to 6400000;
+       numpy default_rng seed 20260808. Every N is
+       2^a 5^b, one odd radical, as RADICALS declares. The
+       published agreements are read from
+       results/lab_survivor_selection.txt and the lean's
+       window from results/audit_oddmertens_range.txt.
+
+read 5 published agreements from results/lab_survivor_selection.txt
+sieving to 6400000, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+RADICALS 1
+
+S1  the control: agreement over 2 <= N/k <= 1000, every k
+  N            #k       sign P   published  sign Modd  published
+  200000       9220     0.9279   0.9274     0.8383     0.8377
+  400000       17805    0.9232   0.9224     0.8349     0.8358
+  800000       34566    0.9207   0.9204     0.8330     0.8344
+  1600000      66558    0.9144   0.9154     0.8290     0.8287
+  3200000      128830   0.9106   0.9080     0.8266     0.8238
+  S1 hold   (cap 0.005; the published figures are a 60000-k subsample of this set)
+
+S2/S3/S4  on the k-range the lean is measured on, k < N^0.56
+  N            #k     agreement  mu lean   P lean    ratio
+  200000       313    0.8129     0.2727    0.2366    0.8676
+  400000       462    0.7632     0.2772    0.2232    0.8052
+  800000       682    0.7446     0.2265    0.1817    0.8021
+  1600000      1004   0.7367     0.1932    0.1423    0.7364
+  3200000      1485   0.7759     0.1793    0.1413    0.7884
+  6400000      2186   0.7579     0.1624    0.1067    0.6571
+  S2 the agreement stays above 0.85 there   REFUTED
+  S3 the predicted lean is within a factor 1.5   REFUTED
+
+S4  and the trend
+  mu        slope -0.167260, standard error 0.018594
+  P         slope -0.230633, standard error 0.023649
+  difference +0.063372 against 0.060167 = 2 s.e., i.e. 2.11 s.e.
+SCATTER slope_audit_survivor_range 0.0560
+TSTAT slope_audit_survivor_range 9.75
+SPREAD slope_audit_survivor_range 3.4657
+  S4 REFUTED
+
+  against the floor, and against what Modd gave on the same
+  window in {#rem:oddmertensrange}:
+  N            mu/floor   P/floor
+  200000       9.9761     8.6549
+  400000       9.9370     8.0009
+  800000       12.8908    10.3401
+  1600000      12.2313    9.0069
+  3200000      12.9821    10.2357
+  6400000      15.9032    10.4506
+  mu +0.127000 (s.e. 0.026755);  P +0.063628 (s.e. 0.028927); difference 1.61 s.e.
+
+  DIAGNOSTIC (post hoc). S3 and S4 fail narrowly and in one
+  direction, so how far P is from carrying the lean is worth
+  putting beside Modd, which failed the same tests widely.
+  Modd's ratios are read from
+  results/audit_oddmertens_range.txt:
+  predictor   ratio to mu's lean   slope       agreement
+  Modd        1.7310 to 2.9564       -0.004298   0.5201 to 0.6161
+  P           0.6571 to 0.8676       -0.230633   0.7367 to 0.8129
+  mu          1.0000 by definition   -0.167260
+CARRIES lab_survivor_selection lab_lean_decay 0.6571 0.8676
+CARRIES lab_lean_oddmertens lab_lean_decay 1.7310 2.9564
+  so P misses by 13 to 34 per cent and decays 2.11
+  standard errors too fast, where Modd overshoots by 73 to
+  196 per cent and does not decay at all. Neither carries
+  the lean on its own window; P is much the closer.
+
+  the two windows of inner length N/k, side by side:
+    the agreement was demonstrated on   [2, 1000]
+    the lean is measured on             [215, 2133333],
+    read from results/audit_oddmertens_range.txt
+WINDOW lab_survivor_selection 2 1000
+WINDOW lab_lean_decay 215 2133333
+WINDOWS DISJOINT lab_survivor_selection lab_lean_decay
+
+======================================================================
+REFUTED

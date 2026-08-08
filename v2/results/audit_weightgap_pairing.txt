@@ -1,0 +1,71 @@
+STATISTIC: |sum H|/|sum (log k)H|, the spread of the four
+           consecutive ratios of |sum (log k)^j H| in j, and the
+           effective modulus log k* read off that profile, for mu
+           and for 16 permutations of H across k; together with
+           the mean of log k over the same range.
+NULL: the permutation of H(N;k) across k with the weights left
+      attached to their own k, 16 draws. It preserves the
+      multiset of values exactly -- hence sum H, sum |H| and
+      every moment of |H| -- and destroys only the pairing
+      between a modulus and its dilated wall. Unlike the coin of
+      [rem:weightgapnull] it leaves the ratio's numerator pinned,
+      which is what makes it usable here.
+FIELD: N = 2e5 through 3.2e6 by doubling, theta' = 0.56; k over
+       the squarefree k < N^0.56 coprime to N; seed 20260808.
+
+sieving to 3200000 ...
+  N = 200000      K = 930     #k = 313
+  N = 400000      K = 1371    #k = 462
+  N = 800000      K = 2021    #k = 682
+  N = 1600000     K = 2980    #k = 1004
+  N = 3200000     K = 4394    #k = 1485
+
+W1  the control is well conditioned
+  N            sum H drift   permuted ratio spread / median
+  200000       2.291e-16     0.0881
+  400000       2.636e-16     0.0767
+  800000       1.721e-16     0.0549
+  1600000      1.277e-16     0.0813
+  3200000      1.482e-16     0.0487
+  W1 REFUTED
+
+W2  the ratio |sum H| / |sum (log k)H|
+  N            mu        perm min   perm median   perm max
+  200000       0.1807    0.1637     0.1730        0.1790
+  400000       0.1740    0.1572     0.1604        0.1695
+  800000       0.1624    0.1465     0.1504        0.1547
+  1600000      0.1389    0.1367     0.1406        0.1481
+  3200000      0.1456    0.1320     0.1349        0.1386
+  W2 mu inside the permutations' range   REFUTED
+
+W3  spread of the four consecutive ratios in j
+  N            mu        perm min   perm median   perm max
+  200000       1.0146    1.0016     1.0054        1.0130
+  400000       1.0201    1.0023     1.0052        1.0093
+  800000       1.0132    1.0026     1.0053        1.0093
+  1600000      1.0099    1.0011     1.0036        1.0103
+  3200000      1.0220    1.0015     1.0033        1.0061
+  W3 REFUTED
+
+W4  what the effective modulus actually is
+  N            log k*    mean log k   |gap|/log K   k*/K
+  200000       5.5347    5.8487       0.0459        0.2724
+  400000       5.7492    6.2334       0.0670        0.2290
+  800000       6.1573    6.6189       0.0606        0.2336
+  1600000      7.1989    7.0033       0.0244        0.4490
+  3200000      6.8669    7.3930       0.0627        0.2185
+  W4 k* is the geometric mean of the k-range   REFUTED
+
+  DIAGNOSTIC (post hoc). What an unpaired sum would give. If
+  H and log k are independent then sum (log k)^j H is about
+  mean((log k)^j) times sum H, so the ratio is 1/mean(log k)
+  and the profile is geometric by construction:
+  N            1/mean(log k)   mu's ratio   permuted median
+  200000       0.1710          0.1807       0.1730
+  400000       0.1604          0.1740       0.1604
+  800000       0.1511          0.1624       0.1504
+  1600000      0.1428          0.1389       0.1406
+  3200000      0.1353          0.1456       0.1349
+
+======================================================================
+REFUTED

@@ -1,0 +1,120 @@
+STATISTIC: for each admissible k, R = sum_m mu(m) delta(m,k)
+           with delta = Lambda(N-mk) - beta w(m,k), the l1 and
+           l2 norms of the same summands, and the sums of the
+           same delta against sixteen global sign vectors;
+           then, per closed octave of N/k, mu's mean of
+           |R|/l2 against the sixteen coins' means, mu's z
+           against the coin-to-coin scatter, a pooled
+           leave-one-out statistic ranking mu among the
+           seventeen draws, and the count of octaves at which
+           mu falls below the coins' median.
+NULL: sixteen global sign vectors on the odd squarefree m,
+      each held across all k as mu is, summed against the
+      IDENTICAL delta; same convention and seed as
+      lab_residue_cancellation.py. Under the hypothesis that
+      mu is one more sign pattern the seventeen are
+      exchangeable, so the rank test is exact.
+FIELD: N = 2e5 to 3.2e6 by doubling; k squarefree and coprime
+       to N with 2 <= k < 30000; m odd, squarefree
+       and coprime to k, m <= (N-1)/k; the sieve weight over
+       the odd primes below 30; beta refitted
+       as sum(H P)/sum(P^2) on the same k-range; octaves
+       closed at both ends and used only when they hold at
+       least 10 k; numpy default_rng seed 20260808.
+       Every N is 2^a 5^b, one odd radical, as RADICALS says.
+       The published exponents and octave means are read from
+       results/lab_residue_cancellation.txt.
+
+read 5 published l1 exponents and 30 octave rows from results/lab_residue_cancellation.txt
+sieving to 3200000, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+16 global sign vectors on the 1296902 odd squarefree m, seed 20260808
+  N = 200000     #k = 10132   beta = 2.699191
+  N = 400000     #k = 10132   beta = 2.858827
+  N = 800000     #k = 10132   beta = 2.995171
+  N = 1600000    #k = 10132   beta = 3.143666
+  N = 3200000    #k = 10132   beta = 3.047304
+RADICALS 1
+
+V1  the control: the l1 exponent and the octave means
+  N            l1 exponent  published    worst |R|/l2 diff
+  200000       0.9745       0.9745       0.00005
+  400000       0.9919       0.9919       0.00005
+  800000       0.9962       0.9962       0.00004
+  1600000      0.9963       0.9963       0.00003
+  3200000      0.9979       0.9979       0.00005
+  V1 hold   (cap 0.001 and cap 0.01)
+
+V2/V3  mu as a seventeenth draw
+  for each octave: mu's mean of |R|/l2, the mean of the
+  sixteen coins, and mu's z against the coin-to-coin scatter
+  N          octave       #k     mu       coins    ratio   z
+  200000     [2     ,8      ) 1297   0.9094   0.9385   0.9690  -1.40
+  200000     [8     ,32     ) 5656   0.9056   0.8867   1.0213  +1.32
+  200000     [32    ,128    ) 1581   0.8334   0.8156   1.0217  +0.94
+  200000     [128   ,512    ) 399    0.7859   0.8169   0.9621  -0.89
+  200000     [512   ,2048   ) 96     0.7558   0.7947   0.9510  -0.75
+  200000     [2048  ,8192   ) 25     0.6707   0.8184   0.8195  -0.96
+  400000     [8     ,32     ) 5729   0.8887   0.8595   1.0340  +1.65
+  400000     [32    ,128    ) 3162   0.8187   0.8188   0.9999  -0.00
+  400000     [128   ,512    ) 789    0.7926   0.8145   0.9731  -0.60
+  400000     [512   ,2048   ) 202    0.7959   0.8147   0.9769  -0.34
+  400000     [2048  ,8192   ) 48     0.6416   0.7742   0.8287  -1.83
+  400000     [8192  ,32768  ) 13     0.9104   0.7074   1.2871  +1.19
+  800000     [8     ,32     ) 1686   0.8444   0.8262   1.0221  +0.81
+  800000     [32    ,128    ) 6334   0.7962   0.8215   0.9692  -0.99
+  800000     [128   ,512    ) 1581   0.7646   0.8208   0.9315  -1.78
+  800000     [512   ,2048   ) 399    0.7893   0.8084   0.9764  -0.38
+  800000     [2048  ,8192   ) 96     0.8462   0.7876   1.0744  +1.05
+  800000     [8192  ,32768  ) 25     0.8393   0.8123   1.0332  +0.26
+  1600000    [32    ,128    ) 5915   0.7821   0.8229   0.9504  -1.01
+  1600000    [128   ,512    ) 3162   0.7579   0.8162   0.9286  -1.48
+  1600000    [512   ,2048   ) 789    0.7800   0.8089   0.9643  -0.52
+  1600000    [2048  ,8192   ) 202    0.7193   0.8023   0.8965  -1.57
+  1600000    [8192  ,32768  ) 48     0.7281   0.8382   0.8687  -0.91
+  1600000    [32768 ,131072 ) 13     0.8886   0.7713   1.1520  +1.10
+  3200000    [32    ,128    ) 1689   0.7888   0.8227   0.9588  -0.72
+  3200000    [128   ,512    ) 6334   0.7683   0.8182   0.9389  -1.58
+  3200000    [512   ,2048   ) 1581   0.7175   0.8096   0.8862  -2.48
+  3200000    [2048  ,8192   ) 399    0.7216   0.7999   0.9021  -2.54
+  3200000    [8192  ,32768  ) 96     0.7444   0.8146   0.9137  -0.78
+  3200000    [32768 ,131072 ) 25     0.7101   0.7660   0.9270  -0.37
+  V2 every ratio inside the band   hold
+  the band this measurement gives: [0.8195, 1.2871]
+PERN residue_coin_ratio 30 0.8195 1.2871
+
+  the pooled statistic, each draw against the mean of the
+  other sixteen, averaged over the 30 octaves:
+  mu      -0.033137
+  coins   -0.0385, -0.0373, -0.0360, -0.0313, -0.0218, -0.0193, -0.0159, -0.0064, -0.0061, -0.0054, +0.0031, +0.0094, +0.0142, +0.0390, +0.0517, +0.0635
+  13 coins above mu, 3 below   rank 4 of 17
+  V3 mu is inside the coins' own range   hold
+
+V4  the sign, counted, with no magnitudes used
+  mu below the coins' median at 21 of 30 octaves
+  expected 15.0, two standard deviations 5.5
+  V4 REFUTED
+MARGIN audit_residue_coin_rank 6.0000 5.4772
+SCALES audit_residue_coin_rank 1
+ONE SCALE audit_residue_coin_rank
+
+  DIAGNOSTIC (post hoc). V4's null assumes the 30 octaves
+  are independent, and they are not: the same sixteen sign
+  vectors are used at every octave and at every N, and the
+  octaves at different N run over overlapping m. The
+  exchangeable version costs nothing -- count the same thing
+  for each coin, each against the median of the other
+  sixteen draws:
+  mu      21 of 30
+  coins   3, 9, 9, 10, 11, 11, 12, 12, 14, 16, 17, 18, 19, 20, 22, 24
+  2 of the 16 coins lean at least as much as mu, so the
+  count is a 3-in-17 event among exchangeable draws, not the
+  2.2-sigma the binomial gives. The mean z over the octaves
+  is -0.5185; the pooled test above is that comparison done
+  exactly, and it puts mu at rank 4 of 17.
+EXCHANGE audit_residue_coin_rank 21 3 17
+  So V4 fails as registered and the failure is the null, not
+  the data: with the dependence taken out, mu's lean is
+  not separated from the coins' own.
+
+======================================================================
+REFUTED

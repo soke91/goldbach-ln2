@@ -1,0 +1,180 @@
+STATISTIC: the truncation K*_R at which
+           sum_{k<K}(log k)|R(N;k)| first reaches
+           S(N)(1-A(N))N, and its exponent log K*_R / log N,
+           along N = 30030 * 2^j for j = 0..9 -- the ladder of
+           lab_primorial_ladder.py extended by three doublings;
+           the least-squares slope over all ten rungs; and the
+           interpolated N at which the exponent first reaches
+           1/2, against the bracket that file published.
+NULL: none is run and none is needed. The question is whether a
+      specific published forecast is right, and the control is
+      E1, the same computation reproducing the rungs the
+      forecast was fitted on. The coin arm for this statistic
+      was run in lab_primorial_ladder.py, where eight global
+      sign vectors on the identical deviations bracketed mu's
+      slope, establishing that the rise is a fact about
+      magnitudes.
+FIELD: N = 30030 * 2^j, j = 0..9, so 30030 to 15375360, the odd
+       radical 3*5*7*11*13 fixed and the threshold constant at
+       every rung; k squarefree and coprime to N with
+       2 <= k < 100000; m odd, squarefree, coprime to the odd
+       part of k, m < N/k; the sieve weight uses the odd primes
+       up to 30; beta refitted as sum(H P)/sum(P^2) on the same
+       k-range; S(N) and A(N) from Euler products at the fixed
+       bound 4000000.
+
+read 7 published rungs and the bracket 10^7.4684 [10^7.2189, 10^8.9013]
+  from results/lab_primorial_ladder.txt
+sieving to 15375360 ...
+  N = 30030     thr 0.087306  #k 2835   K*_R 109    exp 0.4550
+  N = 60060     thr 0.087306  #k 5664   K*_R 157    exp 0.4595
+  N = 120120    thr 0.087306  #k 11326  K*_R 239    exp 0.4682
+  N = 240240    thr 0.087306  #k 18863  K*_R 311    exp 0.4633
+  N = 480480    thr 0.087306  #k 18863  K*_R 461    exp 0.4688
+  N = 960960    thr 0.087306  #k 18863  K*_R 691    exp 0.4746
+  N = 1921920   thr 0.087306  #k 18863  K*_R 1159   exp 0.4876
+  N = 3843840   thr 0.087306  #k 18863  K*_R 1501   exp 0.4824
+  N = 7687680   thr 0.087306  #k 18863  K*_R 2621   exp 0.4965
+  N = 15375360  thr 0.087306  #k 18863  K*_R 3557   exp 0.4941
+
+E1  the control: the seven published rungs
+  N            here       published   diff
+  30030        0.4550     0.4550      0.00003
+  60060        0.4595     0.4595      0.00003
+  120120       0.4682     0.4682      0.00002
+  240240       0.4633     0.4633      0.00002
+  480480       0.4688     0.4688      0.00002
+  960960       0.4746     0.4746      0.00001
+  1921920      0.4876     0.4876      0.00002
+  E1 hold
+
+E2  the extended ladder
+  N            log10 N   K*_R    exponent   new?
+  30030        4.4776    109     0.4550     
+  60060        4.7786    157     0.4595     
+  120120       5.0796    239     0.4682     
+  240240       5.3806    311     0.4633     
+  480480       5.6817    461     0.4688     
+  960960       5.9827    691     0.4746     
+  1921920      6.2837    1159    0.4876     
+  3843840      6.5848    1501    0.4824     new
+  7687680      6.8858    2621    0.4965     new
+  15375360     7.1868    3557    0.4941     new
+  slope against log N +0.006643, correlation 0.95981   hold
+  E2 hold
+  leave-one-out on the slope: +0.006643, +0.006733, +0.006838 -- spread 0.000195
+SWEPT primorial_reach N-range 0.000195
+CORR primorial_reach 0.95981
+POP primorial_reach 10
+
+E3  do the new rungs reach 0.5?
+  N = 3843840    exponent 0.4824   below
+  N = 7687680    exponent 0.4965   below
+  N = 15375360   exponent 0.4941   below
+  E3 REFUTED
+
+E4  where it first reaches 0.5, against the published bracket
+  no crossing inside the ladder: the data put it ABOVE the
+  top rung at log10 N = 7.1868, so every point estimate and
+  every bracket upper end below that is excluded and
+  nothing above it is.
+
+  Two brackets have to be distinguished. The one this
+  audit was pre-registered against was built from the
+  slope's leave-one-out spread ALONE; its published
+  numbers, the reference values of this audit, appear in
+  the table below. That file has since been corrected to
+  carry the residual scatter as well, and now publishes
+  the numbers read at the top of this run. Both:
+  which bracket        point   lower   upper   verdict
+  slope-only (published) 7.0954  7.0733  7.3629  point EXCLUDED, interval open
+  with scatter (current) 7.4684  7.2189  8.9013  point open, interval open
+  E4 asked where the crossing falls and there is no
+  crossing to place, so it is not evaluable as written.
+  What is decidable is exclusion, and neither interval is
+  excluded while both point estimates below 7.1868 are.
+  E4 hold
+
+  the arithmetic and the budget, declared:
+  10 N, 1 distinct odd radical: 15015
+RADICALS 1
+BUDGET kstar_R_S1AN_N30030 0.087306
+BUDGET kstar_R_S1AN_N60060 0.087306
+BUDGET kstar_R_S1AN_N120120 0.087306
+BUDGET kstar_R_S1AN_N240240 0.087306
+BUDGET kstar_R_S1AN_N480480 0.087306
+BUDGET kstar_R_S1AN_N960960 0.087306
+BUDGET kstar_R_S1AN_N1921920 0.087306
+BUDGET kstar_R_S1AN_N3843840 0.087306
+BUDGET kstar_R_S1AN_N7687680 0.087306
+BUDGET kstar_R_S1AN_N15375360 0.087306
+
+  DIAGNOSTIC (post hoc). What the three new rungs did to the
+  fit. The slope on the published seven, and on all ten:
+  seven rungs +0.006623, ten rungs +0.006643
+  and the exponent's own step from rung to rung:
+  N            exponent   step
+  30030        0.4550     -
+  60060        0.4595     +0.0045
+  120120       0.4682     +0.0087
+  240240       0.4633     -0.0049
+  480480       0.4688     +0.0055
+  960960       0.4746     +0.0058
+  1921920      0.4876     +0.0130
+  3843840      0.4824     -0.0052
+  7687680      0.4965     +0.0141
+  15375360     0.4941     -0.0023
+
+  Why the bracket failed, in one number. It was built from the
+  leave-one-out spread of the SLOPE. That spread is now
+  0.000195 over ten rungs -- the slope was never the problem.
+  What the bracket did not cover is the scatter of the rungs
+  about the line:
+  N            exponent   fitted     residual
+  30030        0.4550     0.4543     +0.0007
+  60060        0.4595     0.4589     +0.0006
+  120120       0.4682     0.4635     +0.0047
+  240240       0.4633     0.4681     -0.0048
+  480480       0.4688     0.4727     -0.0039
+  960960       0.4746     0.4773     -0.0027
+  1921920      0.4876     0.4819     +0.0057
+  3843840      0.4824     0.4865     -0.0041
+  7687680      0.4965     0.4911     +0.0053
+  15375360     0.4941     0.4957     -0.0016
+  r.m.s. residual 0.0039, against a trend of 0.0046 per doubling
+  -- the scatter is 0.8 times the step the trend makes in one
+  rung, so a level is crossed several rungs before or after
+  the line says, and a bracket over the slope alone cannot
+  know that.
+SCATTER primorial_slope 0.0039
+DRIFT primorial_slope 0.0293
+
+  The forecast redone, with the scatter carried. The line
+  reaches 0.5 at:
+    log10 N = 7.4661
+  and with the line displaced by +-1 r.m.s. residual:
+    [7.2133, 7.7189] in log10 N
+
+  THE SHAPES. That bracket is over the line's parameters and
+  its scatter, and says nothing about whether the line is the
+  right form. audit_ladder_shape.py showed these points do
+  not choose one. The same five, fitted to these ten rungs,
+  with the crossing still just outside the data:
+  shape                        r.m.s.    (r-best)/s.e.  0.50 at
+  a + b log N                  0.00387   0.00           7.4661
+  a + b / log N                0.00459   0.74           8.0621
+  a + b log log N              0.00415   0.29           7.6796
+  a + b log log N / log N      0.00429   0.44           7.8002
+  1 - c log log N / log N      0.03553   32.76          6.1532
+  5 shapes fitted, 4 within one standard error of the best
+SHAPES 5
+  the surviving shapes put 0.50 at 7.4661, 7.6796, 7.8002, 8.0621 -- a spread of 0.5960
+  decades; the line's scatter bracket alone is [7.2133, 7.7189],
+  and with the shapes [7.2133, 8.0621], wider by 0.3432
+BRACKET log10_N_primorial_reaches_half_v2 7.4661 7.2133 8.0621
+  The top rung sits at log10 N = 7.1868, so this forecast is
+  again a short reach -- and it is now the second forecast of
+  the same crossing, the first having been tested and failed.
+
+======================================================================
+REFUTED

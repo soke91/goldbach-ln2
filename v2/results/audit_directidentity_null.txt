@@ -1,0 +1,68 @@
+STATISTIC: the untruncated sum T = sum_k (log k) s(k) A_s(N;k)
+           for s = mu and 8 coins, against
+           R = sum_{p<N} Lambda(N-p) log p; the ratio T/(S(N)N);
+           and the partial sums over k < N^0.56, N^0.70, N^0.90
+           measured against N rather than against T.
+NULL: the coin, eps(v) = +-1 on supp(mu^2) and zero elsewhere,
+      field, weight log k and k-range identical, eight draws.
+      lab_direct_identity.py's Z3 and Z4 are deliberately NOT
+      controlled: as stated they divide by a total that a coin
+      sends near zero, which is the ill-conditioned case of
+      [rem:weightgapnull]. Measuring against N instead repairs
+      them, and that repaired form is what V3 controls.
+FIELD: N = 2e5 through 3.2e6 by doubling; k over every squarefree
+       2 <= k < N; S(N) from an Euler product at the fixed bound
+       4e6; seed 20260808.
+
+sieving to 3200000 ...
+  1 mu and 8 coins on supp(mu^2), field and k-range identical
+  N = 200000      #k = 121580    target = 1.7673 N
+  N = 400000      #k = 243164    target = 1.7366 N
+  N = 800000      #k = 486341    target = 1.7416 N
+  N = 1600000     #k = 972691    target = 1.7634 N
+  N = 3200000     #k = 1945362   target = 1.7548 N
+
+V1  the untruncated sum against the Goldbach count
+  N            mu |T-R|/R   coin |T|/R min   median      max
+  200000       3.294e-16    4.9641           4.9960      5.0756
+  400000       6.703e-16    5.3519           5.4383      5.4936
+  800000       3.342e-16    5.6302           5.7100      5.7492
+  1600000      3.136e-15    5.8989           5.9240      5.9662
+  3200000      1.161e-15    6.2548           6.2775      6.3027
+  V1 REFUTED
+
+V2  T / (S(N)N), the ratio Z2 reports
+  N            mu        coin min   coin median   coin max
+  200000       1.0039    4.9835     5.0156        5.0955
+  400000       0.9865    5.2796     5.3648        5.4194
+  800000       0.9893    5.5700     5.6489        5.6877
+  1600000      1.0017    5.9089     5.9340        5.9763
+  3200000      0.9968    6.2350     6.2576        6.2827
+  V2 hold
+
+V3/V4  the partial sum over k < N^0.90, measured against N
+  N            mu        coin min   coin median   coin max
+  200000       -4.3412   2.2618     2.3270        2.4747
+  400000       -4.6951   2.2214     2.3545        2.4593
+  800000       -5.0055   2.1717     2.2923        2.3710
+  1600000      -5.3075   2.1843     2.2269        2.2937
+  3200000      -5.6291   2.1498     2.2100        2.2376
+  V3 mu's magnitude exceeds every draw   hold
+  V4 mu negative throughout: True; draws that are: 0 of 8   hold
+
+  DIAGNOSTIC (post hoc). Why Z3 and Z4 are left uncontrolled.
+  As lab_direct_identity.py states them they divide by the
+  TOTAL, and for a coin the total is what column two of V1
+  shows -- a few percent of the count, wandering in sign. A
+  ratio to that is the ill-conditioned case, so the decline is
+  right for those two and the repair is to measure against N,
+  which V3 does. The three truncations against N, for mu:
+  N            k<N^0.56    k<N^0.70    k<N^0.90
+  200000       -0.4394     -1.7200     -4.3412
+  400000       -0.3967     -1.6641     -4.6951
+  800000       -0.3253     -1.5499     -5.0055
+  1600000      -0.2565     -1.4400     -5.3075
+  3200000      -0.2107     -1.3182     -5.6291
+
+======================================================================
+REFUTED

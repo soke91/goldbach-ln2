@@ -1,0 +1,89 @@
+STATISTIC: the mass-weighted fraction f of k with H(N;k) > 0,
+           the mass being (log k)|H(N;k)|; its distance from
+           one half; the same distance for 256 global sign
+           vectors on the IDENTICAL magnitudes; the
+           power-law slope of each against log N with its
+           standard error; and the slope of mu's lean divided
+           by the coins' median lean, over eight N.
+NULL: 256 global sign vectors over k, each held across all N
+      as mu is, applied to the identical (log k)|H(N;k)|.
+      Same convention and seed as audit_lean_floor.py.
+FIELD: N = 2e5 through 2.56e7 by doubling with theta' = 0.56,
+       so k runs over the squarefree k < N^0.56
+       coprime to N; m over 1 <= m < N/k with (m,k) = 1;
+       Lambda and mu from an integer sieve to 25600000;
+       numpy default_rng seed 20260808. Every N is
+       2^a 5^b, one odd radical, as RADICALS declares. The
+       published table is read from
+       results/lab_extend_range.txt.
+
+read 8 published rows and the power exponent 0.1539 from results/lab_extend_range.txt
+sieving to 25600000 ...
+256 global sign vectors over k <= 14081, seed 20260808 -- each held across all N as mu is
+  N = 200000     #k = 313    f = 0.2273  |0.5-f| = 0.2727  l1/l2 = 11.9596
+  N = 400000     #k = 462    f = 0.2228  |0.5-f| = 0.2772  l1/l2 = 14.2336
+  N = 800000     #k = 682    f = 0.2735  |0.5-f| = 0.2265  l1/l2 = 17.8995
+  N = 1600000    #k = 1004   f = 0.3068  |0.5-f| = 0.1932  l1/l2 = 21.4312
+  N = 3200000    #k = 1485   f = 0.3207  |0.5-f| = 0.1793  l1/l2 = 26.2111
+  N = 6400000    #k = 2186   f = 0.3376  |0.5-f| = 0.1624  l1/l2 = 32.1297
+  N = 12800000   #k = 3226   f = 0.3533  |0.5-f| = 0.1467  l1/l2 = 39.6783
+  N = 25600000   #k = 4754   f = 0.3608  |0.5-f| = 0.1392  l1/l2 = 47.6367
+RADICALS 1
+
+E1  the control: the published eight-N table
+  N            #k here  #k pub   f here   f pub    diff
+  200000       313      313      0.2273   0.2273   0.00003
+  400000       462      462      0.2228   0.2228   0.00002
+  800000       682      682      0.2735   0.2735   0.00001
+  1600000      1004     1004     0.3068   0.3068   0.00003
+  3200000      1485     1485     0.3207   0.3207   0.00004
+  6400000      2186     2186     0.3376   0.3376   0.00001
+  12800000     3226     3226     0.3533   0.3533   0.00004
+  25600000     4754     4754     0.3608   0.3608   0.00002
+  E1 hold   (cap 0.001)
+
+E2  the published power exponent
+  slope -0.153911 against the published -0.153900, diff 0.000011
+  r.m.s. residual 0.0438, standard error 0.011253, t = 13.68
+SCATTER slope_audit_lean_extended 0.0438
+TSTAT slope_audit_lean_extended 13.68
+SPREAD slope_audit_lean_extended 4.8520
+  E2 hold   (cap 0.001)
+
+E3  the floor, over the whole factor 128
+  N            mu lean   coin median  ratio
+  200000       0.2727    0.0321       8.4946
+  400000       0.2772    0.0245       11.3139
+  800000       0.2265    0.0190       11.9189
+  1600000      0.1932    0.0144       13.4289
+  3200000      0.1793    0.0135       13.2489
+  6400000      0.1624    0.0103       15.7939
+  12800000     0.1467    0.0087       16.8379
+  25600000     0.1392    0.0065       21.3636
+  floor slope -0.313205, standard error 0.012937, t = 24.21
+  mu          -0.153911, standard error 0.011253
+  difference  +0.159294 against 0.034293 = 2 s.e., i.e. 9.29 s.e.
+FLOORTREND lab_extend_range -0.313205 24.21
+FLOORRANGE lab_extend_range 200000 25600000
+FLOORTREND audit_lean_extended -0.313205 24.21
+FLOORRANGE audit_lean_extended 200000 25600000
+  E3 hold
+
+E4  the lean in units of its floor, over all eight
+  ratio by N: 8.49, 11.31, 11.92, 13.43, 13.25, 15.79, 16.84, 21.36
+  slope +0.159294, r.m.s. residual 0.0647, standard error 0.016636, t = 9.58
+SCATTER slope_audit_lean_extended_ratio 0.0647
+TSTAT slope_audit_lean_extended_ratio 9.58
+SPREAD slope_audit_lean_extended_ratio 4.8520
+PERN lean_over_floor_extended 8 8.4946 21.3636
+  E4 hold
+
+  and against the six-point version, so the two are
+  comparable rather than merely consistent:
+  six points  +0.152263 (s.e. 0.027225)
+  eight       +0.159294 (s.e. 0.016636)
+  the longer lever raises the slope by +0.007031, which is 0.22
+  standard errors of the difference.
+
+======================================================================
+the lean grows against its floor over a factor 128
