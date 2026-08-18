@@ -2450,6 +2450,56 @@ factors, restricted to the tenth of the dilations whose sums are
 largest, whose signs agree four times in five and whose share of the
 total is heading to one.**
 
+*Added later.* "Further than the whole has to travel" is withdrawn:
+the head's excess exponent is a transient of a rising share, and over
+the top octave the two exponents already coincide. See Remark
+[rem:headfraction]. The rest of this remark stands.
+
+
+#### Remark (the excess was transient, and the set is not thin) {#rem:headfraction}
+<!-- evidence: audit_head_fraction.py -->
+
+[rem:sumhead] ended by saying the head's signed sum must come down
+*further* than the whole. It must not. Head and tail agree in sign at
+every $N$, so the head's share of $\lvert\sum a\rvert$ is bounded by
+one, and an exponent above the total's can only mean a share still
+climbing. Whether that is a transient is measurable two ways, and
+this cycle got one of them wrong before the other settled it.
+
+**The ceiling argument, as this script's own setup stated it, is
+refuted** (Y3). The setup read [rem:sumhead]'s share range
+$0.5467$–$0.9710$ and took the upper end for the value at the top
+$N$. It is not: the share at the top $N$ is $0.8839$, the range
+maximum falls elsewhere in the field, and at the fitted slope
+$+0.053778$ the bound is $2.1586$ units of $\log N$ away — a factor
+of nearly nine in $N$, not the sliver the setup claimed.
+
+**The transience is real anyway, on the other measurement** (Y4).
+Refitted on the top octave alone, twelve points, the head's exponent
+is $+0.667854$ and the total's $+0.664374$ — a gap of $0.003480$
+against $0.069930$ over the whole field. The convergence the bound
+forces has already begun inside the computed range, so the excess is
+a within-range effect and **the head's signed sum has the same
+$+0.134019$ to travel as the whole, not more.** Both octave values
+sit below their whole-range fits; the script prints no error for a
+twelve-point fit and nothing is read from that here.
+
+**And the failing set is not thinner than a tenth** (Y2, refuted).
+Sweeping the fraction, the top one per cent carries $0.0969$ to
+$0.2342$ of $\lvert\sum a\rvert$ — below a half at $81$ of $81$ $N$.
+The tenth of [rem:gainsplit]'s convention is about the right
+description and not a loose one.
+
+**The partial sums overshoot.** At fraction $0.20$ the share is
+$1.1740$ at the top $N$ and at $0.50$ it is $1.1060$: the largest
+fifth of the dilations sums to more than the whole does, so the
+remaining four fifths oppose it. Ordering by magnitude produces
+opposing tiers rather than a head that simply dominates, and the
+exponents fall monotonically across the sweep — $+0.805134$,
+$+0.806838$, $+0.796624$, $+0.787845$, $+0.764263$, $+0.737664$
+against the whole's $+0.717916$ — which is the same convergence Y4
+found, seen along the fraction axis instead of along $N$.
+
 
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->

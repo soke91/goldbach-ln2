@@ -1,0 +1,73 @@
+STATISTIC: for a_k = (log k)H(N;k) over the squarefree
+           k < N^theta' coprime to N, the signed sum over
+           the top f of k by |a_k| for f = 0.01, 0.02, 0.05,
+           0.10, 0.20, 0.50, each part's share of |sum a| at
+           the bottom and top N and its least-squares
+           exponent in log N over the on-field family to
+           1.024e8; the share at f = 0.10 against its bound
+           of one, with the slope of that share; and the
+           head and total exponents refitted on the top
+           octave alone.
+NULL: none is run and none applies. Every quantity is an
+      exactly computed partial sum of a measured sequence
+      ordered by its own magnitudes, and there is no
+      background to detect against.
+FIELD: N = 2^a 5^b with BOTH a >= 1 and b >= 1 in
+       [2e5, 1.024e8], one coprimality class as COPRIME
+       says -- the class {2,5}, k coprime to 10 and N even;
+       k squarefree with 2 <= k < N^theta'; m over
+       1 <= m < N/k with (m,k) = 1; Lambda and mu from an
+       integer sieve to 102400000; the weighted sum, the
+       sieve and theta' are code/audit_gain_split.py's,
+       imported; the published shares and exponents are read
+       from results/audit_sum_head.txt.
+
+read 81 head shares from results/audit_sum_head.txt, with its head exponent +0.787845 and total +0.717916
+  the field, the sieve and theta' are imported from code/audit_gain_split.py
+  the fractions swept are 0.01, 0.02, 0.05, 0.10, 0.20, 0.50
+
+the field: every N = 2^a 5^b with a and b at least one in [200000, 102400000]; 81 of them
+RADICALS 1
+COPRIME 1
+
+sieving to 102400000 ...
+
+  fraction  share at the bottom N  at the top N   exponent of the signed sum   s.e.
+  0.01      0.0969                 0.1735         +0.805134                 0.007081
+  0.02      0.1758                 0.3034         +0.806838                 0.005100
+  0.05      0.3976                 0.5584         +0.796624                 0.003414
+  0.10      0.6550                 0.8839         +0.787845                 0.002853
+  0.20      0.9607                 1.1740         +0.764263                 0.002593
+  0.50      0.9780                 1.1060         +0.737664                 0.002679
+  all       1.0000                 1.0000         +0.717916                 0.002376
+
+Y1  the control at fraction 0.10
+  the top-N share here 0.8839 against the published 0.8839, departure 0.000013
+  the table prints 4 decimals, so the bound is 0.00005000
+PRINTBOUND audit_head_fraction 4 0.00005000
+  Y1 hold   (cap: the printing bound)
+
+Y2  is the failing set thinner than a tenth?
+  the top one per cent carries 0.0969 to 0.2342 of |sum a|
+  below a half at 81 of the 81 N
+  Y2 REFUTED   (cap: a half at any N)
+
+Y3  how close is the ceiling?
+  at fraction 0.10 the top-N share is 0.8839 and the share's slope is +0.053778 per unit log N (s.e. 0.002100)
+  so the distance to the bound is 0.1161, which at that slope is 2.1586 units of log N
+TSTAT slope_audit_head_fraction 25.60
+SPREAD slope_audit_head_fraction 6.2383
+  Y3 REFUTED   (cap: a share at or below 0.95)
+
+Y4  has the convergence begun inside the range?
+  over the whole field the head's exponent is +0.787845 against the total's +0.717916, a gap of 0.069930
+  over the top octave alone (12 points) they are +0.667854 and +0.664374, a gap of 0.003480
+  Y4 hold   (cap: the top-octave gap not smaller)
+
+  so the sentence {#rem:sumhead} ended on is corrected here: the head's
+  signed sum has to travel the same distance the whole does, not further,
+  because the share that makes its exponent look larger is within 0.1161
+  of a ceiling it cannot pass.
+
+======================================================================
+Y1 hold  Y2 REFUTED  Y3 REFUTED  Y4 hold
