@@ -1,4 +1,4 @@
-# goldbach-ln2-real
+# v2 — the continuation
 
 **목표는 골드바흐 이진 추측의 증명이다.**
 
