@@ -1,0 +1,89 @@
+STATISTIC: V(N) = sum_{v<N} mu^2(v) Lambda(N-v)^2 by exact FFT
+           convolution; W(N) = sum_{w<N} Lambda(w)^2; the ratio
+           V/W divided by A(N) and by S(N); the standard
+           deviation of that ratio normalised to mean one
+           (reading R1) and the residual after a least-mean
+           rescaling (reading R2); the same ratio's mean inside
+           each of six radical cells; and V/(A N log N).
+FIELD: even N; the octave (8e6, 1.6e7] for the top-octave
+       figures, [1e5, 1.6e7] for the shape residual, and cutoffs
+       2, 1e3, 1e4, 5e4 for the cutoff sweep; cell j is the even
+       N divisible by 2 times the first j-1 of 3,5,7,11,13;
+       Lambda and the squarefree indicator from a sieve to 1.6e7;
+       Artin's constant as an Euler product over p < 1e7.
+NULL: none applies. V(N) depends on mu only through mu^2, so a coin
+      on the same support gives V byte-identical -- Lemma {#lem:coin}
+      itself. Every statistic here is a support statistic by
+      construction and is claimed as one.
+
+sieving to 16000000 ...
+convolving (length 2^25 rfft) ...
+building A(N) ...
+
+X1/X2  the single point N = 4000000
+======================================================================
+  1/A(N)  = 1.270204   published 1.27020
+  W/V     = 1.270800   published 1.27080
+  X1 hold   X2 hold
+
+X3  the top octave (8e6, 1.6e7]
+======================================================================
+  mean = 1.0000002   published 1.000000
+  sd   = 0.0001659   published 0.000166
+  X3 hold
+
+X4  shape residual over even N in [1e5, 1.6e7], both readings
+======================================================================
+  reading R1 (primary):  A 0.000323   S 0.245235   ratio 759.3
+                          published: A 0.000323   S 0.245235   ratio 759
+  reading R2:            A 0.000317   S 0.299040   ratio 944.7
+  mean of V/(W A) on this range = 1.0000005;  of V/(W S) = 0.4464041
+  X4 hold
+
+X5  the six radical cells
+======================================================================
+  cell   modulus   count      mean V/(W A)      |mean - 1|
+  1      2         7950000    1.000000475      4.75e-07
+  2      6         2650000    1.000000147      1.47e-07
+  3      30        530000     1.000000010      1.03e-08
+  4      210       75714      0.999999570      4.30e-07
+  5      2310      6883       0.999999037      9.63e-07
+  6      30030     529        0.999999646      3.54e-07
+  X5 REFUTED
+
+X6  what lower cutoff reproduces the published 0.000582 for A?
+======================================================================
+  cutoff 2        -> nan 
+  cutoff 1000     -> 0.000470 
+  cutoff 10000    -> 0.000398 
+  cutoff 50000    -> 0.000346 
+  X6 REFUTED
+  DIAGNOSTIC (post hoc, not a pre-registered test): the sweep is
+  monotone in the cutoff, so the cutoff the source used can be
+  read off.
+    cutoff 20       -> 0.000555 
+    cutoff 50       -> 0.000546 
+    cutoff 100      -> 0.000529 
+    cutoff 200      -> 0.000517 
+    cutoff 400      -> 0.000497 
+    cutoff 600      -> 0.000485 
+    cutoff 800      -> 0.000477 
+
+X7  V(N) / (A(N) N log N) at the top
+======================================================================
+  N = 1000000     ratio = 0.927137
+  N = 4000000     ratio = 0.933409
+  N = 15999998    ratio = 0.939701
+  X7 REFUTED
+  DIAGNOSTIC (post hoc, not a pre-registered test): partial
+  summation from theta(x) ~ x gives sum_{p<=x}(log p)^2 ~ x log x
+  - x, so the second-order form is A(N)(N log N - N), not
+  A(N) N log N.  The band above ignored the -N term, which is a
+  factor 1 - 1/log N = 0.939716 at the top.
+    N = 1000000     V/(A(N)(N log N - N)) = 0.999482
+    N = 4000000     V/(A(N)(N log N - N)) = 0.999134
+    N = 15999998    V/(A(N)(N log N - N)) = 0.999984
+
+======================================================================
+X1 hold  X2 hold  X3 hold  X4 hold  X5 REFUTED  X6 REFUTED  X7 REFUTED
+REFUTED

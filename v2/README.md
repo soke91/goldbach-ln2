@@ -1,65 +1,153 @@
 # v2 — the continuation
 
-`v1` is frozen. Everything that follows lands here.
+**목표는 골드바흐 이진 추측의 증명이다.**
+
+수학은 이 파일에 없다. 알려진 환원·시도·막힌 지점은 `paper/`, 열려 있는
+것은 `OPEN.md`. 이 파일은 운영 규칙만 담는다.
 
 ```
-paper/      the v2 document
-code/       new computations
-results/    their outputs
+paper/      산출물. 주장의 유일한 집.
+code/       스크립트.
+results/    code와 1:1. 실행하는 그 순간 리다이렉트한다.
+verify/     블라인드 재검증 패스.
+gate/       린트 하나. 커밋 전에 반드시 통과.
 ```
 
-## What v2 inherits
+---
 
-The four questions `v1` states and does not answer, in the order of how
-much each would change the picture.
+# 1. 주장은 집이 하나
 
-### 1. Does `rho -> 1`?
+- `paper/`가 유일한 집. 다른 파일은 주장을 진술하지 않고 가리키기만 한다.
+- 상태 문서를 만들지 않는다. 상태는 `git log` + `OPEN.md` + 게이트 출력.
+- 진행 로그를 만들지 않는다. `git log`가 로그다.
+- 정정 등록부를 만들지 않는다. 정정도 커밋 메시지다.
 
-`rho = Var C / V` is `1` under random signs, and Proposition 16 makes
-`rho - 1` a prime-pair-weighted Chowla correlation, so Chowla's
-conjecture forces `rho -> 1` and the wall would be *exactly*
-square-root. Measured, `rho ≈ 0.810` at `N ≈ 1e8`.
+산문 파일은 넷뿐이다: `README.md` · `DECISIONS.md` · `OPEN.md` ·
+`verify/README.md`. **다섯 번째를 만들고 싶어지면 그건 린트로 쓴다.**
 
-**The obstruction is not precision.** Lemma 18 (the coin control) kills
-the natural estimator: replacing `mu` by random signs on the same
-support leaves `V` and every other input byte-identical, and the
-de-trended fit gives the same output on both. Any v2 attempt must first
-exhibit an estimator that *distinguishes* `mu` from a coin, and show
-that it does, before quoting a rate. With one realisation of `mu` this
-may not be possible at all, and saying so would itself be a result.
+- `DECISIONS.md` — 되돌릴 때 필요한 것만. 임계를 왜 그 값으로 잡았나. 결과 아님.
+- `OPEN.md` — 미해결만. 닫히면 지운다.
 
-### 2. The mask's decay law
+커밋 메시지에 무엇이 틀렸고 무엇으로 바뀌었고 반증 가능했던 기준이
+무엇이었는지 적는다.
 
-Two things are open and they are different.
+# 2. 게이트
 
-- **Which form.** `N^-a` against `(log N)^-b` is not separated over the
-  factor `160` in `N` reachable so far. More range, or a derivation.
-- **Why the exponent depends on depth.** The exponent rises
-  monotonically as fewer small primes divide `N`, at 5 to 30 standard
-  errors, and Proposition 22 rules out the mechanism that explains the
-  mask's *size*: the singular-series excess is scale-invariant by
-  construction and predicts an exponent of zero at every depth. So the
-  decay is carried by something not yet identified. The frame handed
-  over by that refutation is to fit `dm/se` rather than `dm`, with the
-  error bar's own law taken from Proposition 21.
+```bash
+python gate/gate.py > gate/gate.txt 2>&1; echo $?
+```
 
-### 3. Is any part of the wall's spectrum `mu`'s?
+**0일 때만 커밋한다.** 파이프로 연결하지 않는다.
 
-The spectral measure is atomic on the rationals `j/q` with
-Hardy-Littlewood weights `mu^2(q)/phi^2(q)` — which is `Lambda`'s
-structure. `mu`'s own contribution is measured only through the
-major-arc deficit (`8.40×` at `q=3`, `15.16×` at `q=5`). Whether
-anything beyond that is `mu`'s is open.
+| | 검사 |
+|---|---|
+| G1 | 번호 붙은 진술마다 `% evidence:`가 있고, 그 스크립트와 결과 파일이 실재 |
+| G2 | 진술 번호를 손으로 쓴 곳 없음 (`\ref`만) |
+| G3 | 한 기호가 두 뜻으로 쓰이지 않음 |
+| G4 | 근거 결과 파일마다 `STATISTIC:`과 `FIELD:` 줄이 있음 |
+| G5 | 실패 경로 없는 판정문 없음 |
+| G6 | 주장은 있는데 근거가 없는 곳 없음 |
+| G7 | 위 전부를 `paper/`의 모든 문서에 적용 |
+| G8 | 산문이 산출물의 1.5배를 넘지 않음 |
+| G9 | 홀CR 없음 — 게이트 줄 번호가 편집기 줄 번호와 같아야 한다 |
+| G10 | 본문이 이름을 부른 `code/*.py`가 결과 파일과 함께 실재 |
+| G11 | 인쇄된 소수(소수점 아래 3자리 이상)가 어느 결과 파일에서 나옴 |
+| G12 | 결과 파일의 죽은 사전등록 검사를 논문이 이름으로 부름 |
+| G13 | `lab_` 결과 파일마다 `NULL:` 줄 — M2·M4를 강제한다 |
+| G14 | 근거로 지목된 스크립트가 그 진술의 라벨을 실제로 부른다 |
+| G15 | `[label]` 상호참조가 실재하는 제목·수식 앵커를 가리킨다 |
+| G16 | `code/`의 모든 `sieves` 변종이 `audit_sieve.py`의 대조 목록에 있다 |
+| G17 | `N`에 의존하는 임계값은 계산한다 — 리터럴로 적지 않는다 |
+| G18 | `results/`가 그것을 만든 `code/`보다 새것이다 (낡은 결과 금지) |
+| G19 | 스크립트 출력 산문에 잰 값을 손으로 적지 않는다 (참조값은 예외) |
+| G20 | 오일러 곱은 측정 범위가 아니라 고정 경계(≥4e6)에서 만든다 |
+| G21 | 두 스크립트가 `AGREE`로 선언한 같은 양의 값이 서로 맞는다 |
+| G22 | 남의 결과 파일을 읽는 스크립트가 그 파일보다 나중에 돌았다 |
+| G23 | `code/`의 모든 소스가 비어 있지 않고 파싱된다 |
+| G24 | 적합 지수를 찍는 결과 파일은 `SWEPT` 견고성 줄을 함께 찍는다 |
+| G25 | 다른 스크립트에서 온 값은 읽는다 — 손으로 옮겨 적지 않는다 |
+| G26 | 널을 사양한 `lab_` 결과에는 널을 실제로 돌린 짝이 있다 |
+| G27 | 사전등록한 예측은 전부 결과 파일에서 판정된다 |
+| G28 | 계산 범위 밖 예보에는 `BRACKET` 구간이 붙는다 |
+| G29 | 옥타브 지수 적합에 끝이 열린 구간을 두지 않는다 |
+| G30 | 옥타브 적합은 `POP` 로 가장 얇은 칸의 개체수를 선언한다 |
+| G31 | 옥타브 적합은 `CORR` 로 자기 상관계수를 선언한다 |
+| G32 | `K*` 지수를 내면 `BUDGET` 로 건넌 문턱을 선언한다 |
+| G33 | `BRACKET` 을 내면 `DRIFT` 로 외삽한 상수의 표류를 선언한다 |
+| G34 | `K*` 지수를 내면 `RADICALS` 로 스윕의 산술형 수를 선언한다 |
+| G35 | 기울기 `DRIFT` 로 만든 예보는 `SCATTER` 로 잔차 산포도 선언한다 |
+| G36 | 같은 예보는 `SHAPES` 로 비교한 함수 모양의 수를 선언한다 |
+| G37 | span 을 문턱으로 판정하면 `FLOOR` 로 잡음 바닥을 선언한다 |
+| G38 | 발표한 최소제곱 기울기는 `TSTAT` 으로 표준오차 대비 위치를, 2 미만이면 `UNRESOLVED SIGN` 도 선언한다 |
+| G39 | `TSTAT` 을 내면 그것을 잰 구간 폭 `SPREAD` 도 낸다 |
+| G40 | 한 점으로 장벽을 넘었다고 하면 `MARGIN` 으로 여유와 바닥을, 여유가 바닥 이하면 `INSIDE FLOOR` 도 선언한다 |
+| G41 | 상한에 잘린 교차는 `CENSORED` 로 세고, 해소되지 않았으면 `UNCENSORED` 나 `TRUNCATION BIAS` 로 남긴다 |
+| G42 | `PERN` 범위를 둘 이상 실으면 같은 `N` 에서 만든 `RATIO` 도 낸다 — 끝점끼리 나누지 않는다 |
+| G43 | span 을 문턱으로 판정하면 `SCALES` 로 규모 수를, 하나뿐이면 `ONE SCALE` 도 선언한다 |
+| G44 | `mean <이름> <값>` 을 내면 `SERIES` 로 계열을, `FLAT`/`DRIFTS` 중 하나로 흐름을 선언한다 |
+| G45 | 예보의 산술형 간 폭 `ACROSS` 는 그 `BRACKET`·`SENSITIVITY` 와 대조하고, 벗어나면 `SENSITIVITY UNDERSTATED` 를 붙인다 |
+| G46 | 개수를 `two standard deviations` 로 판정하면 교환가능 뽑기에 대한 `EXCHANGE` 순위도 낸다 |
+| G47 | `sqrt(#k)` 같은 개수 기준을 쓰면 실제 크기 기준 `l1/l2` 와의 비 `REFERENCE` 도 낸다 |
+| G48 | 감쇠를 적합하며 널 팔을 기준선이라 부르면 그 기준선 자신의 추세 `FLOORTREND` 도 낸다 |
+| G49 | `FLOORTREND` 는 `FLOORRANGE` 를 달고, `FLOOR DELEGATED` 는 위임처 구간이 덮을 때만 유효하다 |
+| G50 | 두 `WINDOW` 를 나란히 선언하면 `EXPLAINS` 나 `WINDOWS DISJOINT` 로 포함관계를 판정한다 |
+| G51 | `WINDOWS DISJOINT` 를 냈으면 표적 창 위에서 실제로 잰 `CARRIES` 도 낸다 |
+| G52 | "둘 다 함께 움직인다"로 널을 사양하면 한쪽만 깬 무작위화 결과 `ONESIDED` 를 낸다 |
+| G53 | `SHAPESURVIVE` 판정은 `SHAPECURRENT` 로 현행을 밝히고, 그 점 개수는 선언된 것 중 최대여야 한다 |
+| G54 | 예측자를 둘 이상 실으면 `PREDICTOR` 로 두 점수를 다 내고 `CRITERION`·`BEST` 로 순위 기준을 못박는다 |
+| G55 | 예측자는 `LEVEL` 로 체 깊이를 선언하고, 자라는 레벨이 `BEST` 면 `UNBOUNDED LEVEL` 을 붙인다 |
+| G56 | `LEVEL <이름>_threshold` 는 `THRESHOLD FROM` 으로 출처 통계량을 밝히고, 그 통계량의 첫 미해소 `alpha` 와 같아야 한다 |
+| G57 | 문턱을 선언한 축은 그 위 **모든** 통계량의 `AXIS` 문턱을 내고, 다르면 `THRESHOLDS DIFFER` 를 붙인다 |
+| G58 | 상한이 `0.02` 아래인 `PERN` 나머지는 직접 잰 설명 `ACCOUNT` 를 대고, 안 겹치면 `ACCOUNT UNEXPLAINED` 를 적는다 |
+| G59 | 폭을 상한으로 판정하면 추정량 자신의 표집 폭 `CONSTSPREAD` 를 대고, 두 배를 넘을 때만 `CONST DRIFTS` 를 |
+| G60 | `SHAPESURVIVE` 표적은 `SHAPEGAP` 으로 r.m.s. 차를 그 표준오차에 대고, 이하면 `SHAPES TIED` 를 붙인다 — 판정은 점수가 가장 큰 파일 것 하나만 읽는다 |
+| G61 | 전체 구간 이득 지수는 `GAINSPLIT` 으로 머리·꼬리 지수를 대고, 머리 ≤ 전체 ≤ 꼬리여야 한다 |
+| G62 | `GAINSPLIT` 은 `SPLITOVERLAP` 으로 대응 구간 십분위와의 겹침을 낸다 — 질량 분할을 구간 제한으로 읽지 않는다 |
+| G63 | `PERN <이름>_residual` 은 `RESIDSCALE` 로 규모별 폭과 바닥을 내고, 가로지르면 `CROSSES FLOOR` 를 붙인다 |
+| G64 | `SHAPESURVIVE` 표적은 `TRUST` 로 모양이 갈라지는 자리와 예보를 내고, 예보가 넘으면 `FORECAST OUTSIDE` 를 붙인다 |
+| G65 | 상수를 얼려 잰 추세는 `FROZEN` 으로 점별 기울기도 내고, 부호가 다르면 `TREND CONVENTION` 을 붙인다 |
+| G66 | 언 상수가 예보를 먹이면 `FORECAST BOTH` 로 풀었을 때의 값도 내고, 밖이면 `FORECAST CONVENTION SPLIT` 을 붙인다 |
+| G67 | 한 축에서 최대를 취한 상수는 `CROSSAXIS` 로 다른 축의 상승 수와 질량 몫을 내고, 있으면 `AXIS RISE` 를 붙인다 |
+| G68 | `_nohead`/`_whole` 짝비를 내면 `SITSIN` 으로 그 부분집합이 나르는 몫을 대고 비와 맞춘다 |
+| G69 | 자유 계수를 유도 계수와 대면 `CORR <이름>_regressors` 를 대고, `0.99` 이상이면 `COEFF NOT SEPARABLE` 을 붙인다 |
+| G70 | 번호 붙은 진술만이 아니라 **모든** evidence 마커의 스크립트·결과가 실재 — G1은 115개 중 22개만 본다 |
+| G71 | 잔차 목록을 인쇄하면 `SIGNRUN` 으로 같은 부호 개수를 낸다 — r.m.s.는 부호를 못 본다 |
+| G72 | '사이'의 상쇄를 진술하면 `CROSSSHARE` 를 세 해상도 이상에서 내고, 1.5배 넘게 벌어지면 `RESOLUTION DEPENDENT` 를 붙인다 |
+| G73 | "sign X 가 sign Y 와 같은 비율"을 재면 `MARGINAL` 로 예측자 자신의 다수 부호 몫을 내고, `0.9` 를 넘으면 `DEGENERATE` 를 붙인다 |
 
-### 4. Literature novelty of Theorems 5-6
+# 3. 방법 규칙
 
-The no-go over the whole weight space, and its survival under `EH`.
-This needs a specialist or a literature search, not a computation, and
-until it is done the theorems are stated as ours without a claim of
-priority.
+- **M1** 통계와 필드를 문장으로 먼저 못박는다. "셀 평균"이 아니라 "무엇으로
+  색인된 셀의, 어느 범위의, 평균만 뺀 것". 진술이 고정하지 않으면 모든 읽기를
+  계산해 전부 출력한다.
+- **M2** 임계를 정하기 전에 널을 계산한다.
+- **M3** 널은 자기가 널인 필드의 구조를 보존해야 한다.
+- **M4** 대조군을 먼저 돌린다. 재려는 구조를 파괴한 데이터에서 같은 답이
+  나오면 그건 그 구조를 재는 게 아니다.
+- **M5** 비교 전에 가중치를 말한다. 평균의 비 ≠ 비의 평균.
+- **M6** 개수는 오차 막대가 아니다. 상관된 항의 평균은 `1/√n`으로 안 떨어진다.
+- **M7** 반증 규칙을 계산 전에 docstring에 적는다. 예측이 있으면 그것도 적는다.
 
-## The rules carry over
+# 4. 명명
 
-Pre-registration, adversarial review in fresh context, nulls before
-thresholds, weights before comparisons, and a count is never an error
-bar. See the root `README.md`.
+접두사: `verify_`(재현 스탬프, 실패 시 비-0 종료) · `lab_`(새 측정) ·
+`audit_`(이미 한 주장 검사) · `lint_`(규약 검사) · `_`(모듈).
+
+결과는 `results/<스크립트 이름>.txt`, 실행하는 그 순간 리다이렉트한다.
+
+# 5. 검증
+
+프로토콜은 `verify/README.md`.
+
+# 6. 도구 함정
+
+- 백슬래시가 든 파일은 heredoc으로 쓰지 않는다. Write/Edit 툴로 쓴다.
+- 파이프가 종료코드를 먹는다. 파일로 리다이렉트하고 `$?`를 검사한다.
+- 스크립트 맨 위에 `sys.stdout.reconfigure(encoding="utf-8", errors="replace")`.
+  긴 계산은 출력 전에 raw를 파일로 먼저 쓴다.
+- `if __name__ == "__main__"` 뒤에 함수를 정의하면 `NameError`.
+
+# 7. 메모리
+
+**30줄 상한.** 진입점, 현행 산출물, 다음 작업, 코드에서 못 읽는 함정 서넛.
+상태는 쓰지 않는다.

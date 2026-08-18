@@ -1,0 +1,43 @@
+STATISTIC: K*(N) = max{K : sum_{k<K,(k,N)=1} (log k)|E_mu(N;k)|
+           <= S(N)(1-A(N))N}, the largest truncation at which the
+           quantity Proposition {#prop:nolog} bounds is still
+           under the Goldbach threshold; its exponent in N;
+           K*/sqrt(N); and B(N; N^0.56)/N as a tie to
+           lab_onesided_demand.
+FIELD: N = 2e5, 4e5, 8e5, 1.6e6, 3.2e6; k swept from 2 up to
+       min(3e5, N/2); E_mu(N;k) by direct enumeration of the
+       progression n = N mod k; Lambda and mu from an integer
+       sieve to 4e6, phi from a sieve to 3e5; A(N) and S(N) as
+       Euler products over p < 4e6.
+NULL: run afterwards, in lab_level_coin_null.py, and it REFUTES the
+      reading given here: a coin on the same support reaches a
+      HIGHER K* at every N. K* measures the support and square-root
+      cancellation, not mu. See Remark {#rem:levelmeas}.
+
+sieving to 4000000 ...
+phi to 300000 ...
+
+  N          sqrt N    thresh/N   K*        K*/sqrt N   B at N^0.56 /N   pub
+  ------------------------------------------------------------------------------
+  200000     447.2     0.3745     319       0.7133      0.8086           0.8086
+  400000     632.5     0.3745     537       0.8491      0.7395           0.7395
+  800000     894.4     0.3745     767       0.8575      0.7303           0.7303
+  1600000    1264.9    0.3745     1353      1.0696      0.6547           0.6547
+  3200000    1788.9    0.3745     2319      1.2964      0.5916           0.5916
+
+J1  threshold crossed at every N: True   hold
+J2  K*(N) ~ N^0.7057   (band (0.4, 0.7))   REFUTED
+J3  K*/sqrt N = 0.7133, 0.8491, 0.8575, 1.0696, 1.2964   all above 1: False   REFUTED
+J4  K*/sqrt N increasing: True   hold
+J5  B at N^0.56 max deviation 0.000036  (tol 0.001)   hold
+
+  What the numbers say about the level axis:
+  the route needs K = N^{theta'} with theta' > 1/2; measured,
+  the consumed quantity stays under the Goldbach threshold only
+  up to K* ~ N^0.7057.
+  That is at or above the barrier, so the demand is
+  empirically supported and only a proof is missing.
+
+======================================================================
+J1 hold  J2 REFUTED  J3 REFUTED  J4 hold  J5 hold
+REFUTED

@@ -1,0 +1,137 @@
+STATISTIC: the fraction of k at which sign H(N;k) equals
+           sign Modd(floor(N/k)), with Modd the Mertens
+           function over the odd m, on the whole range
+           k < N^theta' and on the top decile of the k by the
+           imbalance |I_k| of {#rem:headsign}; the agreement by
+           decile of |I_k|; the negative share of that top
+           decile when every sign is replaced by the
+           predictor's on mu's own magnitudes; and the largest
+           tail agreement over 16 permutations
+           of the predictor's signs among the distinct values
+           of floor(N/k).
+NULL: the permutation of R4, the convention
+      lab_lean_oddmertens.py established. The predictor's signs
+      are shuffled among the DISTINCT values of floor(N/k),
+      which preserves both marginal sign distributions exactly,
+      so the baseline sits near 0.56 rather than 0.5. It
+      destroys the pairing between k and its predictor and
+      keeps everything else, which is M4.
+FIELD: N = 2e5 through 2.56e7 by doubling, every one 2^a 5^b so
+       the odd radical is one throughout, as RADICALS says; k
+       squarefree and coprime to N with 2 <= k < N^theta';
+       m over 1 <= m < N/k with (m,k) = 1; Lambda and mu from an
+       integer sieve to 25600000 and Modd cumulated
+       over the odd m from the same sieve; k with Modd = 0 or
+       H = 0 excluded from the agreement, the convention of
+       lab_lean_oddmertens.py; the split, the sieve and theta'
+       are imported from code/audit_head_sign.py; the published
+       agreements are read from
+       results/audit_oddmertens_range.txt and the published
+       shares from results/audit_head_sign.txt. Seed 20260810.
+
+read from results/audit_oddmertens_range.txt: 6 agreements on k < N^theta',
+  0.5201 to 0.6161
+  from results/audit_head_sign.txt the top decile by |I|, 0.8547 at the top N
+  and 0.8547 to 1.0000 over the sweep
+  the split is imported from code/audit_head_sign.py, so the field is
+  the one {#rem:headsign} measured.
+
+sieving to 25600000 ...
+Modd built over the odd m to 12800002
+RADICALS 1
+
+  N            #k      obs top   agree all  agree tail  predicted top  perm max tail
+  200000       313     1.0000    0.5815     1.0000      1.0000         1.0000
+  400000       462     1.0000    0.6161     1.0000      1.0000         1.0000
+  800000       682     0.9853    0.5718     0.9853      1.0000         0.9853
+  1600000      1004    0.9600    0.5618     0.9600      1.0000         0.9600
+  3200000      1485    0.9662    0.5209     0.9662      1.0000         0.9662
+  6400000      2186    0.9315    0.5201     0.9315      1.0000         0.9315
+  12800000     3226    0.8854    0.5175     0.8854      1.0000         0.8824
+  25600000     4754    0.8547    0.5164     0.8547      1.0000         0.8481
+
+R1  the controls
+  the overall agreement departs from the published by 0.000048 over 6 shared N
+  the top decile's range 0.8547 to 1.0000 against the published 0.8547 to 1.0000
+  R1 hold   (cap 0.001 on each)
+  k kept (predictor and H both nonzero): 313 to 4742
+
+R2  does the agreement rise with the imbalance?
+  N            agree all  agree tail  gain
+  200000       0.5815     1.0000      +0.4185
+  400000       0.6161     1.0000      +0.3839
+  800000       0.5718     0.9853      +0.4134
+  1600000      0.5618     0.9600      +0.3982
+  3200000      0.5209     0.9662      +0.4453
+  6400000      0.5201     0.9315      +0.4114
+  12800000     0.5175     0.8854      +0.3679
+  25600000     0.5164     0.8547      +0.3383
+  R2 hold   (cap 0.05)
+
+  and it holds for a reason that empties it. A predictor that is
+  CONSTANT on a set agrees with anything there at the rate that
+  thing takes its value, and carries no information at all. So the
+  predictor's own sign distribution has to be on the table:
+  N            share Modd<0  in the tail  distinct N/k  of them Modd<0
+  200000       0.9936        1.0000       292           290
+  400000       0.9935        1.0000       423           419
+  800000       0.9956        1.0000       623           620
+  1600000      0.9970        1.0000       898           895
+  3200000      0.9919        1.0000       1299          1286
+  6400000      0.9899        1.0000       1889          1865
+  12800000     0.9854        1.0000       2719          2669
+  25600000     0.9829        1.0000       3936          3843
+  The predictor is negative on 0.9829 to 0.9970 of the k and on every
+  one of the tail, at every N. It is not a weak predictor here, it
+  is a degenerate one, and the agreement it shows is the marginal
+  negative rate of H read back at it. That is also why the
+  permutation baseline of R4 reaches it: permuting a constant
+  changes nothing.
+
+  and the whole profile, agreement by decile of |I| at the top N:
+  0.8547  0.5903  0.5021  0.4370  0.4503  0.4632  0.4524  0.4567  0.4449  0.5116
+
+R3  does the predictor account for the tail?
+  N            observed  predicted  difference
+  200000       1.0000    1.0000     +0.0000
+  400000       1.0000    1.0000     +0.0000
+  800000       0.9853    1.0000     +0.0147
+  1600000      0.9600    1.0000     +0.0400
+  3200000      0.9662    1.0000     +0.0338
+  6400000      0.9315    1.0000     +0.0685
+  12800000     0.8854    1.0000     +0.1146
+  25600000     0.8547    1.0000     +0.1453
+  R3 REFUTED   (cap 0.05)
+  and it fails in the one direction a degenerate predictor
+  must: it predicts every tail sign negative, so its top
+  decile is 1 exactly, and the observed is not. The gap grows
+  along the sweep because the observed share falls while the
+  prediction cannot.
+
+R4  is it the predictor or the marginals?
+  N            agree tail  best of 16 permutations  gain
+  200000       1.0000      1.0000                   +0.0000
+  400000       1.0000      1.0000                   +0.0000
+  800000       0.9853      0.9853                   +0.0000
+  1600000      0.9600      0.9600                   +0.0000
+  3200000      0.9662      0.9662                   +0.0000
+  6400000      0.9315      0.9315                   +0.0000
+  12800000     0.8854      0.8824                   +0.0031
+  25600000     0.8547      0.8481                   +0.0066
+  R4 REFUTED
+  the predictor's own majority sign share, at its worst over the sweep,
+  is 0.9970 -- which is the whole of R4.
+MARGINAL audit_tail_mertens 0.9970
+DEGENERATE audit_tail_mertens
+
+  and where the two are going:
+  quantity      exponent     s.e.       t
+  agree tail    -0.032100    0.004628   6.94
+  agree all     -0.035401    0.007252   4.88
+TSTAT slope_tailmertens_tail 6.94
+SPREAD slope_tailmertens_tail 4.8520
+TSTAT slope_tailmertens_all 4.88
+SPREAD slope_tailmertens_all 4.8520
+
+======================================================================
+R1 hold  R2 hold  R3 REFUTED  R4 REFUTED

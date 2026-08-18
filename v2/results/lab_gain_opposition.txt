@@ -1,0 +1,148 @@
+STATISTIC: a_k = (log k)H(N;k) over the squarefree k < N^theta'
+           coprime to N, ordered by |a_k| and cut into blocks of
+           equal count. With w_d the block's share of l1 and
+           s_d its signed imbalance: the opposition factor
+           F = (sum_d w_d|s_d|)/|sum_d w_d s_d|; the same F when
+           only the block signs are randomised, by exact
+           enumeration of all 2^10 patterns;
+           the l1 share of blocks whose sign differs from the
+           dominant block's; and, for mu and for a coin arm on
+           mu's own magnitudes, the least-squares exponents of
+           |sum w s| and sum w|s| against log N at 5 partition resolutions with the
+           between-block share each gives.
+NULL: two are run, both one-sided by design. The coin arm
+      randomises every sign on mu's own magnitudes, preserving
+      #k, the block edges and every w_d, so it breaks mu's
+      signs and nothing else; it is the arm of
+      audit_crossk_reference.py, where it put mu's gain at a
+      ninth to a thirteenth of a coin's. The block-sign arm
+      randomises only the block signs and keeps every |w_d s_d|
+      as measured, breaking the blocks' opposition and keeping
+      their internal cancellation. 256 draws at
+      seed 20260808 for the first; the second is
+      enumerated exactly and needs no draws.
+FIELD: N = 2e5 through 2.56e7 by doubling, every one 2^a 5^b so
+       the odd radical is one throughout, as RADICALS says; k
+       squarefree and coprime to N with 2 <= k < N^theta';
+       m over 1 <= m < N/k with (m,k) = 1; Lambda and mu from an
+       integer sieve to 25600000; the field, the sieve
+       and theta' are imported from code/audit_gain_split.py and
+       the published decomposition is read from
+       results/audit_gain_profile.txt. The cut is by a FIXED
+       FRACTION of the k at every resolution.
+
+read from results/audit_gain_profile.txt: 8 rows and the published
+  between-block share at 10 blocks, 0.360763
+  the field is imported from code/audit_gain_split.py, so the
+  blocks are cut out of the same a_k.
+  the ceiling e(l1/l2) can reach is theta'/2 = 0.2800
+
+sieving to 25600000 ...
+RADICALS 1
+
+  N            #k      1/G        sum w|s|   F obs    F null   F obs/null  opposing mass
+  200000       313     0.545340   0.631238   1.1575   1.7672   0.6550      0.0429
+  400000       462     0.554436   0.571974   1.0316   1.6575   0.6224      0.0088
+  800000       682     0.453017   0.517827   1.1431   1.7505   0.6530      0.0324
+  1600000      1004    0.386453   0.458841   1.1873   1.6948   0.7005      0.0362
+  3200000      1485    0.358519   0.492520   1.3738   1.8296   0.7508      0.0670
+  6400000      2186    0.324810   0.426464   1.3130   1.6926   0.7757      0.0508
+  12800000     3226    0.293473   0.402659   1.3720   1.6651   0.8240      0.0546
+  25600000     4754    0.278360   0.384954   1.3829   1.6577   0.8343      0.0533
+
+O1  the control, and the identity
+  worst departure in 1/G 3.983e-07, in sum w|s| 4.896e-07, identity gap 1.110e-16
+  O1 hold   (cap 1e-6 on each, cap 1e-12 on the identity)
+
+O2  does the coin arm show the same split?
+  the coin keeps every |a_k|, so #k, the block edges and every
+  w_d are the arm's own; only mu's signs are broken. 256 draws at
+  seed 20260808, averaged.
+  blocks   arm     |sum w s|    sum w |s|    share
+  2        mu      -0.153911    -0.116165    0.2452
+           coin    -0.317390    -0.310265    0.0224
+CROSSSHARE opposition_mu 2 0.245248
+CROSSSHARE opposition_coin 2 0.022449
+  5        mu      -0.153911    -0.097205    0.3684
+           coin    -0.317390    -0.296330    0.0664
+CROSSSHARE opposition_mu 5 0.368433
+CROSSSHARE opposition_coin 5 0.066355
+  10       mu      -0.153911    -0.098386    0.3608
+           coin    -0.317390    -0.290843    0.0836
+CROSSSHARE opposition_mu 10 0.360763
+CROSSSHARE opposition_coin 10 0.083641
+  at 10 blocks the coin's two exponents differ by 4.95 standard errors,
+  so the coin has a between-block component of its own: 0.083641
+  against mu's 0.360763, which is 0.2318 of it. The partition supplies
+  part of what {#rem:gainprofile} read as mu's, and the rest,
+  a factor 4.31 more, is mu's.
+  20       mu      -0.153911    -0.104406    0.3216
+           coin    -0.317390    -0.285566    0.1003
+CROSSSHARE opposition_mu 20 0.321647
+CROSSSHARE opposition_coin 20 0.100267
+  50       mu      -0.153911    -0.122140    0.2064
+           coin    -0.317390    -0.280736    0.1155
+CROSSSHARE opposition_mu 50 0.206425
+CROSSSHARE opposition_coin 50 0.115485
+RESOLUTION DEPENDENT opposition_mu
+RESOLUTION DEPENDENT opposition_coin
+  O2 REFUTED
+
+O3  is mu more self-opposing than chance, or less?
+  the block-sign arm keeps every |w_d s_d| and signs the 10 of
+  them at random; all 1024 patterns are enumerated, no sampling.
+  F obs over F null runs 0.6224 to 0.8343
+  the ratio's exponent +0.063241 at 8.42 standard errors
+TSTAT slope_gainopposition_ratio 8.42
+SPREAD slope_gainopposition_ratio 4.8520
+  O3 hold
+  so mu's blocks are MORE aligned than random signs on the
+  same block magnitudes would leave them, at every N. The
+  growth {#rem:gainprofile} measured is mu closing a gap to
+  chance and not opening one beyond it.
+
+O4  does chance itself grow?
+  F null runs 1.6575 to 1.8296, exponent -0.007716 at 0.96 standard errors
+  F obs  runs 1.0316 to 1.3829, exponent +0.055525 at 4.24 standard errors
+
+  and F null is not a numerical fact. If the largest |w_d s_d| exceeds
+  the sum of the other nine then every signing has the sign of that
+  term, so the enumerated mean of |sum +- |w_d s_d|| is that term
+  itself and F null = 1 / (its share). The largest term does exceed
+  the rest at 8 of 8 N, and where it does the identity holds to 1.776e-15:
+  N            F null   top share   product    dominant?
+  200000       1.7672   0.5659      1.000000000 yes
+  400000       1.6575   0.6033      1.000000000 yes
+  800000       1.7505   0.5713      1.000000000 yes
+  1600000      1.6948   0.5900      1.000000000 yes
+  3200000      1.8296   0.5466      1.000000000 yes
+  6400000      1.6926   0.5908      1.000000000 yes
+  12800000     1.6651   0.6005      1.000000000 yes
+  25600000     1.6577   0.6033      1.000000000 yes
+  so e(F null) = -e(top share) identically, and {#rem:gainprofile}
+  already measured that share as flat. The ceiling on the route is
+  the reciprocal of the dominant block's mass share, and what is
+  left of it at the top N is a factor 1.1987.
+TSTAT slope_gainopposition_fnull 0.96
+SPREAD slope_gainopposition_fnull 4.8520
+UNRESOLVED SIGN slope_gainopposition_fnull
+  O4 hold
+  so the route is a BOUNDED FACTOR and not an exponent.
+  Opposition among 10 numbers of these sizes is worth a
+  factor of about F null and that factor does not grow;
+  mu is below it and rising, so the +0.055525
+  {#rem:gainprofile} attributed to opposition is what
+  closing that gap costs, and it stops when the gap does.
+  That makes item 4(b) harder than that remark left it,
+  not cheaper, and this is a correction to it.
+
+O5  is the opposing mass growing?
+  the l1 share of blocks whose sign differs from the dominant
+  block's runs 0.0088 to 0.0670, exponent +0.216756 at 1.73 standard errors
+TSTAT slope_gainopposition_oppmass 1.73
+SPREAD slope_gainopposition_oppmass 4.8520
+UNRESOLVED SIGN slope_gainopposition_oppmass
+  O5 hold
+
+======================================================================
+O1 hold  O2 REFUTED  O3 hold  O4 hold  O5 hold

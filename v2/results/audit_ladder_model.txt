@@ -1,0 +1,160 @@
+STATISTIC: at each rung of N = 30030 * 2^j, j = 0..10, the
+           measured crossing K*_R of sum(log k)|R| against
+           S(N)(1-A(N))N and its exponent; the constant
+           c_R = mean |R|/sqrt(N/k) below that crossing; the
+           crossing predicted by
+           sum_{k<K}(log k) c_R sqrt(N/k) = S(N)(1-A(N))N over
+           the actual admissible k; and the N at which that
+           derived model reaches 0.50 and 0.56.
+NULL: none is run and none applies. A deterministic model is
+      compared with a measured crossing of the same measured
+      sum at eleven N; there is no background to detect
+      against. The sign controls for R on this ladder were run
+      in lab_primorial_ladder.py and
+      lab_residue_cancellation.py.
+FIELD: N = 30030 * 2^j, j = 0..10, the odd radical 3*5*7*11*13
+       fixed so the budget is constant; k squarefree and
+       coprime to N with 2 <= k < 100000; m odd, squarefree,
+       coprime to the odd part of k, m < N/k; the sieve weight
+       uses the odd primes up to 30; beta refitted as
+       sum(H P)/sum(P^2) on that k-range; S(N) and A(N) from
+       Euler products at the fixed bound 4000000; the published
+       exponents, the family's c_R drift and the fitted shapes'
+       answers are read from results/.
+
+read 11 published rungs, the family's c_R drift 0.1436, and 3
+  surviving shape answers for 0.56: 11.2700, 14.6167, 19.6207
+sieving to 30750720 ...
+  N = 30030     K*_R 109    exp 0.4550  c_R 1.1956  model K* 113   
+  N = 60060     K*_R 157    exp 0.4595  c_R 1.4048  model K* 151   
+  N = 120120    K*_R 239    exp 0.4682  c_R 1.4497  model K* 233   
+  N = 240240    K*_R 311    exp 0.4633  c_R 1.6742  model K* 313   
+  N = 480480    K*_R 461    exp 0.4688  c_R 1.8753  model K* 437   
+  N = 960960    K*_R 691    exp 0.4746  c_R 1.9077  model K* 691   
+  N = 1921920   K*_R 1159   exp 0.4876  c_R 1.8963  model K* 1129  
+  N = 3843840   K*_R 1501   exp 0.4824  c_R 2.1981  model K* 1511  
+  N = 7687680   K*_R 2621   exp 0.4965  c_R 2.1723  model K* 2551  
+  N = 15375360  K*_R 3557   exp 0.4941  c_R 2.4278  model K* 3623  
+  N = 30750720  K*_R 5773   exp 0.5023  c_R 2.5492  model K* 5701  
+
+J1  the control
+  N            here       published   diff
+  30030        0.4550     0.4550      0.000031
+  60060        0.4595     0.4595      0.000029
+  120120       0.4682     0.4682      0.000024
+  240240       0.4633     0.4633      0.000017
+  480480       0.4688     0.4688      0.000023
+  960960       0.4746     0.4746      0.000014
+  1921920      0.4876     0.4876      0.000021
+  3843840      0.4824     0.4824      0.000017
+  7687680      0.4965     0.4965      0.000048
+  15375360     0.4941     0.4941      0.000010
+  30750720     0.5023     0.5023      0.000034
+  J1 hold
+
+J2  does the derived model reproduce the crossings?
+  N            measured   model      ratio
+  30030        109        113        1.0367
+  60060        157        151        0.9618
+  120120       239        233        0.9749
+  240240       311        313        1.0064
+  480480       461        437        0.9479
+  960960       691        691        1.0000
+  1921920      1159       1129       0.9741
+  3843840      1501       1511       1.0067
+  7687680      2621       2551       0.9733
+  15375360     3557       3623       1.0186
+  30750720     5773       5701       0.9875
+  J2 REFUTED   (cap 5 per cent)
+
+J3  the constant the derived shape rests on
+  N            c_R        sqrt(log N)   c_R/sqrt(log N)
+  30030        1.1956     3.2109        0.3724
+  60060        1.4048     3.3171        0.4235
+  120120       1.4497     3.4200        0.4239
+  240240       1.6742     3.5199        0.4757
+  480480       1.8753     3.6170        0.5185
+  960960       1.9077     3.7116        0.5140
+  1921920      1.8963     3.8038        0.4985
+  3843840      2.1981     3.8938        0.5645
+  7687680      2.1723     3.9819        0.5456
+  15375360     2.4278     4.0680        0.5968
+  30750720     2.5492     4.1523        0.6139
+  spread 0.4790 of the mean, against the family's 0.1436   REFUTED
+  J3 REFUTED
+DRIFT ladder_model_cR 0.4790
+
+J4  where the derived shape puts 0.56
+  the model with c_R = g sqrt(log N), g = 0.5043, admissible
+  density 0.1907 and budget 0.087306 solves
+    N^{(1-e)/2} = 2 d g sqrt(log N) (e log N - 2) / budget
+  log10 N      model exponent   measured
+  4.4776       0.4400           0.4550
+  4.7786       0.4451           0.4595
+  5.0796       0.4515           0.4682
+  5.3806       0.4588           0.4633
+  5.6817       0.4668           0.4688
+  5.9827       0.4751           0.4746
+  6.2837       0.4837           0.4876
+  6.5848       0.4924           0.4824
+  6.8858       0.5012           0.4965
+  7.1868       0.5099           0.4941
+  7.4879       0.5185           0.5023
+  the model reaches 0.50 at log10 N = 6.8446 and 0.56 at 9.0269
+  the fitted shapes span 11.2700 to 19.6207
+  J4 REFUTED
+SHAPES 1
+BRACKET log10_N_ladder_model_reaches_theta 9.0269 11.2700 19.6207
+SCATTER ladder_model_cR 0.4790
+
+  the arithmetic and the budget, declared:
+  11 N, 1 distinct odd radical: 15015
+RADICALS 1
+BUDGET kstar_R_S1AN_N30030 0.087306
+BUDGET kstar_R_S1AN_N60060 0.087306
+BUDGET kstar_R_S1AN_N120120 0.087306
+BUDGET kstar_R_S1AN_N240240 0.087306
+BUDGET kstar_R_S1AN_N480480 0.087306
+BUDGET kstar_R_S1AN_N960960 0.087306
+BUDGET kstar_R_S1AN_N1921920 0.087306
+BUDGET kstar_R_S1AN_N3843840 0.087306
+BUDGET kstar_R_S1AN_N7687680 0.087306
+BUDGET kstar_R_S1AN_N15375360 0.087306
+BUDGET kstar_R_S1AN_N30750720 0.087306
+
+  DIAGNOSTIC (post hoc). What the derived shape does that a
+  fitted one cannot: it has no freedom left once c_R and the
+  density are measured. Its residuals against the eleven
+  measured exponents, and the line's, for comparison:
+  N            measured   model      model resid  line resid
+  30030        0.4550     0.4400     +0.0151      +0.0010
+  60060        0.4595     0.4451     +0.0144      +0.0008
+  120120       0.4682     0.4515     +0.0167      +0.0048
+  240240       0.4633     0.4588     +0.0044      -0.0048
+  480480       0.4688     0.4668     +0.0020      -0.0040
+  960960       0.4746     0.4751     -0.0005      -0.0029
+  1921920      0.4876     0.4837     +0.0039      +0.0054
+  3843840      0.4824     0.4924     -0.0101      -0.0045
+  7687680      0.4965     0.5012     -0.0047      +0.0049
+  15375360     0.4941     0.5099     -0.0158      -0.0022
+  30750720     0.5023     0.5185     -0.0162      +0.0014
+  r.m.s.: model 0.0112, line 0.0037
+  The model's residuals are not noise: positive at the bottom
+  of the ladder and negative at the top, so the derived shape
+  rises too fast. J3 says why.
+
+  What c_R actually does here. Fitting c_R against log N:
+    c_R ~ (log N)^1.3838, correlation 0.98535
+  against the 1/2 the derived shape assumes and the 1/2 that
+  {#rem:residueconstant} found at the 2^a 5^b family. The
+  residue's constant grows about 2.8 times faster in the
+  exponent at the primorial radical, which is not a wobble in
+  a constant but a different law, and it is why no derived
+  shape is available here.
+  leave-one-out on that exponent: 1.3838, 1.3124, 1.3865 -- spread 0.0740
+SWEPT ladder_cR_growth N-range 0.074028
+CORR ladder_cR_growth 0.98535
+POP ladder_cR_growth 11
+
+======================================================================
+REFUTED

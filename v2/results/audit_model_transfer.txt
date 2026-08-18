@@ -1,0 +1,125 @@
+STATISTIC: the measured crossings of B_H(N;K) = sum(log k)|H|
+           against S(N)N and against S(N)(1-A(N))N; the model
+           predictions of both from a single calibration
+           c(N) = mean |H|/sqrt(N/k) taken below the S(N)N
+           crossing only; c(N) recomputed below the smaller
+           crossing; and the ratio of the two crossings.
+NULL: none is run and none applies. A deterministic model is
+      compared with a measured crossing of the same measured
+      sum; there is no background to detect against. The sign
+      controls for this field were run in lab_direct_level.py,
+      whose mu-squared reference established that the level is
+      bought by cancellation at all.
+FIELD: N = 2e5 through 3.2e6 by doubling; k squarefree, coprime
+       to N, 2 <= k < 60000; S and A from Euler products at the
+       fixed bound 4e6.
+
+sieving to 3200000 ...
+  N = 200000      K*(S N) = 2973     K*(S(1-A)N) = 321     c = 3.5421
+  N = 400000      K*(S N) = 5109     K*(S(1-A)N) = 579     c = 3.5393
+  N = 800000      K*(S N) = 8021     K*(S(1-A)N) = 789     c = 3.7012
+  N = 1600000     K*(S N) = 13557    K*(S(1-A)N) = 1311    c = 3.7565
+  N = 3200000     K*(S N) = 23397    K*(S(1-A)N) = 2357    c = 3.8100
+
+V2  in sample: the S(N)N crossing
+  N            measured   model      ratio
+  200000       2973       2981       1.0027
+  400000       5109       5057       0.9898
+  800000       8021       8061       1.0050
+  1600000      13557      13589      1.0024
+  3200000      23397      23059      0.9856
+  V2 hold
+
+V1  out of sample: the S(N)(1-A(N))N crossing, five times lower
+  N            measured   model      ratio
+  200000       321        323        1.0062
+  400000       579        521        0.8998
+  800000       789        791        1.0025
+  1600000      1311       1283       0.9786
+  3200000      2357       2099       0.8905
+  V1 REFUTED
+
+V3  is the calibration local?
+  N            c below big   c below small   ratio
+  200000       3.5421        3.5976          1.0157
+  400000       3.5393        3.3674          0.9514
+  800000       3.7012        3.7515          1.0136
+  1600000      3.7565        3.7234          0.9912
+  3200000      3.8100        3.6069          0.9467
+  V3 hold
+
+V4  the ratio of the two crossings
+  N            measured   model      ratio
+  200000       9.2617     9.2291     0.9965
+  400000       8.8238     9.7063     1.1000
+  800000       10.1660    10.1909    1.0024
+  1600000      10.3410    10.5916    1.0242
+  3200000      9.9266     10.9857    1.1067
+  V4 REFUTED
+
+  DIAGNOSTIC (post hoc). Where V1 and V4 broke, and by how much.
+  The two N at which the model missed are the two at which the
+  calibration moved most between the two ranges. Since
+  B ~ c K^{1/2} log K, an error in c must be amplified into the
+  crossing by roughly 1/(1/2 + 1/log K). Where the drift is
+  below one per cent the ratio is dominated by the discreteness
+  of the k-grid and means nothing; read only the rows with a
+  drift of several per cent:
+  N            c(small)/c(big)   K* miss    amplification
+  200000       1.0157            1.0062     0.3974
+  400000       0.9514            0.8998     2.0623
+  800000       1.0136            1.0025     0.1866
+  1600000      0.9912            0.9786     2.4287
+  3200000      0.9467            0.8905     2.0532
+  derivative amplification 1/(1/2 + 1/log K*), against the
+  measured one, split by the DIRECTION of the drift:
+    N = 200000     derivative 1.4853  measured 0.3974    c drifts up
+    N = 400000     derivative 1.5216  measured 2.0623    c drifts down
+    N = 800000     derivative 1.5387  measured 0.1866    c drifts up
+    N = 1600000    derivative 1.5642  measured 2.4287    c drifts down
+    N = 3200000    derivative 1.5904  measured 2.0532    c drifts down
+  the response is one-sided. Where c falls between the ranges
+  (3 of 5 rows) the mean amplification is 2.1814 against a
+  derivative of 1.5587 -- the right mechanism, about 40 per cent
+  stronger than the plain derivative. Where c rises the mean is
+  0.2920: the model absorbs an upward drift and not a downward
+  one, which the derivative does not explain and this script
+  does not settle.
+
+  and the level the two thresholds sit at, in exponents:
+  N            log K*(S N)/log N   log K*(S(1-A)N)/log N   gap
+  200000       0.6552              0.4728                  0.1824
+  400000       0.6620              0.4932                  0.1688
+  800000       0.6614              0.4908                  0.1706
+  1600000      0.6660              0.5025                  0.1635
+  3200000      0.6716              0.5184                  0.1532
+  And the arithmetic this sweep covers, which gate check G34
+  reads. Every N here is 2^a 5^b, so the gap just measured is
+  the gap AT ONE ODD RADICAL. audit_residue_arithmetic.py
+  measures the same response across seven types by regressing
+  the exponent on the log of the threshold, and finds it about
+  half as strong -- so this gap does not transfer to other
+  arithmetic unchanged:
+  5 N, 1 distinct odd radical: 5
+RADICALS 1
+
+  This file is the one that fixes what that gap is worth, so
+  it declares both constants. Every exponent above belongs to
+  one of them and to no other:
+BUDGET kstar_SN_N200000 1.760432
+BUDGET kstar_S1AN_N200000 0.374487
+BUDGET kstar_SN_N400000 1.760432
+BUDGET kstar_S1AN_N400000 0.374487
+BUDGET kstar_SN_N800000 1.760432
+BUDGET kstar_S1AN_N800000 0.374487
+BUDGET kstar_SN_N1600000 1.760432
+BUDGET kstar_S1AN_N1600000 0.374487
+BUDGET kstar_SN_N3200000 1.760432
+BUDGET kstar_S1AN_N3200000 0.374487
+
+  mean gap 0.1677 -- a budget factor of 4.7009 costs that much in
+  the exponent, and the model reproduces it without being told:
+  it gets the ratio of the two crossings right at three of five.
+
+======================================================================
+REFUTED

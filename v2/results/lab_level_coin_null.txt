@@ -1,0 +1,42 @@
+STATISTIC: K*_eps(N) = max{K : sum_{k<K,(k,N)=1}(log k)
+           |E_eps(N;k)| <= S(N)(1-A(N))N} with eps(v) = +-1 on
+           {v : mu(v) != 0} and zero elsewhere, averaged over 8
+           draws; the ratio K*_mu/K*_eps; the coin's fitted
+           exponent in N; the decay exponent of |E_eps(N;k)| in
+           k; and |E_mu(N;k)|/<|E_eps(N;k)|> at k = K*_mu.
+FIELD: N = 2e5, 4e5, 8e5, 1.6e6, 3.2e6; k from 2 to 2e4,
+       restricted to squarefree k coprime to N; the coin uses the
+       same support, threshold, weight and k-range as mu, so the
+       sign pattern is the only difference; decay exponent fitted
+       over 50 <= k <= 5000; numpy default_rng seed 20260808.
+NULL: this file is the null. Eight coin draws with threshold,
+      support, weight and k-range held identical to the mu run, so
+      the sign pattern is the only difference.
+
+sieving to 4000000 ...
+
+  N          thresh/N   K*_mu   K*_eps (mean of 8)   ratio    |E_mu|/<|E_eps|> at K*_mu
+  --------------------------------------------------------------------------------------
+  200000     0.3745     319     553.0                0.58     0.8896
+  400000     0.3745     537     887.5                0.61     4.3466
+  800000     0.3745     767     1386.8               0.55     0.3665
+  1600000    0.3745     1353    2145.5               0.63     5.5622
+  3200000    0.3745     2319    3423.2               0.68     1.9304
+
+K1  K*_mu > K*_eps at every N: False   REFUTED
+K2  K*_mu/K*_eps = 0.58, 0.61, 0.55, 0.63, 0.68   (floor 3)   REFUTED
+K3  beta_eps = 0.6534 against beta_mu = 0.7057   REFUTED
+K4  |E_eps| ~ k^{-a} with a = 0.5082, 0.4982, 0.4978, 0.5053, 0.5056   (band (0.4,0.6))   hold
+K5  |E_mu|/<|E_eps|> at K*_mu = 0.8896, 4.3466, 0.3665, 5.5622, 1.9304   all below 1: False   REFUTED
+
+  Cross-check lines. audit_levelmeas_budget.py recomputes
+  the same crossing while sweeping the budget factor.
+AGREE kstar_nolog N=200000 319 0.02
+AGREE kstar_nolog N=400000 537 0.02
+AGREE kstar_nolog N=800000 767 0.02
+AGREE kstar_nolog N=1600000 1353 0.02
+AGREE kstar_nolog N=3200000 2319 0.02
+
+======================================================================
+K1 REFUTED  K2 REFUTED  K3 REFUTED  K4 hold  K5 REFUTED
+K* does NOT separate mu from a coin -- Remark {#rem:levelmeas} must be withdrawn

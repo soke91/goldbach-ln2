@@ -1,0 +1,116 @@
+STATISTIC: with beta the least-squares scale through the origin,
+           R = H - beta P; the mass-weighted fraction f+ of k
+           with R > 0 and with P > 0, against 16 sign draws that
+           hold |R| fixed; the octave means of |R| against N/k
+           and the exponent fitted from them, with its
+           leave-one-out spread; and |H|, |beta P|, |R| side by
+           side.
+NULL: the sign randomisation of T1 and T3 -- every |R(N;k)| held
+      fixed, its sign redrawn, 16 draws. The band it gives is
+      the sampling range of f+ under no sign structure at all,
+      computed rather than assumed, which is what M2 asks for.
+FIELD: N = 2e5 through 3.2e6 by doubling; k squarefree, coprime
+       to N, 2 <= k < 30000, which covers K* at every N; m odd
+       squarefree, coprime to k, m <= (N-1)/k; the sieve weight
+       uses the odd primes up to 30; seed 20260808.
+
+sieving to 3200000 ...
+  N = 200000      #k = 10132   beta = 2.6992
+  N = 400000      #k = 10132   beta = 2.8588
+  N = 800000      #k = 10132   beta = 2.9952
+  N = 1600000     #k = 10132   beta = 3.1437
+  N = 3200000     #k = 10132   beta = 3.0473
+
+T1/T3  is the lean in the elementary part or in the residue?
+  N            f+ of R     f+ of P     draws min   draws max
+  200000       0.5516      0.0796      0.4854      0.5091
+  400000       0.5573      0.0649      0.4932      0.5113
+  800000       0.5484      0.0941      0.4907      0.5148
+  1600000      0.5379      0.1326      0.4882      0.5155
+  3200000      0.4832      0.1836      0.4922      0.5106
+  T1 the residue is centred      REFUTED
+  T3 the elementary part leans   hold
+
+T2  the size law, octave means of |R| against N/k
+  N/k octave   N=200000     N=400000     N=800000     N=1600000    N=3200000  
+  [2     ,8      )      4.32/1689          -/0             -/0             -/0             -/0    
+  [8     ,32     )      6.36/6334       8.32/5915      10.57/1689          -/0             -/0    
+  [32    ,128    )     13.17/1581      13.93/3162      14.47/6334      18.03/5915      22.69/1689 
+  [128   ,512    )     24.77/399       26.83/789       27.97/1581      29.45/3162      30.85/6334 
+  [512   ,2048   )     47.24/96        55.52/202       57.79/399       61.02/789       57.80/1581 
+  [2048  ,8192   )     84.32/25        88.30/48       123.88/96       112.74/202      115.86/399  
+  [8192  ,32768  )    266.18/7        248.37/13       243.41/25       232.69/48       239.40/96   
+  [32768 ,131072 )     22.77/1        111.29/2        452.75/7        536.06/13       458.31/25   
+  [131072,524288 )         -/0       1028.85/1        287.02/1        746.56/2        843.43/7    
+  [524288,2097152)         -/0             -/0             -/0       1242.92/1       2219.15/1    
+  N            fitted exponent   correlation   bins fitted
+  200000       0.4722            0.99947       6
+  400000       0.4923            0.99582       6
+  800000       0.5079            0.99954       6
+  1600000      0.5048            0.99896       6
+  3200000      0.4869            0.99961       6
+  T2 hold
+
+T5  the population floor is a threshold, so it is swept
+  N            floor 5     floor 10    floor 20    spread
+  200000       0.5096      0.4722      0.4722      0.0374
+  400000       0.4923      0.4923      0.4575      0.0347
+  800000       0.5021      0.5079      0.5079      0.0057
+  1600000      0.5048      0.5048      0.4860      0.0187
+  3200000      0.4826      0.4869      0.4869      0.0043
+  T5 hold
+
+T4  robustness of the exponent, and the thinnest bin each fit
+  actually stands on, which gate check G30 reads. A fit is
+  only as good as its emptiest octave, and that number was
+  invisible here until it had gone wrong twice.
+  leave-one-out on residue_size_N200000: full 0.4722, without the shortest octave 0.4649,
+  without the longest 0.4828 -- spread 0.0178
+SWEPT residue_size_N200000 octave-range 0.0178
+POP residue_size_N200000 25
+CORR residue_size_N200000 0.99947
+  leave-one-out on residue_size_N400000: full 0.4923, without the shortest octave 0.4994,
+  without the longest 0.4575 -- spread 0.0419
+SWEPT residue_size_N400000 octave-range 0.0419
+POP residue_size_N400000 13
+CORR residue_size_N400000 0.99582
+  leave-one-out on residue_size_N800000: full 0.5079, without the shortest octave 0.5163,
+  without the longest 0.5040 -- spread 0.0123
+SWEPT residue_size_N800000 octave-range 0.0123
+POP residue_size_N800000 25
+CORR residue_size_N800000 0.99954
+  leave-one-out on residue_size_N1600000: full 0.5048, without the shortest octave 0.5136,
+  without the longest 0.4860 -- spread 0.0275
+SWEPT residue_size_N1600000 octave-range 0.0275
+POP residue_size_N1600000 13
+CORR residue_size_N1600000 0.99896
+  leave-one-out on residue_size_N3200000: full 0.4869, without the shortest octave 0.4940,
+  without the longest 0.4834 -- spread 0.0106
+SWEPT residue_size_N3200000 octave-range 0.0106
+POP residue_size_N3200000 25
+CORR residue_size_N3200000 0.99961
+  T4 hold
+
+  DIAGNOSTIC (post hoc). The three parts side by side, octave
+  means at the largest N:
+  N/k octave   |H|         |beta P|    |R|         |R|/|H|
+  [32    ,128    ) 41.78       37.15       22.69       0.5432
+  [128   ,512    ) 57.74       48.13       30.85       0.5343
+  [512   ,2048   ) 115.88      99.84       57.80       0.4988
+  [2048  ,8192   ) 220.09      205.38      115.86      0.5264
+  [8192  ,32768  ) 410.57      380.32      239.40      0.5831
+  [32768 ,131072 ) 608.46      625.04      458.31      0.7532
+  [131072,524288 ) 1153.79     931.96      843.43      0.7310
+  [524288,2097152) 4772.28     2553.13     2219.15     0.4650
+
+  Cross-check lines. lab_predictable_part.py fits the same beta
+  on the same k-range.
+AGREE beta_HP N=200000 2.699191 0.01
+AGREE beta_HP N=400000 2.858827 0.01
+AGREE beta_HP N=800000 2.995171 0.01
+AGREE beta_HP N=1600000 3.143666 0.01
+AGREE beta_HP N=3200000 3.047304 0.01
+
+======================================================================
+T1 REFUTED  T2 hold  T3 hold  T4 hold  T5 hold
+REFUTED

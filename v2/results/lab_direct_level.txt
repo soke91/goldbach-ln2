@@ -1,0 +1,69 @@
+STATISTIC: K*_H(N) = max{K : sum_{k<K}(log k)|H(N;k)| <= S(N)N},
+           in units of sqrt(N), for mu and for two controls; and
+           the fitted exponent of K*_H in N.
+NULL: mu replaced by mu^2 -- same support, every sign +1, no
+      cancellation. It is the right reference here because a
+      coin is BETTER than mu by construction: by [eq:dilate]
+      |A_mu| is a Mobius-prime correlation while the coin's is a
+      sum of independent signs, so [rem:whycoinwins] predicts
+      the coin reaches a higher K*. The coin is reported anyway,
+      as a check on that account, but it is not the null.
+FIELD: N = 2e5 through 3.2e6 by doubling; k over the squarefree
+       k < N/2 coprime to N, walked upward until the threshold
+       is crossed; S(N) from Euler products truncated at 4e6;
+       seed 20260808.
+
+sieving to 3200000 ...
+
+  the threshold is S(N) N, computed per N from Euler products
+  truncated at 4000000; k runs over the squarefree k coprime to N.
+
+  N            S(N)     sqrt N    K*_mu     K*/sqrt N  K*_coin/sqrt N  K*_one/sqrt N
+  --------------------------------------------------------------------------------------------
+  200000       1.7604   447.2     2973      6.6478     11.5448         0.0872
+  400000       1.7604   632.5     5109      8.0780     13.5994         0.0585
+  800000       1.7604   894.4     8021      8.9678     15.5328         0.0436
+  1600000      1.7604   1264.9    13557     10.7177    18.2961         0.0308
+  3200000      1.7604   1788.9    23397     13.0793    22.7246         0.0218
+
+Z1  K*_mu/sqrt N above 1 at every N   hold
+Z2  it grows across the sweep          hold
+Z3  the no-cancellation reference stays under 0.1: max 0.0872  hold
+Z4  the coin is above mu at every N    hold
+
+  DIAGNOSTIC (post hoc). What the exponent is. Fitting
+  K*_mu against N,
+  K*_mu ~ N^{0.7361}, correlation 0.99954. Square-root cancellation
+  leave-one-out on kstar_H: full 0.7361, without the smallest N 0.7343,
+  without the largest 0.7218 -- spread 0.0143
+SWEPT kstar_H N-range 0.0143
+  in H(N;k) would give sum_{k<K}(log k)sqrt(N/k) ~ 2 sqrt(NK)
+  log K, hence K* ~ S^2 N / (4 log^2 K) -- an exponent of 1 up
+  to logarithms, and that is what the fit is seeing.
+  The heuristic is quantitative, not just an exponent. Solving
+  K = S^2 N / (4 log^2 K) at the measured K* and comparing:
+  N            K*_mu     S^2 N/(4 log^2 K*)   ratio
+  200000       2973      2423                 1.2271
+  400000       5109      4251                 1.2020
+  800000       8021      7669                 1.0458
+  1600000      13557     13693                0.9900
+  3200000      23397     24496                0.9551
+  The miss is 23% at the bottom and 4% at the top, and
+  it closes as N grows -- so the measured level is not merely of
+  the right exponent, it is the size that square-root
+  cancellation in H(N;k) predicts.
+  For contrast the no-cancellation reference has |H| ~ N/phi(k)
+  and B_H ~ N log^2 K, so its K* is bounded independently of N;
+  measured, K*_one is 39, 37, 39, 39, 39 across the whole sweep.
+
+  Cross-check lines. audit_directlevel_budget.py
+  recomputes the same crossing while sweeping the budget
+  factor, and the gate holds the two together.
+AGREE kstar_H N=200000 2973 0.02
+AGREE kstar_H N=400000 5109 0.02
+AGREE kstar_H N=800000 8021 0.02
+AGREE kstar_H N=1600000 13557 0.02
+AGREE kstar_H N=3200000 23397 0.02
+
+======================================================================
+the direct condition holds past the square-root barrier at accessible N

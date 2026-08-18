@@ -1,0 +1,114 @@
+STATISTIC: max |C(N)|/N over even N in each octave (T/2, T] with
+           C = mu * Lambda by one length-2^28 FFT convolution,
+           for the octaves above the published table and for the
+           octave (5e7, 1e8] that the published bracket
+           forecasts; each new maximum recomputed by direct
+           summation at its argmax; the octave-to-octave and
+           whole-stretch decay exponents over the new range; and
+           the reciprocal 1/max|C|/N on the forecast octave
+           against the bracket itself.
+NULL: none is run and none applies. A published deterministic
+      extrapolation is compared against a direct measurement of
+      the quantity it extrapolates, so there is no background to
+      detect against. The control on the measurement is the
+      direct summation of W2 and the control on the transform is
+      W1's reproduction of the published octave at a different
+      transform length.
+FIELD: even N; Lambda and mu from an integer sieve to 1.28e8;
+       octaves with tops doubling from the published top up to
+       1.28e8, plus the octave (5e7, 1e8]; the bracket, the
+       range of the fitted exponent and the base are read from
+       results/audit_margin_bracket.txt and
+       results/audit_margin.txt.
+
+read from results/audit_margin_bracket.txt and results/audit_margin.txt:
+  the published BRACKET  [219.7073, 245.9760]  point 222.7093
+  the published b range  [0.433213, 0.494841]  relative spread 0.1339
+  the base 1/max at the top published octave  99.325
+  the top published octave  (8000000, 16000000]  max 0.010068  at N = 9699690
+  so the forecast reaches a factor 6.25 past the data, to the
+  octave (50000000, 100000000], which this script measures directly.
+
+sieving to 128000000 ...
+convolving C = mu * Lambda by a length-268435456 transform ...
+
+W1  the new transform against the published octave
+  octave                    here         published    diff
+  (8000000, 16000000]  0.01006796   0.010068     3.91e-08
+  argmax N                  9699690      9699690      same
+  W1 holds
+
+the new octaves, and the octave the bracket forecasts
+  octave top     count      max |C|/N     argmax N     odd radical
+  16000000       4000000    0.01006796    9699690      4849845
+  32000000       8000000    0.00678966    16546530     8273265
+  64000000       16000000   0.00442828    33093060     8273265
+  128000000      32000000   0.00359101    70450380     5870865
+  100000000      25000000   0.00359101    70450380     5870865
+  primorials up to 128000000: 2, 6, 30, 210, 2310, 30030, 510510, 9699690
+  of these, new inside (16000000, 128000000]: none
+  and what each argmax actually is:
+  9699690      = 2 * 3 * 5 * 7 * 11 * 13 * 17 * 19
+  16546530     = 2 * 3 * 5 * 7 * 11 * 13 * 19 * 29
+  33093060     = 2 * 2 * 3 * 5 * 7 * 11 * 13 * 19 * 29
+  70450380     = 2 * 2 * 3 * 3 * 5 * 7 * 11 * 13 * 17 * 23
+  70450380     = 2 * 2 * 3 * 3 * 5 * 7 * 11 * 13 * 17 * 23
+
+W2  every new octave maximum, by direct summation
+  C(N) = sum_{n<N} Lambda(n) mu(N-n), one pass per argmax N
+  argmax N       direct         from the transform  diff
+  16546530       0.00678966     0.00678966          2.60e-18
+  33093060       0.00442828     0.00442828          2.60e-18
+  70450380       0.00359101     0.00359101          4.34e-18
+  70450380       0.00359101     0.00359101          4.34e-18
+  W2 holds
+
+W3  the bracket, against the octave it forecasts
+  measured 1/max|C|/N on (50000000, 100000000]  : 278.4734
+  the published bracket                   : [219.7073, 245.9760]
+  the published point estimate            : 222.7093
+  W3 REFUTED
+  the exponent that would have landed it  : 0.562554
+  against the fitted range                : [0.433213, 0.494841]
+  the measured value is 1.1321 times the top of the bracket
+
+W4  the octave-to-octave exponent over the new stretch
+  step                      b_local     inside [0.433213, 0.494841]?
+  16000000  -> 32000000     0.568360    NO
+  32000000  -> 64000000     0.616593    NO
+  64000000  -> 128000000    0.302358    NO
+  W4 REFUTED
+
+W5  the whole new stretch, against every fitted b
+  16000000 -> 128000000 is a factor 8 and no new primorial enters it
+  max|C|/N ~ N^{-0.495770} over the new stretch
+  the largest b the published grids fit  : 0.494841
+  W5 holds
+  local exponents run 0.302358 to 0.616593
+SWEPT wall_max_decay_oos N-range 0.314235
+
+  DIAGNOSTIC (post hoc). The top new octave does not find its
+  own maximum. Two of the octaves above share an argmax, so
+  the step between them measures where the maximum stopped
+  moving and not how fast the wall falls:
+  (64000000, 128000000] and (50000000, 100000000] both peak at N = 70450380
+  octave pairs sharing an argmax: 1
+  So the last local exponent above is not an independent
+  measurement of the decay, and the whole-stretch exponent
+  W5 reads is a lower bound on it: the octave (64000000, 128000000] would
+  need a maximum above the one it inherited to fall further.
+
+  DIAGNOSTIC (post hoc on the published grids, pre-registered
+  only for the new one). The published tables already contain
+  steps on which max|C|/N rises rather than falls, so a local
+  exponent there is negative and the fitted b is an average
+  over a staircase. Read off results/audit_margin.txt, on both
+  grids the bracket was fitted on:
+  30000     -> 60000      b_local -0.028471    argmax 30030 enters
+  480000    -> 960000     b_local -0.005500    argmax 510510 enters
+  500000    -> 1000000    b_local -0.005500    argmax 510510 enters
+  negative local steps inside the fitted range: 3 of 18
+
+======================================================================
+W1 holds  W2 holds  W3 REFUTED  W4 REFUTED  W5 holds
+the bracket does not contain the octave it forecasts

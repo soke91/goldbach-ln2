@@ -1,0 +1,96 @@
+STATISTIC: the crossings of S(N)N by sum(log k)|H|, by
+           sum(log k)|beta P| and by sum(log k)|R|, their
+           exponents log K*/log N, the difference between the
+           residue's and H's -- which is what the
+           elementary/residue split is worth in theta' -- and
+           the ratio of that to the signed gain of Remark
+           {#rem:signedgain} at the same N, each with the
+           least-squares slope against log N, its r.m.s.
+           residual and its standard error.
+NULL: none is run and none applies. Crossings of deterministic
+      sums against computed thresholds are located and
+      differenced; there is no background to detect against.
+      The null for the split is lab_split_budget.py's
+      permutation of each half's magnitudes across k, and for
+      the signs lab_residue_signed.py's sixteen draws.
+FIELD: N = 2e5 through 3.2e6 by doubling; k squarefree and
+       coprime to N with 2 <= k < 100000; m odd,
+       squarefree and coprime to k, m <= (N-1)/k; the sieve
+       weight over the odd primes below 30;
+       S(N) from an Euler product at the fixed bound 4000000.
+       Every N is 2^a 5^b, one odd radical, as RADICALS says.
+       The published crossings are read from
+       results/lab_split_budget.txt and the signed gains from
+       results/audit_signed_gain.txt.
+
+read 5 published crossings and 5 exponent triples from results/lab_split_budget.txt,
+  and 5 signed gains from results/audit_signed_gain.txt
+sieving to 3200000, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N = 200000     beta 2.6690  budget S(N) = 1.7604  K*_H 2973    K*_P 4119    K*_R 9191
+BUDGET kstar_splitvalue_SN_N200000 1.760432
+  N = 400000     beta 2.8232  budget S(N) = 1.7604  K*_H 5109    K*_P 6441    K*_R 14289
+BUDGET kstar_splitvalue_SN_N400000 1.760432
+  N = 800000     beta 2.9400  budget S(N) = 1.7604  K*_H 8021    K*_P 10381   K*_R 23131
+BUDGET kstar_splitvalue_SN_N800000 1.760432
+  N = 1600000    beta 3.0782  budget S(N) = 1.7604  K*_H 13557   K*_P 16813   K*_R 37439
+BUDGET kstar_splitvalue_SN_N1600000 1.760432
+  N = 3200000    beta 3.0119  budget S(N) = 1.7604  K*_H 23397   K*_P 30369   K*_R 63399
+BUDGET kstar_splitvalue_SN_N3200000 1.760432
+RADICALS 1
+
+V1  the control: the three crossings
+  N            K*_H here / published   K*_P            K*_R
+  200000       2973    2973            4119    4119    9191    9191
+  400000       5109    5109            6441    6441    14289   14289
+  800000       8021    8021            10381   10381   23131   23131
+  1600000      13557   13557           16813   16813   37439   37439
+  3200000      23397   23397           30369   30369   63399   63399
+  V1 hold
+
+V2  the control: the three exponents
+  N            log K*_H/log N  log K*_P/log N  log K*_R/log N  worst diff
+  200000       0.6552          0.6819          0.7477          0.000041
+  400000       0.6620          0.6799          0.7417          0.000041
+  800000       0.6614          0.6804          0.7393          0.000038
+  1600000      0.6660          0.6811          0.7371          0.000043
+  3200000      0.6716          0.6891          0.7382          0.000046
+  V2 hold   (cap 0.0001)
+
+V3  what the split is worth, at each N
+  N            split value   signed gain   ratio
+  200000       0.0925        0.2932        3.1709
+  400000       0.0797        0.2526        3.1681
+  800000       0.0779        0.2346        3.0108
+  1600000      0.0711        0.2121        2.9828
+  3200000      0.0666        0.2181        3.2772
+  the split's least-squares slope against log N = -0.008722
+  r.m.s. residual 0.0022, standard error 0.001301, t = 6.70
+SCATTER slope_audit_split_value 0.0022
+TSTAT slope_audit_split_value 6.70
+SPREAD slope_audit_split_value 2.7726
+  V3 the split's value falls and clears two s.e.   hold
+  the range it takes over this sweep, which is what may be
+  quoted for it: 0.0666 to 0.0925
+PERN split_value 5 0.0666 0.0925
+PERN signed_gain 5 0.2121 0.2932
+
+V4  and the ratio between the two losses
+  ratio by N: 3.1709, 3.1681, 3.0108, 2.9828, 3.2772
+  slope +0.003946, r.m.s. residual 0.1098, standard error 0.064664, t = 0.06
+SCATTER slope_audit_split_value_ratio 0.1098
+TSTAT slope_audit_split_value_ratio 0.06
+SPREAD slope_audit_split_value_ratio 2.7726
+UNRESOLVED SIGN slope_audit_split_value_ratio
+RATIO signed_gain split_value 2.9828 3.2772
+  V4 the ratio does not move (t = 0.06)   hold
+
+  DIAGNOSTIC (post hoc). What the comparison in
+  {#rem:residuesigned} looks like when both sides are taken
+  at the same N. Quoting the split at one end of its range
+  and the signs across all of theirs gives
+  0.2932 / 0.0666 = 4.41; the per-N ratios above run 2.98 to
+  3.28. The comparison is real either way, and it is 1.13
+  larger when the two sides are taken at different N.
+
+======================================================================
+both losses decline together and their ratio is flat

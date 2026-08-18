@@ -1,0 +1,160 @@
+STATISTIC: the truncation K*_R at which
+           sum_{k<K}(log k)|R(N;k)| first reaches
+           S(N)(1-A(N))N, and its exponent log K*_R/log N, at
+           each of the seven arithmetic types of
+           {#rem:residuearithmetic} and at 2, 4 and 8 times
+           each -- multiplying by 2 leaves the odd radical
+           alone, so a type can be followed up the scale;
+           each type's least-squares slope against log N; the
+           spread across the seven at each scale; and the
+           span seven draws at the family's own scatter give.
+NULL: none is run and none applies. A measured sum is crossed
+      against a computed threshold at twenty-eight N and the
+      crossings compared; there is no background to detect
+      against. The sign controls for this field were run in
+      lab_residue_cancellation.py and lab_split_budget.py.
+FIELD: the seven test N read from
+       results/audit_residue_arithmetic.txt and their
+       doublings; k squarefree and coprime to N with
+       2 <= k < 100000; m odd, squarefree and
+       coprime to k, m < N/k; the sieve weight over the odd
+       primes below 30; beta refitted as
+       sum(H P)/sum(P^2) on the same k-range; S(N) and A(N)
+       from Euler products at the fixed bound 4000000;
+       the floor from 20000 normal draws at seed 20260808,
+       the scatter read from
+       results/audit_slope_significance.txt.
+
+read 7 test N and their exponents from results/audit_residue_arithmetic.txt,
+  and the family scatter 0.0049 from results/audit_slope_significance.txt
+sieving to 12972960, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N0 1572864   x1  = 1572864   odd 3                      exponent 0.5422
+BUDGET kstar_R_reach_N1572864 0.270682
+  N0 1572864   x2  = 3145728   odd 3                      exponent 0.5520
+BUDGET kstar_R_reach_N3145728 0.270682
+  N0 1572864   x4  = 6291456   odd 3                      exponent 0.5515
+BUDGET kstar_R_reach_N6291456 0.270682
+  N0 1572864   x8  = 12582912  odd 3                      exponent 0.5617
+BUDGET kstar_R_reach_N12582912 0.270682
+  N0 1404928   x1  = 1404928   odd 7                      exponent 0.5591
+BUDGET kstar_R_reach_N1404928 0.370504
+  N0 1404928   x2  = 2809856   odd 7                      exponent 0.5627
+BUDGET kstar_R_reach_N2809856 0.370504
+  N0 1404928   x4  = 5619712   odd 7                      exponent 0.5732
+BUDGET kstar_R_reach_N5619712 0.370504
+  N0 1404928   x8  = 11239424  odd 7                      exponent 0.5733
+BUDGET kstar_R_reach_N11239424 0.370504
+  N0 1600000   x1  = 1600000   odd 5                      exponent 0.5675
+BUDGET kstar_R_reach_N1600000 0.374487
+  N0 1600000   x2  = 3200000   odd 5                      exponent 0.5799
+BUDGET kstar_R_reach_N3200000 0.374487
+  N0 1600000   x4  = 6400000   odd 5                      exponent 0.5767
+BUDGET kstar_R_reach_N6400000 0.374487
+  N0 1600000   x8  = 12800000  odd 5                      exponent 0.5834
+BUDGET kstar_R_reach_N12800000 0.374487
+  N0 1620000   x1  = 1620000   odd 3,5                    exponent 0.5294
+BUDGET kstar_R_reach_N1620000 0.194596
+  N0 1620000   x2  = 3240000   odd 3,5                    exponent 0.5295
+BUDGET kstar_R_reach_N3240000 0.194596
+  N0 1620000   x4  = 6480000   odd 3,5                    exponent 0.5372
+BUDGET kstar_R_reach_N6480000 0.194596
+  N0 1620000   x8  = 12960000  odd 3,5                    exponent 0.5427
+BUDGET kstar_R_reach_N12960000 0.194596
+  N0 1531530   x1  = 1531530   odd 3,5,7,11,13,17         exponent 0.4808
+BUDGET kstar_R_reach_N1531530 0.073312
+  N0 1531530   x2  = 3063060   odd 3,5,7,11,13,17         exponent 0.4737
+BUDGET kstar_R_reach_N3063060 0.073312
+  N0 1531530   x4  = 6126120   odd 3,5,7,11,13,17         exponent 0.4756
+BUDGET kstar_R_reach_N6126120 0.073312
+  N0 1531530   x8  = 12252240  odd 3,5,7,11,13,17         exponent 0.4853
+BUDGET kstar_R_reach_N12252240 0.073312
+  N0 1621620   x1  = 1621620   odd 3,5,7,11,13            exponent 0.4747
+BUDGET kstar_R_reach_N1621620 0.087306
+  N0 1621620   x2  = 3243240   odd 3,5,7,11,13            exponent 0.4826
+BUDGET kstar_R_reach_N3243240 0.087306
+  N0 1621620   x4  = 6486480   odd 3,5,7,11,13            exponent 0.4888
+BUDGET kstar_R_reach_N6486480 0.087306
+  N0 1621620   x8  = 12972960  odd 3,5,7,11,13            exponent 0.4962
+BUDGET kstar_R_reach_N12972960 0.087306
+  N0 1600006   x1  = 1600006   odd 17,47059               exponent 0.5424
+BUDGET kstar_R_reach_N1600006 0.351148
+  N0 1600006   x2  = 3200012   odd 17,47059               exponent 0.5523
+BUDGET kstar_R_reach_N3200012 0.351148
+  N0 1600006   x4  = 6400024   odd 17,47059               exponent 0.5601
+BUDGET kstar_R_reach_N6400024 0.351148
+  N0 1600006   x8  = 12800048  odd 17,47059               exponent 0.5695
+BUDGET kstar_R_reach_N12800048 0.351148
+RADICALS 7
+
+Q1  the control: the seven base N
+  N            odd part               here     published  diff
+  1572864      3                      0.5422   0.5422     0.00003
+  1404928      7                      0.5591   0.5591     0.00003
+  1600000      5                      0.5675   0.5675     0.00003
+  1620000      3,5                    0.5294   0.5294     0.00004
+  1531530      3,5,7,11,13,17         0.4808   0.4808     0.00004
+  1621620      3,5,7,11,13            0.4747   0.4747     0.00001
+  1600006      17,47059               0.5424   0.5424     0.00003
+  Q1 hold   (cap 0.001)
+
+Q2  each radical followed up four scales
+  four points each, so the standard errors are wide and the
+  t column is printed to keep them from being over-read
+  odd part               x1       x2       x4       x8        slope        t
+  3                      0.5422   0.5520   0.5515   0.5617    +0.008369    3.96
+  7                      0.5591   0.5627   0.5732   0.5733    +0.007657    3.94
+  5                      0.5675   0.5799   0.5767   0.5834    +0.006395    2.20
+  3,5                    0.5294   0.5295   0.5372   0.5427    +0.006849    4.33
+  3,5,7,11,13,17         0.4808   0.4737   0.4756   0.4853    +0.002239    0.59
+  3,5,7,11,13            0.4747   0.4826   0.4888   0.4962    +0.010189    33.37
+  17,47059               0.5424   0.5523   0.5601   0.5695    +0.012871    33.27
+  Q2 every slope positive (min +0.002239)   hold
+  slowest: odd 3,5,7,11,13,17 at +0.002239; fastest: odd 17,47059 at +0.012871
+  the number of odd prime factors does not order these: the
+  slowest has 6 and the fastest 2.
+
+Q3/Q4  the spread across the seven radicals, by scale
+  floor: expected span of 7 draws at the family scatter 0.0049
+  over 20000 simulations = 0.0133
+FLOOR level_across_radicals_reach 0.0133
+  and how many octaves of N each span-against-floor in this
+  repository actually covers, counted from its own N column:
+    audit_residue_arithmetic   1 octave(s): 2^20
+SCALES audit_residue_arithmetic 1
+ONE SCALE audit_residue_arithmetic
+    audit_residue_kexponent    1 octave(s): 2^20
+SCALES audit_residue_kexponent 1
+ONE SCALE audit_residue_kexponent
+    audit_arithmetic_reach     4 octave(s)
+SCALES audit_arithmetic_reach 4
+  scale   N about       spread    over floor
+  x1      1564421      0.0928    6.99
+  x2      3128842      0.1063    8.00
+  x4      6257684      0.1011    7.61
+  x8      12515369     0.0981    7.39
+MARGIN audit_arithmetic_reach 0.0848 0.0133
+  Q3 the spread is smaller at x8 than at x1 (0.0981 vs 0.0928)   REFUTED
+  Q4 and still above the floor (0.0981 vs 0.0133)   hold
+
+Q5  is it the same two at the bottom at every scale?
+  the two with the most odd prime factors: 1531530 (odd 3,5,7,11,13,17), 1621620 (odd 3,5,7,11,13)
+  x1   bottom two: 3,5,7,11,13, 3,5,7,11,13,17   same
+  x2   bottom two: 3,5,7,11,13,17, 3,5,7,11,13   same
+  x4   bottom two: 3,5,7,11,13,17, 3,5,7,11,13   same
+  x8   bottom two: 3,5,7,11,13,17, 3,5,7,11,13   same
+  Q5 hold
+
+  what the spread is doing, for the record. Per unit log N
+  the spread's least-squares slope against log N = +0.001535
+  r.m.s. residual 0.0047, standard error 0.004312, t = 0.36
+SCATTER slope_audit_arithmetic_reach 0.0047
+TSTAT slope_audit_arithmetic_reach 0.36
+SPREAD slope_audit_arithmetic_reach 2.0794
+UNRESOLVED SIGN slope_audit_arithmetic_reach
+  Four scales is not a sweep and no N at which the spread
+  would close is quoted; {#rem:forecastbracket} is the
+  standing reason. What is measured is the sign at the two
+  ends and whether the floor is still cleared.
+
+======================================================================
+REFUTED

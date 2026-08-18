@@ -1,0 +1,68 @@
+STATISTIC: K*_H(N;c), the first K at which
+           B_H(N;K) = sum_{k<K}(log k)|H(N;k)| exceeds c S(N)N,
+           at c = 0.3, 0.5, 1, 2, 3; the exponent fitted from
+           K*_H against N at each c, with its correlation and
+           spread; and the parameter-free ratio B_H/(S(N)N) at
+           the fixed cuts K < N^0.56, N^0.60, N^0.70.
+NULL: none is run and none applies. B_H is a deterministic
+      monotone function of K, so there is no background to
+      detect against; the question is only whether a free
+      parameter in the definition moves the fitted exponent.
+      The sign controls for this field were run in
+      lab_direct_level.py, whose mu-squared reference
+      established that the level is bought by cancellation.
+FIELD: N = 2e5 through 3.2e6 by doubling; k over the squarefree
+       k < N/2 coprime to N, walked upward; S(N) from an Euler
+       product at the fixed bound 4e6.
+
+sieving to 3200000 ...
+  N = 200000      #k = 33771     B_H at the cap = 10.1 N
+  N = 400000      #k = 67549     B_H at the cap = 11.0 N
+  N = 800000      #k = 135092    B_H at the cap = 12.0 N
+  N = 1600000     #k = 270190    B_H at the cap = 12.9 N
+  N = 3200000     #k = 540381    B_H at the cap = 13.8 N
+
+  K*_H at each budget c, the first K with B_H > c S(N) N
+  c         N=200000     N=400000     N=800000     N=1600000    N=3200000  
+  0.30      489          893          1281         2121         3759       
+  0.50      1067         1807         2717         4503         7989       
+  1.00      2973         5109         8021         13557        23397      
+  2.00      10021        16823        26481        44923        75849      
+  3.00      24209        38519        59423        99461        166479     
+  W1  increasing in c at every N   hold
+
+  fitted exponents
+  c         e(c)      correlation   K*/sqrt N at the top
+  0.30      0.7133    0.99733       2.1013
+  0.50      0.7126    0.99858       4.4660
+  1.00      0.7361    0.99954       13.0793
+  2.00      0.7257    0.99969       42.4009
+  3.00      0.6932    0.99935       93.0646
+
+W2  spread of the exponent over the budgets: 0.0429  (cap 0.10)   hold
+W3  worst fit correlation: 0.99733  (floor 0.99)   hold
+W4  the exponent stays above 0.5: min 0.6932   hold
+
+  DIAGNOSTIC (post hoc). The threshold-free version, which is
+  what audit_truncation_exponent.py said should be reported
+  alongside any crossing: B_H(N;K)/(S(N)N) at a FIXED cut.
+  cut          N=200000     N=400000     N=800000     N=1600000    N=3200000  
+  K<N^0.56     0.4601       0.4081       0.4079       0.3772       0.3341     
+  K<N^0.60     0.6366       0.5948       0.5899       0.5533       0.5003     
+  K<N^0.70     1.3754       1.3566       1.3703       1.3452       1.2953     
+  Read down: at a fixed exponent the ratio falls with N, so
+  the crossing moves outward -- the same qualitative
+  conclusion as the fit, reached with no free parameter. That
+  is the difference from the withdrawn cases, where the
+  parameter-free tables disagreed with the fitted exponents.
+
+  Cross-check lines. lab_direct_level.py computes the same
+  crossing at c = 1 by an independent walk.
+AGREE kstar_H N=200000 2973 0.02
+AGREE kstar_H N=400000 5109 0.02
+AGREE kstar_H N=800000 8021 0.02
+AGREE kstar_H N=1600000 13557 0.02
+AGREE kstar_H N=3200000 23397 0.02
+
+======================================================================
+the crossing of the absolute demand is stable in its budget and its exponent survives

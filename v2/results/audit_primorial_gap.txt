@@ -1,0 +1,148 @@
+STATISTIC: the truncation K*_R at which
+           sum_{k<K}(log k)|R(N;k)| first reaches
+           S(N)(1-A(N))N, and its exponent log K*_R / log N,
+           at four N inside the interval [10^7.19, 10^7.36]
+           that no rung of the primorial ladder occupies, and
+           as a control at the published rung 9; the distance
+           of each interior exponent from 1/2 against the
+           ladder's own r.m.s. residual; the r.m.s. residual
+           of the four about the line fitted on the eleven
+           published rungs; and the crossing of 1/2 refitted
+           on all fifteen points.
+NULL: none is run and none applies. A deterministic curve is
+      located against a computed threshold; there is no
+      background to detect against. The coin arms for this
+      statistic were run in lab_primorial_ladder.py and
+      lab_primorial_share.py, and the scatter they left is
+      the floor Q3 and Q6 are judged against.
+FIELD: N = 30030*m for m = 528, 600, 672, 750, and the control
+       N = 30030*2^9; every one has prime set {2,3,5,7,11,13},
+       so the odd radical 3*5*7*11*13 and the threshold are
+       fixed exactly as along the ladder; k squarefree and
+       coprime to N with 2 <= k < 100000; m odd,
+       squarefree and coprime to k, m < N/k; the sieve weight
+       over the odd primes below 30; the
+       Euler products at the fixed bound 4000000;
+       the eleven rungs, their fitted column, the scatter and
+       the crossing bracket are read from
+       results/audit_primorial_rung10.txt.
+
+read from results/audit_primorial_rung10.txt: 11 rungs, scatter 0.0037,
+  and the eleven-rung crossing bracket [7.1866, 7.6631]
+  the rung this anchors to: N = 15375360, published exponent 0.4941
+  the interval left open by rem:primorialreach is the void
+  between that rung and the next -- no N in it has been run.
+
+sieving to 22522500, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+
+  N            log10 N   m      thr/N      #k      beta       K*_R     exponent
+  15375360     7.1868    512    0.087306   18863   1.990664   3557     0.4941
+BUDGET kstar_R_S1AN_N15375360 0.087306
+  15855840     7.2002    528    0.087306   18863   1.967831   3761     0.4966
+BUDGET kstar_R_S1AN_N15855840 0.087306
+  18018000     7.2557    600    0.087306   18863   1.997529   4231     0.4998
+BUDGET kstar_R_S1AN_N18018000 0.087306
+  20180160     7.3049    672    0.087306   18863   1.980982   4723     0.5030
+BUDGET kstar_R_S1AN_N20180160 0.087306
+  22522500     7.3526    750    0.087306   18863   1.959119   5081     0.5040
+BUDGET kstar_R_S1AN_N22522500 0.087306
+RADICALS 1
+
+Q1  the control: the published rung, and the published line
+  rung 9 here 0.4941 against the published 0.4941, diff 0.000010
+  refitting the 11 rungs on log N: slope +0.006778; worst
+  departure from the published fitted column 0.000027
+  Q1 hold   (cap 0.001 on the rung, cap 0.0005 on the column)
+
+Q4  the budget is the same at all four, because the prime set is
+  prime set of every N: 2, 3, 5, 7, 11, 13
+  S(N)(1-A(N)) runs 0.087305506 to 0.087305506, relative spread 0.00e+00
+  Q4 hold   (cap 1e-12)
+
+Q2  does anything inside the interval reach 1/2?
+  N            log10 N   exponent   over 1/2
+  15855840     7.2002    0.4966     -0.0034
+  18018000     7.2557    0.4998     -0.0002
+  20180160     7.3049    0.5030     +0.0030
+  22522500     7.3526    0.5040     +0.0040
+  the exponent is AT OR ABOVE 0.5 at 2 of the 4 points, from
+  N = 20180160 (10^7.3049) upward -- the crossing is INSIDE the interval
+  Q2 REFUTED
+
+Q6  but is anything OBSERVED there? distance against the floor
+  N            exponent - 1/2   |.|      floor     outside?
+  15855840     -0.0034          0.0034   0.0037    inside
+  18018000     -0.0002          0.0002   0.0037    inside
+  20180160     +0.0030          0.0030   0.0037    inside
+  22522500     +0.0040          0.0040   0.0037    OUTSIDE
+FLOOR primorial_gap 0.0037
+MARGIN audit_primorial_gap 0.0040 0.0037
+  Q6 REFUTED -- the best margin over 1/2 in the interval is +0.0040
+  against a floor of 0.0037, so the crossing is not merely
+  fitted inside the interval, it is observed there. The
+  registered expectation was the opposite and it was the
+  eleven-rung line that produced it.
+
+Q3  is the ladder a line at finer than a doubling?
+  residuals about the eleven-rung line: +0.0001, +0.0025, +0.0049, +0.0052
+  r.m.s. 0.0038 against the published scatter 0.0037   OUTSIDE
+  Q3 REFUTED
+  the rungs are spaced 0.6931 in log N and these four are spaced
+  0.1170, so this is the first residual the ladder has at sub-doubling
+  resolution.
+
+  and the r.m.s. is not the informative part -- the signs are.
+  4 of 4 residuals are positive and the sequence is monotone increasing,
+SIGNRUN primorial_gap_interior 4 4
+  a run of 4 in 4 has chance 0.1250 under an exchangeable draw,
+  which is evidence an r.m.s. cannot carry either way.
+  so the four points do not scatter about the line, they
+  leave it. The local slope says the same thing: between the
+  anchor rung and the top interior point the exponent rises
+  at +0.025989 per unit log N against the ladder's +0.006778, a factor
+  3.83 -- but that is a two-point slope over a lever of only
+  0.3817 in log N, so propagating the ladder's own scatter
+  through it gives a standard error of 0.0137: the local slope
+  is 1.90 of its own error and the factor is NOT resolved.
+SPREAD slope_primorial_gap_local 0.3817
+TSTAT slope_primorial_gap_local 1.90
+UNRESOLVED SIGN slope_primorial_gap_local
+  Between the two rungs that straddle the interval it is
+  +0.011815, a factor 1.74 -- so the steepening is not an artefact
+  of the interior points; the published rungs already show it and
+  had no point in between to resolve it against.
+
+Q5  the crossing, refitted on all fifteen points
+  slope +0.007139 on 15 points, r.m.s. residual 0.0035
+  eleven rungs alone gave slope +0.006778, r.m.s. 0.0037
+  crossing of 1/2 at log10 N = 7.3191
+  published eleven-rung bracket [7.1866, 7.6631]   inside
+  Q5 hold
+SCATTER slope_audit_primorial_gap 0.0035
+TSTAT slope_audit_primorial_gap 16.70
+SPREAD slope_audit_primorial_gap 6.9315
+SWEPT audit_primorial_gap_crossing N-range 0.1064
+
+  What this settles. The crossing is bracketed by measured
+  points on both sides of 1/2, not by a fit:
+  last short   N = 18018000     10^7.2557  exponent 0.4998
+  first over   N = 20180160     10^7.3049  exponent 0.5030
+  so the crossing lies in (10^7.2557, 10^7.3049], 0.0492 decades
+  wide, against the 0.3010 decades between the two rungs
+  that straddled it before -- a narrowing of 6.12.
+  And it is INSIDE the interval rem:primorialreach left
+  open, which therefore closes by confirmation and not
+  by exclusion -- the outcome Q2's refutation rule named
+  as the one worth having.
+
+  What this does not settle. The eleven-rung line is not the
+  right instrument in this region -- Q3 shows the interior
+  points leaving it systematically -- so any quantity read
+  off that line's slope past the ladder, theta' included,
+  inherits the same understatement and is not corrected by
+  the fifteen-point refit either, which is still one line
+  through a region that is not straight.
+
+======================================================================
+Q1 hold  Q2 REFUTED  Q3 REFUTED  Q4 hold  Q5 hold  Q6 REFUTED
+the ladder now has points between its rungs

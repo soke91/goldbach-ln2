@@ -1,0 +1,107 @@
+STATISTIC: the fraction of k at which sign H(N;k) equals
+           sign Modd(floor(N/k)) with Modd the Mertens function
+           over odd m, over 2 <= N/k <= 1000; the same under 16
+           permutations of the predictor's signs; the same for
+           the full Mertens function; the same again requiring m
+           coprime to k; and the octave in which Modd, normalised
+           by the count of odd squarefree m, is deepest.
+NULL: the permutation of Q1, as in [rem:leanmertens]. The
+      predictor's signs are shuffled among the distinct values
+      of floor(N/k), preserving both marginal sign distributions
+      exactly, so the baseline accounts for both sides being
+      predominantly negative -- a naive 1/2 would not.
+FIELD: N = 2e5 through 3.2e6 by doubling; k over the squarefree
+       k < N/2 coprime to N; H(N;k) = mu(k)A(N;k) by [eq:dilate];
+       k with Modd(floor(N/k)) = 0 or H = 0 excluded from the
+       agreement; seed 20260808.
+
+sieving to 3200000 ...
+  N = 200000      #k = 33771
+  N = 400000      #k = 67549
+  N = 800000      #k = 135092
+  N = 1600000     #k = 270190
+  N = 3200000     #k = 540381
+
+Q1/Q2  sign agreement over 2 <= N/k <= 1000
+  N            #k        odd Mertens   draws max   full Mertens
+  200000       10868     0.7704        0.5633      0.5472
+  400000       20938     0.7692        0.5655      0.5489
+  800000       40536     0.7693        0.5699      0.5534
+  1600000      78196     0.7669        0.5721      0.5545
+  3200000      151343    0.7657        0.5738      0.5563
+  the predictor's own majority sign share, which is what an
+  agreement has to be read against: 0.7928 to 0.8081
+MARGINAL lab_lean_oddmertens 0.8081
+  Q1 beats every permutation draw   hold
+  Q2 beats the full Mertens function   hold
+
+Q3  requiring m coprime to k as well, the exact range of [eq:dilate]
+  N            odd Mertens   with (m,k)=1   gain
+  200000       0.7955        0.7955         +0.0000
+  400000       0.7942        0.7942         +0.0000
+  800000       0.7933        0.7933         +0.0000
+  1600000      0.7906        0.7906         +0.0000
+  3200000      0.7889        0.7889         +0.0000
+  Q3 hold
+
+Q4  where the predictor's own lean is deepest
+  octave of x   Modd(x) mean   odd squarefree count   ratio
+  [2     ,4      ) 0.5000         1.5                    0.3333
+  [4     ,8      ) -1.0000        3.0                    -0.3333
+  [8     ,16     ) -2.8750        5.1                    -0.5610
+  [16    ,32     ) -4.8750        10.2                   -0.4756
+  [32    ,64     ) -6.7812        19.9                   -0.3407
+  [64    ,128    ) -8.9688        39.7                   -0.2262
+  [128   ,256    ) -10.5547       78.1                   -0.1352
+  [256   ,1024   ) -13.9062       259.8                  -0.0535
+  [1024  ,4096   ) -18.1628       1038.1                 -0.0175
+  [4096  ,8192   ) -21.3335       2490.2                 -0.0086
+  deepest octave: [8,16)   REFUTED
+
+  DIAGNOSTIC (post hoc). Why Q4 missed by one octave. If a
+  given k has exactly ONE m with Lambda(N-mk) nonzero -- and
+  at these lengths most k that contribute at all have one --
+  then sign H = mu(m) for that m, so the expected f+ is
+  (1 + Modd(x)/count(x))/2. Against the measurement at the
+  largest N:
+  range of N/k   single-term f+   measured f+   miss
+  [2     ,4      ) 0.6667           0.7325        +0.0658
+  [4     ,8      ) 0.3333           0.4148        +0.0815
+  [8     ,16     ) 0.2195           0.1897        -0.0298
+  [16    ,32     ) 0.2622           0.0936        -0.1686
+  [32    ,64     ) 0.3297           0.1197        -0.2100
+  [64    ,128    ) 0.3869           0.1170        -0.2699
+  [128   ,256    ) 0.4324           0.1712        -0.2612
+  [256   ,1024   ) 0.4732           0.2196        -0.2536
+  [1024  ,4096   ) 0.4913           0.3062        -0.1851
+  [4096  ,inf    ) 0.4957           0.3849        -0.1109
+  The single-term model tracks the shape but under-predicts
+  the depth around N/k = 16 to 32, which is why the deepest
+  octave of the predictor and of the measurement differ by
+  one. Q4 is refuted on that and the mechanism is not:
+  Q1 to Q3 are about the sign of H term by term, and they
+  hold.
+  DIAGNOSTIC (post hoc). The measured profile beside it, so the
+  two can be read against each other:
+  range of N/k   N=200000     N=400000     N=800000     N=1600000    N=3200000  
+  [2     ,4      ) 0.7368       0.7355       0.7366       0.7347       0.7325     
+  [4     ,8      ) 0.4104       0.4158       0.4119       0.4143       0.4148     
+  [8     ,16     ) 0.1804       0.1761       0.1843       0.1845       0.1897     
+  [16    ,32     ) 0.0769       0.0770       0.0830       0.0887       0.0936     
+  [32    ,64     ) 0.0887       0.1037       0.1105       0.1091       0.1197     
+  [64    ,128    ) 0.1085       0.0926       0.1102       0.1158       0.1170     
+  [128   ,256    ) 0.1227       0.1610       0.1547       0.1644       0.1712     
+  [256   ,1024   ) 0.1892       0.1962       0.2255       0.2183       0.2196     
+  [1024  ,4096   ) 0.3104       0.2187       0.2907       0.3108       0.3062     
+  [4096  ,inf    ) 0.3646       0.3460       0.3392       0.3894       0.3849     
+
+  Cross-check lines, against lab_lean_mechanism.py, which
+  computes the same octave profile.
+AGREE lean_f_16_32 N=200000 0.076947 0.02
+AGREE lean_f_16_32 N=400000 0.077025 0.02
+AGREE lean_f_16_32 N=800000 0.082986 0.02
+AGREE lean_f_16_32 N=1600000 0.088746 0.02
+AGREE lean_f_16_32 N=3200000 0.093628 0.02
+
+======================================================================
+REFUTED

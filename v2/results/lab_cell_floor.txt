@@ -1,0 +1,86 @@
+STATISTIC: the exact cell-mean floor of Lemma {#lem:cellmom},
+           Var(m_c - mbar) = Q_cc/n_c^2 - 2 Q_ca/(n_c n)
+           + Q_aa/n^2, with u_c(v) = sum_{N in c}
+           Lambda(N-v)/sqrt(V(N)) computed as an FFT
+           cross-correlation and Q_cd = sum_v mu^2(v)u_c u_d;
+           the ratio Var/(Q_cc/n_c^2); Q_cc/n_c^2 against the
+           heuristic (sum mu^2)/V; the exponent b in se ~ N^{-b}
+           across eight octaves; and z_c = (m_c - mbar)/se with
+           Z(N) = C(N)/sqrt(V(N)).
+FIELD: even N; eight octaves from (6.25e4, 1.25e5] up to
+       (8e6, 1.6e7]; cells indexed by depth = #{p in 3,5,7,11,13
+       dividing N}; Lambda, mu and the squarefree indicator from
+       an integer sieve to 1.6e7; V = mu^2 * Lambda^2 and
+       C = mu * Lambda by exact FFT convolution.
+NULL: built in. The floor of Lemma {#lem:cellmom} IS the
+      independent-sign variance, computed exactly rather than
+      simulated, so every z_c is already quoted against its coin
+      null. The second control, the cell permutation of Lemma
+      {#lem:placebo}, is not run here.
+
+sieving to 16000000 ...
+convolving V = mu^2 * Lambda^2 and C = mu * Lambda ...
+done. computing the exact floor octave by octave ...
+
+  octave        depth  n_c      Q_cc/n_c^2   Var          ratio     se           z_c
+  --------------------------------------------------------------------------------------------
+  (  2000000,  4000000] 0      383617   0.135931     1.537631e-02 0.1131    1.2400e-01   +0.11
+  (  2000000,  4000000] 1      421978   0.133326     2.173642e-03 0.0163    4.6622e-02   +1.11
+  (  2000000,  4000000] 2      163568   0.160625     2.200607e-02 0.1370    1.4834e-01   -0.23
+  (  2000000,  4000000] 3      28507    0.202569     5.845549e-02 0.2886    2.4178e-01   -2.40
+  (  2000000,  4000000] 4      2263     0.258831     1.105759e-01 0.4272    3.3253e-01   -6.00
+  (  2000000,  4000000] 5      67       0.342222     1.908413e-01 0.5577    4.3685e-01   -11.03
+  (  8000000, 16000000] 0      1534466  0.123577     1.397900e-02 0.1131    1.1823e-01   +0.04
+  (  8000000, 16000000] 1      1687911  0.121208     1.975981e-03 0.0163    4.4452e-02   +0.69
+  (  8000000, 16000000] 2      654281   0.146026     2.000549e-02 0.1370    1.4144e-01   -0.06
+  (  8000000, 16000000] 3      114017   0.184159     5.314236e-02 0.2886    2.3053e-01   -1.55
+  (  8000000, 16000000] 4      9059     0.235171     1.004024e-01 0.4269    3.1686e-01   -4.46
+  (  8000000, 16000000] 5      266      0.307074     1.693564e-01 0.5515    4.1153e-01   -9.06
+
+C1  Var / (Q_cc/n_c^2) at the top octave
+    depth 0: 0.113119   published 0.113   ok
+    depth 1: 0.016302   published 0.016   ok
+    depth 3: 0.288567   published 0.289   ok
+    depth 5: 0.551516   published 0.551   ok
+  C1 hold
+
+C2  the same four at the octave (2e6, 4e6]
+    depth 0: 0.113118   top octave 0.113119   ok
+    depth 1: 0.016303   top octave 0.016302   ok
+    depth 3: 0.288571   top octave 0.288567   ok
+    depth 5: 0.557654   top octave 0.551516   MISMATCH
+  C2 REFUTED
+
+C3  Q_cc/n_c^2 by depth: 0.123577, 0.121208, 0.146026, 0.184159, 0.235171, 0.307074
+    min 0.121208 (pub 0.124), max 0.307074 (pub 0.307), heuristic 0.049540 (pub 0.049)   REFUTED
+
+C4  se ~ N^{-b} across the eight octaves
+    depth 2: b = 0.039451   published 0.0395   ok
+    depth 1: b = 0.039671   published 0.0397   ok
+    depth 0: b = 0.039388   published 0.0394   ok
+    1/(2<log N>) = 0.036038   published 0.0358   MISMATCH
+  C4 REFUTED
+
+C5  max_c |z_c| by octave
+    top 125000      max|z| =  10.099   in [9.1,13.0]
+    top 250000      max|z| =  10.954   in [9.1,13.0]
+    top 500000      max|z| =  11.179   in [9.1,13.0]
+    top 1000000     max|z| =  12.968   in [9.1,13.0]
+    top 2000000     max|z| =  11.885   in [9.1,13.0]
+    top 4000000     max|z| =  11.026   in [9.1,13.0]
+    top 8000000     max|z| =  10.019   in [9.1,13.0]
+    top 16000000    max|z| =   9.064   in [9.1,13.0]
+  C5 hold
+
+C6  top-octave z by depth
+    depth 0: z = +0.0440   published +0.0   ok
+    depth 1: z = +0.6905   published +0.7   ok
+    depth 2: z = -0.0561   published -0.1   ok
+    depth 3: z = -1.5529   published -1.6   ok
+    depth 4: z = -4.4589   published -4.5   ok
+    depth 5: z = -9.0642   published -9.1   ok
+  C6 hold
+
+==========================================================================
+C1 hold  C2 REFUTED  C3 REFUTED  C4 REFUTED  C5 hold  C6 hold
+REFUTED

@@ -1,0 +1,97 @@
+STATISTIC: the truncation K*_R at which
+           B_R(N;K) = sum_{k<K}(log k)|R(N;k)| first reaches a
+           budget, for the budget S(N)N used by
+           lab_split_budget.py and for the budget
+           S(N)(1-A(N))N that Proposition [prop:nolog] needs;
+           the exponent log K*_R / log N of the second; and its
+           least-squares slope against log N.
+NULL: none is run and none applies. A measured sum is crossed
+      against a computed threshold and the crossing located;
+      there is no background to detect against. The sign
+      controls for this field were run in lab_split_budget.py,
+      whose size permutation established where the budget is
+      spent, and in lab_residue_cancellation.py, whose coin arm
+      established that R's size is bought by cancellation.
+FIELD: N = 2e5 to 3.2e6 by doubling; k squarefree and coprime
+       to N with 2 <= k < 100000; m odd, squarefree, coprime to
+       the odd part of k, m < N/k; the sieve weight uses the
+       odd primes up to 30; beta refitted here as
+       sum(H P)/sum(P^2) on the same k-range; S(N) and A(N)
+       from Euler products at the fixed bound 4000000; the
+       published K*_R and exponents are read from
+       results/lab_split_budget.txt.
+
+read 5 published K*_R and 5 exponents from results/lab_split_budget.txt, and the K*_H budget gap
+  0.1677 from results/audit_model_transfer.txt
+sieving to 3200000 ...
+  sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N = 200000      #k = 33771   beta = 2.668960  S = 1.7604  A = 0.7873
+  N = 400000      #k = 33771   beta = 2.823233  S = 1.7604  A = 0.7873
+  N = 800000      #k = 33771   beta = 2.939980  S = 1.7604  A = 0.7873
+  N = 1600000     #k = 33771   beta = 3.078224  S = 1.7604  A = 0.7873
+  N = 3200000     #k = 33771   beta = 3.011859  S = 1.7604  A = 0.7873
+
+U1  the control: B_R crossed against S(N)N
+  N            K*_R (here)   published    ratio
+  200000       9191          9191         1.0000
+  400000       14289         14289        1.0000
+  800000       23131         23131        1.0000
+  1600000      37439         37439        1.0000
+  3200000      63399         63399        1.0000
+  U1 hold   (cap 2 per cent)
+
+U2/U3  against the budget the route actually needs,
+  S(N)(1-A(N))N, which is smaller by 1/(1-A) :
+  N            budget factor   K*_R      log K*_R/log N  clears .56
+  200000       4.7009          993       0.5654     yes
+  400000       4.7009          1447      0.5642     yes
+  800000       4.7009          2019      0.5599     NO
+  1600000      4.7009          3319      0.5675     yes
+  3200000      4.7009          5923      0.5799     yes
+  U2 exponent above 0.5 at every N   hold
+  U3 exponent above 0.56 at every N   REFUTED
+
+  the arithmetic this sweep covers, which gate check G34
+  reads. Every N here is 2^a 5^b, so the sweep has ONE odd
+  radical and the exponents above are a statement about that
+  radical. audit_residue_arithmetic.py repeats the measurement
+  across seven types and finds it below 1/2 at the
+  primorial-like ones:
+  5 N, 1 distinct odd radical: 5
+RADICALS 1
+
+  the two budget constants, in the form the gate reads, so
+  that no exponent from one is ever read against the other:
+BUDGET kstar_R_SN_N200000 1.760432
+BUDGET kstar_R_S1AN_N200000 0.374487
+BUDGET kstar_R_SN_N400000 1.760432
+BUDGET kstar_R_S1AN_N400000 0.374487
+BUDGET kstar_R_SN_N800000 1.760432
+BUDGET kstar_R_S1AN_N800000 0.374487
+BUDGET kstar_R_SN_N1600000 1.760432
+BUDGET kstar_R_S1AN_N1600000 0.374487
+BUDGET kstar_R_SN_N3200000 1.760432
+BUDGET kstar_R_S1AN_N3200000 0.374487
+
+U4  is the margin closing?
+  exponents 0.5654, 0.5642, 0.5599, 0.5675, 0.5799
+  least-squares slope against log N = +0.004692   hold
+  leave-one-out: +0.004692, +0.007926, +0.000326 -- spread 0.007599
+  U4 hold
+
+  DIAGNOSTIC (post hoc). The two budgets side by side, and
+  what the published exponent would have suggested. The gap
+  audit_model_transfer.py measured between the two budgets
+  for K*_H was 0.1677 in the exponent; here it is:
+  N            at S N     at S(1-A)N   gap    published K*_R exp
+  200000       0.7477     0.5654       0.1823 0.7477
+  400000       0.7417     0.5642       0.1775 0.7417
+  800000       0.7393     0.5599       0.1794 0.7393
+  1600000      0.7371     0.5675       0.1696 0.7371
+  3200000      0.7382     0.5799       0.1583 0.7382
+  So the headline 0.74 is against a budget four and a half
+  times too generous, and the number the route needs is the
+  second column.
+
+======================================================================
+REFUTED

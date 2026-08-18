@@ -1,0 +1,114 @@
+STATISTIC: K*(N) solved independently from the published model
+           gamma sqrt(log N / N) S(K) = S(N)(1-A(N)), with S(K)
+           rebuilt by sieve to 1e7 and continued by
+           2 sqrt(K)(log K - 2) times the measured density;
+           the crossings K* = sqrt(N) and K* = N^{0.56} under
+           the published gamma, under gamma = 1 exactly, and
+           under gamma scaled by 1 +- 0.10.
+NULL: none is run and none applies. A published deterministic
+      forecast is reconstructed and perturbed; there is no
+      background to detect against. The sign control for this
+      field was run in lab_level_coin_null.py, and
+      audit_forecast_null.py supplied the control that
+      rem:forecast's own evidence had declined.
+FIELD: the family P(N) = {2,5} the forecast uses throughout;
+       k squarefree and coprime to it, k < 1e7 enumerated
+       exactly; S(N) and A(N) from Euler products at the fixed
+       bound 4000000; gamma and the published table and
+       crossings are read from results/lab_level_forecast.txt,
+       and c(N)/sqrt(log N) from
+       results/audit_directlevel_heuristic.txt.
+
+read from results/: gamma = 0.9803, 16 published decades, 2 crossings,
+  and 5 values of c(N)/sqrt(log N) from the heuristic audit
+
+building S(K) = sum_{k<K, mu^2=1, (k,2,5)=1} (log k)/sqrt(k) to 10000000 ...
+  admissible k <= 10000000: 3377377 (density 0.337738);  S(10000000) = 30157.9891
+  threshold S(N)(1-A(N)) = 0.374487
+
+W1  the published forecast table, reconstructed
+  N       K*/sqrt N  published   K*/N^0.56  published   worst
+  10^5     0.7052     0.7052      0.3534     0.3534      0.0001
+  10^6     0.9570     0.9570      0.4177     0.4177      0.0001
+  10^7     1.4904     1.4904      0.5666     0.5666      0.0000
+  10^8     2.5969     2.5967      0.8599     0.8598      0.0001
+  10^9     4.9206     4.9203      1.4191     1.4190      0.0001
+  10^10    9.9546     9.9540      2.5005     2.5003      0.0001
+  10^11    21.2150    21.2138     4.6413     4.6411      0.0001
+  10^12    47.1471    47.1443     8.9837     8.9832      0.0001
+  10^13    108.4280   108.4214    17.9946    17.9935     0.0001
+  10^14    256.5569   256.5412    37.0838    37.0815     0.0001
+  10^15    621.7720   621.7334    78.2765    78.2716     0.0001
+  10^16    1537.9709  1537.8748   168.6352   168.6246    0.0001
+  10^17    3871.7525  3871.5091   369.7495   369.7262    0.0001
+  10^18    9897.2721  9896.6465   823.2192   823.1672    0.0001
+  10^19    25642.2584 25640.6299  1857.6174  1857.4994   0.0001
+  10^20    67228.4571 67224.1698  4241.8289  4241.5584   0.0001
+  W1 hold
+
+W2  two independent measurements of the same constant
+  the forecast fits gamma on the mean of |A|/sqrt(N/k) over
+  k < K*; the heuristic audit measures c/sqrt(log N) over a
+  different k-range at five N. Every pair:
+  N            c/sqrt(log N)   gamma       ratio
+  200000       1.0138          0.9803      1.0342
+  400000       0.9854          0.9803      1.0052
+  800000       1.0039          0.9803      1.0241
+  1600000      0.9939          0.9803      1.0139
+  3200000      0.9844          0.9803      1.0042
+  W2 hold
+
+W3  is the fit doing any work? gamma = 1 exactly, no fit
+  crossing        published     gamma = 1     ratio
+  K* = N^0.50      1.2990e+06    1.5370e+06    1.1833
+  K* = N^0.56      2.0770e+08    2.4181e+08    1.1642
+  W3 hold
+
+W4  the bracket: the constant perturbed by the +-10 per cent
+  that rem:modeltransfer measured
+  crossing        c low         published     c high       span
+  K* = N^0.50      5.2565e+05    1.2990e+06    2.8337e+06    5.3909
+  K* = N^0.56      9.0996e+07    2.0770e+08    4.2786e+08    4.7019
+  W4 REFUTED
+
+  THE BRACKET THE REMARK HAS TO CARRY, in log10:
+    K* = N^0.50 :  10^6.11  [10^5.72, 10^6.45]
+    K* = N^0.56 :  10^8.32  [10^7.96, 10^8.63]
+
+  Bracket lines, in the form the gate reads. This file supplies
+  them for results/lab_level_forecast.txt, whose crossings are
+  quoted without one:
+BRACKET kstar_N^0.50 1.2990e+06 5.2565e+05 2.8337e+06
+BRACKET kstar_N^0.56 2.0770e+08 9.0996e+07 4.2786e+08
+
+  And the drift of the constant those brackets were built by
+  wobbling, which gate check G33 reads. The bracket assumes
+  +-10 per cent; the five independent measurements of the same
+  constant, c(N)/sqrt(log N) from the heuristic audit, span
+  0.0295 of their mean. A bracket is honest only when the wobble
+  it assumes is at least the drift the constant actually has,
+  and here it is wider.
+DRIFT kstar_gamma 0.0295
+
+  DIAGNOSTIC (post hoc). Why the bracket is this wide. At the
+  crossing K* = N^e the balance reads, with
+  S(K) ~ 2 d sqrt(K)(log K - 2),
+    N^{(1-e)/2}  ~  gamma sqrt(log N) (e log N - 2),
+  so a relative error d in gamma moves N by (1+d)^{2/(1-e)} --
+  the square root of K doubles the exponent, which is the
+  factor a naive 1/(1-e) misses.
+  e         naive (1.10)^{2/(1-e)}   measured, high side   low
+  0.50      1.4641                   2.1814                2.4712
+  0.56      1.5422                   2.0600                2.2825
+  Even that understates it, because the right-hand side is not
+  constant: sqrt(log N)(e log N - 2) GROWS with N, so N must
+  move further still to absorb the same change in gamma. The
+  logs amplify the error rather than damping it, and that is
+  the whole gap between the naive factor and the measured one.
+
+  The bracket is honest in the one place it can be checked:
+  the measured K*/sqrt(N) crossing lies between 8e5 and 1.6e6,
+  and both the point estimate 1.2990e+06 and the bracket contain it.
+
+======================================================================
+REFUTED

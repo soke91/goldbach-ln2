@@ -1,0 +1,155 @@
+STATISTIC: the truncation K*_R at which
+           sum_{k<K}(log k)|R(N;k)| first reaches
+           S(N)(1-A(N))N, and its exponent log K*_R / log N,
+           along N = 30030 * 2^j for j = 0..6 -- a ladder with
+           the odd radical 3*5*7*11*13 held fixed over a factor
+           64 in N -- together with N = 1621620 as a control of
+           the same radical; the least-squares slope of that
+           exponent against log N and its leave-one-out spread.
+NULL: a coin arm on the identical deviations. R = sum_m mu(m)
+      delta(m,k) with delta = Lambda(N-mk) - beta w(m,k);
+      replacing mu by 8 global sign vectors on the odd
+      squarefree m, each held across all k as mu is, and
+      carrying the result through the same crossing and the
+      same fit, gives the slope a coin produces along the same
+      ladder against the same fixed budget. That is the scale
+      R2 and R3 are read against.
+FIELD: N = 30030 * 2^j, j = 0..6, and N = 1621620; k squarefree
+       and coprime to N with 2 <= k < 100000; m odd, squarefree,
+       coprime to the odd part of k, m < N/k; the sieve weight
+       uses the odd primes up to 30; beta refitted as
+       sum(H P)/sum(P^2) on the same k-range; S(N) and A(N)
+       from Euler products at the fixed bound 4000000.
+
+read the control exponent 0.4747 at N = 1621620 and the family slope
+  +0.004692, from results/audit_residue_arithmetic.txt and results/audit_residue_level.txt
+sieving to 1921920 ...
+  8 global sign vectors for the null
+  N = 30030     thr 0.087306  S 5.1213  1-A 0.017048  #k 2835   K*_R 109    exp 0.4550
+  N = 60060     thr 0.087306  S 5.1213  1-A 0.017048  #k 5664   K*_R 157    exp 0.4595
+  N = 120120    thr 0.087306  S 5.1213  1-A 0.017048  #k 11326  K*_R 239    exp 0.4682
+  N = 240240    thr 0.087306  S 5.1213  1-A 0.017048  #k 18863  K*_R 311    exp 0.4633
+  N = 480480    thr 0.087306  S 5.1213  1-A 0.017048  #k 18863  K*_R 461    exp 0.4688
+  N = 960960    thr 0.087306  S 5.1213  1-A 0.017048  #k 18863  K*_R 691    exp 0.4746
+  N = 1921920   thr 0.087306  S 5.1213  1-A 0.017048  #k 18863  K*_R 1159   exp 0.4876
+  N = 1621620   thr 0.087306  S 5.1213  1-A 0.017048  #k 18863  K*_R 887    exp 0.4747
+
+R1  the control, a different N of the same radical
+  N = 1621620: exponent 0.4747 against the published 0.4747, diff 0.00001
+  R1 hold
+
+R2/R3  the ladder: N = 30030 * 2^j, radical held fixed
+  N            threshold  K*_R    exponent   log2(N/30030)
+  30030        0.087306   109     0.4550     0
+  60060        0.087306   157     0.4595     1
+  120120       0.087306   239     0.4682     2
+  240240       0.087306   311     0.4633     3
+  480480       0.087306   461     0.4688     4
+  960960       0.087306   691     0.4746     5
+  1921920      0.087306   1159    0.4876     6
+  slope against log N +0.006623, correlation 0.92378
+  R2 slope positive   hold
+  R3 slope at least the family's +0.004692   hold
+  leave-one-out on the slope: +0.006623, +0.006808, +0.004982 -- spread 0.001827
+
+  THE NULL. The same ladder with mu replaced by a coin on the
+  identical deviations, 8 global sign vectors:
+  who        exponents along the ladder                slope
+  mu         0.4550 0.4595 0.4682 0.4633 0.4688 0.4746 0.4876 +0.006623
+  coin 0      0.4532 0.4212 0.4435 0.4400 0.4692 0.4605 0.4729 +0.008414
+  coin 1      0.4495 0.4651 0.4646 0.4516 0.4698 0.4824 0.4672 +0.004782
+  coin 2      0.4078 0.4431 0.4445 0.4648 0.4730 0.4692 0.4734 +0.014290
+  coin 3      0.4437 0.4247 0.4661 0.4386 0.4791 0.4666 0.4767 +0.010084
+  coin 4      0.4495 0.4471 0.4646 0.4648 0.4682 0.4775 0.4768 +0.007526
+  coin 5      0.4854 0.4773 0.4406 0.4427 0.4259 0.4597 0.4780 -0.003700
+  coin 6      0.4161 0.4651 0.4576 0.4721 0.4749 0.4746 0.4751 +0.010981
+  coin 7      0.4437 0.4403 0.4638 0.4830 0.4640 0.4727 0.4751 +0.008206
+  coin slopes span -0.003700 to +0.014290, median +0.008310; mu is inside
+  A coin rises too, because the budget is fixed while the
+  magnitudes grow: the rise is a fact about sizes, and
+  lab_residue_cancellation.py already established that R's
+  sizes are exactly a coin's. What R3 compares is this slope
+  with the same slope at the OTHER radical, and there the
+  budget differs by five, which is the whole content.
+
+R4  does the ladder reach the barrier? max exponent 0.4876   hold
+
+  the arithmetic and the budget, declared:
+  8 N, 1 distinct odd radical: 15015
+RADICALS 1
+BUDGET kstar_R_S1AN_N30030 0.087306
+BUDGET kstar_R_S1AN_N60060 0.087306
+BUDGET kstar_R_S1AN_N120120 0.087306
+BUDGET kstar_R_S1AN_N240240 0.087306
+BUDGET kstar_R_S1AN_N480480 0.087306
+BUDGET kstar_R_S1AN_N960960 0.087306
+BUDGET kstar_R_S1AN_N1921920 0.087306
+BUDGET kstar_R_S1AN_N1621620 0.087306
+
+  DIAGNOSTIC (post hoc). Why the budget behaves differently
+  here. Along this ladder the radical is fixed, so S(N) and
+  A(N) are CONSTANT and the threshold does not move at all:
+  N            threshold  1 - A(N)
+  30030        0.087306   0.017048
+  60060        0.087306   0.017048
+  120120       0.087306   0.017048
+  240240       0.087306   0.017048
+  480480       0.087306   0.017048
+  960960       0.087306   0.017048
+  1921920      0.087306   0.017048
+  So the rise in the exponent along the ladder is the level
+  alone, with the budget held fixed -- which is the cleanest
+  form of the question, and not the same experiment as the
+  family sweep, where S(N)(1-A(N)) is also constant but at a
+  five times larger value.
+
+  What it would take to reach the barrier. The drift of the
+  slope, and -- the thing an earlier version of this forecast
+  left out and audit_primorial_reach.py then refuted it for --
+  the scatter of the rungs about their own line:
+  N            exponent   fitted     residual
+  30030        0.4550     0.4544     +0.0006
+  60060        0.4595     0.4590     +0.0005
+  120120       0.4682     0.4636     +0.0047
+  240240       0.4633     0.4682     -0.0049
+  480480       0.4688     0.4728     -0.0039
+  960960       0.4746     0.4773     -0.0027
+  1921920      0.4876     0.4819     +0.0057
+  r.m.s. residual 0.0038 against a trend of 0.0046 per doubling,
+  i.e. 0.8 times what the trend gains in one rung
+DRIFT primorial_slope 0.2758
+SCATTER primorial_slope 0.0038
+
+  So the forecast carries both. The line reaches 0.5 at:
+    log10 N = 7.4684
+  displaced by one r.m.s. residual either way:
+    [7.2189, 7.7180]
+  and with the slope at its leave-one-out extremes, for
+  comparison -- this is the part that was published alone and
+  turned out not to be the binding uncertainty:
+    slope +0.004982 -> log10 N = 7.3629
+    slope +0.006808 -> log10 N = 7.0733
+
+  THE SHAPES. The bracket so far is over the line's own
+  parameters and scatter; it says nothing about whether the
+  line is the right form. audit_ladder_shape.py showed that
+  eleven rungs do not choose the form, and here there are
+  seven, with the crossing still outside the data -- the case
+  where the choice should cost most. The same five shapes,
+  fitted to these seven:
+  shape                        r.m.s.    (r-best)/s.e.  0.50 at
+  a + b log N                  0.00381   0.00           7.4684
+  a + b / log N                0.00429   0.40           8.9013
+  a + b log log N              0.00404   0.20           7.9426
+  a + b log log N / log N      0.00413   0.27           8.2208
+  1 - c log log N / log N      0.02733   19.54          5.8714
+  5 shapes fitted, 4 within one standard error of the best
+SHAPES 5
+  the surviving shapes put 0.50 at 7.4684, 7.9426, 8.2208, 8.9013 -- a spread of 1.4329
+  decades
+  the line's scatter bracket alone is [7.2189, 7.7180]; adding
+  the shapes gives [7.2189, 8.9013], wider by 1.1833 decades
+BRACKET log10_N_primorial_reaches_half 7.4684 7.2189 8.9013
+
+======================================================================
+the primorial failure is finite-N: the exponent rises, and faster than the easy family's

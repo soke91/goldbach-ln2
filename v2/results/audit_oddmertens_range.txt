@@ -1,0 +1,90 @@
+STATISTIC: the fraction of k at which sign H(N;k) equals
+           sign Modd(floor(N/k)), first on the published
+           window 2 <= N/k <= 1000 with k < N/2,
+           then on k < N^0.56, the range the
+           mass-weighted lean f is measured on; the lean that
+           results from replacing each sign H by
+           sign Modd(floor(N/k)) on mu's own magnitudes; and
+           both against the median lean of 256
+           sign vectors on those magnitudes.
+NULL: for P1 the published permutation control stands; for
+      P3 and P4 the floor is 256 sign vectors
+      on the identical magnitudes, the convention of
+      audit_lean_floor.py, so the predicted lean is read on
+      the same scale as mu's.
+FIELD: N = 2e5 through 6.4e6 by doubling; k squarefree and
+       coprime to N, below N/2 for P1 and below N^0.56
+       for the rest; m over 1 <= m < N/k with (m,k) = 1;
+       Lambda, mu, Modd and the full Mertens from an integer
+       sieve to 6400000; k with Modd = 0 or H = 0
+       excluded from the agreement; numpy default_rng seed 20260808.
+       The published agreements are read from
+       results/lab_lean_oddmertens.txt.
+
+read 5 published agreements from results/lab_lean_oddmertens.txt
+sieving to 6400000 ...
+Modd and the full Mertens built to 6400000
+
+P1  the control: agreement over 2 <= N/k <= 1000, k < N/2
+  N            #k        odd Mertens  published   full Mertens  published
+  200000       10868     0.7704       0.7704      0.5472        0.5472
+  400000       20938     0.7692       0.7692      0.5489        0.5489
+  800000       40536     0.7693       0.7693      0.5534        0.5534
+  1600000      78196     0.7669       0.7669      0.5545        0.5545
+  3200000      151343    0.7657       0.7657      0.5563        0.5563
+  P1 hold   (cap 0.001)
+
+P2/P3/P4  on the k-range the lean is measured on, k < N^0.56
+  N            #k     N/k from   agreement  mu lean   Modd lean  ratio
+  200000       313    215        0.5815     0.2727    0.4950     1.8154
+  400000       462    292        0.6161     0.2772    0.4799     1.7310
+  800000       682    396        0.5718     0.2265    0.4922     2.1730
+  1600000      1004   537        0.5618     0.1932    0.4909     2.5405
+  3200000      1485   728        0.5209     0.1793    0.4881     2.7227
+  6400000      2186   988        0.5201     0.1624    0.4801     2.9564
+  P2 the agreement is below 0.70 there   hold
+  P3 the predicted lean is within a factor two   REFUTED
+
+  and the predictor's own majority sign share, over both windows,
+  which is what any of these agreements has to be read against:
+  0.7928 to 0.9970
+MARGINAL audit_oddmertens_range 0.9970
+DEGENERATE audit_oddmertens_range
+  so on at least one of these windows the predictor is
+  informationless: it takes one sign almost everywhere, and an
+  agreement with it is the marginal rate of sign H read back.
+
+  the two windows of inner length N/k, side by side:
+    the agreement was demonstrated on   [2, 1000]
+    the lean is measured on             [215, 2133333]
+WINDOW lab_lean_oddmertens 2 1000
+WINDOW lab_lean_decay 215 2133333
+  the second does not sit inside the first -- it runs a
+  factor 2133 past its upper end, so the mechanism was
+  demonstrated where the statistic mostly is not:
+WINDOWS DISJOINT lab_lean_oddmertens lab_lean_decay
+
+P4  and the trend
+  mu        slope -0.167257, standard error 0.018594
+  Modd      slope -0.004298, standard error 0.004563
+  difference -0.162958 against 0.038291 = 2 s.e., i.e. 8.51 s.e.
+SCATTER slope_audit_oddmertens_range 0.0108
+TSTAT slope_audit_oddmertens_range 0.94
+SPREAD slope_audit_oddmertens_range 3.4657
+UNRESOLVED SIGN slope_audit_oddmertens_range
+  P4 REFUTED
+
+  and the same two against the floor, which is what
+  {#rem:leanfloor} showed the decay to be:
+  N            mu/floor   Modd/floor
+  200000       9.9761     18.1109
+  400000       9.9370     17.2009
+  800000       12.8880    28.0057
+  1600000      12.2313    31.0742
+  3200000      12.9824    35.3471
+  6400000      15.8984    47.0028
+  mu   +0.126950 (s.e. 0.026713);  Modd +0.289908 (s.e. 0.039805)
+  difference -0.162958, i.e. 3.40 s.e.
+
+======================================================================
+REFUTED

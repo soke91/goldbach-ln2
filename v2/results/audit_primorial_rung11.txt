@@ -1,0 +1,84 @@
+STATISTIC: the truncation K*_R at which
+           sum_{k<K}(log k)|R(N;k)| first reaches
+           S(N)(1-A(N))N, and its exponent log K*_R / log N,
+           at N = 30030*2^11 = 61501440 and, as a control, at
+           N = 30030*2^10; the margin of the new exponent
+           over 1/2 against the ladder's own r.m.s. residual;
+           and the residual of the new rung from the line
+           fitted on the eleven published rungs.
+NULL: none is run and none applies. A deterministic curve is
+      located against a computed threshold; there is no
+      background to detect against. The coin arms for this
+      statistic were run in lab_primorial_ladder.py and
+      lab_primorial_share.py, and the scatter they left is
+      the floor the margin is judged against here.
+FIELD: N = 30750720 and 61501440, the odd radical 3*5*7*11*13
+       fixed so the threshold is constant; k squarefree and
+       coprime to N with 2 <= k < 100000; m odd,
+       squarefree and coprime to k, m < N/k; the sieve weight
+       over the odd primes below 30; the
+       Euler products at the fixed bound 4000000.
+       One odd radical, as the RADICALS line declares. The
+       eleven published rungs and the scatter are read from
+       results/audit_primorial_rung10.txt.
+
+read 11 published rungs and the ladder scatter 0.0037 from results/audit_primorial_rung10.txt
+sieving to 61501440, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N = 30750720     thr 0.087306  #k 18863   beta 1.925154  K*_R 5773     exp 0.5023
+BUDGET kstar_R_S1AN_N30750720 0.087306
+  N = 61501440     thr 0.087306  #k 18863   beta 1.916156  K*_R 9367     exp 0.5099
+BUDGET kstar_R_S1AN_N61501440 0.087306
+RADICALS 1
+
+P1  the control at N = 30750720
+  0.5023 here against the published 0.5023, diff 0.000034
+  P1 hold   (cap 0.001)
+
+P2/P3  the new rung against 1/2 and against the floor
+  N            log10 N   exponent   margin over 1/2  floor
+  61501440     7.7889    0.5099     0.0099           0.0037
+  and the rung this extends, for comparison:
+  30750720     7.4879    0.5023     0.0023           0.0037
+FLOOR primorial_rung11 0.0037
+MARGIN audit_primorial_rung10 0.0023 0.0037
+INSIDE FLOOR audit_primorial_rung10
+MARGIN audit_primorial_rung11 0.0099 0.0037
+  P2 the exponent is above 1/2 (0.5099)   hold
+  P3 the margin 0.0099 exceeds the floor 0.0037   hold
+
+P4  is the ladder still a line?
+  line on the 11 published rungs, against log N: slope +0.006778
+  at N = 61501440 it predicts 0.5057, measured 0.5099, off by +0.0042
+  published r.m.s. residual 0.0037   OUTSIDE
+  P4 REFUTED
+
+  DIAGNOSTIC on P4 (post hoc). The rule compared an
+  out-of-sample point with an in-sample r.m.s., and those
+  are not the same width. A least-squares line predicts a
+  new abscissa with standard error
+  s*sqrt(1 + 1/n + (x0-xbar)^2/sum (x-xbar)^2), s^2 being
+  the residual variance on n-2 degrees of freedom, and x0
+  here is outside the fitted range, which inflates it
+  further. That width is computable:
+  in-sample r.m.s.        0.0037
+  prediction s.e. at x0   0.0049
+  measured departure      0.0042   inside
+  So P4 fails as registered and the ladder is not thereby
+  shown to bend: the departure is 0.87 prediction standard
+  errors. What P4 should have been compared against is this
+  width, and the twelve-rung refit below is the check that
+  matters -- if the ladder bent, the scatter would rise.
+
+  the twelve rungs refitted, which is what any later
+  extrapolation must use:
+  slope +0.007013, r.m.s. residual 0.0037, standard error 0.000490, t = 14.32
+SCATTER slope_audit_primorial_rung11 0.0037
+TSTAT slope_audit_primorial_rung11 14.32
+SPREAD slope_audit_primorial_rung11 7.6246
+  no crossing is forecast from this: the barrier is now
+  behind the ladder rather than ahead of it, and where the
+  line meets theta' is the shape question Remark
+  {#rem:laddershape} left open and this rung does not touch.
+
+======================================================================
+REFUTED

@@ -1,0 +1,101 @@
+STATISTIC: the mass-weighted fraction f+ of k with H(N;k) > 0,
+           binned by the length N/k of the inner sum; the
+           fraction of k at which sign H(N;k) equals
+           sign M(floor(N/k)) with M the Mertens function, over
+           2 <= N/k <= 1000; the same under 16 permutations of
+           the Mertens signs; and |1/2 - f+| split at N/k = 1000.
+NULL: the permutation of P3. The Mertens signs attached to the
+      distinct values of floor(N/k) are shuffled among
+      themselves, which destroys the claimed correspondence
+      while preserving both marginal sign distributions exactly.
+      A naive 1/2 would be the wrong baseline here, because most
+      H are negative and most M(x) are negative, so agreement is
+      high by chance; the permutation accounts for that.
+FIELD: N = 2e5 through 3.2e6 by doubling; k over the squarefree
+       k < N/2 coprime to N; H(N;k) = mu(k)A(N;k) by [eq:dilate];
+       weights (log k)|H(N;k)|; seed 20260808.
+
+sieving to 3200000 ...
+  N = 200000      #k = 33771
+  N = 400000      #k = 67549
+  N = 800000      #k = 135092
+  N = 1600000     #k = 270190
+  N = 3200000     #k = 540381
+
+P1/P2  mass-weighted f+ by the length of the inner sum N/k
+  range of N/k   N=200000     N=400000     N=800000     N=1600000    N=3200000  
+  [2     ,4      ) 0.7368       0.7355       0.7366       0.7347       0.7325     
+  [4     ,8      ) 0.4104       0.4158       0.4119       0.4143       0.4148     
+  [8     ,16     ) 0.1804       0.1761       0.1843       0.1845       0.1897     
+  [16    ,32     ) 0.0769       0.0770       0.0830       0.0887       0.0936     
+  [32    ,64     ) 0.0887       0.1037       0.1105       0.1091       0.1197     
+  [64    ,128    ) 0.1085       0.0926       0.1102       0.1158       0.1170     
+  [128   ,256    ) 0.1227       0.1610       0.1547       0.1644       0.1712     
+  [256   ,1024   ) 0.1892       0.1962       0.2255       0.2183       0.2196     
+  [1024  ,4096   ) 0.3104       0.2187       0.2907       0.3108       0.3062     
+  [4096  ,inf    ) 0.3646       0.3460       0.3392       0.3894       0.3849     
+  P1  f+ under 0.35 in the shortest octave   REFUTED
+  P2  monotone across the octaves   REFUTED
+
+P3  does the sign of H track the Mertens function at N/k?
+  N            #k in range   agreement   draws max   draws median
+  200000       14743         0.5472      0.6607      0.4828
+  400000       28313         0.5483      0.5610      0.4829
+  800000       54418         0.5513      0.6343      0.4706
+  1600000      104708        0.5522      0.6297      0.5335
+  3200000      201678        0.5535      0.6371      0.4950
+  P3 REFUTED
+  the predictor's own majority sign share, which is what an
+  agreement has to be read against: 0.8267 to 0.8316
+MARGINAL lab_lean_mechanism 0.8316
+
+P4  where the lean lives
+  N            |1/2-f+| at N/k<1000   at N/k>=1000
+  200000       0.1440                0.1594
+  400000       0.1432                0.2479
+  800000       0.1432                0.1928
+  1600000      0.1441                0.1645
+  3200000      0.1446                0.1667
+  P4 REFUTED
+
+  DIAGNOSTIC (post hoc). What the profile actually is.
+  The premise of the Mertens reading is only half true --
+  M(x) is negative at most small x but not at all of them:
+  range of x   fraction with M(x) < 0
+  [2    ,30    ] 0.9655
+  [2    ,100   ] 0.8687
+  [2    ,1000  ] 0.6547
+  [2    ,10000 ] 0.5630
+  and P3 shows the correspondence is absent anyway: the
+  agreement sits near the permutation median, and the best
+  draw beats it at every N. The lean is not the Mertens
+  function seen through a short window.
+
+  What the octave table shows instead is a definite profile in
+  N/k with a POSITIVE lean at the shortest sums, a minimum in
+  the middle, and a slow return toward 1/2:
+  N            argmin octave   f+ there   f+ at [2,4)
+  200000       [16    ,32     ) 0.0769     0.7368
+  400000       [16    ,32     ) 0.0770     0.7355
+  800000       [16    ,32     ) 0.0830     0.7366
+  1600000      [16    ,32     ) 0.0887     0.7347
+  3200000      [16    ,32     ) 0.0936     0.7325
+  The positive lean at N/k < 4 has an elementary cause: N is
+  even, so N - mk is even whenever mk is, and Lambda vanishes
+  on even numbers above 2. For odd k only odd m survive, so
+  the m = 1 term stands almost alone there and it is
+  nonnegative. That is parity, not cancellation, and it says
+  the short-sum end of the profile carries no information
+  about the wall.
+
+  Cross-check lines. lab_lean_oddmertens.py recomputes the
+  same octave profile while testing the odd-Mertens
+  predictor against it.
+AGREE lean_f_16_32 N=200000 0.076947 0.02
+AGREE lean_f_16_32 N=400000 0.077025 0.02
+AGREE lean_f_16_32 N=800000 0.082986 0.02
+AGREE lean_f_16_32 N=1600000 0.088746 0.02
+AGREE lean_f_16_32 N=3200000 0.093628 0.02
+
+======================================================================
+REFUTED

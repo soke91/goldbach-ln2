@@ -1,0 +1,48 @@
+STATISTIC: the Pearson correlation across k between
+           H(N;k) = sum_{m<N/k,(m,k)=1} Lambda(N-mk) mu(m) and the
+           restricted Mertens sum M_k(N/k) = sum_{m<N/k,(m,k)=1}
+           mu(m); the same for coin signs, where the two sums
+           share index set and signs and differ only by the
+           Lambda weight; the least-squares slope of H against
+           M_k through the origin; and the ratio of
+           sum(log k)|M_k| to sum(log k)|H|.
+NULL: the coin is the control and the question it settles is
+      stated in advance -- if the coin correlates just as well,
+      the reduction is a fact about the Lambda weight and not
+      about mu, and must be reported as one. Four draws per N,
+      same support, same k-range, same index sets.
+FIELD: N = 2e5, 4e5, 8e5, 1.6e6, 3.2e6 with theta' = 0.56, so k
+       runs over the squarefree k < N^0.56 coprime to N; m over
+       1 <= m < N/k with (m,k) = 1 for mu and over the same m for
+       the coin; Lambda and mu from an integer sieve to 3.2e6;
+       numpy default_rng seed 20260808.
+
+sieving to 3200000 ...
+
+  N          #k     corr(H, M_k)   coin corr   slope c    sum|M_k| / sum|H|
+  ------------------------------------------------------------------------------
+  200000     313    0.5066         0.3313      9.7155     0.0728
+  400000     462    0.5473         0.3162      11.0160    0.0716
+  800000     682    0.5411         0.2523      11.1858    0.0640
+  1600000    1004   0.3242         0.2685      7.9773     0.0588
+  3200000    1485   0.2724         0.3151      6.4698     0.0580
+
+U1  corr(H, M_k) > 0.7 at every N          REFUTED
+U2  coin correlation > 0.7 at every N      REFUTED
+U3  slope c in [0.7, 1.4] at every N       REFUTED
+U4  sum|M_k| within 30% of sum|H|          REFUTED
+  DIAGNOSTIC (post hoc). How far from constant is the weight?
+  If Lambda(N-mk) were a constant the correlation would be 1 and
+  the slope would be that constant. Decomposing H = c M_k + R:
+  N          var(R)/var(H)   mean|H|/mean|M_k|   sqrt(log N)
+  200000     0.7434          14.1047             3.4937
+  400000     0.7004          14.4358             3.5915
+  800000     0.7072          16.1686             3.6868
+  1600000    0.8949          17.6758             3.7796
+  3200000    0.9258          17.3233             3.8702
+  The residual carries most of the variance and the size ratio
+  is several times sqrt(log N), so the weight is not a constant
+  multiplier: it supplies the bulk of H's own fluctuation.
+
+======================================================================
+REFUTED

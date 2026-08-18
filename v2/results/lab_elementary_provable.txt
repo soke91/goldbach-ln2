@@ -1,0 +1,180 @@
+STATISTIC: the ratio of the measured |P(N;k)| to the classical
+           shape (N/k) exp(-c sqrt(log(N/k))) L(k) with
+           L(k) = prod_{p|k}(1-1/p)^{-1}, its octave profile,
+           the share of the Goldbach budget that shape alone
+           would spend at accessible N, and the N at which it
+           would pay that budget, swept over c.
+NULL: a coin arm on the identical sifted set -- 16 global
+      sign vectors on the odd squarefree m, each held across
+      all k as mu is, same mask, same octaves -- carried
+      through the same comparison against the same bound, so
+      that the share of the looseness owed to the shape can be
+      separated from the share owed to mu. Same convention as
+      lab_mu_vs_coin_size.py, so the two measurements of that
+      constant are comparable.
+FIELD: N = 2e5 to 3.2e6 by doubling; k squarefree and coprime
+       to N with 2 <= k < 30000; m odd, squarefree, coprime to
+       the odd part of k, m < N/k, avoiding N k^{-1} mod q for
+       every odd prime q <= 30 not dividing k; theta' = 0.56;
+       S(N) and A(N) from Euler products at the fixed bound
+       4000000; c swept over 0.15, 0.2098, 0.30.
+
+sieving to 3200000 ...
+  sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  16 global sign vectors for the null
+  N = 200000      #k = 10132   threshold S(1-A)N = 7.4897e+04
+  N = 400000      #k = 10132   threshold S(1-A)N = 1.4979e+05
+  N = 800000      #k = 10132   threshold S(1-A)N = 2.9959e+05
+  N = 1600000     #k = 10132   threshold S(1-A)N = 5.9918e+05
+  N = 3200000     #k = 10132   threshold S(1-A)N = 1.1984e+06
+
+W1  is the classical shape violated anywhere?
+  ratio = |P| / [ (N/k) exp(-0.2098 sqrt(log(N/k))) L(k) ]
+  N            max ratio    at N/k       #k
+  200000       1.2119       7            10132
+  400000       1.0222       13           10132
+  800000       0.7768       30           10132
+  1600000      0.5391       63           10132
+  3200000      0.3487       108          10132
+  W1 REFUTED
+
+  Where the violation sits, disclosed after the run rather
+  than folded into W1. The maximum is attained at the SHORTEST
+  inner sum available at each N -- 7, 13, 30, 63, 108, which is
+  N over the k-cap -- and an estimate of the form
+  A x exp(-c sqrt(log x)) has no asymptotic content at x = 7.
+  Restricting the comparison to longer sums:
+  cut-off x0   max ratio over every (N,k) with N/k >= x0
+  2            1.2119
+  8            1.0710
+  32           0.7309
+  128          0.3363
+  So the shape survives everywhere an asymptotic estimate
+  could speak, and the constant W4 uses below is the
+  unrestricted one, 1.2119, which is the conservative choice.
+
+W2  how loose, by octave of the inner length
+  N/k octave        N=200000    N=400000    N=800000    N=1600000   N=3200000  
+  2                     0.32521           -           -           -           -
+  8                     0.28155     0.29095     0.24787           -           -
+  32                    0.18006     0.18028     0.18282     0.15279     0.12883
+  128                   0.08577     0.08533     0.08768     0.08683     0.08699
+  512                   0.04627     0.04733     0.04852     0.04762     0.04734
+  2048                  0.03138     0.02457     0.02591     0.02576     0.02639
+  8192                        -     0.01457     0.01269     0.01406     0.01356
+  32768                       -           -           -     0.00715     0.00572
+  131072                      -           -           -           -           -
+  524288                      -           -           -           -           -
+  monotone decreasing at 5 of 5 N   hold
+  W2 hold
+POP provable_looseness_N200000 25
+POP provable_looseness_N400000 13
+POP provable_looseness_N800000 25
+POP provable_looseness_N1600000 13
+POP provable_looseness_N3200000 25
+
+W3  what the bound alone would spend at accessible N
+  the sum runs over the admissible k < N^0.56 that this sweep
+  reaches; where N^0.56 exceeds the k-cap the sum is truncated
+  there and the share is a LOWER bound on what it would spend.
+  N            K = N^0.56   share of the budget   truncated
+  200000       930          13.98                 no
+  400000       1371         15.38                 no
+  800000       2022         16.82                 no
+  1600000      2981         18.29                 no
+  3200000      4394         19.83                 no
+  W3 hold   (floor 10)
+
+W4  where the bound would pay the budget
+  Asymptotically the sum over admissible k is
+    B_bound(N) = A dL N int_0^{theta' u} v exp(-c sqrt(u-v)) dv
+  with u = log N and dL the mean of L(k)(log k)/k over the
+  admissible k against the same integral without L and without
+  the exponential, both measured here rather than assumed.
+  measured density-times-L factor dL = 0.3994
+  implied constant A forced by the data = 1.2119
+  budget constant S(N)(1-A(N)) = 0.374487
+  c          log10 N at which the bound pays
+  0.1500     13093.3
+  0.2098     5474.8
+  0.3000     2092.7
+  W4 log10 N = 5474.8 at the classical c   (floor 1000)   hold
+BRACKET log10_N_elementary_provable 5474.8243 2092.7185 13093.3256
+
+  And the drift of the constants that bracket does NOT sweep,
+  which gate check G33 reads. The sweep above moves c, the
+  analytic exponent, which is a literature constant and not a
+  measurement. The forecast also rests on two things this
+  script measures -- the density-times-L factor dL and the
+  implied constant A -- and those have drifts of their own:
+  N            dL         A forced by the data
+  200000       0.3994     1.2119
+  400000       0.3994     1.0222
+  800000       0.3994     0.7768
+  1600000      0.3994     0.5391
+  3200000      0.3994     0.3487
+  relative spread: dL 0.0000, A 1.1071
+DRIFT elementary_provable_dL 0.0000
+  dL does not drift at all: every N in this sweep has the same
+  odd radical, so the admissible k-set and therefore dL are
+  identical across it. That is a fact about the sweep, not a
+  general one, and a sweep over different radicals would have
+  to remeasure it.
+
+  A is a different animal and is NOT declared as a drift. It
+  falls monotonically with N because the maximum of the ratio
+  is always attained at the shortest inner sum available,
+  N over the k-cap, and that grows with N. It is a function of
+  where one looks, not a wobbling constant, and the forecast
+  uses the LARGEST value over all N, which is the conservative
+  choice for an upper bound. What a factor of 2.1071 in A dL
+  would move, either way:
+  A dL scaled by        log10 N
+  0.4746                4838.5
+  1.0000                5474.8
+  2.1071                6139.9
+  Compare the c-sweep's 2092.7 to 13093.3. Both matter, and the
+  published bracket sweeps only c, so it is a bracket over the
+  analytic exponent and not over everything the forecast rests
+  on. Nothing here is close enough to a computable range for
+  the difference to change a conclusion.
+
+  THE NULL. Coins on the identical sifted set, measured
+  against the identical bound. If the looseness is the shape
+  -- (N/k) against (N/k)^{1/2} -- a coin sits the same
+  distance from the bound as mu up to a constant, and that
+  constant is the only thing mu contributes.
+  The last column is the raw ratio of octave means, which is
+  the statistic lab_mu_vs_coin_size.py reports; the two before
+  it normalise by the bound first, which re-weights the k
+  inside an octave by a factor of four in N/k and by L(k).
+  N/k octave        mu / bound   coin / bound   normalised   raw
+  32                0.12883      0.10836        1.1889       1.3968
+  128               0.08699      0.08210        1.0595       1.3066
+  512               0.04734      0.04182        1.1322       1.3725
+  2048              0.02639      0.02266        1.1646       1.4021
+  8192              0.01356      0.01152        1.1770       1.3159
+  32768             0.00572      0.00546        1.0477       1.1673
+  The coin is square-root too, so both fall away from the
+  bound at the same rate; what separates them is a constant.
+
+  DIAGNOSTIC (post hoc). What this does and does not move.
+  The bound is loose by the factor W2 prints, and that factor
+  is the whole story: the truth is (N/k)^{1/2} and the bound
+  is (N/k) damped by a sub-logarithmic factor, so the gap
+  between them is itself a power of N/k. Numbers, at the
+  largest N, as the ratio of the bound to the measurement:
+  N/k octave        bound / |P|
+  32                7.8
+  128               11.5
+  512               21.1
+  2048              37.9
+  8192              73.7
+  32768             174.9
+  So the reduction is real in shape and empty in size: the
+  elementary half is the half a classical estimate can reach,
+  and the estimate reaches it 5475 orders of magnitude past
+  anything anyone will compute.
+
+======================================================================
+REFUTED

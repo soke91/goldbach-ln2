@@ -1,0 +1,66 @@
+STATISTIC: elementwise disagreement counts between the production
+           mu, Lambda and an independent smallest-prime-factor
+           factorisation; failure counts for the identities
+           sum_{d|n}mu(d) = [n=1] and sum_{d|n}Lambda(d) = log n;
+           B(N)/N rebuilt from the independent arrays against the
+           published table; M(x), psi(x) at the top of the range;
+           and the same comparison for the third construction,
+           smallest prime factor plus the recurrence for mu.
+NULL: none applies and none would mean anything. Every quantity
+      here is an exact arithmetic identity with a known value --
+      0 disagreements, [n=1], log n -- so the reference level is
+      the identity itself, not a distribution. A sign control
+      would only be measuring whether the control is correct.
+FIELD: mu and Lambda on 1..2e6 by both routes; the divisor sweep
+       on 1..2e5; B(N)/N at N = 2e5, 4e5, 8e5 with theta' = 0.56;
+       M(x) at eight checkpoints and psi(x) at x = 2.56e7; the
+       third construction on 1..5e5.
+
+building both implementations to 2000000 ...
+
+W1  mu: production against factorisation on 1..2000000
+    disagreements: 0   hold
+W2  Lambda: worst relative difference 0.000e+00   hold
+
+W3  the defining identities, swept on the production arrays to 200000
+    sum_{d|n} mu(d) = [n=1]      failures: 0
+    sum_{d|n} Lambda(d) = log n  worst relative 2.911e-16
+    W3 hold
+
+W4  B(N)/N rebuilt from the independent arrays
+    N            published   independent   relative miss
+    200000       0.8086      0.808567150   0.000e+00
+    400000       0.7395      0.739493602   0.000e+00
+    800000       0.7303      0.730264309   0.000e+00
+    W4 hold
+
+W6  the third implementation, on 1..500000
+    mu disagreements with the factorisation route: 0
+    Lambda worst relative difference: 0.000e+00
+    W6 hold
+    So the constructions in code/ agree. The manifest this
+    script declares has 5 entries, one per distinct body; the
+    gate holds it against what is on disk.
+
+W7  the fourth implementation, float32 Lambda and a bitmask,
+    on 1..500000
+    mu disagreements with the factorisation route: 0
+    Lambda worst relative difference: 5.820e-08   (float32, cap 1e-6)
+    bitmask disagreements over 9 small primes: 0
+    W7 hold
+
+W5  the two global consequences at the top of the range, 25600000
+    x            M(x)        sqrt(x)     |M|/sqrt(x)
+    3200000      -487        1788.9      0.2722
+    6400000      701         2529.8      0.2771
+    9600000      40          3098.4      0.0129
+    12800000     -1159       3577.7      0.3240
+    16000000     664         4000.0      0.1660
+    19200000     -471        4381.8      0.1075
+    22400000     719         4732.9      0.1519
+    25600000     1155        5059.6      0.2283
+    psi(x) = 25598732.5 against x = 25600000, |psi-x|/x = 0.000050
+    W5 hold
+
+======================================================================
+all four sieve implementations in code/ agree with an independent factorisation

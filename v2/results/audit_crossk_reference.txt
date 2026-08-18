@@ -1,0 +1,103 @@
+STATISTIC: the cross-k gain
+           G = sum_k (log k)|H(N;k)| / |sum_k (log k)H(N;k)|
+           over the squarefree k < N^0.56 coprime to N;
+           the l1 and l2 norms of the same weighted
+           magnitudes; and the same gain with the signs of
+           those magnitudes redrawn at random, 256
+           draws, reported as a median and a central
+           interval.
+NULL: random sign vectors over the admissible k applied to
+      the IDENTICAL (log k)|H(N;k)|, so that what
+      independent signs give is measured on this sequence of
+      magnitudes rather than assumed from their count. Same
+      convention as lab_split_budget.py's size permutation.
+FIELD: N = 2e5 through 3.2e6 by doubling; k squarefree and
+       coprime to N with 2 <= k < N^0.56; m over
+       1 <= m < N/k coprime to k, as in the E_3 setting;
+       Lambda and mu from an integer sieve to 3200000;
+       numpy default_rng seed 20260808. Every N is
+       2^a 5^b, one odd radical, as RADICALS declares. The
+       published gains are read from
+       results/lab_positive_weights.txt.
+
+read 5 published rows from results/lab_positive_weights.txt
+sieving to 3200000 ...
+256 random sign vectors over the admissible k, seed 20260808
+  N = 200000     #k = 313    G = 1.8337  l1/l2 = 11.9596  sqrt(#k) = 17.6918
+  N = 400000     #k = 462    G = 1.8036  l1/l2 = 14.2336  sqrt(#k) = 21.4942
+  N = 800000     #k = 682    G = 2.2074  l1/l2 = 17.8995  sqrt(#k) = 26.1151
+  N = 1600000    #k = 1004   G = 2.5876  l1/l2 = 21.4312  sqrt(#k) = 31.6860
+  N = 3200000    #k = 1485   G = 2.7893  l1/l2 = 26.2111  sqrt(#k) = 38.5357
+RADICALS 1
+
+T1  the control: the published gain
+  N            #k here  #k pub   G here   G published  diff
+  200000       313      313      1.8337   1.8340       0.00028
+  400000       462      462      1.8036   1.8040       0.00037
+  800000       682      682      2.2074   2.2070       0.00042
+  1600000      1004     1004     2.5876   2.5880       0.00036
+  3200000      1485     1485     2.7893   2.7890       0.00025
+  T1 hold   (cap 0.01)
+
+T2/T3  what independent signs give on mu's OWN magnitudes
+  N            sqrt(#k)  coin median  coin [2.5%, 97.5%]        mu      coin/mu
+  200000       17.6918   18.2935      [  5.5449, 320.4621]  1.8337  9.9761
+  400000       21.4942   17.9245      [  5.9586, 225.7059]  1.8036  9.9380
+  800000       26.1151   28.4493      [  9.2970, 475.5246]  2.2074  12.8880
+  1600000      31.6860   31.6503      [  9.8436, 700.4465]  2.5876  12.2313
+  3200000      38.5357   36.2116      [ 11.6264, 859.8171]  2.7893  12.9825
+  T2 the coin stays below sqrt(#k) at every N   REFUTED
+  T3 and is at least three times mu (min 9.9380)   hold
+PERN crossk_coin_over_mu 5 9.9380 12.9825
+
+T4  is l1/l2 the reference the coin sits on?
+  N            l1/l2     coin median / (l1/l2)
+  200000       11.9596   1.5296
+  400000       14.2336   1.2593
+  800000       17.8995   1.5894
+  1600000      21.4312   1.4768
+  3200000      26.2111   1.3815
+  the band contains sqrt(pi/2) = 1.2533, which is E|Z|/sigma,
+  and also 1.4846, which is the constant a MEDIAN gain sits
+  on: the median of |Z| for a standard normal, measured here
+  over 400000 draws, is 0.6736. The measured ratios straddle
+  the second, as they should.
+  T4 hold   (band [1.0, 1.6])
+
+  DIAGNOSTIC on T2 (post hoc). T2 compared a MEDIAN coin
+  gain with sqrt(#k), and those are different conventions:
+  sqrt(#k) is l1/l2 for equal magnitudes, while the median
+  gain carries the extra 1/0.6736. Comparing like with like
+  needs no distributional constant at all, because l1/l2 is
+  the reference on both sides. The deficit then factors:
+  N            sqrt(#k)/G   = magnitudes  x  correlation
+  200000       9.6480       1.4793        6.5220
+  400000       11.9172      1.5101        7.8916
+  800000       11.8306      1.4590        8.1088
+  1600000      12.2451      1.4785        8.2821
+  3200000      13.8158      1.4702        9.3972
+  the magnitude factor is 1.4590 to 1.5101 and flat; the
+  correlation factor is 6.5220 to 9.3972 and rising. So T2 fails
+  as registered and what it caught was its own mixing of
+  conventions, not the magnitudes being equal.
+REFERENCE audit_crossk_reference 5 0.6622 0.6854
+REFERENCE lab_positive_weights 5 0.6622 0.6854
+
+  what this does to the published reading. n_eff = G^2 was
+  compared with #k; the comparison that isolates the
+  correlation is with the coin's own n_eff on the same
+  magnitudes:
+  N            #k       n_eff(mu)  n_eff(coin)  coin/mu in n_eff
+  200000       313      3.3625     334.6506     99.5235
+  400000       462      3.2531     321.2860     98.7632
+  800000       682      4.8727     809.3640     166.1014
+  1600000      1004     6.6959     1001.7394    149.6054
+  3200000      1485     7.7799     1311.2765    168.5459
+  so the walls move together by a factor 98.8 to 168.5 in the
+  effective count, not by the 313 to 1485 that comparing with
+  #k suggests. In the gain itself the correlation is 6.52 to
+  9.40 and the concentration of the magnitudes carries the
+  remaining factor 1.46 to 1.51.
+
+======================================================================
+REFUTED

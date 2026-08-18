@@ -1,0 +1,89 @@
+STATISTIC: the level exponent log K*_R / log N at each of the
+           seven arithmetic types of
+           {#rem:residuearithmetic} and at 2, 4 and 8 times
+           each; its least-squares regression on the log of
+           the budget constant S(N)(1-A(N)), which does not
+           change with the scale because doubling N leaves
+           the odd radical alone; the correlation and the
+           spread of the residues at each scale; and the
+           span seven draws at the family's own scatter give.
+NULL: none is run and none applies. A measured sum is crossed
+      against a computed threshold and the crossings
+      regressed on a computed constant; there is no
+      background to detect against.
+FIELD: the seven test N read from
+       results/audit_residue_arithmetic.txt and their
+       doublings; k squarefree and coprime to N with
+       2 <= k < 100000; m odd, squarefree and
+       coprime to k, m < N/k; the sieve weight over the odd
+       primes below 30; beta refitted as
+       sum(H P)/sum(P^2) on the same k-range; S(N) and A(N)
+       from Euler products at the fixed bound 4000000.
+       Seven distinct odd radicals, as RADICALS declares. The
+       floor is read from
+       results/audit_arithmetic_reach.txt.
+
+read 7 test N and their exponents from results/audit_residue_arithmetic.txt,
+  its slope 0.0516 and correlation 0.97565, and the floor 0.0133 from
+  results/audit_arithmetic_reach.txt
+sieving to 12972960, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  odd 3                      threshold 0.270682  0.5422 0.5520 0.5515 0.5617
+  odd 7                      threshold 0.370504  0.5591 0.5627 0.5732 0.5733
+  odd 5                      threshold 0.374487  0.5675 0.5799 0.5767 0.5834
+  odd 3,5                    threshold 0.194596  0.5294 0.5295 0.5372 0.5427
+  odd 3,5,7,11,13,17         threshold 0.073312  0.4808 0.4737 0.4756 0.4853
+  odd 3,5,7,11,13            threshold 0.087306  0.4747 0.4826 0.4888 0.4962
+  odd 17,47059               threshold 0.351148  0.5424 0.5523 0.5601 0.5695
+RADICALS 7
+BUDGET kstar_onevar_N1572864 0.270682
+BUDGET kstar_onevar_N1404928 0.370504
+BUDGET kstar_onevar_N1600000 0.374487
+BUDGET kstar_onevar_N1620000 0.194596
+BUDGET kstar_onevar_N1531530 0.073312
+BUDGET kstar_onevar_N1621620 0.087306
+BUDGET kstar_onevar_N1600006 0.351148
+
+A1  the control: the base scale
+  odd part               here     published  diff
+  3                      0.5422   0.5422     0.00003
+  7                      0.5591   0.5591     0.00003
+  5                      0.5675   0.5675     0.00003
+  3,5                    0.5294   0.5294     0.00004
+  3,5,7,11,13,17         0.4808   0.4808     0.00004
+  3,5,7,11,13            0.4747   0.4747     0.00001
+  17,47059               0.5424   0.5424     0.00003
+  slope 0.0516 against 0.0516, correlation 0.97565 against 0.97565
+  A1 hold   (cap 0.001)
+
+A2/A3/A4  the same regression at every scale
+  scale   slope      correlation  residual spread  against the floor
+  x1      0.0516     0.97565      0.0218           1.64
+  x2      0.0578     0.98390      0.0240           1.80
+  x4      0.0579     0.99433      0.0129           0.97
+  x8      0.0561     0.99577      0.0103           0.77
+  A2 the correlation stays above 0.9   hold   (floor 0.9)
+  A3 the residual spread stays inside the floor 0.0133   REFUTED
+FLOOR arithmetic_onevar 0.0133
+  A4 the slope's spread is 0.0063   hold   (cap 0.01)
+PERN arithmetic_onevar_residual 4 0.0103 0.0240
+SCALES audit_arithmetic_onevar 4
+
+  what the residue looks like, type by type, so that a
+  second variable would be visible if there were one:
+  odd part               x1       x2       x4       x8       
+  3                      +0.0004   +0.0033   -0.0015   +0.0022   
+  7                      +0.0011   -0.0041   +0.0020   -0.0039   
+  5                      +0.0090   +0.0125   +0.0049   +0.0056   
+  3,5                    +0.0047   -0.0000   +0.0032   +0.0017   
+  3,5,7,11,13,17         +0.0063   +0.0005   -0.0018   -0.0010   
+  3,5,7,11,13            -0.0087   -0.0007   +0.0013   +0.0001   
+  17,47059               -0.0128   -0.0114   -0.0080   -0.0047   
+  2 of the 7 types keep the sign of their residue at all
+  four scales, which is what a second variable would look
+  like -- but both of those residues SHRINK with N, and the
+  spread as a whole crosses the floor between x2 and x4.
+RESIDSCALE arithmetic_onevar 4 0.0103 0.0240 0.0133
+CROSSES FLOOR arithmetic_onevar
+
+======================================================================
+REFUTED

@@ -1,0 +1,73 @@
+STATISTIC: K*(N;c), the first K at which
+           B(N;K) = sum_{k<K}(log k)|E_mu(N;k)| exceeds
+           c S(N)(1-A(N))N, at c = 0.3, 0.5, 1, 2, 3; the
+           exponent fitted from K* against N at each c with its
+           correlation and spread; the same crossing with mu
+           replaced by mu^2; and the parameter-free ratio
+           B/(S(1-A)N) at the fixed cuts K < N^0.50, N^0.56,
+           N^0.60.
+NULL: mu replaced by mu^2 -- same support, every sign +1, main
+      term C(N)/phi(k) still subtracted, so no cancellation is
+      available anywhere. It is deliberately not a coin:
+      [rem:whycoinwins] established that a coin beats mu here
+      by construction, so the coin comparison the original
+      withdrawal rested on could only come out one way.
+FIELD: N = 2e5 through 3.2e6 by doubling; k over the squarefree
+       k < N/2 coprime to N, walked upward; S(N) and A(N) from
+       Euler products at the fixed bound 4e6.
+
+sieving to 3200000 ...
+  N = 200000      S(1-A) = 0.374487   B at the cap = 10.1 N
+  N = 400000      S(1-A) = 0.374487   B at the cap = 11.1 N
+  N = 800000      S(1-A) = 0.374487   B at the cap = 12.1 N
+  N = 1600000     S(1-A) = 0.374487   B at the cap = 12.9 N
+  N = 3200000     S(1-A) = 0.374487   B at the cap = 13.9 N
+
+  K*(N) at each budget c, the first K with B > c S(1-A) N
+  c         N=200000     N=400000     N=800000     N=1600000    N=3200000  
+  0.30      69           111          157          273          457        
+  0.50      129          231          291          537          897        
+  1.00      319          537          767          1353         2319       
+  2.00      807          1389         2083         3633         6261       
+  3.00      1517         2463         3877         6701         11377      
+  V1  increasing in c at every N   hold
+
+  fitted exponents
+  c         e(c)      correlation   K*/sqrt N at the top
+  0.30      0.6753    0.99739       0.2555
+  0.50      0.6813    0.99298       0.5014
+  1.00      0.7057    0.99758       1.2964
+  2.00      0.7299    0.99879       3.5000
+  3.00      0.7258    0.99937       6.3599
+
+V2  spread of the exponent over the budgets: 0.0545  (cap 0.10)   hold
+V3  worst fit correlation: 0.99298  (floor 0.99)   hold
+
+V4  the control: mu replaced by mu^2, same support, no signs
+  N            K*_mu     K*_one    K*_one/sqrt N
+  200000       319       73        0.1632
+  400000       537       77        0.1217
+  800000       767       69        0.0771
+  1600000      1353      77        0.0609
+  3200000      2319      77        0.0430
+  V4 REFUTED
+
+  DIAGNOSTIC (post hoc). The parameter-free version:
+  B(N;K)/(S(1-A)N) at a FIXED cut.
+  cut          N=200000     N=400000     N=800000     N=1600000    N=3200000  
+  K<N^0.50     1.3120       1.1459       1.1258       0.9509       0.8369     
+  K<N^0.56     2.1699       1.9829       1.9503       1.7495       1.5811     
+  K<N^0.60     3.0001       2.8619       2.8076       2.5762       2.3630     
+  and where the exponent sits against one half:
+  e(c) above 0.5 at every c: True   min 0.6753
+
+  Cross-check lines. lab_level_coin_null.py computes the same
+  crossing at c = 1 by an independent walk.
+AGREE kstar_nolog N=200000 319 0.02
+AGREE kstar_nolog N=400000 537 0.02
+AGREE kstar_nolog N=800000 767 0.02
+AGREE kstar_nolog N=1600000 1353 0.02
+AGREE kstar_nolog N=3200000 2319 0.02
+
+======================================================================
+REFUTED

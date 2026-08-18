@@ -1,0 +1,85 @@
+STATISTIC: the correlation of H(N;k) with the sieve-weighted
+           P(N;k) = sum_m mu(m)w(m,k), split by the length N/k of
+           the inner sum; the share of sum(log k)|H| carried by
+           each side of that split; the residual share after
+           subtracting beta P with beta the least-squares scale
+           through the origin; and the sign agreement where the
+           inner sums are long.
+NULL: none is run and none is needed here. S1 and S4 are already
+      stated against the no-information value for a sign
+      predictor, and S2 and S3 decompose one measured sum, where
+      a randomisation would move both parts together. The
+      permutation nulls for this predictor were run in
+      lab_survivor_selection.py.
+FIELD: N = 2e5 through 3.2e6 by doubling; k squarefree, coprime
+       to N, 2 <= k < 30000, which covers the crossing K* at
+       every N; m odd squarefree, coprime to k, m <= (N-1)/k; the
+       sieve weight uses the odd primes up to 30.
+
+sieving to 3200000 ...
+  sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N = 200000      #k = 10132   beta = 2.6992
+  N = 400000      #k = 10132   beta = 2.8588
+  N = 800000      #k = 10132   beta = 2.9952
+  N = 1600000     #k = 10132   beta = 3.1437
+  N = 3200000     #k = 10132   beta = 3.0473
+
+S1  correlation of H with P, by the length of the inner sum
+  N            N/k <= 1000   N/k >= 10000 
+  200000       0.8583         0.6149
+  400000       0.8346         0.8637
+  800000       0.8310         0.8599
+  1600000      0.8357         0.8621
+  3200000      0.8492         0.8096
+  S1 REFUTED
+
+S2  where the mass of sum (log k)|H| sits
+  N            share at N/k >= 10000   share at N/k <= 1000
+  200000       0.0033                 0.9564
+  400000       0.0097                 0.9400
+  800000       0.0171                 0.8991
+  1600000      0.0290                 0.8467
+  3200000      0.0384                 0.7705
+  S2 REFUTED
+
+S3  what subtracting the elementary part leaves
+  N            beta      residual share   |beta P| share
+  200000       2.6992    0.6310           0.9173
+  400000       2.8588    0.5979           0.9553
+  800000       2.9952    0.5554           0.9248
+  1600000      3.1437    0.5421           0.9161
+  3200000      3.0473    0.5307           0.8595
+  S3 REFUTED
+
+S4  is the predictor void where the mass is?
+  N            sign agreement at N/k >= 10000
+  200000       0.5000
+  400000       0.8462
+  800000       0.8148
+  1600000      0.7925
+  3200000      0.8148
+  S4 REFUTED
+
+  DIAGNOSTIC (post hoc). The two regimes side by side, so the
+  split can be read directly:
+  N            |H| mean short   |H| mean long   |P| mean short   |P| mean long
+  200000       12.99            303.68          4.3724           123.6898
+  400000       20.39            571.11          6.7205           183.7597
+  800000       30.60            574.28          9.4485           149.2496
+  1600000      43.59            674.24          12.6668          178.2492
+  3200000      59.64            547.70          16.5486          165.7297
+  |H| grows towards the long end because the inner sum is
+  longer there, while |P| collapses because sum_m mu(m)
+  cancels over a long range. The elementary predictor is
+  strong exactly where the terms are small.
+
+  Cross-check lines. lab_residue_size.py fits the same beta
+  on the same k-range before splitting off the residue.
+AGREE beta_HP N=200000 2.699191 0.01
+AGREE beta_HP N=400000 2.858827 0.01
+AGREE beta_HP N=800000 2.995171 0.01
+AGREE beta_HP N=1600000 3.143666 0.01
+AGREE beta_HP N=3200000 3.047304 0.01
+
+======================================================================
+REFUTED

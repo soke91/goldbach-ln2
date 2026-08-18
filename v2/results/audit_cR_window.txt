@@ -1,0 +1,138 @@
+STATISTIC: the constant c_R = mean |R(N;k)|/sqrt(N/k) at each
+           rung of N = 30030 * 2^j, j = 0..10, averaged three
+           ways -- over k below the crossing K*_R (the
+           published convention), over the fixed window
+           k < 300, and over k < N^{1/4} -- with the growth
+           exponent s in c_R ~ (log N)^s for each; and the
+           octave fit of |R| against N/k at every rung.
+NULL: none is run and none applies. The same measured
+      magnitudes are averaged over three windows and compared;
+      there is no background to detect against. The sign
+      controls for R on this ladder were run in
+      lab_primorial_ladder.py and lab_residue_cancellation.py.
+FIELD: N = 30030 * 2^j, j = 0..10, the odd radical 3*5*7*11*13
+       fixed; k squarefree and coprime to N with
+       2 <= k < 100000; m odd, squarefree, coprime to the odd
+       part of k, m < N/k; the sieve weight uses the odd primes
+       up to 30; beta refitted as sum(H P)/sum(P^2) on that
+       k-range; S(N) and A(N) from Euler products at the fixed
+       bound 4000000; octaves closed at both ends and fitted
+       only when they hold at least 10 k.
+
+read the published growth exponent 1.3838 from
+  results/audit_ladder_model.txt
+sieving to 30750720 ...
+  N = 30030     K*_R 109    c(K*) 1.1956  c(k<300) 1.0370  c(k<N^.25=18) 0.4090
+  N = 60060     K*_R 157    c(K*) 1.4048  c(k<300) 1.2569  c(k<N^.25=18) 2.6483
+  N = 120120    K*_R 239    c(K*) 1.4497  c(k<300) 1.4542  c(k<N^.25=18) 0.0407
+  N = 240240    K*_R 311    c(K*) 1.6742  c(k<300) 1.6299  c(k<N^.25=22) 1.5397
+  N = 480480    K*_R 461    c(K*) 1.8753  c(k<300) 1.6824  c(k<N^.25=26) 0.6711
+  N = 960960    K*_R 691    c(K*) 1.9077  c(k<300) 1.7919  c(k<N^.25=31) 2.7363
+  N = 1921920   K*_R 1159   c(K*) 1.8963  c(k<300) 1.8891  c(k<N^.25=37) 1.9460
+  N = 3843840   K*_R 1501   c(K*) 2.1981  c(k<300) 2.2891  c(k<N^.25=44) 1.2385
+  N = 7687680   K*_R 2621   c(K*) 2.1723  c(k<300) 2.0570  c(k<N^.25=52) 1.3913
+  N = 15375360  K*_R 3557   c(K*) 2.4278  c(k<300) 2.5054  c(k<N^.25=62) 2.4278
+  N = 30750720  K*_R 5773   c(K*) 2.5492  c(k<300) 2.4410  c(k<N^.25=74) 2.6879
+
+K1  the control: the published convention, k < K*_R
+  c_R ~ (log N)^1.3838 against the published 1.3838, diff 0.0000
+  K1 hold
+
+K2/K3  the same magnitudes averaged over a FIXED window
+  window                       exponent   correlation  LOO spread
+  k < K*_R (published)         1.3838     0.98535      0.0740
+  k < 300 (fixed)              1.5918     0.97599      0.1922
+  k < N^0.25                   3.5892     0.48779      0.0650
+  K2 the fixed window gives a smaller exponent   REFUTED
+  K3 it is within 0.2 of 1/2 (|1.5918 - 0.5| = 1.0918)   REFUTED
+SWEPT cR_fixed_window N-range 0.192242
+CORR cR_fixed_window 0.97599
+POP cR_fixed_window 11
+
+K4  is |R| square-root in N/k at this radical?
+  N            octave exponent   correlation  bins  thinnest
+  30030        0.4223            0.97167      5     10
+POP cR_octave_N30030 10
+CORR cR_octave_N30030 0.97167
+  60060        0.3991            0.98358      5     20
+POP cR_octave_N60060 20
+CORR cR_octave_N60060 0.98358
+  120120       0.4192            0.98998      6     10
+POP cR_octave_N120120 10
+CORR cR_octave_N120120 0.98998
+  240240       0.4648            0.98852      6     20
+POP cR_octave_N240240 20
+CORR cR_octave_N240240 0.98852
+  480480       0.4652            0.99556      7     10
+POP cR_octave_N480480 10
+CORR cR_octave_N480480 0.99556
+  960960       0.4971            0.99799      6     20
+POP cR_octave_N960960 20
+CORR cR_octave_N960960 0.99799
+  1921920      0.4791            0.99910      7     10
+POP cR_octave_N1921920 10
+CORR cR_octave_N1921920 0.99910
+  3843840      0.5029            0.99827      6     20
+POP cR_octave_N3843840 20
+CORR cR_octave_N3843840 0.99827
+  7687680      0.4627            0.99819      7     10
+POP cR_octave_N7687680 10
+CORR cR_octave_N7687680 0.99819
+  15375360     0.5168            0.99982      6     20
+POP cR_octave_N15375360 20
+CORR cR_octave_N15375360 0.99982
+  30750720     0.5074            0.99545      7     10
+POP cR_octave_N30750720 10
+CORR cR_octave_N30750720 0.99545
+  K4 REFUTED   (band [0.40, 0.60])
+
+  the arithmetic, declared:
+  11 N, 1 distinct odd radical: 15015
+RADICALS 1
+
+  DIAGNOSTIC (post hoc). Why a widening window inflates the
+  growth. c_R is an average of |R|/sqrt(N/k) over k, and if
+  that ratio is not flat in k the average depends on where it
+  stops. At the top rung, by octave of N/k:
+  N/k octave        mean |R|/sqrt(N/k)   #k
+  128               2.4543               7537
+  512               2.4909               8491
+  2048              2.6116               2128
+  8192              2.5484               534
+  32768             2.5052               128
+  131072            2.0397               35
+  524288            3.2515               10
+  A window that grows with N samples a different part of
+  this profile at every rung -- but K2 refutes that as the
+  explanation: the FIXED window gives a STEEPER growth, not a
+  shallower one. The profile is not flat, and that is the
+  point: |R|/sqrt(N/k) falls with N/k, so c_R has no value
+  independent of where the average stops.
+
+  What is actually moving is the exponent in N/k itself. K4's
+  column, fitted against log N:
+  N            octave exponent
+  30030        0.4223
+  60060        0.3991
+  120120       0.4192
+  240240       0.4648
+  480480       0.4652
+  960960       0.4971
+  1921920      0.4791
+  3843840      0.5029
+  7687680      0.4627
+  15375360     0.5168
+  30750720     0.5074
+  it rises with slope +0.014647 against log N, correlation 0.85888,
+  from 0.3991 at the bottom rung to 0.5168 at the top -- so |R| is
+  NOT (N/k)^{1/2} at this radical below N of about 9.17e+06, and
+  a constant defined by dividing out sqrt(N/k) is absorbing
+  that mismatch. That, and not a different law for the
+  constant, is why no derived shape is available here.
+  leave-one-out on that slope: +0.014647, +0.015236, +0.015639 -- spread 0.000993
+SWEPT cR_octave_exponent N-range 0.000993
+CORR cR_octave_exponent 0.85888
+POP cR_octave_exponent 11
+
+======================================================================
+REFUTED

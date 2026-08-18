@@ -1,0 +1,108 @@
+STATISTIC: the first crossing K*_H of sum_{k<K}(log k)|H(N;k)|
+           above S(N)N, the first crossing K*_signed of the
+           signed sum below -S(N)N, their ratio, the implied
+           exponents log K*/log N, and the same signed crossing
+           with the signs of the terms drawn at random.
+NULL: the sign randomisation of Y3 -- every |H(N;k)| held fixed,
+      the sign of each term redrawn, 16 draws. A coin on
+      supp(mu^2) is NOT used because it changes the magnitudes
+      as well, and by [rem:whycoinwins] it beats mu for reasons
+      unrelated to the signs across k; permuting signs alone
+      isolates exactly what [eq:directcond] discards.
+FIELD: N = 2e5 through 3.2e6 by doubling; k over the squarefree
+       k < N/2 coprime to N, walked upward; S(N) from an Euler
+       product at the fixed bound 4e6; seed 20260808.
+
+sieving to 3200000 ...
+
+  both crossings are FIRST crossings, k ascending, over the
+  squarefree k < N/2 coprime to N. The threshold is S(N)N.
+
+  N            K*_H       K*_signed  ratio    theta'_H  theta'_signed
+  ------------------------------------------------------------------------------
+  200000       2973       5331       1.793    0.6552    0.7030
+  400000       5109       9077       1.777    0.6620    0.7065
+  800000       8021       16327      2.036    0.6614    0.7137
+  1600000      13557      29373      2.167    0.6660    0.7202
+  3200000      23397      52017      2.223    0.6716    0.7250
+
+  Both theta' columns are against the budget S(N)N. That is
+  NOT the budget [eq:nolog] asks for: prop:nolog needs
+  S(N)(1-A(N))N, smaller by a factor near five, and
+  audit_model_transfer.py measures the difference as 0.1677 in
+  the exponent -- more than the whole gap between the two
+  columns above. The constant crossed here, declared so that
+  no exponent from this file is read against one from a file
+  that crossed the other:
+BUDGET kstar_signed_SN_N200000 1.760432
+BUDGET kstar_signed_SN_N400000 1.760432
+BUDGET kstar_signed_SN_N800000 1.760432
+BUDGET kstar_signed_SN_N1600000 1.760432
+BUDGET kstar_signed_SN_N3200000 1.760432
+
+  And the arithmetic this sweep covers, which gate check G34
+  reads. Every N here is 2^a 5^b, so what the signs across k
+  are worth is measured at ONE odd radical -- and so is the
+  same quantity for the residue in lab_residue_signed.py,
+  which runs the identical family:
+  5 N, 1 distinct odd radical: 5
+RADICALS 1
+
+Y1  K*_signed >= K*_H at every N      hold
+Y2  K*_signed/sqrt N: 11.920, 14.352, 18.254, 23.221, 29.078   hold
+
+Y3  the control: same |H(N;k)|, signs drawn at random, 16 draws
+  N            K*_signed(mu)  draws median  min       max       mu's rank
+  200000       5331           99993         99993     99993     0 of 16
+  400000       9077           199999        199999    199999    0 of 16
+  800000       16327          399999        399999    399999    0 of 16
+  1600000      29373          799999        799999    799999    0 of 16
+  3200000      52017          1599999       1599999   1599999   0 of 16
+  Y3 hold
+
+Y4  K*_signed/K*_H: 1.793, 1.777, 2.036, 2.167, 2.223   (cap 10)   hold
+
+  DIAGNOSTIC (post hoc). How far the signed sum goes, and what
+  the randomised signs do with the same magnitudes:
+  N            min sum/N   at k        -S(N)     min/-S    sum/N at k<N/2
+  200000       -4.4050     66647       -1.7604   2.5022    -2.9212
+  400000       -4.8043     132257      -1.7604   2.7291    -3.2192
+  800000       -5.1570     266581      -1.7604   2.9294    -3.4824
+  1600000      -5.4938     533329      -1.7604   3.1207    -3.7408
+  3200000      -5.8707     1066561     -1.7604   3.3348    -4.0242
+  and the trajectory, at k < N^0.56, N^0.70, N^0.90:
+  N            0.56        0.70        0.90
+  200000       -0.4435     -1.7203     -4.3406
+  400000       -0.3997     -1.6645     -4.6951
+  800000       -0.3254     -1.5504     -5.0055
+  1600000      -0.2560     -1.4403     -5.3075
+  3200000      -0.2112     -1.3183     -5.6291
+  The signed sum crosses -S(N)N well inside the walk and keeps
+  going, reaching 3.33 times its threshold. Every one of the 16
+  sign-randomised draws, holding each |H(N;k)| fixed, fails to
+  cross at all. So mu's signs across k are not a source of
+  cancellation here -- they are worse than random, which is the
+  lean Remark [rem:signmass] measured, seen at the level.
+  Against the absolute sum the signed one is not negligible:
+  N            signed/N at k<N/2   absolute/N      ratio
+  200000       -2.9212             10.1            0.2887
+  400000       -3.2192             11.0            0.2918
+  800000       -3.4824             12.0            0.2895
+  1600000      -3.7408             12.9            0.2895
+  3200000      -4.0242             13.8            0.2907
+  a ratio flat in N, so the signs buy a fixed factor of about
+  3.4 in size and 1.79 to 2.22 in K*, i.e. about 0.053 in the
+  exponent theta'. That is a real gain and a bounded one, which
+  is what Y4 predicted; it does not reach the theta' the
+  reduction needs from the absolute form.
+
+  Cross-check lines, against lab_direct_identity.py, which
+  reaches the same quantity from [eq:untrunc]:
+AGREE signed_partial_056 N=200000 -0.443516 0.02
+AGREE signed_partial_056 N=400000 -0.399696 0.02
+AGREE signed_partial_056 N=800000 -0.325385 0.02
+AGREE signed_partial_056 N=1600000 -0.255976 0.02
+AGREE signed_partial_056 N=3200000 -0.211153 0.02
+
+======================================================================
+keeping the signs across k buys a bounded factor and mu's own signs are worse than random

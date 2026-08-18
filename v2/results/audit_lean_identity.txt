@@ -1,0 +1,116 @@
+STATISTIC: with a_k = (log k)H(N;k) over the squarefree
+           k < N^0.56 coprime to N, the three
+           ratios G = l1/|sum a|, l1/l2 and
+           |sum a| / median|sum eps a|; the constant relating
+           them; and each one's least-squares exponent
+           against log N with its standard error.
+NULL: none for the identity, which is algebra checked
+      numerically. The floor is 256 global sign
+      vectors on the identical magnitudes, the convention of
+      audit_lean_floor.py, and the constant relating the
+      three is measured here rather than assumed.
+FIELD: N = 2e5 through 2.56e7 by doubling; k squarefree and
+       coprime to N with 2 <= k < N^0.56; m over
+       1 <= m < N/k with (m,k) = 1; Lambda and mu from an
+       integer sieve to 25600000; numpy default_rng
+       seed 20260808. Every N is 2^a 5^b, one odd
+       radical, as RADICALS declares. The published gains are
+       read from results/lab_lean_decay.txt.
+
+read 6 published gains from results/lab_lean_decay.txt
+sieving to 25600000 ...
+256 global sign vectors over k <= 14081, seed 20260808
+RADICALS 1
+  N = 200000     #k = 313    G = 1.8337  l1/l2 = 11.9596  lean/floor = 8.4946
+  N = 400000     #k = 462    G = 1.8036  l1/l2 = 14.2336  lean/floor = 11.3139
+  N = 800000     #k = 682    G = 2.2074  l1/l2 = 17.8995  lean/floor = 11.9189
+  N = 1600000    #k = 1004   G = 2.5876  l1/l2 = 21.4312  lean/floor = 13.4289
+  N = 3200000    #k = 1485   G = 2.7893  l1/l2 = 26.2111  lean/floor = 13.2489
+  N = 6400000    #k = 2186   G = 3.0787  l1/l2 = 32.1297  lean/floor = 15.7939
+  N = 12800000   #k = 3226   G = 3.4075  l1/l2 = 39.6783  lean/floor = 16.8379
+  N = 25600000   #k = 4754   G = 3.5925  l1/l2 = 47.6367  lean/floor = 21.3636
+
+W1  the control: the published gain
+  N            G here     published  diff
+  200000       1.8337     1.8340     0.00028
+  400000       1.8036     1.8040     0.00037
+  800000       2.2074     2.2070     0.00042
+  1600000      2.5876     2.5880     0.00036
+  3200000      2.7893     2.7890     0.00025
+  6400000      3.0787     3.0790     0.00028
+  W1 hold   (cap 0.01)
+
+W2  the identity, pointwise
+  lean/floor = (l1/l2) / G / c,  so log c is the residue
+  N            log(lean/floor)  -log(l1/l2)  +log G   log c
+  200000       2.139429         -2.481531    0.606346 -0.264244
+  400000       2.426033         -2.655606    0.589803 -0.360230
+  800000       2.478126         -2.884770    0.791825 -0.385181
+  1600000      2.597407         -3.064848    0.950746 -0.483306
+  3200000      2.583917         -3.266182    1.025774 -0.343509
+  6400000      2.759626         -3.469782    1.124515 -0.414358
+  12800000     2.823629         -3.680803    1.225971 -0.368797
+  25600000     3.061687         -3.863603    1.278840 -0.476924
+  log c runs -0.483306 to -0.264244, a spread of 0.219062   (cap 0.02)
+  c itself is 0.616741 to 0.767786; the median of |Z| for a standard
+  normal would put it at 0.674430
+  W2 REFUTED
+
+  DIAGNOSTIC on W2 (post hoc). c is a MEDIAN over 256
+  draws, so it carries its own sampling error, and the
+  cap was set without asking how large that is. Splitting
+  the draws into 16 groups of 16 and taking each group's
+  median gives the estimator's own scatter directly:
+  N            group scatter  s.e. of the full median
+  200000       0.116556       0.029139
+  400000       0.163701       0.040925
+  800000       0.125167       0.031292
+  1600000      0.126133       0.031533
+  3200000      0.209155       0.052289
+  6400000      0.177204       0.044301
+  12800000     0.114436       0.028609
+  25600000     0.259629       0.064907
+  the observed log spread is 0.219062; the sampling spread of
+  eight independent medians at that standard error is
+  about 0.237831, so the two are the same size.
+CONSTSPREAD leanidentity_c 0.219062 0.237831
+  So W2 fails as registered and the failure is the
+  cap: c does not drift, it is estimated to about
+  24 per cent by 256 draws.
+
+W3/W4  the three exponents
+  quantity        exponent     s.e.       t
+  G               +0.153911    0.011253   13.68
+SCATTER slope_leanidentity_G 0.0438
+TSTAT slope_leanidentity_G 13.68
+SPREAD slope_leanidentity_G 4.8520
+  l1/l2           +0.287798    0.002472   116.44
+SCATTER slope_leanidentity_l1_l2 0.0096
+TSTAT slope_leanidentity_l1_l2 116.44
+SPREAD slope_leanidentity_l1_l2 4.8520
+  lean/floor      +0.159294    0.016636   9.58
+SCATTER slope_leanidentity_lean_floor 0.0647
+TSTAT slope_leanidentity_lean_floor 9.58
+SPREAD slope_leanidentity_lean_floor 4.8520
+  e(l1/l2) - e(G) - e(lean/floor) = -0.025407 against 0.040473 = 2 s.e.
+  W3 hold
+  theta'/2 = 0.28, and e(l1/l2) is +0.007798 away, 3.15 s.e.
+  W4 REFUTED
+
+  what would have to change. The lean stops growing against
+  its floor exactly when e(G) reaches e(l1/l2). Measured,
+  e(G) = +0.153911 and it would have to reach +0.287798 -- a factor
+  1.87 in the exponent. And l1/l2 is bounded by sqrt(#k):
+  N            l1/l2      sqrt(#k)   ratio
+  200000       11.9596    17.6918    0.6760
+  400000       14.2336    21.4942    0.6622
+  800000       17.8995    26.1151    0.6854
+  1600000      21.4312    31.6860    0.6764
+  3200000      26.2111    38.5357    0.6802
+  6400000      32.1297    46.7547    0.6872
+  12800000     39.6783    56.7979    0.6986
+  25600000     47.6367    68.9493    0.6909
+REFERENCE audit_lean_identity 8 0.6622 0.6986
+
+======================================================================
+REFUTED

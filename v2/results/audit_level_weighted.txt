@@ -1,0 +1,93 @@
+STATISTIC: with beta the least-squares scale through the
+           origin, the residual share
+           sum(log k)|H - beta X| / sum(log k)|H| over
+           2 <= k < 30000, for X the sieve-weighted
+           count P_Q and for X the log-weighted
+           sum_m mu(m)[survives] log(N - mk), at
+           Q = N^alpha for alpha = 0.1, 0.2, 0.3, 0.4, 0.5; and the share of
+           the demand carried by the terms whose N - mk is a
+           prime at or below sqrt(N), which the sieve strikes.
+NULL: lab_predictable_part.py's, audited and run in
+      audit_predictable_null.py -- breaking either half of
+      the predictor alone reaches at most 15 per cent of the
+      cut. It is not repeated at every level here.
+FIELD: N = 2e5 through 3.2e6 by doubling, the field of
+       lab_predictable_part.py; k squarefree and coprime to N
+       with 2 <= k < 30000; m odd, squarefree and
+       coprime to k, m <= (N-1)/k; Lambda and mu from an
+       integer sieve to 3200000. Every N is 2^a 5^b,
+       one odd radical, as RADICALS declares. The published
+       unweighted shares are read from
+       results/audit_level_demand.txt.
+
+read 5 published share rows from results/audit_level_demand.txt
+sieving to 3200000 ...
+RADICALS 1
+  N = 200000     #k = 10132  done
+  N = 400000     #k = 10132  done
+  N = 800000     #k = 10132  done
+  N = 1600000    #k = 10132  done
+  N = 3200000    #k = 10132  done
+
+V1  the control: the unweighted shares
+  N            a=0.3 here  published  a=0.5 here  published
+  200000       0.6022      0.6022     0.2525      0.2525
+  400000       0.5526      0.5526     0.2457      0.2457
+  800000       0.5147      0.5147     0.2327      0.2327
+  1600000      0.4986      0.4986     0.2271      0.2271
+  3200000      0.4866      0.4866     0.2316      0.2316
+  V1 hold   (cap 0.001)
+
+V2/V3/V4  what the log weight buys at each level
+  N            a=0.1     a=0.2     a=0.3     a=0.4     a=0.5     
+  unweighted / log-weighted
+  200000       0.8558    0.7157    0.6022    0.3963    0.2525    
+               0.8005    0.7070    0.5858    0.3936    0.0090    
+  400000       0.7296    0.6373    0.5526    0.3983    0.2457    
+               0.6903    0.6124    0.5160    0.3577    0.0079    
+  800000       0.6524    0.5886    0.5147    0.3885    0.2327    
+               0.6366    0.5757    0.4836    0.3488    0.0070    
+  1600000      0.6144    0.5606    0.4986    0.3854    0.2271    
+               0.6016    0.5454    0.4639    0.3351    0.0080    
+  3200000      0.5911    0.5411    0.4866    0.3846    0.2316    
+               0.5787    0.5296    0.4592    0.3337    0.0064    
+  V2 alpha = 0.5 log-weighted below 0.01   hold   (cap 0.01)
+  V3 the log weight lowers the share everywhere   hold
+  V4 alpha = 0.3 log-weighted still above 0.40   hold   (floor 0.40)
+PERN levelweighted_a03 5 0.4592 0.5858
+PERN levelweighted_a05 5 0.006403 0.008981
+PERN levelplain_a03 5 0.4866 0.6022
+  and the two taken at the same N -- what the free weights
+  buy where the route could pay:
+  200000       0.9727
+  400000       0.9338
+  800000       0.9396
+  1600000      0.9304
+  3200000      0.9437
+RATIO levelweighted_a03 levelplain_a03 0.9304 0.9727
+
+  what is left at the top, and what it is. The sieve strikes
+  a prime along with its multiples, so the primes at or
+  below sqrt(N) are true contributors it removes. Their
+  share of the demand, measured directly:
+  N            mass of the struck primes
+  200000       0.009755
+  400000       0.009525
+  800000       0.007872
+  1600000      0.008053
+  3200000      0.007108
+  against the log-weighted residual 0.006403 to 0.008981, so the
+  two are the same object to within the fit's freedom.
+ACCOUNT levelweighted_a05 0.006403 0.008981 0.007108 0.009755
+
+  and the axis, with both statistics on it. The demand's
+  threshold is read from results/audit_level_demand.txt:
+AXIS sieve_alpha demandshare 0.5
+AXIS sieve_alpha demandshare_logweighted 0.5
+  so the free weights do not move the demand's threshold
+  at all: it stays at alpha = 0.5, well above the 0.3 at
+  which the sign stops slipping. What they change is the
+  size of what is left there, from 0.2525 to 0.008981.
+
+======================================================================
+the weights are free and the survivor set is the whole difficulty

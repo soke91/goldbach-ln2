@@ -1,0 +1,61 @@
+STATISTIC: among sampled k with 2 <= N/k <= 1000, the fraction of
+           single-survivor k whose survivor is m = 1 against the
+           uniform expectation; the mean relative position
+           m/(N/k) of survivors; and the agreement of sign H(N;k)
+           with the sign of the sieve-weighted predictor
+           P = sum_m mu(m) w(m,k), against the agreement with the
+           odd Mertens function and against 16 permutations.
+NULL: the permutation of R4, the design of [rem:leanodd]: the
+      predictor's signs are shuffled across the sampled k,
+      preserving the marginal sign distributions exactly, so the
+      baseline accounts for both sides being predominantly
+      negative.
+FIELD: N = 2e5 through 3.2e6 by doubling; k squarefree, coprime
+       to N, with 2 <= N/k <= 1000, subsampled to 60000 per N;
+       m odd squarefree, coprime to k, m <= N/k; the sieve weight
+       uses the odd primes up to 30; seed 20260808.
+
+sieving to 3200000 ...
+  sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N = 200000     sampled k = 33705    single-survivor k = 10240
+  N = 400000     sampled k = 60000    single-survivor k = 17606
+  N = 800000     sampled k = 60000    single-survivor k = 16987
+  N = 1600000    sampled k = 60000    single-survivor k = 16583
+  N = 3200000    sampled k = 60000    single-survivor k = 16034
+
+R1  is m = 1 under-represented among single survivors?
+  N            m=1 fraction   uniform expectation   ratio
+  200000       0.4710         0.5420                0.8690
+  400000       0.4678         0.5381                0.8693
+  800000       0.4670         0.5305                0.8803
+  1600000      0.4601         0.5209                0.8833
+  3200000      0.4550         0.5159                0.8818
+  R1 hold
+
+R2  do the survivors lean towards large m?
+  N            mean m/(N/k)   uniform would give
+  200000       0.5298         0.5000
+  400000       0.5293         0.5000
+  800000       0.5290         0.5000
+  1600000      0.5286         0.5000
+  3200000      0.5268         0.5000
+  R2 hold
+
+R3/R4  the sieve-weighted predictor
+  N            sign P    sign Modd   draws max   #k
+  200000       0.9274    0.8377      0.5372      9230
+  400000       0.9224    0.8358      0.5381      15831
+  800000       0.9204    0.8344      0.5382      15280
+  1600000      0.9154    0.8287      0.5396      14674
+  3200000      0.9080    0.8238      0.5414      14349
+  R3 beats counting            hold
+  R4 beats every permutation   hold
+
+======================================================================
+the survivors are selected by prime density, which biases them to large m and deepens the lean
+
+  the predictor's own majority sign share, at its worst over everything
+  reported above: 0.7726. An agreement is only a measurement where the
+  predictor has variance; where it takes one sign almost everywhere,
+  the agreement is the other side's marginal rate read back.
+MARGINAL lab_survivor_selection 0.7726

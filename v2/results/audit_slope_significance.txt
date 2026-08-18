@@ -1,0 +1,92 @@
+STATISTIC: for each slope this project has published -- the
+           family's level exponent against log N, the primorial
+           ladder's level exponent, the ladder's k-exponent and
+           its log rho -- the refitted slope, the r.m.s.
+           residual, the standard error
+           sqrt(sum r^2/(n-2) / sum (x-xbar)^2), and the ratio
+           of slope to standard error.
+NULL: none is run and none applies. Published numbers are
+      refitted and their standard errors computed from their
+      own residuals; there is no background to detect against.
+      The noise floors these encode are the ones
+      lab_primorial_ladder.py and lab_residue_cancellation.py
+      established with coin arms.
+FIELD: the published tables of results/audit_residue_level.txt,
+       results/audit_primorial_rung10.txt,
+       results/audit_cR_window.txt and
+       results/lab_primorial_share.txt. No new arithmetic is
+       done; the k-ranges, sieve weights, budgets and radicals
+       are those declared in those files.
+
+read 4 published series
+
+M1  the control: each slope refitted
+  series                       refitted     published    diff
+  family level exponent        0.004660     0.004692     0.0000321
+  ladder level exponent        0.006778     0.006780     0.0000020
+  ladder k-exponent            0.014649     0.014647     0.0000016
+  ladder log rho               -0.035108    -0.035113    0.0000053
+  M1 REFUTED
+
+  DIAGNOSTIC on M1 (post hoc). The tolerance was set at 1e-5
+  without asking what the printed tables can carry. A
+  least-squares slope is a fixed linear functional of the
+  ordinates, slope = sum c_i y_i with
+  c_i = (x_i - xbar) / sum (x_j - xbar)^2, so rounding the
+  y column to d decimals moves the refit by at most
+  sum |c_i| * 0.5 * 10^-d. That bound is computable and is
+  not a free parameter:
+  series                       M1 diff      rounding bound covered?
+  family level exponent        0.0000321    0.0000433      yes
+  ladder level exponent        0.0000020    0.0000197      yes
+  ladder k-exponent            0.0000016    0.0000197      yes
+  ladder log rho               0.0000053    0.0000185      yes
+  every M1 gap inside its own rounding bound: yes
+  So M1 fails as written and the reason is arithmetic I
+  imposed, not a disagreement with the published fits. The
+  rule stands as registered; what it refutes is the
+  tolerance, and no published slope is thereby in doubt.
+
+M2/M3/M4  every published slope against its own noise
+  a t-ratio is not comparable across series without the
+  range it was measured over, so the spread in the abscissa
+  is printed beside it: a slope can be unresolved because
+  the statistic is noisy or because the sweep is short, and
+  only the second is fixable by computing more.
+  series                       n   spread   slope        r.m.s.   s.e.       t
+  family level exponent        5   2.7726   0.004660     0.0049   0.002914   1.60
+SCATTER slope_audit_residue_level 0.0049
+TSTAT slope_audit_residue_level 1.60
+SPREAD slope_audit_residue_level 2.7726
+UNRESOLVED SIGN slope_audit_residue_level
+  ladder level exponent        11  6.9315   0.006778     0.0037   0.000565   11.99
+SCATTER slope_audit_primorial_rung10 0.0037
+TSTAT slope_audit_primorial_rung10 11.99
+SPREAD slope_audit_primorial_rung10 6.9315
+  ladder k-exponent            11  6.9315   0.014649     0.0191   0.002912   5.03
+SCATTER slope_audit_cR_window 0.0191
+TSTAT slope_audit_cR_window 5.03
+SPREAD slope_audit_cR_window 6.9315
+  ladder log rho               10  6.2383   -0.035108    0.0689   0.012230   2.87
+SCATTER slope_lab_primorial_share 0.0689
+TSTAT slope_lab_primorial_share 2.87
+SPREAD slope_lab_primorial_share 6.2383
+  M2 the ladder's level slope is above 5 s.e. (11.99)   hold
+  M3 the family's is below 3 s.e. (1.60)   hold
+  M4 every slope is above 2 s.e. (min 1.60)   REFUTED
+
+  DIAGNOSTIC (post hoc). Why leave-one-out is not a
+  significance test. For each series, the three leave-one-out
+  slopes and the interval the standard error gives:
+  series                       LOO min      LOO max      slope +- 2 s.e.
+  family level exponent        0.000289     0.007892     [-0.001169, +0.010489]
+  ladder level exponent        0.006650     0.006875     [+0.005647, +0.007909]
+  ladder k-exponent            0.014649     0.015642     [+0.008825, +0.020472]
+  ladder log rho               -0.047257    -0.029276    [-0.059567, -0.010649]
+  Dropping one point of five moves a slope by a fraction of
+  its own error bar, so 'all three refits have the same sign'
+  is a statement about the arithmetic of least squares and
+  not about the data.
+
+======================================================================
+REFUTED

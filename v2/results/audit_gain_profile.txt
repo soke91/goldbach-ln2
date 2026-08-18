@@ -1,0 +1,163 @@
+STATISTIC: a_k = (log k)H(N;k) over the squarefree
+           k < N^theta' coprime to N, ordered by |a_k| and cut
+           into 10 blocks of equal count. For
+           each block d: its share w_d of l1, its signed
+           imbalance s_d = (sum a)/(sum|a|) and its gain
+           G_d = 1/|s_d|. The identity 1/G = |sum_d w_d s_d|
+           against |sum a|/l1; the no-cross-cancellation value
+           sum_d w_d |s_d| against it; each block's
+           least-squares exponent of log G_d on log N with its
+           standard error, against the ceiling theta'/2; and
+           the largest single term w_d|s_d| with its share.
+NULL: none is run for the decomposition, which is a
+      deterministic partition of a measured sequence by its own
+      magnitudes together with an identity between two ways of
+      writing |sum a|/l1. The coin arms for G were run in
+      audit_crossk_reference.py, where random signs on mu's own
+      magnitudes gave 9.94 to 12.98 times mu's gain.
+FIELD: N = 2e5 through 2.56e7 by doubling, every one 2^a 5^b so
+       the odd radical is one throughout, as RADICALS says; k
+       squarefree and coprime to N with 2 <= k < N^theta';
+       m over 1 <= m < N/k with (m,k) = 1; Lambda and mu from
+       an integer sieve to 25600000; the field, the
+       sieve and theta' are imported from
+       code/audit_gain_split.py and the published gains and
+       exponents are read from results/audit_gain_split.txt.
+       The cut is by a FIXED FRACTION of the k, so every block
+       has #S of order N^theta' and the same square-root
+       reference theta'/2.
+
+read from results/audit_gain_split.txt: 8 whole-range gains and the
+  exponents whole +0.153911, head +0.077963, tail +0.340006
+  the field is imported from code/audit_gain_split.py, not copied,
+  so the blocks below are cut out of the same a_k.
+  the ceiling e(l1/l2) can reach is theta'/2 = 0.2800
+
+sieving to 25600000 ...
+RADICALS 1
+
+  N            #k      G whole   1/G        sum w|s|   ratio    top term  its share
+  200000       313     1.8337    0.545340   0.631238   1.1575   0.357201  0.5659
+  400000       462     1.8036    0.554436   0.571974   1.0316   0.345080  0.6033
+  800000       682     2.2074    0.453017   0.517827   1.1431   0.295825  0.5713
+  1600000      1004    2.5876    0.386453   0.458841   1.1873   0.270727  0.5900
+  3200000      1485    2.7893    0.358519   0.492520   1.3738   0.269191  0.5466
+  6400000      2186    3.0787    0.324810   0.426464   1.3130   0.251962  0.5908
+  12800000     3226    3.4075    0.293473   0.402659   1.3720   0.241816  0.6005
+  25600000     4754    3.5925    0.278360   0.384954   1.3829   0.232227  0.6033
+
+W1  the control, and is the decomposition an identity?
+  N            G here     published   diff       identity gap
+  200000       1.8337     1.8337      0.000019   0.000e+00
+  400000       1.8036     1.8036      0.000034   1.110e-16
+  800000       2.2074     2.2074      0.000022   5.551e-17
+  1600000      2.5876     2.5876      0.000039   5.551e-17
+  3200000      2.7893     2.7893      0.000046   0.000e+00
+  6400000      3.0787     3.0787      0.000022   0.000e+00
+  12800000     3.4075     3.4075      0.000028   0.000e+00
+  25600000     3.5925     3.5925      0.000029   1.110e-16
+  exponent +0.153911 against the published +0.153911, diff 0.000000
+  worst gain departure 0.000046, worst identity gap 1.110e-16
+  W1 hold   (cap 0.01 on a gain, cap 0.001 on the exponent, cap 1e-12 on the identity)
+TSTAT slope_audit_gain_profile 13.68
+SPREAD slope_audit_gain_profile 4.8520
+
+W2  is any of the decay cross-block?
+  suppressing the cross-block signs raises 1/G by a factor 1.0316 to 1.3829
+  quantity              exponent     s.e.
+  |sum w s|             -0.153911    0.011253
+  sum w |s|             -0.098386    0.010124
+  they differ by -0.055525 against 0.015137 on the difference, which is 3.67
+  W2 REFUTED   (cap 2 on the factor, cap 2 on the standard errors)
+  so part of the decay is between the blocks and not inside
+  them. Of the 0.153911 the whole gain grows at, 0.098386 is what
+  survives when the blocks are forbidden to oppose one
+  another, and the remaining 0.055525 is their opposition.
+
+X1  and how much of that is the partition's doing
+  (this section was written after W2 fell and is not pre-registered)
+  the split into within and between is NOT canonical. With B
+  blocks, forbidding cancellation coarser than a block gives
+  sum_d |sum_d a| / l1, which is 1/G at B = 1 and exactly 1 at
+  B = #k. So the share attributed to opposition has to be read
+  as a function of B or it is not a measurement at all.
+  blocks   exponent     s.e.       cross share of 0.153911
+  2        -0.116165    0.013643   0.2452
+CROSSSHARE gain_opposition 2 0.245248
+  5        -0.097205    0.011216   0.3684
+CROSSSHARE gain_opposition 5 0.368433
+  10       -0.098386    0.010124   0.3608
+CROSSSHARE gain_opposition 10 0.360763
+  20       -0.104406    0.010766   0.3216
+CROSSSHARE gain_opposition 20 0.321647
+  50       -0.122140    0.010135   0.2064
+CROSSSHARE gain_opposition 50 0.206425
+  the share runs 0.2064 to 0.3684 across the resolutions, a factor 1.7848
+RESOLUTION DEPENDENT gain_opposition
+  so the number is not one number. What is invariant is
+  the direction: at every resolution the exponent falls
+  when opposition is forbidden, so opposition is a real
+  part of the decay at every scale of the partition, and
+  the coarsest reading -- B = 2, which is the split
+  {#rem:gainsplit} published -- is the one that claims
+  least.
+
+W3  where on the magnitude axis does cancellation fail?
+  block    200000     400000     800000     1600000    3200000    6400000    12800000   25600000    w (top N)
+  1        1.0000     1.0395     1.1784     1.2966     1.2944     1.3721     1.3799     1.4639     0.3400
+  2        1.2741     1.3206     1.6481     1.6062     1.6757     1.7976     2.1553     2.1866     0.1867
+  3        2.9143     4.2627     2.2535     5.7108     3.4377     7.5592     7.2857     9.5632     0.1345
+  4        4.1270     28.3122    8.2919     7.7377     7.4032     19.0949    10.2212    10.2919    0.1018
+  5        4.8075     3.7254     10.7765    5.0698     2.9019     4.8226     3.7738     4.5059     0.0775
+  6        69.9740    9.9229     4.0965     10.9342    4.0057     3.8826     6.3987     5.2016     0.0596
+  7        2.1022     10.3486    4.8780     9.9640     6.0076     5.9073     6.0764     5.8126     0.0443
+  8        10.0146    3.8552     9.7955     7.4582     4.5130     5.6215     7.7407     5.5964     0.0309
+  9        13.3282    663.9864   290.5897   110.9161   18.8390    6.0390     7.4442     12.4437    0.0186
+  10       2.1948     25.6152    88.9702    12.0781    30.1277    25.4200    12.1533    50.2576    0.0063
+
+  block    exponent     s.e.       t        against 0.28
+  1        +0.077963    0.009252   8.43     -0.202037
+  2        +0.112199    0.012489   8.98     -0.167801
+  3        +0.242534    0.072983   3.32     -0.037466
+  4        +0.064591    0.140549   0.46     -0.215409
+  5        -0.057692    0.089265   0.65     -0.337692
+  6        -0.370171    0.176371   2.10     -0.650171
+  7        +0.077727    0.113863   0.68     -0.202273
+  8        -0.047339    0.081723   0.58     -0.327339
+  9        -0.623943    0.345749   1.80     -0.903943
+  10       +0.263554    0.246311   1.07     -0.016446
+  the block gains increase from top to bottom at every N: no
+  blocks whose exponent is within its own standard error of zero: 4
+  the bottom block's exponent +0.263554 against the ceiling 0.2800
+  W3 REFUTED
+
+W4  which block decides the whole?
+  N            top term   block   its share of sum w|s|
+  200000       0.357201   1       0.5659
+  400000       0.345080   1       0.6033
+  800000       0.295825   1       0.5713
+  1600000      0.270727   1       0.5900
+  3200000      0.269191   1       0.5466
+  6400000      0.251962   1       0.5908
+  12800000     0.241816   1       0.6005
+  25600000     0.232227   1       0.6033
+  the largest term is the top block at every N: yes
+  its share runs 0.5466 to 0.6033, exponent +0.007716 at 0.96 standard errors
+  W4 hold
+  and it holds only by the letter of the rule. The share
+  does not fall and the top block dominates at every N,
+  but the RISE is not resolved, so the honest reading is
+  that the share is flat: the top block's grip on the
+  whole neither tightens nor loosens over a factor 128 in N.
+TSTAT slope_gainprofile_topshare 0.96
+SPREAD slope_gainprofile_topshare 4.8520
+UNRESOLVED SIGN slope_gainprofile_topshare
+
+  what the profile costs. The mass-weighted shortfall against
+  the ceiling is what a proof has to supply:
+  blocks under the ceiling: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+  they hold 1.0000 of the mass at the top N, and the mass-weighted
+  shortfall in the exponent, summed over them, is 0.227835
+
+======================================================================
+W1 hold  W2 REFUTED  W3 REFUTED  W4 hold

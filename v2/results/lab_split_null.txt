@@ -1,0 +1,89 @@
+STATISTIC: for each of three predictors -- P = sum mu(m)w(m,k),
+           the same with mu replaced by a fixed coin on the odd
+           squarefree m, and the flat sum_m mu(m) with w = 1 --
+           the least-squares scale through the origin, the
+           residual share sum(log k)|H - beta P|/sum(log k)|H|,
+           and the correlation with H.
+NULL: the coin. mu(m) is replaced by a fixed +-1 on the odd
+      squarefree m, eight draws, with the sieve weights w(m,k)
+      and the summation range untouched, so the predictor keeps
+      its length, its weights and its shape and loses only the
+      arithmetic. This is the control [rem:predictable] and
+      [rem:residue] were built without.
+FIELD: N = 2e5 through 3.2e6 by doubling; k squarefree, coprime
+       to N, 2 <= k < 30000; m odd squarefree, coprime to k,
+       m <= (N-1)/k; the sieve weight uses the odd primes up to
+       30; seed 20260808.
+
+sieving to 3200000 ...
+  8 fixed coins on the odd squarefree m, sieve weights kept
+  N = 200000      #k = 10132
+  N = 400000      #k = 10132
+  N = 800000      #k = 10132
+  N = 1600000     #k = 10132
+  N = 3200000     #k = 10132
+
+U1  what each predictor leaves behind
+  N            mu residual   coin residual (median)   gap
+  200000       0.6310        0.9879                   0.3569
+  400000       0.5979        0.9566                   0.3586
+  800000       0.5554        0.9711                   0.4158
+  1600000      0.5421        0.9905                   0.4484
+  3200000      0.5307        0.9986                   0.4680
+  U1 hold
+
+U2  correlation with H
+  N            mu        coin min   coin max   flat
+  200000       0.8575    -0.1912    0.1345     0.6570
+  400000       0.8487    -0.1677    0.2188     0.6366
+  800000       0.8566    -0.2195    0.0275     0.6468
+  1600000      0.8592    -0.2291    0.0399     0.5532
+  3200000      0.8463    -0.2918    0.0439     0.6103
+  U2 REFUTED
+
+U3/U4  is the sieve weight worth anything?
+  N            r(H,P)    r(H,flat)   P residual   flat residual
+  200000       0.8575    0.6570      0.6310       0.8710
+  400000       0.8487    0.6366      0.5979       0.7978
+  800000       0.8566    0.6468      0.5554       0.7870
+  1600000      0.8592    0.5532      0.5421       0.7947
+  3200000      0.8463    0.6103      0.5307       0.8272
+  U3 sieve weight wins on correlation   hold
+  U4 and on the residual share          hold
+
+  DIAGNOSTIC (post hoc). Why U2's band was wrong. The naive
+  sampling error of a correlation over n points is 1/sqrt(n),
+  which at these n would be about 0.0099 -- but the inner sums
+  are NESTED: consecutive k share almost all their m, so the
+  effective degrees of freedom are the number of octaves, not
+  the number of k. The coin's own spread is the empirical band,
+  and mu sits far outside it:
+  N            mu        coin band          mu - band edge
+  200000       0.8575    [-0.1912, +0.1345]   +0.7231
+  400000       0.8487    [-0.1677, +0.2188]   +0.6300
+  800000       0.8566    [-0.2195, +0.0275]   +0.8291
+  1600000      0.8592    [-0.2291, +0.0399]   +0.8193
+  3200000      0.8463    [-0.2918, +0.0439]   +0.8024
+  So U2 is refuted on its stated band and not on its content:
+  the band should have been computed from the coins, which is
+  what M2 asks and what U1 does correctly.
+
+  DIAGNOSTIC 2 (post hoc). The fitted scales, which say how much
+  of |H| each predictor is being asked to carry:
+  N            beta(mu)  beta(flat)  |beta P| share  |beta_f F| share
+  200000       2.6992    3.0864      0.9173          0.9801
+  400000       2.8588    3.2443      0.9553          1.0395
+  800000       2.9952    3.3422      0.9248          1.0078
+  1600000      3.1437    3.1927      0.9161          0.8956
+  3200000      3.0473    3.3862      0.8595          0.8909
+
+  Cross-check lines. lab_predictable_part.py and
+  lab_residue_size.py fit the same beta on the same k-range.
+AGREE beta_HP N=200000 2.699191 0.01
+AGREE beta_HP N=400000 2.858827 0.01
+AGREE beta_HP N=800000 2.995171 0.01
+AGREE beta_HP N=1600000 3.143666 0.01
+AGREE beta_HP N=3200000 3.047304 0.01
+
+======================================================================
+REFUTED

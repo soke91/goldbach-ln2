@@ -1,0 +1,120 @@
+STATISTIC: octave means of |P(N;k)| against the length N/k of
+           the inner sum and the exponent fitted from them, for
+           mu and for 8 coins; the ratio of mean|P| to mean|F|
+           with F the unweighted Mobius sum over the same range;
+           and the gap to the residue's exponent read from
+           results/lab_residue_size.txt.
+NULL: the coin, eps(m) = +-1 on the odd squarefree m, with the
+      sieve weight w(m,k), the summation range and the k-range
+      untouched, eight draws. |P| is a magnitude whose mean is
+      bounded away from zero, so it stays well conditioned under
+      the control -- the criterion of [rem:weightgapnull].
+FIELD: N = 2e5 through 3.2e6 by doubling; k squarefree, coprime
+       to N, 2 <= k < 30000; m odd squarefree, coprime to k,
+       m <= (N-1)/k; the sieve weight uses the odd primes up to
+       30; seed 20260808.
+
+sieving to 3200000 ...
+  8 coins on the odd squarefree m, sieve weight kept
+  N = 200000      #k = 10132
+  N = 400000      #k = 10132
+  N = 800000      #k = 10132
+  N = 1600000     #k = 10132
+  N = 3200000     #k = 10132
+
+Y1  octave means of |P| against N/k, with the count of k in
+  each bin; bins holding fewer than 10 are not fitted
+  N/k octave   N=200000         N=400000         N=800000         N=1600000        N=3200000      
+  [2     ,8      )     1.799/1689          -/0             -/0             -/0             -/0    
+  [8     ,32     )     3.194/6334      4.394/5915      5.643/1689          -/0             -/0    
+  [32    ,128    )     7.976/1581      8.014/3162      8.074/6334      9.632/5915     12.190/1689 
+  [128   ,512    )    15.777/399      15.539/789      15.848/1581     15.787/3162     15.793/6334 
+  [512   ,2048   )    31.880/96       33.357/202      33.768/399      32.650/789      32.762/1581 
+  [2048  ,8192   )    78.054/25       62.884/48       63.487/96       66.589/202      67.397/399  
+  [8192  ,32768  )   133.691/7       142.019/13      124.523/25      130.706/48      124.806/96   
+  [32768 ,131072 )   194.158/1       212.754/2       170.047/7       264.455/13      205.112/25   
+  [131072,524288 )         -/0       335.555/1       460.069/1       308.874/2       305.831/7    
+  [524288,2097152)         -/0             -/0             -/0        59.091/1       837.833/1    
+  N            exponent   correlation   bins fitted
+  200000       0.5793     0.99810       6
+  400000       0.5147     0.99957       6
+  800000       0.4972     0.99982       6
+  1600000      0.5012     0.99989       6
+  3200000      0.4678     0.99833       6
+  Y1 hold
+
+Y2  the control: mu against coins on the same sum
+  N            mu        coin min   coin median   coin max   |mu - median|
+  200000       0.5793    0.4231     0.4682        0.5918     0.1111
+  400000       0.5147    0.3996     0.4570        0.5635     0.0576
+  800000       0.4972    0.3954     0.4514        0.5146     0.0458
+  1600000      0.5012    0.3645     0.4383        0.5531     0.0629
+  3200000      0.4678    0.3582     0.4409        0.6031     0.0269
+  Y2 REFUTED
+
+Y3  what the sieve weight does to the size
+  N            mean|P|/mean|F| by octave        spread
+  200000       1.31 1.09 0.97 0.97 1.17 1.62    1.6768
+  400000       1.09 0.98 0.96 1.19 1.37 2.14    2.2338
+  800000       1.01 0.99 0.98 1.22 1.41 1.70    1.7412
+  1600000      0.98 0.97 1.18 1.43 1.94 2.69    2.7642
+  3200000      0.94 0.97 1.18 1.49 1.86 1.96    2.0964
+  Y3 REFUTED
+
+Y4  |P| exponent 0.4678 against the residue's 0.4869, read from
+    results/lab_residue_size.txt: gap 0.0191  (cap 0.10)   hold
+
+Y5  the population floor is a threshold, so it is swept
+  N            floor 5     floor 10    floor 20    spread
+  200000       0.5588      0.5793      0.5793      0.0204
+  400000       0.5147      0.5147      0.5057      0.0090
+  800000       0.4647      0.4972      0.4972      0.0325
+  1600000      0.5012      0.5012      0.5010      0.0002
+  3200000      0.4399      0.4678      0.4678      0.0280
+  Y5 hold
+
+  The thinnest bin each fit actually stands on, which gate
+  check G30 reads. A fit is only as good as its emptiest
+  octave, and that number was invisible until it had gone
+  wrong twice.
+  leave-one-out on elementary_size_N200000: full 0.5793, without the shortest octave 0.5606,
+  without the longest 0.5745 -- spread 0.0186
+SWEPT elementary_size_N200000 octave-range 0.0186
+POP elementary_size_N200000 25
+CORR elementary_size_N200000 0.99810
+  leave-one-out on elementary_size_N400000: full 0.5147, without the shortest octave 0.5135,
+  without the longest 0.5057 -- spread 0.0090
+SWEPT elementary_size_N400000 octave-range 0.0090
+POP elementary_size_N400000 13
+CORR elementary_size_N400000 0.99957
+  leave-one-out on elementary_size_N800000: full 0.4972, without the shortest octave 0.4965,
+  without the longest 0.4997 -- spread 0.0031
+SWEPT elementary_size_N800000 octave-range 0.0031
+POP elementary_size_N800000 25
+CORR elementary_size_N800000 0.99982
+  leave-one-out on elementary_size_N1600000: full 0.5012, without the shortest octave 0.5051,
+  without the longest 0.5010 -- spread 0.0041
+SWEPT elementary_size_N1600000 octave-range 0.0041
+POP elementary_size_N1600000 13
+CORR elementary_size_N1600000 0.99989
+  leave-one-out on elementary_size_N3200000: full 0.4678, without the shortest octave 0.4686,
+  without the longest 0.4889 -- spread 0.0210
+SWEPT elementary_size_N3200000 octave-range 0.0210
+POP elementary_size_N3200000 25
+CORR elementary_size_N3200000 0.99833
+
+  DIAGNOSTIC (post hoc). The three parts of H side by side at
+  the largest N, as octave means:
+  N/k octave   |P|         |F|         |P|/|F|
+  [32    ,128    ) 12.190      13.018      0.9364
+  [128   ,512    ) 15.793      16.246      0.9721
+  [512   ,2048   ) 32.762      27.735      1.1812
+  [2048  ,8192   ) 67.397      45.221      1.4904
+  [8192  ,32768  ) 124.806     67.146      1.8587
+  [32768 ,131072 ) 205.112     104.480     1.9632
+  [131072,524288 ) 305.831     98.429      3.1071
+  [524288,2097152) 837.833     26.000      32.2243
+
+======================================================================
+Y1 hold  Y2 REFUTED  Y3 REFUTED  Y4 hold  Y5 hold
+REFUTED

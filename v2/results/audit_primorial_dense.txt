@@ -1,0 +1,400 @@
+STATISTIC: the truncation K*_R at which
+           sum_{k<K}(log k)|R(N;k)| first reaches
+           S(N)(1-A(N))N, and its exponent log K*_R / log N,
+           at every N = 30030*m with m composed of
+           2,3,5,7,11,13 and m in [2^6, 2^10]; within each
+           closed octave of m, the least-squares slope of that
+           exponent against log N, its standard error from
+           that octave's own points, and its r.m.s. residual
+           against the ladder's published scatter; the four
+           local slopes against the eleven-rung global slope
+           and against log N; and five shapes refitted on the
+           union of this sweep with the twelve published
+           rungs, their r.m.s., how many survive at one
+           standard error of the best, and where each puts
+           1/2 and theta' = 0.56.
+NULL: none is run and none applies. A deterministic curve is
+      located against a computed threshold; there is no
+      background to detect against. The coin arms for this
+      statistic were run in lab_primorial_ladder.py and
+      lab_primorial_share.py, and the scatter they left is
+      the floor D3 is judged against.
+FIELD: N = 30030*m for every 13-smooth m in [64, 1024]; every
+       one has prime set {2,3,5,7,11,13}, so the odd radical
+       3*5*7*11*13 and the threshold are fixed exactly as
+       along the ladder; k squarefree and coprime to N with
+       2 <= k < 100000; m odd, squarefree and
+       coprime to k, m < N/k; the sieve weight over the odd
+       primes below 30; the Euler products at
+       the fixed bound 4000000; the measurement is
+       imported from code/audit_primorial_gap.py. The eleven
+       rungs and the ladder scatter are read from
+       results/audit_primorial_rung10.txt, the twelfth from
+       results/audit_primorial_rung11.txt and the published
+       shape table from results/audit_ladder_shape12.txt.
+
+read from results/audit_primorial_rung10.txt: 11 rungs and their scatter 0.0037;
+  from results/audit_primorial_rung11.txt the twelfth, N = 61501440 at 0.5099;
+  from results/audit_ladder_shape12.txt 5 published shape rows, whose
+  two survivors split theta' by 2.7845 decades.
+  the measurement itself is imported from code/audit_primorial_gap.py,
+  not copied, so the sweep and the rungs cannot drift apart.
+
+the sweep: N = 30030*m, m composed of 2, 3, 5, 7, 11, 13
+  octave   m range        points   log10 N range
+  6        [64, 128]      29       6.2837 .. 6.5848
+  7        [128, 256]     41       6.5848 .. 6.8858
+  8        [256, 512]     57       6.8858 .. 7.1868
+  9        [512, 1024]    78       7.1868 .. 7.4879
+  union of the four octaves: 202 distinct N, the endpoints shared
+
+sieving to 30750720, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+
+  N            log10 N   m       thr/N      #k      K*_R     exponent
+  1921920      6.2837    64      0.087306   18863   1159     0.4876
+  1951950      6.2905    65      0.087306   18863   1139     0.4859
+  1981980      6.2971    66      0.087306   18863   1033     0.4786
+  2102100      6.3227    70      0.087306   18863   1159     0.4846
+  2162160      6.3349    72      0.087306   18863   1073     0.4784
+  2252250      6.3526    75      0.087306   18863   1219     0.4858
+  2312310      6.3640    77      0.087306   18863   1063     0.4756
+  2342340      6.3696    78      0.087306   18863   1277     0.4877
+  2402400      6.3806    80      0.087306   18863   1231     0.4843
+  2432430      6.3860    81      0.087306   18863   1277     0.4864
+  2522520      6.4018    84      0.087306   18863   1187     0.4802
+  2642640      6.4220    88      0.087306   18863   1307     0.4852
+  2702700      6.4318    90      0.087306   18863   1279     0.4830
+  2732730      6.4366    91      0.087306   18863   1301     0.4838
+  2882880      6.4598    96      0.087306   18863   1409     0.4875
+  2942940      6.4688    98      0.087306   18863   1171     0.4744
+  2972970      6.4732    99      0.087306   18863   1447     0.4882
+  3003000      6.4776    100     0.087306   18863   1429     0.4871
+  3123120      6.4946    104     0.087306   18863   1457     0.4871
+  3153150      6.4987    105     0.087306   18863   1301     0.4792
+  3243240      6.5110    108     0.087306   18863   1387     0.4826
+  3303300      6.5189    110     0.087306   18863   1303     0.4778
+  3363360      6.5268    112     0.087306   18863   1349     0.4796
+  3513510      6.5457    117     0.087306   18863   1363     0.4789
+  3603600      6.5567    120     0.087306   18863   1643     0.4904
+  3633630      6.5603    121     0.087306   18863   1499     0.4841
+  3753750      6.5745    125     0.087306   18863   1571     0.4861
+  3783780      6.5779    126     0.087306   18863   1433     0.4798
+  3843840      6.5848    128     0.087306   18863   1501     0.4824
+  3903900      6.5915    130     0.087306   18863   1483     0.4811
+  3963960      6.5981    132     0.087306   18863   1571     0.4844
+  4054050      6.6079    135     0.087306   18863   1613     0.4854
+  4204200      6.6237    140     0.087306   18863   1933     0.4961
+  4294290      6.6329    143     0.087306   18863   1693     0.4868
+  4324320      6.6359    144     0.087306   18863   1763     0.4892
+  4414410      6.6449    147     0.087306   18863   1763     0.4885
+  4504500      6.6536    150     0.087306   18863   1997     0.4960
+  4624620      6.6651    154     0.087306   18863   1817     0.4890
+  4684680      6.6707    156     0.087306   18863   1829     0.4890
+  4804800      6.6817    160     0.087306   18863   1739     0.4850
+  4864860      6.6871    162     0.087306   18863   1823     0.4876
+  4954950      6.6950    165     0.087306   18863   1867     0.4886
+  5045040      6.7029    168     0.087306   18863   1663     0.4805
+  5075070      6.7054    169     0.087306   18863   2047     0.4938
+  5255250      6.7206    175     0.087306   18863   1759     0.4829
+  5285280      6.7231    176     0.087306   18863   1933     0.4888
+  5405400      6.7328    180     0.087306   18863   1801     0.4835
+  5465460      6.7376    182     0.087306   18863   1861     0.4853
+  5675670      6.7540    189     0.087306   18863   2137     0.4930
+  5765760      6.7609    192     0.087306   18863   1709     0.4782
+  5855850      6.7676    195     0.087306   18863   1957     0.4864
+  5885880      6.7698    196     0.087306   18863   2083     0.4902
+  5945940      6.7742    198     0.087306   18863   2113     0.4908
+  6006000      6.7786    200     0.087306   18863   2117     0.4906
+  6246240      6.7956    208     0.087306   18863   1957     0.4844
+  6306300      6.7998    210     0.087306   18863   2213     0.4919
+  6486480      6.8120    216     0.087306   18863   2137     0.4888
+  6606600      6.8200    220     0.087306   18863   2147     0.4885
+  6726720      6.8278    224     0.087306   18863   2063     0.4854
+  6756750      6.8297    225     0.087306   18863   2329     0.4930
+  6936930      6.8412    231     0.087306   18863   2357     0.4930
+  7027020      6.8468    234     0.087306   18863   2203     0.4883
+  7207200      6.8578    240     0.087306   18863   1957     0.4800
+  7267260      6.8614    242     0.087306   18863   2537     0.4962
+  7297290      6.8632    243     0.087306   18863   2269     0.4890
+  7357350      6.8667    245     0.087306   18863   2287     0.4892
+  7507500      6.8755    250     0.087306   18863   2381     0.4911
+  7567560      6.8790    252     0.087306   18863   2621     0.4969
+  7687680      6.8858    256     0.087306   18863   2621     0.4965
+  7807800      6.8925    260     0.087306   18863   2383     0.4900
+  7927920      6.8992    264     0.087306   18863   2719     0.4978
+  8108100      6.9089    270     0.087306   18863   2687     0.4964
+  8198190      6.9137    273     0.087306   18863   2603     0.4940
+  8258250      6.9169    275     0.087306   18863   2447     0.4899
+  8408400      6.9247    280     0.087306   18863   2323     0.4861
+  8588580      6.9339    286     0.087306   18863   2147     0.4805
+  8648640      6.9369    288     0.087306   18863   2521     0.4904
+  8828820      6.9459    294     0.087306   18863   2911     0.4987
+  8918910      6.9503    297     0.087306   18863   2929     0.4988
+  9009000      6.9547    300     0.087306   18863   2729     0.4941
+  9249240      6.9661    308     0.087306   18863   2701     0.4926
+  9369360      6.9717    312     0.087306   18863   2957     0.4978
+  9459450      6.9759    315     0.087306   18863   2521     0.4876
+  9609600      6.9827    320     0.087306   18863   2903     0.4959
+  9729720      6.9881    324     0.087306   18863   2641     0.4897
+  9759750      6.9894    325     0.087306   18863   3043     0.4984
+  9909900      6.9961    330     0.087306   18863   2833     0.4935
+  10090080     7.0039    336     0.087306   18863   2839     0.4930
+  10150140     7.0065    338     0.087306   18863   2911     0.4944
+  10300290     7.0128    343     0.087306   18863   3043     0.4967
+  10510500     7.0216    350     0.087306   18863   3053     0.4963
+  10540530     7.0229    351     0.087306   18863   3019     0.4955
+  10570560     7.0241    352     0.087306   18863   2941     0.4938
+  10810800     7.0339    360     0.087306   18863   3121     0.4968
+  10900890     7.0375    363     0.087306   18863   2917     0.4924
+  10930920     7.0387    364     0.087306   18863   3053     0.4951
+  11261250     7.0516    375     0.087306   18863   3053     0.4942
+  11351340     7.0550    378     0.087306   18863   2923     0.4913
+  11531520     7.0619    384     0.087306   18863   2941     0.4912
+  11561550     7.0630    385     0.087306   18863   3307     0.4983
+  11711700     7.0686    390     0.087306   18863   3247     0.4968
+  11771760     7.0708    392     0.087306   18863   3379     0.4991
+  11891880     7.0753    396     0.087306   18863   3313     0.4975
+  12012000     7.0796    400     0.087306   18863   3167     0.4945
+  12162150     7.0850    405     0.087306   18863   3191     0.4946
+  12492480     7.0966    416     0.087306   18863   3149     0.4929
+  12612600     7.1008    420     0.087306   18863   3293     0.4954
+  12882870     7.1100    429     0.087306   18863   3247     0.4939
+  12972960     7.1130    432     0.087306   18863   3383     0.4962
+  13213200     7.1210    440     0.087306   18863   3139     0.4911
+  13243230     7.1220    441     0.087306   18863   3391     0.4957
+  13453440     7.1288    448     0.087306   18863   3697     0.5005
+  13513500     7.1308    450     0.087306   18863   3433     0.4958
+  13663650     7.1356    455     0.087306   18863   4057     0.5057
+  13873860     7.1422    462     0.087306   18863   3071     0.4883
+  14054040     7.1478    468     0.087306   18863   3257     0.4915
+  14414400     7.1588    480     0.087306   18863   4003     0.5032
+  14534520     7.1624    484     0.087306   18863   3571     0.4960
+  14594580     7.1642    486     0.087306   18863   3599     0.4964
+  14714700     7.1678    490     0.087306   18863   3859     0.5004
+  14864850     7.1722    495     0.087306   18863   3893     0.5006
+  15015000     7.1765    500     0.087306   18863   3677     0.4968
+  15135120     7.1800    504     0.087306   18863   3359     0.4911
+  15225210     7.1826    507     0.087306   18863   4013     0.5017
+  15375360     7.1868    512     0.087306   18863   3557     0.4941
+  15615600     7.1936    520     0.087306   18863   3763     0.4970
+  15765750     7.1977    525     0.087306   18863   4073     0.5015
+  15855840     7.2002    528     0.087306   18863   3761     0.4966
+  16186170     7.2091    539     0.087306   18863   3833     0.4971
+  16216200     7.2099    540     0.087306   18863   3959     0.4990
+  16396380     7.2147    546     0.087306   18863   4061     0.5002
+  16516500     7.2179    550     0.087306   18863   4283     0.5032
+  16816800     7.2257    560     0.087306   18863   3961     0.4979
+  17027010     7.2311    567     0.087306   18863   3811     0.4952
+  17177160     7.2350    572     0.087306   18863   3917     0.4966
+  17297280     7.2380    576     0.087306   18863   4651     0.5067
+  17567550     7.2447    585     0.087306   18863   4337     0.5020
+  17657640     7.2469    588     0.087306   18863   4421     0.5030
+  17837820     7.2513    594     0.087306   18863   4297     0.5010
+  18018000     7.2557    600     0.087306   18863   4231     0.4998
+  18168150     7.2593    605     0.087306   18863   4283     0.5003
+  18498480     7.2671    616     0.087306   18863   4013     0.4959
+  18738720     7.2727    624     0.087306   18863   4721     0.5052
+  18768750     7.2734    625     0.087306   18863   4189     0.4980
+  18918900     7.2769    630     0.087306   18863   4379     0.5004
+  19129110     7.2817    637     0.087306   18863   4321     0.4993
+  19219200     7.2837    640     0.087306   18863   4357     0.4996
+  19459440     7.2891    648     0.087306   18863   4267     0.4980
+  19519500     7.2905    650     0.087306   18863   4517     0.5013
+  19819800     7.2971    660     0.087306   18863   4349     0.4986
+  20180160     7.3049    672     0.087306   18863   4723     0.5030
+  20270250     7.3069    675     0.087306   18863   4681     0.5023
+  20300280     7.3075    676     0.087306   18863   4447     0.4992
+  20600580     7.3139    686     0.087306   18863   4597     0.5008
+  20810790     7.3183    693     0.087306   18863   4751     0.5024
+  21021000     7.3227    700     0.087306   18863   4399     0.4975
+  21081060     7.3239    702     0.087306   18863   4603     0.5001
+  21141120     7.3251    704     0.087306   18863   4657     0.5008
+  21471450     7.3319    715     0.087306   18863   4699     0.5008
+  21621600     7.3349    720     0.087306   18863   5059     0.5050
+  21801780     7.3385    726     0.087306   18863   4747     0.5010
+  21861840     7.3397    728     0.087306   18863   4691     0.5002
+  21891870     7.3403    729     0.087306   18863   4187     0.4934
+  22072050     7.3438    735     0.087306   18863   4423     0.4964
+  22522500     7.3526    750     0.087306   18863   5081     0.5040
+  22702680     7.3561    756     0.087306   18863   4649     0.4985
+  23063040     7.3629    768     0.087306   18863   4561     0.4970
+  23123100     7.3640    770     0.087306   18863   5051     0.5029
+  23423400     7.3696    780     0.087306   18863   4867     0.5003
+  23543520     7.3719    784     0.087306   18863   4967     0.5014
+  23783760     7.3763    792     0.087306   18863   5513     0.5072
+  24024000     7.3806    800     0.087306   18863   5671     0.5086
+  24324300     7.3860    810     0.087306   18863   5011     0.5009
+  24594570     7.3908    819     0.087306   18863   5237     0.5032
+  24774750     7.3940    825     0.087306   18863   5189     0.5024
+  24984960     7.3977    832     0.087306   18863   5219     0.5025
+  25225200     7.4018    840     0.087306   18863   5321     0.5034
+  25375350     7.4044    845     0.087306   18863   5407     0.5042
+  25435410     7.4054    847     0.087306   18863   5519     0.5053
+  25765740     7.4110    858     0.087306   18863   4859     0.4974
+  25945920     7.4141    864     0.087306   18863   5107     0.5002
+  26276250     7.4196    875     0.087306   18863   5429     0.5034
+  26426400     7.4220    880     0.087306   18863   5521     0.5042
+  26486460     7.4230    882     0.087306   18863   5749     0.5065
+  26756730     7.4274    891     0.087306   18863   5351     0.5020
+  26906880     7.4299    896     0.087306   18863   5141     0.4995
+  27027000     7.4318    900     0.087306   18863   4607     0.4929
+  27327300     7.4366    910     0.087306   18863   5527     0.5033
+  27747720     7.4432    924     0.087306   18863   5297     0.5003
+  28108080     7.4488    936     0.087306   18863   5431     0.5014
+  28378350     7.4530    945     0.087306   18863   5839     0.5053
+  28828800     7.4598    960     0.087306   18863   5981     0.5063
+  29069040     7.4634    968     0.087306   18863   5813     0.5044
+  29189160     7.4652    972     0.087306   18863   6011     0.5062
+  29279250     7.4666    975     0.087306   18863   5641     0.5024
+  29429400     7.4688    980     0.087306   18863   6077     0.5066
+  29729700     7.4732    990     0.087306   18863   6239     0.5078
+  30030000     7.4776    1000    0.087306   18863   6199     0.5072
+  30060030     7.4780    1001    0.087306   18863   5893     0.5042
+  30270240     7.4810    1008    0.087306   18863   6103     0.5060
+  30450420     7.4836    1014    0.087306   18863   5221     0.4968
+  30750720     7.4879    1024    0.087306   18863   5773     0.5023
+CENSORED audit_primorial_dense 0
+UNCENSORED audit_primorial_dense 0
+BUDGET kstar_R_S1AN_dense 0.087306
+RADICALS 1
+SCALES audit_primorial_dense 4
+
+D2  the controls that make these points the ladder's points
+  prime set of every N: 2, 3, 5, 7, 11, 13
+  S(N)(1-A(N)) over 202 points: 0.087305506 to 0.087305506, relative spread 3.18e-16
+  admissible k-counts present in the sweep: 18863
+  D2 hold   (cap 1e-12 on the spread, one integer on the count)
+
+D1  the control: the five published rungs the sweep contains
+  N            here      published   diff
+  1921920      0.4876    0.4876      0.000021
+  3843840      0.4824    0.4824      0.000017
+  7687680      0.4965    0.4965      0.000048
+  15375360     0.4941    0.4941      0.000010
+  30750720     0.5023    0.5023      0.000034
+  and the five shapes, refitted on the same eleven and twelve:
+  shape                    r.m.s. 11  published   r.m.s. 12  published
+  a + b log N              0.00372    0.00372     0.00370    0.00370
+  a + b / log N            0.00473    0.00473     0.00519    0.00519
+  a + b log log N          0.00412    0.00412     0.00433    0.00433
+  a + b log log N / log N  0.00432    0.00432     0.00464    0.00464
+  1 - c log log N / log N  0.03764    0.03764     0.03934    0.03934
+  worst rung departure 0.000048, worst r.m.s. departure 0.0000047
+  D1 hold   (cap 0.001 on a rung, cap 0.00001 on an r.m.s.)
+
+D3  is the exponent smooth at sub-doubling spacing?
+  the eleven-rung line is the instrument every forecast on this ladder
+  is read off. Its slope is +0.006778 and the rungs sit 0.0037 r.m.s. off it;
+  within an octave the sweep samples 50 times as densely.
+  octave   points   slope       s.e.        t       r.m.s.    |corr|
+  6        29       -0.001039   0.003719    0.28    0.004084  0.05371
+  7        41       +0.006957   0.003433    2.03    0.004470  0.30865
+  8        57       +0.007174   0.002639    2.72    0.003975  0.34421
+  9        78       +0.008091   0.001777    4.55    0.003113  0.46299
+  the published ladder scatter is 0.0037
+  the published ladder scatter is reached in 3 of the 4 octaves
+  D3 REFUTED
+  so the ladder's scatter is the statistic's OWN. Points
+  a fiftieth of a doubling apart do not lie on a smooth
+  curve -- K*_R is where a step function first exceeds a
+  level, and it jumps. Nothing about the exponent at one N
+  predicts it at the next N of the same family, so no
+  amount of filling in resolves a shape inside an octave.
+  The one octave whose r.m.s. does fall below the floor is
+  the top, and its |corr| is the largest -- the noise is
+  roughly constant while the trend across an octave grows.
+
+D4  is the local slope resolved by point count?
+  octave 6: 29 points over 0.6931 in log N, t = 0.28
+TSTAT slope_dense_octave6 0.28
+SPREAD slope_dense_octave6 0.6931
+UNRESOLVED SIGN slope_dense_octave6
+  octave 7: 41 points over 0.6931 in log N, t = 2.03
+TSTAT slope_dense_octave7 2.03
+SPREAD slope_dense_octave7 0.6931
+  octave 8: 57 points over 0.6931 in log N, t = 2.72
+TSTAT slope_dense_octave8 2.72
+SPREAD slope_dense_octave8 0.6931
+  octave 9: 78 points over 0.6931 in log N, t = 4.55
+TSTAT slope_dense_octave9 4.55
+SPREAD slope_dense_octave9 0.6931
+  the same slope taken two-pointwise across the gap stood at 1.90 (published),
+  on a lever of 0.3817 (published) with the ladder's scatter propagated through it.
+  D4 REFUTED -- OPEN item 5's closing condition is not met
+
+D5  is the ladder a line?
+  octave   slope       global      difference  in s.e.
+  6        -0.001039   +0.006778   -0.007818   -2.10
+  7        +0.006957   +0.006778   +0.000179   +0.05
+  8        +0.007174   +0.006778   +0.000396   +0.15
+  9        +0.008091   +0.006778   +0.001313   +0.74
+  and the four local slopes against the log N of their own midpoints:
+  least-squares slope of the local slopes = +0.003983, s.e. 0.001832, t = 2.17
+TSTAT slope_dense_localdrift 2.17
+SPREAD slope_dense_localdrift 2.0794
+SWEPT dense_localslope octave-range 0.009131
+POP dense_localslope 29
+CORR dense_localslope 0.05371
+  D5 REFUTED
+
+  and the top octave's residuals about the ELEVEN-RUNG line, which is
+  what {#rem:primorialgap} printed four of:
+  residuals about the eleven-rung line: -0.0022, +0.0007, +0.0051, +0.0001, +0.0005, +0.0023, +0.0035, +0.0064, +0.0010, -0.0017, -0.0004, +0.0096, +0.0049, +0.0058, +0.0038, +0.0025, +0.0029, -0.0017, +0.0076, +0.0004, +0.0027, +0.0015, +0.0018, +0.0001, +0.0034, +0.0006, +0.0049, +0.0042, +0.0011, +0.0025, +0.0041, -0.0008, +0.0017, +0.0023, +0.0023, +0.0064, +0.0023, +0.0015, -0.0052, -0.0023, +0.0052, -0.0004, -0.0021, +0.0039, +0.0012, +0.0022, +0.0080, +0.0093, +0.0016, +0.0037, +0.0029, +0.0030, +0.0038, +0.0045, +0.0056, -0.0023, +0.0003, +0.0035, +0.0042, +0.0065, +0.0020, -0.0006, -0.0072, +0.0031, +0.0000, +0.0010, +0.0049, +0.0057, +0.0038, +0.0056, +0.0018, +0.0059, +0.0071, +0.0063, +0.0034, +0.0052, -0.0041, +0.0014
+SIGNRUN dense_top_octave 64 78
+  64 of 78 have one sign; under an exchangeable draw that is 6.62e-24
+
+E1  what the sweep does buy, which is not what D4 asked for
+  (this section was written after D3 fell and is not pre-registered)
+  D3 says the scatter is the statistic's own, so no number of
+  points inside one octave can make a lever out of it. What the
+  points do is divide the error of a fit over the WHOLE sweep by
+  the square root of their count.
+  least-squares slope on the sweep = +0.008688, s.e. 0.000359, t = 24.17
+  over a lever of 2.7726 in log N, with r.m.s. residual 0.003897 and |corr| 0.86310
+TSTAT slope_audit_primorial_dense 24.17
+SPREAD slope_audit_primorial_dense 2.7726
+  the eleven rungs over the same span of N gave +0.006778 with s.e. 0.000565;
+  the sweep and the rungs differ by +5.31 of the sweep's error
+
+D6  the shapes, redone on every point this ladder has
+  209 distinct N: the twelve published rungs and the sweep, with the
+  sweep's own value used at the 5 N they share (D1 says they agree)
+  shape                    r.m.s.     0.5 at      0.56 at
+  a + b log N              0.003978   7.3193      10.6180
+  a + b / log N            0.004572   7.3997      20.1616
+  a + b log log N          0.004216   7.3491      12.3928
+  a + b log log N / log N  0.004342   7.3659      14.2672
+  1 - c log log N / log N  0.016353   7.0678      8.5948
+  the best r.m.s. carries a standard error of its own:
+    209 points   0.003978 / sqrt(414) = 0.000196  (4.9 per cent)
+    twelve rungs gave 22.4 per cent (published)
+  surviving at one standard error: a + b log N
+  their theta' spread: 0.0000 decades, against the published 2.7845
+SHAPESURVIVE ladder_theta 209 1 0.0000
+SHAPECURRENT ladder_theta 209
+SHAPEGAP ladder_theta 0.000238 0.000196
+  D6 hold
+
+  where the two best shapes part by more than that r.m.s.:
+  top point 7.7889, parting at 8.3256, 0.5367 decades above it
+  the best shape reaching 0.56: N = 10^10.6180
+TRUST ladder_theta 8.3256 10.6180
+FORECAST OUTSIDE ladder_theta
+  bracketed at one r.m.s. residual either way, the convention
+  rem:primorialreach uses: [10^10.3993, 10^10.8367]
+BRACKET ladder_theta_dense 10.6180 10.3993 10.8367
+DRIFT slope_ladder_theta_dense 1.724191
+SCATTER slope_ladder_theta_dense 0.003978
+SHAPES 5
+  and that bracket is a floor on the uncertainty and not
+  the whole of it. The DRIFT line is the relative spread of
+  the four local slopes, 1.72 of their mean: D5 says the slope
+  this line extrapolates is itself moving, and no shift of
+  the level covers that.
+
+======================================================================
+D1 hold  D2 hold  D3 REFUTED  D4 REFUTED  D5 REFUTED  D6 hold
+the ladder is now sampled 50 times per doubling; its scatter is
+noise and not shape (D3), so no local lever exists (D4), but the
+same points divide the error of a whole-ladder fit by their root
+and that leaves one shape standing where twelve rungs left two (D6).

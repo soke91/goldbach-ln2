@@ -1,0 +1,160 @@
+STATISTIC: for each admissible k, the residue
+           R = sum_m mu(m) delta(m,k) with
+           delta = Lambda(N-mk) - beta w(m,k); the l1 norm
+           sum_m |delta| and the l2 norm (sum delta^2)^{1/2} of
+           its own summands; the octave means of |R|/l2 and of
+           the gain l1/|R|; and the exponents of l1 and of the
+           gain against the inner length N/k.
+NULL: 16 global sign vectors on the odd squarefree m, each held
+      across all k as mu is, summed against the IDENTICAL
+      delta, so that 'what random signs give' is measured on
+      this sequence of deviations rather than assumed from the
+      l2 norm. Same convention as lab_mu_vs_coin_size.py.
+FIELD: N = 2e5 to 3.2e6 by doubling; k squarefree and coprime
+       to N with 2 <= k < 30000; m odd, squarefree, coprime to
+       the odd part of k, m < N/k; the sieve weight uses the
+       odd primes up to 30; beta refitted here as
+       sum(H P)/sum(P^2) on the same k-range and checked
+       against results/lab_predictable_part.txt; octaves closed
+       at both ends and fitted only when they hold at least 10
+       k; numpy default_rng seed 20260808.
+
+read 5 published beta values from results/lab_predictable_part.txt
+sieving to 3200000 ...
+  sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  16 global sign vectors on the 1296902 odd squarefree m
+  N = 200000      #k = 10132   beta = 2.699191
+  N = 400000      #k = 10132   beta = 2.858827
+  N = 800000      #k = 10132   beta = 2.995171
+  N = 1600000     #k = 10132   beta = 3.143666
+  N = 3200000     #k = 10132   beta = 3.047304
+
+V1  the control: is this the published split?
+  N            beta (here)   beta (published)   ratio
+  200000       2.699191      2.699191           1.0000
+  400000       2.858827      2.858827           1.0000
+  800000       2.995171      2.995171           1.0000
+  1600000      3.143666      3.143666           1.0000
+  3200000      3.047304      3.047304           1.0000
+  V1 hold
+
+V2  how big is the sum of |delta| -- the no-cancellation size?
+  N            l1 exponent   correlation   thinnest bin
+  200000       0.9745        0.99979       25
+POP residue_l1_N200000 25
+  400000       0.9919        0.99999       13
+POP residue_l1_N400000 13
+  800000       0.9962        0.99999       25
+POP residue_l1_N800000 25
+  1600000      0.9963        0.99999       13
+POP residue_l1_N1600000 13
+  3200000      0.9979        1.00000       25
+POP residue_l1_N3200000 25
+  V2 hold   (floor 0.85)
+
+V3  |R| against the l2 norm of its own summands, by octave
+  and against 16 coins summed on the IDENTICAL delta
+  N = 200000
+    N/k octave        #k     |R|/l2    coin/l2   |R|/coin
+    [2     ,8      ) 1297   0.9094    0.9349    0.9727
+    [8     ,32     ) 5656   0.9056    0.8898    1.0177
+    [32    ,128    ) 1581   0.8334    0.8172    1.0197
+    [128   ,512    ) 399    0.7859    0.8272    0.9500
+    [512   ,2048   ) 96     0.7558    0.7904    0.9562
+    [2048  ,8192   ) 25     0.6707    0.8549    0.7845
+  N = 400000
+    N/k octave        #k     |R|/l2    coin/l2   |R|/coin
+    [8     ,32     ) 5729   0.8887    0.8564    1.0378
+    [32    ,128    ) 3162   0.8187    0.8133    1.0067
+    [128   ,512    ) 789    0.7926    0.7987    0.9924
+    [512   ,2048   ) 202    0.7959    0.7970    0.9986
+    [2048  ,8192   ) 48     0.6416    0.7593    0.8451
+    [8192  ,32768  ) 13     0.9104    0.6845    1.3301
+  N = 800000
+    N/k octave        #k     |R|/l2    coin/l2   |R|/coin
+    [8     ,32     ) 1686   0.8444    0.8272    1.0208
+    [32    ,128    ) 6334   0.7962    0.8127    0.9797
+    [128   ,512    ) 1581   0.7646    0.8129    0.9406
+    [512   ,2048   ) 399    0.7893    0.8035    0.9822
+    [2048  ,8192   ) 96     0.8462    0.7692    1.1000
+    [8192  ,32768  ) 25     0.8393    0.8211    1.0222
+  N = 1600000
+    N/k octave        #k     |R|/l2    coin/l2   |R|/coin
+    [32    ,128    ) 5915   0.7821    0.8060    0.9704
+    [128   ,512    ) 3162   0.7579    0.8016    0.9454
+    [512   ,2048   ) 789    0.7800    0.7809    0.9989
+    [2048  ,8192   ) 202    0.7193    0.7976    0.9018
+    [8192  ,32768  ) 48     0.7281    0.8332    0.8739
+    [32768 ,131072 ) 13     0.8886    0.7852    1.1316
+  N = 3200000
+    N/k octave        #k     |R|/l2    coin/l2   |R|/coin
+    [32    ,128    ) 1689   0.7888    0.8053    0.9795
+    [128   ,512    ) 6334   0.7683    0.8079    0.9509
+    [512   ,2048   ) 1581   0.7175    0.8005    0.8963
+    [2048  ,8192   ) 399    0.7216    0.7890    0.9145
+    [8192  ,32768  ) 96     0.7444    0.8034    0.9265
+    [32768 ,131072 ) 25     0.7101    0.7337    0.9678
+  the scale both are near is E|Z|/sigma for a random sign
+  sum, sqrt(2/pi) = 0.7979
+  V3 hold   (band [0.5, 1.5])
+
+V4  the cancellation gain l1/|R| against the inner length
+  N            gain exponent   correlation   gain at the top
+  200000       -4.5321         -0.89576      79.0
+POP residue_gain_N200000 25
+SWEPT residue_gain_N200000 octave-range 1.1299
+CORR residue_gain_N200000 0.89576
+  400000       -3.5975         -0.82128      73.7
+POP residue_gain_N400000 13
+SWEPT residue_gain_N400000 octave-range 1.9479
+CORR residue_gain_N400000 0.82128
+  800000       -3.4549         -0.75874      779.3
+POP residue_gain_N800000 25
+SWEPT residue_gain_N800000 octave-range 2.5067
+CORR residue_gain_N800000 0.75874
+  1600000      -1.6274         -0.56012      149.7
+POP residue_gain_N1600000 13
+SWEPT residue_gain_N1600000 octave-range 2.6409
+CORR residue_gain_N1600000 0.56012
+  3200000      0.3328          0.98266       256.5
+POP residue_gain_N3200000 25
+SWEPT residue_gain_N3200000 octave-range 0.0201
+CORR residue_gain_N3200000 0.98266
+  V4 REFUTED   (band [0.35, 0.65])
+
+  DIAGNOSTIC (post hoc). V4's instrument is the wrong one and
+  its correlations say so: -0.90, -0.82, -0.76, -0.56, +0.98,
+  wandering in sign. The gain l1/|R| is a ratio whose
+  DENOMINATOR passes near zero -- a k at which R happens to
+  cancel almost completely contributes an enormous gain -- so
+  the octave mean of the ratio is set by outliers. The
+  aggregate gain, mean(l1) over mean(|R|), has no such
+  denominator problem and is what V4 meant to ask:
+  N            aggregate gain exponent   correlation
+  200000       0.5024                    0.99789
+  400000       0.4997                    0.99610
+  800000       0.4883                    0.99944
+  1600000      0.4915                    0.99896
+  3200000      0.5109                    0.99970
+  That is the square root the pre-registration was after, and
+  it is what V3 already says in another form: the aggregate
+  gain is l1/l2 times l2/|R|, and the second factor is the
+  constant near 1/0.8 that a coin also gives.
+
+  DIAGNOSTIC (post hoc). What delta actually looks like. It is
+  Lambda(N-mk), which is log of a prime or zero, minus beta C_k
+  on the sifted set and zero off it, so it takes essentially
+  two values. At the largest N, by octave:
+  N/k octave        l1          l2          l1/l2     sqrt(N/k)
+  32                108.5       28.9        3.76      10.8
+  128               217.9       40.2        5.42      15.4
+  512               871.5       80.5        10.83     30.8
+  2048              3503.4      161.4       21.71     61.7
+  8192              13915.1     322.4       43.16     123.1
+  32768             53775.6     635.4       84.64     242.0
+  l1/l2 is the square root of the effective number of terms;
+  compare it with sqrt(N/k) in the last column to see how much
+  of the range actually carries a non-zero deviation.
+
+======================================================================
+REFUTED

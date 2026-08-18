@@ -1,0 +1,33 @@
+STATISTIC: R_log(t)/N with R_log the k>=K residual of the log-
+           weighted switch at t=N-1, evaluated as
+           sum Lambda(N-u) mu(u) [CL(u) - sigmaL_K(u)] with
+           CL(u) = -Lambda(u') of Lemma {#lem:completelog};
+           MT_log/N with MT_log = A(N) sum mu(m)lambda(m)/m I(m),
+           I(m) = int_{mK}^{N} log(v/m) dv; |R_log-MT_log|/R_log;
+           the singular series S(N); and R/N for the w=1 branch
+           computed on the same field for contrast.
+FIELD: N = 5e4, 1e5, 2e5, 4e5, 8e5 with theta' = 0.56, so
+       K = floor(N^0.56) and M = N/K; t = N-1 throughout;
+       Lambda and mu from an integer sieve to 8e5; A(N) and the
+       twin constant as Euler products over p < 4e6.
+
+sieving to 800000 ...
+
+  N        K     M       S(N)     R_log/N   pub     MT_log/N  pub     |R-MT|/R   R_{w=1}/N
+  --------------------------------------------------------------------------------------------
+  50000    427   117.1   1.7604   2.2842    2.28    2.3257    2.33    0.0181     0.1140
+  100000   630   158.7   1.7604   2.2625    2.26    2.2589    2.26    0.0016     0.0965
+  200000   930   215.1   1.7604   2.2068    2.21    2.1902    2.19    0.0075     0.0785
+  400000   1371  291.8   1.7604   2.1333    2.13    2.1302    2.13    0.0014     0.0618
+  800000   2021  395.8   1.7604   2.0669    2.07    2.0754    2.08    0.0041     0.0483
+
+V1  max |R_log/N recomputed - printed|   = 0.00423  (tol 0.005)  hold
+V2  max |MT_log/N recomputed - printed|  = 0.00455  (tol 0.005)  hold
+V3  min R_log/N = 2.0669 (floor 1.7); R_log/N over R_{w=1}/N at 8e5 = 42.8 (floor 20)   hold
+V4  MT_log/N monotone decreasing: True; min = 2.0754 above S = 1.7604   hold
+V5  MT_log/N > 0 at every N: True -- the version-3 sign predicts negative   hold
+V6  S(N) = 1.76043, 1.76043, 1.76043, 1.76043, 1.76043   against printed 1.7604   hold
+
+======================================================================
+V1 hold  V2 hold  V3 hold  V4 hold  V5 hold  V6 hold
+the log-weight bullet reproduces, and Remark {#rem:sign} gets a second witness

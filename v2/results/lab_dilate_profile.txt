@@ -1,0 +1,70 @@
+STATISTIC: rho(k) = |A(N;k)| k / N with A(N;k) = mu(k)H(N;k) the
+           progression sum of Proposition {#prop:dilate}; the
+           exponent a in a least-squares fit of log rho against
+           log k, for mu and for coin signs on the same support;
+           the median of rho per octave of k; and the budget
+           sum_{k<N^0.56} (log k)|A(N;k)| / N against B(N)/N as
+           measured by lab_onesided_demand.
+NULL: the coin is the control and is also the calibration -- a
+      sum of independent signs must give a = 1/2 exactly, so if
+      the coin's fit missed 1/2 the estimator would be at fault
+      rather than the arithmetic. Four draws per N, same support
+      and same k-range as mu.
+FIELD: N = 2e5, 4e5, 8e5, 1.6e6, 3.2e6; k over the squarefree k
+       coprime to N with 2 <= k < min(2e4, N/4) for the fit, and
+       k < N^0.56 for the budget; m over 1 <= m < N/k; Lambda and
+       mu from an integer sieve to 3.2e6; numpy default_rng seed
+       20260808.
+
+sieving to 3200000 ...
+
+  N          #k      a (mu)     a (coin)   budget sum   pub B/N    |diff|
+  --------------------------------------------------------------------------
+  200000     6754    0.5688     0.6339     0.8059       0.8086     0.0027
+  400000     6754    0.5171     0.5033     0.7155       0.7395     0.0240
+  800000     6754    0.4678     0.4647     0.7181       0.7303     0.0122
+  1600000    6754    0.4959     0.4720     0.6636       0.6547     0.0089
+  3200000    6754    0.5256     0.4849     0.5876       0.5916     0.0040
+
+Q1  mu exponent in (0.35,0.65) at every N   hold
+Q2  coin exponent within 0.05 of 0.5        REFUTED
+Q3  mu exponent exceeds the coin's          REFUTED
+Q4  budget reproduces B(N)/N within 0.05    hold
+  DIAGNOSTIC (post hoc). Q2 and Q3 fail only at N = 2e5, and the
+  field is why: the fit ran to k < 2e4, so the dilate length
+  M = N/k fell to 10 there, where a square-root law in k has
+  nothing to describe. Refitting over the k with M = N/k >= 1000:
+  N          #k      a (mu)     a (coin)   M range
+  200000     66      0.4431     0.3833     [1005, 66666]
+  400000     133     0.4528     0.5284     [1002, 133333]
+  800000     272     0.4686     0.5081     [1001, 266666]
+  1600000    540     0.4962     0.5210     [1000, 533333]
+  3200000    1081    0.5826     0.4968     [1000, 1066666]
+
+  the profile rho(k) = |H(N;k)| k / N, median per octave of k,
+  at N = 3200000
+  k-octave          n      median rho(k)   rho/k^{1/2}
+  [2      ,4       ) 1      0.004475        0.002583
+  [4      ,8       ) 1      0.003603        0.001471
+  [8      ,16      ) 2      0.001953        0.000564
+  [16     ,32      ) 6      0.007016        0.001432
+  [32     ,64      ) 11     0.006378        0.000921
+  [64     ,128     ) 21     0.012088        0.001234
+  [128    ,256     ) 44     0.022830        0.001648
+  [256    ,512     ) 87     0.026583        0.001357
+  [512    ,1024    ) 172    0.037526        0.001354
+  [1024   ,2048    ) 346    0.049704        0.001268
+  [2048   ,4096    ) 690    0.079104        0.001427
+  [4096   ,8192    ) 1386   0.107842        0.001376
+  [8192   ,16384   ) 2766   0.167566        0.001512
+  [16384  ,32768   ) 1221   0.201561        0.001286
+
+  what the exponent implies for the level. With rho(k) ~ c k^a,
+  B(N) ~ (c/N^a) * sum_{k<K} (log k) (N/k) k^a
+       ~ c N^{1-a} K^a log K / a,  so B <= 0.37 N is kept up to
+  K ~ (0.37 a / (c log K))^{1/a} N.  At a = 1/2 that is
+  N / polylog; the exponent measured is 0.5256.
+
+======================================================================
+Q1 hold  Q2 REFUTED  Q3 REFUTED  Q4 hold
+REFUTED

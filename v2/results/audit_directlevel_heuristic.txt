@@ -1,0 +1,69 @@
+STATISTIC: the measured crossing K*_H; the naive prediction
+           K = S^2 N/(4 log^2 K) and its miss ratio, against the
+           ratios printed by lab_direct_level.py; the measured
+           constant c(N) = mean |H|/sqrt(N/k) below K* and the
+           density of admissible k; and the prediction from
+           sum_{k<K}(log k) c sqrt(N/k) = S(N)N over the actual
+           admissible k.
+NULL: none is run and none applies. Two deterministic
+      predictions are compared with one measured crossing;
+      there is no background to detect against. The sign
+      controls for K*_H were run in lab_direct_level.py, whose
+      mu-squared reference established that the level is bought
+      by cancellation at all.
+FIELD: N = 2e5 through 3.2e6 by doubling; k squarefree, coprime
+       to N, 2 <= k < 60000; S(N) from an Euler product at the
+       fixed bound 4e6; the published ratios are read from
+       results/lab_direct_level.txt.
+
+sieving to 3200000 ...
+  read 5 published rows from results/lab_direct_level.txt
+  N = 200000      K* = 2973     c(N) = 3.5421  density = 0.3374
+  N = 400000      K* = 5109     c(N) = 3.5393  density = 0.3376
+  N = 800000      K* = 8021     c(N) = 3.7012  density = 0.3376
+  N = 1600000     K* = 13557    c(N) = 3.7565  density = 0.3376
+  N = 3200000     K* = 23397    c(N) = 3.8100  density = 0.3378
+
+X1  the naive heuristic, K = S^2 N / (4 log^2 K)
+  N            K*        naive K   ratio     published
+  200000       2973      2423      1.2271    1.2271
+  400000       5109      4251      1.2020    1.2020
+  800000       8021      7669      1.0458    1.0458
+  1600000      13557     13693     0.9900    0.9900
+  3200000      23397     24496     0.9551    0.9551
+  X1 hold
+
+X2  the two omitted factors
+  N            c(N)      density   product
+  200000       3.5421    0.3374    1.1950
+  400000       3.5393    0.3376    1.1950
+  800000       3.7012    0.3376    1.2496
+  1600000      3.7565    0.3376    1.2682
+  3200000      3.8100    0.3378    1.2869
+  X2 hold
+
+X3  putting them back: solve sum_{k<K} (log k) c sqrt(N/k) = S N
+  over the ACTUAL admissible k
+  N            corrected K   ratio     naive ratio   closer?
+  200000       2981          0.9973    1.2271        yes
+  400000       5057          1.0103    1.2020        yes
+  800000       8061          0.9950    1.0458        yes
+  1600000      13589         0.9976    0.9900        yes
+  3200000      23059         1.0147    0.9551        yes
+  X3 corrected is closer at 5 of 5   (cap 2)   REFUTED
+
+X4  the naive miss drifts: 1.2271, 1.2020, 1.0458, 0.9900, 0.9551   hold
+
+  DIAGNOSTIC (post hoc). What the naive form was really doing.
+  It replaced |H| by sqrt(N/k) with constant 1 and summed over
+  every k; the truth is a constant near sqrt(log N) over a
+  k-set of density about a third. Their product against 1:
+  N            c(N)/sqrt(log N)   c(N)*density   1/(c*density)
+  200000       1.0138             1.1950         0.8368
+  400000       0.9854             1.1950         0.8368
+  800000       1.0039             1.2496         0.8003
+  1600000      0.9939             1.2682         0.7885
+  3200000      0.9844             1.2869         0.7770
+
+======================================================================
+REFUTED

@@ -1,0 +1,95 @@
+STATISTIC: Q*(N;eps) and M*(N;eps), the least truncation in the
+           combined modulus m d^2 and in m alone past which the
+           deficit of the truncated sum stays under eps N, at
+           eps = 0.3, 0.1, 0.03, 0.01, 0.003; the exponents
+           fitted from Q* and M* against N at each eps, their
+           spread and their gap; and the power-law decay of the
+           deficit itself.
+NULL: none is run and none applies. Nothing here is a detection
+      against a background: every quantity is a deterministic
+      function of one exact expansion, and the question is only
+      whether a definition's free parameter moves the answer.
+      The field's sign controls were run in
+      lab_layer_decomposition.py and lab_combined_modulus.py.
+FIELD: N = 2e5 through 1.6e6 by doubling; every pair of
+       squarefree m, d with (d,m) = 1 and m d^2 < N; j over
+       1 <= j < N/(m d^2) coprime to m. Grouping those pairs by m
+       reconstitutes mu(m)L(N;m) exactly, so both truncations
+       come from one enumeration.
+
+sieving to 1600000 ...
+  N = 200000     pairs = 166384    total/N = 1.767340  target = 1.767340
+  N = 400000     pairs = 332765    total/N = 1.736645  target = 1.736645
+  N = 800000     pairs = 665530    total/N = 1.741598  target = 1.741598
+  N = 1600000    pairs = 1331048   total/N = 1.763402  target = 1.763402
+
+  the two truncations, at each tolerance
+  eps       Q*(200000)  Q*(400000)  Q*(800000)  Q*(1600000)     |  M*(200000)  M*(400000)  M*(800000)  M*(1600000)
+  0.300     1136         1341         1503         2021         |  96           103          144          144        
+  0.100     4061         4837         6399         7267         |  348          350          419          356        
+  0.030     70083        14893        18723        24027        |  1420         2063         2060         1428       
+  0.010     160112       200848       482589       589203       |  8268         8622         9331         10350      
+  0.003     184671       390320       710523       1136709      |  24252        57991        63936        153124     
+
+  fitted exponents
+  eps       e(Q*)     corr       e(M*)     corr       gap
+  0.300     0.2658    0.98006    0.2238    0.92858    0.0420
+  0.100     0.2922    0.99066    0.0358    0.36147    0.2564
+  0.030     -0.4303   -0.56215   0.0022    0.00931    -0.4325
+  0.010     0.6904    0.96357    0.1086    0.98348    0.5818
+  0.003     0.8730    0.99474    0.8116    0.96408    0.0613
+
+X1  e(Q*) spread over the tolerances: 1.3033  (cap 0.10)   REFUTED
+X2  e(M*) spread: 0.8094  (cap 0.10)   REFUTED
+X3  e(Q*) above 0.5 at every tolerance: min -0.4303   REFUTED
+X4  the gap stays above 0.3: min -0.4325   REFUTED
+
+  DIAGNOSTIC (post hoc). The underlying decay, which is what
+  the tolerance is reading off. Fitting the deficit against
+  the truncation as a power law, over the decade below each
+  N's own Q* and M*:
+  N            deficit ~ Q^{-a}   corr       deficit ~ M^{-b}   corr
+  200000       0.5910             -0.47859   6.8059             -0.79381
+  400000       0.3876             -0.45731   6.1486             -0.75156
+  800000       0.5645             -0.42134   6.1325             -0.75998
+  1600000      0.6655             -0.54921   6.0961             -0.75326
+  The correlations are weak, and that is the whole story: the
+  deficit does not decay like a power of the truncation, it
+  oscillates while decaying, so Q*(eps) reads the LAST excursion
+  above eps N rather than a trend. Inverting an erratic envelope
+  at four values of N gives a slope that means nothing, and the
+  one tolerance that produced a clean-looking fit did so by
+  luck.
+
+  What is threshold-free, and should be reported instead, is the
+  envelope itself at fixed truncation: D(Q)/N = the largest
+  deficit at or beyond Q, in units of N.
+  Q            N=200000     N=400000     N=800000     N=1600000  
+  1000         0.33645      0.36680      0.39030      0.47135    
+  10000        0.03318      0.04266      0.06288      0.08131    
+  100000       0.02248      0.01444      0.01953      0.01172    
+  1000000      0.00000      0.00000      0.00000      0.00419    
+  M            N=200000     N=400000     N=800000     N=1600000  
+  30           0.85897      0.99130      1.04130      1.12655    
+  300          0.11679      0.13028      0.16745      0.16424    
+  3000         0.01247      0.01890      0.02081      0.02104    
+  30000        0.00197      0.00498      0.00416      0.00863    
+  Read down a row: that is how the truncation error at a FIXED
+  cut moves with N, with no free parameter in it. Read across:
+  that is how it decays at fixed N. Neither table supports a
+  clean power of N over this range, and saying so is the
+  correct report.
+
+  Cross-check lines. M* at the 0.01 tolerance is also computed
+  by lab_layer_tail.py from the unexpanded layers.
+AGREE mstar_001 N=200000 8268 0.02
+AGREE mstar_001 N=400000 8622 0.02
+AGREE mstar_001 N=800000 9331 0.02
+AGREE mstar_001 N=1600000 10350 0.02
+AGREE untrunc_total N=200000 1.767340 1e-9
+AGREE untrunc_total N=400000 1.736645 1e-9
+AGREE untrunc_total N=800000 1.741598 1e-9
+AGREE untrunc_total N=1600000 1.763402 1e-9
+
+======================================================================
+REFUTED

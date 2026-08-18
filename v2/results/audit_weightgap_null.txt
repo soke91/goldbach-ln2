@@ -1,0 +1,78 @@
+STATISTIC: lab_weight_gap.py's own statistics recomputed for mu
+           and for 8 coins -- the identity residual, the ratio
+           |sum H|/|sum (log k)H|, the spread of the four
+           consecutive ratios of |sum (log k)^j H| in j, and the
+           fitted decay exponents of the flat sum and of |E_3|.
+NULL: the coin, eps(v) = +-1 on supp(mu^2) and zero elsewhere,
+      with the field, the weights, the k-range and the
+      truncation identical, so the sign pattern on the long
+      variable is the only difference. Eight draws. This is the
+      control lab_weight_gap.py declined on the ground that a
+      sign control would move both sums alike; it does move
+      both, but the claims are about their ratio and about the
+      shape of the profile, and those it gives a reference for.
+FIELD: N = 2e5 through 3.2e6 by doubling, theta' = 0.56; k over
+       the squarefree k < N^0.56 coprime to N; seed 20260808.
+
+sieving to 3200000 ...
+  8 coins on supp(mu^2), field and weights identical
+  N = 200000      #k = 313
+  N = 400000      #k = 462
+  N = 800000      #k = 682
+  N = 1600000     #k = 1004
+  N = 3200000     #k = 1485
+
+V4  the identity, for mu and for every coin
+  worst relative error over all N and all draws: 3.198e-14   hold
+
+V1  |sum H| / |sum (log k)H|
+  N            mu        coin min   coin median   coin max
+  200000       0.1807    0.0735     0.2137        2.4871
+  400000       0.1740    0.0000     0.1257        0.2564
+  800000       0.1624    0.0422     0.1723        8.0955
+  1600000      0.1389    0.0631     0.1553        0.2236
+  3200000      0.1456    0.0285     0.1985        1.2501
+  V1 REFUTED
+
+V2  spread of the four consecutive ratios in j
+  N            mu        coin min   coin median   coin max
+  200000       1.0146    1.0017     1.0509        1.7241
+  400000       1.0201    1.0084     1.2854        2217.7429
+  800000       1.0132    1.0224     1.1328        13.2436
+  1600000      1.0099    1.0099     1.0861        1.5549
+  3200000      1.0220    1.0197     1.1053        5.0101
+  V2 REFUTED
+
+V3  does the flat sum decay faster than |E_3|?
+  mu:   flat N^{-0.3698} against |E_3| N^{-0.2713}   ordering holds
+  leave-one-out on weightgap_flat_decay: full 0.3698, without the smallest N 0.4077,
+  without the largest 0.3855 -- spread 0.0379
+SWEPT weightgap_flat_decay N-range 0.0379
+  leave-one-out on weightgap_E3_decay: full 0.2713, without the smallest N 0.2947,
+  without the largest 0.2515 -- spread 0.0432
+SWEPT weightgap_E3_decay N-range 0.0432
+  coin  flat exponent   |E_3| exponent   ordering
+  0     -0.4494         -0.0685          fails
+  1     0.7007          0.5778           holds
+  2     0.1423          0.9562           fails
+  3     0.1129          0.1719           fails
+  4     0.9699          0.5872           holds
+  5     -0.1452         -1.1977          holds
+  6     0.8175          1.3741           fails
+  7     0.6230          0.7909           fails
+  3 of 8 coins reproduce the ordering   (cap 4)   hold
+
+  DIAGNOSTIC (post hoc). What the coin's ratio says the
+  declined reason got wrong. A coin does move both sums, but
+  not by the same factor: the ratio is a statistic in its own
+  right and the coin gives it a reference. mu's value against
+  the coin band, in units of the band's width:
+  N            mu        band          (mu - min)/width
+  200000       0.1807    [0.0735, 2.4871]  +0.04
+  400000       0.1740    [0.0000, 0.2564]  +0.68
+  800000       0.1624    [0.0422, 8.0955]  +0.01
+  1600000      0.1389    [0.0631, 0.2236]  +0.47
+  3200000      0.1456    [0.0285, 1.2501]  +0.10
+
+======================================================================
+REFUTED

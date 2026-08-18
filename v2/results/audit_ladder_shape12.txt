@@ -1,0 +1,68 @@
+STATISTIC: five shapes -- a+b log N, a+b/log N,
+           a+b log log N, a+b log log N/log N and
+           1-c log log N/log N -- least-squares fitted to the
+           primorial ladder's exponent against log N, on the
+           eleven published rungs and on the twelve that
+           include audit_primorial_rung11.py's; each shape's
+           r.m.s. residual, its distance from the best in
+           standard errors of that r.m.s., and the log10 N at
+           which it reaches theta' = 0.56.
+NULL: none is run and none applies. Deterministic shapes are
+      fitted to the same measurements and compared by r.m.s.;
+      there is no background to detect against. The
+      measurements' noise floor is the ladder scatter
+      audit_primorial_rung11.py declares and the coin arms
+      were run in lab_primorial_ladder.py.
+FIELD: the eleven rungs read from
+       results/audit_primorial_rung10.txt and the twelfth
+       from results/audit_primorial_rung11.txt; the published
+       shape table from results/audit_ladder_shape.txt. The
+       ladder is N = 30030*2^j, one odd radical throughout,
+       so the threshold is constant and only the level moves.
+
+read 11 rungs from results/audit_primorial_rung10.txt and the twelfth,
+  N = 61501440 at exponent 0.5099, from results/audit_primorial_rung11.txt
+
+J1  the control: the five shapes on the eleven rungs
+  shape                    r.m.s.    published  log10 N at 0.56  published
+  a + b log N              0.00372   0.00372    11.2700         11.2700
+  a + b / log N            0.00473   0.00473    82.5771         82.5771
+  a + b log log N          0.00412   0.00412    14.6167         14.6167
+  a + b log log N / log N  0.00432   0.00432    19.6207         19.6207
+  1 - c log log N / log N  0.03764   0.03764    7.6204          7.6204
+  J1 hold   (cap 0.00001 in r.m.s., cap 0.01 in decades)
+
+J2/J3  the same five on twelve rungs
+  the best r.m.s. carries a standard error of its own:
+    eleven rungs  0.00372 / sqrt(18) = 0.00088  (23.6 per cent)
+    twelve rungs  0.00370 / sqrt(20) = 0.00083  (22.4 per cent)
+  shape                    r.m.s. 11  r.m.s. 12  s.e. from best  log10 N at 0.56
+  a + b log N              0.00372    0.00370    0.00            11.0762
+  a + b / log N            0.00473    0.00519    1.80            41.0798
+  a + b log log N          0.00412    0.00433    0.76            13.8607
+  a + b log log N / log N  0.00432    0.00464    1.12            17.5614
+  1 - c log log N / log N  0.03764    0.03934    43.02           7.7105
+  best of the five on twelve: a + b log N
+  J2 the line is still the best   hold
+  surviving at one standard error: 3 on eleven, 2 on twelve
+SHAPESURVIVE ladder_theta 11 3 8.3508
+  J3 fewer than three survive on twelve   hold
+
+J4  and what the survivors say about theta' = 0.56
+  a + b log N              11.0762
+  a + b log log N          13.8607
+  spread 2.7845 decades   (floor 1 decade)
+SHAPEGAP ladder_theta 0.000626 0.000828
+SHAPES TIED ladder_theta
+SHAPESURVIVE ladder_theta 12 2 2.7845
+SHAPECURRENT ladder_theta 12
+  J4 hold
+
+  and where the same twelve put 1/2, which is behind the
+  ladder rather than ahead of it and so is not an
+  extrapolation:
+  a + b log N              7.3605
+  a + b log log N          7.4266
+
+======================================================================
+one more rung narrows the field and not the forecast

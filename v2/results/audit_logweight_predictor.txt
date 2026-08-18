@@ -1,0 +1,99 @@
+STATISTIC: on the squarefree k < N^0.56 coprime to N,
+           the sign agreement of H(N;k) with the counting
+           predictor P = sum_m mu(m) w(m,k) and with the
+           log-weighted P_log = sum_m mu(m) w(m,k)
+           log(N - mk); the mass-weighted lean each gives on
+           mu's own (log k)|H| magnitudes; their slopes
+           against log N with standard errors; and all three
+           against the median lean of 256
+           sign vectors on those magnitudes.
+NULL: 256 global sign vectors on the identical
+      magnitudes, the convention of audit_lean_floor.py, so
+      the three leans are read on one scale. The permutation
+      control for this predictor family was run in
+      lab_survivor_selection.py at 0.5372 to 0.5414 and is
+      not repeated.
+FIELD: N = 2e5 through 6.4e6 by doubling; k squarefree and
+       coprime to N with 2 <= k < N^0.56; m odd,
+       squarefree and coprime to k, m <= N//k, the convention
+       of lab_survivor_selection.py; the sieve weight over the
+       odd primes below 30; Lambda and mu
+       from an integer sieve to 6400000; numpy
+       default_rng seed 20260808. Every N is 2^a 5^b,
+       one odd radical, as RADICALS declares. The published
+       agreements and ratios are read from
+       results/audit_survivor_range.txt.
+
+read 6 agreements and lean ratios from results/audit_survivor_range.txt
+sieving to 6400000, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+RADICALS 1
+
+K1/K2  the two predictors on k < N^0.56
+  N            #k     P agree  published  P_log agree  better
+  200000       313    0.8129   0.8129     0.7955       NO
+  400000       462    0.7632   0.7632     0.7489       NO
+  800000       682    0.7446   0.7446     0.7390       NO
+  1600000      1004   0.7367   0.7367     0.7241       NO
+  3200000      1485   0.7759   0.7759     0.7663       NO
+  6400000      2186   0.7579   0.7579     0.7484       NO
+  K1 P reproduces the published agreement   hold   (cap 0.001)
+  K2 the log weight raises it at every N   REFUTED
+
+K3  the lean each predictor gives on mu's own magnitudes
+  N            mu lean   P lean    P ratio  P_log lean  P_log ratio
+  200000       0.2727    0.2366    0.8676   0.2512      0.9212
+  400000       0.2772    0.2232    0.8052   0.2325      0.8389
+  800000       0.2265    0.1817    0.8021   0.1955      0.8631
+  1600000      0.1932    0.1423    0.7364   0.1524      0.7889
+  3200000      0.1793    0.1413    0.7884   0.1447      0.8072
+  6400000      0.1624    0.1067    0.6571   0.1140      0.7018
+  K1 also covers the published P ratios   hold
+  K3 P_log within a factor 1.2   REFUTED
+PERN logweight_over_mu 6 0.7018 0.9212
+
+K4  and the trends
+  mu        slope -0.167260, standard error 0.018594
+  P         slope -0.230633, standard error 0.023649
+  P_log     slope -0.231781, standard error 0.018142
+  mu - P_log +0.064520 against 0.051957 = 2 s.e., i.e. 2.48 s.e.
+SCATTER slope_audit_logweight_predictor 0.0430
+TSTAT slope_audit_logweight_predictor 12.78
+SPREAD slope_audit_logweight_predictor 3.4657
+  K4 REFUTED
+
+  DIAGNOSTIC (post hoc). The two scores move in opposite
+  directions, so the ledger is printed with both and the
+  criterion fixed. Modd's row is read from
+  results/audit_oddmertens_range.txt:
+  predictor      agreement        lean ratio       slope
+  modd           0.5201 to 0.6161  1.7310 to 2.9564  -0.004298
+PREDICTOR ladder_lean modd 0.5201 2.9564 -0.004298
+  sieve_P        0.7367 to 0.8129  0.6571 to 0.8676  -0.230633
+PREDICTOR ladder_lean sieve_P 0.7367 0.8676 -0.230633
+  sieve_P_log    0.7241 to 0.7955  0.7018 to 0.9212  -0.231781
+PREDICTOR ladder_lean sieve_P_log 0.7241 0.9212 -0.231781
+PREDICTOR CRITERION ladder_lean agreement
+PREDICTOR BEST ladder_lean sieve_P
+  mu's own slope is -0.167260, so on the lean ratio the log
+  weight is the closest of the three and on the agreement it
+  is not; the criterion registered here is the agreement,
+  which is the score the predictors were built for.
+
+  and all three against the floor of {#rem:leanfloor}:
+  N            mu/floor   P/floor    P_log/floor
+  200000       9.9761     8.6549     9.1903
+  400000       9.9370     8.0009     8.3357
+  800000       12.8908    10.3401    11.1261
+  1600000      12.2313    9.0069     9.6498
+  3200000      12.9821    10.2357    10.4796
+  6400000      15.9032    10.4506    11.1612
+  mu +0.127000 (s.e. 0.026755);  P_log +0.062480 (s.e. 0.031850); difference 1.55 s.e.
+
+======================================================================
+REFUTED
+
+  the predictor's own majority sign share, at its worst over everything
+  reported above: 0.5879. An agreement is only a measurement where the
+  predictor has variance; where it takes one sign almost everywhere,
+  the agreement is the other side's marginal rate read back.
+MARGINAL audit_logweight_predictor 0.5879

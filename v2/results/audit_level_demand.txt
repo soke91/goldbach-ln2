@@ -1,0 +1,117 @@
+STATISTIC: with beta the least-squares scale through the
+           origin, the residual share
+           sum(log k)|H - beta P_Q| / sum(log k)|H| over
+           2 <= k < 30000, where P_Q is the
+           sieve-weighted Moebius sum whose survivors are the
+           m with N - mk free of odd prime factors at or
+           below Q, at the fixed Q = 29 and at Q = N^alpha
+           for alpha = 0.1, 0.2, 0.3, 0.4, 0.5.
+NULL: lab_predictable_part.py's, audited and run in
+      audit_predictable_null.py -- breaking either half of
+      the predictor alone reaches at most 15 per cent of the
+      cut. It is not repeated at every level here.
+FIELD: N = 2e5 through 3.2e6 by doubling, the field of
+       lab_predictable_part.py; k squarefree and coprime to N
+       with 2 <= k < 30000; m odd, squarefree and
+       coprime to k, m <= (N-1)/k; Lambda and mu from an
+       integer sieve to 3200000. The sieve weight's
+       constant is kept so that beta is on the published
+       scale; the skip of primes dividing k is vacuous for
+       the survivor set, as audit_sieve_depth.py shows. Every
+       N is 2^a 5^b, one odd radical, as RADICALS declares.
+       The published beta and shares are read from
+       results/lab_predictable_part.txt.
+
+read 5 published beta and residual shares from results/lab_predictable_part.txt
+sieving to 3200000 ...
+RADICALS 1
+the levels swept, Q = N^alpha:
+  N            a=0.0     a=0.1     a=0.2     a=0.3     a=0.4     a=0.5     
+  200000       29        3         11        39        132       447       
+  400000       29        4         13        48        174       632       
+  800000       29        4         15        59        230       894       
+  1600000      29        4         17        73        303       1265      
+  3200000      29        4         20        89        400       1789      
+  N = 200000     #k = 10132  done
+  N = 400000     #k = 10132  done
+  N = 800000     #k = 10132  done
+  N = 1600000    #k = 10132  done
+  N = 3200000    #k = 10132  done
+
+U1  the control: beta and the residual share at Q = 29
+  N            beta here   beta pub   share here  share pub
+  200000       2.6992      2.6992     0.6310      0.6310
+  400000       2.8588      2.8588     0.5979      0.5979
+  800000       2.9952      2.9952     0.5554      0.5554
+  1600000      3.1437      3.1437     0.5421      0.5421
+  3200000      3.0473      3.0473     0.5307      0.5307
+  U1 hold   (cap 0.0001 in beta, cap 0.001 in the share)
+
+U2/U3/U4  the residual share as the level rises
+  N            a=0.0     a=0.1     a=0.2     a=0.3     a=0.4     a=0.5     
+  200000       0.6310    0.8558    0.7157    0.6022    0.3963    0.2525    
+  400000       0.5979    0.7296    0.6373    0.5526    0.3983    0.2457    
+  800000       0.5554    0.6524    0.5886    0.5147    0.3885    0.2327    
+  1600000      0.5421    0.6144    0.5606    0.4986    0.3854    0.2271    
+  3200000      0.5307    0.5911    0.5411    0.4866    0.3846    0.2316    
+  U2 the share falls with alpha at every N   REFUTED
+  DIAGNOSTIC on U2 (post hoc). The ladder it is checked
+  on is not ordered by its own index: the fixed Q = 29
+  is a deeper sieve than N^0.1 and N^0.2 at every N here
+  -- 29 against 3, 4, 4, 4, 4 and 11, 13, 15, 17, 20 -- so the first steps go
+  backwards in depth, not forwards. On the alpha ladder
+  proper the share is monotone at every N: yes.
+LADDER leveldemand_with_fixed 6 unordered
+LADDER leveldemand_alpha 5 ordered
+  U3 alpha = 0.5 is below 0.35   hold   (cap 0.35)
+  U4 alpha = 0.3 is below 0.45   REFUTED   (cap 0.45)
+PERN leveldemand_a03 5 0.4866 0.6022
+PERN leveldemand_a05 5 0.2271 0.2525
+  and the two taken at the same N, which is the factor by
+  which the affordable level still leaves more than the
+  unbounded one:
+  200000       2.3852
+  400000       2.2491
+  800000       2.2118
+  1600000      2.1949
+  3200000      2.1008
+RATIO leveldemand_a03 leveldemand_a05 2.1008 2.3852
+
+  and the scale each level fits, which says what the
+  predictor is being asked to be:
+  N            a=0.0     a=0.1     a=0.2     a=0.3     a=0.4     a=0.5     
+  200000       2.6992    4.1414    2.5072    2.7051    2.7209    2.8219    
+  400000       2.8588    4.6910    2.8836    2.9285    2.9121    2.8624    
+  800000       2.9952    4.8846    2.8781    3.0095    2.8657    2.8472    
+  1600000      3.1437    5.1668    3.0777    3.0558    2.9336    2.8480    
+  3200000      3.0473    4.8924    2.9748    3.0178    2.8452    2.8928    
+  at alpha = 0.5 the terms are the same and only the
+  weights differ, so beta there is a mean of log p; log N
+  runs 12.2061 to 14.9787 over this sweep.
+
+  how far the affordable level goes, as a fraction of the
+  whole distance from Q = 29 to alpha = 0.5:
+  N            share at 29  at 0.3     at 0.5     fraction
+  200000       0.6310       0.6022     0.2525     0.0760
+  400000       0.5979       0.5526     0.2457     0.1288
+  800000       0.5554       0.5147     0.2327     0.1261
+  1600000      0.5421       0.4986     0.2271     0.1383
+  3200000      0.5307       0.4866     0.2316     0.1475
+  the affordable level buys 8 to 15 per cent of what an
+  unbounded one would.
+
+  two thresholds on one axis, each taken by its own rule.
+  The sign's is read from
+  results/audit_level_threshold.txt; the demand's is the
+  smallest alpha whose share is below half the level-29
+  share at every N:
+    the sign's lean stops slipping at alpha = 0.3
+    the demand halves at alpha = 0.5
+AXIS sieve_alpha leanratio 0.3
+AXIS sieve_alpha demandshare 0.5
+THRESHOLDS DIFFER sieve_alpha
+  so the two are not the same level, and the cheaper one
+  may not be carried over to the other statistic.
+
+======================================================================
+REFUTED

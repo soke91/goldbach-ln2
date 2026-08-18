@@ -1,0 +1,93 @@
+STATISTIC: at each N, the first k at which
+           sum_{k<K}(log k)|R(N;k)| exceeds S(N)(1-A(N))N and
+           the first at which the SIGNED walk
+           sum_{k<K}(log k)R(N;k) leaves the same interval;
+           their exponents log K*/log N; the difference, which
+           is what discarding the signs costs in theta'; and
+           the least-squares slope of that difference against
+           log N with its standard error.
+NULL: none is run and none applies to W1-W4. Crossings of a
+      deterministic walk against a computed threshold are
+      located; there is no background to detect against. The
+      sign control for this field is lab_residue_signed.py's
+      sixteen-draw randomisation, which refuted its rule S3.
+FIELD: N = 2e5 to 3.2e6 by doubling; k squarefree and coprime
+       to N with 2 <= k < 400000, while beta is
+       fitted as sum(H P)/sum(P^2) on k < 100000,
+       the published range -- the two caps are separated here
+       because the fit is a property of the split and the walk
+       is a sum; m odd, squarefree and coprime to k, m < N/k;
+       the sieve weight over the odd primes below 30;
+       the Euler products at the fixed bound 4000000. Every
+       N is 2^a 5^b, one odd radical, as RADICALS declares.
+       The published crossings are read from
+       results/lab_residue_signed.txt.
+
+read 5 published absolute and 4 uncensored signed crossings from results/lab_residue_signed.txt
+sieving to 3200000, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N = 200000     #k 33771   (33771 below the fit cap)  beta 2.668960
+BUDGET kstar_R_signedgain_S1AN_N200000 0.374487
+  N = 400000     #k 67549   (33771 below the fit cap)  beta 2.823233
+BUDGET kstar_R_signedgain_S1AN_N400000 0.374487
+  N = 800000     #k 135092  (33771 below the fit cap)  beta 2.939980
+BUDGET kstar_R_signedgain_S1AN_N800000 0.374487
+  N = 1600000    #k 135092  (33771 below the fit cap)  beta 3.078224
+BUDGET kstar_R_signedgain_S1AN_N1600000 0.374487
+  N = 3200000    #k 135092  (33771 below the fit cap)  beta 3.011859
+BUDGET kstar_R_signedgain_S1AN_N3200000 0.374487
+RADICALS 1
+
+W1  the control: the absolute crossing
+  N            here       published
+  200000       993        993
+  400000       1447       1447
+  800000       2019       2019
+  1600000      3319       3319
+  3200000      5923       5923
+  W1 hold
+
+W2  the control: the four uncensored signed crossings
+  N            here       published
+  200000       35597      35597
+  400000       37623      37623
+  800000       48957      48957
+  1600000      68669      68669
+  W2 hold
+
+W3  the censored fifth N, with the walk continued to k < 400000
+  3200000      signed crossing 155333   (published: none below 100000)
+  W3 hold
+  the censoring is not at random: the k-cap hides exactly
+  the LARGEST crossings, so a trend fitted on the survivors
+  is biased towards whatever the small ones do. Counted and
+  resolved:
+CENSORED lab_residue_signed 1
+UNCENSORED lab_residue_signed 1
+
+W4  the gain in theta', and whether it is falling
+  N            log K*/log N abs   signed    gain
+  200000       0.5654             0.8586    +0.2932
+  400000       0.5642             0.8167    +0.2526
+  800000       0.5599             0.7945    +0.2346
+  1600000      0.5675             0.7796    +0.2121
+  3200000      0.5799             0.7980    +0.2181
+  least-squares slope against log N = -0.027526
+  r.m.s. residual 0.0111, standard error 0.006554, t = 4.20
+SCATTER slope_audit_signed_gain 0.0111
+TSTAT slope_audit_signed_gain 4.20
+SPREAD slope_audit_signed_gain 2.7726
+  two-sigma interval [-0.040634, -0.014419]
+  W4 the slope is negative and above two standard errors   hold
+
+  What this rate is and is not. Per octave of N the gain
+  falls by 0.0191, against the 0.0530 in theta' that Remark
+  {#rem:signedlevel} measured for H and this file reads
+  from results/lab_signed_level.txt. No N at which
+  the gain would vanish is quoted here: that is an
+  extrapolation over a factor 16 in N and Remark
+  {#rem:forecastbracket} is the reason not to make it. What
+  is measured is that the largest single discard in the
+  chain is not a constant of the method.
+
+======================================================================
+the largest loss in the chain is a decline, not a level

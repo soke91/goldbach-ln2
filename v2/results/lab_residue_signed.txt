@@ -1,0 +1,79 @@
+STATISTIC: the first crossing of sum_{k<K}(log k)|R(N;k)| above
+           S(N)(1-A(N))N, the first k at which the SIGNED walk
+           sum_{k<K}(log k)R(N;k) leaves [-S(N)(1-A(N))N,
+           +S(N)(1-A(N))N], their ratio and exponents, and the
+           same signed crossing with the sign of each term
+           redrawn at random.
+NULL: the sign randomisation of S3 -- every |R(N;k)| held fixed
+      and the sign of each term redrawn, 16 draws. A coin on
+      supp(mu^2) is not used: it changes the magnitudes as well
+      and beats mu for reasons unrelated to the signs across k.
+      This is the same control lab_signed_level.py ran for H,
+      so that the two answers are comparable.
+FIELD: N = 2e5 to 3.2e6 by doubling; k squarefree and coprime
+       to N with 2 <= k < 100000; m odd, squarefree, coprime to
+       the odd part of k, m < N/k; the sieve weight uses the
+       odd primes up to 30; beta refitted as sum(H P)/sum(P^2)
+       on the same k-range; S(N) and A(N) from Euler products
+       at the fixed bound 4000000; the published absolute
+       crossings are read from results/audit_residue_level.txt;
+       numpy default_rng seed 20260808.
+
+read 5 operative K*_R from results/audit_residue_level.txt
+sieving to 3200000 ...
+  sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N = 200000      #k = 33771   beta = 2.668960
+  N = 400000      #k = 33771   beta = 2.823233
+  N = 800000      #k = 33771   beta = 2.939980
+  N = 1600000     #k = 33771   beta = 3.078224
+  N = 3200000     #k = 33771   beta = 3.011859
+
+S1  the control: the absolute crossing
+  N            K*_R (here)   published    ratio
+  200000       993           993          1.0000
+  400000       1447          1447         1.0000
+  800000       2019          2019         1.0000
+  1600000      3319          3319         1.0000
+  3200000      5923          5923         1.0000
+  S1 hold
+
+S2/S4  keeping the signs across k
+  N            K*_R abs   K*_R signed  factor   exponent  clears
+  200000       993        35597        35.848   0.8586    yes
+  400000       1447       37623        26.001   0.8167    yes
+  800000       2019       48957        24.248   0.7945    yes
+  1600000      3319       68669        20.690   0.7796    yes
+  3200000      5923       none         -        -         yes (no crossing below k = 100000)
+  S2 signed later than absolute at every N   hold
+  S4 signed exponent above 0.56 at every N   hold
+
+S3  the control: same |R(N;k)|, signs redrawn, 16 draws
+  N            mu         draws min  median     max        verdict
+  200000       35597      100000     100000     100000     EARLIER
+  400000       37623      100000     100000     100000     EARLIER
+  800000       48957      100000     100000     100000     EARLIER
+  1600000      68669      100000     100000     100000     EARLIER
+  3200000      >100000    100000     100000     100000     not earlier
+  S3 REFUTED
+
+  the budget constant crossed throughout, declared:
+BUDGET kstar_R_signed_S1AN_N200000 0.374487
+BUDGET kstar_R_signed_S1AN_N400000 0.374487
+BUDGET kstar_R_signed_S1AN_N800000 0.374487
+BUDGET kstar_R_signed_S1AN_N1600000 0.374487
+BUDGET kstar_R_signed_S1AN_N3200000 0.374487
+
+  DIAGNOSTIC (post hoc). The same comparison for H, which
+  lab_signed_level.py ran against the OTHER budget, is not
+  directly comparable; what is comparable is the ratio the
+  signs buy. For H it was 1.777 to 2.223 in K*, read from
+  results/lab_signed_level.txt. Here:
+  N            signed/absolute in K*   in the exponent
+  200000       35.848                  +0.2932
+  400000       26.001                  +0.2526
+  800000       24.248                  +0.2346
+  1600000      20.690                  +0.2121
+  3200000      >16.9                   -
+
+======================================================================
+REFUTED

@@ -1,0 +1,140 @@
+STATISTIC: per octave of the inner length N/k, the mean of
+           |sum_{m in S} mu(m)| over the admissible k, against
+           the same mean for each of 32 global sign vectors on
+           the identical sifted set S; their ratio to the coin
+           median, mu's rank among the coins, and the change in
+           that ratio from the shortest fitted octave to the
+           longest. The sieve weight is C_k times an indicator,
+           so C_k cancels from the ratio; it is restored for the
+           control against the published octave means.
+NULL: 32 global sign vectors eps(m) = +-1 on the odd squarefree
+      m, each fixed across all k exactly as mu is, so the coins
+      carry the same across-k correlation mu does. A fresh sign
+      per (N,k) would make the coin octave means less variable
+      than mu's for reasons unrelated to mu and would bias every
+      rank. The statistic is a ratio of means of magnitudes,
+      both bounded away from zero, so it stays well conditioned
+      under the control.
+FIELD: N = 2e5 to 3.2e6 by doubling; k squarefree and coprime to
+       N with 2 <= k < 30000; m odd, squarefree, coprime to the
+       odd part of k, m < N/k, and avoiding N k^{-1} mod q for
+       every odd prime q <= 30 not dividing k; octaves closed at
+       both ends and fitted only when they hold at least 10 k;
+       mu from an integer sieve to 3.2e6; numpy default_rng seed
+       20260808.
+
+read 10 published octave rows from results/lab_elementary_size.txt
+sieving to 3200000 ...
+  sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  32 global sign vectors on the 1296902 odd squarefree m
+  N = 200000      #k = 10132
+  N = 400000      #k = 10132
+  N = 800000      #k = 10132
+  N = 1600000     #k = 10132
+  N = 3200000     #k = 10132
+
+Z1  the control: octave means of |P| against the published
+  ones, with the sieve weight's constant C_k carried through
+  as the budget carries it.
+  N/k octave        N=200000      N=400000      N=800000      N=1600000     N=3200000    
+  [2     ,8      )    1.799/0.0002             -             -             -             -
+  [8     ,32     )    3.194/0.0001    4.394/0.0001    5.643/0.0001             -             -
+  [32    ,128    )    7.976/0.0001    8.014/0.0000    8.074/0.0000    9.632/0.0000   12.190/0.0000
+  [128   ,512    )   15.777/0.0000   15.539/0.0000   15.848/0.0000   15.787/0.0000   15.793/0.0000
+  [512   ,2048   )   31.880/0.0000   33.357/0.0000   33.768/0.0000   32.650/0.0000   32.762/0.0000
+  [2048  ,8192   )   78.054/0.0000   62.884/0.0000   63.487/0.0000   66.589/0.0000   67.397/0.0000
+  [8192  ,32768  )  133.691/0.0000  142.019/0.0000  124.523/0.0000  130.706/0.0000  124.806/0.0000
+  [32768 ,131072 )  194.158/0.0000  212.754/0.0000  170.047/0.0000  264.455/0.0000  205.112/0.0000
+  [131072,524288 )             -  335.555/0.0000  460.069/0.0000  308.874/0.0000  305.831/0.0000
+  [524288,2097152)             -             -             -   59.091/0.0000  837.833/0.0000
+  Z1 hold
+
+Z2/Z4  mu against 32 coins on the identical set, by octave
+  ratio = mean|P| / median_j mean|P_coin^j|; rank counts the
+  coins mu beats, out of 32
+  N = 200000
+    N/k octave        #k     ratio    rank   inside range
+    [2     ,8      ) 1689   0.8877   4/32   yes
+    [8     ,32     ) 6334   1.1068   24/32  yes
+    [32    ,128    ) 1581   1.4037   27/32  yes
+    [128   ,512    ) 399    1.3832   25/32  yes
+    [512   ,2048   ) 96     1.4248   28/32  yes
+    [2048  ,8192   ) 25     1.8148   32/32  NO
+  N = 400000
+    N/k octave        #k     ratio    rank   inside range
+    [8     ,32     ) 5915   1.2474   29/32  yes
+    [32    ,128    ) 3162   1.4051   27/32  yes
+    [128   ,512    ) 789    1.3659   25/32  yes
+    [512   ,2048   ) 202    1.4996   29/32  yes
+    [2048  ,8192   ) 48     1.4557   27/32  yes
+    [8192  ,32768  ) 13     1.5843   31/32  yes
+  N = 800000
+    N/k octave        #k     ratio    rank   inside range
+    [8     ,32     ) 1689   1.3822   29/32  yes
+    [32    ,128    ) 6334   1.4237   27/32  yes
+    [128   ,512    ) 1581   1.4166   25/32  yes
+    [512   ,2048   ) 399    1.5489   29/32  yes
+    [2048  ,8192   ) 96     1.4093   29/32  yes
+    [8192  ,32768  ) 25     1.3769   31/32  yes
+  N = 1600000
+    N/k octave        #k     ratio    rank   inside range
+    [32    ,128    ) 5915   1.4164   27/32  yes
+    [128   ,512    ) 3162   1.4138   25/32  yes
+    [512   ,2048   ) 789    1.4743   29/32  yes
+    [2048  ,8192   ) 202    1.5550   30/32  yes
+    [8192  ,32768  ) 48     1.4890   31/32  yes
+    [32768 ,131072 ) 13     1.4965   28/32  yes
+  N = 3200000
+    N/k octave        #k     ratio    rank   inside range
+    [32    ,128    ) 1689   1.5949   28/32  yes
+    [128   ,512    ) 6334   1.4051   25/32  yes
+    [512   ,2048   ) 1581   1.4918   29/32  yes
+    [2048  ,8192   ) 399    1.5581   30/32  yes
+    [8192  ,32768  ) 96     1.4032   31/32  yes
+    [32768 ,131072 ) 25     1.1380   20/32  yes
+  Z2 mu above the coin median in 29 of 30 cells   hold
+  Z4 mu inside the coin range in every cell   REFUTED
+
+Z3  does the excess grow with the inner length?
+  N            shortest   longest    growth
+  200000       0.8877     1.8148     +0.9271
+  400000       1.2474     1.5843     +0.3369
+  800000       1.3822     1.3769     -0.0052
+  1600000      1.4164     1.4965     +0.0802
+  3200000      1.5949     1.1380     -0.4569
+  Z3 the ratio grows by more than 0.15 at 2 of 5 N   (cap 2)   hold
+
+  DIAGNOSTIC (post hoc). The ratio pooled over all five N,
+  which is what the octave means are actually estimating:
+  N/k octave        cells  mean ratio   mean rank
+  2                 1      0.8877       -
+  8                 3      1.2454       -
+  32                5      1.4487       -
+  128               5      1.3969       -
+  512               5      1.4879       -
+  2048              5      1.5586       -
+  8192              4      1.4634       -
+  32768             2      1.3172       -
+  over every cell: mean ratio 1.4191, and 29 of 30 above 1
+
+  Z3's instrument is the wrong one and the pooled profile says
+  why: it differences the last octave against the first, but
+  each N starts and ends at a different octave, so it compares
+  different parts of the curve at different N. The profile
+  above is not monotone -- it climbs out of the short octaves,
+  where parity leaves the non-negative m = 1 term nearly alone
+  and mu falls BELOW every coin, and then flattens.
+
+  The trend measured where the transient is over. Pooling the
+  octaves from 128 up and fitting log(ratio) on log(N/k):
+    octaves 128, 512, 2048, 8192, 32768
+    mean ratios 1.3969, 1.4879, 1.5586, 1.4634, 1.3172
+    slope -0.0097, mean ratio 1.4621
+    leave-one-out on the slope: -0.0097, -0.0309, +0.0134 -- spread 0.0443
+  A slope of zero would mean a constant factor and the same
+  exponent; a slope of a tenth over the four decades of N/k
+  spanned here would be a different exponent. The measured
+  slope is -0.0097 with a leave-one-out spread of 0.0443.
+
+======================================================================
+REFUTED

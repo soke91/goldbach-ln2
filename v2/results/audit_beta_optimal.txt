@@ -1,0 +1,109 @@
+STATISTIC: the truncation K*_R at which
+           sum_{k<K}(log k)|H - beta P| first reaches
+           S(N)(1-A(N))N, as a function of beta: at the
+           least-squares beta, at beta scaled by 0.9 and 1.1,
+           and at the beta maximising K*_R over a grid; the
+           exponent log K*_R / log N of each; and the l2
+           residual and the truncated budget sum at the fitted
+           and optimal beta.
+NULL: none is run and none applies. A measured sum is minimised
+      over one scalar and a crossing located; there is no
+      background to detect against. The sign controls for this
+      field were run in lab_residue_cancellation.py, whose coin
+      arm on the identical delta established that R's size is
+      bought by cancellation at exactly a coin's rate, and in
+      lab_split_budget.py, whose size permutation established
+      where the budget is spent.
+FIELD: N = 2e5 to 3.2e6 by doubling; k squarefree and coprime
+       to N with 2 <= k < 100000; m odd, squarefree, coprime to
+       the odd part of k, m < N/k; the sieve weight uses the
+       odd primes up to 30; S(N) and A(N) from Euler products
+       at the fixed bound 4000000; beta swept over 241 values
+       from 0.25 to 6.25 in steps of 0.025; the published
+       exponents are read from results/audit_residue_level.txt.
+
+read 5 operative exponents from results/audit_residue_level.txt
+sieving to 3200000 ...
+  sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  N = 200000      #k = 33771   beta_fit = 2.668960
+  N = 400000      #k = 33771   beta_fit = 2.823233
+  N = 800000      #k = 33771   beta_fit = 2.939980
+  N = 1600000     #k = 33771   beta_fit = 3.078224
+  N = 3200000     #k = 33771   beta_fit = 3.011859
+
+T1  the control: the fitted beta reproduces the published
+  operative exponents
+  N            beta_fit    K*_R      exponent   published  diff
+  200000       2.668960    993       0.5654     0.5654     0.00005
+  400000       2.823233    1447      0.5642     0.5642     0.00004
+  800000       2.939980    2019      0.5599     0.5599     0.00000
+  1600000      3.078224    3319      0.5675     0.5675     0.00003
+  3200000      3.011859    5923      0.5799     0.5799     0.00003
+  T1 hold
+
+T2  is the level sensitive to beta at all? +-10 per cent
+  N            at 0.9 b   at b       at 1.1 b   spread
+  200000       0.5585     0.5654     0.5676     0.0092
+  400000       0.5620     0.5642     0.5629     0.0022
+  800000       0.5573     0.5599     0.5592     0.0026
+  1600000      0.5657     0.5675     0.5662     0.0018
+  3200000      0.5786     0.5799     0.5783     0.0016
+  T2 REFUTED   (some N moves by more than 0.01)
+
+T3/T4  the beta the argument is free to choose
+  the objective is the permitted level itself, maximised over
+  a grid of 241 values of beta from 0.25 to 6.25
+  N            beta_fit    beta_opt    ratio    K*_R      exponent  clears
+  200000       2.668960    3.000000    1.1240   1023      0.5678    yes
+  400000       2.823233    2.775000    0.9829   1447      0.5642    yes
+  800000       2.939980    2.950000    1.0034   2019      0.5599    NO
+  1600000      3.078224    3.125000    1.0152   3323      0.5676    yes
+  3200000      3.011859    3.025000    1.0044   5923      0.5799    yes
+  T3 the optimum is more than 1 per cent from the fit at 3 of 5 N   hold
+  T4 exponent above 0.56 at every N   REFUTED
+
+  the budget constant crossed throughout, declared:
+BUDGET kstar_R_S1AN_N200000 0.374487
+BUDGET kstar_R_S1AN_N400000 0.374487
+BUDGET kstar_R_S1AN_N800000 0.374487
+BUDGET kstar_R_S1AN_N1600000 0.374487
+BUDGET kstar_R_S1AN_N3200000 0.374487
+
+  DIAGNOSTIC (post hoc). The two objectives, side by side. The
+  fit minimises sum (H - b P)^2; the budget spends
+  sum_{k<K*}(log k)|H - b P|. At the optimum, what each reads:
+  N            l2 residual at b_fit / at b_opt   budget sum ratio
+  200000       1.0429                            0.9809
+  400000       1.0008                            1.0006
+  800000       1.0000                            0.9998
+  1600000      1.0007                            0.9995
+  3200000      1.0001                            1.0000
+  At 4 of the 5 N both columns are within one (tol 0.001):
+  two objectives do not merely agree on the answer, they are
+  flat in the same place. Where they separate, the optimal
+  beta is worse by the l2 measure that chose the fitted one
+  and better by the l1 measure the argument pays -- which is
+  what T3 was asking about. The exponent it buys, at each N:
+  N            exponent gain over the fitted beta
+  200000       +0.0024
+  400000       +0.0000
+  800000       +0.0000
+  1600000      +0.0001
+  3200000      +0.0000
+
+  Two cautions on the optimum itself. K* is integer-valued and
+  jumps, so a whole interval of beta shares one K*, and the
+  grid returns the first of them. Where the beta-ratio differs
+  from one but K* does not move, the 'optimum' is that
+  granularity and nothing else:
+  N            beta ratio   K* moved?
+  200000       1.1240       yes
+  400000       0.9829       no
+  800000       1.0034       no
+  1600000      1.0152       yes
+  3200000      1.0044       no
+  The budget sum can read marginally above one at such a point
+  for the same reason.
+
+======================================================================
+REFUTED

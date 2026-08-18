@@ -1,0 +1,105 @@
+STATISTIC: with beta the least-squares scale and H = beta P + R,
+           the crossings of S(N)N by B_H = sum(log k)|H|, by
+           beta B_P = sum(log k)|beta P| and by B_R =
+           sum(log k)|R|; each half's share of the budget at
+           K = K*_H; and the three crossings as exponents in N.
+NULL: each half's magnitudes permuted across k, 16 draws, with
+      the weights left attached to their own k. It preserves the
+      multiset of |beta P| and of |R| exactly and destroys only
+      the pairing with the modulus, so it separates a property
+      of the pairing from a property of the magnitude
+      distributions. That the decomposition itself is mu's was
+      established separately in lab_split_null.py, where a coin
+      absorbed essentially none of the mass.
+FIELD: N = 2e5 through 3.2e6 by doubling; k squarefree, coprime
+       to N, 2 <= k < 100000; m odd squarefree, coprime to k,
+       m <= (N-1)/k; the sieve weight uses the odd primes up to
+       30; S(N) from an Euler product at the fixed bound 4e6.
+
+sieving to 3200000 ...
+  N = 200000      #k = 33771   beta = 2.6690  budget S(N) = 1.7604
+  N = 400000      #k = 33771   beta = 2.8232  budget S(N) = 1.7604
+  N = 800000      #k = 33771   beta = 2.9400  budget S(N) = 1.7604
+  N = 1600000     #k = 33771   beta = 3.0782  budget S(N) = 1.7604
+  N = 3200000     #k = 33771   beta = 3.0119  budget S(N) = 1.7604
+
+Z1  where each half crosses the budget S(N)N
+  N            K*_H      K*_P      K*_R      K*_P/K*_H   K*_R/K*_H
+  200000       2973      4119      9191      1.3855      3.0915
+  400000       5109      6441      14289     1.2607      2.7968
+  800000       8021      10381     23131     1.2942      2.8838
+  1600000      13557     16813     37439     1.2402      2.7616
+  3200000      23397     30369     63399     1.2980      2.7097
+  Z1 ordered at every N   hold
+
+Z2/Z3  each half's share of the budget at K = K*_H
+  N            beta B_P / (S N)   B_R / (S N)   sum
+  200000       0.8112             0.4737        1.2849
+  400000       0.8573             0.5119        1.3691
+  800000       0.8484             0.5062        1.3545
+  1600000      0.8691             0.5214        1.3905
+  3200000      0.8456             0.5275        1.3731
+  Z2 the elementary part is over 0.8   hold
+  Z3 the residue is under 0.7          hold
+
+Z4  K*_P/K*_H: 1.3855, 1.2607, 1.2942, 1.2402, 1.2980   (cap 1.30)   REFUTED
+
+  DIAGNOSTIC (post hoc). What a proof about R would buy. If R
+  were removed entirely the truncation could move from K*_H to
+  K*_P; if the elementary part were removed instead it could
+  move to K*_R. In exponents:
+  N            log K*_H/log N   log K*_P/log N   log K*_R/log N
+  200000       0.6552           0.6819           0.7477
+  400000       0.6620           0.6799           0.7417
+  800000       0.6614           0.6804           0.7393
+  1600000      0.6660           0.6811           0.7371
+  3200000      0.6716           0.6891           0.7382
+
+  These exponents are against the budget S(N)N, which is NOT
+  the one [eq:nolog] asks for. Proposition {#prop:nolog} needs
+  S(N)(1-A(N))N, smaller by a factor near five, and
+  audit_residue_level.py measures what K*_R does against it --
+  0.18 lower in the exponent, which is the difference between
+  clearing theta' = 0.56 comfortably and clearing it barely.
+  And the arithmetic this sweep covers, which gate check G34
+  reads. Every N here is 2^a 5^b, so the sweep has ONE odd
+  radical. audit_residue_arithmetic.py repeats the residue
+  measurement across seven types and finds the exponent below
+  1/2 at the primorial-like ones, so the ordering of the two
+  halves below is a statement about this radical:
+  5 N, 1 distinct odd radical: 5
+RADICALS 1
+
+  The constant crossed here, declared so that no exponent from
+  this file is ever read against one from that file:
+BUDGET kstar_SN_N200000 1.760432
+BUDGET kstar_SN_N400000 1.760432
+BUDGET kstar_SN_N800000 1.760432
+BUDGET kstar_SN_N1600000 1.760432
+BUDGET kstar_SN_N3200000 1.760432
+
+
+  THE CONTROL. Each half's magnitudes are permuted across k,
+  16 draws, with the weights left attached to their own k. That
+  preserves the multiset of |beta P| and of |R| exactly and
+  destroys only the pairing with the modulus, so it says whether
+  the crossings are a property of the pairing or only of the
+  magnitude distributions.
+  N            K*_P      perm band          K*_R      perm band
+  200000       4119      [17627   20017  ] 9191      [24241 25311]
+  400000       6441      [22557   24429  ] 14289     [30221 31391]
+  800000       10381     [27601   28901  ] 23131     [39659 41199]
+  1600000      16813     [33321   34859  ] 37439     [51713 53189]
+  3200000      30369     [46807   48241  ] 63399     [70287 71309]
+  The measured crossings are FAR EARLIER than the bands, by a
+  factor of three to five, and the bands are narrow. So the
+  crossings are strongly a property of the pairing, not of the
+  magnitude distributions -- and in the direction that matters:
+  |P| and |R| are largest at the SMALLEST k, where the inner
+  sum is longest, so the measured cumulative front-loads and
+  reaches the budget while a random pairing is still climbing.
+  The budget is consumed at the bottom of the k-range, which is
+  where the reduction has the least room to move.
+
+======================================================================
+REFUTED

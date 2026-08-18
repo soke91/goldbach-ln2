@@ -1,0 +1,72 @@
+STATISTIC: B(N)/N = sum_{k<K}(log k)|E(N;k)|/N for mu and for 8
+           coins; the log-law fit of each against log N with its
+           correlation; and the N at which each fit crosses the
+           Goldbach threshold S(N)(1-A(N)).
+NULL: the coin, eps(v) = +-1 on supp(mu^2) and zero elsewhere,
+      with the field, the weight log k, the k-range and theta'
+      identical. This is the control lab_extend_range.py
+      declined. It is usable here, unlike the ratio of
+      [rem:weightgapnull], because B/N is a sum of absolute
+      values and a coin cannot drive it near zero.
+FIELD: N = 2e5 through 6.4e6 by doubling, theta' = 0.56; k over
+       the squarefree k < N^0.56 coprime to N; S and A from
+       Euler products at the fixed bound 4e6; seed 20260808.
+
+sieving to 6400000 ...
+  1 mu and 8 coins on supp(mu^2), field and weights identical
+  N = 200000      K = 930     #k = 313  threshold 0.374487
+  N = 400000      K = 1371    #k = 462  threshold 0.374487
+  N = 800000      K = 2021    #k = 682  threshold 0.374487
+  N = 1600000     K = 2980    #k = 1004  threshold 0.374487
+  N = 3200000     K = 4394    #k = 1485  threshold 0.374487
+  N = 6400000     K = 6478    #k = 2186  threshold 0.374487
+
+W1  B(N)/N, mu against the draws
+  N            mu        coin min   coin median   coin max
+  200000       0.8086    0.4976     0.5399        0.5791
+  400000       0.7395    0.4781     0.5109        0.5237
+  800000       0.7303    0.4663     0.4885        0.5029
+  1600000      0.6547    0.4553     0.4683        0.4793
+  3200000      0.5916    0.4173     0.4360        0.4487
+  6400000      0.5526    0.3898     0.3984        0.4072
+  W1 hold
+
+W2  the log-law fit, B/N ~ (log N)^e
+  who       exponent   correlation   crossing at 10^x
+  mu        -1.5274    -0.98333      8.86
+  coin 0    -1.2549    -0.98098      7.29
+  coin 1    -1.1532    -0.96151      7.25
+  coin 2    -1.2324    -0.95854      7.36
+  coin 3    -1.3570    -0.99494      7.17
+  coin 4    -1.2529    -0.96461      7.23
+  coin 5    -1.1404    -0.97650      7.42
+  coin 6    -1.0100    -0.93473      7.40
+  coin 7    -0.8243    -0.91992      7.87
+  W2 every draw fits past 0.98 in magnitude   REFUTED
+
+W3  mu's exponent -1.5274 against the draws' range [-1.3570, -0.8243]
+    hold
+W4  mu's crossing 10^8.86 against the draws' range [10^7.17, 10^7.87]
+    hold
+
+  leave-one-out on extendrange_Bdecay: full -1.5274, without the smallest N -1.6235,
+  without the largest -1.4526 -- spread 0.1709
+SWEPT extendrange_Bdecay N-range 0.1709
+
+  DIAGNOSTIC (post hoc). Why this control is usable where the
+  one in [rem:weightgapnull] was not: B/N is a sum of absolute
+  values, so a coin cannot send it near zero. The draws'
+  spread as a fraction of their median:
+  N            median    spread/median
+  200000       0.5399    0.1510
+  400000       0.5109    0.0892
+  800000       0.4885    0.0750
+  1600000      0.4683    0.0513
+  3200000      0.4360    0.0719
+  6400000      0.3984    0.0436
+  A well-conditioned statistic under the control is the
+  condition for the control to mean anything, and it is what
+  separates this audit from the ratio in [rem:weightgapnull].
+
+======================================================================
+REFUTED

@@ -1,0 +1,69 @@
+STATISTIC: B(N)/N = sum_{k<K}(log k)|E_mu(N;k)|/N; |E_3(N)|/N;
+           the mass-weighted fraction f of k with H(N;k) > 0 and
+           the implied gain G = 1/|2f-1|; power-law and log-law
+           fits of |1/2 - f| against N with their correlations;
+           and an out-of-sample prediction of B/N at the two
+           largest N from a fit on the five smallest.
+NULL: none is run here and none is needed for what is claimed.
+      This extends the range of measurements whose controls were
+      run in lab_sign_structure.py and lab_lean_decay.py; the
+      coin reference level for f is 1/2 and was measured there.
+      No new detection is claimed, only a longer lever.
+FIELD: N = 2e5 through 2.56e7 by doubling, theta' = 0.56, so k
+       runs over the squarefree k < N^0.56 coprime to N; m over
+       1 <= m < N/k; Lambda and mu from an integer sieve to
+       2.56e7; the out-of-sample fit sees only the five smallest
+       N.
+
+sieving to 25600000 ...
+
+  N            K       #k     B/N       |E_3|/N   f         |0.5-f|   G
+  ----------------------------------------------------------------------------------
+  200000       930     313    0.8086    0.4377    0.2273    0.2727    1.834
+  400000       1371    462    0.7395    0.3837    0.2228    0.2772    1.804
+  800000       2021    682    0.7303    0.3172    0.2735    0.2265    2.207
+  1600000      2980    1004   0.6547    0.2608    0.3068    0.1932    2.588
+  3200000      4394    1485   0.5916    0.2073    0.3207    0.1793    2.789
+  6400000      6478    2186   0.5526    0.1855    0.3376    0.1624    3.079
+  12800000     9550    3226   0.4992    0.1459    0.3533    0.1467    3.407
+  25600000     14080   4754   0.4527    0.1245    0.3608    0.1392    3.592
+
+X1  f rises from 0.3376 at 6.4e6 to 0.3608 at 2.56e7   hold
+X2  power N^{-0.1539}  r = -0.98434 ;  log (log N)^{-2.2380}  r = -0.98619
+    |difference| = 0.00185   (cap 0.005)   hold
+
+X3  out of sample on B/N, fit on the first 5 N
+    B/N ~ (log N)^{-1.4526}
+    N            measured   predicted   ratio
+    6400000      0.5526     0.5678      1.0274
+    12800000     0.4992     0.5332      1.0681
+    25600000     0.4527     0.5020      1.1089
+    X3 REFUTED
+    the threshold S(N)(1-A(N)) is 0.374487 and is the same at
+    all eight N -- every one has odd radical 5, so this
+    sweep varies the size of N and not its arithmetic;
+    audit_threshold_arithmetic.py measures what changing
+    the arithmetic does.
+    that fit crosses B/N = 0.3745 at N = e^20.9 = 10^9.06
+    DIAGNOSTIC (post hoc). The miss is monotone -- 1.027, 1.068, 1.109 --
+    so it is a systematic over-prediction and not noise:
+    B/N falls FASTER than the log law fitted on the small N.
+    Refitting on all eight, and against a power law:
+      all-eight log law   B/N ~ (log N)^{-1.7267}   r = -0.98820
+      all-eight power law B/N ~ N^{-0.1196}         r = -0.99324
+  leave-one-out on B_over_N_power: full -0.1196, without the smallest N -0.1238,
+  without the largest -0.1154 -- spread 0.0084
+SWEPT B_over_N_power N-range 0.0084
+  leave-one-out on lean_power: full -0.1539, without the smallest N -0.1602,
+  without the largest -0.1629 -- spread 0.0090
+SWEPT lean_power N-range 0.0090
+      log   law crosses 0.3745 at N = 10^8.44
+      power law crosses 0.3745 at N = 10^8.17
+    So 10^9.06 is the conservative end: every refit brings the
+    crossing earlier, and the two laws bracket it.
+
+X4  |E_3|/N at the two new N: 0.1459, 0.1245 against their own
+    thresholds 0.374487, 0.374487   hold
+
+======================================================================
+REFUTED

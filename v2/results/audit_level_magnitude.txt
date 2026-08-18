@@ -1,0 +1,131 @@
+STATISTIC: on the squarefree k < N^theta' coprime to N, the gain
+           G = l1/|sum| and the concentration l1/l2 of four
+           vectors: a_k = (log k)H(N;k) with m over all m, the
+           gain's own convention; |a_k| carrying sign P_29;
+           (log k)|P_29| carrying sign H; and (log k)P_29, with
+           P_Q = sum_m mu(m) [N - mk has no odd prime factor at
+           or below Q] over the odd squarefree m. For each, the
+           least-squares exponent of each norm ratio against
+           log N with its standard error, and the deficit
+           e(l1/l2) - e(G) that {#rem:leanidentity} requires to
+           reach zero.
+NULL: none is run and none applies to the swaps: each is a
+      deterministic rearrangement of two measured vectors and
+      the comparison is between their exponents, not against a
+      background. The coin arm for the gain was run in
+      audit_crossk_reference.py, where random signs on mu's own
+      magnitudes gave 9.94 to 12.98 times mu's gain; the
+      sign-swap vector is that construction with the level's
+      signs in place of random ones.
+FIELD: N = 2e5 through 2.56e7 by doubling, every one 2^a 5^b so
+       the odd radical is one throughout, as RADICALS says; k
+       squarefree and coprime to N with 2 <= k < N^theta'; for
+       H the m run over ALL m < N/k coprime to k, the convention
+       of code/audit_gain_split.py, and for P_29 over the odd
+       squarefree m, the convention of code/audit_sieve_depth.py
+       -- {#rem:tailpredictors} measured that the two give the
+       same sign at every k; Lambda and mu from an integer sieve
+       to 25600000; the field, the sieve and the
+       predictor come through code/audit_tail_predictors.py; the
+       published gains and exponent are read from
+       results/audit_gain_split.txt and the concentration
+       exponent from results/audit_lean_identity.txt.
+
+read from results/audit_gain_split.txt: 8 gains and the whole-range
+  exponent +0.153911; from results/audit_lean_identity.txt the concentration
+  exponent +0.287798. The deficit to close is their difference, 0.133887.
+  the field and the sieve come through code/audit_tail_predictors.py,
+  so the k-set is the one {#rem:headsign} and {#rem:tailpredictors} used.
+  and the ceiling the concentration exponent cannot pass is theta'/2 = 0.2800
+
+sieving to 25600000 ...
+RADICALS 1
+
+  N            #k      G mu        G sign swap G size swap G full level
+  200000       313     1.8337      2.0355      1.5117      1.5629      
+  400000       462     1.8036      2.1400      1.4658      1.6121      
+  800000       682     2.2074      2.4956      1.5449      1.7323      
+  1600000      1004    2.5876      3.3439      1.6638      1.8864      
+  3200000      1485    2.7893      3.3974      1.7500      2.0359      
+  6400000      2186    3.0787      4.3175      1.8459      2.1838      
+  12800000     3226    3.4075      5.6473      1.9167      2.3612      
+  25600000     4754    3.5925      7.0377      1.9915      2.5152      
+
+V1  the control: the gain and its exponent
+  N            here      published   diff
+  200000       1.8337    1.8337      0.000019
+  400000       1.8036    1.8036      0.000034
+  800000       2.2074    2.2074      0.000022
+  1600000      2.5876    2.5876      0.000039
+  3200000      2.7893    2.7893      0.000046
+  6400000      3.0787    3.0787      0.000022
+  12800000     3.4075    3.4075      0.000028
+  25600000     3.5925    3.5925      0.000029
+  exponent +0.153911 against the published +0.153911, diff 0.000000
+  V1 hold   (cap 0.01 on a gain, cap 0.001 on the exponent)
+
+  the four vectors, their gain exponent, their concentration
+  exponent, and the deficit between them:
+  vector       e(G)         s.e.       e(l1/l2)     s.e.       deficit
+  mu           +0.153911    0.011253   +0.287798    0.002472   +0.133887
+  sign swap    +0.260989    0.017967   +0.287798    0.002472   +0.026809
+  size swap    +0.066210    0.005717   +0.285651    0.000876   +0.219441
+  full level   +0.103219    0.003116   +0.285651    0.000876   +0.182432
+
+V2  are the level's signs enough to keep the gain?
+  sign swap +0.260989 against mu's +0.153911, difference +0.107078 at 5.05 standard errors
+  V2 REFUTED   (cap 2 standard errors)
+
+V3  are the level's magnitudes not?
+  size swap +0.066210 against mu's +0.153911, difference -0.087701 at 6.95 standard errors
+  V3 hold   (cap 2 standard errors)
+
+V4  does the level close the deficit?
+  mu's deficit         +0.133887
+  the level's deficit  +0.182432
+  the level's is no smaller
+  V4 hold
+  so a bounded modulus cancels no better than mu against its own
+  concentration. The level supplies the sign and not the
+  cancellation, and item 4(b)'s demand is on the magnitudes.
+
+  and against the ceiling, which is what the deficit has to reach zero
+  under: e(l1/l2) can be at most 0.2800, so a vector whose concentration
+  exponent is far below it has an easier deficit to close and a weaker
+  statement to make. Each vector's distance from the ceiling:
+  mu           +0.007798
+  sign swap    +0.007798
+  size swap    +0.005651
+  full level   +0.005651
+
+X1  is the sign swap a bounded level, or is it a coin?
+  (written after V2 fell; not pre-registered). A random sign vector
+  gives |sum| of order l2, so its gain is l1/l2 up to a constant and
+  its deficit is zero BY CONSTRUCTION. A small deficit is therefore
+  not evidence of a good predictor -- it is what noise looks like, and
+  {#rem:whycoinwins} settled that the coin is a competitor rather than
+  a null. Two arms decide it: a full coin on mu's magnitudes, and mu's
+  own signs with exactly as many flipped at random as the predictor
+  gets wrong. 256 draws at seed 20260811, medians.
+  N            agree     flips  G sign swap  G coin    G matched flip
+  200000       0.8129    59     2.0355       17.3688   2.9068
+  400000       0.7632    109    2.1400       21.2149   3.3804
+  800000       0.7446    174    2.4956       26.5361   4.5868
+  1600000      0.7367    264    3.3439       37.5630   5.4998
+  3200000      0.7759    333    3.3974       35.9930   5.0100
+  6400000      0.7579    529    4.3175       48.2030   5.9746
+  12800000     0.7516    801    5.6473       59.2699   6.7488
+  25600000     0.7482    1197   7.0377       72.1485   7.2326
+  vector           e(G)         s.e.       deficit against e(l1/l2)
+  sign swap        +0.260989    0.017967   +0.026809
+  coin             +0.289456    0.016246   -0.001658
+  matched flip     +0.180978    0.022304   +0.106820
+  the sign swap and the matched flip differ by +0.080011, 2.79 standard errors
+TSTAT slope_levelmag_swapvsflip 2.79
+SPREAD slope_levelmag_swapvsflip 4.8520
+  so the sign swap is separated from the matched flip, and the
+  direction of that separation says whether the level's signs
+  cancel better or worse than its error rate alone would.
+
+======================================================================
+V1 hold  V2 REFUTED  V3 hold  V4 hold
