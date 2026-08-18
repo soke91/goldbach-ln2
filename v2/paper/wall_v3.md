@@ -2258,6 +2258,71 @@ The equality $\alpha=1-\theta'/2$ is measured over this range at
 $0.88$ standard errors and is not proved here; every consequence above
 inherits that.
 
+*Added later.* It is a coincidence at one level, not a law: swept over
+$\theta'$, $\alpha$ *rises* where the square-root reading needs it to
+fall. See Remark [rem:thetalaw]. What survives is T1 to T4 and the
+restatement **at $\theta'=0.56$**; the words "square-root cancellation
+over the $k$ that were thrown away" are withdrawn.
+
+
+#### Remark (raising the level moves away from the demand) {#rem:thetalaw}
+<!-- evidence: audit_theta_law.py -->
+
+[rem:denominator] measured $1-\alpha=+0.282084$ against $\theta'/2$ at
+$0.88$ standard errors and read it as a law — the truncation leaving
+the correlation divided by $\sqrt{\#k}$ — which with
+[rem:headsign]'s square-root inner cancellation predicts
+$e(\ell^1)=(1+\theta')/2$, $\alpha=1-\theta'/2$ and
+$e(G)=\theta'-1/2$, three lines in $\theta'$ testable by sweeping it.
+The levels $0.40$ to $0.64$ were swept on the whole field; at
+$\theta'=0.56$ the three exponents reproduce that remark to
+$0.00000035$ against a printing bound of $0.00000050$ (U1).
+
+**The law is wrong, and $\alpha$ is wrong in the opposite direction**
+(U3, U6 refuted). $\alpha$ runs $+0.581914$, $+0.609324$, $+0.670962$,
+$+0.717916$, $+0.764301$, $+0.808475$ — a slope of $+0.978885$ in
+$\theta'$ where the model wants $-1/2$, off by $21.91$ standard
+errors. In hindsight it must rise: as $\theta'\to1$ the truncation
+becomes no truncation and $\lvert\sum a\rvert$ returns to the
+main-term order of $\sum_j\Lambda(j)\Lambda(N-j)$, and $\alpha\to1$ is
+what the numbers are doing. **So $1-\alpha=\theta'/2$ holds at one
+swept level out of six and is a coincidence there**; at $\theta'=0.40$
+it is $0.418$ against $0.200$ and at $0.64$ it is $0.192$ against
+$0.320$. [rem:denominator]'s X1 sentence is withdrawn as a law and
+kept as an arithmetic fact at $\theta'=0.56$.
+
+$e(\ell^1)$ does rise (U2), at $+0.625088$ against the model's $1/2$,
+which is also refuted at $8.34$ standard errors. Only its sign
+survives the sweep.
+
+**And the direction that matters is the pessimistic one** (U4, U5
+refuted). $e(G)$ *falls* with the level — $+0.190221$, $+0.193499$,
+$+0.169761$, $+0.149567$, $+0.130229$, $+0.111700$ — while the demand
+$\theta'/2$ rises. The gap $e(G)-\theta'/2$ is negative at every swept
+level and widens monotonically: $-0.009779$, $-0.036501$,
+$-0.090239$, $-0.130433$, $-0.169771$, $-0.208300$, a slope of
+$-0.853798$ at $t=16.25$. **Raising the level — the one axis the
+reduction lets anyone choose — moves away from the demand, and
+quickly.**
+
+The two lines do cross, at $\theta'=0.4041$ with bracket
+$[0.3017,\,0.5351]$, but on the wrong side: below the $\theta'>1/2$
+the reduction requires, and the point estimate is below $1/2$
+outright. The extrapolation should not be leaned on in any case — the
+slope refitted on the lower three levels is $-0.170500$ and on the
+upper three $-0.473335$, a drift of $0.302835$ that exceeds the
+fitted slope's own magnitude, so $e(G)$ against $\theta'$ is curved
+and the crossing is a linear reading of a curve.
+
+**A registered rule was misspecified and it has to be said.** U4 was
+written as "the gap is increasing in $\theta'$" with the gloss that
+its refutation — a flat or shrinking gap — would be "the outcome
+worth having". That gloss is backwards: the gap is negative, so a
+*shrinking* gap is a widening shortfall, which is what was found. The
+prediction is refuted by its letter and its substance is confirmed in
+the pessimistic direction. The rule should have been written on
+$\lvert e(G)-\theta'/2\rvert$.
+
 
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->

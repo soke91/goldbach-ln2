@@ -1,0 +1,92 @@
+STATISTIC: for a_k = (log k)H(N;k) over the squarefree
+           k < N^theta' coprime to N, the counts #k, the l1
+           norm, |sum a| and the gain l1/|sum a|, each
+           fitted as a power of N over the on-field family
+           to 1.024e8, at every theta' in 0.40, 0.46, 0.52,
+           0.56, 0.60, 0.64; then each exponent's slope in
+           theta' against the square-root law's 1/2, -1/2
+           and 1; the gap e(G) - theta'/2 and its slope; and
+           the theta' at which the fitted e(G) meets the
+           demand theta'/2, with a bracket from the fit's own
+           errors and a drift from refitting on each half of
+           the swept levels.
+NULL: none is run and none applies. Every quantity is an
+      exactly computed sum and the comparisons are between
+      its exponents at different theta'; there is no
+      background to detect against and no sign is randomised.
+      The sign arms for the gain are
+      audit_crossk_reference.py and lab_gain_opposition.py.
+FIELD: N = 2^a 5^b with BOTH a >= 1 and b >= 1 in
+       [2e5, 1.024e8], one coprimality class as COPRIME
+       says -- the class {2,5}, k coprime to 10 and N even;
+       k squarefree with 2 <= k < N^theta' for each swept
+       theta'; m over 1 <= m < N/k with (m,k) = 1; Lambda
+       and mu from an integer sieve to 102400000; the
+       weighted sum, the sieve and the field are
+       code/audit_gain_split.py's, imported, with its THETA
+       set to each swept level in turn and restored to 0.56
+       afterwards; the published exponents are read from
+       results/audit_denominator.txt.
+
+read the three exponents at theta' = 0.56 from results/audit_denominator.txt: |sum a| +0.717916, l1 +0.867483, G +0.149567
+  the field, the sieve and the weighted sum are imported from code/audit_gain_split.py; only its THETA is varied
+
+the field: every N = 2^a 5^b with a and b at least one in [200000, 102400000]; 81 of them
+RADICALS 1
+COPRIME 1
+  the levels swept are theta' = 0.40, 0.46, 0.52, 0.56, 0.60, 0.64
+
+sieving to 102400000 ...
+
+  theta'   e(#k)        e(l1)        alpha        e(G)         s.e.(e(G))  #k at the top N
+  0.40     +0.404402    +0.772135    +0.581914    +0.190221    0.018402    540
+  0.46     +0.461573    +0.802823    +0.609324    +0.193499    0.008038    1635
+  0.52     +0.520854    +0.840723    +0.670962    +0.169761    0.003549    4946
+  0.56     +0.560357    +0.867483    +0.717916    +0.149567    0.002424    10338
+  0.60     +0.600171    +0.894529    +0.764301    +0.130229    0.001477    21621
+  0.64     +0.640196    +0.920176    +0.808475    +0.111700    0.001102    45198
+
+U1  the control at theta' = 0.56
+  |sum a|   here +0.717916 against the published +0.717916
+  l1        here +0.867483 against the published +0.867483
+  G         here +0.149567 against the published +0.149567
+  worst departure 0.00000035; the table prints 6 decimals, so the bound is 0.00000050
+PRINTBOUND audit_theta_law 6 0.00000050
+  U1 hold   (cap: the printing bound)
+
+U2/U3/U6  how each exponent moves with theta'
+  quantity   slope in theta'   s.e.        model   departure in s.e.
+  e(l1)      +0.625088         0.015007    +0.50   8.34
+TSTAT slope_thetalaw_elone 41.65
+SPREAD slope_thetalaw_elone 0.2400
+  alpha      +0.978885         0.067489    -0.50   21.91
+TSTAT slope_thetalaw_alpha 14.50
+SPREAD slope_thetalaw_alpha 0.2400
+  e(G)       -0.353798         0.052528    +1.00   25.77
+TSTAT slope_thetalaw_eG 6.74
+SPREAD slope_thetalaw_eG 0.2400
+  U2 hold   U3 REFUTED   U6 REFUTED   (caps 2 standard errors)
+
+U4  does the demand recede as the level rises?
+  theta'   e(G)         theta'/2     gap
+  0.40     +0.190221    0.200000     -0.009779
+  0.46     +0.193499    0.230000     -0.036501
+  0.52     +0.169761    0.260000     -0.090239
+  0.56     +0.149567    0.280000     -0.130433
+  0.60     +0.130229    0.300000     -0.169771
+  0.64     +0.111700    0.320000     -0.208300
+  the gap's slope in theta' is -0.853798, s.e. 0.052528, t = 16.25
+TSTAT slope_audit_theta_law 16.25
+SPREAD slope_audit_theta_law 0.2400
+  U4 REFUTED   (cap 2 standard errors)
+
+U5  where do the two lines meet?
+  e(G) fitted as -0.353798 theta' +0.345009, against the demand 0.5 theta'
+  they meet at theta' = 0.4041
+BRACKET theta_where_gain_meets_ceiling 0.4041 0.3017 0.5351
+DRIFT theta_where_gain_meets_ceiling 0.302835
+  the slope refitted on the lower three levels is -0.170500 and on the upper three -0.473335, so the drift declared above is their difference
+  U5 REFUTED   (cap: a crossing at or below 0.9)
+
+======================================================================
+U1 hold  U2 hold  U3 REFUTED  U4 REFUTED  U5 REFUTED  U6 REFUTED
