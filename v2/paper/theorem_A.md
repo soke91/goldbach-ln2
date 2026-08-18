@@ -4080,6 +4080,57 @@ and [rem:primorialdense]'s $10^{10.6180}$ was computed from the
 latter.
 
 
+#### Remark (the sixteenth rung, and an extrapolation that settles) {#rem:rung15}
+<!-- evidence: audit_primorial_rung15.py -->
+
+[rem:curvebound] left the quadratic predicting but its crossing
+unstable: a drift of $0.5688$ against a bracket of width $0.708$ is an
+extrapolation that moves as much as it is worth.
+$30030\cdot2^{15}=984023040$ at $\log_{10}N=8.9930$ is the point that
+settles it. Rung 14 reproduces to $0.000027$ (H1).
+
+**A sixth growing margin** (H2). The exponent is $0.5407$, a margin of
+$0.0407$ over $\tfrac12$ — $11.0$ times the ladder's scatter, after
+$0.0023$, $0.0099$, $0.0178$, $0.0283$, $0.0333$.
+
+**The curvature predicts a third time, and better** (H3, H4). Fitted
+on the fifteen published rungs it gives $0.5419$ against a measured
+$0.5407$: a departure of $-0.0012$ against its own prediction standard
+error $0.0049$, which is $0.26$ of it. The line on the same fifteen
+gives $+0.0071$. **The quadratic's out-of-sample errors now read
+$+0.0046$, $+0.0023$, $-0.0012$ — shrinking, and the last one has
+changed sign** — against the line's $+0.0098$, $+0.0097$, $+0.0071$,
+which do not.
+
+**And the crossing settles** (H5). Refitted on sixteen rungs the
+quadratic reaches $0.56$ at $\log_{10}N=9.6358$ with bracket
+$[9.4216,\,9.9340]$; the fifteen-rung value was $9.6068$, so it moved
+$0.0290$ against a declared drift of $0.5688$ — twenty times less than
+the last addition moved it. The bracket has narrowed from $0.708$ to
+$0.512$ and the r.m.s. from $0.0032$ to $0.0031$. **This is the first
+extrapolation in this repository whose drift has come in an order of
+magnitude below its own bracket.**
+
+Two things follow and one does not. What follows: the crossing sits
+$0.64$ decades above the top rung — a factor of $4.4$ in $N$, two more
+doublings — so it is no longer an extrapolation into the far distance
+but one just past the data, and the ladder could in principle be
+carried to it rather than extrapolated to it. What also follows is the
+limit: the sieve at $2^{16}$ needs sixteen gigabytes for $\Lambda$
+alone and $2^{17}$ twice that, so the next doubling is at the memory
+wall of this machine and the one after is past it.
+
+What does not follow is a forecast for $\theta'$. The quadratic has no
+derivation, it is a local description with a computable expiry at
+$\log_{10}N=18.5824$, and [rem:shapepower] measured that shape
+selection at this reach has no power — a shape that predicts three
+times running is better evidence than a shape that does not, and it is
+still not a reason to quote where an underived curve meets a level.
+What has changed is narrower and worth saying exactly: **the number
+$10^{10.6180}$ came from a shape the rungs now exclude, and every
+shape that survives them puts the crossing lower.**
+
+
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->
 

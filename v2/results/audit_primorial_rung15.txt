@@ -1,0 +1,80 @@
+STATISTIC: the truncation K*_R at which
+           sum_{k<K}(log k)|R(N;k)| first reaches
+           S(N)(1-A(N))N, and its exponent log K*_R / log N,
+           at N = 30030*2^15 = 984023040 and, as a control,
+           at N = 30030*2^14; the margin over 1/2 against
+           rung 14's; the quadratic and the line fitted on
+           the fifteen published rungs and asked for this
+           one, with the prediction standard error at its
+           abscissa; and the sixteen-rung quadratic's 0.56
+           crossing with a bracket from its own parameter
+           covariance, against the fifteen-rung value.
+NULL: none is run and none applies. A deterministic curve is
+      located against a computed threshold; there is no
+      background to detect against. The coin arms for this
+      statistic were run in lab_primorial_ladder.py and
+      lab_primorial_share.py. The bracket is drawn from the
+      fit's own parameter covariance with the fixed SEED.
+FIELD: N = 492011520 and 984023040, the odd radical
+       3*5*7*11*13 fixed so the threshold is constant; k
+       squarefree and coprime to N with 2 <= k < 100000; m
+       odd, squarefree and coprime to k, m < N/k; the sieve
+       weight over the odd primes below 30; the Euler
+       products at the fixed bound 4000000. One odd radical,
+       as the RADICALS line declares. The statistic, the
+       sieve and the k-cap are imported from
+       code/audit_primorial_rung11.py; the fifteen published
+       rungs come from results/audit_primorial_rung10.txt
+       and rung11 through rung14, and the published crossing
+       from results/audit_curve_bound.txt.
+
+read 15 rung exponents, rung 14's margin 0.0333, the scatter 0.0037,
+  and the quadratic's 0.56 crossing 9.6068 [9.3291, 10.0373] with drift 0.5688
+  from results/audit_primorial_rung10 through rung14 and results/audit_curve_bound.txt
+SEED 20260823
+DRAWS 4000
+
+the rungs: the control 492011520 at log10 N = 8.6920 and the new 984023040 at 8.9930
+RADICALS 1
+
+sieving to 984023040, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  the Euler products at the fixed bound 4000000: Artin 0.373955819, twin 1.320323652
+
+  N = 492011520    thr 0.087306  #k 18863   beta 1.899913  K*_R 43171    exp 0.5333
+BUDGET kstar_R_S1AN_N492011520 0.087306
+  N = 984023040    thr 0.087306  #k 18863   beta 1.884939  K*_R 72857    exp 0.5407
+BUDGET kstar_R_S1AN_N984023040 0.087306
+RADICALS 1
+
+H1  the control at rung 14
+  exponent here 0.5333 against the published 0.5333, departure 0.000027; the bound from 4 decimals is 0.00005000
+PRINTBOUND audit_primorial_rung15 4 0.00005000
+  H1 hold   (cap: the printing bound)
+
+H2  does the margin keep growing?
+  the new exponent is 0.5407, margin 0.0407, against rung 14's 0.0333 and the scatter 0.0037
+MARGIN audit_primorial_rung15 0.0407 0.0037
+FLOOR primorial_rung15 0.0037
+  H2 hold   (cap: rung 14's margin)
+
+H3/H4  does the curvature predict this one too?
+  fitted on the 15 published rungs:
+  shape        predicts   measured   departure   pred s.e.   ratio
+  quadratic    0.5419     0.5407     -0.0012     0.0049      0.26
+  line         0.5335     0.5407     +0.0071    
+  H3 hold   (cap: the prediction standard error)
+  H4 hold   (cap: the line's departure)
+
+H5  does the crossing settle?
+  the sixteen-rung quadratic is +0.00036968 in (log N)^2, r.m.s. 0.0031
+  it reaches 0.56 at log10 N = 9.6358, bracket [9.4216, 9.9340] from 4000 of 4000 draws
+BRACKET ladder_quadratic16_theta_prime 9.6358 9.4216 9.9340
+DRIFT ladder_quadratic16_theta_prime 0.0290
+  the fifteen-rung value was 9.6068, so it moved 0.0290 against the declared drift 0.5688
+SHAPES 2
+SCATTER slope_audit_primorial_rung15 0.0031
+  H5 hold   (cap: the declared drift)
+  no forecast is made from this; {#rem:shapepower} is why.
+
+======================================================================
+H1 hold  H2 hold  H3 hold  H4 hold  H5 hold
