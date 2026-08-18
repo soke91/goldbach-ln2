@@ -3995,6 +3995,47 @@ two decades past its data is the thing [rem:shapepower] exists to
 forbid.
 
 
+#### Remark (the shape contest could not have seen it) {#rem:curvereach}
+<!-- evidence: audit_curve_reach.py -->
+
+[rem:laddercurve] resolved an upward curvature the surviving shape
+$a+b\log N$ does not have. That is either a defect in
+[rem:primorialdense]'s contest or a limit of its reach, and the
+difference is settled by refitting on prefixes — no new arithmetic.
+The fifteen-rung quadratic reproduces to $5.0\cdot10^{-9}$ (F1).
+
+**It is a limit, not a defect** (F2). On the eleven published rungs
+the quadratic coefficient is $+0.00021493$ with a standard error of
+$0.00030034$ — $t=0.72$. The curvature was not in the data that
+contest had, and could not have been read from it.
+
+**Two of the three new rungs sufficed** (F3, refuted). The sequence of
+$t$ as rungs are added is $0.72$, $1.14$, $1.74$, $2.71$, $3.29$, so
+it first clears two at fourteen rungs rather than fifteen. The
+prediction that all three were needed is refuted; the third raised
+$t$ from $2.71$ to $3.29$ and confirmed rather than established.
+
+**F4 holds and is worth nothing as registered.** It asked whether
+$a+b\log N$ is still the best of the shapes ranked by r.m.s., and it
+is not — but the shape that beats it is the quadratic, which has three
+parameters against the others' two, and a rule that ranks across
+parameter counts is not a ranking. Among the four two-parameter shapes
+the order is unchanged: $a+b\log N$ leads on both sets, at $0.003718$
+on eleven rungs and $0.004465$ on fifteen, against
+$0.004119\to0.006113$ for $a+b\log\log N$ and worse for the other two.
+**What the numbers do say is in the comparison the rule should have
+made:** the quadratic's edge over the best two-parameter shape grows
+from $0.003605$ against $0.003718$ on eleven rungs — three per cent —
+to $0.003240$ against $0.004465$ on fifteen, twenty-seven per cent.
+That growth is the curvature arriving, and it is the third badly
+written rule this programme has caught in its own scripts.
+
+So [rem:primorialdense] stands as a correct reading of its own reach
+and is superseded above it. Its $\theta'$ crossing was computed from a
+shape that the rungs beyond its range now exclude; what replaces it is
+not another number, for the reason [rem:shapepower] gives.
+
+
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->
 

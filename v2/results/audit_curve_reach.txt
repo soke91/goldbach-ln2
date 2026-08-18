@@ -1,0 +1,68 @@
+STATISTIC: the fifteen primorial-ladder level exponents, read
+           from the files that measured them; the quadratic
+           coefficient in log N with its standard error,
+           fitted on the first eleven and then on each
+           prefix up to all fifteen; and the r.m.s. residual
+           of four two-parameter shapes of
+           {#rem:primorialdense} plus the quadratic, fitted
+           on the eleven and on the fifteen.
+NULL: none is run and none applies. Every quantity is a
+      least-squares summary of exponents already measured,
+      compared across subsets of the same points; there is
+      no background to detect against.
+FIELD: no arithmetic is computed here. The exponents are
+       read from results/audit_primorial_rung10.txt (eleven
+       rungs) and results/audit_primorial_rung11.txt,
+       rung12, rung13 and rung14 (one each), whose own field
+       is N = 30030*2^j with the odd radical 3*5*7*11*13
+       fixed, k squarefree and coprime to N with
+       2 <= k < 100000, m odd, squarefree and coprime to k,
+       and the Euler products at the fixed bound 4000000;
+       the published quadratic is read from
+       results/audit_ladder_curve.txt. The fifth shape of
+       {#rem:primorialdense}, 1 - c log log N / log N, has
+       one parameter and is not refitted here.
+
+read 15 rung exponents (11 published plus four measured since) and the fifteen-rung quadratic +0.00038561 (s.e. 0.00011737)
+  from results/audit_primorial_rung10, 11, 12, 13, 14 and results/audit_ladder_curve.txt
+RADICALS 1
+
+F1  the control
+  quadratic here +0.00038561 (s.e. 0.00011737) against the published +0.00038561 (0.00011737)
+  departure 0.0000000050; that file prints 8 decimals, so the bound is 0.0000000050
+PRINTBOUND audit_curve_reach 8 0.0000000050
+  F1 hold   (cap: the printing bound)
+
+F2/F3  when does the quadratic become visible?
+  rungs   top log10 N   quadratic      s.e.          t
+  11      7.4879        +0.00021493    0.00030034    0.72
+  12      7.7889        +0.00025908    0.00022789    1.14
+  13      8.0899        +0.00031044    0.00017801    1.74
+  14      8.3909        +0.00039569    0.00014581    2.71
+  15      8.6920        +0.00038561    0.00011737    3.29
+  on the 11 published rungs alone the quadratic stands at 0.72 standard errors
+  it first clears two at 14 rungs
+TSTAT slope_audit_curve_reach 0.72
+SPREAD slope_audit_curve_reach 6.9315
+UNRESOLVED SIGN slope_audit_curve_reach
+  F2 hold   (cap 2 standard errors on the published rungs)
+  F3 REFUTED   (cap: clearing two before the last rung)
+
+F4  do the five shapes still rank the same?
+  shape                      r.m.s. on 11   r.m.s. on 15
+  a + b log N                0.003718       0.004465
+  a + b / log N              0.004729       0.007947
+  a + b log log N            0.004119       0.006113
+  a + b log log N / log N    0.004324       0.006836
+  a + b log N + c (log N)^2  0.003605       0.003240
+  best on the 11 published: a + b log N + c (log N)^2
+  best on all 15:           a + b log N + c (log N)^2
+SHAPES 5
+  F4 hold   (cap: a + b log N still best)
+
+  the quadratic is a three-parameter shape against the others' two, so its
+  r.m.s. is not comparable to theirs without that; it is listed to show the
+  size of what the curvature removes, not to win a contest it is not in.
+
+======================================================================
+F1 hold  F2 hold  F3 REFUTED  F4 hold
