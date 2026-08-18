@@ -3800,6 +3800,50 @@ What is *not* touched. The shape question of Remark
 which is ahead of it; $\tfrac12$ is now behind it, and no forecast is
 made here.
 
+*Added later.* A thirteenth rung has been computed, the first ever
+measured after the line was fitted. See Remark [rem:rung12].
+
+
+#### Remark (the thirteenth rung, out of sample) {#rem:rung12}
+<!-- evidence: audit_primorial_rung12.py -->
+
+OPEN item 1 was blocked on one sentence: the ladder is trusted only so
+far and "the only way to push it is to raise $N$". The sign-axis
+cycles have since shown $N=10^8$ costs seconds here, and the ladder's
+rungs are $30030\cdot2^j$, so $30030\cdot2^{12}=123002880$ at
+$\log_{10}N=8.0899$ is affordable — three tenths of a decade past the
+top published rung and, more to the point, **the first rung computed
+after the line was fitted**. Rung 11 reproduces to $0.000006$ with the
+same $K^*_R=9367$ (B1).
+
+**The barrier is cleared again, and by more than before** (B2). The
+new exponent is $0.5178$, a margin of $0.0178$ over $\tfrac12$ against
+the ladder's scatter $0.0037$ — $4.8$ times the floor, where rung 10
+had $0.0023$ (inside it) and rung 11 $0.0099$. The margin has grown at
+each of the three rungs, and the rise continues: $0.5099$ to $0.5178$
+(B3).
+
+**B4 is refuted, and the refutation is this repository's own error
+repeated.** The new rung's residual from the twelve-rung line is
+$+0.0061$ against that line's in-sample r.m.s. $0.0037$, so B4 fails
+as registered. But an out-of-sample point is not judged against an
+in-sample scatter — [rem:primorialrung11] diagnosed exactly that for
+its own P4 and printed the right width — and B4 was written against
+the wrong one anyway. Against the prediction standard error at the new
+abscissa, $0.0048$, the departure is still outside, at $1.27$
+prediction standard errors: high, and not resolved.
+
+**And the ladder has not bent, by the test that remark named.** On
+thirteen rungs the slope is $+0.007301$ against $+0.007013$ and the
+scatter is $0.0038$ against $0.0037$ — a rise of $0.0001$. "If the
+ladder bent, the scatter would rise"; it did not. The line stands,
+now with one point that was never fitted to it sitting $1.27$
+prediction errors above.
+
+No forecast is made from this. $\theta'$ lives at $\log_{10}N=10.6180$
+on [rem:primorialdense]'s shape, two and a half decades past this
+rung, and [rem:shapepower] is why nothing is published there.
+
 
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->

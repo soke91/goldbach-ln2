@@ -1,0 +1,89 @@
+STATISTIC: the truncation K*_R at which
+           sum_{k<K}(log k)|R(N;k)| first reaches
+           S(N)(1-A(N))N, and its exponent log K*_R / log N,
+           at N = 30030*2^12 = 123002880 and, as a control,
+           at N = 30030*2^11; the margin of the new exponent
+           over 1/2 against the ladder's own scatter; the
+           residual of the new rung from the twelve-rung
+           line published in
+           results/audit_primorial_rung11.txt; and the
+           thirteen-rung refit.
+NULL: none is run and none applies. A deterministic curve is
+      located against a computed threshold; there is no
+      background to detect against. The coin arms for this
+      statistic were run in lab_primorial_ladder.py and
+      lab_primorial_share.py, and the scatter they left is
+      the floor the margin is judged against here.
+FIELD: N = 61501440 and 123002880, the odd radical
+       3*5*7*11*13 fixed so the threshold is constant; k
+       squarefree and coprime to N with 2 <= k < 100000; m
+       odd, squarefree and coprime to k, m < N/k; the sieve
+       weight over the odd primes below 30; the Euler
+       products at the fixed bound 4000000. One odd radical,
+       as the RADICALS line declares. The statistic, the
+       sieve, the k-cap and the Euler bound are imported
+       from code/audit_primorial_rung11.py; the published
+       rungs come from results/audit_primorial_rung10.txt
+       and rung 11 with its line from
+       results/audit_primorial_rung11.txt.
+
+read rung 11 from results/audit_primorial_rung11.txt: K*_R 9367, exponent 0.5099
+  with the twelve-rung line's slope +0.007013 and r.m.s. residual 0.0037, and the ladder floor 0.0037
+  the statistic, the sieve, the k-cap and the Euler bound are imported from code/audit_primorial_rung11.py
+  and 11 published rungs from results/audit_primorial_rung10.txt, scatter 0.0037
+
+the rungs: the control 61501440 at log10 N = 7.7889 and the new 123002880 at 8.0899
+RADICALS 1
+
+sieving to 123002880, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  the Euler products at the fixed bound 4000000: Artin 0.373955819, twin 1.320323652
+
+  N = 61501440     thr 0.087306  #k 18863   beta 1.916156  K*_R 9367     exp 0.5099
+BUDGET kstar_R_S1AN_N61501440 0.087306
+  N = 123002880    thr 0.087306  #k 18863   beta 1.929630  K*_R 15461    exp 0.5178
+BUDGET kstar_R_S1AN_N123002880 0.087306
+RADICALS 1
+
+B1  the control at rung 11
+  exponent here 0.5099 against the published 0.5099, departure 0.000006; the table prints 4 decimals, so the bound is 0.00005000
+  and K*_R here 9367 against 9367
+PRINTBOUND audit_primorial_rung12 4 0.00005000
+  B1 hold   (cap: the printing bound)
+
+B2  does the new rung clear the barrier?
+  the new exponent is 0.5178, a margin of 0.0178 over one half, against the ladder's scatter 0.0037
+MARGIN audit_primorial_rung12 0.0178 0.0037
+FLOOR primorial_rung12 0.0037
+  B2 hold   (cap: the scatter)
+
+B3  does the rise continue?
+  rung 11 0.5099, rung 12 0.5178, difference +0.0079
+  B3 hold
+
+B4  has the ladder bent?
+  the twelve-rung line refitted here: slope +0.007013 against the published +0.007013
+  at log N = 18.6277 it predicts 0.5118; measured 0.5178, residual +0.0061
+  against the line's own in-sample r.m.s. residual 0.0037
+  B4 REFUTED   (cap: the line's r.m.s.)
+
+  and against the width an out-of-sample point should be judged by,
+  which is what {#rem:primorialrung11} had already diagnosed for its own P4
+  and which this script's B4 repeated the error of: the prediction
+  standard error at a new abscissa, s*sqrt(1 + 1/n + (x0-xbar)^2/Sxx).
+  in-sample r.m.s.        0.0037
+  prediction s.e. at x0   0.0048
+  measured departure      0.0061   OUTSIDE
+  that is 1.27 prediction standard errors.
+
+  the thirteen rungs refitted, which is what any later extrapolation must use:
+  slope +0.007301, r.m.s. residual 0.0038, standard error 0.000446, t = 16.37
+SCATTER slope_audit_primorial_rung12 0.0038
+TSTAT slope_audit_primorial_rung12 16.37
+SPREAD slope_audit_primorial_rung12 8.3178
+  and the r.m.s. against the twelve-rung 0.0037: +0.0001
+  no crossing is forecast from this. The barrier is behind the ladder, and the
+  published theta' forecast of {#rem:primorialdense} lives two and a half decades
+  past this rung; {#rem:shapetrust} and {#rem:shapepower} are why none is published.
+
+======================================================================
+B1 hold  B2 hold  B3 hold  B4 REFUTED
