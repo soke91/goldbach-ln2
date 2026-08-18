@@ -4636,6 +4636,86 @@ $\theta'/2$, on the vector $\mu$ actually gives** — with the other side
 of the identity pinned by arithmetic rather than by a curve whose shape
 this repository has now twice failed to determine.
 
+*Added later.* Every reading above that rests on the $70$ points is
+withdrawn. The family is not one field: see Remark [rem:fillfield].
+What survives untouched is U1, the controls, and the observation that
+$G$ is the noisy side of the identity.
+
+
+#### Remark (the seventy points were three fields) {#rem:fillfield}
+<!-- evidence: audit_fill_field.py -->
+
+Remark [rem:flatnessfill] filled the family with every $N=2^a5^b$ in
+$[2\cdot10^5,\,2.56\cdot10^7]$ on the ground that "every $N=2^a5^b$ has
+odd radical $5$, so the admissible $k$-set and the threshold are fixed
+exactly as along the doublings". The sentence is false at both edges of
+the family, because the enumeration starts at $a=0$ and at $b=0$:
+
+* $N=2^a$ has odd radical $1$, and there $k$ ranges over the squarefree
+  $k$ coprime to $2$ alone — every $k$ divisible by $5$, which the
+  doublings exclude, is admitted. Seven of the $70$.
+* $N=5^b$ is **odd**, and there $k$ ranges over the squarefree $k$
+  coprime to $5$ alone — every **even** $k$ is admitted. Three of
+  the $70$.
+
+Three coprimality classes were fitted as one. Nothing rang because the
+`RADICALS` line counts *odd* radicals and $2^a$ contributes the empty
+one, so the file declared $2$ and G34 was satisfied; the partition by
+what actually fixes the $k$-set gives $3$. The control is exact:
+recomputing $\#k$ from the squarefree $k$ coprime to $N$ reproduces all
+$70$ printed counts with a worst departure of $0$, and the ten
+off-field $N$ are exactly the ten whose $k$-set is not the
+coprime-to-$10$ one (V1).
+
+**The ten are a different field, not a loud sample of this one.** Every
+off-field gain lies outside the range of on-field gains within a factor
+of two of it, both ways (V2). On-field $G$ runs $1.7228$ to $3.7589$
+across the whole family; off-field, $3.7926$ to $12.6968$.
+
+**On the field alone the excess over the ceiling returns, sharper than
+on eight points.** With the $60$ on-field $N$, $e(\ell^1/\ell^2)
+=+0.284380$ with a standard error of $0.000880$, so the excess over
+$\theta'/2$ is $+0.004380$ — $4.98$ standard errors, against $3.15$ on
+the doublings and the $0.02$ the mixture reported (V3). What the
+mixture did was not add noise symmetrically: the three classes carry
+almost the same $\#k$ exponent ($+0.560714$, $+0.560414$, $+0.560174$)
+and quite different gains ($+0.298478$, $+0.146489$, $+0.081546$), and
+the off-field points sit above the on-field concentration at their own
+$N$ because their $k$-set is denser. The mixture's $r.m.s.$ of $\log G$
+is $0.397647$ against $0.042144$ on the field.
+
+**$F$ is resolved rising on the field.** The measured ceiling
+$e(\#k)/2=+0.280207$, and $e(F)=+0.004166$ with a standard error of
+$0.000874$, $t=4.76$ (V4). On the mixture the same slope was
+$+0.001798$ at $t=1.23$ — which is exactly the unresolved sign
+[rem:flatnessfill] read as "$F$ does not rise". So the rise
+[rem:flatnessshape] reported is a fact about the field and not eight
+points wobbling.
+
+**But the extrapolation stays void, for the other reason.** Refitting
+the two shapes on the $60$ gives $0.006480$ for the power law against
+$0.006520$ for $a+b/\log N$, a gap of $0.000041$ against the r.m.s.'s
+own standard error $0.000602$ (V5). A clean field does not decide the
+shape either. And $F$'s octave-wise scatter is not below the published
+eight-point $0.006479$ everywhere — $0.006673$, $0.009468$, $0.006251$,
+$0.012181$, $0.004813$, $0.006741$, $0.008411$, four of seven above it
+(V6). So $e=+0.007445$, the arrival $10^{28.6782}$, its bracket and the
+parting point [rem:shapetrust] reads off it remain withdrawn; the
+slope that replaces $+0.007445$ is $+0.004166$, and no arrival is
+published from it here, because V5 says the shape carrying it is
+undetermined.
+
+**Where this leaves item 4(b): the target is not an arithmetic
+constant.** On the field the deficit is $e(\ell^1/\ell^2)-e(G)
+=+0.137891$, and the distance from $e(G)$ to $\theta'/2$ is
+$+0.133511$. The two are not interchangeable, because the
+concentration exponent is $4.98$ standard errors above $\theta'/2$ and
+comes down to it only when $F$ saturates — which V5 leaves
+undetermined. So the demand reads as [rem:leanidentity] wrote it and
+not as [rem:flatnessfill] rewrote it: **$e(G)$ must close $+0.137891$
+onto the measured $e(\ell^1/\ell^2)=+0.284380$, on the vector $\mu$
+actually gives.**
+
 
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
 <!-- evidence: audit_slope_significance.py -->

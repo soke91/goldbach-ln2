@@ -3855,6 +3855,88 @@ def g73_agreements_declare_the_predictor_s_marginals():
     return n
 
 
+# ----------------------------------------------------------------- G74
+CLASSFORM = re.compile(r"every N = \d+\^[a-z](?:\s+\d+\^[a-z])*")
+CLASSES = re.compile(r"^COPRIME (\d+)\s*$", re.M)
+CLASSESFOR = re.compile(r"^COPRIME FOR (\S+) (\d+)\s*$", re.M)
+SPLITMARK = re.compile(r"^FIELD SPLIT (\S+)\s*$", re.M)
+
+
+def g74_parametric_families_declare_their_coprimality_classes():
+    """매개변수 꼴로 생성한 가족은 k-집합 계급 수를 선언해야 한다.
+
+    audit_flatness_fill.py 가 "every N = 2^a 5^b 는 홀근기가 5라
+    허용 k-집합과 문턱이 배가열과 똑같이 고정된다"고 적고 70점을
+    한 장으로 적합했다. 그 문장은 가족의 양 끝에서 거짓이다 --
+    열거가 a = 0 과 b = 0 에서 시작하므로 N = 2^a (홀근기 1, k 가
+    2 와만 서로소라 5의 배수 k 가 들어온다)와 N = 5^b (홀수 N, k 가
+    5 와만 서로소라 짝수 k 가 들어온다)가 섞인다. 계급 셋이 한
+    적합에 들어갔고, 그 열 점의 이득이 나머지 예순의 창 밖에 있어서
+    (audit_fill_field.py 의 V2) 천장 초과가 4.98 표준오차에서 0.02 로
+    씻겨 보였다.
+
+    G34 는 울지 않았다. 그 검사가 세는 것은 **홀**근기이고 2^a 은
+    빈 홀근기를 내므로 파일이 RADICALS 2 를 선언해도 규약에 맞았기
+    때문이다. k-집합을 고정하는 것은 홀근기가 아니라 N 의 소인수
+    전체다 -- 그리고 그 차이는 정확히 축퇴한 구성원에서만 생기므로
+    가족을 손으로 나열하는 동안에는 보이지 않고 꼴로 생성하는 순간
+    들어온다.
+
+    그래서 결과 파일이 `every N = <꼴>` 로 가족을 선언하면 그 가족이
+    나르는 서로소 계급의 수 COPRIME <m> 을 내야 한다. 자기가 못 내면
+    다른 파일이 COPRIME FOR <이름> <m> 으로 대신 낼 수 있다 -- 결함이
+    발견된 파일을 다시 돌리지 않고 감사가 판정하는 길이다. 그리고
+    m 이 1 을 넘으면 FIELD SPLIT <이름> 이 어딘가 있어야 한다: 계급을
+    나눠 다시 적합한 파일이 실재한다는 선언이고, 없으면 그 파일의
+    적합은 섞인 장 위의 값이다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    forlab, splits = {}, set()
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        for lab, m in CLASSESFOR.findall(src):
+            try:
+                forlab[lab] = int(m)
+            except ValueError:
+                pass
+        splits.update(SPLITMARK.findall(src))
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        if not CLASSFORM.search(src):
+            continue
+        lab = f[:-4]
+        own = CLASSES.findall(src)
+        if own:
+            m = int(own[0])
+        elif lab in forlab:
+            m = forlab[lab]
+        else:
+            fails.append(
+                f"G74 results/{f} declares a family by a parametric "
+                f"form and no COPRIME count, its own or another "
+                f"file's COPRIME FOR {lab}; the one family this "
+                f"repository generated that way carried three "
+                f"coprimality classes while its RADICALS line said "
+                f"two, because 2^a contributes the empty odd radical")
+            n += 1
+            continue
+        if m > 1 and lab not in splits:
+            fails.append(
+                f"G74 results/{f} declares COPRIME {m} and no file "
+                f"declares FIELD SPLIT {lab}; above one class the "
+                f"fits over that family are fits over a mixture, and "
+                f"the mixture washed a 4.98-standard-error excess "
+                f"down to 0.02")
+            n += 1
+    return n
+
+
 def main():
     docs = [(p, read(p)) for p in paper_files()]
     print("gate")
@@ -3991,6 +4073,8 @@ def main():
          g72_within_between_splits_declare_their_resolution()),
         ("G73 agreements declare the predictor's marginals",
          g73_agreements_declare_the_predictor_s_marginals()),
+        ("G74 parametric families declare their classes",
+         g74_parametric_families_declare_their_coprimality_classes()),
     ]
     print()
     for name, c in counts:

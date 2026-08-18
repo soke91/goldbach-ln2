@@ -1,0 +1,144 @@
+STATISTIC: the seventy rows of results/audit_flatness_fill.txt
+           partitioned by the set of primes dividing N, which
+           fixes the admissible k-set; the count #k
+           recomputed here from the squarefree k coprime to N
+           against the count that file printed; the gain of
+           each off-field N against the range of on-field
+           gains within a factor of two of it; and the
+           least-squares exponents of #k, l1/l2, F and G in
+           log N on each class separately and on the mixture,
+           with the two shapes of {#rem:flatnessshape} and the
+           octave-wise r.m.s. of log F refitted on the
+           on-field points alone.
+NULL: none is run and none applies. The partition is
+      arithmetic -- which primes divide N is not a measured
+      quantity and has no background to detect against -- and
+      the quantities compared are the ones
+      audit_flatness_fill.py already declared no sign arm can
+      move, being properties of |a_k| and of the k-set alone.
+FIELD: the N are read from results/audit_flatness_fill.txt,
+       that is every N = 2^a 5^b in [2e5, 2.56e7] with a and b
+       from zero, so the family carries three coprimality
+       classes and not one, as COPRIME and FIELD SPLIT say:
+       {2,5} with k coprime to 10 and N even, which is the
+       field of the doublings; {2} with k coprime to 2 alone;
+       and {5} with k coprime to 5 alone and N odd. k is
+       squarefree with 2 <= k < N^theta' throughout; theta',
+       factor_set and the k-set rule are imported from
+       code/audit_gain_split.py; the published eight-point
+       r.m.s. is read from results/audit_flatness_shape.txt.
+
+read from results/audit_flatness_fill.txt: 70 rows
+  and the published eight-point r.m.s. 0.006479 with its own standard error 0.001870 from results/audit_flatness_shape.txt
+  theta' and the k-set rule are imported from code/audit_gain_split.py
+  the arithmetic ceiling on e(l1/l2) is theta'/2 = 0.2800
+
+the classes inside the family
+  primes of N   how many   what k is coprime to   N even?
+  {2}           7          coprime to 2           yes
+  {2,5}         60         coprime to 2*5         yes
+  {5}           3          coprime to 5           NO
+RADICALS 3
+COPRIME 3
+COPRIME FOR audit_flatness_fill 3
+FIELD SPLIT audit_fill_field
+FIELD SPLIT audit_flatness_fill
+
+V1  the control: is #k what the coprimality class says?
+  N            #k read   #k here   coprime to
+  262144       437       437       2
+  390625       685       685       5
+  524288       646       646       2
+  1048576      952       952       2
+  1953125      1689      1689      5
+  2097152      1408      1408      2
+  4194304      2071      2071      2
+  8388608      3054      3054      2
+  9765625      4157      4157      5
+  16777216     4504      4504      2
+  worst departure over all 70 rows: 0
+  the off-field N are 10 of them and none has the coprime-to-10 k-set: yes
+  V1 hold   (cap 0 on any count)
+
+V2  are the ten a rescaling of the sixty, or another field?
+  N            class    G         on-field G in [N/2, 2N]  inside?
+  262144       2        3.7926    1.7228 to 2.2754           outside
+  390625       5        7.9531    1.7228 to 2.3393           outside
+  524288       2        5.0044    1.8036 to 2.3485           outside
+  1048576      2        5.9644    2.1382 to 2.6559           outside
+  1953125      5        9.3176    2.3465 to 2.9245           outside
+  2097152      2        6.9039    2.4351 to 3.1569           outside
+  4194304      2        9.1639    2.5148 to 3.2553           outside
+  8388608      2        12.6968   2.9380 to 3.4779           outside
+  9765625      5        10.3403   2.9380 to 3.6191           outside
+  16777216     2        12.1846   3.2355 to 3.7589           outside
+  on-field gain runs 1.7228 to 3.7589 over the whole family
+  off-field gain runs 3.7926 to 12.6968
+REFERENCE audit_fill_field 60 0.6622 0.7017
+  V2 hold   (cap: any one inside its own window)
+
+  the same three exponents, per class and on the mixture
+  set             n    e(#k)        e(l1/l2)     e(G)         r.m.s. of log G
+  {2}             7    +0.560714    +0.269239    +0.298478    0.072990
+  {2,5}           60   +0.560414    +0.284380    +0.146489    0.042144
+  {5}             3    +0.560174    +0.268942    +0.081546    0.012775
+  the mixture     70   +0.556538    +0.280072    +0.142122    0.397647
+
+V3  does the excess over the ceiling return on the field?
+  on the 60 on-field N, e(l1/l2) = +0.284380, s.e. 0.000880
+  the excess over theta'/2 is +0.004380, which is 4.98 standard errors
+  on the mixture it was +0.280072, s.e. 0.004748, an excess of +0.000072 = 0.02 standard errors
+TSTAT slope_audit_fill_field 323.28
+SPREAD slope_audit_fill_field 4.8520
+  V3 hold   (cap 2 standard errors)
+
+V4  and against the measured ceiling e(#k)/2?
+  e(#k) on the field +0.560414, s.e. 0.000117, so the measured ceiling is +0.280207
+  e(l1/l2) - e(#k)/2 = +0.004173
+  and the same difference fitted directly as e(F): +0.004166, s.e. 0.000874, t = 4.76
+TSTAT slope_fillfield_flat 4.76
+SPREAD slope_fillfield_flat 4.8520
+  on the mixture the same slope was +0.001798, s.e. 0.001460, t = 1.23, which is what that file read as unresolved
+TSTAT slope_fillfield_mixture 1.23
+SPREAD slope_fillfield_mixture 4.8520
+UNRESOLVED SIGN slope_fillfield_mixture
+  V4 hold   (cap 2 standard errors)
+
+V5  do the two shapes separate once the mixture is out?
+  shape                 r.m.s.
+  F ~ N^e               0.006480   (e = +0.004166)
+  F = a + b/log N       0.006520   (a = 0.724612, b = -0.591850)
+  the gap 0.000041 against the r.m.s.'s own standard error 0.000602 on 60 points
+  V5 REFUTED   (cap: the r.m.s.'s own standard error)
+  so a clean field does not decide the shape either -- the tie is not the mixture's doing
+
+V6  is F smooth at sub-doubling spacing on the field?
+  octave   points   slope        s.e.        r.m.s.     |corr|
+  0        7        -0.018752    0.015563    0.006673   0.47436
+  1        8        +0.037515    0.017382    0.009468   0.66110
+  2        8        +0.011335    0.011477    0.006251   0.37395
+  3        8        +0.004927    0.022363    0.012181   0.08959
+  4        9        +0.019387    0.008534    0.004813   0.65143
+  5        9        +0.031149    0.011953    0.006741   0.70174
+  6        11       -0.005131    0.012566    0.008411   0.13486
+  against the published eight-point r.m.s. 0.006479
+SWEPT fillfield_localslope octave-range 0.056267
+POP fillfield_localslope 7
+CORR fillfield_localslope 0.08959
+  V6 REFUTED   (cap: the published eight-point r.m.s.)
+
+  and the deficit item 4(b) has to close, on the field alone
+  quantity                       value        s.e.
+  e(l1/l2)                       +0.284380    0.000880
+  e(G)                           +0.146489    0.003878
+  the deficit e(l1/l2) - e(G)    +0.137891   
+  the distance to the arithmetic ceiling, theta'/2 - e(G)
+                                 +0.133511   
+TSTAT slope_fillfield_gain 37.78
+SPREAD slope_fillfield_gain 4.8520
+  so the target is the measured e(l1/l2) and not the ceiling: the
+  concentration is still above theta'/2 on the field, and what
+  closes that gap is F reaching its bound, not a fit.
+
+======================================================================
+V1 hold  V2 hold  V3 hold  V4 hold  V5 REFUTED  V6 REFUTED
