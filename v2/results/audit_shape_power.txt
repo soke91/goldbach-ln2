@@ -1,0 +1,98 @@
+STATISTIC: the two shapes of {#rem:flatnessshape} refitted
+           from the 81 rows of
+           results/audit_field_reach.txt, the greatest
+           pointwise difference between the two fitted
+           curves over the window against the residual
+           r.m.s., and the POWER of this repository's own
+           discriminator -- gap in r.m.s. against
+           min(r.m.s.)/sqrt(2(n-2)) -- estimated by
+           synthetic draws from each fitted shape at the
+           observed abscissae and residual r.m.s.; the same
+           power on windows extended upward at the family's
+           own density; and the same at the loudest and
+           quietest octave scatter the sweep shows.
+NULL: the null IS the measurement. Every trial draws from a
+      shape KNOWN in advance, so what is reported is how
+      often the test recovers an answer it was given, which
+      is what M2 and M4 ask of a threshold before it is
+      believed. The draws use the fixed SEED declared below,
+      so every number reproduces.
+FIELD: no arithmetic is computed here. The abscissae, the
+       flatness values, the fitted shapes and the residual
+       r.m.s. are read from results/audit_field_reach.txt,
+       whose own field is the on-field N = 2^a 5^b with a,
+       b >= 1 in [2e5, 1.024e8]; the extended windows keep
+       that family's density of points per unit log N and
+       extend upward only; the octave scatters are that
+       file's own.
+
+read 81 rows from results/audit_field_reach.txt
+  with its published r.m.s. 0.006380 for the power law (e = +0.003408) and 0.006366 for the bounded shape
+  and its published gap 0.000015 against a standard error 0.000506
+  the span is 6.2383 in log N at a density of 12.9843 points per unit
+SEED 20260818
+TRIALS 2000
+
+P1  the control: the same two fits from the same table
+  shape                 r.m.s. here   published
+  F ~ N^e               0.006382      0.006380
+  F = a + b/log N       0.006367      0.006366
+  exponent +0.003400 against the published +0.003408
+  worst departure 0.00000812
+  P1 REFUTED   (tol 0.000001)
+  the table prints 4 decimals, so each F is within 0.000050 of the value that produced it;
+  an r.m.s. is nonexpansive in that perturbation, so it can move by up to 0.000050,
+  and the slope of log F is a fixed linear functional, so it can move by up to 0.000036
+  every departure inside its own bound: yes
+  so what P1 refutes at its registered tolerance is the tolerance, exactly as
+  {#rem:slopes} found for its own M1; the fit is the published one. This script
+  gates on the bound and not on the registered number, and says so here.
+
+  and how far apart the two fitted curves actually are on the window:
+  greatest difference 0.001195, at log N = 12.2061, against the residual r.m.s. 0.006367
+  so the shapes differ by 0.1877 of one residual across the whole span
+
+P2  the power of the comparison that has been run three times
+  drawing from the fitted power law itself, at the observed abscissae and the observed residual r.m.s.:
+  it separates in 0.0000 of trials and picks the generating shape in 0.0000
+  drawing from the bounded shape instead: separates 0.0000, picks it 0.0000
+  P2 hold   (target power 0.95)
+
+P4  is it the noise, or are the shapes just that close?
+  with the noise set to zero the two r.m.s. are 0.00000000 and 0.00047608, gap 0.00047608 against 0.00000000
+  P4 hold   (cap: the same discriminator)
+  so the shapes ARE distinguishable on this window as functions; what defeats the test is the noise, and the answer is span
+
+P3  how much span would give power 0.95?
+  the family's density is held fixed and the window is extended upward only;
+  the truth is the fitted power law and the noise is the observed residual r.m.s.
+  top log10 N   points   separates   picks it
+  8.0103        81       0.0000      0.0000
+  9.0000        111      0.0000      0.0000
+  10.0000       140      0.0075      0.0075
+  12.0000       200      0.7075      0.7075
+  15.0000       290      1.0000      1.0000
+  20.0000       439      1.0000      1.0000
+  30.0000       738      1.0000      1.0000
+  45.0000       1187     1.0000      1.0000
+  60.0000       1635     1.0000      1.0000
+  the first grid point reaching it is 10^15.0000
+  P3 hold   (cap 10^12)
+
+X1  the same question for the other two undetermined destinations
+  (written after P3; not pre-registered). Both are trends whose
+  direction is resolved and whose shape is not, and the power of
+  the comparison that would settle them is the same calculation
+  at their own span, noise and density.
+  the octave scatters are read from that file's own W6 table: 9 of them
+  quantity                 span     noise      density  picks it
+  F, for reference         6.2383   0.006367   12.9843  0.0000
+  F at the loudest octave  6.2383   0.012183   12.9843  0.0000
+  F at the quietest octave 6.2383   0.004821   12.9843  0.0000
+  so the verdict does not turn on which octave's scatter is used:
+  the power stays far below the target across the whole range of
+  scatter the sweep actually shows.
+SENSITIVITY shapepower 0.004821 0.012183
+
+======================================================================
+P1 REFUTED  P2 hold  P3 hold  P4 hold

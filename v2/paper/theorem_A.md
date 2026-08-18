@@ -4777,6 +4777,78 @@ onto a measured $+0.283586$ and not onto an arithmetic $0.28$**, and no
 future reach of this family will settle which of the two it is really
 closing onto.
 
+*Added later.* One sentence above is withdrawn — "the shapes are not
+separating, they are converging". A shrinking ratio of gap to error
+cannot be read that way from a test with no power, and the test has
+none; see Remark [rem:shapepower]. The retirement itself survives and
+is strengthened.
+
+
+#### Remark (the tie was never a measurement) {#rem:shapepower}
+<!-- evidence: audit_shape_power.py -->
+
+Three cycles have ended on one sentence: direction resolved,
+destination undetermined. [rem:fieldreach] on $F$, [rem:splitreach] on
+the head's one-sign fraction, [rem:headaxis] on the imbalance axis's
+grip. In each the trend clears its own error many times over and the
+shape carrying it does not, so nothing is published about where it
+goes. Rule 3 of this repository exists for exactly the question nobody
+put to that: **a tie between two shapes is evidence of similarity only
+if the test could have told them apart.**
+
+It could not. Feeding the comparison $2000$ synthetic sweeps drawn
+from the fitted power law itself, at the observed abscissae and the
+observed residual r.m.s., it declares a separation in $0.0000$ of them
+and picks the generating shape in $0.0000$ (P2). Drawing from the
+bounded shape instead gives the same. **The discriminator this
+repository has used four times — the gap in r.m.s. against
+$\min(\mathrm{r.m.s.})/\sqrt{2(n-2)}$ — has no power at this design at
+all**, and the scatter it is run at does not matter: at the loudest
+octave the sweep shows and at the quietest, the answer is the same
+$0.0000$.
+
+**The shapes are distinguishable; the noise is thirteen times their
+difference.** With the noise set to zero the bounded shape leaves
+r.m.s. $0.00047608$ against the power law's exact fit (P4), and the
+greatest pointwise gap between the two fitted curves is $0.001195$, at
+$\log N=12.2061$ — $0.1877$ of a single residual. So the two curves
+are not the same function on this window; they are nowhere near far
+enough apart to be told apart through the scatter $F$ actually
+carries.
+
+**What span would do it.** Holding the family's density of $12.9843$
+points per unit $\log N$ and extending upward, the power runs
+$0.0000$ at $10^{8.0103}$ — the reach [rem:fieldreach] achieved —
+$0.0000$ at $10^{9}$, $0.0075$ at $10^{10}$, $0.7075$ at $10^{12}$,
+and first clears $0.95$ at $10^{15}$ (P3). Sieving $\Lambda$ and $\mu$
+to $10^{15}$ is not a matter of patience.
+
+**So the retirement in [rem:fieldreach] is right and its reasoning was
+not.** That remark read the gap-to-error ratio falling from $0.09$ to
+$0.07$ to $0.03$ as the shapes converging. With power $0.0000$ that
+ratio is not a measurement of anything, and the sentence is withdrawn.
+What replaces it is stronger: the question was never being asked. Four
+statements of the form "the shapes are tied" in this repository —
+[rem:flatnessshape], [rem:flatnessfill], [rem:fillfield],
+[rem:fieldreach] — are all correct as refusals to conclude and none of
+them is evidence that the two shapes describe $F$ equally well.
+
+**And the control refuted its own tolerance, again.** P1 was
+registered at $0.000001$ and the refit departs by $0.00000812$. The
+table prints four decimals, so each $F$ is within $0.000050$ of the
+value that produced it; an r.m.s. is nonexpansive under that
+perturbation and the slope of $\log F$ is a fixed linear functional
+with sensitivity $0.000036$. Every departure is inside its own bound.
+This is [rem:slopes]'s M1 a second time — **a control's tolerance that
+does not ask what the printed table carries refutes the tolerance, not
+the fit** — and the script gates on the computed bound and prints that
+it does.
+
+One thing this does not measure. [rem:splitreach]'s one-sign fraction
+and [rem:headaxis]'s spreads rest on the same kind of comparison and
+have not been put through this test. What transfers to them is the
+question, not the number.
+
 
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
 <!-- evidence: audit_slope_significance.py -->
