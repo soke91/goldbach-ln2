@@ -1954,6 +1954,73 @@ and that alone holds $e(G)$ down. Reading the whole range's $0.154$
 without the split hides a part that already exceeds square root and a
 part that does not cancel at all.
 
+*Added later.* Every number above is eight doublings. The same split
+on the field to $1.024\cdot10^8$ is Remark [rem:splitreach]; the
+readings survive and two of them change size.
+
+
+#### Remark (the same split on eighty-one points) {#rem:splitreach}
+<!-- evidence: audit_split_reach.py -->
+
+Remark [rem:gainsplit] is the only place this programme says *where*
+in the $k$ the deficit of item 4(b) sits, and all of it stands on
+eight doublings spanning a factor of $128$. Its sharpest sentence is
+the one about signs: the head's one-sign fraction runs $1.0000$ down
+to $0.8274$ across those eight, falling monotonically, and whether it
+falls to a positive limit or to a coin is the difference between an
+obstruction and a small-$N$ effect. Remark [rem:fieldreach] made the
+field affordable to $1.024\cdot10^8$, so the split runs on $81$
+on-field $N$ over a spread of $6.2383$ in $\log N$. The eight
+doublings reproduce to $0.000050$ (Z1).
+
+**The ordering survives and the tail's margin triples.** On the $81$,
+$e(\text{head})=+0.072900$, $e(\text{whole})=+0.149567$,
+$e(\text{tail})=+0.457005$ (Z2), against $+0.077963$, $+0.153911$,
+$+0.340006$ on eight. The tail's excess over $\theta'/2$ is
+$+0.177005$ — **$9.25$ standard errors**, after $2.33$ (Z3). The small
+terms do not merely beat square-root cancellation; the margin by which
+they beat it grows with the reach. The tail is also the noisy part:
+its r.m.s. is $0.310423$ against $0.040867$ for the head.
+
+**The head is falling further behind, not catching up.** Its gain
+against the square-root reference $\sqrt{\#\text{head}}$ runs
+$0.1796$, $0.0927$, $0.0558$ at the bottom, middle and top of the
+sweep, an exponent of $-0.207342$ at $t=82.40$. A head of $1034$
+dilations at the top $N$ has gain $1.7957$ where independent signs
+would give about $32$.
+
+**The one sign is falling, and is nowhere near a coin.** The fraction
+runs $1.0000$ to $0.7786$ with a slope of $-0.027628$ in $\log N$ at
+$t=24.17$, so the fall [rem:gainsplit] saw across eight points is
+real and resolved. But at the top $N$ the head has $1034$ members, a
+coin's standard deviation is $0.015549$, and the fraction is $0.7795$
+— **$17.97$ standard deviations above one half** (Z4). Both halves of
+the reading hold at once: the head's alignment is decaying, and at
+every $N$ this programme can compute it is not decay to randomness.
+No arrival at one half is published from that slope; the shape
+carrying it is undetermined, exactly as [rem:fieldreach] found for
+$F$.
+
+**One prediction failed: the head is not a fixed share of the mass**
+(Z5). Its share of $\sum|a|$ runs $0.3628$ down to $0.3337$ with
+exponent $-0.006738$ at $t=7.75$ — small, and resolved. This does not
+contradict [rem:gainprofile], whose flat share was the top block of a
+ten-way split of $|w_ds_d|$ and a different object; what it costs is
+the assumption that exponents taken on "the head" are taken on the
+same fraction of the mass at every $N$. They are not, by about a
+thirtieth over the sweep.
+
+**What this does to item 4(b).** The demand is that $e(G)=+0.149567$
+close $+0.134019$ onto $e(\ell^1/\ell^2)=+0.283586$. The split says
+that closing has to happen in the head: the tail is already past
+$\theta'/2$ by $9.25$ standard errors and pushing it further buys
+nothing, while the head sits at $+0.072900$ and its distance to the
+square-root reference is widening at $-0.207342$. **So item 4(b) is
+not a demand about $\mu$'s cancellation in general; it is a demand
+about a tenth of the dilations whose signs agree four times in five
+and whose agreement decays too slowly to reach a coin anywhere this
+can be computed.**
+
 
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->

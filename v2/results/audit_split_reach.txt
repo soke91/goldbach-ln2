@@ -1,0 +1,188 @@
+STATISTIC: for a_k = (log k)H(N;k) over the squarefree
+           k < N^theta' coprime to N, the gain
+           sum|a| / |sum a| on the whole range, on the top
+           tenth of k by |a_k| and on the bottom nine
+           tenths; that head's share of sum|a|, the fraction
+           of the head carrying one sign, and its overlap
+           with the smallest tenth of k by size; each of the
+           three gains' least-squares exponent in log N over
+           the on-field family to 1.024e8, the one-sign
+           fraction's slope and the mass share's exponent.
+NULL: none is run for the split, a deterministic partition
+      of a measured sequence, and none is needed for the
+      one-sign fraction: its null is the binomial one half
+      and Z4 uses it as the cap. The coin arms for the gain
+      itself are audit_crossk_reference.py and
+      lab_gain_opposition.py.
+FIELD: N = 2^a 5^b with BOTH a >= 1 and b >= 1 in
+       [2e5, 1.024e8], one coprimality class as COPRIME
+       says -- the class {2,5}, k coprime to 10 and N even;
+       k squarefree with 2 <= k < N^theta'; m over
+       1 <= m < N/k with (m,k) = 1; Lambda and mu from an
+       integer sieve to 102400000; the head fraction, the
+       field, the sieve and theta' are imported from
+       code/audit_gain_split.py; the published rows and
+       exponents are read from results/audit_gain_split.txt.
+
+read 8 published rows from results/audit_gain_split.txt
+  with its head, tail and whole exponents +0.077963 +0.340006 +0.153911
+  the field, the sieve, theta' and the head fraction are imported from code/audit_gain_split.py
+  the arithmetic reference for a gain exponent is theta'/2 = 0.2800
+
+the field: every N = 2^a 5^b with a and b at least one in [200000, 102400000]
+  81 of them, and 8 of the doublings sit inside for the control
+RADICALS 1
+COPRIME 1
+
+sieving to 102400000 ...
+
+  N            #k      head   G        head     tail     mass    onesign  overlap
+  200000       313     31     1.8337   1.0000   3.4166   0.3572  1.0000   0.2258
+  204800       317     32     1.8110   1.1533   2.6043   0.3482  0.9062   0.3438
+  250000       355     36     1.7228   1.0435   2.6653   0.3520  0.9722   0.2222
+  256000       360     36     1.9414   1.0457   3.5733   0.3478  0.9722   0.2222
+  312500       402     40     2.0370   1.2052   3.3471   0.3619  0.9000   0.3000
+  320000       407     41     2.0113   1.0791   3.8437   0.3556  0.9512   0.2683
+  327680       413     41     1.9901   1.0945   3.5390   0.3485  0.9512   0.2927
+  400000       462     46     1.8036   1.0395   3.0632   0.3587  0.9783   0.2174
+  409600       468     47     1.8980   1.1178   3.0141   0.3467  0.9362   0.2340
+  500000       525     52     2.2754   1.1454   4.9212   0.3528  0.9231   0.2885
+  512000       532     53     2.0094   1.1467   3.3345   0.3456  0.9245   0.2642
+  625000       595     60     2.1581   1.1308   4.2266   0.3501  0.9333   0.2500
+  640000       604     60     2.2111   1.0904   4.8520   0.3462  0.9500   0.2000
+  655360       612     61     2.3311   1.1405   5.2317   0.3469  0.9344   0.2131
+  781250       674     67     2.3393   1.0321   6.8432   0.3419  0.9851   0.1791
+  800000       682     68     2.2074   1.1784   4.1440   0.3486  0.9118   0.2353
+  819200       691     69     2.1382   1.2054   3.6332   0.3471  0.8986   0.2754
+  1000000      773     77     2.3485   1.1974   4.6630   0.3405  0.9091   0.2727
+  1024000      782     78     2.3465   1.1850   4.9216   0.3480  0.9103   0.2436
+  1250000      875     88     2.5170   1.1776   6.2485   0.3443  0.9205   0.2727
+  1280000      886     89     2.4712   1.1183   6.9020   0.3467  0.9551   0.2697
+  1310720      899     90     2.5965   1.1551   7.4235   0.3426  0.9222   0.2111
+  1562500      991     99     2.4351   1.1887   5.4725   0.3461  0.9091   0.2828
+  1600000      1004    100    2.5876   1.2966   5.6078   0.3510  0.8800   0.2900
+  1638400      1018    102    2.6395   1.1740   7.5370   0.3423  0.9118   0.2647
+  2000000      1141    114    2.6559   1.2394   6.5832   0.3430  0.8947   0.2368
+  2048000      1157    116    2.5521   1.3095   5.5510   0.3628  0.8707   0.3621
+  2500000      1290    129    2.5148   1.1606   6.3724   0.3416  0.9225   0.2868
+  2560000      1308    131    2.5163   1.3260   5.1123   0.3613  0.8702   0.3206
+  2621440      1325    132    2.5724   1.2082   6.4127   0.3465  0.9091   0.2576
+  3125000      1464    146    2.8200   1.2146   8.6847   0.3382  0.8973   0.2808
+  3200000      1485    148    2.7893   1.2944   7.2939   0.3485  0.8716   0.2703
+  3276800      1505    150    2.9245   1.2947   8.8257   0.3469  0.8800   0.2867
+  3906250      1661    166    2.8504   1.2556   8.9559   0.3493  0.8976   0.2590
+  4000000      1680    168    2.9647   1.2186   12.7183  0.3486  0.9167   0.2500
+  4096000      1703    170    3.1569   1.3383   10.5118  0.3399  0.8647   0.2941
+  5000000      1904    190    2.9380   1.2210   11.0062  0.3427  0.9000   0.2632
+  5120000      1929    193    3.1284   1.3408   9.9515   0.3396  0.8549   0.3109
+  5242880      1956    196    2.9517   1.3143   8.6201   0.3455  0.8724   0.2551
+  6250000      2158    216    2.9548   1.2364   10.7319  0.3427  0.8889   0.2546
+  6400000      2186    219    3.0787   1.3721   8.9816   0.3457  0.8721   0.2785
+  6553600      2216    222    2.9523   1.3270   8.8758   0.3527  0.8784   0.2973
+  7812500      2442    244    3.2553   1.4218   9.8577   0.3418  0.8443   0.2705
+  8000000      2475    248    3.0597   1.2917   10.5757  0.3418  0.8750   0.2782
+  8192000      2508    251    3.1812   1.3788   10.5687  0.3484  0.8566   0.3108
+  10000000     2808    281    3.2587   1.3410   13.2546  0.3453  0.8683   0.2633
+  10240000     2846    285    3.3042   1.3462   13.4961  0.3418  0.8561   0.2702
+  10485760     2885    288    3.2355   1.2931   13.9097  0.3381  0.8924   0.2917
+  12500000     3184    318    3.4779   1.3580   16.1229  0.3344  0.8491   0.2830
+  12800000     3226    323    3.4075   1.3799   12.8987  0.3337  0.8545   0.3096
+  13107200     3268    327    3.4602   1.4046   13.6542  0.3378  0.8563   0.3028
+  15625000     3607    361    3.3944   1.3919   13.6724  0.3432  0.8504   0.3102
+  16000000     3654    365    3.3485   1.4561   10.8272  0.3470  0.8411   0.2986
+  16384000     3703    370    3.3058   1.3925   11.3908  0.3406  0.8486   0.3000
+  19531250     4084    408    3.6191   1.3531   23.5346  0.3357  0.8554   0.2941
+  20000000     4138    414    3.5163   1.4489   12.6803  0.3362  0.8309   0.3164
+  20480000     4193    419    3.5243   1.4306   14.5399  0.3411  0.8377   0.2983
+  20971520     4249    425    3.7589   1.4349   20.9471  0.3363  0.8424   0.2847
+  25000000     4691    469    3.7091   1.5494   13.2080  0.3403  0.8060   0.3433
+  25600000     4754    475    3.5925   1.4639   14.3074  0.3400  0.8274   0.3263
+  26214400     4819    482    3.7298   1.4776   18.0801  0.3424  0.8216   0.2988
+  31250000     5315    532    3.8354   1.4918   19.6021  0.3386  0.8233   0.3045
+  32000000     5388    539    3.8474   1.5005   17.9278  0.3343  0.8330   0.2931
+  32768000     5457    546    3.8172   1.5621   15.2066  0.3416  0.8114   0.2857
+  39062500     6022    602    3.8605   1.5126   18.0561  0.3362  0.8256   0.2907
+  40000000     6106    611    4.0042   1.5458   21.2456  0.3379  0.8118   0.3093
+  40960000     6186    619    3.8967   1.5439   21.7443  0.3500  0.8255   0.3053
+  41943040     6270    627    4.1434   1.5829   29.7123  0.3473  0.8134   0.3381
+  50000000     6918    692    4.2852   1.4876   79.7442  0.3347  0.8237   0.3136
+  51200000     7009    701    4.2947   1.5901   35.3366  0.3406  0.7974   0.3210
+  52428800     7103    710    4.1824   1.5188   44.6324  0.3407  0.8268   0.3113
+  62500000     7839    784    4.2142   1.5488   37.7529  0.3405  0.8087   0.3099
+  64000000     7944    794    4.1696   1.5492   35.0924  0.3425  0.8123   0.3111
+  65536000     8053    805    4.5583   1.6173   55.9422  0.3356  0.8062   0.3205
+  78125000     8884    888    4.5394   1.6225   53.9657  0.3375  0.8041   0.3209
+  80000000     9001    900    4.7705   1.6692   108.6700 0.3398  0.7900   0.3144
+  81920000     9121    912    4.6381   1.6150   88.9151  0.3361  0.8015   0.3213
+  83886080     9246    925    4.6121   1.6747   53.5349  0.3425  0.7881   0.3286
+  97656250     10067   1007   4.7420   1.7105   50.9049  0.3385  0.7786   0.3327
+  100000000    10200   1020   4.7121   1.6574   62.7621  0.3341  0.7853   0.3167
+  102400000    10338   1034   4.6396   1.7957   26.2939  0.3421  0.7795   0.3366
+
+Z1  the control at the doublings
+  N            G here / pub          head           tail           mass         onesign
+  200000       1.8337/1.8337  1.0000/1.0000  3.4166/3.4166  0.3572/0.3572  1.0000/1.0000
+  400000       1.8036/1.8036  1.0395/1.0395  3.0632/3.0632  0.3587/0.3587  0.9783/0.9783
+  800000       2.2074/2.2074  1.1784/1.1784  4.1440/4.1440  0.3486/0.3486  0.9118/0.9118
+  1600000      2.5876/2.5876  1.2966/1.2966  5.6078/5.6078  0.3510/0.3510  0.8800/0.8800
+  3200000      2.7893/2.7893  1.2944/1.2944  7.2939/7.2939  0.3485/0.3485  0.8716/0.8716
+  6400000      3.0787/3.0787  1.3721/1.3721  8.9816/8.9816  0.3457/0.3457  0.8721/0.8721
+  12800000     3.4075/3.4075  1.3799/1.3799  12.8987/12.8987  0.3337/0.3337  0.8545/0.8545
+  25600000     3.5925/3.5925  1.4639/1.4639  14.3074/14.3074  0.3400/0.3400  0.8274/0.8274
+  worst departure 0.000050
+  Z1 hold   (tol 0.0001)
+
+Z2/Z3  the exponent on each part, on 81 points over 6.2383 in log N
+  part           exponent     s.e.       r.m.s.     published (8 doublings)
+  whole          +0.149567    0.002424   0.039340   +0.153911
+SCATTER slope_splitreach_whole 0.0393
+TSTAT slope_splitreach_whole 61.70
+SPREAD slope_splitreach_whole 6.2383
+  head tenth     +0.072900    0.002518   0.040867   +0.077963
+SCATTER slope_splitreach_head_tenth 0.0409
+TSTAT slope_splitreach_head_tenth 28.95
+SPREAD slope_splitreach_head_tenth 6.2383
+  tail           +0.457005    0.019127   0.310423   +0.340006
+SCATTER slope_splitreach_tail 0.3104
+TSTAT slope_splitreach_tail 23.89
+SPREAD slope_splitreach_tail 6.2383
+  the tail's excess over theta'/2 is +0.177005 = 9.25 standard errors
+  Z2 the ordering head < whole < tail   hold
+  Z3 the tail beats square root   hold   (cap 2 standard errors)
+GAINSPLIT crossk_reach +0.072900 +0.457005 +0.149567
+SPLITOVERLAP crossk_reach 0.1791 0.3621
+
+Z4  is the head's one sign falling, and to what?
+  the fraction runs 0.7786 to 1.0000 over the field
+  its least-squares slope in log N = -0.027628, s.e. 0.001143, t = 24.17, r.m.s. 0.018554
+  at the top N the head has 1034 members, so a coin's standard deviation is 0.015549
+  the top fraction is 0.7795, which is 17.97 of those above one half
+TSTAT slope_splitreach_onesign 24.17
+SPREAD slope_splitreach_onesign 6.2383
+TSTAT slope_audit_split_reach 24.17
+SPREAD slope_audit_split_reach 6.2383
+  the falling part holds and the above-a-coin part holds
+  Z4 hold   (cap 2 standard errors and 2 binomial deviations)
+
+Z5  is the head a fixed share of the mass?
+  the share runs 0.3337 to 0.3628, exponent -0.006738, s.e. 0.000869, t = 7.75
+TSTAT slope_splitreach_mass 7.75
+SPREAD slope_splitreach_mass 6.2383
+  Z5 REFUTED   (cap 2 standard errors)
+PERN splitreach_head_mass 81 0.3337 0.3628
+PERN splitreach_head_onesign 81 0.7786 1.0000
+RATIO splitreach_head_mass splitreach_head_onesign 0.3471 0.4389
+
+X1  how far the head is from cancelling at all
+  (written after Z2; not pre-registered)
+  N            head G    sqrt(#head)  ratio
+  200000       1.0000    5.5678       0.1796
+  6400000      1.3721    14.7986      0.0927
+  102400000    1.7957    32.1559      0.0558
+  the ratio head G / sqrt(#head) has exponent -0.207342, s.e. 0.002516, t = 82.40
+TSTAT slope_splitreach_headref 82.40
+SPREAD slope_splitreach_headref 6.2383
+REFERENCE audit_split_reach 81 0.0519 0.2039
+
+======================================================================
+Z1 hold  Z2 hold  Z3 hold  Z4 hold  Z5 REFUTED
