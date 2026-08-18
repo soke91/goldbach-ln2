@@ -2623,6 +2623,11 @@ $$
 against its floor exactly when $e(G)$ reaches $e(\ell^1/\ell^2)$, and
 that is a factor $1.87$ in the exponent — from $0.154$ to $0.288$.
 
+*Added later.* Both exponents are eight-point values on the doubling
+family. On the field to $1.024\cdot10^8$ they are $+0.149567$ and
+$+0.283586$ — see [rem:fillfield] and [rem:fieldreach]. The identity
+and the demand are unchanged; only the numbers move.
+
 **W4 is refuted, narrowly and in the awkward direction.**
 $\ell^1/\ell^2$ is bounded by $\sqrt{\#k}$ and $\#k\asymp N^{\theta'}$
 here, so its exponent cannot exceed $\theta'/2=0.28$; it measures
@@ -2632,6 +2637,12 @@ $(\ell^1/\ell^2)/\sqrt{\#k}$ is $0.6760,\,0.6622,\,0.6854,\,0.6764,\,
 called it flat on five points and on eight it is mildly rising. So
 the concentration is still gaining on its own ceiling and item 5 does
 not reduce to $e(G)$ alone.
+
+*Added later.* Eight points were a small sample and a mixed field.
+On the clean field the excess over the ceiling is $4.98$ standard
+errors and on the field to $1.024\cdot10^8$ it is $6.20$, with $F$
+resolved rising at $t=5.92$ — [rem:fillfield] and [rem:fieldreach].
+The reading here is right and its numbers are superseded.
 
 **W2 is refuted by its cap.** The constant $c$ was asked to hold to
 $0.02$ in the log; it runs over $0.219062$. But $c$ is a *median* over

@@ -3297,6 +3297,10 @@ not.
 $\log_{10}N=8.6994$ while the bound one of them would reach sits at
 $28.6782$.
 
+*Added later.* That arrival is withdrawn — see [rem:fillfield] and
+[rem:fieldreach], which publish no arrival for $F$ at all. The
+structural point C4 makes survives it.
+
 So the operative statement about this ladder is narrow and exact:
 **it can be read to about $N=10^{8.1}$, a factor $2.2$ past its top
 rung, and no further.** Everything the papers say about $\tfrac12$ is
@@ -4282,6 +4286,11 @@ either way as [rem:primorialreach] brackets, $[10^{10.3993},\,
 10^{10.8367}]$. Twelve rungs put it at $10^{11.0762}$, and the shape
 that no longer survives put it at $10^{13.8607}$.
 
+*Added later.* The survivor does not survive the rungs above this
+range: see Remarks [rem:laddercurve], [rem:curvereach] and
+[rem:rung15]. The $\tfrac12$ crossing is untouched and has since been
+passed by direct measurement.
+
 **And the bracket is a floor on the uncertainty, not the whole of it.**
 Two things say so and neither is repaired here. The two best shapes
 part by more than the fit's own r.m.s. at $10^{8.3256}$, only $0.5367$
@@ -4947,6 +4956,14 @@ unchanged and now has a scale: close $+0.133887$, on the vector
 $\mu$ actually gives, with the concentration $\ell^1/\ell^2$ fixed at
 $+0.287798$ — which is itself only $+0.007798$ above the ceiling
 $\theta'/2$ that [rem:flatnessshape] shows it cannot pass.
+
+*Added later.* The scale is now $+0.134019$ onto a measured
+$+0.283586$ on the field to $1.024\cdot10^8$ ([rem:fieldreach]), the
+concentration's excess over the ceiling is $6.20$ standard errors
+rather than $+0.007798$'s worth, and the deficit has since been
+localised in the head and identified with a truncated Chebyshev
+correlation — [rem:sumhead], [rem:denominator]. The reading above is
+unchanged; every number in it has moved.
 
 
 #### Remark (the excess over the ceiling was eight points) {#rem:flatnessfill}
