@@ -4849,6 +4849,70 @@ and [rem:headaxis]'s spreads rest on the same kind of comparison and
 have not been put through this test. What transfers to them is the
 question, not the number.
 
+*Added later.* They have now; see Remark [rem:destination]. The
+numbers transfer, and asking for the destination instead of the shape
+gets one answer the shape contest could not give.
+
+
+#### Remark (asking for the destination instead of the shape) {#rem:destination}
+<!-- evidence: audit_power_reach.py -->
+
+[rem:shapepower] left two quantities untested and one method
+unexamined. Both are fixed here. The controls reproduce inside the
+bound each table's printing forces, computed and not assumed
+(Q1) — the lesson that remark paid for, applied at the start this
+time.
+
+**The transfer holds.** Drawing from each fitted linear shape at its
+own abscissae and residual r.m.s., the discriminator picks the
+generating shape in $0.1375$ of trials for the head's one-sign
+fraction and $0.0000$ for both axis spreads (Q2). Three quantities,
+three shape questions, none answerable at the reach computed.
+
+**But the shape contest is the wrong question.** Nobody needs to know
+which of two curves fits; they need to know where the trend goes.
+That is an asymptote, and an asymptote has a standard error whether or
+not a contest has a winner: fit $y=L+b\,g(\log N)$ for bounded $g$ and
+$L$ is the destination. The catch is that $L$ depends on $g$, and that
+is the shape ambiguity in the one place it can be priced — the spread
+of $L$ across bases against the error within one.
+
+**Priced, it is the basis and not the noise** (Q3). On the bases
+$1/x$, $1/\sqrt{x}$, $1/x^2$:
+
+| quantity | $L$ across bases | spread | $2\times$ largest s.e. |
+|---|---|---|---|
+| one-sign fraction | $+0.462564,\ +0.042611,\ +0.672482$ | $0.629871$ | $0.073194$ |
+| $\lvert I\rvert$ spread | $-0.061735,\ -0.557187,\ +0.185867$ | $0.743054$ | $0.177565$ |
+| $T$ spread | $+0.578516,\ +1.094751,\ +0.320392$ | $0.774360$ | $0.151457$ |
+
+Each destination is pinned to a few hundredths within a basis and
+undetermined by six or seven tenths across them. **The noise is not
+what leaves these open; the choice of curve is**, and no amount of
+extra $N$ at this density changes that — it is the same wall
+[rem:shapepower] measured, stated in the units the question was asked
+in.
+
+**Q4 is refuted, and it costs a reading.** Two of the three bases put
+the head's one-sign asymptote at or below one half: $1/x$ gives
+$+0.462564$ with two-sigma interval $[+0.425102,+0.500025]$ and
+$1/\sqrt{x}$ gives $+0.042611$; only $1/x^2$ clears, at
+$[+0.652438,+0.692527]$. **A coin is inside what the data allow.**
+[rem:splitreach]'s sentence — at every $N$ this programme can compute,
+the head's alignment is not decay to randomness — stands exactly as
+written, because it was written about the measured range. What is
+excluded is the extrapolation: nothing here entitles anyone to say the
+head keeps a positive majority.
+
+**One thing the destinations do agree on.** [rem:headaxis] published
+no crossing for the handover from imbalance to mass. On all three
+bases the $\lvert I\rvert$ destination lies below the $T$ destination
+— gaps $-0.640250$, $-1.651938$, $-0.134524$, each clearing its own
+two-sigma — so **the handover completes on every basis tried**, and
+only its size is undetermined, by a factor of $12.28$. That is the
+first destination this repository has been able to state, and it is a
+direction rather than a place.
+
 
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
 <!-- evidence: audit_slope_significance.py -->

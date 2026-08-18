@@ -1,0 +1,100 @@
+STATISTIC: for the head's one-sign fraction read from
+           results/audit_split_reach.txt and the |I| and T
+           decile spreads read from
+           results/audit_headaxis_reach.txt, the
+           least-squares slope in log N against the
+           published one and against the bound each table's
+           printing forces; the power of this repository's
+           shape discriminator on each, by synthetic draws
+           from the fitted linear shape at the observed
+           abscissae and residual r.m.s.; and the fitted
+           asymptote L of y = L + b g(log N) with its
+           standard error on each of the bases 1/x,
+           1/sqrt(x) and 1/x^2, with the spread of L across
+           bases against the largest within-basis error.
+NULL: the null IS the measurement for the power, as in
+      {#rem:shapepower}: every trial draws from a shape known
+      in advance. For the asymptotes no null applies -- they
+      are interval estimates, and the interval states what
+      the data exclude. The draws use the fixed SEED below.
+FIELD: no arithmetic is computed here. Both series are read
+       from files whose own field is the on-field
+       N = 2^a 5^b with a, b >= 1 in [2e5, 1.024e8], one
+       coprimality class; the one-sign fraction is the
+       majority sign share of the top tenth of k by |a_k|,
+       and the spreads are top-minus-bottom decile
+       differences of the negative share cut on |I| and on T
+       as code/audit_head_sign.py defines them.
+
+read 81 one-sign fractions from results/audit_split_reach.txt (slope -0.027628 published)
+  and 81 axis spreads from results/audit_headaxis_reach.txt (|I| -0.032884, T +0.033468 published)
+SEED 20260819
+TRIALS 2000
+
+Q1  the controls, each against the bound its own printing forces
+  quantity              slope here   published    bound      inside
+  one-sign fraction     -0.027627    -0.027628    0.000024   yes
+  |I| spread            -0.032883    -0.032884    0.000024   yes
+  T spread              +0.033471    +0.033468    0.000024   yes
+  the printing carries 4 and 4 decimals, so a single value is within 0.000050 and 0.000050 of what produced it
+  Q1 hold   (cap: each slope's own computed bound)
+
+Q2  the power of the discriminator on these two
+  quantity              span     noise      separates  picks it
+  one-sign fraction     6.2383   0.018558   0.1375     0.1375
+  |I| spread            6.2383   0.045924   0.0000     0.0000
+  T spread              6.2383   0.041819   0.0000     0.0000
+  drawn from the linear shape itself at the observed abscissae and residual r.m.s.
+  Q2 hold   (target power 0.95)
+
+Q3  where does each trend actually go, and how well is that pinned?
+  the destination is the intercept L of y = L + b g(log N), so it is
+  estimated with a standard error on every basis; the question is
+  whether the bases agree better than they are each pinned.
+  one-sign fraction
+    basis        L            s.e.       r.m.s.
+    1/x          +0.462564    0.018731   0.020100
+    1/sqrt(x)    +0.042611    0.036597   0.019585
+    1/x^2        +0.672482    0.010022   0.021338
+    spread across bases 0.629871 against twice the largest standard error 0.073194  basis dominates
+  |I| spread
+    basis        L            s.e.       r.m.s.
+    1/x          -0.061735    0.044855   0.048134
+    1/sqrt(x)    -0.557187    0.088783   0.047513
+    1/x^2        +0.185867    0.023242   0.049482
+    spread across bases 0.743054 against twice the largest standard error 0.177565  basis dominates
+  T spread
+    basis        L            s.e.       r.m.s.
+    1/x          +0.578516    0.037474   0.040214
+    1/sqrt(x)    +1.094751    0.075729   0.040527
+    1/x^2        +0.320392    0.018688   0.039787
+    spread across bases 0.774360 against twice the largest standard error 0.151457  basis dominates
+  Q3 hold   (cap: twice the largest within-basis error)
+
+Q4  does any bounded fit send the head to a coin?
+  basis        L            two-sigma interval        clears one half
+    1/x          +0.462564    [+0.425102, +0.500025]   NO
+    1/sqrt(x)    +0.042611    [-0.030582, +0.115805]   NO
+    1/x^2        +0.672482    [+0.652438, +0.692527]   yes
+  the cap is one half, which is what a coin gives a majority share
+  Q4 REFUTED
+
+X1  and the crossing the axis question asks about
+  (written after Q3; not pre-registered). {#rem:headaxis} found the two
+  spreads moving in opposite directions at near-equal rates and published
+  no crossing. On each bounded basis the two destinations are these:
+  basis        |I| goes to   T goes to    gap at the destination
+    1/x          -0.061735     +0.578516    -0.640250  (+- 0.116899)
+    1/sqrt(x)    -0.557187     +1.094751    -1.651938  (+- 0.233385)
+    1/x^2        +0.185867     +0.320392    -0.134524  (+- 0.059647)
+  a negative gap is a handover completed, a positive one is not.
+  the bases agree on the sign: yes, and each gap clears its own two-sigma: yes, yes, yes
+  the gaps themselves run -1.651938 to -0.134524, a factor of 12.28, so the
+  direction of the handover is agreed and its size is not -- which is Q3's
+  verdict in the units the question was asked in.
+TSTAT slope_audit_power_reach 24.16
+SPREAD slope_audit_power_reach 6.2383
+SENSITIVITY powerreach 0.018558 0.045924
+
+======================================================================
+Q1 hold  Q2 hold  Q3 hold  Q4 REFUTED
