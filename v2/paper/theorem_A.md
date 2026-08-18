@@ -3386,6 +3386,55 @@ because the argmax sits at the $k$-cap ($28549$ to $29451$) at every
 $N$, exactly as Remark [rem:provablehalf] says. Asking it to stay
 below a fixed $32$ was asking the wrong question.
 
+*Added later.* "The drift sits where the elementary sum is thin" is a
+statement about a factor-$16$ lever. With $512$ it is the other way
+round; see Remark [rem:uniformityreach]. Nothing else here changes.
+
+
+#### Remark (the drift is real, and nowhere near the bound) {#rem:uniformityreach}
+<!-- evidence: audit_uniformity_reach.py -->
+
+[rem:provableuniformity] checked [rem:provablehalf]'s premise on the
+axis the classical estimate does not control — fixed inner length,
+varying modulus — over a modulus range of a factor $16$, and closed
+by saying the drift sits where the mass is not. The statistic turns
+out to cost seconds, so the same check runs over a factor $512$: ten
+doublings to $N=1.024\cdot10^8$, the $k$-cap of $30000$ and everything
+else imported unchanged. The five published maxima reproduce to
+$0.000033$ (A1).
+
+**The drift is not a short-lever effect** (A2). Four octaves are
+resolved rising, not two, and the two that were rising survive with
+better resolution: $[2048,8192)$ at $+0.005283$ ($t=2.53$),
+$[8192,32768)$ at $+0.006071$ ($t=5.60$), and the two longer
+inner-length octaves the extra reach opens, $[32768,131072)$ at
+$+0.004537$ ($t=3.88$) and $[131072,524288)$ at $+0.001827$
+($t=3.03$). The short inner lengths fall, as they did:
+$-0.212164$ and $-0.137950$ at $t=2.59$ and $3.28$. **The axis is not
+flat, and the sign of the drift is set by the length of the inner
+sum.**
+
+**And it no longer sits where the mass is not** (A3). The share of
+$\sum(\log k)\lvert P\rvert$ carried by resolved-rising octaves runs
+$0.0266$ to $0.9804$ across the doublings, against the published
+$0.0673$. The reason is structural and has to be said with the
+result: the $k$-cap is fixed, so as $N$ grows every admissible $k$ has
+a long inner sum, and long inner sums are exactly the rising ones. At
+the top $N$ an uncapped sweep would have added only $2$ more $k$, so
+within *this* field — which is the field [rem:provablehalf]'s
+elementary half is defined on — the drift is where the mass is.
+
+**But it is nowhere near the bound** (A4). The overall maximum ratio
+runs $1.2119$ down to $0.0843$ with slope $-0.446123$ at $t=37.31$.
+The rising octaves rise at five thousandths per unit $\log N$ while
+the maximum falls at four tenths. **So the premise is unproved and
+measurably non-uniform, and at every reach that can be computed the
+constant it needs is improving by two orders faster than the drift
+threatens it.** That is not a proof of the uniformity and does not
+become one by being repeated at larger $N$; it is the exact shape of
+what a computation can say about a statement quantified over all $k$
+and all $N$.
+
 
 #### Remark (two answers to two questions, 5465 decades apart) {#rem:provableforecast}
 <!-- evidence: audit_provable_forecast.py -->

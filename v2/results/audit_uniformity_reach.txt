@@ -1,0 +1,94 @@
+STATISTIC: the ratio |P(N;k)| / [(N/k) exp(-c sqrt(log(N/k)))
+           L(k)] of code/audit_provable_uniformity.py,
+           imported unchanged, at every admissible k; its
+           overall maximum at each of ten doublings from
+           2e5 to 1.024e8; its maximum within each octave of
+           the inner length N/k, and the least-squares slope
+           of that maximum in log N, which at a fixed octave
+           varies the modulus by the ratio of the largest N
+           to the smallest; the share of sum(log k)|P|
+           carried by the octaves whose slope is resolved
+           positive; and the overall maximum's own slope.
+NULL: none is run and none applies. A measured sum is divided
+      by a deterministic bound and its maxima compared across
+      N; there is no background to detect against. The coin
+      arm for this field is lab_elementary_provable.py's
+      sixteen coins on the identical sifted set.
+FIELD: N = 2e5 through 1.024e8 by doubling, every one
+       2^a 5^b with one odd radical as RADICALS declares;
+       k odd, squarefree and coprime to N with
+       2 <= k < 30000, the cap held fixed at
+       code/audit_provable_uniformity.py's value; m odd,
+       squarefree and coprime to k, m <= (N-1)/k; the sieve
+       weight over the odd primes below 30; c = 0.2098;
+       octaves closed at both ends and used only when they
+       hold at least 10 k. The published maxima, slopes and
+       mass share are read from
+       results/audit_provable_uniformity.txt.
+
+read 5 published maxima and 6 published octave slopes from
+  results/audit_provable_uniformity.txt, whose rising octaves carry 0.0673 of the elementary sum
+  the statistic, the sieve, the k-cap 30000 and c are imported from code/audit_provable_uniformity.py
+
+the doublings: N = 200000 to 102400000, 10 of them, so the modulus at a
+  fixed inner length runs over a factor 512 against the published 16
+RADICALS 1
+
+sieving to 102400000, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+
+  N            #k      max ratio   at N/k    k there   k-range cut by the cap
+  200000       10132   1.2119      7         28549     3333
+  400000       10132   1.0222      13        29873     769
+  800000       10132   0.7768      30        26573     769
+  1600000      10132   0.5391      63        25261     188
+  3200000      10132   0.3487      108       29451     188
+  6400000      10132   0.2525      284       22507     46
+  12800000     10132   0.1907      433       29517     46
+  25600000     10132   0.1498      914       27993     11
+  51200000     10132   0.1138      1726      29663     11
+  102400000    10132   0.0843      3455      29631     2
+
+A1  the control at the published N
+  worst departure 0.000033 over 5 shared N; the table prints 4 decimals, so the bound is 0.00005000
+PRINTBOUND audit_uniformity_reach 4 0.00005000
+  A1 hold   (cap: the printing bound)
+
+A2  the octave table, at a fixed inner length across the doublings
+  N/k octave          points  ratio at the ends        slope        s.e.        t
+  [8      ,32     )  3       1.0710 to 0.7768           -0.212164    0.081904    2.59
+  [32     ,128    )  5       0.7309 to 0.3487           -0.137950    0.042110    3.28
+  [128    ,512    )  7       0.2987 to 0.1907           -0.018818    0.012238    1.54
+  [512    ,2048   )  9       0.1608 to 0.1138           -0.003571    0.003870    0.92
+  [2048   ,8192   )  10      0.0655 to 0.0843           +0.005283    0.002090    2.53
+  [8192   ,32768  )  9       0.0296 to 0.0565           +0.006071    0.001084    5.60
+  [32768  ,131072 )  7       0.0146 to 0.0341           +0.004537    0.001168    3.88
+  [131072 ,524288 )  5       0.0049 to 0.0092           +0.001827    0.000603    3.03
+  resolved rising: [2048,8192), [8192,32768), [32768,131072), [131072,524288)
+  the two that were rising on the published set: [2048,8192) still, [8192,32768) still
+  A2 hold   (cap 2 standard errors on each)
+SCALES audit_uniformity_reach 10
+
+A3  does the drift sit where the mass is?
+  the resolved-rising octaves carry 0.0266 to 0.9804 of sum(log k)|P| across the doublings
+  against the published 0.0673
+CROSSAXIS audit_uniformity_reach 8 4 0.9804
+AXIS RISE audit_uniformity_reach
+  A3 hold   (cap: the published share)
+
+A4  and what the bound's constant is doing
+  the overall maximum runs 1.2119 down to 0.0843 over the ten doublings
+  its least-squares slope in log N is -0.446123, s.e. 0.011957, t = 37.31
+TSTAT slope_audit_uniformity_reach 37.31
+SPREAD slope_audit_uniformity_reach 6.2383
+  A4 hold   (cap 2 standard errors)
+
+  what this settles and what it does not. It does not prove the uniformity,
+  which is a statement about all k and all N. It checks it on the axis the
+  classical estimate does not control, over a modulus range 32 times longer
+  than the published one, and reports where the drift sits against where the
+  mass sits. The k-cap of 30000 is held fixed, so the shortest inner lengths
+  drop out as N grows; the column above says how many k an uncapped sweep
+  would have added at each N.
+
+======================================================================
+A1 hold  A2 hold  A3 hold  A4 hold
