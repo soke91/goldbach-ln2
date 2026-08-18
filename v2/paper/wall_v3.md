@@ -2324,6 +2324,57 @@ the pessimistic direction. The rule should have been written on
 $\lvert e(G)-\theta'/2\rvert$.
 
 
+#### Remark (the surviving correlation is a composite-index object) {#rem:support}
+<!-- evidence: audit_support.py -->
+
+[rem:denominator] showed $\sum a=\sum_j\Lambda(N-j)\Lambda_K(j)$ and
+[rem:thetalaw] showed the truncation is what removes the main term.
+Neither says what the survivor sits on, and here the index decides it
+before any measurement. Write $j=mk$ with $k$ squarefree,
+$2\le k<N^{\theta'}$, $k$ coprime to $N$, $m$ coprime to $k$:
+
+* $j$ prime leaves only $(m,k)=(1,j)$, since the other factorisation
+  has $\log1=0$. So the prime part is
+  $\sum_{p<N^{\theta'}}\log p\,\Lambda(N-p)$ — **a Goldbach count with
+  one prime forced below the level**.
+* $j=p^e$ with $e\ge2$ leaves only $k=p$ among squarefree divisors
+  above $1$, and then $m=p^{e-1}$ is not coprime to $k$. **Higher
+  prime powers contribute nothing at all.**
+* Everything else has at least two distinct prime factors.
+
+The split reproduces $\sum a$ to $5.346\cdot10^{-15}$ relative (V1),
+and the prime-power bucket is $0.0$ — exactly, not approximately (V2).
+The signs separate completely: the prime part is positive at $81$ of
+$81$ $N$ and the composite part negative at $81$ of $81$ (V3).
+
+**The composite part is the whole object.** Its exponent is
+$+0.716454$ against the total's $+0.717916$, while the prime part is
+$+0.579228$ — below the total by $-0.138688$, which is $22.39$
+standard errors of the difference. In absolute terms at the top $N$
+the prime piece is $+57085.5$ against a total of $-8013222.0$, and at
+the bottom $+1417.9$ against $-87895.3$: a Goldbach count is in there,
+positive, and it is a hundredth of what it is inside.
+
+**So item 4(b)'s denominator has almost no Goldbach content.** What
+has to be made small is not the main term of the binary problem —
+that is removed by the truncation, exactly, for every prime index
+above the level — but a correlation of $\Lambda$ against a
+convolution supported on indices with two or more distinct prime
+factors. Whatever the obstruction is, it is not the Goldbach main
+term standing in the way.
+
+**One prediction failed, and modestly** (V4). The prime piece should
+be of size $N^{\theta'}$: the Hardy–Littlewood count of $p<K$ with
+$N-p$ prime is about $\mathfrak S K/(\log K\log N)$ and the summand
+$\log p\log(N-p)$ cancels both logs, leaving $\mathfrak S N^{\theta'}$
+with $\mathfrak S$ constant along this family. Measured, the exponent
+is $+0.579228\pm0.005719$, above $\theta'=0.56$ by $+0.019228$ —
+$3.36$ standard errors. It is the noisy part, with r.m.s. $0.092817$
+against the composite's $0.037934$, but the departure is resolved and
+is recorded rather than explained: at this reach the explicit
+Goldbach piece grows slightly faster than its own heuristic says.
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 
