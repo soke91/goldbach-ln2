@@ -132,6 +132,8 @@ Y1  the control at N = 25600000
   the head's one-sign fraction 0.8274 against the published 0.8274
   worst departure 0.000047
   Y1 hold   (tol 0.0001)
+  the table it is judged against prints 4 decimals, so a single value is within 0.00005000 of what produced it
+PRINTBOUND audit_headaxis_reach 4 0.00005000
 
 Y2  does the axis ordering survive at the new top?
   at N = 102400000 the spreads are |I| +0.3182, T +0.1654, k +0.0077

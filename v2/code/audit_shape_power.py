@@ -219,6 +219,8 @@ def main():
               and abs(c1[1] - pe) <= be)
     say("  every departure inside its own bound: %s"
         % ("yes" if inside else "NO"))
+    say("PRINTBOUND audit_shape_power %d %.8f" % (dec, rnd))
+    say("TOL BELOW PRINT audit_shape_power")
     say("  so what P1 refutes at its registered tolerance is the "
         "tolerance, exactly as")
     say("  {#rem:slopes} found for its own M1; the fit is the "

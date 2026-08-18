@@ -129,6 +129,8 @@ REFERENCE audit_field_reach 81 0.6622 0.7017
 W1  the control against the rows already published
   60 rows compared; worst departure 0 on a count and 0.000050 on a printed ratio
   W1 hold   (cap 0 and tol 0.0001)
+  the table it is judged against prints 4 decimals, so a single value is within 0.00005000 of what produced it
+PRINTBOUND audit_field_reach 4 0.00005000
 
 W2  does the excess over the ceiling survive the lever?
   on 81 points over a spread of 6.2383 in log N, e(l1/l2) = +0.283586, s.e. 0.000578

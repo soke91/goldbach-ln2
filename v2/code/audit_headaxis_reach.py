@@ -116,12 +116,13 @@ def read_published():
     src = io.open(os.path.join(RES, "audit_head_sign.txt"),
                   encoding="utf-8").read()
     i = src.index("spread from half, top decile minus bottom decile:")
-    sp = {}
+    sp, dec = {}, 0
     for ln in src[i:].splitlines()[1:]:
         f = ln.split()
         if len(f) != 2:
             break
         sp[f[0]] = float(f[1])
+        dec = max(dec, len(f[1].split(".")[1]))
     src2 = io.open(os.path.join(RES, "audit_split_reach.txt"),
                    encoding="utf-8").read()
     ag = {}
@@ -129,7 +130,7 @@ def read_published():
                          r"\s+[\d.]+\s+[\d.]+\s+([\d.]+)\s+[\d.]+\s*$",
                          src2, re.M):
         ag[int(m.group(1))] = float(m.group(2))
-    return sp, ag
+    return sp, ag, dec
 
 
 def family(lo, hi):
@@ -179,7 +180,7 @@ def main():
         print(s)
         lines.append(s)
 
-    pubsp, pubag = read_published()
+    pubsp, pubag, dec = read_published()
     NS = family(LO, HI)
     CTRL = 25_600_000
 
@@ -265,6 +266,11 @@ def main():
     y1 = worst <= 0.0001
     say("  worst departure %.6f" % worst)
     say("  Y1 %s   (tol 0.0001)" % ("hold" if y1 else "REFUTED"))
+    say("  the table it is judged against prints %d decimals, so a "
+        "single value is within %.8f of what produced it"
+        % (dec, 0.5 * 10.0 ** (-dec)))
+    say("PRINTBOUND audit_headaxis_reach %d %.8f"
+        % (dec, 0.5 * 10.0 ** (-dec)))
 
     # -------------------------------------------------------------- Y2
     say()

@@ -119,10 +119,12 @@ def read_published():
     """the on-field rows and the deficit {#rem:fillfield} measured"""
     src = io.open(os.path.join(RES, "audit_flatness_fill.txt"),
                   encoding="utf-8").read()
-    rows = {}
+    rows, dec = {}, 0
     for m in ROW.finditer(src):
         rows[int(m.group(1))] = (int(m.group(3)), float(m.group(4)),
                                  float(m.group(5)), float(m.group(6)))
+        for g in (4, 5, 6):
+            dec = max(dec, len(m.group(g).split(".")[1]))
     src2 = io.open(os.path.join(RES, "audit_fill_field.txt"),
                    encoding="utf-8").read()
     m = re.search(r"the deficit e\(l1/l2\) - e\(G\)\s+([+-][\d.]+)",
@@ -136,7 +138,7 @@ def read_published():
                    src3)
     return (rows, float(m.group(1)), float(m2.group(1)),
             float(m2.group(2)), float(m3.group(1)), float(m3.group(2)),
-            float(m4.group(1)))
+            float(m4.group(1)), dec)
 
 
 def family(lo, hi):
@@ -172,7 +174,7 @@ def main():
         lines.append(s)
 
     (pub, pubdef, pubec, pubsc, pubeg, pubsg,
-     prms) = read_published()
+     prms, dec) = read_published()
     ceil_ = THETA / 2.0
     NS = family(LO, HI)
     old = [N for N in NS if N <= 25_600_000]
@@ -245,6 +247,11 @@ def main():
         "on a printed ratio" % (seen, worstk, worstr))
     say("  W1 %s   (cap 0 and tol 0.0001)" % ("hold" if w1 else
                                               "REFUTED"))
+    say("  the table it is judged against prints %d decimals, so a "
+        "single value is within %.8f of what produced it"
+        % (dec, 0.5 * 10.0 ** (-dec)))
+    say("PRINTBOUND audit_field_reach %d %.8f"
+        % (dec, 0.5 * 10.0 ** (-dec)))
 
     # -------------------------------------------------------------- W2
     say()

@@ -44,6 +44,8 @@ P1  the control: the same two fits from the same table
   an r.m.s. is nonexpansive in that perturbation, so it can move by up to 0.000050,
   and the slope of log F is a fixed linear functional, so it can move by up to 0.000036
   every departure inside its own bound: yes
+PRINTBOUND audit_shape_power 4 0.00005000
+TOL BELOW PRINT audit_shape_power
   so what P1 refutes at its registered tolerance is the tolerance, exactly as
   {#rem:slopes} found for its own M1; the fit is the published one. This script
   gates on the bound and not on the registered number, and says so here.

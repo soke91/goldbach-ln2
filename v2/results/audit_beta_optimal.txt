@@ -79,6 +79,7 @@ BUDGET kstar_R_S1AN_N3200000 0.374487
   1600000      1.0007                            0.9995
   3200000      1.0001                            1.0000
   At 4 of the 5 N both columns are within one (tol 0.001):
+TOL NOT FROM PRINT audit_beta_optimal
   two objectives do not merely agree on the answer, they are
   flat in the same place. Where they separate, the optimal
   beta is worse by the l2 measure that chose the fitted one

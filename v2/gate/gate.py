@@ -3937,6 +3937,104 @@ def g74_parametric_families_declare_their_coprimality_classes():
     return n
 
 
+# ----------------------------------------------------------------- G75
+TOLJUDGE = re.compile(r"\btol ([\d.]+)")
+READSRESULT = re.compile(r"results/[a-z_0-9]+\.txt")
+PRINTBOUND = re.compile(r"^PRINTBOUND (\S+) (\d+) ([\d.eE+-]+)\s*$", re.M)
+PRINTBOUNDFOR = re.compile(r"^PRINTBOUND FOR (\S+) (\d+) "
+                           r"([\d.eE+-]+)\s*$", re.M)
+TOLBELOW = re.compile(r"^TOL BELOW PRINT (\S+)\s*$", re.M)
+TOLOWN = re.compile(r"^TOL NOT FROM PRINT (\S+)\s*$", re.M)
+
+
+def g75_tolerances_follow_the_printing_they_judge():
+    """인쇄된 표를 판정하는 허용오차는 그 인쇄에서 나와야 한다.
+
+    두 번 물렸다. audit_slope_significance.py 의 M1 이 10^-5 로 통제를
+    걸었다가 반증됐고, 재 보니 모든 간극이 인쇄 반올림이 강제하는 자기
+    한계 안이었다 -- 그 remark 가 "M1 이 반증하는 것은 허용오차"라고
+    적었다. 그리고 audit_shape_power.py 의 P1 이 0.000001 로 걸었다가
+    같은 이유로 반증됐다. 표가 소수 넷째 자리까지 찍으면 각 값은 자기를
+    만든 값의 0.00005 안이고, r.m.s. 는 그 섭동에 대해 비확대이므로
+    그보다 좁은 허용오차는 자료와 무관하게 발화한다.
+
+    두 번 다 같은 실수이고 게이트의 어느 검사도 울지 않았다. G17 은 N 에
+    의존하는 문턱을 계산하라고 하지만 인쇄 정밀도에서 나오는 문턱은
+    그물 밖이었다.
+
+    그래서 다른 결과 파일을 읽으면서 tol <값> 으로 통제를 판정하는 결과
+    파일은 PRINTBOUND <이름> <소수자리> <한계> 를 내야 한다 (다른 파일이
+    PRINTBOUND FOR <이름> 으로 대신 낼 수 있다). 그리고 판정에 쓴 가장
+    작은 허용오차가 그 한계보다 작으면 TOL BELOW PRINT <이름> 을 붙여야
+    한다 -- 붙이는 쪽도 진술이다. 그런 파일은 자기 통제가 인쇄 때문에
+    발화한다는 것을 알고 그렇게 적은 것이고, 모르고 지나간 것과는 다르다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    forlab, below, own_only = {}, set(), set()
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        for lab, dec, bd in PRINTBOUNDFOR.findall(src):
+            try:
+                forlab[lab] = (int(dec), float(bd))
+            except ValueError:
+                pass
+        below.update(TOLBELOW.findall(src))
+        own_only.update(TOLOWN.findall(src))
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        tols = TOLJUDGE.findall(src)
+        if not tols or not READSRESULT.search(src):
+            continue
+        lab = f[:-4]
+        if lab in own_only:
+            # the tolerance judges quantities this file computed, not
+            # values it read off a printed table; that is a statement
+            # and the file has made it.
+            continue
+        own = [(int(d), float(b)) for lb, d, b in PRINTBOUND.findall(src)
+               if lb == lab]
+        if own:
+            dec, bound = own[0]
+        elif lab in forlab:
+            dec, bound = forlab[lab]
+        else:
+            fails.append(
+                f"G75 results/{f} judges a control with a tol and "
+                f"reads another result file, and declares neither "
+                f"PRINTBOUND {lab} nor TOL NOT FROM PRINT {lab}; "
+                f"the two controls this repository set without asking "
+                f"what the printed table carries both refuted the "
+                f"tolerance rather than the fit")
+            n += 1
+            continue
+        if bound <= 0 or dec <= 0:
+            fails.append(
+                f"G75 results/{f} declares PRINTBOUND {lab} {dec} "
+                f"{bound:g}, which is not a printing bound")
+            n += 1
+            continue
+        try:
+            tightest = min(float(t) for t in tols)
+        except ValueError:
+            continue
+        if (tightest < bound) != (lab in below):
+            fails.append(
+                f"G75 results/{f} judges at tol {tightest:g} against "
+                f"a printing bound of {bound:g} and the "
+                f"TOL BELOW PRINT {lab} marker "
+                f"{'is present anyway' if tightest >= bound else 'is missing'}"
+                f"; below the bound a control fires on rounding, and "
+                f"that has to be said rather than discovered")
+            n += 1
+    return n
+
+
 def main():
     docs = [(p, read(p)) for p in paper_files()]
     print("gate")
@@ -4075,6 +4173,8 @@ def main():
          g73_agreements_declare_the_predictor_s_marginals()),
         ("G74 parametric families declare their classes",
          g74_parametric_families_declare_their_coprimality_classes()),
+        ("G75 tolerances follow the printing they judge",
+         g75_tolerances_follow_the_printing_they_judge()),
     ]
     print()
     for name, c in counts:

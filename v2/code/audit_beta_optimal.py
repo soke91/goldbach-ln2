@@ -331,6 +331,7 @@ def main():
                if abs(r[0] - 1.0) < 1e-3 and abs(r[1] - 1.0) < 1e-3)
     say("  At %d of the %d N both columns are within one (tol 0.001):"
         % (flat, len(res)))
+    say("TOL NOT FROM PRINT audit_beta_optimal")
     say("  two objectives do not merely agree on the answer, they are")
     say("  flat in the same place. Where they separate, the optimal")
     say("  beta is worse by the l2 measure that chose the fitted one")

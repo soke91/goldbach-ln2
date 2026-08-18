@@ -117,13 +117,15 @@ def read_published():
     """{#rem:gainsplit}'s eight rows and its three exponents"""
     src = io.open(os.path.join(RES, "audit_gain_split.txt"),
                   encoding="utf-8").read()
-    rows = {}
+    rows, dec = {}, 0
     for m in re.finditer(r"^  N = (\d+)\s+#k = (\d+)\s+head (\d+)\s+"
                          r"G ([\d.]+)\s+head ([\d.]+)\s+tail "
                          r"([\d.]+)\s+mass ([\d.]+)\s*$", src, re.M):
         rows[int(m.group(1))] = (int(m.group(2)), int(m.group(3)),
                                  float(m.group(4)), float(m.group(5)),
                                  float(m.group(6)), float(m.group(7)))
+        for g in (4, 5, 6, 7):
+            dec = max(dec, len(m.group(g).split(".")[1]))
     ag = {}
     i = src.index("N            top-decile share  same sign in the "
                   "head")
@@ -135,7 +137,7 @@ def read_published():
     m = re.search(r"^GAINSPLIT crossk ([+-][\d.]+) ([+-][\d.]+) "
                   r"([+-][\d.]+)\s*$", src, re.M)
     return (rows, ag, float(m.group(1)), float(m.group(2)),
-            float(m.group(3)))
+            float(m.group(3)), dec)
 
 
 def family(lo, hi):
@@ -169,7 +171,7 @@ def main():
         print(s)
         lines.append(s)
 
-    pub, pubag, pubh, pubt, pubw = read_published()
+    pub, pubag, pubh, pubt, pubw, dec = read_published()
     ceil_ = THETA / 2.0
     NS = family(LO, HI)
     RUNGS = [N for N in SPL.NS if N in NS]
@@ -244,6 +246,11 @@ def main():
     z1 = worst <= 0.0001
     say("  worst departure %.6f" % worst)
     say("  Z1 %s   (tol 0.0001)" % ("hold" if z1 else "REFUTED"))
+    say("  the table it is judged against prints %d decimals, so a "
+        "single value is within %.8f of what produced it"
+        % (dec, 0.5 * 10.0 ** (-dec)))
+    say("PRINTBOUND audit_split_reach %d %.8f"
+        % (dec, 0.5 * 10.0 ** (-dec)))
 
     # -------------------------------------------------------- Z2 / Z3
     ew, rw, sw = fit(x, np.log(np.array([r[3] for r in rows])))

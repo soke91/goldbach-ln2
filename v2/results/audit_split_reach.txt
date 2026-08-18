@@ -131,6 +131,8 @@ Z1  the control at the doublings
   25600000     3.5925/3.5925  1.4639/1.4639  14.3074/14.3074  0.3400/0.3400  0.8274/0.8274
   worst departure 0.000050
   Z1 hold   (tol 0.0001)
+  the table it is judged against prints 4 decimals, so a single value is within 0.00005000 of what produced it
+PRINTBOUND audit_split_reach 4 0.00005000
 
 Z2/Z3  the exponent on each part, on 81 points over 6.2383 in log N
   part           exponent     s.e.       r.m.s.     published (8 doublings)
