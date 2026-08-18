@@ -1,0 +1,76 @@
+STATISTIC: the fifteen primorial-ladder level exponents
+           log K*_R / log N at N = 30030*2^j, read from the
+           result files that measured them; the
+           least-squares slope in log N on the whole set and
+           on each half; a quadratic term in log N fitted on
+           all fifteen with its own standard error; and the
+           three out-of-sample rungs against a line fitted
+           on the upper rungs below them, each with the
+           prediction standard error at its own abscissa.
+NULL: none is run and none applies. Every quantity is a
+      least-squares summary of exponents already measured,
+      and the comparisons are between fits on subsets of the
+      same points; there is no background to detect against.
+FIELD: no arithmetic is computed here. The exponents are
+       read from results/audit_primorial_rung10.txt (eleven
+       rungs) and results/audit_primorial_rung11.txt,
+       rung12, rung13 and rung14 (one each), whose own field
+       is N = 30030*2^j with the odd radical 3*5*7*11*13
+       fixed, k squarefree and coprime to N with
+       2 <= k < 100000, m odd, squarefree and coprime to k,
+       and the Euler products at the fixed bound 4000000.
+
+read 15 rung exponents from results/audit_primorial_rung10, 11, 12, 13 and 14
+  with the published fifteen-rung slope +0.007953 and r.m.s. residual 0.0045
+RADICALS 1
+
+  rung   N              log10 N   exponent
+  0      30030          4.4776    0.4550
+  1      60060          4.7786    0.4595
+  2      120120         5.0796    0.4682
+  3      240240         5.3806    0.4633
+  4      480480         5.6817    0.4688
+  5      960960         5.9827    0.4746
+  6      1921920        6.2837    0.4876
+  7      3843840        6.5848    0.4824
+  8      7687680        6.8858    0.4965
+  9      15375360       7.1868    0.4941
+  10     30750720       7.4879    0.5023
+  11     61501440       7.7889    0.5099
+  12     123002880      8.0899    0.5178
+  13     246005760      8.3909    0.5283
+  14     492011520      8.6920    0.5333
+
+E1  the control
+  slope here +0.007954 against the published +0.007953; r.m.s. 0.0045 against 0.0045
+  worst departure 0.000035; the tables print 4 decimals, so the bound is 0.00005000
+PRINTBOUND audit_ladder_curve 4 0.00005000
+  E1 hold   (cap: the printing bound)
+
+E2  do the two halves have the same slope?
+  lower 7 rungs: slope +0.006626, s.e. 0.001225, r.m.s. 0.0038
+  upper 8 rungs: slope +0.010202, s.e. 0.000732, r.m.s. 0.0028
+  the difference is +0.003576 against 0.001427, two standard errors of it being 0.002854
+TSTAT slope_audit_ladder_curve 2.51
+SPREAD slope_audit_ladder_curve 9.7041
+  E2 hold   (cap 2 standard errors of the difference)
+
+E3  is a quadratic term resolved?
+  the quadratic coefficient is +0.00038561, s.e. 0.00011737, t = 3.29
+  the quadratic fit's r.m.s. is 0.0032 against the line's 0.0045
+TSTAT slope_laddercurve_quad 3.29
+SPREAD slope_laddercurve_quad 9.7041
+  E3 hold   (cap 2 standard errors)
+
+E4  does a line on the upper rungs predict the new ones?
+  fitted on the rungs below the three out-of-sample points, and only those above the halfway mark:
+  5 rungs, slope +0.008772, s.e. 0.001799, r.m.s. 0.0031
+  rung   log10 N   predicted   measured   departure   pred s.e.   ratio
+  12     8.0899    0.5153      0.5178     +0.0025     0.0057      0.44
+  13     8.3909    0.5214      0.5283     +0.0069     0.0066      1.05
+  14     8.6920    0.5274      0.5333     +0.0059     0.0076      0.77
+  outside their own prediction standard error: 1 of 3
+  E4 hold   (cap: all three inside)
+
+======================================================================
+E1 hold  E2 hold  E3 hold  E4 hold

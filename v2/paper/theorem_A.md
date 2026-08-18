@@ -3942,6 +3942,58 @@ that three measurements have now cleared from above, and whether that
 means an earlier crossing or a slightly wrong constant is not
 something five rungs past the fit can say.
 
+*Added later.* "Not an accelerating curve" was measured on the wrong
+quantity — departures from one line, rather than the rungs' own
+slopes. Measured on those, the curvature is resolved. See Remark
+[rem:laddercurve].
+
+
+#### Remark (measured on its own slopes, the ladder curves) {#rem:laddercurve}
+<!-- evidence: audit_ladder_curve.py -->
+
+[rem:rung14] read three out-of-sample departures of $1.27$, $2.02$ and
+$1.29$ prediction standard errors, saw no growth in them, and
+concluded a constant offset rather than a curve. That conclusion is
+measured on the wrong quantity. A departure is taken from a line
+fitted on *all* the rungs, low ones included; if the ladder curves,
+that line is already tilted by the curvature it is being used to
+detect, and the prediction error grows with distance besides. The
+question is about the rungs' own slopes, and fifteen of them are
+published. Nothing new is computed here; the whole-set slope
+reproduces to $0.000035$ (E1).
+
+**The slope rises with $N$** (E2). On the lower seven rungs it is
+$+0.006626\pm0.001225$; on the upper eight, $+0.010202\pm0.000732$.
+The difference is $+0.003576$ against a combined standard error of
+$0.001427$ — $2.51$ of them. The ladder is steeper at the top than at
+the bottom by half again.
+
+**A quadratic term is resolved** (E3). Fitted on all fifteen, the
+coefficient of $(\log N)^2$ is $+0.00038561\pm0.00011737$, $t=3.29$,
+and the r.m.s. residual falls from $0.0045$ to $0.0032$. **So the
+ladder curves upward, and [rem:rung14]'s reading is corrected: what
+looked like a fixed offset from a straight line is the straight line
+failing.**
+
+**Consistently, a line fitted on the upper rungs predicts the new ones
+well** (E4). On the five rungs between the halfway mark and the
+out-of-sample points the slope is $+0.008772$, and the three new rungs
+depart from it by $0.44$, $1.05$ and $0.77$ of their own prediction
+standard errors. One of three outside is what E4 asked for and it is
+thin evidence; what carries the reading is E2 and E3. The two are not
+in tension — a line fitted where the ladder is already steep absorbs
+most of the curvature, which is exactly why the departures from the
+all-rung line were not growing.
+
+Three cycles have now given three readings of these points — a bend, a
+flat offset, and a resolved curve — and the third is the one measured
+on the ladder's own slopes rather than on residuals from a fit that
+the curvature contaminates. The direction it implies is unchanged and
+still not published as a number: a ladder steepening with $N$ meets
+$\theta'$ earlier than $10^{10.6180}$, and extrapolating a quadratic
+two decades past its data is the thing [rem:shapepower] exists to
+forbid.
+
 
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->
