@@ -1,0 +1,177 @@
+STATISTIC: the double sum sum_k log k sum_m mu(m)
+           Lambda(N - mk) under each subset of the four
+           restrictions (k < N^theta', k squarefree, k
+           coprime to N, m coprime to k), against the
+           untruncated Chebyshev correlation
+           sum_j Lambda(j) Lambda(N - j); and, on the
+           on-field family to 1.024e8, the restricted sum a,
+           its l1 norm, the gain l1/|sum a| and the
+           correlation over N, with each one's least-squares
+           exponent in log N.
+NULL: none is run and none applies. T1 is an identity, T2 and
+      T4 are signs of exactly computed sums, T3 is a fit to
+      them; there is no background to detect against and no
+      threshold a null would calibrate. The sign arms for the
+      gain are audit_crossk_reference.py and
+      lab_gain_opposition.py.
+FIELD: for T1 and T4, N = 20000, 50000, 100000, small enough
+       that the unrestricted double sum over every k < N is
+       affordable; for T2 and T3, N = 2^a 5^b with BOTH
+       a >= 1 and b >= 1 in [2e5, 1.024e8], one coprimality
+       class as COPRIME says. Lambda and mu from an integer
+       sieve; the restricted sum, the field and theta' are
+       code/audit_gain_split.py's, imported.
+
+the field, the sieve and theta' are imported from code/audit_gain_split.py
+  theta' = 0.56, so the truncation is k < N^theta'
+
+T1  the identity, with every restriction removed
+  N          unrestricted double sum   sum Lam(j)Lam(N-j)   relative gap
+  20000      +36539.8651               +36539.8651          4.381e-15
+  50000      +86993.4244               +86993.4244          1.505e-15
+  100000     +176573.6498              +176573.6498         4.945e-15
+  worst relative gap 4.945e-15
+  T1 hold   (tol 1e-12 relative)
+  so the repository's sum a is that correlation with four restrictions on the index, and nothing else.
+
+T4  which restriction changes the sign, one at a time
+  N          none          trunc only    squarefree    coprime to N  m coprime k
+  20000      +36539.9      -8657.0       +27661.8      +36539.9      +51233.9
+  50000      +86993.4      -17462.3      +61575.0      +86993.4      +125171.4
+  100000     +176573.6     -23198.0      +131917.7     +176566.2     +248504.2
+  T4 hold   (cap: the truncation alone negative, each other alone positive)
+
+sieving to 102400000 ...
+the field: every N = 2^a 5^b with a and b at least one in [200000, 102400000]; 81 of them
+RADICALS 1
+COPRIME 1
+
+  N            sum a           l1              G        |sum a|/N   Lam*Lam/N
+  200000       -87895.3        161175.4        1.8337   0.439477    1.776817
+  204800       -95406.6        172782.5        1.8110   0.465852    1.763830
+  250000       -111793.2       192601.7        1.7228   0.447173    1.752991
+  256000       -105698.6       205207.8        1.9414   0.412885    1.762927
+  312500       -124868.9       254357.1        2.0370   0.399581    1.759852
+  320000       -125552.6       252524.9        2.0113   0.392352    1.775064
+  327680       -123162.2       245100.1        1.9901   0.375861    1.774109
+  400000       -158673.4       286188.7        1.8036   0.396683    1.736981
+  409600       -156113.1       296295.3        1.8980   0.381135    1.744291
+  500000       -172579.0       392677.8        2.2754   0.345158    1.784664
+  512000       -186972.9       375707.0        2.0094   0.365181    1.758209
+  625000       -208289.8       449512.4        2.1581   0.333264    1.768774
+  640000       -208316.4       460614.4        2.2111   0.325494    1.772489
+  655360       -211529.1       493092.1        2.3311   0.322768    1.765031
+  781250       -237110.6       554683.3        2.3393   0.303502    1.752610
+  800000       -260240.3       574460.1        2.2074   0.325300    1.746089
+  819200       -270086.4       577511.3        2.1382   0.329695    1.743382
+  1000000      -298023.7       699911.2        2.3485   0.298024    1.756568
+  1024000      -302002.1       708647.6        2.3465   0.294924    1.764289
+  1250000      -332617.8       837197.3        2.5170   0.266094    1.762419
+  1280000      -343065.5       847798.0        2.4712   0.268020    1.759703
+  1310720      -345284.3       896543.3        2.5965   0.263431    1.757877
+  1562500      -431444.9       1050613.2       2.4351   0.276125    1.753356
+  1600000      -410316.0       1061749.9       2.5876   0.256448    1.763599
+  1638400      -420389.0       1109620.7       2.6395   0.256585    1.764423
+  2000000      -482266.5       1280851.9       2.6559   0.241133    1.762155
+  2048000      -516805.6       1318913.8       2.5521   0.252346    1.752298
+  2500000      -621277.4       1562363.7       2.5148   0.248511    1.748528
+  2560000      -622584.5       1566583.3       2.5163   0.243197    1.768226
+  2621440      -642505.3       1652790.3       2.5724   0.245096    1.757275
+  3125000      -679314.3       1915660.8       2.8200   0.217381    1.753012
+  3200000      -674122.4       1880298.7       2.7893   0.210663    1.757338
+  3276800      -688070.9       2012236.4       2.9245   0.209983    1.764459
+  3906250      -801714.9       2285226.7       2.8504   0.205239    1.755023
+  4000000      -795268.7       2357745.3       2.9647   0.198817    1.763423
+  4096000      -779088.6       2459477.7       3.1569   0.190207    1.778001
+  5000000      -955102.0       2806095.4       2.9380   0.191020    1.761729
+  5120000      -922826.8       2886991.0       3.1284   0.180240    1.769538
+  5242880      -1005427.3      2967717.7       2.9517   0.191770    1.758176
+  6250000      -1157762.9      3420966.7       2.9548   0.185242    1.763945
+  6400000      -1162672.6      3579546.0       3.0787   0.181668    1.767516
+  6553600      -1213806.4      3583572.5       2.9523   0.185212    1.759867
+  7812500      -1311824.2      4270370.5       3.2553   0.167913    1.761125
+  8000000      -1365920.9      4179263.3       3.0597   0.170740    1.750429
+  8192000      -1359238.0      4324042.0       3.1812   0.165923    1.752891
+  10000000     -1557492.1      5075343.4       3.2587   0.155749    1.761355
+  10240000     -1606928.9      5309640.0       3.3042   0.156927    1.759608
+  10485760     -1668977.8      5399919.8       3.2355   0.159166    1.764526
+  12500000     -1792569.5      6234315.4       3.4779   0.143406    1.758529
+  12800000     -1872439.0      6380282.8       3.4075   0.146284    1.759787
+  13107200     -1878983.4      6501672.4       3.4602   0.143355    1.759840
+  15625000     -2200018.0      7467671.1       3.3944   0.140801    1.760034
+  16000000     -2278468.8      7629548.4       3.3485   0.142404    1.761475
+  16384000     -2378202.5      7861875.0       3.3058   0.145154    1.755084
+  19531250     -2507707.1      9075573.2       3.6191   0.128395    1.756650
+  20000000     -2671581.6      9394063.1       3.5163   0.133579    1.758849
+  20480000     -2679272.6      9442434.6       3.5243   0.130824    1.757212
+  20971520     -2599237.4      9770371.5       3.7589   0.123941    1.759263
+  25000000     -3037979.6      11268281.6      3.7091   0.121519    1.754595
+  25600000     -3216713.5      11555950.8      3.5925   0.125653    1.755025
+  26214400     -3159777.2      11785410.0      3.7298   0.120536    1.761552
+  31250000     -3545113.6      13596805.6      3.8354   0.113444    1.752695
+  32000000     -3626435.0      13952186.9      3.8474   0.113326    1.757561
+  32768000     -3711350.4      14167080.0      3.8172   0.113261    1.758013
+  39062500     -4251612.7      16413208.4      3.8605   0.108841    1.758998
+  40000000     -4209405.5      16855435.5      4.0042   0.105235    1.762150
+  40960000     -4393799.4      17121422.3      3.8967   0.107270    1.761885
+  41943040     -4215059.5      17464719.8      4.1434   0.100495    1.763433
+  50000000     -4757460.4      20386888.9      4.2852   0.095149    1.764615
+  51200000     -4884108.8      20975919.2      4.2947   0.095393    1.757181
+  52428800     -4946498.4      20688140.3      4.1824   0.094347    1.758523
+  62500000     -5794042.8      24417525.4      4.2142   0.092705    1.758516
+  64000000     -5925709.6      24707738.3      4.1696   0.092589    1.760098
+  65536000     -5602568.5      25538223.2      4.5583   0.085488    1.765016
+  78125000     -6475221.7      29393667.3      4.5394   0.082883    1.761124
+  80000000     -6293757.5      30024281.6      4.7705   0.078672    1.760085
+  81920000     -6577751.5      30508505.4      4.6381   0.080295    1.760992
+  83886080     -6824677.5      31476270.8      4.6121   0.081356    1.762392
+  97656250     -7555295.6      35827279.3      4.7420   0.077366    1.760752
+  100000000    -7615332.1      35884461.9      4.7121   0.076153    1.759380
+  102400000    -8013222.0      37178468.1      4.6396   0.078254    1.758608
+  the count reference sqrt(#k) is used in X1 below, so the magnitude one is declared here: l1/l2 over sqrt(#k) runs
+  0.6622 to 0.7017 over the field
+REFERENCE audit_denominator 81 0.6622 0.7017
+
+T2  is the restricted sum negative on the whole field?
+  negative at 81 of the 81 N
+  T2 hold
+
+T3  and how big is what survives?
+  quantity        exponent in log N   s.e.        t
+  |sum a|         +0.717916           0.002376    302.12
+  l1              +0.867483           0.001678    516.95
+  G               +0.149567           0.002424    61.70
+  Lam*Lam / N     -0.000185           0.000256    0.72
+  the untruncated correlation over N is flat to 0.72 standard errors, as it must be
+  |sum a| falls below main-term order by -0.282084 = 118.71 standard errors
+TSTAT slope_audit_denominator 302.12
+SPREAD slope_audit_denominator 6.2383
+  T3 hold   (cap 2 standard errors below 1)
+
+  item 4(b) restated in these terms. G = l1/|sum a| gives
+  e(G) = e(l1) - alpha identically, and the three fitted here are
+  +0.149567 = +0.867483 - +0.717916, closing to 1.1e-16
+  so the demand e(G) -> theta'/2 = 0.2800 is the demand
+  alpha -> e(l1) - theta'/2 = +0.587483, against the measured +0.717916
+  that is: |sum a| must be smaller than it is by a factor growing like
+  N^+0.130433, on a sum that is a truncated Lambda*Lambda correlation.
+
+  X1  what the shortfall from main-term order equals
+  (written after T3; not pre-registered). The correlation is
+  of order N and the restricted sum is of order N^alpha, so the
+  truncation costs N^(1-alpha). Measured against the arithmetic
+  ceiling theta'/2 that #k ~ N^theta' puts on a square root:
+  1 - alpha = +0.282084 against theta'/2 = 0.2800, a gap of +0.002084
+  which is 0.88 standard errors of alpha
+  and against half the measured #k exponent, +0.280178, the gap is +0.001906
+  so the truncation leaves the correlation divided by the square root of
+  the index set it kept: |sum a| ~ (Lambda*Lambda) / sqrt(#k).
+
+  That turns the demand into one line. e(G) = e(l1) - alpha and
+  alpha = 1 - e(#k)/2 to the precision just measured, so
+  e(G) -> e(#k)/2 is e(l1) -> 1: the demand of item 4(b) is that
+  the l1 norm of the weighted dilation sums reach main-term order.
+  It is measured at +0.867483, short by +0.132517.
+
+======================================================================
+T1 hold  T2 hold  T3 hold  T4 hold

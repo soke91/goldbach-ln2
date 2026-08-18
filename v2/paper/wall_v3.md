@@ -2193,6 +2193,72 @@ which is one more quantity whose direction is resolved and whose
 destination this repository has no way to reach.
 
 
+#### Remark (the gain's denominator is a truncated Chebyshev correlation) {#rem:denominator}
+<!-- evidence: audit_denominator.py -->
+
+Everything this repository has done to item 4(b) treats
+$\lvert\sum a\rvert$ as a cancelling sum whose smallness is to be
+improved. Nobody asked what that sum is. Because $\mu*\log=\Lambda$,
+the unrestricted double sum collapses:
+$$\sum_k\log k\sum_m\mu(m)\Lambda(N-mk)
+ =\sum_j\Lambda(N-j)\!\!\sum_{mk=j}\!\!\mu(m)\log k
+ =\sum_j\Lambda(j)\Lambda(N-j),$$
+the Chebyshev–Goldbach correlation. Computed both ways at
+$N=20000$, $50000$, $100000$ the two agree to $4.945\cdot10^{-15}$
+relative (T1). **So $\sum a$ is that correlation with four
+restrictions on the index — $k<N^{\theta'}$, $k$ squarefree, $k$
+coprime to $N$, $m$ coprime to $k$ — and nothing else.**
+
+**One restriction does the damage, and it is the truncation** (T4).
+Imposed alone it turns the sum negative: $-8657.0$, $-17462.3$,
+$-23198.0$ against the unrestricted $+36539.9$, $+86993.4$,
+$+176573.6$. Each of the other three alone leaves it positive —
+squarefree $+27661.8$, $+61575.0$, $+131917.7$; coprime to $N$
+$+36539.9$, $+86993.4$, $+176566.2$; $m$ coprime to $k$ $+51233.9$,
+$+125171.4$, $+248504.2$. On the field the restricted sum is negative
+at $81$ of $81$ $N$ (T2). The truncation does not shrink the main
+term; it removes it and overshoots.
+
+**What survives is below main-term order, and by how much is the
+whole question** (T3). On the field, $\lvert\sum a\rvert$ has exponent
+$\alpha=+0.717916$ with a standard error of $0.002376$, while
+$\sum_j\Lambda(j)\Lambda(N-j)$ divided by $N$ is flat to $0.72$
+standard errors — it is a main term, as it must be. So
+$\lvert\sum a\rvert$ falls short of order $N$ by $-0.282084$, which is
+$118.71$ standard errors. Meanwhile $e(\ell^1)=+0.867483$ and
+$e(G)=+0.149567$, and the identity $e(G)=e(\ell^1)-\alpha$ closes to
+$1.1\cdot10^{-16}$.
+
+**In these terms the demand is arithmetic, not fitted.** $e(G)\to
+\theta'/2$ is exactly $\alpha\to e(\ell^1)-\theta'/2=+0.587483$: the
+truncated correlation must be smaller than it is by a factor growing
+like $N^{+0.130433}$.
+
+**And the shortfall is already a recognisable number** (X1, written
+after T3 and not pre-registered). $1-\alpha=+0.282084$ against
+$\theta'/2=0.2800$ — a gap of $+0.002084$, which is $0.88$ standard
+errors of $\alpha$; against half the measured $\#k$ exponent,
+$+0.280178$, the gap is $+0.001906$. **The truncation leaves the
+correlation divided by the square root of the index set it kept:**
+$\lvert\sum a\rvert\sim(\Lambda*\Lambda)/\sqrt{\#k}$, which is
+square-root cancellation over the $k$ that were thrown away, measured
+and not assumed.
+
+Granting that, item 4(b) is one line. $e(G)=e(\ell^1)-\alpha$ and
+$\alpha=1-e(\#k)/2$, so $e(G)\to e(\#k)/2$ **is** $e(\ell^1)\to1$:
+the demand is that the $\ell^1$ norm of the weighted dilation sums
+reach main-term order. It is measured at $+0.867483$, short by
+$+0.132517$. That is the same distance item 4(b) has always had, now
+attached to a quantity with a size rather than to a ratio — and it
+says the obstruction is not that $\mu$ cancels too little, but that
+$\sum_k(\log k)\lvert H(N;k)\rvert$ is too small to be a main term
+while $\sum_k(\log k)H(N;k)$ is already as small as chance allows.
+
+The equality $\alpha=1-\theta'/2$ is measured over this range at
+$0.88$ standard errors and is not proved here; every consequence above
+inherits that.
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 
