@@ -1,0 +1,96 @@
+STATISTIC: the truncation K*_R at which
+           sum_{k<K}(log k)|R(N;k)| first reaches
+           S(N)(1-A(N))N, and its exponent log K*_R / log N,
+           at N = 30030*2^13 = 246005760 and, as a control,
+           at N = 30030*2^12; the margin over 1/2 against
+           rung 12's and against the ladder's scatter; the
+           departure from the thirteen-rung line against the
+           prediction standard error at the new abscissa;
+           the two best shapes of {#rem:primorialdense},
+           recovered from the crossings that file prints,
+           evaluated there and compared with the measured
+           exponent; and the fourteen-rung refit.
+NULL: none is run and none applies. A deterministic curve is
+      located against a computed threshold; there is no
+      background to detect against. The coin arms for this
+      statistic were run in lab_primorial_ladder.py and
+      lab_primorial_share.py, and the scatter they left is
+      the floor the margin is judged against.
+FIELD: N = 123002880 and 246005760, the odd radical
+       3*5*7*11*13 fixed so the threshold is constant; k
+       squarefree and coprime to N with 2 <= k < 100000; m
+       odd, squarefree and coprime to k, m < N/k; the sieve
+       weight over the odd primes below 30; the Euler
+       products at the fixed bound 4000000. One odd radical,
+       as the RADICALS line declares. The statistic, the
+       sieve and the k-cap are imported from
+       code/audit_primorial_rung11.py; the published rungs
+       come from results/audit_primorial_rung10.txt, rung 11
+       from results/audit_primorial_rung11.txt, rung 12 and
+       the thirteen-rung line from
+       results/audit_primorial_rung12.txt, and the shapes
+       from results/audit_primorial_dense.txt.
+
+read rung 12 from results/audit_primorial_rung12.txt: K*_R 15461, exponent 0.5178, margin 0.0178 over one half
+  with the thirteen-rung line's slope +0.007301 and r.m.s. residual 0.0038, and the ladder scatter 0.0037
+  and from results/audit_primorial_dense.txt the two best shapes, each recovered from where it crosses:
+    a + b log N              r.m.s. 0.003978, 0.5 at 7.3193, 0.56 at 10.6180
+    a + b log log N          r.m.s. 0.004216, 0.5 at 7.3491, 0.56 at 12.3928
+  the top measured point there is 7.7889 and the shapes part at 8.3256
+  the statistic, the sieve and the k-cap are imported from code/audit_primorial_rung11.py
+  and 11 published rungs from results/audit_primorial_rung10.txt
+
+the rungs: the control 123002880 at log10 N = 8.0899 and the new 246005760 at 8.3909
+  the new rung is 0.0653 decades past the parting point
+RADICALS 1
+
+sieving to 246005760, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  the Euler products at the fixed bound 4000000: Artin 0.373955819, twin 1.320323652
+
+  N = 123002880    thr 0.087306  #k 18863   beta 1.929630  K*_R 15461    exp 0.5178
+BUDGET kstar_R_S1AN_N123002880 0.087306
+  N = 246005760    thr 0.087306  #k 18863   beta 1.919948  K*_R 27077    exp 0.5283
+BUDGET kstar_R_S1AN_N246005760 0.087306
+RADICALS 1
+
+C1  the control at rung 12
+  exponent here 0.5178 against the published 0.5178, departure 0.000035; the bound from 4 decimals is 0.00005000
+  and K*_R here 15461 against 15461
+PRINTBOUND audit_primorial_rung13 4 0.00005000
+  C1 hold   (cap: the printing bound)
+
+C2  does the margin keep growing?
+  the new exponent is 0.5283, margin 0.0283, against rung 12's 0.0178 and the scatter 0.0037
+MARGIN audit_primorial_rung13 0.0283 0.0037
+FLOOR primorial_rung13 0.0037
+  C2 hold   (cap: rung 12's margin)
+
+C3  has the ladder bent?
+  the thirteen-rung line refitted here: slope +0.007301 against the published +0.007301
+  it predicts 0.5185; measured 0.5283, departure +0.0098
+  in-sample r.m.s.        0.0038
+  prediction s.e. at x0   0.0048
+  that is 2.02 prediction standard errors
+  C3 REFUTED   (cap: the prediction standard error)
+
+C4/C5  what the two shapes say here, and whether the point can tell
+  shape                    predicts here   distance to the measured 0.5283
+  a + b log N              0.519492        0.008768
+  a + b log log N          0.515223        0.013037
+  the two predictions differ by 0.004269, against the surviving shape's r.m.s. 0.003978
+  C4 hold   (cap: that r.m.s.)
+  and the two distances differ by 0.004269, against the prediction s.e. 0.004838
+  the nearer shape is a + b log N
+SHAPES 2
+  C5 hold   (cap: the prediction standard error)
+
+  the fourteen rungs refitted, which is what any later extrapolation must use:
+  slope +0.007703, r.m.s. residual 0.0043, standard error 0.000447, t = 17.23
+SCATTER slope_audit_primorial_rung13 0.0043
+TSTAT slope_audit_primorial_rung13 17.23
+SPREAD slope_audit_primorial_rung13 9.0109
+  and the r.m.s. against the thirteen-rung 0.0038: +0.0005
+  no forecast is made from this.
+
+======================================================================
+C1 hold  C2 hold  C3 REFUTED  C4 hold  C5 hold

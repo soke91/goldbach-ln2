@@ -3844,6 +3844,55 @@ No forecast is made from this. $\theta'$ lives at $\log_{10}N=10.6180$
 on [rem:primorialdense]'s shape, two and a half decades past this
 rung, and [rem:shapepower] is why nothing is published there.
 
+*Added later.* A fourteenth rung, past the point where the shapes
+part, is Remark [rem:rung13]. The line does not survive it as cleanly
+as it survived this one.
+
+
+#### Remark (the fourteenth rung is above both shapes) {#rem:rung13}
+<!-- evidence: audit_primorial_rung13.py -->
+
+$30030\cdot2^{13}=246005760$ sits at $\log_{10}N=8.3909$, past
+[rem:shapetrust]'s parting point $8.3256$ — the first rung ever
+measured where [rem:primorialdense]'s surviving shape and its
+runner-up differ by more than the surviving fit's own r.m.s. Both are
+recoverable exactly from the crossings that remark prints, so what the
+new value had to be compared against was fixed before it was computed.
+Rung 12 reproduces to $0.000035$ with the same $K^*_R=15461$ (C1).
+
+**The margin escalates again** (C2). The exponent is $0.5283$, a
+margin of $0.0283$ over $\tfrac12$ — $7.6$ times the ladder's scatter
+$0.0037$, after $0.0023$, $0.0099$ and $0.0178$ at the three rungs
+before it. Four rungs, four margins, each larger than the last.
+
+**And the line does not hold it** (C3, refuted). The thirteen-rung
+line predicts $0.5185$; the measurement is $0.5283$, a departure of
+$+0.0098$, which against the prediction standard error $0.0048$ at
+that abscissa is $2.02$. Both out-of-sample points now sit above the
+line — $1.27$ prediction errors at rung 12, $2.02$ at rung 13 — and
+the refit scatter, the test [rem:primorialrung11] named, has begun to
+move: $+0.0001$ when rung 12 was added, $+0.0005$ now, from $0.0038$
+to $0.0043$. **The ladder is bending upward.**
+
+**The shapes do part there, and the point still cannot choose between
+them** (C4 holds, C5 holds) — **because it is above both.**
+$a+b\log N$ predicts $0.519492$ and $a+b\log\log N$ predicts
+$0.515223$, a separation of $0.004269$ against the r.m.s. $0.003978$,
+so the parting point is where it was said to be. But the measured
+$0.5283$ is $0.008768$ from the first and $0.013037$ from the second;
+the difference between those distances is $0.004269$, inside the
+prediction error $0.004838$. The surviving shape is the nearer one and
+that is all that may be said. **What the rung actually reports is that
+both candidates underpredict it.**
+
+This cuts one way and it is not the comfortable way. A ladder rising
+faster than $a+b\log N$ would meet $\theta'$ *earlier* than
+$10^{10.6180}$, not later. No number is put on that: two points cannot
+fit a third shape, [rem:shapepower] measured what this repository's
+shape discriminator can and cannot do, and the honest content here is
+a direction and a warning that the published forecast rests on a curve
+the last two measurements have both exceeded.
+
 
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->
