@@ -2133,6 +2133,65 @@ verdict for the slope — nothing of bounded modulus carries it — now
 holds for the head's sign as well, by a different argument on a
 different object.
 
+*Added later.* The coherence paragraph above is corrected, not
+withdrawn: most of that $0.8859$ is the selection, and what survives
+it is smaller and appears only above a threshold in $N$. See Remark
+[rem:coherencenull]. The route-closing paragraph is untouched.
+
+
+#### Remark (most of the coherence was the conditioning) {#rem:coherencenull}
+<!-- evidence: audit_coherence_null.py -->
+
+[rem:headbounded] ended on a claim neither of its predictions had
+asked for, and the claim had a hole. The head is the top tenth of $k$
+by $\lvert a_k\rvert=(\log k)\lvert A+B\rvert$, and selecting on the
+magnitude of a *sum* preferentially selects pairs whose parts agree in
+sign, because agreeing parts add and disagreeing parts cancel. M4 is
+in this repository for exactly that, and the control had not been run.
+It is run here: $\lvert A\rvert$ and $\lvert B\rvert$ are kept exactly,
+only the two signs are redrawn, independently, at the marginal rates
+observed at that $N$, and the selection is redone on the surrogate.
+The control reproduces [rem:headbounded]'s head agreement to
+$0.000016$ (S1).
+
+**The worry was justified and large** (S2). The coin arm's head
+agreement exceeds its own all-$k$ agreement at every $N$, by $+0.0724$
+to $+0.3335$; at the top $N$ it gives $0.7440$ on the head against
+$0.4985$ on all $k$. **So most of the $0.8859$ that remark reported is
+the conditioning.** A pair of independent coins with those magnitudes,
+filtered the same way, looks three-quarters coherent.
+
+**S3 and S4 are refuted, and where they fail is the finding.** Both
+registered "at every $N$", and both fail on the small ones: the head
+excess runs $-2.42$ to $13.09$ and the all-$k$ excess $-14.15$ to
+$+19.62$. At the bottom of the field the effect is not weak but
+*reversed* — at $N=2\cdot10^5$ the observed all-$k$ agreement is
+$0.1182$ against the arm's $0.4106$, because $\operatorname{sign}B$ is
+negative on only $0.1086$ of the $k$ there and the remainder is nearly
+a constant. That is a degenerate split, not a measurement of $\mu$.
+
+**Above a threshold it is real, and it grows.** The all-$k$ excess is
+under two deviations at $37$ of the $81$ $N$, the largest being
+$5242880$, and is resolved above two at every $N$ from $5000000$
+upward — $44$ of them. As an effect size rather than a ratio,
+observed minus arm on all $k$ runs $-0.2924$ at the bottom to
+$+0.0916$ at the top, and the excess in deviations rises with slope
+$+5.904067$ at $t=28.60$. At the top $N$: all $k$, $0.5901$ against
+$0.4985$ ($17.29$ deviations); on the head, $0.8859$ against $0.7440$
+($12.14$).
+
+**What the corrected statement is.** The two halves of the inner sum
+are not independent in sign given their magnitudes — the all-$k$
+version cannot be blamed on any selection, and it clears its arm over
+the upper half of the field by nine points of agreement. But the
+coherence is a fraction of what [rem:headbounded] read off the head,
+it is absent below $N\approx5\cdot10^6$, and its direction there is
+opposite. **The honest version of "the alignment is coherent across
+the $m$-decomposition" is that it becomes so**, somewhere inside the
+range this repository can compute, having been anti-coherent before —
+which is one more quantity whose direction is resolved and whose
+destination this repository has no way to reach.
+
 
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
