@@ -2022,6 +2022,59 @@ and whose agreement decays too slowly to reach a coin anywhere this
 can be computed.**
 
 
+#### Remark (which axis holds the head, and for how long) {#rem:headaxis}
+<!-- evidence: audit_headaxis_reach.py -->
+
+If item 4(b) is a demand about the head, what the head IS matters, and
+the two remarks that answer stand on eight doublings.
+[rem:headidentity] says it is not the small-$k$ end.
+[rem:headsign] says the alignment does not live on the $k$ axis
+either: cutting the same deciles on each factor of
+$|a_k|=(\log k)\,T_k|I_k|$ separately, the top-minus-bottom spread of
+the negative share is $+0.3389$ on $|I|$, $+0.1537$ on $T$ and
+$+0.0126$ on $k$. On the field to $1.024\cdot10^8$ that control
+reproduces to $0.000047$ (Y1), and two of the three readings survive
+while the third — the one nobody had asked — does not.
+
+**Alignment: the ordering holds, and $k$ carries none of it.** At the
+top $N$ the spreads are $+0.3182$ on $|I|$, $+0.1654$ on $T$ and
+$+0.0077$ on $k$ (Y2). Each decile there holds about $1033$ of the
+$k$, so a top-minus-bottom difference of negative shares has a
+binomial deviation of $0.022001$; $k$'s spread is $0.35$ of those and
+$|I|$'s is $14.46$ (Y5). Four octaves past the doublings, the
+arithmetic of the dilation still does not select the sign.
+
+**Selection: the same axis, and the $k$ factor works against it.** The
+variance of $\log|a|=\log\log k+\log T+\log|I|$ splits by covariance
+into shares summing to one, and $\log|I|$ carries the largest at every
+$N$ — $0.7703$ to $0.8903$, against $0.1302$ to $0.2673$ for $\log T$
+(Y4). The $\log\log k$ share is **negative**, $-0.0383$ to $-0.0280$:
+a larger $k$ shortens the inner sum, and the factor that multiplies
+$a_k$ up is anticorrelated with the object it multiplies. So the head
+is not a compromise between axes. It is the imbalance's, twice over —
+what makes a term large is the same thing that makes it negative.
+
+**Y3 is refuted, and that is the measurement.** The imbalance axis is
+losing its grip. The $|I|$ spread runs $+0.5854$ down to $+0.2752$
+with a slope of $-0.032884$ at $t=11.62$, while the $T$ spread rises
+at $+0.033468$ at $t=12.99$ — opposite signs, near-equal rates. The
+selection share moves the same way, $\log|I|$'s falling at
+$-0.007297$ ($t=6.94$) with $\log T$'s taking it up. **The head's
+description is correct now and is being handed over**: the alignment
+that [rem:headsign] attributed to imbalance is migrating to mass as
+$N$ grows.
+
+No crossing point is published. Both slopes are least-squares fits
+over one window and the shapes carrying them are undetermined, exactly
+as [rem:fieldreach] found for $F$ and [rem:splitreach] for the
+one-sign fraction; this repository has now three quantities whose
+direction is resolved and whose destination is not. What the
+refutation costs is a sentence, not a number: **"the head's signs live
+on the imbalance axis" may not be written without the reach it was
+measured at**, and the one statement that survives every reach here is
+the negative one — $k$ carries none of it.
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 
