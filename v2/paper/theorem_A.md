@@ -4036,6 +4036,50 @@ shape that the rungs beyond its range now exclude; what replaces it is
 not another number, for the reason [rem:shapepower] gives.
 
 
+#### Remark (the curvature predicts, and has an expiry) {#rem:curvebound}
+<!-- evidence: audit_curve_bound.py -->
+
+A curvature that fits fifteen points is not yet a shape. The line was
+held to out-of-sample prediction and failed it three times; the
+quadratic had not been asked. It is asked here, and it has a ceiling
+to declare besides: the level exponent is $\log K^*_R/\log N$ with
+$K^*_R<N$, so it cannot pass $1$, and an upward quadratic must
+therefore expire.
+
+**It predicts** (G2). Fitted on the first thirteen rungs and asked for
+the last two, the quadratic gives $0.5237$ and $0.5310$ against
+measured $0.5283$ and $0.5333$ — departures of $+0.0046$ and $+0.0023$
+against its own prediction standard errors $0.0054$ and $0.0063$, both
+inside, and the second smaller than the first. The line on the same
+thirteen gives $+0.0098$ and $+0.0097$: outside, and not shrinking.
+**The curvature is the first shape in this thread to predict points it
+was not fitted to.**
+
+**The ceiling is nowhere near** (G3). At the four rungs that print it,
+$K^*_R/N$ is $0.000152$, $0.000126$, $0.000110$, $0.000088$ and the
+largest exponent is $0.5333$. Nothing measured is near the bound; it
+constrains the extrapolation, not the data.
+
+**And the crossing moves a decade earlier** (G4). The quadratic
+reaches $0.56$ at $\log_{10}N=9.6068$ with bracket
+$[9.3291,\,10.0373]$, against the line's published $10.6180$. Refitted
+on the lower nine rungs it lands at $9.0380$, so the drift is
+$0.5688$ — comparable to the bracket's own width, and declared as
+such. The ceiling $1$ arrives at $18.5824$, bracket
+$[16.6790,\,22.7350]$, drift $2.2830$ (G5): the curvature has a
+computable expiry and it is far above anything at issue here.
+
+**None of this is a forecast and the distinction is the point.** The
+bracket is the fit's parameter spread and nothing more;
+[rem:shapepower] measured that this repository's shape discriminator
+has no power at this reach, and a quadratic carried past its data is
+the case that warning was written about. What may be said is
+comparative and does not need the numbers: the shape that predicts
+out of sample puts $\theta'$ **earlier** than the shape that does not,
+and [rem:primorialdense]'s $10^{10.6180}$ was computed from the
+latter.
+
+
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->
 

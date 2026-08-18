@@ -1,0 +1,75 @@
+STATISTIC: the fifteen primorial-ladder level exponents, read
+           from the files that measured them; a quadratic in
+           log N fitted on the first thirteen and asked for
+           the last two, against a line on the same thirteen,
+           each with the prediction standard error at the new
+           abscissa; the measured K*_R against N at the four
+           rungs that print it; and the abscissae at which
+           the fifteen-rung quadratic reaches 0.56 and the
+           ceiling 1, each with a bracket from the fit's own
+           parameter covariance and a drift from refitting on
+           the lower rungs.
+NULL: none is run and none applies. Every quantity is a
+      least-squares summary of exponents already measured;
+      the brackets are drawn from the fit's own parameter
+      covariance with the fixed SEED above.
+FIELD: no arithmetic is computed here. The exponents are
+       read from results/audit_primorial_rung10.txt (eleven
+       rungs) and results/audit_primorial_rung11.txt,
+       rung12, rung13 and rung14 (one each), whose own field
+       is N = 30030*2^j with the odd radical 3*5*7*11*13
+       fixed, k squarefree and coprime to N with
+       2 <= k < 100000, m odd, squarefree and coprime to k,
+       and the Euler products at the fixed bound 4000000;
+       the published quadratic is read from
+       results/audit_ladder_curve.txt.
+
+read 15 rung exponents and the published quadratic +0.00038561 (s.e. 0.00011737)
+  from results/audit_primorial_rung10, 11, 12, 13, 14 and results/audit_ladder_curve.txt
+SEED 20260822
+DRAWS 4000
+RADICALS 1
+
+G1  the control
+  quadratic here +0.00038561 against the published +0.00038561, departure 0.0000000050; the bound is 0.0000000050
+PRINTBOUND audit_curve_bound 8 0.0000000050
+  G1 hold   (cap: the printing bound)
+
+G2  does the curvature predict out of sample?
+  fitted on the first 13 rungs; both shapes asked for the last two
+  rung   log10 N   quad pred   line pred   measured   quad dep   line dep   quad s.e.  inside
+  13     8.3909    0.5237      0.5185      0.5283     +0.0046    +0.0098    0.0054     yes
+  14     8.6920    0.5310      0.5236      0.5333     +0.0023    +0.0097    0.0063     yes
+  G2 hold   (cap: outside its own error, or worse than the line)
+
+G3  is the ceiling in play at the measured rungs?
+  the exponent is log K*_R / log N with K*_R < N, so it cannot pass 1
+  the largest measured exponent is 0.5333 and every K*_R is below its N: yes
+  the four measured K*_R against their N:
+    N = 61501440     K*_R = 9367     ratio 0.000152
+    N = 123002880    K*_R = 15461    ratio 0.000126
+    N = 246005760    K*_R = 27077    ratio 0.000110
+    N = 492011520    K*_R = 43171    ratio 0.000088
+  G3 hold   (cap: an exponent at or above 1)
+
+G4/G5  where the quadratic would reach 0.56 and where it reaches the ceiling
+  level 0.56 reached at log10 N = 9.6068, bracket [9.3291, 10.0373] from 4000 of 4000 draws
+BRACKET ladder_quadratic_theta_prime 9.6068 9.3291 10.0373
+DRIFT ladder_quadratic_theta_prime 0.5688
+  refitted on the lower 9 rungs it lands at 9.0380, so the drift declared is their gap
+  level 1.00 reached at log10 N = 18.5824, bracket [16.6790, 22.7350] from 3999 of 4000 draws
+BRACKET ladder_quadratic_ceiling 18.5824 16.6790 22.7350
+DRIFT ladder_quadratic_ceiling 2.2830
+  refitted on the lower 9 rungs it lands at 16.2994, so the drift declared is their gap
+  the line published 10.6180 for 0.56; the quadratic puts it earlier
+  G4 hold   (cap: the line's crossing)
+  G5 hold   (cap: no finite crossing of the ceiling)
+SHAPES 2
+SCATTER slope_audit_curve_bound 0.0032
+  none of these is offered as a forecast. The bracket is the fit's own
+  parameter spread and nothing else; {#rem:shapepower} measured that this
+  repository's shape discriminator has no power at this reach, and a
+  quadratic extrapolated past its data is the case that warning was about.
+
+======================================================================
+G1 hold  G2 hold  G3 hold  G4 hold  G5 hold
