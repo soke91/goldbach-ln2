@@ -2375,6 +2375,39 @@ is recorded rather than explained: at this reach the explicit
 Goldbach piece grows slightly faster than its own heuristic says.
 
 
+#### Remark (it is a correlation and not a mean) {#rem:meanonly}
+<!-- evidence: audit_meanonly.py -->
+
+Reordered, $\sum a=\sum_q(\log q)\Lambda_K(N-q)$: the truncation
+defect sampled at the shifted primes. If $\Lambda_K$ had a nonzero
+mean and the shifted primes saw only that, the whole denominator would
+be $(\psi(N)/N)\sum_j\Lambda_K(j)$ — a divisor-sum average with no
+primes in it, and item 4(b) would become an elementary question. The
+control M4 asks for is to recompute with $\Lambda(N-j)$ replaced by
+its own mean over the same range, keeping the index set, the weights
+$\mu(m)\log k$ and the truncation exactly.
+
+The mean does point the same way — the two agree in sign at $81$ of
+$81$ $N$ (W2) — and it is not most of the sum (W3, refuted). The
+residual runs $0.8555$ to $0.8919$ of $\lvert\sum a\rvert$; at the top
+$N$ the sum is $-8013222.0$, the mean-only value $-1065195.2$ and the
+residual $-6948026.9$. Nor is the residual of lower order (W4,
+refuted): its exponent is $+0.714942$ against the sum's $+0.717916$
+and the mean-only arm's $+0.739002$, a difference of $-0.002973$ at
+$0.85$ standard errors.
+
+**So the denominator is a genuine correlation with the primes**, about
+seven eighths of it, and it grows at the same rate as the whole. The
+simplification is not available: item 4(b) keeps its arithmetic
+content, which is the outcome the registered rule named as leaving the
+problem where it was.
+
+The control W1 passes at $0.049264$ against a bound of $0.05$ — the
+totals it checks against are printed to one decimal on numbers of size
+$10^7$, so that control is coarse by construction and says only that
+the same sum was computed.
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 
