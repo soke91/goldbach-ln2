@@ -1,0 +1,50 @@
+STATISTIC: the primorial ladder's level exponent
+           log K*_R / log N at N = 30030*2^j for j = 10, 11,
+           12, computed from an independent implementation of
+           the definitions quoted in the script's docstring:
+           an own smallest-prime-factor sieve, own Lambda and
+           mu built from it, own sifted set and own Euler
+           products at the fixed bound 4000000; against the
+           K*_R and exponents the paper publishes.
+NULL: none is run and none applies. Two implementations of
+      one definition are compared.
+FIELD: N = 30030*2^j, j = 10, 11, 12; k squarefree and
+       coprime to N with 2 <= k < 100000; m odd, squarefree
+       and coprime to k with m <= (N-1)/k; the sifted set S
+       removes m with N - mk divisible by an odd prime
+       q <= 29 not dividing k, and C_k is the product of
+       q/(q-1) over those q; beta = sum(HP)/sum(P^2);
+       R = H - beta P; the threshold is S(N)(1-A(N))N with
+       both Euler products cut at 4000000.
+
+verify pass 1 -- the ladder's level exponent, reimplemented
+  sealed targets (sha256 at the top of FINDINGS.md)
+  no code is imported from v2/code; the sieves, the sums and
+  the Euler products are written here from the definitions
+  quoted in the docstring.
+
+building the smallest-prime-factor table to 123002880 ...
+  odd primes to 29: 3, 5, 7, 11, 13, 17, 19, 23, 29
+
+  rung  N              beta        K*_R      exponent   published K*_R / exponent
+  10    30750720       1.925154    5773      0.5023     5773 / 0.5023
+  11    61501440       1.916156    9367      0.5099     9367 / 0.5099
+  12    123002880      1.929630    15461     0.5178     15461 / 0.5178
+
+V1  the exponents
+  worst departure 0.000035 against the cap 0.00005
+  V1 hold
+
+V2  K*_R itself
+  mismatches: 0 of 3
+  V2 hold
+
+V3  beta
+  beta is not published to compare against; the three values
+  are printed above and this prediction is withdrawn as
+  unfalsifiable against the paper as sealed. The published
+  betas live in results/, which a blind pass does not read.
+  V3 WITHDRAWN
+
+======================================================================
+V1 hold  V2 hold  V3 WITHDRAWN
