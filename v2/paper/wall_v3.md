@@ -2075,6 +2075,65 @@ measured at**, and the one statement that survives every reach here is
 the negative one — $k$ carries none of it.
 
 
+#### Remark (no prefix of the inner sum owns the head's sign) {#rem:headbounded}
+<!-- evidence: audit_head_bounded.py -->
+
+$H(N;k)=\sum_m\Lambda(N-mk)\mu(m)$ is a sum over an ordered index, and
+nothing in this repository had asked which $m$ make it negative. The
+question has a consequence: [rem:provablehalf] calls a condition
+elementary when it is multiplicative or of bounded modulus, so if the
+head's sign were carried by a bounded number of leading terms — a
+signed sum of at most $M_0$ values of $\Lambda$ — the obstruction
+would be an object of the kind the elementary half already handles.
+Splitting $H=A+B$ at $m\le M_0$ for the fixed cutoffs $29$ and $1000$
+answers it. The split is exact to $5.482\cdot10^{-15}$ relative and
+the head's one-sign fraction reproduces [rem:splitreach] within the
+bound its printing forces (R1).
+
+**Twenty-nine leading terms know nothing** (R2, refuted). Their sign
+agrees with $H$'s on the head at $0.5995$ to $0.9167$, but against an
+arm drawn at their own marginal rate the excess runs $-0.78$ to
+$+2.23$ — unresolved, and at the top $N$ it is $-0.13$ on an agreement
+of $0.6015$. This is what G73 was added to catch: on a head that is
+four-fifths one sign, an agreement of $0.60$ is below chance.
+
+**A thousand leading terms do know, and increasingly** (R2, the other
+cutoff). The excess runs $0.00$, $4.98$, $6.70$, $11.04$, $16.85$ at
+$N=2\cdot10^5$, $1.6\cdot10^6$, $6.4\cdot10^6$, $2.56\cdot10^7$,
+$1.024\cdot10^8$ — the agreement at the top is $0.8859$ where the
+matched arm gives about two thirds. The registered R2 asked for
+resolution at *every* $N$ and both cutoffs, so it is refuted; what
+refutes it is $M_0=29$ having no skill and $M_0=1000$ having none at
+the small $N$ where it is not predicting but containing (its share of
+$\lvert H\rvert$ there is $0.8091$ and its majority share is
+$1.0000$, which the DEGENERATE marker declares).
+
+**But the prefix is not what makes the sign** (R3, refuted). Delete it
+and nothing moves: at the top $N$ the remainder's one-sign fraction is
+$0.7795$ for both cutoffs — the head's own value to four decimals,
+$17.97$ binomial deviations above one half. And the prefix's share of
+the magnitude is going away: exponent $-0.238967$ at $t=53.62$ for
+$M_0=29$ and $-0.221725$ at $t=63.36$ for $M_0=1000$, the shares
+falling $0.0698\to0.0136$ and $0.8091\to0.1897$ across the field (R4).
+
+**What the two refutations say together is one thing, and it is not
+what either asked.** A prefix carrying a fifth of the magnitude agrees
+in sign with the whole $88.59$ per cent of the time where chance gives
+about $68$, and deleting it changes the whole's sign essentially
+never. **The alignment is coherent across the $m$-decomposition**: the
+first thousand terms and the remaining ones are aligned with each
+other, not merely both present. That is [rem:nocrossk]'s "the dilated
+walls move together" one level down — across $m$ inside a single
+dilation, where it had never been looked for.
+
+**And it closes the route it was opened for.** No truncation isolates
+the head's sign: the bounded part neither carries it nor is needed for
+it, and its weight vanishes like $N^{-0.22}$. [rem:sievedepth]'s
+verdict for the slope — nothing of bounded modulus carries it — now
+holds for the head's sign as well, by a different argument on a
+different object.
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 
