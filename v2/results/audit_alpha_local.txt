@@ -1,0 +1,76 @@
+STATISTIC: for a_k = (log k)H(N;k) over the squarefree
+           k < N^theta' coprime to N, the exponents of
+           |sum a| and of the l2 norm in log N, fitted over
+           the whole on-field family to 1.024e8 and again
+           inside each octave of N on that octave's own
+           points; the top octave's exponent against the
+           whole-field one; the local exponents' slope
+           against mid log N; and the local deficit
+           alpha - e(l2) in each octave with its own
+           standard error and its slope.
+NULL: none is run and none applies. Every quantity is an
+      exactly computed norm of a measured vector and the
+      comparisons are between its own local fits; there is no
+      background to detect against.
+FIELD: N = 2^a 5^b with BOTH a >= 1 and b >= 1 in
+       [2e5, 1.024e8], one coprimality class as COPRIME
+       says -- the class {2,5}, k coprime to 10 and N even;
+       k squarefree with 2 <= k < N^theta'; m over
+       1 <= m < N/k with (m,k) = 1; Lambda and mu from an
+       integer sieve to 102400000; the weighted sum, the
+       sieve and theta' are code/audit_gain_split.py's,
+       imported; alpha is read from
+       results/audit_denominator.txt.
+
+read alpha = +0.717916 (s.e. 0.002376) from results/audit_denominator.txt
+  the field, the sieve and theta' are imported from code/audit_gain_split.py
+
+the field: every N = 2^a 5^b with a and b at least one in [200000, 102400000]; 81 of them
+RADICALS 1
+COPRIME 1
+
+sieving to 102400000 ...
+
+Z1  the control
+  alpha here +0.717916 against the published +0.717916, departure 0.00000035; the bound from 6 decimals is 0.00000050
+  and e(l2) here +0.583897, so the whole-field deficit is +0.134019
+PRINTBOUND audit_alpha_local 6 0.00000050
+  Z1 hold   (cap: the printing bound)
+
+  octave   points   mid log N   alpha_local   s.e.        e(l2)_local   s.e.        deficit     s.e.
+  0        7        12.4780     +0.660132     0.071407    +0.629800     0.076310    +0.030332   0.104509
+  1        8        13.2209     +0.626273     0.034467    +0.662129     0.061136    -0.035856   0.070183
+  2        8        13.9140     +0.658470     0.063992    +0.605589     0.021712    +0.052881   0.067575
+  3        8        14.6072     +0.823194     0.056346    +0.572268     0.019712    +0.250926   0.059694
+  4        9        15.2867     +0.785322     0.044453    +0.556756     0.027426    +0.228566   0.052232
+  5        9        15.9799     +0.654875     0.027775    +0.530748     0.018360    +0.124127   0.033295
+  6        10       16.6845     +0.710434     0.044213    +0.584724     0.013211    +0.125710   0.046145
+  7        10       17.3776     +0.630996     0.031692    +0.571051     0.017823    +0.059945   0.036360
+  8        12       18.1291     +0.664374     0.034400    +0.555770     0.015589    +0.108604   0.037767
+SWEPT alphalocal_octave octave-range 0.196921
+POP alphalocal_octave 7
+CORR alphalocal_octave 0.97197
+
+Z2  is the top octave genuinely below the global alpha?
+  the top octave gives +0.664374 (s.e. 0.034400) against the global +0.717916, a departure of -0.053541 = 1.56 of its own standard errors
+  Z2 REFUTED   (cap 2 standard errors)
+
+Z3  is it a drift?
+  the local exponents run +0.626273 to +0.823194 across 9 octaves
+  their least-squares slope against mid log N is -0.000807, s.e. 0.013688, t = 0.06
+TSTAT slope_audit_alpha_local 0.06
+SPREAD slope_audit_alpha_local 5.6511
+UNRESOLVED SIGN slope_audit_alpha_local
+  Z3 REFUTED   (cap 2 standard errors)
+
+Z4  does the deficit close anywhere?
+  the deficits run -0.035856 to +0.250926
+  octaves where it is not resolved positive: 0, 1, 2, 7
+  and the deficit's own slope against mid log N is +0.014678, s.e. 0.017249, t = 0.85
+TSTAT slope_alphalocal_deficit 0.85
+SPREAD slope_alphalocal_deficit 5.6511
+UNRESOLVED SIGN slope_alphalocal_deficit
+  Z4 REFUTED   (cap 2 standard errors in every octave)
+
+======================================================================
+Z1 hold  Z2 REFUTED  Z3 REFUTED  Z4 REFUTED

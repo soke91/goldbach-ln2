@@ -2474,7 +2474,10 @@ maximum falls elsewhere in the field, and at the fitted slope
 $+0.053778$ the bound is $2.1586$ units of $\log N$ away — a factor
 of nearly nine in $N$, not the sliver the setup claimed.
 
-**The transience is real anyway, on the other measurement** (Y4).
+**The transience is real anyway, on the other measurement** (Y4, but
+see [rem:alphalocal] — an octave fit of these exponents carries a
+standard error near $0.034$, so the gap Y4 compares is not resolved
+either way and the transience rests on the bound alone).
 Refitted on the top octave alone, twelve points, the head's exponent
 is $+0.667854$ and the total's $+0.664374$ — a gap of $0.003480$
 against $0.069930$ over the whole field. The convergence the bound
@@ -2499,6 +2502,51 @@ exponents fall monotonically across the sweep — $+0.805134$,
 $+0.806838$, $+0.796624$, $+0.787845$, $+0.764263$, $+0.737664$
 against the whole's $+0.717916$ — which is the same convergence Y4
 found, seen along the fraction axis instead of along $N$.
+
+
+#### Remark (alpha is a constant of the range, and the octaves cannot see) {#rem:alphalocal}
+<!-- evidence: audit_alpha_local.py -->
+
+Six remarks have quoted $\alpha=+0.717916$ as a number the field has.
+[rem:headfraction] refitted the top octave alone, got $+0.664374$, and
+declined to read it for want of a printed error. Here the errors are
+printed, and they settle three things at once.
+
+**$\alpha$ is a constant of this range** (Z3, refuted). The nine
+octave fits run $+0.626273$ to $+0.823194$ — a spread of $0.196921$ —
+and their slope against mid $\log N$ is $-0.000807$ with a standard
+error of $0.013688$, $t=0.06$. Flat, as flat as a fit gets. The
+quantity that six cycles treated as constant is one.
+
+**And the top octave is not low** (Z2, refuted). Its $+0.664374$ comes
+with a standard error of $0.034400$, so it sits $1.56$ of its own
+standard errors below the global $\alpha$. [rem:headfraction]'s
+refusal to read it was right; this remark supplies the number that
+makes the refusal a measurement rather than a caution. It also costs
+that remark's Y4 its evidential weight: a gap between two octave fits
+each carrying $0.034$ cannot distinguish $0.003480$ from $0.069930$.
+The head's excess exponent is still transient — the share is bounded
+by one and must stop rising — but that follows from the bound, not
+from the octave.
+
+**The deficit is out of the octaves' reach** (Z4, refuted). Locally
+$\alpha-e(\ell^2)$ runs $-0.035856$ to $+0.250926$ and fails to
+resolve positive in four octaves of nine, with standard errors of
+$0.033$ to $0.105$ against a global deficit of $+0.134019$ measured to
+$0.003$. Its own slope is $+0.014678\pm0.017249$, $t=0.85$: flat.
+**Nothing is closing.** Four octaves fail to resolve because seven to
+ten points cannot resolve a tenth, not because the demand is met
+anywhere.
+
+**A registered rule was misspecified, for the second time.** Z4 was
+written "the deficit stays positive by more than two standard errors
+in every octave", with the gloss that its refutation would be "the
+demand met, at some scale, by the field itself". Unresolved is not
+zero, and the gloss named the wrong event — the same error
+[rem:thetalaw] recorded for its U4. Twice is a rule, and it is now
+M9 in the README: **a refutation rule is written on the quantity, and
+what its refutation would mean must be checked against the ways the
+condition can fail** — of which "too noisy to tell" is always one.
 
 
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
