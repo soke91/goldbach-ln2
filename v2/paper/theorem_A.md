@@ -4716,6 +4716,67 @@ not as [rem:flatnessfill] rewrote it: **$e(G)$ must close $+0.137891$
 onto the measured $e(\ell^1/\ell^2)=+0.284380$, on the vector $\mu$
 actually gives.**
 
+*Added later.* The lever V5 asked for was affordable and has been
+pulled; see Remark [rem:fieldreach]. The deficit and the exponents
+above move within their errors; what changes is that the shape question
+is retired rather than open.
+
+
+#### Remark (two more octaves, and the shape question retires) {#rem:fieldreach}
+<!-- evidence: audit_field_reach.py -->
+
+Remark [rem:fillfield] refuted two of its own predictions in the same
+sentence: on a clean field the two shapes of [rem:flatnessshape] are
+still tied, and $F$'s octave-wise scatter is at or above the published
+eight-point r.m.s. in most octaves. Both said that more points inside
+$[2\cdot10^5,\,2.56\cdot10^7]$ cannot say where $F$ saturates — only a
+longer lever can. The lever costs seconds per $N$: the field runs to
+$1.024\cdot10^8$, which is $81$ on-field $N$ against $60$ and a spread
+in $\log N$ of $6.2383$ against $4.8520$. The $60$ rows already
+published reproduce with a worst departure of $0$ on a count and
+$0.000050$ on a printed ratio (W1).
+
+**The excess over the ceiling is not a small-sample artefact: it
+sharpens with every lever.** $e(\ell^1/\ell^2)=+0.283586$ with a
+standard error of $0.000578$, so the excess over $\theta'/2$ is
+$+0.003586$ — **$6.20$ standard errors**, after $3.15$ on eight
+doublings and $4.98$ on sixty (W2). The measured ceiling agrees:
+$e(\#k)=+0.560357\pm0.000068$, half of it $+0.280178$.
+
+**$F$ is resolved rising over the sweep and not at its top.** Globally
+$e(F)=+0.003408$ with a standard error of $0.000576$, $t=5.92$ (W3),
+and $F$ runs $0.6622$ to $0.7017$. But the topmost octave's local slope
+is $+0.008112$ at $t=1.16$ (W6 refuted), and the two octaves below it
+are $-0.006633$ and $-0.006279$. The rise is a fact about the range and
+not about the neighbourhood of any $N$ in it.
+
+**The shape question is retired, not left open.** Refitted on the $81$:
+the power law gives r.m.s. $0.006380$ and $a+b/\log N$ gives
+$0.006366$ — the bounded shape now marginally ahead, the reverse of
+before and equally meaningless, because the gap is $0.000015$ against
+the r.m.s.'s own standard error $0.000506$ (W4 refuted). Two octaves of
+extra lever moved the ratio of gap to error from $0.07$ to $0.03$: the
+shapes are not separating, they are converging, which is what two
+curves do when they agree on the whole interval where data exist and
+differ only where $F$ approaches its bound. **So where $F$ saturates is
+not decidable by computation at any reach this programme can afford**,
+and this repository publishes no arrival point for $F=1$ — not
+[rem:flatnessshape]'s $10^{28.6782}$, and none from
+$e=+0.003408$ either.
+
+**What that costs item 4(b), and what it does not.** The deficit is
+stable: $e(G)=+0.149567\pm0.002424$ and
+$e(\ell^1/\ell^2)-e(G)=+0.134019$ against the $+0.137891$ measured on
+$60$, a move of $-0.003872$ against a combined standard error of
+$0.002492$, which is $1.55$ of it (W5). So the demand is unchanged in
+size. What the retirement changes is the standing of the two ends: the
+concentration exponent is $6.20$ standard errors above $\theta'/2$ and
+the only thing that would bring it down is a saturation whose location
+is now known to be uncomputable here. **$e(G)$ must therefore close
+onto a measured $+0.283586$ and not onto an arithmetic $0.28$**, and no
+future reach of this family will settle which of the two it is really
+closing onto.
+
 
 #### Remark (which of these slopes is above its own noise) {#rem:slopes}
 <!-- evidence: audit_slope_significance.py -->

@@ -1,0 +1,187 @@
+STATISTIC: for a_k = (log k)H(N;k) over the squarefree
+           k < N^theta' coprime to N, the counts #k, the
+           concentration l1/l2, the flatness
+           F = (l1/l2)/sqrt(#k) and the gain l1/|sum a|, at
+           every on-field N = 2^a 5^b with a, b >= 1 in
+           [2e5, 1.024e8]; the least-squares exponents of
+           l1/l2, #k, F and G in log N over that whole set
+           and over the old reach alone; the two shapes of
+           {#rem:flatnessshape} refitted on it; and the
+           octave-wise local slope of log F including the two
+           octaves above the old top.
+NULL: none is run and none applies, for the reason
+      audit_flatness_fill.py gave: F and l1/l2 are
+      deterministic ratios of norms of the measured vector,
+      random signs do not move |a_k|, and every comparison
+      here is between the same statistic at different N.
+FIELD: N = 2^a 5^b with BOTH a >= 1 and b >= 1 in
+       [2e5, 1.024e8], which is one coprimality class as
+       COPRIME says -- the class {2,5} of the doublings, k
+       coprime to 10 and N even; the degenerate members
+       {#rem:fillfield} removed, N = 2^a and N = 5^b, are not
+       generated here at all; k squarefree with
+       2 <= k < N^theta'; m over 1 <= m < N/k with (m,k) = 1;
+       Lambda and mu from an integer sieve to 102400000; the
+       field, the sieve and theta' are imported from
+       code/audit_gain_split.py; the rows compared against are
+       read from results/audit_flatness_fill.txt and the
+       published exponents from results/audit_fill_field.txt.
+
+read from results/audit_flatness_fill.txt: 70 rows to compare against
+  and from results/audit_fill_field.txt the on-field deficit +0.137891
+  with e(l1/l2) +0.284380 (s.e. 0.000880) and e(G) +0.146489 (s.e. 0.003878)
+  and the published eight-point r.m.s. 0.006479 from results/audit_flatness_shape.txt
+  theta' and the field are imported from code/audit_gain_split.py
+  the arithmetic ceiling on e(l1/l2) is theta'/2 = 0.2800
+
+the field, extended: every N = 2^a 5^b with a and b at least one,
+  in [200000, 102400000]; 81 of them, 21 of which are new above the old top
+RADICALS 1
+COPRIME 1
+  every N carries the prime set {2,5}, so the k-set rule is one
+
+sieving to 102400000 ...
+
+  N            log10 N   #k      l1/l2      F         G
+  200000       5.3010    313     11.9596    0.6760    1.8337
+  204800       5.3113    317     12.1521    0.6825    1.8110
+  250000       5.3979    355     12.8723    0.6832    1.7228
+  256000       5.4082    360     12.9816    0.6842    1.9414
+  312500       5.4949    402     13.4028    0.6685    2.0370
+  320000       5.5051    407     13.6455    0.6764    2.0113
+  327680       5.5154    413     13.7491    0.6766    1.9901
+  400000       5.6021    462     14.2336    0.6622    1.8036
+  409600       5.6124    468     14.7337    0.6811    1.8980
+  500000       5.6990    525     15.4332    0.6736    2.2754
+  512000       5.7093    532     15.8077    0.6854    2.0094
+  625000       5.7959    595     16.4542    0.6746    2.1581
+  640000       5.8062    604     16.8368    0.6851    2.2111
+  655360       5.8165    612     16.8510    0.6812    2.3311
+  781250       5.8928    674     17.9616    0.6919    2.3393
+  800000       5.9031    682     17.8995    0.6854    2.2074
+  819200       5.9134    691     17.7913    0.6768    2.1382
+  1000000      6.0000    773     19.1481    0.6887    2.3485
+  1024000      6.0103    782     19.0786    0.6822    2.3465
+  1250000      6.0969    875     20.4158    0.6902    2.5170
+  1280000      6.1072    886     20.3182    0.6826    2.4712
+  1310720      6.1175    899     20.7424    0.6918    2.5965
+  1562500      6.1938    991     21.5135    0.6834    2.4351
+  1600000      6.2041    1004    21.4312    0.6764    2.5876
+  1638400      6.2144    1018    21.9751    0.6887    2.6395
+  2000000      6.3010    1141    23.1688    0.6859    2.6559
+  2048000      6.3113    1157    22.7563    0.6690    2.5521
+  2500000      6.3979    1290    24.6588    0.6866    2.5148
+  2560000      6.4082    1308    24.1347    0.6673    2.5163
+  2621440      6.4185    1325    24.7647    0.6803    2.5724
+  3125000      6.4949    1464    26.4102    0.6902    2.8200
+  3200000      6.5051    1485    26.2111    0.6802    2.7893
+  3276800      6.5154    1505    26.4692    0.6823    2.9245
+  3906250      6.5918    1661    27.8499    0.6833    2.8504
+  4000000      6.6021    1680    27.9029    0.6808    2.9647
+  4096000      6.6124    1703    28.3988    0.6882    3.1569
+  5000000      6.6990    1904    29.9640    0.6867    2.9380
+  5120000      6.7093    1929    30.4463    0.6932    3.1284
+  5242880      6.7196    1956    30.1444    0.6816    2.9517
+  6250000      6.7959    2158    32.0681    0.6903    2.9548
+  6400000      6.8062    2186    32.1297    0.6872    3.0787
+  6553600      6.8165    2216    31.7263    0.6740    2.9523
+  7812500      6.8928    2442    34.0151    0.6883    3.2553
+  8000000      6.9031    2475    34.0916    0.6853    3.0597
+  8192000      6.9134    2508    33.9905    0.6787    3.1812
+  10000000     7.0000    2808    36.2882    0.6848    3.2587
+  10240000     7.0103    2846    36.7321    0.6885    3.3042
+  10485760     7.0206    2885    37.0906    0.6905    3.2355
+  12500000     7.0969    3184    39.3910    0.6981    3.4779
+  12800000     7.1072    3226    39.6783    0.6986    3.4075
+  13107200     7.1175    3268    39.5594    0.6920    3.4602
+  15625000     7.1938    3607    41.2153    0.6863    3.3944
+  16000000     7.2041    3654    41.1732    0.6811    3.3485
+  16384000     7.2144    3703    42.0915    0.6917    3.3058
+  19531250     7.2907    4084    44.8444    0.7017    3.6191
+  20000000     7.3010    4138    44.5974    0.6933    3.5163
+  20480000     7.3113    4193    44.2963    0.6841    3.5243
+  20971520     7.3216    4249    45.2588    0.6943    3.7589
+  25000000     7.3979    4691    47.0121    0.6864    3.7091
+  25600000     7.4082    4754    47.6367    0.6909    3.5925
+  26214400     7.4185    4819    47.7486    0.6878    3.7298
+  31250000     7.4949    5315    50.6268    0.6944    3.8354
+  32000000     7.5051    5388    51.1301    0.6966    3.8474
+  32768000     7.5154    5457    50.9996    0.6904    3.8172
+  39062500     7.5918    6022    54.0177    0.6961    3.8605
+  40000000     7.6021    6106    54.0536    0.6917    4.0042
+  40960000     7.6124    6186    52.8887    0.6724    3.8967
+  41943040     7.6227    6270    53.9089    0.6808    4.1434
+  50000000     7.6990    6918    57.9757    0.6970    4.2852
+  51200000     7.7093    7009    57.6104    0.6881    4.2947
+  52428800     7.7196    7103    57.9341    0.6874    4.1824
+  62500000     7.7959    7839    61.1035    0.6901    4.2142
+  64000000     7.8062    7944    61.2162    0.6868    4.1696
+  65536000     7.8165    8053    62.0473    0.6914    4.5583
+  78125000     7.8928    8884    65.4562    0.6945    4.5394
+  80000000     7.9031    9001    65.2493    0.6877    4.7705
+  81920000     7.9134    9121    66.3135    0.6944    4.6381
+  83886080     7.9237    9246    66.0244    0.6866    4.6121
+  97656250     7.9897    10067   69.4229    0.6919    4.7420
+  100000000    8.0000    10200   70.5197    0.6982    4.7121
+  102400000    8.0103    10338   69.7186    0.6857    4.6396
+REFERENCE audit_field_reach 81 0.6622 0.7017
+
+W1  the control against the rows already published
+  60 rows compared; worst departure 0 on a count and 0.000050 on a printed ratio
+  W1 hold   (cap 0 and tol 0.0001)
+
+W2  does the excess over the ceiling survive the lever?
+  on 81 points over a spread of 6.2383 in log N, e(l1/l2) = +0.283586, s.e. 0.000578
+  the excess over theta'/2 is +0.003586 = 6.20 standard errors
+  on the old reach alone, 60 points over 4.8520: +0.284380, s.e. 0.000880, excess 4.98 standard errors
+TSTAT slope_audit_field_reach 490.35
+SPREAD slope_audit_field_reach 6.2383
+  W2 hold   (cap 2 standard errors)
+
+W3  is F still resolved rising?
+  e(#k) +0.560357, s.e. 0.000068, so the measured ceiling is +0.280178
+  e(F) +0.003408, s.e. 0.000576, t = 5.92
+  F runs 0.6622 to 0.7017 over the extended field
+TSTAT slope_fieldreach_flat 5.92
+SPREAD slope_fieldreach_flat 6.2383
+  W3 hold   (cap 2 standard errors)
+
+W4  do the two shapes separate with the longer lever?
+  shape                 r.m.s.
+  F ~ N^e               0.006380   (e = +0.003408)
+  F = a + b/log N       0.006366   (a = 0.720862, b = -0.539804)
+  the gap 0.000015 against the r.m.s.'s own standard error 0.000506 on 81 points
+SHAPES 2
+  W4 REFUTED   (cap: the r.m.s.'s own standard error)
+
+W5  is the deficit stable under the reach?
+  e(G) +0.149567, s.e. 0.002424, against the published +0.146489 (s.e. 0.003878)
+  the deficit e(l1/l2) - e(G) = +0.134019, against the published +0.137891
+  the move is -0.003872 against a combined standard error of 0.002492, which is 1.55 of it
+TSTAT slope_fieldreach_gain 61.70
+SPREAD slope_fieldreach_gain 6.2383
+  W5 hold   (cap 2 standard errors of the move)
+
+W6  and is the rise still going at the new top?
+  octave   points   slope        s.e.        r.m.s.     |corr|
+  0        7        -0.018889    0.015575    0.006678   0.47675
+  1        8        +0.037460    0.017362    0.009457   0.66098
+  2        8        +0.011287    0.011458    0.006241   0.37312
+  3        8        +0.004996    0.022366    0.012183   0.09081
+  4        9        +0.019441    0.008549    0.004821   0.65184
+  5        9        +0.031222    0.011959    0.006744   0.70237
+  6        10       -0.006633    0.015177    0.008805   0.15270
+  7        10       -0.006279    0.018527    0.010748   0.11897
+  8        12       +0.008112    0.007017    0.005068   0.34336
+  the top octave has 12 points over 0.6931 in log N, slope +0.008112, s.e. 0.007017, t = 1.16
+  and the octave r.m.s. against the published eight-point 0.006479
+TSTAT slope_fieldreach_top 1.16
+SPREAD slope_fieldreach_top 0.6931
+UNRESOLVED SIGN slope_fieldreach_top
+SWEPT fieldreach_localslope octave-range 0.056349
+POP fieldreach_localslope 7
+CORR fieldreach_localslope 0.09081
+  W6 REFUTED   (cap 2 standard errors)
+
+======================================================================
+W1 hold  W2 hold  W3 hold  W4 REFUTED  W5 hold  W6 REFUTED
