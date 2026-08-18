@@ -2408,6 +2408,49 @@ $10^7$, so that control is coarse by construction and says only that
 the same sum was computed.
 
 
+#### Remark (the signed sum is the head's, and increasingly) {#rem:sumhead}
+<!-- evidence: audit_sum_head.py -->
+
+Two lines had not been joined. [rem:splitreach] localised the gain
+deficit in the head — the top tenth of $k$ by $\lvert a_k\rvert$ —
+and [rem:denominator] showed the demand is about $\lvert\sum
+a\rvert$, the signed total. Every head measurement was about gains and
+mass; nobody had measured how much of the *signed sum* the head
+carries, which is the quantity item 4(b) is about. A ratio of two
+published gains suggests an answer but cannot settle it, because the
+two parts' sums may oppose and partly cancel.
+
+They do not (X2): head and tail each agree in sign with the total at
+$81$ of $81$ $N$. **And the head is nearly all of it** (X3). Its share
+of $\lvert\sum a\rvert$ runs $0.5467$ to $0.9710$, rising with slope
+$+0.053778$ at $t=25.60$; at the top $N$ it carries $-7082988.7$ of
+$-8013222.0$ while holding $0.3421$ of the mass and a tenth of the
+$k$.
+
+**The tail is already below the target** (X4). Its exponent is
+$+0.414033$ against the total's $+0.717916$ — lower by $15.42$
+standard errors — and the demand's target, $\ell^2$ order, is
+$+0.583897$. So the bottom nine tenths of the $k$ already cancel to
+better than item 4(b) asks. The head's exponent is $+0.787845$, above
+the total's, which is what a share rising from a half to nearly one
+means.
+
+**So item 4(b) is one statement about one tenth of the $k$.** The
+whole needs $+0.134019$ of improvement to reach $\ell^2$ order; on
+this split every bit of that belongs to the head, whose own signed sum
+must come down from $+0.787845$ to below $+0.583897$ — further than
+the whole has to travel, because the part that is failing is
+travelling the other way. The tail may be dropped from the problem
+entirely.
+
+Together with [rem:support] this says what the object is with no
+slack left in the description: **a correlation of $\Lambda$ against a
+convolution supported on indices with two or more distinct prime
+factors, restricted to the tenth of the dilations whose sums are
+largest, whose signs agree four times in five and whose share of the
+total is heading to one.**
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 
