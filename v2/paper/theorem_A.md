@@ -3893,6 +3893,55 @@ shape discriminator can and cannot do, and the honest content here is
 a direction and a warning that the published forecast rests on a curve
 the last two measurements have both exceeded.
 
+*Added later.* "The ladder is bending upward" is corrected to "the
+ladder sits above the line": a third out-of-sample rung is above it
+too, but by less, and the departures are not growing. See Remark
+[rem:rung14].
+
+
+#### Remark (three rungs above the line, none of them growing) {#rem:rung14}
+<!-- evidence: audit_primorial_rung14.py -->
+
+$30030\cdot2^{14}=492011520$ at $\log_{10}N=8.6920$ is the third rung
+measured after the line was fitted, and it decides between the two
+readings [rem:rung13] left open — a curve the shape does not have, or
+a noisy pair. Rung 13 reproduces to $0.000040$ with the same
+$K^*_R=27077$ (C1).
+
+**The margin grows a fifth time** (C2). The exponent is $0.5333$, a
+margin of $0.0333$ over $\tfrac12$ — $9.0$ times the ladder's scatter
+— after $0.0023$, $0.0099$, $0.0178$, $0.0283$. That escalation is
+the one thing in this thread that has not wavered.
+
+**The rung is above the line again, and again above both shapes** (C3,
+C5). The fourteen-rung line predicts $0.5264$ against a measured
+$0.5333$, a departure of $+0.0069$; the candidate shapes predict
+$0.524968$ and $0.519270$, and the measurement clears both by
+$+0.008305$ and $+0.014003$. Three out-of-sample rungs, three above
+the line, three above both shapes.
+
+**But it is not a bend** (C4, refuted). In units of its own prediction
+standard error the departure is $1.29$, against rung 13's $2.02$ and
+rung 12's $1.27$. The departures are not growing; they are sitting.
+C3's cap was one prediction standard error rather than two, so
+"exceeds" there is a weak test and is reported as such. What the three
+support is a roughly constant positive offset from the line the lower
+rungs fit, not an accelerating curve — and [rem:rung13]'s "the ladder
+is bending upward" is corrected to that.
+
+The refits agree with the milder reading. Adding the three rungs took
+the slope from $+0.007013$ to $+0.007301$, $+0.007703$, $+0.007953$
+and the scatter from $0.0037$ to $0.0038$, $0.0043$, $0.0045$ —
+steepening and loosening a little at each step, as a line does when
+new points sit consistently above it, and not more than that.
+
+Three of three above is $p=\tfrac18$ under a symmetric null and is
+quoted for what it is worth, which is not much on its own. Still no
+forecast is made: the published $\theta'$ crossing rests on a curve
+that three measurements have now cleared from above, and whether that
+means an earlier crossing or a slightly wrong constant is not
+something five rungs past the fit can say.
+
 
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->
