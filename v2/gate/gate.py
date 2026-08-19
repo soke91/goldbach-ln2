@@ -4036,7 +4036,7 @@ def g75_tolerances_follow_the_printing_they_judge():
 
 
 # ----------------------------------------------------------------- G76
-READLINE = re.compile(r"^READ (\S+\.txt) (\S+ \S+) (\S+)\s*$", re.M)
+READLINE = re.compile(r"^READ (\S+\.txt) (\S+ \S+) (\S.*?)\s*$", re.M)
 
 
 def g76_reads_match_their_source():

@@ -4738,6 +4738,71 @@ does not, that gets easier, not harder, the further the ladder is
 carried.
 
 
+#### Remark (the floor falls like a power, and 1/2 was understated by twelve) {#rem:floorlaw}
+<!-- evidence: audit_floor_law.py -->
+
+[rem:localfloor] found the local floor differing by about six between
+$2\cdot10^7$ and $8\cdot10^9$ and concluded that none of them may be
+carried from one place to another. Four have now been measured —
+$0.001883$ around rung 10 and $0.001662$ across
+[rem:primorialgap]'s interval, both near $10^{7.3}$; $0.000264$ across
+the $0.56$ crossing and $0.000308$ around rung 18, both near
+$10^{9.9}$. Nothing is measured in this remark; every value is read
+from a whole marker line and declared with a `READ` line that G76
+checks against its source, and the windows' abscissae are imported
+from the scripts that defined them rather than parsed back out of
+prose. Both halves of that are the lesson from the failure G76 was
+built for.
+
+**The floor falls as a power** (P4). Regressing $\log$ floor on
+$\log N$ over the four windows gives a slope of
+$-0.321639\pm0.033495$, nominally $t=-9.60$ over a span of $6.0098$
+in $\log N$. **The $t$ should not be read as nine standard errors.**
+The four windows sit in two clusters $2.6$ decades apart, so the
+slope is in substance a two-point determination and the small
+within-cluster scatter flatters the standard error; the script says
+so on the line beneath it. What the two clusters do support is the
+direction and the rough size: the floor falls roughly like
+$N^{-1/3}$, and a window at ten times the $N$ buys about half the
+floor.
+
+That is worth having because it sizes a window in advance.
+[rem:targetband] showed that a window narrower than
+$2\,{\rm floor}/{\rm slope}$ cannot resolve a crossing however many
+points it holds, and [rem:primorialgap] fell into exactly that. With
+a floor that is predictable to a factor, the band can be estimated
+before the compute is spent rather than after.
+
+**And the branch's headline is understated by twelve** (P2, P3). The
+target section has been reporting the crossing of $\tfrac12$ as
+[rem:primorialrung11] left it — a margin clearing the ladder-wide
+floor by a factor under three. At rung 18 the margin over $\tfrac12$
+is $0.062800$. Against the ladder-wide $0.0037$ that is $17.0$
+floors; **against the floor measured in rung 18's own window,
+$0.000308$, it is $203.9$.** Rung 17's $0.0559$ is $211.7$ of the
+floor measured next to it. The ladder-wide number was never wrong; it
+was answering a different question, and it cost this branch an order
+of magnitude in what it could say.
+
+Rung 10 is the other end of that. Its margin $0.002394$ clears its
+own window's floor $0.001883$ by $1.3$ — resolved, as
+[rem:localfloor] found, and barely. **So the crossing of $\tfrac12$
+is resolved at both ends of the measured ladder, by a factor of
+$1.3$ at $10^{7.5}$ and by two hundred at $10^{9.9}$**, and the
+growth between them is the branch's real evidence rather than any
+single rung's clearance.
+
+What this does not do is touch $\theta'$. The exponent crossing
+$\tfrac12$ with room to spare is what the level axis was always
+measuring, and [rem:shapepower] still forbids reading a value of
+$\theta'$ off any shape fitted to it. Nothing here is a shape. The
+statement is narrower and now quantitative: **at the top of the
+ladder the level exponent stands two hundred local floors above
+$\tfrac12$**, and the yardstick that said seventeen was measuring the
+ladder's departure from a fitted curve rather than the arithmetic's
+own noise.
+
+
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->
 
