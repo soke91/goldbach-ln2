@@ -208,6 +208,8 @@ def main():
         say("  %-8d %-8d %-11.4f %+-13.6f %-11.6f %+-13.6f %-11.6f "
             "%+-11.6f %.6f"
             % (j, len(idx), float(xo.mean()), a1, s1, a2, s2, dd, sd))
+        say("OCTAVE alphalocal_%d %.4f %+.6f %.6f %+.6f %.6f"
+            % (j, float(xo.mean()), a1, s1, dd, sd))
     say("SWEPT alphalocal_octave octave-range %.6f"
         % (max(a for a, _ in locs) - min(a for a, _ in locs)))
     say("POP alphalocal_octave %d" % min(len(i) for _j, i in octs))
