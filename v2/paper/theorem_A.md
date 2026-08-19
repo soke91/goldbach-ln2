@@ -4517,6 +4517,73 @@ null was not drawn from. **The departures are simply not informative
 about the shape, in either direction, and that is the finding.**
 
 
+#### Remark (the floor was the wrong one: 0.56 resolved) {#rem:rung18fill}
+<!-- evidence: audit_rung18_fill.py -->
+
+[rem:rung18] crossed $0.56$ and declared `INSIDE FLOOR` on the same
+line, because the clearance $0.002768$ sits below the ladder's
+scatter $0.0037$. That verdict was correct under the rule it was
+judged by. What it could not say is whether $0.0037$ is the right
+yardstick for the question, and it is not.
+
+**What the floor measures.** $K^*_R$ is a deterministic integer once
+$N$ is fixed; there is no sampling noise in it. The ladder's scatter
+is the spread of its exponents about a curve fitted across ten
+decades, so it mixes arithmetic fluctuation with the shape's own
+misfit. The question `INSIDE FLOOR` raises is narrower and local:
+*could a neighbouring $N$ of the same odd radical give an exponent
+low enough to fall under the level?* That is answered by measuring
+neighbouring $N$, which is what [rem:primorialgap] did for
+$\tfrac12$.
+
+Four are placed here within $0.0208$ decades of rung 18 on either
+side, each $30030m$ with $m$ composed only of $2,3,5,7,11,13$ so the
+odd radical, and with it the threshold, is the ladder's. The window
+spans $0.0413$ decades, over which the ladder's slope contributes far
+less than the floor. Rung 16 recomputes to $126079$ and $0.548808$
+through this harness (C1), and the threshold reads $0.087306$ at all
+five $N$ with a spread of $0.00000049$, inside the printing bound
+(C2) — which is what "the same odd radical" has to mean.
+
+**Every one of them clears the level** (F1). The exponents are
+$0.563206$, $0.562560$, $0.563119$, $0.563611$, against rung 18's
+$0.562768$, clearing $0.56$ by $0.003206$, $0.002560$, $0.003119$ and
+$0.003611$.
+
+**And the local floor is twelve times smaller than the ladder's**
+(F2). A line through the five has slope $+0.005751$ per log unit and
+an r.m.s. residual of $0.000308$. **So the arithmetic fluctuation
+between neighbouring $N$ is not $0.0037$; across this window it is
+$0.000308$, and the ladder's scatter at that scale is almost entirely
+the shape's misfit rather than the arithmetic's noise.**
+
+**The crossing is resolved** (F3). The lowest of the five clears
+$0.56$ by $0.002560$ against a local floor of $0.000308$ — a ratio of
+$8.30$. Nothing in this window comes near falling under the level.
+
+Two things follow, and they should be kept apart. The first is the
+one that was asked: **the upper end of the $0.56$ bracket is
+resolved**, and [rem:rung18]'s "point-estimate bracket with an
+unresolved ceiling" is closed — not by a bigger margin at one point
+but by the floor being measured where the question lives. The second
+is unasked and larger: **every single-point verdict in this branch
+judged against the ladder's $0.0037$ has been judged against a floor
+that is too big at local scale**, including the $\tfrac12$ crossings
+of [rem:primorialrung10] and [rem:primorialgap]. This does not
+overturn them — a conservative floor makes a crossing harder to
+claim, not easier — but it means the branch has been understating
+what its own measurements resolve, and nothing has measured the local
+floor anywhere else on the ladder.
+
+The bracket also narrows on its own. The lowest of the four new
+points sits at $\log_{10}N=9.8756$ and is already above the level, so
+the crossing is below it: with rung 17 at $9.5951$ still short, $0.56$
+is now located in $(10^{9.5951},\,10^{9.8756}]$ by the sign of two
+measurements. **No shape is used to say it.** What remains open there
+is the interval itself, which is wide and unfilled, and
+[rem:shapepower] still forbids quoting a crossing inside it.
+
+
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->
 

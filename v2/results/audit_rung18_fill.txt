@@ -1,0 +1,96 @@
+STATISTIC: the truncation K*_R and its exponent
+           log K*_R / log N at four N of the ladder's own
+           odd radical placed within 0.021 decades of rung
+           18 on either side, together with rung 18 itself;
+           the r.m.s. residual of the five about a line in
+           log N, as a locally measured floor; and the
+           clearance of the lowest of them over 0.56
+           against that floor.  Rung 16 is recomputed as a
+           control on the harness.
+NULL: none is run and none applies. K*_R is a deterministic
+      integer once N is fixed; there is no sampling noise
+      and no background to detect against. What the floor
+      measures is arithmetic fluctuation across N, which is
+      why it is estimated here from neighbouring N rather
+      than from a fit across the whole ladder. The coin
+      arms for this statistic were run in
+      lab_primorial_ladder.py and lab_primorial_share.py.
+FIELD: N = 30030*m for m = 250047, 256000, 268800, 275000
+       and 262144, every m composed only of 2, 3, 5, 7, 11
+       and 13 so that the odd radical is 3*5*7*11*13 and
+       the threshold S(N)(1-A(N)) is the ladder's; and
+       N = 30030*2^16 as the control. k squarefree and
+       coprime to N with 2 <= k < 1000000, beta fitted on
+       the same range; m odd, squarefree and coprime to k,
+       m < N/k; the sieve weight over the odd primes below
+       30; the Euler products at the fixed bound 4000000.
+       One odd radical, as the RADICALS line declares. The
+       sieve, the packing and the statistic are imported
+       from code/audit_primorial_rung18.py; rung 16 comes
+       from results/audit_ladder_cap.txt and rung 18 with
+       the floor from results/audit_primorial_rung18.txt.
+
+read rung 16 and rung 18 from results/audit_ladder_cap.txt and
+  results/audit_primorial_rung18.txt, with the ladder's floor 0.0037
+PRINTBOUND audit_rung18_fill 6 0.00000050
+
+the five N in the window, all of odd radical 3*5*7*11*13
+   N              log10 N   decades from rung 18
+   7508911410     9.8756    -0.0205
+   7687680000     9.8858    -0.0103
+   7872184320     9.8961    +0.0000
+   8072064000     9.9070    +0.0109
+   8258250000     9.9169    +0.0208
+SCALES 1
+  the window spans 0.0413 decades; the ladder's slope over it contributes
+  far less than the floor, so what these spread by is very nearly the
+  arithmetic fluctuation itself
+
+sieving to 8258250000 on half-indices, once for every N below it
+BYTES resident_arrays 12387375003
+  three arrays of 11.54 GB, and a power table of 9228 entries
+  the Euler products at the fixed bound 4000000: Artin 0.373955819, twin 1.320323652
+
+  N = 1968046080     thr 0.087306  #k 188662  beta 1.913963  K*_R 126079   exp 0.548808
+BUDGET kstar_R_S1AN_N1968046080 0.087306
+  N = 7508911410     thr 0.087306  #k 188662  beta 1.905666  K*_R 364739   exp 0.563206
+BUDGET kstar_R_S1AN_N7508911410 0.087306
+  N = 7687680000     thr 0.087306  #k 188662  beta 1.890655  K*_R 364207   exp 0.562560
+BUDGET kstar_R_S1AN_N7687680000 0.087306
+  N = 8072064000     thr 0.087306  #k 188662  beta 1.891623  K*_R 379151   exp 0.563119
+BUDGET kstar_R_S1AN_N8072064000 0.087306
+  N = 8258250000     thr 0.087306  #k 188662  beta 1.895828  K*_R 388391   exp 0.563611
+BUDGET kstar_R_S1AN_N8258250000 0.087306
+RADICALS 1
+
+C1  the harness control at rung 16
+  K*_R here 126079 against the published 126079, exponent 0.548808 against 0.548808, equal
+  C1 hold   (cap: exact on K*_R, the printing bound on the exponent)
+
+C2  the radical control: one threshold at all five N
+  thresholds 0.087306, 0.087306, 0.087306, 0.087306, and rung 18's 0.087306
+  spread 0.00000049 against the printing bound 0.00000050
+  C2 hold   (cap: the printing bound)
+
+F1  does every new N clear 0.56?
+  N = 7508911410     exp 0.563206, over 0.56 by 0.003206
+  N = 7687680000     exp 0.562560, over 0.56 by 0.002560
+  N = 8072064000     exp 0.563119, over 0.56 by 0.003119
+  N = 8258250000     exp 0.563611, over 0.56 by 0.003611
+  F1 hold   (cap: the level 0.56)
+
+F2  what is the local scatter?
+  five exponents 0.563206, 0.562560, 0.562768, 0.563119, 0.563611
+  a line through them has slope +0.005751 per log unit; the r.m.s. residual is 0.000308
+FLOOR rung18_fill_local 0.000308
+  against the ladder's floor 0.0037
+  F2 hold   (cap: the ladder's floor)
+
+F3  is the crossing resolved against the local floor?
+  the lowest of the five is 0.562560, clearing 0.56 by 0.002560
+MARGIN audit_rung18_fill 0.002560 0.000308
+  against the local floor 0.000308, a ratio of 8.30
+  F3 hold   (cap: the local floor)
+
+======================================================================
+C1 hold  C2 hold  F1 hold  F2 hold  F3 hold
