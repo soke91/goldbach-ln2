@@ -4803,6 +4803,64 @@ ladder's departure from a fitted curve rather than the arithmetic's
 own noise.
 
 
+#### Remark (the floor law predicts a window it was not fitted on) {#rem:floormid}
+<!-- evidence: audit_floor_midband.py -->
+
+[rem:floorlaw] fitted $\log$ floor on $\log N$ over four windows and
+got $-0.321639$, and said in the same breath why its $t=-9.60$ should
+not be read as nine standard errors: the four sat in two clusters
+$2.6$ decades apart, so the slope was in substance a two-point
+determination. A line through two clusters is a line, not a law, and
+the way to tell them apart is a third place.
+
+$10^{8.5}$ is almost exactly between them — between rung 13 at
+$10^{8.3909}$ and rung 14 at $10^{8.6920}$ — and at $N$ near
+$3\cdot10^8$ a window costs minutes. **So the law was asked for the
+number before the number was measured.** Fitted on the four windows
+alone it puts the floor at this window's geometric mean
+$N=316799937$ at $0.000767$, and the tolerance was fixed at twice the
+four-window fit's own r.m.s. residual, $0.2668$ in log — a factor of
+$1.31$ — because that r.m.s. is also the scatter between two floors
+measured at the same $N$.
+
+Rung 13 recomputes to $27343$ and $0.528766$ (Q1) and the threshold
+reads $0.087306$ at all eight $N$ with zero spread (Q2).
+
+**The prediction holds** (Q3). Seven same-radical $N$ across
+$0.0389$ decades give a local floor of $0.000897$ against the
+predicted $0.000767$: a log ratio of $+0.1569$, a factor of $1.17$,
+inside the registered $1.31$. It lies between the clusters' own
+floors, $0.000308$ below and $0.001662$ above (Q4).
+
+**And the slope survives the clustering being broken** (Q5). On five
+windows it is $-0.322586\pm0.030876$, $t=-10.45$, against
+$-0.321639$ on four; the r.m.s. residual moves only from $0.1334$ to
+$0.1348$, which is another way of saying the new window fell on the
+line rather than being absorbed by it. The $t$ is now read off a
+spread that is no longer two points, which is the first time this
+slope has meant what a $t$ ordinarily means — on five windows, which
+is still few.
+
+What this buys is not a fact about the ladder. It is the ability to
+size a window before spending the compute on it. [rem:targetband]
+showed that a window narrower than $2\,{\rm floor}/{\rm slope}$
+cannot resolve a crossing however many points it holds, and that
+[rem:primorialgap] had fallen into exactly that at $\tfrac12$ — its
+window *was* its band, so five sign changes were the only thing it
+could have seen. With a floor predictable to about a sixth, the band
+at any $N$ can now be estimated in advance and the window chosen to
+straddle it. **The branch stops discovering after the fact that it
+sampled from inside.**
+
+Two things it does not do. It does not extend to $N$ far outside
+$[10^{7.3},\,10^{9.9}]$: five windows over six in $\log N$ constrain
+a power there and say nothing about where the power comes from, and
+no mechanism is offered for why $N^{-1/3}$ rather than anything else.
+And it does not touch $\theta'$ — the floor is the resolution of a
+measurement, not the thing measured, and [rem:shapepower] is
+untouched by knowing how well one can see.
+
+
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->
 
