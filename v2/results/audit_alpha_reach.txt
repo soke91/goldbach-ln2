@@ -1,0 +1,280 @@
+STATISTIC: the exponents of |sum a| and of its l2 norm
+           against N, fitted inside each octave of the field
+           N = 2^a 5^b extended from 1.024e8 to 8e9; their
+           difference, the deficit that must reach zero; and
+           the slopes of both against mid log N over the
+           octaves that result, against the nine
+           results/audit_alpha_local.txt reports. The top
+           published octave is recomputed as a control.
+NULL: none is run and none applies. |sum a| and its l2 norm
+      are deterministic once N is fixed; there is no
+      sampling noise and no background to detect against.
+      The coin arms for the sign axis were run in
+      lab_primorial_share.py, which established that the
+      quantity is about mu and not about magnitudes.
+FIELD: N = 2^a 5^b with both a >= 1 and b >= 1 in
+       [2e5, 8e9], one coprimality class as COPRIME says
+       -- the class {2,5}, k coprime to 10 and N even; k
+       squarefree with 2 <= k < N^0.56; m over 1 <= m < N/k
+       with (m,k) = 1. Lambda and mu come from a kind-byte
+       sieve on whole indices, two bytes per index, and the
+       per-k sums are split into blocks; the k-set, the
+       m-set and theta' are code/audit_gain_split.py's, and
+       R1 is the check that neither the packing nor the
+       splitting moves the exponent. The nine published
+       octaves are read from marker lines in
+       results/audit_alpha_local.txt and declared with READ.
+
+the nine published octaves, each read from a whole marker line:
+READ audit_alpha_local.txt OCTAVE alphalocal_0 12.4780 +0.660132 0.071407 +0.030332 0.104509
+READ audit_alpha_local.txt OCTAVE alphalocal_1 13.2209 +0.626273 0.034467 -0.035856 0.070183
+READ audit_alpha_local.txt OCTAVE alphalocal_2 13.9140 +0.658470 0.063992 +0.052881 0.067575
+READ audit_alpha_local.txt OCTAVE alphalocal_3 14.6072 +0.823194 0.056346 +0.250926 0.059694
+READ audit_alpha_local.txt OCTAVE alphalocal_4 15.2867 +0.785322 0.044453 +0.228566 0.052232
+READ audit_alpha_local.txt OCTAVE alphalocal_5 15.9799 +0.654875 0.027775 +0.124127 0.033295
+READ audit_alpha_local.txt OCTAVE alphalocal_6 16.6845 +0.710434 0.044213 +0.125710 0.046145
+READ audit_alpha_local.txt OCTAVE alphalocal_7 17.3776 +0.630996 0.031692 +0.059945 0.036360
+READ audit_alpha_local.txt OCTAVE alphalocal_8 18.1291 +0.664374 0.034400 +0.108604 0.037767
+PRINTBOUND audit_alpha_reach 6 0.00000050
+
+the published field is 81 points in [200000, 102400000]; the extension adds 75
+  to 8000000000, 15.3 octaves against 9.0
+  the control octave holds 12 of the published points
+RADICALS 1
+COPRIME 1
+  R2 hold   (cap: one class)
+
+sieving to 8000000000 on whole indices with the kind byte
+BYTES resident_arrays 16000000002
+BYTES published_route 104000000013
+  two arrays of 14.90 GB, against 96.86 GB for the float64 route of
+  code/audit_gain_split.py at this N; the power table holds 9125 entries
+
+R1  the control: the top published octave through this route
+POINT alphareach_51200000 4.8841088171e+06 3.6409977927e+05
+  ctrl     N = 51200000     |sum a| = 4.884109e+06   l2 = 3.640998e+05
+POINT alphareach_52428800 4.9464984008e+06 3.5709768433e+05
+  ctrl     N = 52428800     |sum a| = 4.946498e+06   l2 = 3.570977e+05
+POINT alphareach_62500000 5.7940427833e+06 3.9960946619e+05
+  ctrl     N = 62500000     |sum a| = 5.794043e+06   l2 = 3.996095e+05
+POINT alphareach_64000000 5.9257096459e+06 4.0361446752e+05
+  ctrl     N = 64000000     |sum a| = 5.925710e+06   l2 = 4.036145e+05
+POINT alphareach_65536000 5.6025684551e+06 4.1159276919e+05
+  ctrl     N = 65536000     |sum a| = 5.602568e+06   l2 = 4.115928e+05
+POINT alphareach_78125000 6.4752216964e+06 4.4905830368e+05
+  ctrl     N = 78125000     |sum a| = 6.475222e+06   l2 = 4.490583e+05
+POINT alphareach_80000000 6.2937574657e+06 4.6014712300e+05
+  ctrl     N = 80000000     |sum a| = 6.293757e+06   l2 = 4.601471e+05
+POINT alphareach_81920000 6.5777514638e+06 4.6006479728e+05
+  ctrl     N = 81920000     |sum a| = 6.577751e+06   l2 = 4.600648e+05
+POINT alphareach_83886080 6.8246775107e+06 4.7673709801e+05
+  ctrl     N = 83886080     |sum a| = 6.824678e+06   l2 = 4.767371e+05
+POINT alphareach_97656250 7.5552956409e+06 5.1607267083e+05
+  ctrl     N = 97656250     |sum a| = 7.555296e+06   l2 = 5.160727e+05
+POINT alphareach_100000000 7.6153321124e+06 5.0885707283e+05
+  ctrl     N = 100000000    |sum a| = 7.615332e+06   l2 = 5.088571e+05
+POINT alphareach_102400000 8.0132220254e+06 5.3326487241e+05
+  ctrl     N = 102400000    |sum a| = 8.013222e+06   l2 = 5.332649e+05
+  alpha_local here +0.664374 against the published +0.664374
+  deficit here +0.108604 against the published +0.108604
+  R1 hold   (cap: the printing bound)
+
+the extension
+POINT alphareach_104857600 8.2364310170e+06 5.3842540707e+05
+  new      N = 104857600    |sum a| = 8.236431e+06   l2 = 5.384254e+05
+POINT alphareach_125000000 8.9374125229e+06 5.8995807906e+05
+  new      N = 125000000    |sum a| = 8.937413e+06   l2 = 5.899581e+05
+POINT alphareach_128000000 8.9555371634e+06 6.0061151975e+05
+  new      N = 128000000    |sum a| = 8.955537e+06   l2 = 6.006115e+05
+POINT alphareach_131072000 9.1412407294e+06 6.1040183862e+05
+  new      N = 131072000    |sum a| = 9.141241e+06   l2 = 6.104018e+05
+POINT alphareach_156250000 1.0699173670e+07 6.5997472334e+05
+  new      N = 156250000    |sum a| = 1.069917e+07   l2 = 6.599747e+05
+POINT alphareach_160000000 1.0394596087e+07 6.7471470980e+05
+  new      N = 160000000    |sum a| = 1.039460e+07   l2 = 6.747147e+05
+POINT alphareach_163840000 1.1031939229e+07 6.8051668612e+05
+  new      N = 163840000    |sum a| = 1.103194e+07   l2 = 6.805167e+05
+POINT alphareach_167772160 1.1008249900e+07 6.9082295953e+05
+  new      N = 167772160    |sum a| = 1.100825e+07   l2 = 6.908230e+05
+POINT alphareach_195312500 1.2128862584e+07 7.5138723776e+05
+  new      N = 195312500    |sum a| = 1.212886e+07   l2 = 7.513872e+05
+POINT alphareach_200000000 1.2221738611e+07 7.7221188619e+05
+  new      N = 200000000    |sum a| = 1.222174e+07   l2 = 7.722119e+05
+POINT alphareach_204800000 1.2125309417e+07 7.7687821908e+05
+  new      N = 204800000    |sum a| = 1.212531e+07   l2 = 7.768782e+05
+POINT alphareach_209715200 1.2038745585e+07 7.7652228669e+05
+  new      N = 209715200    |sum a| = 1.203875e+07   l2 = 7.765223e+05
+POINT alphareach_250000000 1.4442389133e+07 8.6286030689e+05
+  new      N = 250000000    |sum a| = 1.444239e+07   l2 = 8.628603e+05
+POINT alphareach_256000000 1.4785923170e+07 8.8563299103e+05
+  new      N = 256000000    |sum a| = 1.478592e+07   l2 = 8.856330e+05
+POINT alphareach_262144000 1.4361792713e+07 8.9755791334e+05
+  new      N = 262144000    |sum a| = 1.436179e+07   l2 = 8.975579e+05
+POINT alphareach_312500000 1.6398857224e+07 9.9969334818e+05
+  new      N = 312500000    |sum a| = 1.639886e+07   l2 = 9.996933e+05
+POINT alphareach_320000000 1.6706727041e+07 9.9450859189e+05
+  new      N = 320000000    |sum a| = 1.670673e+07   l2 = 9.945086e+05
+POINT alphareach_327680000 1.6846661962e+07 1.0135232919e+06
+  new      N = 327680000    |sum a| = 1.684666e+07   l2 = 1.013523e+06
+POINT alphareach_335544320 1.7298878398e+07 1.0136531695e+06
+  new      N = 335544320    |sum a| = 1.729888e+07   l2 = 1.013653e+06
+POINT alphareach_390625000 1.9828482006e+07 1.1238048417e+06
+  new      N = 390625000    |sum a| = 1.982848e+07   l2 = 1.123805e+06
+POINT alphareach_400000000 1.9589293328e+07 1.1428717853e+06
+  new      N = 400000000    |sum a| = 1.958929e+07   l2 = 1.142872e+06
+POINT alphareach_409600000 2.0148421648e+07 1.1559685825e+06
+  new      N = 409600000    |sum a| = 2.014842e+07   l2 = 1.155969e+06
+POINT alphareach_419430400 2.0503703798e+07 1.1641290455e+06
+  new      N = 419430400    |sum a| = 2.050370e+07   l2 = 1.164129e+06
+POINT alphareach_488281250 2.1360917624e+07 1.2666295503e+06
+  new      N = 488281250    |sum a| = 2.136092e+07   l2 = 1.266630e+06
+POINT alphareach_500000000 2.2711531758e+07 1.2983525540e+06
+  new      N = 500000000    |sum a| = 2.271153e+07   l2 = 1.298353e+06
+POINT alphareach_512000000 2.3442772949e+07 1.2866213928e+06
+  new      N = 512000000    |sum a| = 2.344277e+07   l2 = 1.286621e+06
+POINT alphareach_524288000 2.3156261349e+07 1.3123898618e+06
+  new      N = 524288000    |sum a| = 2.315626e+07   l2 = 1.312390e+06
+POINT alphareach_625000000 2.5865115471e+07 1.4638704872e+06
+  new      N = 625000000    |sum a| = 2.586512e+07   l2 = 1.463870e+06
+POINT alphareach_640000000 2.6223282990e+07 1.4612388536e+06
+  new      N = 640000000    |sum a| = 2.622328e+07   l2 = 1.461239e+06
+POINT alphareach_655360000 2.6684538532e+07 1.5108872735e+06
+  new      N = 655360000    |sum a| = 2.668454e+07   l2 = 1.510887e+06
+POINT alphareach_671088640 2.7191105966e+07 1.5125192481e+06
+  new      N = 671088640    |sum a| = 2.719111e+07   l2 = 1.512519e+06
+POINT alphareach_781250000 3.0557063163e+07 1.6606731335e+06
+  new      N = 781250000    |sum a| = 3.055706e+07   l2 = 1.660673e+06
+POINT alphareach_800000000 3.0214372632e+07 1.6539299913e+06
+  new      N = 800000000    |sum a| = 3.021437e+07   l2 = 1.653930e+06
+POINT alphareach_819200000 3.1804655284e+07 1.6759712091e+06
+  new      N = 819200000    |sum a| = 3.180466e+07   l2 = 1.675971e+06
+POINT alphareach_838860800 3.1339360496e+07 1.7082418495e+06
+  new      N = 838860800    |sum a| = 3.133936e+07   l2 = 1.708242e+06
+POINT alphareach_976562500 3.5189110599e+07 1.8781938965e+06
+  new      N = 976562500    |sum a| = 3.518911e+07   l2 = 1.878194e+06
+POINT alphareach_1000000000 3.5360084753e+07 1.8689781456e+06
+  new      N = 1000000000   |sum a| = 3.536008e+07   l2 = 1.868978e+06
+POINT alphareach_1024000000 3.6619152342e+07 1.9203587641e+06
+  new      N = 1024000000   |sum a| = 3.661915e+07   l2 = 1.920359e+06
+POINT alphareach_1048576000 3.7100694087e+07 1.9382424445e+06
+  new      N = 1048576000   |sum a| = 3.710069e+07   l2 = 1.938242e+06
+POINT alphareach_1250000000 4.1113452597e+07 2.1647642350e+06
+  new      N = 1250000000   |sum a| = 4.111345e+07   l2 = 2.164764e+06
+POINT alphareach_1280000000 4.1065726190e+07 2.1533652399e+06
+  new      N = 1280000000   |sum a| = 4.106573e+07   l2 = 2.153365e+06
+POINT alphareach_1310720000 4.0808892938e+07 2.1895254301e+06
+  new      N = 1310720000   |sum a| = 4.080889e+07   l2 = 2.189525e+06
+POINT alphareach_1342177280 4.2576642361e+07 2.1988960230e+06
+  new      N = 1342177280   |sum a| = 4.257664e+07   l2 = 2.198896e+06
+POINT alphareach_1562500000 4.7016462849e+07 2.4182982041e+06
+  new      N = 1562500000   |sum a| = 4.701646e+07   l2 = 2.418298e+06
+POINT alphareach_1600000000 4.6797608690e+07 2.4723301536e+06
+  new      N = 1600000000   |sum a| = 4.679761e+07   l2 = 2.472330e+06
+POINT alphareach_1638400000 4.8654583422e+07 2.4464029786e+06
+  new      N = 1638400000   |sum a| = 4.865458e+07   l2 = 2.446403e+06
+POINT alphareach_1677721600 4.8831954630e+07 2.5451668134e+06
+  new      N = 1677721600   |sum a| = 4.883195e+07   l2 = 2.545167e+06
+POINT alphareach_1953125000 5.7077043862e+07 2.7663467114e+06
+  new      N = 1953125000   |sum a| = 5.707704e+07   l2 = 2.766347e+06
+POINT alphareach_2000000000 5.5104560624e+07 2.7377045530e+06
+  new      N = 2000000000   |sum a| = 5.510456e+07   l2 = 2.737705e+06
+POINT alphareach_2048000000 5.6730942648e+07 2.7923042524e+06
+  new      N = 2048000000   |sum a| = 5.673094e+07   l2 = 2.792304e+06
+POINT alphareach_2097152000 6.0184629261e+07 2.8472869449e+06
+  new      N = 2097152000   |sum a| = 6.018463e+07   l2 = 2.847287e+06
+POINT alphareach_2441406250 6.3625130452e+07 3.1053930900e+06
+  new      N = 2441406250   |sum a| = 6.362513e+07   l2 = 3.105393e+06
+POINT alphareach_2500000000 6.5378181400e+07 3.1530860333e+06
+  new      N = 2500000000   |sum a| = 6.537818e+07   l2 = 3.153086e+06
+POINT alphareach_2560000000 6.8465236709e+07 3.1979799140e+06
+  new      N = 2560000000   |sum a| = 6.846524e+07   l2 = 3.197980e+06
+POINT alphareach_2621440000 6.8567250309e+07 3.2501803834e+06
+  new      N = 2621440000   |sum a| = 6.856725e+07   l2 = 3.250180e+06
+POINT alphareach_2684354560 6.8583392723e+07 3.2712040651e+06
+  new      N = 2684354560   |sum a| = 6.858339e+07   l2 = 3.271204e+06
+POINT alphareach_3125000000 7.3217191293e+07 3.5659146705e+06
+  new      N = 3125000000   |sum a| = 7.321719e+07   l2 = 3.565915e+06
+POINT alphareach_3200000000 7.4498863527e+07 3.5831375621e+06
+  new      N = 3200000000   |sum a| = 7.449886e+07   l2 = 3.583138e+06
+POINT alphareach_3276800000 7.6905786411e+07 3.7156606890e+06
+  new      N = 3276800000   |sum a| = 7.690579e+07   l2 = 3.715661e+06
+POINT alphareach_3355443200 7.8590673170e+07 3.7109138307e+06
+  new      N = 3355443200   |sum a| = 7.859067e+07   l2 = 3.710914e+06
+POINT alphareach_3906250000 8.5919677345e+07 4.0396159949e+06
+  new      N = 3906250000   |sum a| = 8.591968e+07   l2 = 4.039616e+06
+POINT alphareach_4000000000 8.3505059382e+07 4.0793186814e+06
+  new      N = 4000000000   |sum a| = 8.350506e+07   l2 = 4.079319e+06
+POINT alphareach_4096000000 8.5595131819e+07 4.1820053288e+06
+  new      N = 4096000000   |sum a| = 8.559513e+07   l2 = 4.182005e+06
+POINT alphareach_4194304000 8.7159511768e+07 4.1907910204e+06
+  new      N = 4194304000   |sum a| = 8.715951e+07   l2 = 4.190791e+06
+POINT alphareach_4882812500 9.6295062014e+07 4.6266914067e+06
+  new      N = 4882812500   |sum a| = 9.629506e+07   l2 = 4.626691e+06
+POINT alphareach_5000000000 9.6905144504e+07 4.6392977014e+06
+  new      N = 5000000000   |sum a| = 9.690514e+07   l2 = 4.639298e+06
+POINT alphareach_5120000000 1.0132609420e+08 4.7161372720e+06
+  new      N = 5120000000   |sum a| = 1.013261e+08   l2 = 4.716137e+06
+POINT alphareach_5242880000 9.8335678777e+07 4.8147681813e+06
+  new      N = 5242880000   |sum a| = 9.833568e+07   l2 = 4.814768e+06
+POINT alphareach_5368709120 1.0093833008e+08 4.8774187033e+06
+  new      N = 5368709120   |sum a| = 1.009383e+08   l2 = 4.877419e+06
+POINT alphareach_6250000000 1.1659577795e+08 5.2049500019e+06
+  new      N = 6250000000   |sum a| = 1.165958e+08   l2 = 5.204950e+06
+POINT alphareach_6400000000 1.1673961131e+08 5.2960445779e+06
+  new      N = 6400000000   |sum a| = 1.167396e+08   l2 = 5.296045e+06
+POINT alphareach_6553600000 1.2443811075e+08 5.3591777208e+06
+  new      N = 6553600000   |sum a| = 1.244381e+08   l2 = 5.359178e+06
+POINT alphareach_6710886400 1.2354821976e+08 5.4552476074e+06
+  new      N = 6710886400   |sum a| = 1.235482e+08   l2 = 5.455248e+06
+POINT alphareach_7812500000 1.3323101596e+08 5.9586176014e+06
+  new      N = 7812500000   |sum a| = 1.332310e+08   l2 = 5.958618e+06
+POINT alphareach_8000000000 1.3499896464e+08 6.1017691337e+06
+  new      N = 8000000000   |sum a| = 1.349990e+08   l2 = 6.101769e+06
+OCTAVE alphareach_9 18.8566 +0.640914 0.029921 +0.095504 0.031492
+  octave 9   11 points  mid log N 18.8566  alpha +0.640914 (0.029921)  deficit +0.095504 (0.031492)
+OCTAVE alphareach_10 19.5154 +0.730421 0.024072 +0.151175 0.026170
+  octave 10  12 points  mid log N 19.5154  alpha +0.730421 (0.024072)  deficit +0.151175 (0.026170)
+OCTAVE alphareach_11 20.1930 +0.643343 0.022903 +0.092116 0.025083
+  octave 11  13 points  mid log N 20.1930  alpha +0.643343 (0.022903)  deficit +0.092116 (0.025083)
+OCTAVE alphareach_12 20.8861 +0.608311 0.017122 +0.053383 0.020219
+  octave 12  13 points  mid log N 20.8861  alpha +0.608311 (0.017122)  deficit +0.053383 (0.020219)
+OCTAVE alphareach_13 21.5819 +0.646920 0.029563 +0.076851 0.031561
+  octave 13  14 points  mid log N 21.5819  alpha +0.646920 (0.029563)  deficit +0.076851 (0.031561)
+OCTAVE alphareach_14 22.2750 +0.653175 0.032934 +0.107269 0.034129
+  octave 14  14 points  mid log N 22.2750  alpha +0.653175 (0.032934)  deficit +0.107269 (0.034129)
+OCTAVE alphareach_15 22.7030 +0.440783 0.050471 -0.184194 0.057087
+  octave 15   4 points  mid log N 22.7030  alpha +0.440783 (0.050471)  deficit -0.184194 (0.057087)
+POP alphareach_octave 4
+
+R3/R4  the two slopes over 16 octaves
+  alpha   slope -0.012011 +- 0.005910, t = -2.03
+TSTAT alphareach_alpha_slope -2.03
+  deficit slope -0.007519 +- 0.007837, t = -0.96
+TSTAT alphareach_deficit_slope -0.96
+UNRESOLVED SIGN alphareach_deficit_slope
+SPREAD alphareach_alpha_slope 10.2250
+SPREAD alphareach_deficit_slope 10.2250
+SCATTER slope_audit_alpha_reach 0.093689
+  the nine published octaves alone give -0.000807 +- 0.013688 for alpha
+  and +0.014678 +- 0.017249 for the deficit, refitted here from their marker lines
+  dropping one octave at a time moves the alpha slope over -0.015033 to -0.005791
+SWEPT alphareach_alpha_slope leave-one-octave 0.009242
+  and the deficit slope over -0.012726 to +0.001402
+SWEPT alphareach_deficit_slope leave-one-octave 0.014129
+  the octave that moves it most is the one at mid log N 22.7030, which holds
+  4 points; the field was cut at 8000000000 inside an octave, so the last one is partial
+  R3 REFUTED   (cap: |t| = 2)
+  R4 REFUTED   (cap: positive and |t| > 2)
+
+R5  did the extension buy resolution?
+  the deficit slope's standard error is 0.007837, against 0.017249 on nine octaves
+  R5 hold   (cap: 0.010)
+
+what would close the gap
+  at -0.007519 per log unit the deficit 0.134019 would close in 17.8 log units
+  which is 7.7 decades past the top of this field
+  the exclusion this field can support: a drift smaller than 0.015673
+  is invisible here, and such a drift would close the gap in 3.7 decades
+
+======================================================================
+R1 hold  R2 hold  R3 REFUTED  R4 REFUTED  R5 hold

@@ -2516,7 +2516,10 @@ printed, and they settle three things at once.
 octave fits run $+0.626273$ to $+0.823194$ — a spread of $0.196921$ —
 and their slope against mid $\log N$ is $-0.000807$ with a standard
 error of $0.013688$, $t=0.06$. Flat, as flat as a fit gets. The
-quantity that six cycles treated as constant is one.
+quantity that six cycles treated as constant is one. *(Put in question by
+[rem:alphareach]: on sixteen octaves the same slope reads
+$-0.012011\pm0.005910$, $t=-2.03$ — but dropping one octave moves it
+to $-0.005791$, so neither reading is robust.)*
 
 **And the top octave is not low** (Z2, refuted). Its $+0.664374$ comes
 with a standard error of $0.034400$, so it sits $1.56$ of its own
@@ -2547,6 +2550,78 @@ zero, and the gloss named the wrong event — the same error
 M9 in the README: **a refutation rule is written on the quantity, and
 what its refutation would mean must be checked against the ways the
 condition can fail** — of which "too noisy to tell" is always one.
+
+
+#### Remark (the sign axis, seven octaves further, and what one octave does to it) {#rem:alphareach}
+<!-- evidence: audit_alpha_reach.py -->
+
+This is the axis the proof is stuck on. [rem:leanidentity] leaves one
+requirement — $|\sum a|$ must reach the order of its own $\ell^2$
+norm, a gap of $+0.134019$ in exponent — and every constructive route
+to it is closed: [rem:levelmagnitude] in principle, [rem:filter]
+because the inverse filter grows like $1.916413^m$, [rem:meanonly]
+because the denominator is a correlation and not a mean. One
+computational question is left: does the gap close as $N$ grows?
+
+[rem:alphalocal] answered "nothing is closing" from nine octaves,
+with the deficit's slope at $+0.014678\pm0.017249$. That is honest
+and weak: a drift two standard errors inside it would close the gap
+in about two decades, so the measurement could not exclude the budget
+route, it could only fail to see it.
+
+**The field stopped at $1.024\cdot10^8$ because of the sieve, not the
+arithmetic.** The published route holds $\Lambda$ at eight bytes an
+index with an int32 cofactor beside it, thirteen bytes in all; at
+$8\cdot10^9$ that is $96.86$ GB. The kind byte of [rem:rung18] holds
+the same information in two — $14.90$ GB — and the half-index trick
+of [rem:rung17] does not apply here because $m$ runs over every
+integer coprime to $k$, so $N-mk$ takes both parities. Recomputed
+through this packing with the per-$k$ sums split into blocks, the top
+published octave returns $+0.664374$ and $+0.108604$ to every digit
+printed (R1).
+
+**The extension buys the resolution it was run for** (R5). Seven more
+octaves, seventy-five more $N$, and the deficit slope's standard
+error falls from $0.017249$ to $0.007837$.
+
+**And then one octave decides everything.** Over sixteen octaves the
+$\alpha$ slope is $-0.012011\pm0.005910$, $t=-2.03$ — resolved, which
+refutes R3 and would overturn [rem:alphalocal]'s Z3, the finding that
+$\alpha$ is a constant of the range. The deficit slope is
+$-0.007519\pm0.007837$, $t=-0.96$: unresolved, refuting R4 by the
+route its rule named (b), and **with its sign flipped** from the
+$+0.014678$ nine octaves gave.
+
+Both of those are one octave's doing. Dropping each octave in turn
+moves the $\alpha$ slope across $-0.015033$ to $-0.005791$, a spread
+of $0.009242$ against its own standard error of $0.005910$; and the
+deficit slope across $-0.012726$ to $+0.001402$, a spread of
+$0.014129$ **that crosses zero**. The octave responsible sits at mid
+$\log N=22.7030$ and holds four points where the others hold eleven
+to fourteen. **It is short because the field was cut at
+$8\cdot10^9$, inside an octave, and that was a choice made when the
+bound was registered.** The bound is not moved here: choosing it
+after seeing which side of zero it puts the answer on is the error
+this repository exists to avoid.
+
+So the honest report is narrower than either refutation sounds.
+$\alpha$ is not shown to drift; a sixteen-octave fit says so at
+$t=-2.03$ and a fifteen-octave fit says $-1.13$. The deficit is not
+shown to close; it is not shown to grow either. **What the extension
+did establish is the size of the blind spot.** A drift smaller than
+$0.015673$ is invisible in this field, and a drift that size would
+close the gap in $3.7$ decades — where nine octaves could only say
+two. The route is not excluded, and it is excluded less loosely than
+before by about two decades.
+
+Two things follow for the next measurement. The first is that a field
+cut inside an octave buys a partial octave that dominates the
+regression, and the next reach should end on a boundary — $LO\cdot
+2^j$ — rather than at a round number. The second is that this
+analysis summarises each octave into one number and then fits sixteen
+numbers, which throws away most of the data: the $87$ per-$N$ values
+this run prints as `POINT` markers exist precisely so that a fit over
+the points themselves can be done without measuring them again.
 
 
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
