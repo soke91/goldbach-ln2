@@ -279,12 +279,14 @@ def main():
     say("    slope %+.6f per log unit, r.m.s. residual %.6f"
         % (slA, floA))
     say("FLOOR local_window_A %.6f" % floA)
+    say("SLOPE local_window_A %+.6f" % slA)
     say("  window B, %d points over %.4f decades around the gap "
         "bracket:"
         % (len(WIN_B), math.log10(max(WIN_B)) - math.log10(min(WIN_B))))
     say("    slope %+.6f per log unit, r.m.s. residual %.6f"
         % (slB, floB))
     say("FLOOR local_window_B %.6f" % floB)
+    say("SLOPE local_window_B %+.6f" % slB)
     l1 = floA < scat and floB < scat
     say("  against the ladder's floor %.4f, and the %.6f measured "
         "near rung 18" % (scat, far))

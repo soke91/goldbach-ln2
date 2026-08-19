@@ -1,0 +1,122 @@
+STATISTIC: the truncation K*_R and its exponent
+           log K*_R / log N at seven same-radical N spanning
+           0.0641 decades about the place the chord between
+           two resolved measurements puts 0.56; the number
+           of times the sign of exponent - 0.56 turns over
+           across them; the r.m.s. residual of the seven
+           about a line in log N as a local floor; and the
+           width 2*floor/slope of the band in which a point
+           cannot be told from the level. Rung 16 is
+           recomputed as a control.
+NULL: none is run and none applies. K*_R is a deterministic
+      integer once N is fixed; there is no sampling noise
+      and no background to detect against. What the floor
+      measures is arithmetic fluctuation across N, which is
+      why it is estimated from neighbouring N rather than
+      from a fit across the whole ladder. The coin arms for
+      this statistic were run in lab_primorial_ladder.py
+      and lab_primorial_share.py.
+FIELD: N = 30030*m for m = 174960, 179200, 183708, 188160,
+       193050, 198000, 202800, every m composed only of 2,
+       3, 5, 7, 11 and 13 so the odd radical is 3*5*7*11*13
+       and the threshold is the ladder's; and N = 30030*2^16
+       as the control. k squarefree and coprime to N with
+       2 <= k < 1000000, beta fitted on the same range; m
+       odd, squarefree and coprime to k, m < N/k; the sieve
+       weight over the odd primes below 30; the Euler
+       products at the fixed bound 4000000. One odd
+       radical, as the RADICALS line declares. The sieve,
+       the packing and the statistic are imported from
+       code/audit_primorial_rung18.py; rung 16 comes from
+       results/audit_ladder_cap.txt, the floor at 1/2 from
+       results/audit_local_floor.txt, the floor near rung 18
+       from results/audit_rung18_fill.txt and rung 17's
+       exponent from results/audit_primorial_rung17.txt.
+
+read rung 16 from results/audit_ladder_cap.txt, the floor 0.001662 at 1/2 from
+  results/audit_local_floor.txt, the floor 0.000308 near rung 18 from
+  results/audit_rung18_fill.txt, and rung 17's exponent 0.555925 from
+  results/audit_primorial_rung17.txt
+PRINTBOUND audit_target_band 6 0.00000050
+READ audit_local_floor.txt FLOOR local_window_B 0.001662
+READ audit_local_floor.txt SLOPE local_window_B +0.024973
+READ audit_rung18_fill.txt FLOOR rung18_fill_local 0.000308
+
+the seven N across the band, all of odd radical 3*5*7*11*13
+   N              log10 N
+   5254048800     9.7205
+   5381376000     9.7309
+   5516751240     9.7417
+   5650444800     9.7521
+   5797291500     9.7632
+   5945940000     9.7742
+   6090084000     9.7846
+  spanning 0.0641 decades, spaced about 0.0107
+SCALES 1
+
+sieving to 6090084000 on half-indices, once for every N below it
+BYTES resident_arrays 9135126003
+  the Euler products at the fixed bound 4000000: Artin 0.373955819, twin 1.320323652
+
+  N              log10 N   K*_R     exponent   over 0.56
+  1968046080     9.2940    126079   0.548808   -0.011192
+BUDGET kstar_R_S1AN_N1968046080 0.087306
+  5254048800     9.7205    271907   0.559068   -0.000932
+BUDGET kstar_R_S1AN_N5254048800 0.087306
+  5381376000     9.7309    272707   0.558602   -0.001398
+BUDGET kstar_R_S1AN_N5381376000 0.087306
+  5516751240     9.7417    283541   0.559720   -0.000280
+BUDGET kstar_R_S1AN_N5516751240 0.087306
+  5650444800     9.7521    288121   0.559837   -0.000163
+BUDGET kstar_R_S1AN_N5650444800 0.087306
+  5797291500     9.7632    295109   0.560264   +0.000264
+BUDGET kstar_R_S1AN_N5797291500 0.087306
+  5945940000     9.7742    299213   0.560247   +0.000247
+BUDGET kstar_R_S1AN_N5945940000 0.087306
+  6090084000     9.7846    305507   0.560576   +0.000576
+BUDGET kstar_R_S1AN_N6090084000 0.087306
+RADICALS 1
+
+C1  the ladder control at rung 16
+  K*_R here 126079 against 126079, exponent 0.548808 against 0.548808, equal
+  C1 hold   (cap: exact on K*_R, the printing bound)
+
+C2  the radical control: one threshold everywhere
+  the threshold reads 0.087306 at all 8 N, spread 0.00000000
+  C2 hold   (cap: the printing bound)
+
+W1  the local floor in this window
+  slope +0.012078 per log unit (+0.027810 per decade), r.m.s. residual 0.000264
+FLOOR target_band_local 0.000264
+  against 0.001662 at 1/2 and 0.000308 near rung 18
+  W1 hold   (cap: the floor at 1/2)
+
+W2  does the window straddle 0.56?
+  4 of 7 below the level, 3 above
+  W2 hold   (cap: one on each side)
+
+W3  how many times does the sign turn over?
+  signs in N order: - - - - + + +
+SIGNRUN target_band_turns 1
+  the sign changes 1 time
+  3 of 7 points are inside the local floor, so their side is not determined
+  W3 hold   (cap: exactly one turn)
+
+W4  how wide is the indeterminate band here?
+  2*floor/slope is 0.0190 decades, against 0.0578 at 1/2, whose slope
+  +0.024973 per log unit and floor 0.001662 are read from results/audit_local_floor.txt
+  the window spans 0.0641 decades, so it covers the band
+SPREAD target_band 0.0641
+SCATTER slope_audit_target_band 0.000264
+  W4 hold   (cap: the band at 1/2)
+
+the resolved pair for 0.56, from this window
+  highest N resolved below: 5516751240 at 10^9.7417, exponent 0.559720
+  lowest N resolved above:  6090084000 at 10^9.7846, exponent 0.560576
+BRACKET target_056_resolved 9.7632 9.7417 9.7846
+DRIFT target_056_resolved 0.0429
+SHAPES 1
+SCALES 2
+
+======================================================================
+C1 hold  C2 hold  W1 hold  W2 hold  W3 hold  W4 hold

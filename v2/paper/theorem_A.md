@@ -4655,6 +4655,89 @@ $(10^{9.5951},\,10^{9.8756}]$ remains what it was said to be: two
 resolved measurements with an unmeasured interior.
 
 
+#### Remark (0.56 is crossed once, and the band says why 1/2 was not) {#rem:targetband}
+<!-- evidence: audit_target_band.py -->
+
+[rem:localfloor] found the sign of exponent $-\tfrac12$ turning over
+five times across eight same-radical $N$ and read it as the ladder
+sitting on the level rather than passing through it. That reading was
+right about those points and incomplete about the reason, and the
+missing piece decides where to look for any level.
+
+**A point cannot be told from a level when $|{\rm exponent}-{\rm
+level}|$ is under the local floor, so the indeterminate band is about
+$2\,{\rm floor}/{\rm slope}$ wide.** At $\tfrac12$ that window's slope
+was $0.024973$ per log unit against a floor of $0.001662$: a band of
+$0.0578$ decades, and the window spanned $0.0582$. **The window was
+the band.** Every point in it had to be indeterminate, and five sign
+changes is what sampling a band from inside looks like. Nothing was
+learned there about how the ladder meets $\tfrac12$ because nothing
+could be.
+
+So the same question is put to $0.56$ where the band can be crossed.
+Seven same-radical $N$ span $0.0641$ decades about $10^{9.7521}$,
+where the chord between rung 17 and the lowest point of
+[rem:rung18fill] puts the level, spaced about $0.0107$. Rung 16
+recomputes to $126079$ and $0.548808$ (C1) and the threshold reads
+$0.087306$ at all eight $N$ with zero spread (C2).
+
+**The floor keeps shrinking** (W1). The local floor here is
+$0.000264$, against $0.001662$ at $\tfrac12$ and $0.000308$ near rung
+18. Arithmetic fluctuation falls with $N$ across three measured
+places now, and no floor may still be carried from one to another.
+
+**The window straddles the level** (W2): four of the seven are below
+it and three above.
+
+**And the sign turns over exactly once** (W3). In $N$ order the
+exponents read $0.559068$, $0.558602$, $0.559720$, $0.559837$,
+$0.560264$, $0.560247$, $0.560576$ — signs $-\,-\,-\,-\,+\,+\,+$
+against the level. Three of the seven sit inside the local floor, so
+their side is undetermined, but they are contiguous and they surround
+the turn. **That is what a crossing looks like**, and it is not what
+$\tfrac12$ looked like.
+
+**Because the band here is a third as wide** (W4). $2\,{\rm
+floor}/{\rm slope}$ is $0.0190$ decades against $0.0578$ at
+$\tfrac12$: the floor is six times smaller and the slope only twice,
+so the window at $0.0641$ decades covers the band instead of sitting
+inside it. The difference between the two levels is not that the
+ladder behaves differently at them; it is that one was sampled across
+its band and the other inside it.
+
+**The bracket narrows by a factor of six, and still without a shape.**
+The highest $N$ resolved below the level is $5516751240$ at
+$10^{9.7417}$ with exponent $0.559720$, and the lowest resolved above
+is $6090084000$ at $10^{9.7846}$ with $0.560576$. So
+$$0.56 \text{ is crossed in } (10^{9.7417},\,10^{9.7846}],$$
+a span of $0.0429$ decades, against the $(10^{9.5951},\,10^{9.8756}]$
+[rem:rung18fill] left. Both ends are resolved measurements and no
+fitted curve is used to say it.
+
+**The upper end is one rounding from being tighter, and that should be
+said.** The point at $10^{9.7632}$ clears the level by $0.000264$ and
+the local floor is $0.000264$ — equal in every digit printed. The
+comparison is strict, so that point counts as undetermined and the
+resolved end falls back to $10^{9.7846}$; the other way it would be
+$10^{9.7632}$. Nothing here is wrong, but a verdict that turns on
+digits past the printing is one to quote with its fragility attached.
+
+Two things this does not do. It does not make $\theta'$ quotable:
+[rem:shapepower] forbids reading a level's crossing off an underived
+shape, and nothing here is a shape — but nothing here is a forecast
+either, which is the point. And it does not revive
+[rem:primorialgap]: that window was inside its band, so it could not
+have resolved a crossing whatever the ladder did, and
+[rem:localfloor]'s correction of it stands with a reason attached
+rather than a warning.
+
+What it leaves is a rule the branch did not have. **To resolve a
+crossing, sample a window wider than $2\,{\rm floor}/{\rm slope}$ at
+that place** — and since the floor falls with $N$ while the slope
+does not, that gets easier, not harder, the further the ladder is
+carried.
+
+
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->
 

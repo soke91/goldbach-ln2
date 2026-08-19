@@ -4035,6 +4035,49 @@ def g75_tolerances_follow_the_printing_they_judge():
     return n
 
 
+# ----------------------------------------------------------------- G76
+READLINE = re.compile(r"^READ (\S+\.txt) (\S+ \S+) (\S+)\s*$", re.M)
+
+
+def g76_reads_match_their_source():
+    """남의 결과에서 읽었다고 선언한 값이 정말 그 줄의 값이어야 한다.
+
+    audit_target_band.py 가 audit_local_floor.txt 에서 창 B 의 기울기를
+    re.S 패턴으로 뽑았는데, FIELD 머리글이 "window B" 를 먼저 부르는
+    바람에 검색이 거기서 시작해 창 A 의 기울기를 집었다. 등록된 문턱은
+    0.0578 인데 보고된 값은 0.4611 이 됐고, **게이트 일흔다섯 검사가
+    전부 통과했다** -- G11 은 인쇄된 숫자가 어느 결과 파일엔가 있는지만
+    묻지, 그 값이 자기가 읽었다고 말하는 줄에서 나왔는지는 묻지 않는다.
+
+    그래서 읽은 값을 READ <파일> <표지> <값> 으로 선언하게 하고, 그
+    파일에 정말 "<표지> <값>" 줄이 있는지 대조한다. 산문에서 긁지 말고
+    표지를 통째로 맞추라는 뜻이기도 하다.
+    """
+    if not os.path.isdir(RESULTS):
+        return 0
+    n = 0
+    for f in sorted(os.listdir(RESULTS)):
+        if not f.endswith(".txt"):
+            continue
+        src = read(os.path.join(RESULTS, f))
+        for name, label, val in READLINE.findall(src):
+            dep = os.path.join(RESULTS, name)
+            if not os.path.exists(dep):
+                fails.append(f"G76 results/{f} declares READ from "
+                             f"{name}, which does not exist")
+                n += 1
+                continue
+            want = re.compile(r"^%s %s\s*$"
+                              % (re.escape(label), re.escape(val)),
+                              re.M)
+            if not want.search(read(dep)):
+                fails.append(
+                    f"G76 results/{f} says it read '{label} {val}' "
+                    f"from {name}, which prints no such line")
+                n += 1
+    return n
+
+
 def main():
     docs = [(p, read(p)) for p in paper_files()]
     print("gate")
@@ -4175,6 +4218,8 @@ def main():
          g74_parametric_families_declare_their_coprimality_classes()),
         ("G75 tolerances follow the printing they judge",
          g75_tolerances_follow_the_printing_they_judge()),
+        ("G76 declared reads match their source",
+         g76_reads_match_their_source()),
     ]
     print()
     for name, c in counts:

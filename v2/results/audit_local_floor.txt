@@ -88,9 +88,11 @@ L1  the local floor in each window
   window A, 6 points over 0.0347 decades around rung 10:
     slope -0.003131 per log unit, r.m.s. residual 0.001883
 FLOOR local_window_A 0.001883
+SLOPE local_window_A -0.003131
   window B, 8 points over 0.0582 decades around the gap bracket:
     slope +0.024973 per log unit, r.m.s. residual 0.001662
 FLOOR local_window_B 0.001662
+SLOPE local_window_B +0.024973
   against the ladder's floor 0.0037, and the 0.000308 measured near rung 18
   L1 hold   (cap: the ladder's floor)
 
