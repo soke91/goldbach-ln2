@@ -4584,6 +4584,77 @@ is the interval itself, which is wide and unfilled, and
 [rem:shapepower] still forbids quoting a crossing inside it.
 
 
+#### Remark (the floor is scale-dependent, and 1/2 is crossed more than once) {#rem:localfloor}
+<!-- evidence: audit_local_floor.py -->
+
+[rem:rung18fill] measured the arithmetic fluctuation between
+neighbouring $N$ near rung 18 at $0.000308$ and observed that every
+single-point verdict in this branch had been judged against the
+ladder's $0.0037$ instead. Two of those verdicts are at $\tfrac12$
+and both retreated. This measures the floor where they live, the same
+way, and the answer changes three things.
+
+Rungs 9 and 10 recompute to $3551$ with $0.494008$ and $5779$ with
+$0.502394$ (C1) and the threshold reads $0.087306$ at all fifteen $N$
+with zero spread (C2).
+
+**The floor is not one number** (L1). Six same-radical $N$ around rung
+10 give a local floor of $0.001883$; eight around
+[rem:primorialgap]'s interval give $0.001662$. Both are under the
+ladder's $0.0037$, so L1 holds — **but both are about six times the
+$0.000308$ measured near rung 18.** The fluctuation shrinks with $N$,
+as it should, and that means no floor may be carried from one part of
+the ladder to another. [rem:rung18fill]'s number licenses nothing
+outside its own window, and neither does this one.
+
+**Rung 10's retreat was unnecessary, and only just** (L2). It clears
+$\tfrac12$ by $0.002394$ against a local floor of $0.001883$, a ratio
+of $1.27$. So [rem:primorialrung10]'s crossing survives being judged
+where it lives — by a quarter, not by an order of magnitude, and it
+would not have survived a floor twice as careful.
+
+**One end of the gap bracket resolves and the other does not** (L3
+hold, L4 refuted). At $N=20180160$ the exponent clears $\tfrac12$ by
+$0.002978$, $1.79$ floors. At $N=18018000$ — the point
+[rem:primorialgap] named "last short" — it falls short by
+$0.000194$, which is $0.12$ of the floor. That was registered as the
+prediction likely to fail and it failed.
+
+**And the reason it failed is the finding.** Eight points across
+$0.0582$ decades read, against $\tfrac12$: $-0.000194$, $-0.004142$,
+$+0.000511$, $-0.000204$, $+0.001345$, $-0.001365$, $+0.002978$,
+$+0.000886$. **The sign changes five times.** Six of the eight are
+inside the local floor, so their side of $\tfrac12$ is not
+determined at all; the two that are resolved are $18498480$ below and
+$20180160$ above.
+
+So [rem:primorialgap]'s reading has to be corrected, though not its
+arithmetic. Its four interior points read $0.4966$, $0.4998$,
+$0.5030$, $0.5040$ and looked monotone, and it concluded "the
+crossing is *inside* the interval". With eight points in the same
+place the exponent does not rise through $\tfrac12$ once; **it sits
+on $\tfrac12$ within the fluctuation and changes sign repeatedly.**
+There is no single crossing to bracket here, and the interval that
+was reported as one is better described as the region where the
+ladder is indistinguishable from $\tfrac12$. The four points that
+suggested otherwise were a sparse sample of an oscillation.
+
+What survives, stated as narrowly as it should be: **the exponent is
+resolved below $\tfrac12$ at $10^{7.2671}$ and resolved above it at
+$10^{7.3049}$**, so the ladder does pass from one side to the other
+across that span; nothing measured says it does so once. And rung 10,
+higher up at $10^{7.4879}$, is resolved above.
+
+Two cautions follow for the level this branch actually cares about.
+[rem:rung18fill] found five consecutive $N$ all above $0.56$ by eight
+to twelve local floors, with no sign change among them, so nothing
+here disturbs that. But the span from rung 17 to those points is
+unfilled, and **the oscillation seen at $\tfrac12$ is a reason not to
+assume a single crossing of $0.56$ either.** The bracket
+$(10^{9.5951},\,10^{9.8756}]$ remains what it was said to be: two
+resolved measurements with an unmeasured interior.
+
+
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->
 
@@ -4609,7 +4680,9 @@ $k$ at each (Q4).
 **Q2 is refuted, and it is the refutation the rule named as the one
 worth having.** The four exponents are $0.4966,\,0.4998,\,0.5030,\,
 0.5040$: the crossing is *inside* the interval, not above it as the
-eleven-rung line said. So [rem:primorialreach]'s interval closes by
+eleven-rung line said. *(Corrected by [rem:localfloor]: eight points
+in the same place change sign five times, so these four are a sparse
+sample of an oscillation and there is no single crossing to bracket.)* So [rem:primorialreach]'s interval closes by
 **confirmation**. Between the last point short of $\tfrac12$ and the
 first point over it the crossing is bracketed to
 $(10^{7.2557},\,10^{7.3049}]$, $0.0492$ decades against the $0.3010$

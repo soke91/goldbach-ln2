@@ -1,0 +1,121 @@
+STATISTIC: the truncation K*_R and its exponent
+           log K*_R / log N at same-radical N in two narrow
+           windows, one around rung 10 and one around the
+           interval {#rem:primorialgap} bracketed; the
+           r.m.s. residual of each window about a line in
+           log N, as a locally measured floor; and the
+           clearance or shortfall of three published
+           verdicts at 1/2 against those floors. Rungs 9
+           and 10 are recomputed as a control.
+NULL: none is run and none applies. K*_R is a deterministic
+      integer once N is fixed; there is no sampling noise
+      and no background to detect against. What the floor
+      measures is arithmetic fluctuation across N, which is
+      why it is estimated from neighbouring N rather than
+      from a fit across the whole ladder. The coin arms for
+      this statistic were run in lab_primorial_ladder.py
+      and lab_primorial_share.py.
+FIELD: N = 30030*m, every m composed only of 2, 3, 5, 7, 11
+       and 13 so the odd radical is 3*5*7*11*13 and the
+       threshold is the ladder's: m = 975, 990, 1008, 1024,
+       1040, 1056 in window A and m = 600, 616, 630, 640,
+       650, 660, 672, 686 in window B, with m = 512 and
+       1024 as controls. k squarefree and coprime to N with
+       2 <= k < 1000000, beta fitted on the same range; m
+       odd, squarefree and coprime to k, m < N/k; the sieve
+       weight over the odd primes below 30; the Euler
+       products at the fixed bound 4000000. One odd
+       radical, as the RADICALS line declares. The sieve,
+       the packing and the statistic are imported from
+       code/audit_primorial_rung18.py; rungs 9 and 10 come
+       from results/audit_ladder_cap.txt, the ladder floor
+       from results/audit_primorial_rung18.txt and the
+       rung-18 local floor from
+       results/audit_rung18_fill.txt.
+
+read rungs 9 and 10 from results/audit_ladder_cap.txt, the ladder's floor
+  0.0037 from results/audit_primorial_rung18.txt, and the floor 0.000308
+  measured near rung 18 from results/audit_rung18_fill.txt
+PRINTBOUND audit_local_floor 6 0.00000050
+
+sieving to 31711680 on half-indices, once for every N below it
+BYTES resident_arrays 47567523
+  the Euler products at the fixed bound 4000000: Artin 0.373955819, twin 1.320323652
+
+  N              log10 N   K*_R     exponent   over 1/2
+  15375360       7.1868    3551     0.494008   -0.005992
+BUDGET kstar_R_S1AN_N15375360 0.087306
+  18018000       7.2557    4231     0.499806   -0.000194
+BUDGET kstar_R_S1AN_N18018000 0.087306
+  18498480       7.2671    4013     0.495858   -0.004142
+BUDGET kstar_R_S1AN_N18498480 0.087306
+  18918900       7.2769    4387     0.500511   +0.000511
+BUDGET kstar_R_S1AN_N18918900 0.087306
+  19219200       7.2837    4369     0.499796   -0.000204
+BUDGET kstar_R_S1AN_N19219200 0.087306
+  19519500       7.2905    4519     0.501345   +0.001345
+BUDGET kstar_R_S1AN_N19519500 0.087306
+  19819800       7.2971    4351     0.498635   -0.001365
+BUDGET kstar_R_S1AN_N19819800 0.087306
+  20180160       7.3049    4723     0.502978   +0.002978
+BUDGET kstar_R_S1AN_N20180160 0.087306
+  20600580       7.3139    4607     0.500886   +0.000886
+BUDGET kstar_R_S1AN_N20600580 0.087306
+  29279250       7.4666    5653     0.502545   +0.002545
+BUDGET kstar_R_S1AN_N29279250 0.087306
+  29729700       7.4732    6233     0.507775   +0.007775
+BUDGET kstar_R_S1AN_N29729700 0.087306
+  30270240       7.4810    6107     0.506058   +0.006058
+BUDGET kstar_R_S1AN_N30270240 0.087306
+  30750720       7.4879    5779     0.502394   +0.002394
+BUDGET kstar_R_S1AN_N30750720 0.087306
+  31231200       7.4946    6047     0.504569   +0.004569
+BUDGET kstar_R_S1AN_N31231200 0.087306
+  31711680       7.5012    6131     0.504922   +0.004922
+BUDGET kstar_R_S1AN_N31711680 0.087306
+RADICALS 1
+
+C1  the ladder control at rungs 9 and 10
+  rung 9   K*_R here 3551 against 3551, exponent 0.494008 against 0.494008, equal
+  rung 10  K*_R here 5779 against 5779, exponent 0.502394 against 0.502394, equal
+  C1 hold   (cap: exact on K*_R, the printing bound)
+
+C2  the radical control: one threshold everywhere
+  the threshold reads 0.087306 at all 15 N, spread 0.00000000
+  C2 hold   (cap: the printing bound)
+
+L1  the local floor in each window
+  window A, 6 points over 0.0347 decades around rung 10:
+    slope -0.003131 per log unit, r.m.s. residual 0.001883
+FLOOR local_window_A 0.001883
+  window B, 8 points over 0.0582 decades around the gap bracket:
+    slope +0.024973 per log unit, r.m.s. residual 0.001662
+FLOOR local_window_B 0.001662
+  against the ladder's floor 0.0037, and the 0.000308 measured near rung 18
+  L1 hold   (cap: the ladder's floor)
+
+L2  is rung 10's crossing of 1/2 resolved locally?
+  rung 10 clears 1/2 by 0.002394 against the local floor 0.001883, a ratio of 1.27
+MARGIN audit_local_floor_rung10 0.002394 0.001883
+  L2 hold   (cap: window A's floor)
+
+L3/L4  are the two ends of the gap bracket resolved?
+  N = 20180160 clears 1/2 by +0.002978, ratio 1.79
+  N = 18018000 falls short by +0.000194, ratio 0.12
+MARGIN audit_local_floor_gaphigh 0.002978 0.001662
+MARGIN audit_local_floor_gaplow 0.000194 0.001662
+INSIDE FLOOR audit_local_floor_gaplow
+  L3 hold   (cap: window B's floor)
+  L4 REFUTED   (cap: window B's floor)
+
+the resolved bracket for 1/2, from window B
+  highest N resolved below: 18498480 at 10^7.2671, exponent 0.495858
+  lowest N resolved above:  20180160 at 10^7.3049, exponent 0.502978
+BRACKET half_resolved 7.2860 7.2671 7.3049
+DRIFT half_resolved 0.0378
+SCATTER slope_audit_local_floor 0.001662
+SHAPES 1
+SCALES 2
+
+======================================================================
+C1 hold  C2 hold  L1 hold  L2 hold  L3 hold  L4 REFUTED
