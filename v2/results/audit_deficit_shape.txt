@@ -1,0 +1,83 @@
+STATISTIC: the cubic coefficient of
+           log(|sum a|/l2) against log N over the whole
+           field -- the rate at which the deficit's own
+           drift drifts -- with its t; the out-of-sample
+           departures of the quadratic and the cubic walked
+           forward; and the fraction of simulated fields in
+           which the cubic resolves, under a constant drift
+           and under a drift that dies exactly where the
+           quadratic puts the deficit's closure.
+NULL: RUN, twice, and they are B4 and B5. B4 draws fields
+      from the fitted quadratic with the observed residual
+      scatter and counts how often the cubic resolves
+      spuriously. B5 draws them from the cubic whose drift
+      vanishes at the quadratic's closure point -- the
+      alternative under which the deficit never reaches
+      zero -- and counts how often the cubic resolves at
+      all. Both are fitted by the same code path as the
+      observed field, with the fixed SEED.
+FIELD: N = 2^a 5^b with both a >= 1 and b >= 1 in
+       [2e5, 8e9], one coprimality class. Nothing is
+       measured here: every |sum a| and l2 is read from a
+       POINT marker, the 81 below 1.024e8 from
+       results/audit_deficit_direct.txt and the 75 above it
+       from results/audit_alpha_reach.txt, and the
+       quadratic's beta is read from the BETA marker of the
+       former.
+
+read 156 POINT markers from results/audit_deficit_direct.txt and
+  results/audit_alpha_reach.txt; nothing is measured here
+READ audit_deficit_direct.txt BETA deficit_direct -0.007380 0.000632
+PRINTBOUND audit_deficit_shape 6 0.00000050
+
+the field: 156 points over 10.5966 in log N
+SCALES 1
+
+B1  the control against {#rem:deficitdirect}
+  quadratic beta -0.007380 +- 0.000632 against the declared -0.007380 +- 0.000632
+  B1 hold   (cap: the printing bound)
+
+B2  is the drift itself drifting?
+  cubic gamma -0.00201923 +- 0.00068284, t = -2.96
+TSTAT deficit_shape_gamma -2.96
+SPREAD deficit_shape_gamma 10.5966
+  r.m.s. residual 0.031762 against the quadratic's 0.032663
+SCATTER slope_audit_deficit_shape 0.031762
+  B2 hold   (cap: |t| = 2)
+
+B3  does the cubic predict out of sample?
+  walking forward from point 40: 116 out-of-sample points
+  quadratic r.m.s. departure 0.029139, cubic 0.028534
+SIGNRUN deficit_shape_walk 72
+  B3 hold   (cap: the quadratic's departure)
+
+B4/B5  the two nulls
+  the quadratic puts the closure at x = 33.5338, so a drift that dies there has
+  gamma = +0.00022008; that is the alternative B5 draws from
+NULL deficit_shape_falsepos 0.0515
+  under a constant drift the cubic resolves in 0.0515 of 4000 fields
+  B4 REFUTED   (cap: 0.05)
+NULL deficit_shape_power 0.0535
+  under a drift that dies at the closure it resolves in 0.0535
+  B5 REFUTED   (cap: one half)
+
+what B5 should have asked, and the answer
+  B5 asked whether the cubic term resolves under the alternative. That is a
+  question about detecting any curvature, and the alternative's curvature is
+  tiny: gamma = +0.00022008 against a standard error of 0.00068284, 0.32 of it.
+  Nothing could resolve that here and the rule should not have asked it to.
+  The question that decides the matter is whether the measured gamma can be
+  told from the alternative's, and it can: the gap is -0.00223931, which is
+  3.28 standard errors.
+DISCRIMINATION deficit_shape_alt 3.28
+  This is the third time a registered rule named the wrong event -- M9 in the
+  README, after {#rem:thetalaw} U4 and {#rem:alphalocal} Z4. B5 stands refuted
+  as written; the number above is reported beside it, not in place of it.
+
+what this settles
+  the field cannot see the alternative, so it cannot tell a deficit that
+  closes from one that approaches a positive limit. {#rem:deficitdirect}'s
+  resolved shrinkage licenses nothing about whether the requirement is met.
+
+======================================================================
+B1 hold  B2 hold  B3 hold  B4 REFUTED  B5 REFUTED

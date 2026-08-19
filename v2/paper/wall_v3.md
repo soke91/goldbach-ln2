@@ -2689,6 +2689,65 @@ that is a second reason the summary route was costing more than its
 robustness was worth.
 
 
+#### Remark (the drift steepens, and two of this run's own rules were misspecified) {#rem:deficitshape}
+<!-- evidence: audit_deficit_shape.py -->
+
+[rem:deficitdirect] resolved the deficit's drift at $t=-11.67$ and
+declined to say where it reaches zero, because that forecast had
+moved $45.8908$ decades on the last seven octaves. The reason is a
+shape assumption: a quadratic in log-log makes the drift constant, so
+the deficit must cross zero; a cubic lets the drift die, and then the
+deficit approaches a positive limit and **never closes at any $N$**.
+Both fit a shrinking deficit; only the first implies the budget route
+exists. Nothing is measured here — all $156$ points are read from
+`POINT` markers.
+
+**The drift is not constant, and it steepens** (B2). The cubic
+coefficient is $-0.00201923\pm0.00068284$, $t=-2.96$: resolved, and
+negative, which means the deficit is closing *faster* than the
+quadratic said rather than slowing. The r.m.s. residual falls from
+$0.032663$ to $0.031762$, and walking forward from the fortieth point
+the cubic's out-of-sample departure is $0.028534$ against the
+quadratic's $0.029139$ (B3) — so it predicts as well as it fits,
+which is the test [rem:signrun] applied and a term can fail.
+
+**And two registered rules named the wrong event.** B4 asked that a
+nominal five per cent test come in *below* five per cent; it measured
+$0.0515$, which is $0.44$ Monte Carlo standard errors from $0.05$ on
+$4000$ draws. That is a coin flip, and a rule whose outcome is a coin
+flip tests the coin. B5 asked whether the cubic *resolves* under the
+alternative — but the alternative's own curvature is $+0.00022008$
+against a standard error of $0.00068284$, $0.32$ of it. Nothing could
+resolve that, and the rule should not have asked it to. **Both stand
+refuted as written.**
+
+The question B5 should have asked is not whether the alternative
+would be detected but whether the measurement can be told apart from
+it, and it can: the gap between the measured cubic term and the
+alternative's is $-0.00223931$, **$3.28$ standard errors**. So the
+particular way of never closing that this run constructed — a drift
+dying exactly where the quadratic put the closure — is excluded, and
+excluded by the direct estimate rather than by a power calculation
+that was never able to speak.
+
+**This is the third time.** [rem:thetalaw]'s U4 and [rem:alphalocal]'s
+Z4 made the same error and it became M9 in the README: *a refutation
+rule is written on the quantity, and what its refutation would mean
+must be checked against the ways the condition can fail.* M9 has now
+failed to prevent its own third instance, which is worth recording as
+a fact about rules rather than about these fits.
+
+What this settles and what it does not. The drift is measured, it
+steepens, and one construction of "never closes" is out by $3.3$
+standard errors. That is not "the deficit closes": a drift that dies
+later than the quadratic's crossing, or dies in some shape other than
+a cubic's, is untouched, and the field's $10.5966$ in $\log N$ is not
+long enough to enumerate those. **The budget route is narrower than
+[rem:deficitdirect] left it and still not open**, and what would open
+or close it is a functional form for the drift, which no measurement
+in this repository has ever supplied.
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 

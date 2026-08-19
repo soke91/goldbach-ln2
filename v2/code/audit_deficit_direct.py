@@ -236,7 +236,11 @@ def main():
         _ks, a = AR.weighted(N, kind, mu, pv, plg)
         S[N] = abs(float(a.sum()))
         L[N] = float(np.sqrt((a ** 2).sum()))
+        say("POINT deficitdirect_%d %.10e %.10e" % (N, S[N], L[N]))
     del kind, mu
+    say("  the %d points below %d now carry markers too, so the whole"
+        % (len(old), HI))
+    say("  field is readable without measuring any of it again")
 
     # -------------------------------------------------------------- A1
     say()
@@ -304,6 +308,7 @@ def main():
     t = beta / sb
     a4 = abs(t) > 2.0
     say("  beta = %+.6f, t = %.2f" % (beta, t))
+    say("BETA deficit_direct %+.6f %.6f" % (beta, sb))
     say("TSTAT deficit_direct_beta %.2f" % t)
     if abs(t) < 2.0:
         say("UNRESOLVED SIGN deficit_direct_beta")
