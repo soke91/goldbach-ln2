@@ -2624,6 +2624,71 @@ this run prints as `POINT` markers exist precisely so that a fit over
 the points themselves can be done without measuring them again.
 
 
+#### Remark (the deficit is closing, and where it closes is not quotable) {#rem:deficitdirect}
+<!-- evidence: audit_deficit_direct.py -->
+
+[rem:alphareach] left the sign axis with the deficit's drift at
+$-0.007519\pm0.007837$ — unresolved, and moved across zero by dropping
+any one octave. It also named the reason, and the reason was not the
+field's size: **the analysis summarises each octave into one number
+and then fits sixteen numbers.** A hundred and fifty-six measurements
+become sixteen, and the drift is estimated with thirteen degrees of
+freedom. The drift is the coefficient of the quadratic term in
+$$\log(|\textstyle\sum a|/\ell^2) = c + \alpha x + \tfrac12\beta x^2,
+\qquad x=\log N,$$
+and fitting that directly uses every point.
+
+Nothing is measured at large $N$ here. The seventy-five points above
+$1.024\cdot10^8$ are read from the `POINT` markers [rem:alphareach]
+printed for this purpose; only the eighty-one below are recomputed,
+which costs minutes. Twelve are both, and they agree to a relative
+$1.376\cdot10^{-11}$ (A1); a line on the published eighty-one returns
+the whole-field deficit $0.134019$ exactly (A2).
+
+**The direct fit is twelve times sharper** (A3). Its standard error on
+$\beta$ is $0.000632$ against the octave route's $0.007837$ — a ratio
+of $12.4$, where the trial on seventy-five points had suggested $5.5$.
+
+**And the drift is resolved** (A4). $\beta=-0.007380$, $t=-11.67$.
+**The deficit is closing.** This is the first resolved statement the
+sign axis has produced about whether the requirement of
+[rem:leanidentity] can be met by pushing $N$, and it says the
+direction is the favourable one.
+
+**The two routes agree** (A5): $-0.007380$ against $-0.007519$, a gap
+of $0.000139$ inside the octave route's own $0.007837$. So the
+sharpening is not a different answer, and the linear-drift model that
+buys it is not contradicted by the model-free route.
+
+**Where it closes is a different matter, and the run measures why.**
+The fitted local deficit is $+0.247479-0.007380x$, which reaches zero
+at $\log_{10}N=14.5635$ with a bracket $[13.5846,\,15.9638]$ from all
+$4000$ draws — $4.7$ decades outside the field. And the same fit on
+the published eighty-one points alone puts it at $10^{60.4543}$.
+**Adding seven octaves moved the forecast by $45.8908$ decades.**
+That is not a bracket that has settled; it is a quantity with no
+stability at all, and it is exactly what [rem:shapepower] exists to
+forbid — a level read off an underived shape extrapolated past its
+data. **No closure $N$ is published.**
+
+So the axis has moved, and less far than the resolved $t$ makes it
+sound. What is measured, inside the field and by two routes that
+agree, is that the deficit shrinks at $0.007380$ per log unit. What
+is not measured is that it reaches zero anywhere: a linear drift in
+$\log N$ is an assumption the data cannot distinguish from a drift
+that flattens, and the forecast's $45.8908$-decade movement is the
+evidence that it cannot. The budget route is no longer invisible; it
+is visible and it is not thereby open.
+
+Two things this leaves. The eighty-one published points were
+recomputed here and their per-$N$ values still live only in prose —
+the whole field should carry `POINT` markers, not part of it. And the
+partial octave that [rem:alphareach] found dominating its regression
+has no effect here, because the direct fit does not weight octaves;
+that is a second reason the summary route was costing more than its
+robustness was worth.
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 

@@ -1,0 +1,91 @@
+STATISTIC: the coefficient beta of the quadratic term in
+           log(|sum a|/l2) = c + alpha x + (1/2) beta x^2
+           over every N in the field, x = log N -- the rate
+           at which the deficit drifts -- against the same
+           quantity estimated by fitting a line to sixteen
+           octave exponents in results/audit_alpha_reach.txt.
+NULL: none is run and none applies. |sum a| and its l2 norm
+      are deterministic once N is fixed; there is no
+      sampling noise and no background to detect against.
+      The coin arms for the sign axis were run in
+      lab_primorial_share.py.
+FIELD: N = 2^a 5^b with both a >= 1 and b >= 1 in
+       [2e5, 8e9], one coprimality class -- the class {2,5},
+       k coprime to 10 and N even; k squarefree with
+       2 <= k < N^0.56; m over 1 <= m < N/k with (m,k) = 1.
+       The points below 1.024e8 are recomputed here with the
+       kind-byte sieve and block sums of
+       code/audit_alpha_reach.py; those above it are read
+       from its POINT markers, and the twelve that are both
+       are A1's control. The global deficit A2 checks
+       against comes from results/audit_alpha_local.txt.
+
+read 87 POINT markers from results/audit_alpha_reach.txt, and the 16
+  octave summaries the two files declare, each as a whole marker line:
+READ audit_alpha_local.txt OCTAVE alphalocal_0 12.4780 +0.660132 0.071407 +0.030332 0.104509
+READ audit_alpha_local.txt OCTAVE alphalocal_1 13.2209 +0.626273 0.034467 -0.035856 0.070183
+READ audit_alpha_local.txt OCTAVE alphalocal_2 13.9140 +0.658470 0.063992 +0.052881 0.067575
+READ audit_alpha_local.txt OCTAVE alphalocal_3 14.6072 +0.823194 0.056346 +0.250926 0.059694
+READ audit_alpha_local.txt OCTAVE alphalocal_4 15.2867 +0.785322 0.044453 +0.228566 0.052232
+READ audit_alpha_local.txt OCTAVE alphalocal_5 15.9799 +0.654875 0.027775 +0.124127 0.033295
+READ audit_alpha_local.txt OCTAVE alphalocal_6 16.6845 +0.710434 0.044213 +0.125710 0.046145
+READ audit_alpha_local.txt OCTAVE alphalocal_7 17.3776 +0.630996 0.031692 +0.059945 0.036360
+READ audit_alpha_local.txt OCTAVE alphalocal_8 18.1291 +0.664374 0.034400 +0.108604 0.037767
+READ audit_alpha_reach.txt OCTAVE alphareach_9 18.8566 +0.640914 0.029921 +0.095504 0.031492
+READ audit_alpha_reach.txt OCTAVE alphareach_10 19.5154 +0.730421 0.024072 +0.151175 0.026170
+READ audit_alpha_reach.txt OCTAVE alphareach_11 20.1930 +0.643343 0.022903 +0.092116 0.025083
+READ audit_alpha_reach.txt OCTAVE alphareach_12 20.8861 +0.608311 0.017122 +0.053383 0.020219
+READ audit_alpha_reach.txt OCTAVE alphareach_13 21.5819 +0.646920 0.029563 +0.076851 0.031561
+READ audit_alpha_reach.txt OCTAVE alphareach_14 22.2750 +0.653175 0.032934 +0.107269 0.034129
+READ audit_alpha_reach.txt OCTAVE alphareach_15 22.7030 +0.440783 0.050471 -0.184194 0.057087
+  refitting those sixteen gives the octave route's drift -0.007519 +- 0.007837
+  and the global deficit 0.134019 to 0.000 comes from results/audit_alpha_local.txt
+
+recomputing the 81 published points below 102400000; the 75 above are read
+BYTES resident_arrays 204800002
+
+A1  the overlap: points computed here and printed there
+  12 points overlap; the worst relative difference is 1.376e-11 at N = 52428800
+  A1 hold   (cap: the ten digits the markers carry)
+
+A2  the field control on the published points
+  a line on the 81 published points gives a deficit of 0.134019 (s.e. 0.002334)
+  against the published 0.134019 measured to 0.000
+  A2 hold   (cap: the published precision)
+
+the whole field: 156 points over 10.5966 in log N
+SCALES 1
+
+A3  is the direct fit sharper?
+  direct quadratic: beta -0.007380 +- 0.000632, r.m.s. residual 0.032663
+  the octave route over sixteen octaves gave -0.007519 +- 0.007837
+  the ratio of the errors is 12.4
+  A3 hold   (cap: a fifth of the octave error)
+
+A4  is the drift resolved?
+  beta = -0.007380, t = -11.67
+TSTAT deficit_direct_beta -11.67
+SPREAD deficit_direct_beta 10.5966
+SCATTER slope_audit_deficit_direct 0.032663
+  A4 hold   (cap: |t| = 2)
+
+A5  do the two routes agree?
+  direct -0.007380 against octave -0.007519: a gap of 0.000139 against the octave error 0.007837
+  A5 hold   (cap: the octave route's own error)
+
+what this says about the budget route
+  the fitted local deficit is +0.247479 -0.007380 x, so it reaches zero at
+  x* = 33.5338 in log N, which is 10^14.5635
+BRACKET deficit_closure 14.5635 13.5846 15.9638
+  bracket [13.5846, 15.9638] from 4000 of 4000 draws
+DRIFT deficit_closure 45.8908
+  the published field alone puts it at 10^60.4543, so adding seven octaves moved it 45.8908
+SHAPES 1
+  the top of the field is 10^9.9031, so this is 4.7 decades outside it
+  no closure is published from this. {#rem:shapepower} forbids reading a level
+  off an underived shape extrapolated past its data, and a quadratic in
+  log-log is exactly that. What is measured is the drift, not the crossing.
+  the sixteen-octave route could only exclude drifts above 0.015673
+
+======================================================================
+A1 hold  A2 hold  A3 hold  A4 hold  A5 hold
