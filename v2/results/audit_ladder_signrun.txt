@@ -1,0 +1,70 @@
+STATISTIC: the out-of-sample departure of the quadratic at
+           each rung of the uniform ladder, fitted on the
+           rungs below it only; the length of the run of
+           one sign the series ends in; the fraction of null
+           ladders reaching that run; and the slope of the
+           departures against log N with its t.
+NULL: RUN, and it is S3. Ladders are drawn from the
+      quadratic fitted on all nineteen rungs, at the same
+      abscissae, with i.i.d. Gaussian errors of the ladder's
+      own r.m.s. residual, and walked forward by the same
+      code path as the observed series. The arm asks how
+      often a correct shape with this noise and this many
+      points produces a terminal run as long as observed.
+FIELD: N = 30030*2^j for j = 0..18, the odd radical
+       3*5*7*11*13 fixed along the ladder; the level
+       exponent log K*_R / log N at the uniform cap 1000000
+       as printed in results/audit_ladder_cap.txt for
+       j = 0..16, results/audit_primorial_rung17.txt for
+       j = 17 and results/audit_primorial_rung18.txt for
+       j = 18. No sieving is done here; every exponent is
+       read. The walk forward starts at j = 6, the first
+       rung with enough points below it for a quadratic and
+       a residual variance.
+
+read 19 uniform rungs at cap 1000000 from results/audit_ladder_cap.txt,
+  results/audit_primorial_rung17.txt and rung18.txt
+SEED 20260823
+DRAWS 20000
+
+S1  the control at the two rungs the remarks walked forward
+  rung 17  departure -0.0033 against the published -0.0033, error 0.0044 against 0.0044, equal
+  rung 18  departure -0.0041 against the published -0.0041, error 0.0043 against 0.0043, equal
+PRINTBOUND audit_ladder_signrun 4 0.00005000
+  S1 hold   (cap: the decimals those remarks print)
+
+S2  the walk-forward series, on one ladder
+  rung  log10 N   measured   predicted  departure  own error  ratio
+  6     6.2837    0.487621   0.475977   +0.0116    0.0075     1.55
+  7     6.5848    0.482383   0.493522   -0.0111    0.0079     1.41
+  8     6.8858    0.496452   0.490830   +0.0056    0.0080     0.70
+  9     7.1868    0.494008   0.501888   -0.0079    0.0072     1.09
+  10    7.4879    0.502394   0.502719   -0.0003    0.0070     0.05
+  11    7.7889    0.510581   0.508376   +0.0022    0.0063     0.35
+  12    8.0899    0.518291   0.516085   +0.0022    0.0058     0.38
+  13    8.3909    0.528766   0.524385   +0.0044    0.0054     0.81
+  14    8.6920    0.534315   0.534681   -0.0004    0.0052     0.07
+  15    8.9930    0.542257   0.543010   -0.0008    0.0049     0.16
+  16    9.2940    0.548808   0.551477   -0.0027    0.0046     0.58
+  17    9.5951    0.555925   0.559246   -0.0033    0.0044     0.75
+  18    9.8961    0.562768   0.566835   -0.0041    0.0043     0.95
+SIGNRUN ladder_walkforward 5
+  the departures end in a run of 5 with sign -1, out of 13 points
+  S2 hold   (cap: a run of four)
+
+S3  the null: is a run that long ordinary for a right shape?
+  the fitted quadratic is +0.00030670 in (log N)^2 with r.m.s. residual 0.0031
+  1272 of 20000 null ladders end in a run of 5 or longer: 0.0636
+NULL ladder_signrun 0.0636
+  S3 REFUTED   (cap: 0.05)
+
+S4  is the run drifting, or only one-signed?
+  the departure slope against log N is -0.00051419 +- 0.00063930, t = -0.80
+TSTAT ladder_signrun_slope -0.80
+UNRESOLVED SIGN ladder_signrun_slope
+SPREAD ladder_signrun_slope 8.3178
+SCATTER slope_audit_ladder_signrun 0.0055
+  S4 REFUTED   (cap: negative and |t| > 2)
+
+======================================================================
+S1 hold  S2 hold  S3 REFUTED  S4 REFUTED

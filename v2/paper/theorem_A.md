@@ -4452,6 +4452,69 @@ grows is what a shape looks like when it begins to fail from above,
 and it would mean the ladder is flattening against the quadratic and
 the crossing of any level above $0.56$ is later than the quadratic
 places it. Nothing here measures that. It is recorded as open.
+*(Withdrawn by [rem:signrun], which measured it: the six were spliced
+from two ladders, the run on one ladder is ordinary under the null at
+$0.0636$, and the growth is unresolved at $t=-0.80$.)*
+
+
+#### Remark (the run is real, ordinary, and not growing) {#rem:signrun}
+<!-- evidence: audit_ladder_signrun.py -->
+
+[rem:rung18] closed by pointing at the sign of the quadratic's
+out-of-sample errors — four negative in a row and growing — and said
+that is what a shape looks like when it begins to fail from above.
+That paragraph is withdrawn. Two of its three components do not
+survive being measured, and the one that does means less than it was
+made to mean.
+
+**First, the six numbers were not one series.** Four were computed on
+the ladder at the published cap and two on the uniform ladder of
+[rem:laddercap]. So the series is rebuilt here on the uniform ladder
+alone by walking forward — for each $j$, fit the quadratic on rungs
+$0..j-1$ only and predict rung $j$ — which is the construction the
+rung remarks used at the top, applied everywhere it can be. It
+reproduces those two rungs exactly: departure $-0.0033$ with error
+$0.0044$ at rung 17 and $-0.0041$ with $0.0043$ at rung 18, to the
+decimals they print (S1).
+
+**The run is real, and longer than reported** (S2). Thirteen
+walk-forward points end in a run of $5$, not four: rungs 14 through
+18 are all negative.
+
+**And it is ordinary** (S3, refuted). Under the null — the fitted
+quadratic at the same abscissae with i.i.d. Gaussian errors at the
+ladder's own r.m.s. $0.0031$, walked forward by the same code —
+$1272$ of $20000$ ladders end in a run of $5$ or longer. That is
+$0.0636$, above the $0.05$ the rule fixed. **A correct shape with
+this much noise and this few points produces a run this long about
+one time in sixteen, so the run is not evidence that the shape is
+failing.** This was registered as the prediction most likely to be
+refuted, and it was.
+
+**And it is not growing** (S4, refuted). Regressed on $\log N$ the
+departures have slope $-0.00051419\pm0.00063930$, $t=-0.80$. The sign
+is not resolved. So "growing" was never established; only
+one-signedness was, and that is the weaker statement.
+
+The full record is worth stating too, because publishing only the top
+six flattered it. Across all thirteen walk-forward points the ratio
+of departure to its own prediction error reads $1.55$, $1.41$,
+$0.70$, $1.09$, $0.05$, $0.35$, $0.38$, $0.81$, $0.07$, $0.16$,
+$0.58$, $0.75$, $0.95$ — **three exceed one, all three at the bottom
+of the ladder**, and the largest departures in absolute terms
+($+0.0116$, $-0.0111$) are the earliest, not the latest. The
+quadratic's out-of-sample behaviour is not deteriorating with $N$;
+by this measure it is improving.
+
+What this closes and what it does not. It closes the alarm: nothing
+in the departures says the ladder is flattening against the
+quadratic, so [rem:rung18]'s inference that levels above $0.56$ are
+crossed later than the quadratic places them has no support and is
+withdrawn. It does not promote the quadratic. [rem:shapepower]
+measured that shape selection at this reach has no power, and a run
+that is ordinary under the null is equally ordinary under shapes the
+null was not drawn from. **The departures are simply not informative
+about the shape, in either direction, and that is the finding.**
 
 
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
