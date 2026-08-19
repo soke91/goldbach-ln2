@@ -1,0 +1,107 @@
+STATISTIC: the ladder's level exponent log K*_R / log N at
+           N = 30030*2^j for j = 0..16, recomputed at four
+           k-caps 100000, 200000, 400000 and 1000000 with
+           both the beta fit and the truncation search at
+           the same cap; the exponent's movement between
+           caps against the ladder's published scatter; and
+           the margin, the (log N)^2 coefficient and the
+           0.56 crossing of the uniform ladder at the
+           largest cap, against what the published ladder
+           reports for each.
+NULL: none is run and none applies. A deterministic curve is
+      located against a computed threshold at four caps;
+      there is no background to detect against. The coin
+      arms for this statistic were run in
+      lab_primorial_ladder.py and lab_primorial_share.py.
+      The bracket is drawn from the fit's own parameter
+      covariance with the fixed SEED.
+FIELD: N = 30030*2^j for j = 0..16, the odd radical
+       3*5*7*11*13 fixed so the threshold is constant along
+       the ladder; k squarefree and coprime to N with
+       2 <= k < cap, beta fitted on the same range; m odd,
+       squarefree and coprime to k, m < N/k; the sieve
+       weight over the odd primes below 30; the Euler
+       products at the fixed bound 4000000. The sieve, the
+       block statistic and the packed arrays are imported
+       from code/audit_primorial_rung16.py, whose C1
+       compares them against code/audit_primorial_rung11.py
+       elementwise; the published exponents come from
+       results/audit_primorial_rung10.txt and rung11
+       through rung15.
+
+read 16 published rung exponents, the scatter 0.0037, and the published
+  0.56 bracket [9.4216, 9.9340] from results/audit_primorial_rung15.txt
+SEED 20260823
+DRAWS 4000
+CAPS 100000 200000 400000 1000000
+
+sieving to 1968046080 once; every rung and every cap is read off it
+BYTES resident_arrays 11808276487
+  the Euler products at the fixed bound 4000000: Artin 0.373955819, twin 1.320323652
+
+  rung  N             cap 100000        cap 200000        cap 400000        cap 1000000       
+                     K*_R     exponent K*_R     exponent K*_R     exponent K*_R     exponent 
+  0     30030         109      0.455031  109      0.455031  109      0.455031  109      0.455031   cap-invariant
+  1     60060         157      0.459529  157      0.459529  157      0.459529  157      0.459529   cap-invariant
+  2     120120        239      0.468224  239      0.468224  239      0.468224  239      0.468224   cap-invariant
+  3     240240        311      0.463283  311      0.463283  311      0.463283  311      0.463283   cap-invariant
+  4     480480        461      0.468823  461      0.468823  461      0.468823  461      0.468823   cap-invariant
+  5     960960        691      0.474614  691      0.474614  691      0.474614  691      0.474614   cap-invariant
+  6     1921920       1159     0.487621  1159     0.487621  1159     0.487621  1159     0.487621   cap-invariant
+  7     3843840       1501     0.482383  1501     0.482383  1501     0.482383  1501     0.482383   cap-invariant
+  8     7687680       2621     0.496452  2621     0.496452  2621     0.496452  2621     0.496452   cap-invariant
+  9     15375360      3557     0.494110  3551     0.494008  3551     0.494008  3551     0.494008  
+  10    30750720      5773     0.502334  5777     0.502374  5777     0.502374  5779     0.502394  
+  11    61501440      9367     0.509906  9421     0.510227  9469     0.510510  9481     0.510581  
+  12    123002880     15461    0.517835  15503    0.517980  15557    0.518167  15593    0.518291  
+  13    246005760     27077    0.528260  27217    0.528527  27319    0.528721  27343    0.528766  
+  14    492011520     43171    0.533273  43613    0.533782  43889    0.534097  44081    0.534315  
+  15    984023040     72857    0.540695  73883    0.541370  74623    0.541851  75253    0.542257  
+  16    1968046080    none     ---       124253   0.548126  125263   0.548505  126079   0.548808  
+
+U1  the control at the published cap
+  the 5 rungs whose K*_R is printed reproduce exactly
+    rung 11  K*_R 9367     against the published 9367
+    rung 12  K*_R 15461    against the published 15461
+    rung 13  K*_R 27077    against the published 27077
+    rung 14  K*_R 43171    against the published 43171
+    rung 15  K*_R 72857    against the published 72857
+  U1 hold   (cap: exact on K*_R)
+
+U2  does the cap converge?
+    rung 12  100000->400000 moves 0.000332, 400000->1000000 moves 0.000124  shrinks
+    rung 13  100000->400000 moves 0.000461, 400000->1000000 moves 0.000045  shrinks
+    rung 14  100000->400000 moves 0.000824, 400000->1000000 moves 0.000218  shrinks
+    rung 15  100000->400000 moves 0.001157, 400000->1000000 moves 0.000406  shrinks
+    rung 16  incomplete
+  U2 REFUTED   (cap: the first step's size)
+
+U3  is the cap's cost inside the noise?
+  the largest move between cap 100000 and cap 1000000 is 0.001563, at rung 15
+CAPCOST audit_ladder_cap 0.001563 0.0037
+  against the ladder's scatter 0.0037, a ratio of 0.42
+  U3 hold   (cap: the ladder's scatter)
+
+U4  does the escalation survive a uniform cap?
+  margins over 1/2 on the top six rungs at cap 1000000: 0.0106, 0.0183, 0.0288, 0.0343, 0.0423, 0.0488
+  U4 hold   (cap: each rung against the one below)
+
+U5  does the curvature survive?
+  on 17 rungs at cap 1000000 the (log N)^2 coefficient is +0.00036885 +- 0.00008050, t = 4.58
+  r.m.s. residual 0.0031
+TSTAT ladder_cap_quadratic 4.58
+SPREAD ladder_cap_quadratic 11.0904
+  U5 hold   (cap: positive and t > 2)
+
+U6  does the crossing survive?
+  the uniform ladder reaches 0.56 at log10 N = 9.6200, bracket [9.4574, 9.8277]
+  the published bracket is [9.4216, 9.9340]
+BRACKET ladder_cap_theta_prime 9.6200 9.4574 9.8277
+DRIFT ladder_cap_theta_prime 0.0578
+SHAPES 1
+SCATTER slope_audit_ladder_cap 0.0031
+  U6 hold   (cap: the published bracket)
+  no forecast is made from this; {#rem:shapepower} is why.
+
+======================================================================
+U1 hold  U2 REFUTED  U3 hold  U4 hold  U5 hold  U6 hold

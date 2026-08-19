@@ -1,0 +1,122 @@
+STATISTIC: the truncation K*_R at which
+           sum_{k<K}(log k)|R(N;k)| first reaches
+           S(N)(1-A(N))N, and its exponent log K*_R / log N,
+           at N = 30030*2^16 = 1968046080 and, as controls,
+           at N = 30030*2^14 and 30030*2^15; the margin over
+           1/2 against rung 15's; the quadratic and the line
+           fitted on the sixteen published rungs and asked
+           for this one, with the prediction standard error
+           at its abscissa and the gap between the two
+           shapes there; and the seventeen-rung quadratic's
+           0.56 crossing with a bracket from its own
+           parameter covariance, against the sixteen-rung
+           value.  C1 compares the blockwise sieve with the
+           production one elementwise at n = 20000000.  beta
+           is fitted on the published window k < 100000 and
+           the truncation search is run to k < 400000; C3
+           reports what refitting beta on the wider window
+           would move the exponent by.
+NULL: none is run and none applies. A deterministic curve is
+      located against a computed threshold; there is no
+      background to detect against. The coin arms for this
+      statistic were run in lab_primorial_ladder.py and
+      lab_primorial_share.py. The bracket is drawn from the
+      fit's own parameter covariance with the fixed SEED.
+FIELD: N = 492011520, 984023040 and 1968046080, the odd
+       radical 3*5*7*11*13 fixed so the threshold is
+       constant; k squarefree and coprime to N with
+       2 <= k < 400000, beta fitted on the 2 <= k < 100000
+       of the published ladder; m odd, squarefree and
+       coprime to k,
+       m < N/k; the sieve weight over the odd primes below
+       30; the Euler products at the fixed bound 4000000.
+       One odd radical, as the RADICALS line declares. The
+       k-cap, the sieve weight and the Euler bound are
+       imported from code/audit_primorial_rung11.py, whose
+       sieve C1 compares against and whose statistic C2
+       reproduces; the sixteen published rungs come from
+       results/audit_primorial_rung10.txt and rung11
+       through rung15, and the published crossing from
+       results/audit_primorial_rung15.txt.
+
+read 16 rung exponents, rung 15's margin 0.0407, the scatter 0.0037,
+  and the quadratic's 0.56 crossing 9.6358 [9.4216, 9.9340] with drift 0.0290
+  from results/audit_primorial_rung10 through rung15
+SEED 20260823
+DRAWS 4000
+
+C1  the sieve control at n = 20000000
+  Moebius disagreements 0, Lambda disagreements 0, over 20000001 indices
+  Lambda support 1271339 against the stored primes 1271339
+  the production route is the one code/audit_sieve.py compared with
+  explicit factorisation (W1, W2), so agreement here is agreement with that
+  C1 hold   (cap: elementwise equality, no tolerance)
+
+the rungs: the controls 492011520 and 984023040, and the new 1968046080 at log10 N = 9.2940
+RADICALS 1
+
+sieving to 1968046080, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+  beta keeps the published window k < 100000; the truncation search runs to k < 400000
+BYTES resident_arrays 11808276487
+BYTES production_arrays 23616552972
+  the three resident arrays are 11.00 GB against the four the production route
+  would hold, 21.99 GB, and the int32 cofactor it builds them with, 7.33 GB more
+  the Euler products at the fixed bound 4000000: Artin 0.373955819, twin 1.320323652
+
+  N = 492011520    thr 0.087306  #k 18863  /75456   beta 1.899913  K*_R 43171    exp 0.5333
+BUDGET kstar_R_S1AN_N492011520 0.087306
+      refitting beta on all 75456 gives beta 1.915175, K*_R 43889, exp 0.5341
+  N = 984023040    thr 0.087306  #k 18863  /75456   beta 1.884939  K*_R 72857    exp 0.5407
+BUDGET kstar_R_S1AN_N984023040 0.087306
+      refitting beta on all 75456 gives beta 1.904524, K*_R 74623, exp 0.5419
+  N = 1968046080   thr 0.087306  #k 18863  /75456   beta 1.883643  K*_R 122873   exp 0.5476
+BUDGET kstar_R_S1AN_N1968046080 0.087306
+      refitting beta on all 75456 gives beta 1.903693, K*_R 125263, exp 0.5485
+RADICALS 1
+
+C2  the statistic control at rungs 14 and 15
+PRINTBOUND audit_primorial_rung16 4 0.00005000
+  rung 14  exponent here 0.5333 against the published 0.5333, departure 0.000027
+          K*_R here 43171 against the published 43171, equal
+  rung 15  exponent here 0.5407 against the published 0.5407, departure 0.000005
+          K*_R here 72857 against the published 72857, equal
+  the bound from 4 decimals is 0.00005000
+  C2 hold   (cap: the printing bound, and exact on K*_R)
+
+C3  what the window convention costs
+  rung 14  refitting beta on the widened window moves the exponent by 0.000824
+  rung 15  refitting beta on the widened window moves the exponent by 0.001157
+WINDOW audit_primorial_rung16 100000 400000 0.000824 0.001157
+  against the ladder's scatter 0.0037, and LARGER at rung 15 than at rung 14
+  C3 REFUTED   (cap: the scatter, and monotone in N)
+
+H1  does the margin keep growing?
+  the new exponent is 0.5476, margin 0.0476, against rung 15's 0.0407 and the scatter 0.0037
+MARGIN audit_primorial_rung16 0.0476 0.0037
+FLOOR primorial_rung16 0.0037
+  H1 hold   (cap: rung 15's margin)
+
+H2/H3  does the curvature predict this one too?
+  fitted on the 16 published rungs:
+  shape        predicts   measured   departure   pred s.e.   ratio
+  quadratic    0.5499     0.5476     -0.0023     0.0046      0.50
+  line         0.5408     0.5476     +0.0068    
+  the two shapes are 0.0091 apart here, 1.97 prediction standard errors
+  H2 hold   (cap: the prediction standard error)
+  H3 hold   (cap: the line's departure)
+
+H4  does the crossing settle further?
+  the seventeen-rung quadratic is +0.00034501 in (log N)^2, r.m.s. 0.0031
+  it reaches 0.56 at log10 N = 9.6783, bracket [9.5061, 9.9014] from 4000 of 4000 draws
+BRACKET ladder_quadratic17_theta_prime 9.6783 9.5061 9.9014
+DRIFT ladder_quadratic17_theta_prime 0.0425
+  the sixteen-rung value was 9.6358, so it moved 0.0425 against the declared drift 0.0290
+SHAPES 2
+SCATTER slope_audit_primorial_rung16 0.0031
+  rung 17 would sit at log10 N = 9.5951
+  rung 18 would sit at log10 N = 9.8961
+  H4 REFUTED   (cap: the declared drift)
+  no forecast is made from this; {#rem:shapepower} is why.
+
+======================================================================
+C1 hold  C2 hold  C3 REFUTED  H1 hold  H2 hold  H3 hold  H4 REFUTED

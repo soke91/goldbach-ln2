@@ -4113,7 +4113,9 @@ $0.0290$ against a declared drift of $0.5688$ — twenty times less than
 the last addition moved it. The bracket has narrowed from $0.708$ to
 $0.512$ and the r.m.s. from $0.0032$ to $0.0031$. **This is the first
 extrapolation in this repository whose drift has come in an order of
-magnitude below its own bracket.**
+magnitude below its own bracket.** *(Withdrawn by [rem:rung16]: the
+next rung moved the crossing by $0.0425$ against the $0.0290$
+declared here, so this was a pause and not a settling.)*
 
 Two things follow and one does not. What follows: the crossing sits
 $0.64$ decades above the top rung — a factor of $4.4$ in $N$, two more
@@ -4122,7 +4124,8 @@ but one just past the data, and the ladder could in principle be
 carried to it rather than extrapolated to it. What also follows is the
 limit: the sieve at $2^{16}$ needs sixteen gigabytes for $\Lambda$
 alone and $2^{17}$ twice that, so the next doubling is at the memory
-wall of this machine and the one after is past it.
+wall of this machine and the one after is past it. *(Withdrawn by
+[rem:rung16]: the memory is not the wall and the k-cap is.)*
 
 What does not follow is a forecast for $\theta'$. The quadratic has no
 derivation, it is a local description with a computable expiry at
@@ -4133,6 +4136,165 @@ still not a reason to quote where an underived curve meets a level.
 What has changed is narrower and worth saying exactly: **the number
 $10^{10.6180}$ came from a shape the rungs now exclude, and every
 shape that survives them puts the crossing lower.**
+
+
+#### Remark (the seventeenth rung, and the wall that was named wrong) {#rem:rung16}
+<!-- evidence: audit_primorial_rung16.py -->
+
+[rem:rung15] closed by naming the limit: "the sieve at $2^{16}$ needs
+sixteen gigabytes for $\Lambda$ alone and $2^{17}$ twice that, so the
+next doubling is at the memory wall of this machine and the one after
+is past it." Both halves are wrong, and they are wrong in opposite
+directions.
+
+**The memory was never the wall.** The routine the ladder has used
+since rung 11 holds four arrays of order $N$ where the information
+fits in half that. Storing $\Lambda$ as the *prime* rather than its
+logarithm halves it — the logarithm is taken at the point of use, of
+the same float64 integer, so the float that enters the sum is the
+identical float; building $\mu$ blockwise makes the int32 cofactor
+block-local and the prime list below $N$ unnecessary; and the residue
+mask is addressable only on odd indices, because $N$ is even and $k$
+and $m$ are odd, so $N-mk$ is odd at every index the statistic reads.
+Rung 16 costs $11.00$ GB of resident array against the $21.99$ GB the
+old route would hold and the $7.33$ GB cofactor it builds them with.
+Nothing moves: $\mu$ and $\Lambda$ agree with the production route at
+every one of $2\cdot10^7$ indices, elementwise and bit for bit (C1),
+and rung 14 and rung 15 return the published $K^*_R$ exactly, $43171$
+and $72857$, at departures $0.000027$ and $0.000005$ (C2).
+
+**The k-cap was the wall, and it binds exactly here.** At the
+published cap rung 16 has no crossing below $k=10^5$: $K^*_R$ has
+left the range the ladder searches. It was always going to. $K^*_R$
+reads $43171$ at rung 14 and $72857$ at rung 15 against a cap that
+does not move, so rung 15 was already at three quarters of it. **The
+ladder stopped one rung short of its own definition running out, and
+the remark attributed the stop to the wrong resource.**
+
+**And the cap is inside the statistic, not beside it.** $\beta$ is
+fitted by least squares over the same $k$-range the search runs on,
+so widening the cap moves $\beta$, moves $R=H-\beta P$, and moves
+$K^*_R$ at every rung already printed. The extension used here is the
+one that leaves every published integer alone: $\beta$ keeps the
+published window $k<10^5$ and only the truncation search widens, to
+$k<4\cdot10^5$. C2 is what says that leaves the old rungs untouched.
+
+**The rung.** $30030\cdot2^{16}=1968046080$ at $\log_{10}N=9.2940$
+gives $K^*_R=122873$ and an exponent of $0.5476$.
+
+**A seventh growing margin** (H1). The margin over $\tfrac12$ is
+$0.0476$ — $12.9$ times the ladder's scatter — after $0.0023$,
+$0.0099$, $0.0178$, $0.0283$, $0.0333$, $0.0407$.
+
+**The curvature predicts a fourth time, at the first rung that could
+choose** (H2, H3). Fitted on the sixteen published rungs the
+quadratic gives $0.5499$ and the line $0.5408$: the two shapes are
+$0.0091$ apart against a prediction standard error of $0.0046$,
+$1.97$ of them. Every earlier rung had the shapes within about one
+standard error of each other, so this is the first out-of-sample
+point that discriminates. The measurement is $0.5476$: the
+quadratic's departure is $-0.0023$, $0.50$ of its own prediction
+error; the line's is $+0.0068$. **The quadratic's out-of-sample
+errors now read $+0.0046$, $+0.0023$, $-0.0012$, $-0.0023$, all
+inside their prediction errors, against the line's $+0.0098$,
+$+0.0097$, $+0.0071$, $+0.0068$, none of which are.**
+
+**The extrapolation did not settle; it paused** (H4, refuted).
+[rem:rung15] read a drift of $0.0290$ and called it "the first
+extrapolation in this repository whose drift has come in an order of
+magnitude below its own bracket." Refitted on seventeen rungs the
+$0.56$ crossing moves to $\log_{10}N=9.6783$ from $9.6358$ —
+$0.0425$, which is **larger** than the $0.0290$ the last rung
+declared. The bracket does narrow, to $[9.5061,\,9.9014]$ from
+$[9.4216,\,9.9340]$; the centre does not hold. So that sentence is
+withdrawn: one rung of small movement was a pause, and the test that
+would have confirmed settling is the one that failed.
+
+**And the convention has a cost that grows** (C3, refuted). Refitting
+$\beta$ on the widened window instead of the published one moves the
+exponent by $0.000824$ at rung 14 and $0.001157$ at rung 15. Both sit
+well inside the ladder's scatter $0.0037$, which was the first half
+of C3; the second half asked that the cost shrink as the rungs rise,
+and it grows. The rule fixed before the run says what follows: the
+frozen-window extension is withdrawn in favour of recomputing every
+rung at one cap, which is [rem:laddercap]. What does not depend on
+the convention is everything before the rung — the memory finding,
+the cap finding, and C1 and C2.
+
+
+#### Remark (the whole ladder at one cap, and what survives it) {#rem:laddercap}
+<!-- evidence: audit_ladder_cap.py -->
+
+[rem:rung16] left the ladder's exponents resting on an arbitrary
+$k$-cap that turned out to be inside the statistic rather than beside
+it, and its own C3 withdrew the frozen-window repair. So all
+seventeen rungs are recomputed here with the $\beta$ fit and the
+truncation search tied to the same cap, at four caps
+$10^5,\,2\cdot10^5,\,4\cdot10^5,\,10^6$. One pass to $k<10^6$ at each
+$N$ yields every cap as a subset operation, because $H(N;k)$ and
+$P(N;k)$ do not depend on the cap at all — it enters only through
+which $k$ are fitted and how far the sum is read.
+
+**The control holds** (U1). At the published cap every rung whose
+$K^*_R$ is printed returns it exactly: $9367$, $15461$, $27077$,
+$43171$, $72857$.
+
+**The first nine rungs cannot see the cap at all.** Rungs 0 through 8
+return the identical $K^*_R$ at all four caps. The dependence begins
+at rung 9 and grows with $N$, which is the same direction
+[rem:rung16]'s C3 measured and the reason it was refuted.
+
+**The cap converges, and U2 is refuted on a technicality worth
+stating.** At rungs 12 through 15 the second step is smaller than the
+first every time — $0.000332$ then $0.000124$, $0.000461$ then
+$0.000045$, $0.000824$ then $0.000218$, $0.001157$ then $0.000406$.
+U2 named the top five rungs, and the fifth is rung 16, which has no
+value at the base cap at all; that is precisely [rem:rung16]'s
+finding. So the prediction as written is not satisfied, and it is
+recorded refuted rather than reworded after the fact. **What the four
+measurable rungs say is that the cap has a limit and the published
+value is an approximation to it, not a point on a drift.**
+
+**And the approximation is inside the noise** (U3). The largest move
+any rung makes between the published cap and $10^6$ is $0.001563$, at
+rung 15 — $0.42$ of the ladder's scatter $0.0037$.
+
+**The escalation survives** (U4). On the uniform ladder at $10^6$ the
+top six margins over $\tfrac12$ are $0.0106$, $0.0183$, $0.0288$,
+$0.0343$, $0.0423$, $0.0488$, growing at every step as they do at the
+published cap.
+
+**The curvature survives, and is better resolved than at the
+published cap** (U5). On seventeen rungs the coefficient of
+$(\log N)^2$ is $+0.00036885\pm0.00008050$, $t=4.58$, against the
+$t=3.29$ [rem:laddercurve] reported on fifteen rungs at the published
+cap. The r.m.s. residual is $0.0031$.
+
+**The crossing survives, and tightens** (U6). The uniform ladder
+reaches $0.56$ at $\log_{10}N=9.6200$ with bracket
+$[9.4574,\,9.8277]$, inside the $[9.4216,\,9.9340]$ [rem:rung15]
+published and narrower at both ends.
+
+So the branch is not an artefact of the cap: every reading it rests
+on is reproduced on a ladder whose cap was generous from the start,
+and the one reading that improves is the curvature. **The rung-16
+exponent on this ladder is $0.548808$**, against the $0.5476$
+[rem:rung16] measured under the frozen window — a difference of
+about a thousandth, well inside the scatter, and the uniform figure
+is the one that is comparable with the other sixteen.
+
+What still does not follow is a forecast for $\theta'$.
+[rem:shapepower] measured that shape selection at this reach has no
+power, and a quadratic that now predicts four times running and
+resolves at $t=4.58$ is better evidence than one that does not
+without being a reason to quote where an underived curve meets a
+level. What is worth recording is where the next two rungs fall:
+rung 17 sits at $\log_{10}N=9.5951$ and rung 18 at $9.8961$, and the
+crossing estimated here is between them. **If the ladder reaches
+them, $0.56$ stops being a level extrapolated to and becomes one
+bracketed by the sign of two measurements** — which is what
+[rem:primorialgap] did for $\tfrac12$, and the only kind of statement
+[rem:shapepower] does not forbid.
 
 
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
