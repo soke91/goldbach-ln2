@@ -1,0 +1,111 @@
+STATISTIC: the truncation K*_R at which
+           sum_{k<K}(log k)|R(N;k)| first reaches
+           S(N)(1-A(N))N, and its exponent log K*_R / log N,
+           at N = 30030*2^17 = 3936092160 and, as controls,
+           at N = 30030*2^15 and 30030*2^16; the margin over
+           1/2 against rung 16's; the exponent against the
+           level 0.56; the quadratic and the line fitted on
+           the seventeen uniform rungs of
+           results/audit_ladder_cap.txt and asked for this
+           one; and the eighteen-rung quadratic's 0.56
+           crossing with a bracket from its own parameter
+           covariance.  C1 compares the half-index sieve
+           with the production one at every odd index below
+           n = 20000000.  The beta fit and the truncation
+           search are both at the uniform cap 1000000.
+NULL: none is run and none applies. A deterministic curve is
+      located against a computed threshold; there is no
+      background to detect against. The coin arms for this
+      statistic were run in lab_primorial_ladder.py and
+      lab_primorial_share.py. The bracket is drawn from the
+      fit's own parameter covariance with the fixed SEED.
+FIELD: N = 984023040, 1968046080 and 3936092160, the odd
+       radical 3*5*7*11*13 fixed so the threshold is
+       constant; k squarefree and coprime to N with
+       2 <= k < 1000000, beta fitted on the same range; m
+       odd, squarefree and coprime to k, m < N/k; the sieve
+       weight over the odd primes below 30; the Euler
+       products at the fixed bound 4000000. One odd radical,
+       as the RADICALS line declares. The k-cap, the sieve
+       weight and the Euler bound are imported from
+       code/audit_primorial_rung11.py, whose sieve C1
+       compares against; the seventeen uniform rungs come
+       from results/audit_ladder_cap.txt and the scatter
+       from results/audit_primorial_rung15.txt.
+
+read 17 uniform rungs at cap 1000000 from results/audit_ladder_cap.txt,
+  their 0.56 crossing 9.6200, and the ladder's scatter 0.0037 from
+  results/audit_primorial_rung15.txt
+SEED 20260823
+DRAWS 4000
+
+C1  the sieve control at n = 20000000, on odd indices
+  Moebius disagreements 0, Lambda disagreements 0, over 10000000 odd indices
+  Lambda support on the odd 1271315 against the stored primes 1271315
+  the production route is the one code/audit_sieve.py compared with
+  explicit factorisation (W1, W2), so agreement here is agreement with that
+  C1 hold   (cap: elementwise equality, no tolerance)
+
+the rungs: the controls 984023040 and 1968046080, and the new 3936092160 at log10 N = 9.5951
+RADICALS 1
+
+sieving to 3936092160 on half-indices, sieve weight over the odd primes 3, 5, 7, 11, 13, 17, 19, 23, 29
+BYTES resident_arrays 13776322567
+BYTES wholeindex_arrays 23616552967
+  the three resident arrays are 12.83 GB against the 21.99 GB the whole-index
+  packing of {#rem:rung16} would hold at this N
+  the Euler products at the fixed bound 4000000: Artin 0.373955819, twin 1.320323652
+
+  N = 984023040    thr 0.087306  #k 188662  beta 1.913457  K*_R 75253    exp 0.542257
+BUDGET kstar_R_S1AN_N984023040 0.087306
+  N = 1968046080   thr 0.087306  #k 188662  beta 1.913963  K*_R 126079   exp 0.548808
+BUDGET kstar_R_S1AN_N1968046080 0.087306
+  N = 3936092160   thr 0.087306  #k 188662  beta 1.902911  K*_R 215843   exp 0.555925
+BUDGET kstar_R_S1AN_N3936092160 0.087306
+RADICALS 1
+
+C2  the ladder control at rungs 15 and 16
+  rung 15  K*_R here 75253 against 75253, exponent 0.542257 against 0.542257, equal
+  rung 16  K*_R here 126079 against 126079, exponent 0.548808 against 0.548808, equal
+  C2 hold   (cap: exact on K*_R, six decimals on the exponent)
+
+H1  does the margin keep growing?
+  the new exponent is 0.555925, margin 0.0559, against rung 16's 0.0488 and the scatter 0.0037
+MARGIN audit_primorial_rung17 0.0559 0.0037
+FLOOR primorial_rung17 0.0037
+  H1 hold   (cap: rung 16's margin)
+
+H2/H3  does the curvature predict this one too?
+  fitted on the 17 uniform rungs:
+  shape        predicts   measured   departure   pred s.e.   ratio
+  quadratic    0.5592     0.5559     -0.0033     0.0044      0.75
+  line         0.5491     0.5559     +0.0068    
+  the two shapes are 0.0101 apart here, 2.29 prediction standard errors
+  H2 hold   (cap: the prediction standard error)
+  H3 hold   (cap: the line's departure)
+
+H4  is 0.56 crossed here?
+  the exponent is 0.555925 against the level 0.56, short by 0.004075
+MARGIN audit_rung17_target 0.004075 0.0037
+FLOOR rung17_target 0.0037
+  the seventeen-rung quadratic predicted 0.5592, which is 0.17 prediction
+  standard errors from the level, so the fit could not call this one
+  H4 hold   (cap: the level 0.56)
+
+where the crossing stands on eighteen rungs
+  the eighteen-rung quadratic is +0.00033853 in (log N)^2, r.m.s. 0.0031
+  it reaches 0.56 at log10 N = 9.6667, bracket [9.6009, 9.8386] from 3338 of 4000 draws
+CENSORED ladder_quadratic18_theta_prime 662 4000
+  662 draws put the crossing at or below the top rung and are dropped;
+  the bracket is conditioned on the rest
+TRUNCATION BIAS ladder_quadratic18_theta_prime
+BRACKET ladder_quadratic18_theta_prime 9.6667 9.6009 9.8386
+DRIFT ladder_quadratic18_theta_prime 0.0467
+SHAPES 2
+SCATTER slope_audit_primorial_rung17 0.0031
+  the seventeen-rung value was 9.6200, from results/audit_ladder_cap.txt
+  rung 18 would sit at log10 N = 9.8961, and needs a uint32 wider than this route has
+  no forecast is made from this; {#rem:shapepower} is why.
+
+======================================================================
+C1 hold  C2 hold  H1 hold  H2 hold  H3 hold  H4 hold

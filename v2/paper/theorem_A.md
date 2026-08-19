@@ -4297,6 +4297,81 @@ bracketed by the sign of two measurements** — which is what
 [rem:shapepower] does not forbid.
 
 
+#### Remark (the eighteenth rung, where the fit could not call it) {#rem:rung17}
+<!-- evidence: audit_primorial_rung17.py -->
+
+[rem:laddercap] left a uniform ladder of seventeen rungs whose
+quadratic reaches $0.56$ at $\log_{10}N=9.6200$, and observed that
+rung 17 sits at $9.5951$ — just under it. Fitted on those seventeen
+the quadratic predicts $0.5592$ here against a prediction standard
+error of $0.0044$: **the level is $0.17$ prediction errors away, so
+the shape puts the rung on $0.56$ and cannot say which side.** That
+is the situation in which a measurement is worth more than a fit, and
+it is the only situation about $\theta'$ that [rem:shapepower] does
+not forbid — [rem:primorialgap] did the same for $\tfrac12$.
+
+**The packing, again.** Rung 17's three arrays under [rem:rung16]'s
+whole-index route would be $21.99$ GB, and the machine's commit
+headroom was below that. The same observation that had already
+halved the residue mask halves the rest: $N$ is even, $k$ is coprime
+to $N$ and hence odd, and $m$ is odd, so $N-mk$ is odd at every index
+the statistic reads, and the even halves of $\Lambda$'s support and
+of $\mu$ are never addressed. Everything is kept on half-indices
+$v\mapsto v\gg1$ and the block sieve runs there, the odd multiples of
+an odd $p$ being $p(2s+1)$ — an arithmetic progression of step $p$
+from $(p-1)/2$. Three arrays, $12.83$ GB. Nothing moves: $\mu$ and
+$\Lambda$ agree with the production route at every one of $10^7$ odd
+indices, bit for bit (C1), and rungs 15 and 16 return the uniform
+ladder's $K^*_R$ exactly, $75253$ and $126079$, with exponents
+$0.542257$ and $0.548808$ to every digit printed (C2).
+
+**The rung.** $30030\cdot2^{17}=3936092160$ at $\log_{10}N=9.5951$
+gives $K^*_R=215843$ and an exponent of $0.555925$.
+
+**An eighth growing margin** (H1). The margin over $\tfrac12$ is
+$0.0559$, against rung 16's $0.0488$ — $15.1$ times the ladder's
+scatter $0.0037$.
+
+**The curvature predicts a fifth time** (H2, H3), and this is its
+first out-of-sample test on the uniform ladder. The departure from
+the quadratic is $-0.0033$, $0.75$ of its own prediction error; the
+line, which predicts $0.5491$, misses by $+0.0068$. The two shapes
+are $0.0101$ apart here, $2.29$ prediction standard errors — the
+sharpest discrimination the ladder has offered, against $1.97$ at
+rung 16.
+
+**And $0.56$ is not yet crossed** (H4). The exponent is $0.555925$,
+short of the level by $0.004075$ against the ladder's scatter
+$0.0037$. **So the answer is resolved, and it is resolved by a tenth
+of the floor.** The registered rule named the other outcome as the
+one worth having — an exponent reaching $0.56$ would have put the
+crossing at or below $\log_{10}N=9.5951$ as an observation rather
+than a fit — and the measurement went the other way. What it buys is
+narrower and still not a forecast: **the crossing of $0.56$ is now
+bounded below by a measurement**, at a rung the fit was not entitled
+to call.
+
+**The refit, and what it does not settle.** On eighteen rungs the
+$(\log N)^2$ coefficient is $+0.00033853$ with r.m.s. residual
+$0.0031$, and the $0.56$ crossing moves to $\log_{10}N=9.6667$ from
+$9.6200$ — a drift of $0.0467$, the second in a row larger than the
+last rung's own declared drift. The bracket $[9.6009,\,9.8386]$ is
+narrower than before at both ends, but the centre keeps receding by
+about the same amount each time a rung is added, and nothing here
+resolves whether that is convergence from below or a systematic.
+**The bracket is also censored**: $662$ of $4000$ draws put the
+crossing at or below the top rung and are dropped, so the fit itself
+gives about a sixth of its own weight to "already crossed" while the
+measurement at that rung says otherwise. The interval quoted is
+conditioned on the rest and should be read as such.
+
+Rung 18 sits at $\log_{10}N=9.8961$, above the upper end of that
+bracket. If it can be reached, $0.56$ is bracketed by the sign of two
+measurements rather than by any shape — which is the whole of what
+this branch can deliver, and it does not touch the sign axis, where
+[rem:leanidentity] and [rem:destination] leave the actual obstruction.
+
+
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->
 
