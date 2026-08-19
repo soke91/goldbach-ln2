@@ -4372,6 +4372,88 @@ this branch can deliver, and it does not touch the sign axis, where
 [rem:leanidentity] and [rem:destination] leave the actual obstruction.
 
 
+#### Remark (the nineteenth rung: 0.56 crossed, and inside the floor) {#rem:rung18}
+<!-- evidence: audit_primorial_rung18.py -->
+
+[rem:rung17] left rung 17 at $0.555925$, below $0.56$ by $0.004075$
+against a floor of $0.0037$, and the eighteen-rung crossing at
+$\log_{10}N=9.6667$. Rung 18 sits at $9.8961$, past the upper end of
+that bracket, and the two surviving shapes disagreed about it: fitted
+on the eighteen uniform rungs the quadratic predicts $0.5668$ here
+and the line $0.5565$, $0.0103$ apart — $2.40$ prediction standard
+errors — so one says the level is cleared and the other says it is
+not. **Every earlier rung asked the shapes for a number; this one
+asked them a yes-or-no question.**
+
+**Neither the prime nor the ceiling.** $N=7872184320$ exceeds $2^{32}$,
+so [rem:rung17]'s uint32 could not carry the prime that carries
+$\Lambda$, and its three half-index arrays would be $25.66$ GB here.
+Both problems are the same problem: the prime is stored at all. On
+the support of $\Lambda$ every $v$ is a prime power, and **when $v$ is
+prime the prime is $v$** — nothing to store. What remains is the
+powers $p^j$ with $j\ge2$, and those have $p\le\sqrt N$, so the whole
+range holds $9023$ odd ones: a table, not an array. One byte per
+half-index says which of the three cases $v$ is in and the logarithm
+is taken at the point of use, of the same float64 integer. The mask
+sheds its second byte for a reason particular to this ladder: $k$ is
+coprime to $N=30030\cdot2^{18}$, so none of $3,5,7,11,13$ can divide
+$k$ and their five bits are always required-zero together — one bit,
+"coprime to $15015$" — leaving only $17,19,23,29$ needing their own.
+Nine bits become five. Three arrays of one byte, $11.00$ GB.
+
+Nothing moves. $\mu$ and $\Lambda$ agree with the production route at
+every one of $10^7$ odd indices, bit for bit, with the support split
+$1270606$ prime and $709$ prime power against a table of $709$ (C1);
+the five-bit mask returns the nine-bit mask's keep decision at every
+odd $v$ for all $184$ admissible $k$ below $1000$, with zero
+disagreements (C2); and rungs 16 and 17 return $126079$ and $215843$
+with exponents $0.548808$ and $0.555925$ to every digit printed (C3).
+
+**The rung.** $30030\cdot2^{18}=7872184320$ at $\log_{10}N=9.8961$
+gives $K^*_R=370859$ and an exponent of $0.562768$.
+
+**A ninth growing margin** (H1). The margin over $\tfrac12$ is
+$0.0628$ against rung 17's $0.0559$.
+
+**A sixth out-of-sample hit, and the narrowest** (H2, H3). The
+departure from the quadratic is $-0.0041$, $0.95$ of its own
+prediction error — inside, but only just, and the closest any of the
+six has come to failing. The line misses by $+0.0062$.
+
+**$0.56$ is crossed** (H4) **and the crossing is inside the floor.**
+The exponent is over the level by $0.002768$, against the ladder's
+scatter $0.0037$: the result file declares `INSIDE FLOOR` on the same
+line that declares the crossing. So the two facts must be said
+together and in this order. The level is between rungs 17 and 18 —
+$(10^{9.5951},\,10^{9.8961}]$, $0.3010$ decades — and that bracket is
+made by the sign of two measurements rather than by any fitted shape,
+which is the thing [rem:shapepower] does not forbid. But **only its
+lower end is resolved**: rung 17 falls short by $1.10$ floors and
+rung 18 clears by $0.75$ of one. By the standard this repository
+adopted in G37 and G40, and applied to itself at
+[rem:primorialrung10], a single point clearing a barrier by less than
+the scatter has not cleared it. **This is a point-estimate bracket
+with a resolved floor and an unresolved ceiling**, exactly as
+[rem:primorialgap] had to say of its own.
+
+What settles the upper end is rung 19, or a second $N$ of the same
+odd radical placed between these two, which is what
+[rem:primorialgap] did for $\tfrac12$ — and what it found there is
+worth remembering: the interval closed by confirmation, and the
+resolution of the individual points was worse than the bracket
+suggested.
+
+**And the departures have a sign.** The quadratic's six out-of-sample
+errors read $+0.0046$, $+0.0023$, $-0.0012$, $-0.0023$, $-0.0033$,
+$-0.0041$ — four negative in a row, growing in size each time, and
+the last at $0.95$ of its prediction error. Each is individually
+inside, so no registered test has failed; but a one-signed run that
+grows is what a shape looks like when it begins to fail from above,
+and it would mean the ladder is flattening against the quadratic and
+the crossing of any level above $0.56$ is later than the quadratic
+places it. Nothing here measures that. It is recorded as open.
+
+
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->
 
