@@ -1,0 +1,77 @@
+STATISTIC: the excess kurtosis of G(N) = C(N)/sqrt(V(N)) at two
+           octaves the seven-point power law has never seen,
+           against that law's out-of-sample forecast; and the
+           limit L in kurtosis = A N^-a + L fitted on all nine.
+FIELD: even N in (2^b, 2^(b+1)] for b = 24 and 25, so N runs
+       to 67108864, with Lambda and mu sieved to that top and both
+       convolutions taken by FFT over the whole range. The seven
+       octaves b = 17..23 are READ from
+       results/audit_cn_kurt_drift.txt and not recomputed; band
+       b = 23 is recomputed here as the gate.
+SEED: the coin draws from numpy default_rng at seed 20260822; without
+      it the file does not reproduce its own control.
+
+READ audit_cn_kurt_drift.txt POINT cnkurt_17 1.57158
+READ audit_cn_kurt_drift.txt POINT cnkurt_18 1.06049
+READ audit_cn_kurt_drift.txt POINT cnkurt_19 0.69806
+READ audit_cn_kurt_drift.txt POINT cnkurt_20 0.41549
+READ audit_cn_kurt_drift.txt POINT cnkurt_21 0.25305
+READ audit_cn_kurt_drift.txt POINT cnkurt_22 0.14257
+READ audit_cn_kurt_drift.txt POINT cnkurt_23 0.07411
+  the seven octaves this forecast is fitted on, read from that file
+PRINTBOUND audit_cn_kurt_limit 3 0.00050000
+
+  the floorless law, fitted on b = 17..23 only
+  log(kurtosis) = +9.43958 -0.50682 * log2(N), residual r.m.s. 0.10062
+  so kurtosis ~ N^-0.7312
+SCATTER slope_audit_cn_kurt_limit 0.10062
+  forecast at b = 24: log(kurtosis) = -2.97744 +- 0.13175, so 0.03913 to 0.06627
+BRACKET cnkurtlimit_24 0.03913 0.06627
+  forecast at b = 25: log(kurtosis) = -3.48426 +- 0.14357, so 0.02302 to 0.04088
+BRACKET cnkurtlimit_25 0.02302 0.04088
+
+sieving to 67108864
+  transform length 268435456
+
+E1  does this run reproduce the band it shares?
+  b = 23: here 0.07411 against its 0.07411
+  E1 hold   (cap: 3 decimals)
+
+E2  does the floorless law forecast the two new octaves?
+       b      even N      forecast          measured      z
+      24     8388608  0.03913 to 0.06627  0.04847   -0.37
+POINT cnkurt_24 0.04847
+TSTAT cnkurtlimit_z24 -0.37
+SPREAD cnkurtlimit_z24 0.13175
+UNRESOLVED SIGN cnkurtlimit_z24
+      25    16777216  0.02302 to 0.04088  0.02605   -1.14
+POINT cnkurt_25 0.02605
+TSTAT cnkurtlimit_z25 -1.14
+SPREAD cnkurtlimit_z25 0.14357
+UNRESOLVED SIGN cnkurtlimit_z25
+SCALES 2
+  E2 hold   (cap: both inside two standard errors)
+
+E3  does a limit resolve on all nine octaves?
+  best exponent a = 0.5800, A = +1870.67807, L = -0.06114 +- 0.01015, t = -6.03
+TSTAT cnkurtlimit_L -6.03
+SPREAD cnkurtlimit_L 0.01015
+  residual r.m.s. 0.02085 against the floorless fit's 0.10062 in log
+  E3 REFUTED   (cap: |t| < 2)
+
+E4  is the control an offset or a drift?
+  32 fresh sign patterns at each new band
+       b   coin mean    coin sd        z of the real point
+      24   -0.00848    0.01296                4.40
+POINT cnkurtcoin_24 -0.00848
+      25   -0.01019    0.01834                1.98
+POINT cnkurtcoin_25 -0.01019
+  the range rem:cnkurt measured is -0.02103 to -0.01376
+  E4 REFUTED   (cap: both inside it)
+
+======================================================================
+E1 hold  E2 hold  E3 REFUTED  E4 REFUTED
+
+the forecast held and a floor still fits. A forecast tested out of
+sample is evidence and a parameter fitted inside it is a description,
+so the reading is that a floor can be fitted and was not needed.

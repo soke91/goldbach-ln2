@@ -971,17 +971,15 @@ N^{-0.7312}$ with a standard error of $0.019$ on the fitted slope. So
 this is a finite-$N$ effect and not yet a law, which is the weaker of
 the two readings the single band could not separate.
 
-**But it is not the decay independence would give.** A sum of $n$
-independent terms has excess kurtosis of order $1/n$, and this field
-has about $N/\log N$ terms, so an independent model predicts $N^{-1}$
-up to logs. The measured exponent is $-0.7312$, a nominal $9.8$
-standard errors away — nominal because seven octaves cut from one
-sieve are not independent samples, so that error is a lower bound and
-no significance is claimed from it. What the figure supports is
-weaker and still worth having: **over six doublings the
-non-Gaussianity of $C(N)$ dies out visibly more slowly than a sum of
-independent terms would let it.** Whatever correlation $\mu$ carries
-against $\Lambda$ is sustaining it.
+**WITHDRAWN.** This paragraph read that the decay is slower than an
+independent-term model's $N^{-1}$, taking that rate from the excess
+kurtosis of $\sum w_v\varepsilon_v$ as a random variable over the signs.
+What is measured here is the excess kurtosis of the empirical
+distribution over $N$ of one fixed sign pattern, which is a different
+object, and the computed independent-sign null — the coin ensemble in
+the table above — does not follow $N^{-1}$ at all. [rem:cnkurtlimit]
+carries the correction and what replaces it: the real arm decays
+toward the coin arm's level and reaches it at $b\approx25$.
 
 D4 broke and its breaking matters. The coin's own mean excess
 kurtosis is not zero but $-0.02103$ to $-0.01376$ across the bands,
@@ -989,16 +987,100 @@ $4.43$ of its own standard errors from zero at the top. The $z$
 column above already scores against that mean so the separation is
 unaffected, but the fitted exponent is not: refitting the power law
 on real minus the control's mean gives $N^{-0.6953}$ against the raw
-$N^{-0.7312}$. Both are reported; the pre-registered fit is the raw
-one and neither is close to $-1$.
+$N^{-0.7312}$. Both are reported and the pre-registered fit is the raw one.
+[rem:cnkurtlimit] measures what that control does over two more
+octaves: it drifts toward zero rather than holding, so the
+baseline these bands are scored against is not a constant.
 
-Three limits. Seven octaves cannot tell decay to zero from decay to a
-positive limit, and that limit is the question this one becomes.
-Thirty-two draws make the large $z$ values bounds rather than
-measurements. And the comparison with $N^{-1}$ is against a heuristic
-for the independent case, not against a computed null — no ensemble
-of independent-term fields was built, and building one is the check
-that would turn the last paragraph from an observation into a test.
+Two limits, both taken up by [rem:cnkurtlimit]. Seven octaves cannot
+tell decay to zero from decay to a positive limit, and that limit is
+the question this one becomes. Thirty-two draws make the large $z$
+values bounds rather than measurements. A third limit written here —
+that no ensemble of independent-term fields had been built — was
+wrong when written: the coin ensemble in the table above is exactly
+that, which is why the paragraph it justified is withdrawn.
+
+#### Remark (the forecast held, the floor did not, and this branch has a noise floor) {#rem:cnkurtlimit}
+<!-- evidence: audit_cn_kurt_limit.py -->
+
+[rem:cnkurt] left one question: seven octaves cannot tell decay to
+zero from decay to a positive limit, and a positive limit is what
+would make the non-Gaussianity of $C(N)$ a property of $C$ rather than
+of the range. Fitting $A N^{-a}+L$ on seven points is a question about
+functional form, and this repository has failed at those four times
+over. So the limit was not approached by fitting. The floorless power
+law, fitted on $b=17\ldots23$ alone, was made to forecast two octaves
+it had never seen, and then they were measured — $N$ to
+$6.71\cdot10^7$, the shared band $b=23$ reproducing $0.07411$ exactly
+as the gate (E1).
+
+| $b$ | forecast | measured | $z$ |
+|---|---|---|---|
+| $24$ | $0.03913$–$0.06627$ | $0.04847$ | $-0.37$ |
+| $25$ | $0.02302$–$0.04088$ | $0.02605$ | $-1.14$ |
+
+**Both landed** (E2), and both slightly low — the decay is not
+flattening, which is what approaching a positive floor would look
+like from below. No floor is needed to predict where the kurtosis
+goes.
+
+**E3 broke, and the pre-registration had already fixed how to read
+it.** Fitting $A N^{-a}+L$ on all nine octaves gives
+$L=-0.06114\pm0.01015$, $t=-6.03$ — resolved, and *negative*. The
+refutation rule written before the run says a resolved negative $L$
+means the three-parameter family is fitting shape and not a limit,
+since a quantity positive at every octave measured cannot have a
+negative limit. The fitted $A=+1870.7$ with $a=0.58$ confirms it: a
+large amplitude with a small exponent minus a constant is a degenerate
+reparametrisation of a slowly varying function, not a floor. E2 is the
+one to believe, and the pre-registration says so in advance.
+
+One comparison in that output is mis-stated and is corrected here
+rather than left standing: the three-parameter fit's residual r.m.s.
+$0.02085$ is in kurtosis units while the floorless fit's $0.10062$ is
+in log units, so the two are not comparable and the printed line
+reads as though the floor fit were five times better. It is not a
+comparison at all.
+
+**E4 broke too, and it is the more consequential break.** The coin's
+own mean excess kurtosis at the two new bands is $-0.00848$ and
+$-0.01019$, outside the $-0.02103$ to $-0.01376$ that [rem:cnkurt]
+measured. The control drifts toward zero rather than sitting at a
+constant offset. And with it goes the separation: at $b=25$ the real
+point scores $z=1.98$ against its coin ensemble, where every band up
+to $b=23$ scored at least $5.0$.
+
+That is this branch's floor, and it is not a budget problem. The
+coin's *draw-to-draw* spread in excess kurtosis is $0.018$ at
+$b=23$ and $0.018$ at $b=25$ — it does not shrink as $N$ grows,
+because it is set by the field's correlation across $N$ and not by
+sample size. The real signal decays like $N^{-0.73}$. **The two meet
+at $N\sim3\cdot10^7$, and pushing $N$ further cannot separate them
+because only one of the two is falling.** More draws sharpen the
+estimate of where the coin's centre is; they do not narrow the
+ensemble the real point has to escape.
+
+**And one sentence of [rem:cnkurt] is withdrawn.** It read that the
+decay is slower than an independent-term model's $N^{-1}$. That
+$N^{-1}$ comes from the excess kurtosis of $\sum w_v\varepsilon_v$ as
+a random variable *over the signs*, and what is measured here is the
+excess kurtosis of the empirical distribution *over $N$* of one fixed
+sign pattern. They are different objects, and the computed
+independent-sign null — the coin ensemble, which was there all along —
+does not behave like $N^{-1}$ at all: it sits near $-0.01$ and drifts
+slowly toward zero. The comparison was against a formula that does not
+govern the measured statistic. What replaces it is the paragraph
+above: the real arm decays toward the coin arm's level and reaches it
+at $b\approx25$. The sentence in
+`results/audit_cn_kurt_drift.txt` that makes the same comparison is
+superseded by this one.
+
+So the reading after nine octaves is narrower than after seven, and
+better founded. The excess kurtosis of $C(N)$ is real and outside its
+coin ensemble from $b=17$ to $b=23$; it follows a power law well
+enough to forecast two octaves out of sample; it has no floor this
+design can see, and it reaches the coin's own noise at $b\approx25$,
+which is where this instrument stops.
 
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
