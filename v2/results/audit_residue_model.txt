@@ -1,0 +1,103 @@
+STATISTIC: the weights w(d) = I(d)/I(1) of the Type II sum
+           against the model (1/phi(d))(1-d/D)/(1-1/D), and the
+           residue sum_d mu(d) w(d) against the model's own
+           elementary Mobius sum.
+FIELD: N = [25000, 50000, 100000, 200000, 400000, 800000, 1600000, 3200000]; d over the squarefree d <= D = floor((N-1)/K)
+       coprime to N and m over the squarefree m in [K, N/d)
+       coprime to dN, with K = floor(N^0.56). A at N = 200000 is
+       READ from results/audit_mainterm_removal.txt at full
+       double precision.
+MODEL: N - dm lies in the class N mod d so I(d) is governed by
+       1/phi(d), and m runs over a range that empties as d ->
+       D, which the linear taper stands for. This is a model,
+       not an identity.
+
+READ audit_mainterm_removal.txt 200000 1.40933816458843928e+06
+PRINTBOUND audit_residue_model 17 0.00000000000000000500
+  theta 0.56, shape 20 per cent on the top 10, factor 2.0,
+  exponent cap 0.05
+sieving to 3200000
+  N = 25000     D = 86    residue +0.125739   model +0.091290   ratio   0.7260
+POINT resmeas_25000 1.257394e-01
+POINT resmodel_25000 9.129021e-02
+  N = 50000     D = 117   residue +0.097964   model +0.062196   ratio   0.6349
+POINT resmeas_50000 9.796362e-02
+POINT resmodel_50000 6.219565e-02
+  N = 100000    D = 158   residue +0.078006   model +0.042137   ratio   0.5402
+POINT resmeas_100000 7.800636e-02
+POINT resmodel_100000 4.213693e-02
+  N = 200000    D = 215   residue +0.063374   model +0.026120   ratio   0.4122
+POINT resmeas_200000 6.337371e-02
+POINT resmodel_200000 2.612005e-02
+  N = 400000    D = 291   residue +0.052798   model +0.015544   ratio   0.2944
+POINT resmeas_400000 5.279816e-02
+POINT resmodel_400000 1.554380e-02
+  N = 800000    D = 395   residue +0.040359   model +0.007945   ratio   0.1969
+POINT resmeas_800000 4.035852e-02
+POINT resmodel_800000 7.945287e-03
+  N = 1600000   D = 536   residue +0.029912   model +0.001500   ratio   0.0502
+POINT resmeas_1600000 2.991213e-02
+POINT resmodel_1600000 1.500464e-03
+  N = 3200000   D = 728   residue +0.023066   model -0.001965   ratio  -0.0852
+POINT resmeas_3200000 2.306622e-02
+POINT resmodel_3200000 -1.964904e-03
+SCALES 8
+
+CC1  the gate
+  A here 1.40933816458843928e+06
+    its 1.40933816458843928e+06   relative 0.00e+00
+  CC1 hold   (cap: 1e-12 relative)
+
+CC2  the shape, on the top 10 weights at N = 3200000
+      d     w measured    w model      per cent
+        1  +1.000000   +1.000000      +0.00
+POINT shape_1 0.0000
+        3  +0.437803   +0.498624     -12.20
+POINT shape_3 -12.1979
+        7  +0.149296   +0.165291      -9.68
+POINT shape_7 -9.6772
+       11  +0.089654   +0.098624      -9.10
+POINT shape_11 -9.0953
+       13  +0.074099   +0.081958      -9.59
+POINT shape_13 -9.5893
+       17  +0.055303   +0.061124      -9.52
+POINT shape_17 -9.5238
+       21  +0.053388   +0.081041     -34.12
+POINT shape_21 -34.1224
+       19  +0.048597   +0.054180     -10.30
+POINT shape_19 -10.3037
+       23  +0.039106   +0.044079     -11.28
+POINT shape_23 -11.2824
+       33  +0.031739   +0.047799     -33.60
+POINT shape_33 -33.5985
+  CC2 REFUTED   (cap: 20 per cent)
+
+CC3  does the model carry the residue?
+  N = 25000     measured +0.125739  model +0.091290  signs same  factor 0.7260  ok
+  N = 50000     measured +0.097964  model +0.062196  signs same  factor 0.6349  ok
+  N = 100000    measured +0.078006  model +0.042137  signs same  factor 0.5402  ok
+  N = 200000    measured +0.063374  model +0.026120  signs same  factor 0.4122  no
+  N = 400000    measured +0.052798  model +0.015544  signs same  factor 0.2944  no
+  N = 800000    measured +0.040359  model +0.007945  signs same  factor 0.1969  no
+  N = 1600000   measured +0.029912  model +0.001500  signs same  factor 0.0502  no
+  N = 3200000   measured +0.023066  model -0.001965  signs OPPOSITE  factor 0.0852  no
+  CC3 REFUTED   (cap: same sign and within a factor 2.0)
+  NOTE: a magnitude within a factor of two of a quantity of the
+  opposite sign is not agreement, as the rule says
+
+CC4  do they move at the same rate?
+  measured -0.342848 +- 0.009184, model -0.876211 +- 0.090961, gap +0.533363
+TSTAT residuemodel_gap 5.83
+SPREAD residuemodel_gap 0.091423
+POINT resexp_meas -0.342848
+POINT resexp_model -0.876211
+  CC4 REFUTED   (cap: 0.05)
+  UNRESOLVED: an exponent's own error exceeds the cap, so CC4's
+  verdict stands without a reading, as the rule says
+
+======================================================================
+CC1 hold  CC2 REFUTED  CC3 REFUTED  CC4 REFUTED
+
+the model does not carry the residue. the primes do not drop out and
+item 5's difficulty stays where it was, in a correlation of Lambda
+against a sieve weight.

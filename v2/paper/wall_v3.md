@@ -5534,6 +5534,61 @@ judges the $\ell^2$ leg at that marker's own print bound of
 $5\cdot10^{-7}$ and keeps $10^{-12}$ on the other; both pass. AA1
 stays refuted as written.
 
+#### Remark (the primes do not drop out) {#rem:residuemodel}
+<!-- evidence: audit_residue_model.py -->
+
+[rem:tworates] ended by asking where the factor of $9.5118$ lives
+among the $d$. Writing this run produced a candidate that would have
+removed the primes entirely. $I(d)$ counts prime powers $N-dm$, which
+lie in the class $N\bmod d$, so its size should be governed by
+$1/\varphi(d)$; and $m$ runs over $[K,N/d)$, a range emptying as
+$d\to D$. With $w(d)=I(d)/A$ that gives
+$$A+B=A\sum_d\mu(d)w(d),\qquad
+w(d)\approx\frac{1}{\varphi(d)}\cdot\frac{1-d/D}{1-1/D},$$
+and if it held, the whole of item 5's remaining difficulty would be
+the rate at which the elementary Fejér-weighted Möbius sum
+$\sum_{d\le D}\mu(d)(1-d/D)/\varphi(d)$ approaches zero — a classical
+question with no $\Lambda$ in it.
+
+**It does not hold, on all three tests.**
+
+| $N$ | residue | model | ratio |
+|---|---|---|---|
+| $25000$ | $+0.125739$ | $+0.091290$ | $0.7260$ |
+| $200000$ | $+0.063374$ | $+0.026120$ | $0.4122$ |
+| $800000$ | $+0.040359$ | $+0.007945$ | $0.1969$ |
+| $3200000$ | $+0.023066$ | $-0.001965$ | $-0.0852$ |
+
+**CC3 is refuted and it is the one that decides.** The model's sum
+falls away far faster than the residue and **changes sign at the top
+$N$** — where, as this run's own rule says, a magnitude within a factor
+of two of a quantity of the opposite sign is not agreement. CC4 puts
+the rates at $-0.342848\pm0.009184$ measured against
+$-0.876211\pm0.090961$ modelled; its verdict is barred by the power
+clause, the model's own error exceeding the cap, but CC3 had already
+decided.
+
+**CC2 is refuted too, and its pattern is the informative part.**
+At $N=3200000$ the top ten weights miss the model by
+
+| $d$ | $3$ | $7$ | $11$ | $13$ | $17$ | $19$ | $23$ | $21$ | $33$ |
+|---|---|---|---|---|---|---|---|---|---|
+| per cent | $-12.20$ | $-9.68$ | $-9.10$ | $-9.59$ | $-9.52$ | $-10.30$ | $-11.28$ | $\mathbf{-34.12}$ | $\mathbf{-33.60}$ |
+
+— **around ten per cent for prime $d$ and around a third for the two
+composite ones**, $21=3\cdot7$ and $33=3\cdot11$. The shape is wrong
+in a way that depends on how many primes divide $d$, and this run
+measures that without proposing a correction: a factor fitted to two
+composite values would be a law drawn from two points.
+
+**So the primes do not drop out**, which is the reading CC3's rule
+attached to this outcome. Item 5's difficulty stays exactly where
+[rem:bilinear] put it — in a correlation of $\Lambda$ against a sieve
+weight — and the reduction to an elementary Möbius sum is not
+available. That is worth the run: a tempting reduction is closed
+rather than left as an unexamined hope, and the closing is by a
+pre-registered test that named its own failure mode before it fired.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 
