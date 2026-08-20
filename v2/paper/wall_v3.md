@@ -5762,6 +5762,54 @@ been answered by moving it**: that is progress only if they are
 simpler than what they replace, and nothing here claims they are.
 [rem:residuemodel]'s closure stands.
 
+#### Remark (the drift belongs to two primes, not to the family) {#rem:driftbyprime}
+<!-- evidence: audit_drift_by_prime.py -->
+
+[rem:localcorrections] saw the weight corrections drift with $N$ and
+drift most at the smallest prime, and said in its own words that three
+primes is not a shape. Twenty primes contribute above the noise
+threshold at all eight $N$ here, and they settle it.
+
+**GG2 is refuted: two of the twenty resolve.**
+
+| $p$ | $3$ | $7$ | $11$ | $17$ | $37$ | $73$ |
+|---|---|---|---|---|---|---|
+| drift | $-0.011551$ | $-0.005152$ | $-0.001589$ | $+0.004238$ | $-0.019126$ | $+0.018483$ |
+| $t$ | $-13.19$ | $-9.49$ | $-1.38$ | $+1.27$ | $-1.80$ | $+1.18$ |
+
+Beyond $p=7$ nothing reaches $\lvert t\rvert=2$, and the signs are
+mixed — $+0.004238$ at $17$ against $-0.019126$ at $37$ and
+$+0.018483$ at $73$, with errors three to twenty-six times the
+$p=3$ signal. **The drift is a fact about $c(3)$ and $c(7)$ and not
+about the corrections as a family**, which is the reading GG2's rule
+attached to this outcome.
+
+**GG3 and GG4 both say "hold" and neither is read**, by the rule fixed
+before the run: with fewer than four resolved primes they have nothing
+to run on. GG3's ordering is automatic on two points. GG4's fit
+returns a slope of $-0.952938$ — temptingly close to $-1$ — with a
+standard error that is **not finite**: two points give zero degrees of
+freedom, the line passes through them exactly, and no $t$ is emitted,
+because a $t$ against an infinite error is not a $t$. The gate caught
+that as G39 when the run first tried to print one.
+
+**And the separability the design named in advance did fire.** Over
+the resolved set $\log p$ and $\log(p-1)$ correlate at $1.000000$;
+`COEFF NOT SEPARABLE` is emitted, so even had four primes resolved,
+$1/p$, $1/(p-1)$ and $1/(p+1)$ would not have been told apart —
+only an exponent, and not a form.
+
+**What this costs and what it leaves.** It costs
+[rem:localcorrections]'s picture of a drift dying away with $p$: that
+was drawn from three primes of which one was already unresolved, and
+at twenty it does not survive. What stands is narrower and firmer —
+$c(3)$ and $c(7)$ move with $N$ at $t=-13.19$ and $-9.49$, and
+nothing else measurably does. Whether that is two primes being
+special or eighteen being too noisy to tell, this field does not say:
+the errors at $p\ge11$ are larger than the effect at $p=3$, so the
+absence is an absence of power as much as an absence of drift, and
+the remark claims no more.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

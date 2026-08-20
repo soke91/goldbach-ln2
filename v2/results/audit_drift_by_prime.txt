@@ -1,0 +1,126 @@
+STATISTIC: the drift of each prime's weight correction c(p, N)
+           against log N, one slope per prime, and how those
+           slopes depend on p.
+FIELD: N = [25000, 50000, 100000, 200000, 400000, 800000, 1600000, 3200000]; p over the primes coprime to N that contribute
+       at every one of those N with |w(p)| above the noise
+       threshold, inside D = floor((N-1)/K), K = floor(N^0.56).
+       A at N = 200000 and c(3)'s drift are READ from
+       results/audit_mainterm_removal.txt and
+       results/audit_local_corrections.txt.
+NOTE: 1/p, 1/(p-1) and 1/(p+1) are within a fifth of each other
+      for p >= 11 here, so no functional form is chosen; only the
+      exponent of the decay is read.
+
+READ audit_mainterm_removal.txt 200000 1.40933816458843928e+06
+READ audit_local_corrections.txt cslope_3 -0.011551
+PRINTBOUND audit_drift_by_prime 6 0.0000005000
+  theta 0.56, |t| cap 3.0, minimum resolved 4, exponent -1.0 +- 0.3,
+  CORR cap 0.99, noise 0.0010 of |w(3)|
+sieving to 3200000
+  N = 25000     D = 86    28 contributing d
+  N = 50000     D = 117   39 contributing d
+  N = 100000    D = 158   52 contributing d
+  N = 200000    D = 215   71 contributing d
+  N = 400000    D = 291   98 contributing d
+  N = 800000    D = 395   131 contributing d
+  N = 1600000   D = 536   179 contributing d
+  N = 3200000   D = 728   246 contributing d
+SCALES 8
+  20 primes contribute above the threshold at all eight N: [3, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79]
+
+GG1  the gate
+  A relative 0.00e+00 against 1e-12   ok
+  c(3) drift here -0.011551 against its -0.011551  ok
+  GG1 hold
+
+      p     drift        s.e.        t
+      3  -0.011551   0.000876    -13.19
+POINT drift_3 -0.011551
+SPREAD drift_3 0.000876
+      7  -0.005152   0.000543     -9.49
+POINT drift_7 -0.005152
+SPREAD drift_7 0.000543
+     11  -0.001589   0.001154     -1.38
+POINT drift_11 -0.001589
+SPREAD drift_11 0.001154
+     13  -0.001948   0.003904     -0.50
+POINT drift_13 -0.001948
+SPREAD drift_13 0.003904
+     17  +0.004238   0.003336     +1.27
+POINT drift_17 0.004238
+SPREAD drift_17 0.003336
+     19  +0.001062   0.003259     +0.33
+POINT drift_19 0.001062
+SPREAD drift_19 0.003259
+     23  +0.009616   0.007430     +1.29
+POINT drift_23 0.009616
+SPREAD drift_23 0.007430
+     29  -0.001537   0.004715     -0.33
+POINT drift_29 -0.001537
+SPREAD drift_29 0.004715
+     31  -0.001401   0.009161     -0.15
+POINT drift_31 -0.001401
+SPREAD drift_31 0.009161
+     37  -0.019126   0.010647     -1.80
+POINT drift_37 -0.019126
+SPREAD drift_37 0.010647
+     41  -0.004621   0.011402     -0.41
+POINT drift_41 -0.004621
+SPREAD drift_41 0.011402
+     43  -0.015622   0.014069     -1.11
+POINT drift_43 -0.015622
+SPREAD drift_43 0.014069
+     47  -0.008242   0.007960     -1.04
+POINT drift_47 -0.008242
+SPREAD drift_47 0.007960
+     53  +0.007961   0.012224     +0.65
+POINT drift_53 0.007961
+SPREAD drift_53 0.012224
+     59  +0.015028   0.025866     +0.58
+POINT drift_59 0.015028
+SPREAD drift_59 0.025866
+     61  -0.011761   0.010173     -1.16
+POINT drift_61 -0.011761
+SPREAD drift_61 0.010173
+     67  -0.007309   0.006255     -1.17
+POINT drift_67 -0.007309
+SPREAD drift_67 0.006255
+     71  -0.022037   0.013654     -1.61
+POINT drift_71 -0.022037
+SPREAD drift_71 0.013654
+     73  +0.018483   0.015612     +1.18
+POINT drift_73 0.018483
+SPREAD drift_73 0.015612
+     79  -0.006346   0.016550     -0.38
+POINT drift_79 -0.006346
+SPREAD drift_79 0.016550
+
+GG2  how many primes have a resolved drift?
+  resolved at |t| above 3.0: [3, 7]
+COUNT resolved 2
+  GG2 REFUTED   (cap: at least 4)
+
+GG3  does the drift die away with p?
+  |s(p)| over the resolved: 0.011551 0.005152
+  GG3 hold   (cap: largest at the smallest p, smallest at the largest)
+
+GG4  the exponent of the decay
+  slope of log|s| on log p: -0.952938, standard error not finite
+  2 resolved primes give 0 degrees of freedom, so the line passes
+  through its points exactly and no t is emitted -- a t against an
+  infinite error is not a t
+POINT driftexp -0.952938
+CORR driftbyprime_regressors 1.000000
+COEFF NOT SEPARABLE driftbyprime
+  log p and log(p-1) correlate at 1.000000 over the resolved set, so
+  no functional form is chosen and only the exponent is read
+  GG4 hold   (cap: -1.0 +- 0.3)
+  UNREADABLE: fewer than 4 resolved primes, so GG4's verdict stands
+  without a reading, as GG2's rule says
+
+======================================================================
+GG1 hold  GG2 REFUTED  GG3 hold  GG4 hold
+
+too few primes resolve. the drift is a fact about the smallest primes
+and not about the corrections as a family, and the shape questions
+have nothing to run on.
