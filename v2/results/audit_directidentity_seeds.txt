@@ -1,0 +1,90 @@
+STATISTIC: |T|/(S(N)N) for mu and for 512 random multiplicative
+           sign patterns at each of two fresh seeds, counting
+           draws that reach mu and comparing each seed's
+           minimum and median with the first seed's.
+FIELD: N = [200000, 400000, 800000]; k over every squarefree 2 <= k < N; S(N) from
+       the twin product at the fixed bound 4000000; field, k-range
+       and S(N) taken unchanged from
+       code/audit_directidentity_null.py. The first seed's
+       numbers are READ from
+       results/audit_directidentity_deep.txt. Only the
+       multiplicative arm is run; the iid arm's minimum was four
+       and a half times mu and is not in question.
+SEEDS: numpy default_rng at [20260907, 20260908]; without them the file does not
+       reproduce its own control.
+
+READ audit_directidentity_deep.txt 200000 1.0039
+READ audit_directidentity_deep.txt 400000 0.9865
+READ audit_directidentity_deep.txt 800000 0.9893
+  the first seed gave minima 1.9149, 2.0030, 2.1084 and medians 4.2771, 4.5269, 4.7875
+  with ensemble spreads 2.0400, 2.1980, 2.3376
+PRINTBOUND audit_directidentity_seeds 4 0.00005000
+  512 draws at each of 2 fresh seeds
+sieving to 800000
+
+M1  does this construction reproduce mu's ratios?
+  N = 200000    here 1.0039 against its 1.0039  ok
+  N = 400000    here 0.9865 against its 0.9865  ok
+  N = 800000    here 0.9893 against its 0.9893  ok
+  M1 hold   (cap: 4 decimals at all three)
+  seed 20260907 pass 1 of 8, 64 draws
+  seed 20260907 pass 2 of 8, 128 draws
+  seed 20260907 pass 3 of 8, 192 draws
+  seed 20260907 pass 4 of 8, 256 draws
+  seed 20260907 pass 5 of 8, 320 draws
+  seed 20260907 pass 6 of 8, 384 draws
+  seed 20260907 pass 7 of 8, 448 draws
+  seed 20260907 pass 8 of 8, 512 draws
+  seed 20260908 pass 1 of 8, 64 draws
+  seed 20260908 pass 2 of 8, 128 draws
+  seed 20260908 pass 3 of 8, 192 draws
+  seed 20260908 pass 4 of 8, 256 draws
+  seed 20260908 pass 5 of 8, 320 draws
+  seed 20260908 pass 6 of 8, 384 draws
+  seed 20260908 pass 7 of 8, 448 draws
+  seed 20260908 pass 8 of 8, 512 draws
+
+      seed          N        mu    draw min   draw median    draws reaching mu
+      20260907       200000  1.0039     2.0049       4.4979               0
+POINT identseed_20260907_200000 2.00491
+      20260907       400000  0.9865     2.0998       4.7763               0
+POINT identseed_20260907_400000 2.09983
+      20260907       800000  0.9893     2.1938       5.0514               0
+POINT identseed_20260907_800000 2.19381
+      20260908       200000  1.0039     2.0631       5.3443               0
+POINT identseed_20260908_200000 2.06313
+      20260908       400000  0.9865     2.1732       5.6756               0
+POINT identseed_20260908_400000 2.17325
+      20260908       800000  0.9893     2.2752       5.9581               0
+POINT identseed_20260908_800000 2.27520
+SCALES 3
+
+M2  does the refutation reproduce at both seeds?
+  seed 20260907: 0, 0, 0 of 512 at each N
+  seed 20260908: 0, 0, 0 of 512 at each N
+COUNT identseed_reach 0
+  M2 hold   (cap: none at any seed or N)
+
+M3  is the bound stable?
+      seed          N    first min   this min      gap   ensemble sd
+      20260907       200000     1.9149     2.0049   0.0900       2.0400
+      20260907       400000     2.0030     2.0998   0.0968       2.1980
+      20260907       800000     2.1084     2.1938   0.0854       2.3376
+      20260908       200000     1.9149     2.0631   0.1482       2.0400
+      20260908       400000     2.0030     2.1732   0.1702       2.1980
+      20260908       800000     2.1084     2.2752   0.1668       2.3376
+  M3 hold   (cap: within the ensemble's own spread)
+
+M4  does the bulk agree more tightly?
+  the largest median gap across seeds and N is 1.1706
+SPREAD identseed_median 1.1706
+  M4 REFUTED   (cap: 0.1)
+
+======================================================================
+M1 hold  M2 hold  M3 hold  M4 REFUTED
+
+the seed rem:identitydeep said was owed is paid, twice. No draw of
+512 at either fresh seed reaches mu at any of the three N, so that
+remark's refutation is not one seed's luck. What it is still bounded
+by is the smallest ratio seen, now over three seeds, and the two
+larger N of that block remain untested.

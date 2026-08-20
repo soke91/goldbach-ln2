@@ -2028,6 +2028,53 @@ that shares $\mu$'s multiplicativity, the escape is a fact about the
 control.
 
 
+#### Remark (the seed is paid, and the tail is steadier than the bulk) {#rem:identityseeds}
+<!-- evidence: audit_directidentity_seeds.py -->
+
+[rem:identitydeep] found the one separation a resolved multiplicative
+ensemble fails to reach and wrote its own debt: one seed, and another
+owed before the result is leaned on. Two fresh seeds, $512$
+multiplicative draws each, at the same three $N$.
+
+| seed | $N=200000$ min | median | $N=800000$ min | median |
+|---|---|---|---|---|
+| first | $1.9149$ | $4.2771$ | $2.1084$ | $4.7875$ |
+| $20260907$ | $2.0049$ | $4.4979$ | $2.1938$ | $5.0514$ |
+| $20260908$ | $2.0631$ | $5.3443$ | $2.2752$ | $5.9581$ |
+
+**M2 holds: no draw of $512$ at either fresh seed reaches $\mu$ at any
+of the three $N$** — $0$ everywhere, as at the first seed. The debt is
+paid and [rem:identitydeep]'s refutation is not one seed's luck.
+
+**M4 is REFUTED and it broke the wrong way round.** It predicted the
+bulk would agree more tightly than the tail; the median moves by as
+much as $1.1706$ across seeds while the minimum moves by at most
+$0.1702$. **The tail is the steady one, by a factor of seven.** M4's
+own rule said a median moving that far would put M3 and the design in
+question rather than just the tail — and read literally that is what
+has happened, so it is recorded that way. But the tension resolves in
+a direction the rule did not anticipate, and the resolution is worth
+stating rather than hiding behind the verdict: M2 is a statement about
+the *minimum*, and the minimum is precisely the quantity that
+reproduced. M3 holds with room to spare, its gaps of $0.0854$ to
+$0.1702$ sitting an order below the ensemble spreads of $2.0400$ to
+$2.3376$.
+
+What the design assumed, and got wrong, is that a heavy-tailed
+ensemble's extremes are its least reliable part. Here they are its
+most reliable. **That is an observation and not a measurement** — this
+run did not ask why — but the shape it suggests is that the low end of
+this ensemble is pinned by configurations in which many $f(p)=-1$ and
+the divisor sums $\prod_{p\mid n}(1+f(p))$ vanish wholesale, which is
+a structural floor rather than a fluctuation, while the bulk floats
+with whatever the small primes happen to be.
+
+So the standing claim narrows in one place and firms in another. It
+firms because three seeds now agree that nothing reaches $\mu$. It
+narrows because the bound quoted is the smallest of three minima and
+those differ by $0.15$, so the honest bound is about $1.9$ and not
+$1.9149$. Three of five $N$ remain untested, as before.
+
 #### Lemma (the placebo key) {#lem:placebo}
 <!-- evidence: lab_mask_placebo.py -->
 
