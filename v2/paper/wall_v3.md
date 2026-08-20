@@ -2075,6 +2075,55 @@ narrows because the bound quoted is the smallest of three minima and
 those differ by $0.15$, so the honest bound is about $1.9$ and not
 $1.9149$. Three of five $N$ remain untested, as before.
 
+#### Remark (the last two N, and a floor the draws cannot get under) {#rem:identitybig}
+<!-- evidence: audit_directidentity_bigN.py -->
+
+[rem:identitydeep] and [rem:identityseeds] both ended on the same
+sentence: the two larger $N$ of [rem:identitynull] are untested. This
+tests them, and with them item 8's work list is finished.
+
+| $N$ | $\mu$ | multiplicative min of $256$ | median | draws reaching $\mu$ |
+|---|---|---|---|---|
+| $1600000$ | $1.0017$ | $2.4598$ | $4.7259$ | $0$ |
+| $3200000$ | $0.9968$ | $2.5636$ | $4.9806$ | $0$ |
+
+**N2 holds where nothing had looked**, and N3 with it: across all five
+$N$ the multiplicative minimum runs $1.9149$, $2.0030$, $2.1084$,
+$2.4598$, $2.5636$ — monotone, so **the separation widens with $N$**
+rather than closing. $\mu$ meanwhile sits at $1.00$ throughout.
+
+**N4 is the one worth pausing on.** It was put in to price a shortcut:
+these two $N$ cost about ten seconds a draw against under two at the
+smaller ones, so this run used $256$ draws where the others used
+$512$, and a shallower ensemble gives a higher minimum for free. N4
+asked how much of N3's rise that buys. The answer is none that can be
+seen: **the minimum over the first $64$ draws, over $128$, and over
+$256$ is the same to four decimals — a drift of $0.0000$.** One draw
+inside the first sixty-four reached $2.4598$ and the next hundred and
+ninety-two never improved on it.
+
+That is the second time this ensemble's low end has behaved like a
+floor rather than a tail. [rem:identityseeds] found the minimum moving
+by at most $0.1702$ across three seeds while the median moved by
+$1.1706$; here it does not move with depth at all. The two together
+say the same thing from different directions, and the reading offered
+there — that configurations with many $f(p)=-1$ make the divisor sums
+$\prod_{p\mid n}(1+f(p))$ vanish wholesale and pin the low end — now
+has a second observation behind it. **It is still an observation**:
+nothing here has measured the mechanism, only its signature.
+
+The practical consequence is that the bias N3's rule named against
+itself is not there. A rise from $2.1084$ to $2.4598$ across a factor
+of two in $N$ is not a depth artefact, because depth does not move
+this quantity over a fourfold range. **N3 holds for the reason it
+intended.**
+
+So the identity separation holds across the whole range that block
+publishes, at three seeds where it was measured deeply and at one seed
+here, and the honest bound is the smallest ratio seen at each $N$.
+G19 caught two of those minima typed by hand into a sentence rather
+than read from the file that produced them; they are read now.
+
 #### Lemma (the placebo key) {#lem:placebo}
 <!-- evidence: lab_mask_placebo.py -->
 

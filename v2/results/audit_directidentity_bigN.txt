@@ -1,0 +1,73 @@
+STATISTIC: |T|/(S(N)N) at the two largest N of
+           rem:identitynull, for mu and for 256 random
+           multiplicative sign patterns, counting draws that
+           reach mu and printing the minimum over the first 64,
+           128 and 256 draws so the drift with depth is visible.
+FIELD: N = [1600000, 3200000]; k over every squarefree 2 <= k < N; S(N) from
+       the twin product at the fixed bound 4000000; field, k-range
+       and S(N) taken unchanged from
+       code/audit_directidentity_null.py. mu's published ratios
+       are READ from results/audit_directidentity_null.txt and
+       re-measured here as the gate. Only the multiplicative arm
+       is run and only 256 draws, against 512 at the three
+       smaller N, because a draw here costs about ten seconds.
+SEED: the draws come from numpy default_rng at seed 20260909; without
+      it the file does not reproduce its own control.
+
+READ audit_directidentity_null.txt 1600000 1.0017
+READ audit_directidentity_null.txt 3200000 0.9968
+READ audit_directidentity_deep.txt multiplicative 1.9149
+READ audit_directidentity_deep.txt multiplicative 2.0030
+READ audit_directidentity_deep.txt multiplicative 2.1084
+  mu's T/(S(N)N) at the two largest N, and the three smaller
+  N's multiplicative minima, both read from those files
+  the one to beat is 2.1084
+PRINTBOUND audit_directidentity_bigN 4 0.00005000
+  256 draws in 4 passes of 64
+sieving to 3200000
+  N = 1600000   #k = 972691    S = 1.760432
+  N = 3200000   #k = 1945362   S = 1.760432
+
+N1  does this construction reproduce mu's ratios?
+  N = 1600000   here 1.0017 against its 1.0017  ok
+  N = 3200000   here 0.9968 against its 0.9968  ok
+  N1 hold   (cap: 4 decimals at both)
+  pass 1 of 4, 64 draws
+  pass 2 of 4, 128 draws
+  pass 3 of 4, 192 draws
+  pass 4 of 4, 256 draws
+
+           N        mu    draw min   draw median    draws reaching mu
+       1600000  1.0017     2.4598       4.7259               0
+POINT identbig_1600000 2.45979
+       3200000  0.9968     2.5636       4.9806               0
+POINT identbig_3200000 2.56362
+SCALES 2
+
+N2  does the separation hold where it has never been looked?
+  draws reaching mu: 0, 0 of 256 at each N
+COUNT identbig_reach 0
+  N2 hold   (cap: none at either N)
+
+N3  does the separation widen with N?
+  the three smaller N gave 1.9149, 2.0030, 2.1084
+  here: 2.4598, 2.5636
+  N3 hold   (cap: each above its predecessor)
+
+N4  what does depth buy at the low end?
+      draws        N=1600000        N=3200000
+         64    2.4598    2.5636
+        128    2.4598    2.5636
+        256    2.4598    2.5636
+SCALES 3
+  the minimum drifts by at most 0.0000 between 64 and 256 draws
+SPREAD identbig_depth 0.0000
+  N4 hold   (cap: 0.2)
+
+======================================================================
+N1 hold  N2 hold  N3 hold  N4 hold
+
+the last two N go the way the three smaller ones did, so the identity
+separation holds across the whole range rem:identitynull publishes and
+item 8's work list is finished. The bound is the smallest ratio seen
+at each N and the depth here is half what the smaller N had.
