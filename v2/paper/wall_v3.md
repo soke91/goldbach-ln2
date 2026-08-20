@@ -1994,6 +1994,39 @@ second moment as $C(N)$ for every $N$. Consequently any estimator whose
 output is reproduced when $\mu$ is replaced by $\varepsilon$ is not
 measuring $\mu$.
 
+**What this licenses, and what it does not.** The implication runs one
+way: *reproduced under $\varepsilon$* $\Rightarrow$ *not measuring
+$\mu$*. Its converse does not follow and is not proved anywhere here,
+so a statistic that a coin ensemble fails to reach has not thereby
+been shown to measure $\mu$ — it has been shown not to be killed by
+this particular control. Four measurements now say how large that
+distinction is.
+
+[rem:cncoindeep] resolved an iid ensemble to $512$ draws beside a
+random multiplicative one on the same statistic and found the iid
+spread $0.6455$ of the multiplicative: **a coin is narrower than the
+right null wherever the object is multiplicative**, so significance
+read against one is larger than it should be. Because narrowness is
+conservative for killing, every claim this lemma has killed stays
+killed; it is the other direction that fails.
+
+[rem:coinsurface] counted the blocks in the affected direction —
+eleven contain a phrase claiming an escape, of which one is a false
+hit — and the three outside the $C(N)$ branch have since been tested.
+[rem:decaydeep] and [rem:decaysweep] took both halves of
+[rem:decaynull]: each survives $512$ iid draws untouched and each
+fails a multiplicative ensemble, $83$ to $139$ draws of $512$ reaching
+$\mu$ in size and six matching it on the sweep. [rem:identitydeep]
+took [rem:identitynull] and it survives both, with the reason written
+down: no sign function but $\mu$ has
+$\sum_{k\mid v}\mu(k)\log k=-\Lambda(v)$.
+
+So the lemma is correct as stated and was read for more than it says.
+**An estimator that escapes an iid coin has cleared the weakest
+control in this paper**, and until it has been put against an ensemble
+that shares $\mu$'s multiplicativity, the escape is a fact about the
+control.
+
 
 #### Lemma (the placebo key) {#lem:placebo}
 <!-- evidence: lab_mask_placebo.py -->
