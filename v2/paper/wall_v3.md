@@ -5239,6 +5239,58 @@ spacing question is answered; what is not answered is whether the
 answer holds at the finest spacing, which is a smaller claim than the
 sentence implies.
 
+#### Remark (the residual is noise, on a closed list of candidates) {#rem:levelresidual}
+<!-- evidence: audit_level_residual.py -->
+
+[rem:levelfine] showed the scatter in $L(N)=\log(\lvert\sum
+a\rvert/\ell^2)$ is not a scale effect and left what it *is* open.
+Writing this run closed the list. Inside one radical every
+construction-level quantity is fixed — the singular series depends on
+$N$ only through its radical, and so does which $k$ the range excludes
+— so what varies from $N$ to $N$ is only how $\log N$ is split among
+the three primes. And that split is not three free numbers:
+$$v_2\log2+v_3\log3+v_5\log5=\log N,$$
+so after the $\log N$ trend **exactly two directions remain**.
+Regressing the residual on the shares $s_2$ and $s_5$ tests the whole
+list. **This is the first question in this branch whose candidate set
+is complete rather than chosen.** Nothing is measured here; all forty
+$L$ are read from markers, and the identity closes to $2.22\cdot
+10^{-16}$.
+
+The regressors have room: $s_2$ runs $0.0502$ to $0.8037$ and $s_5$
+runs $0.1137$ to $0.8193$, so this is not a test starved of variation.
+
+**V2, V3 and V4 are all refuted.**
+
+| | coefficient | s.e. | $t$ |
+|---|---|---|---|
+| on $s_2$ | $-0.007474$ | $0.006655$ | $-1.12$ |
+| on $s_5$ | $-0.011157$ | $0.006788$ | $-1.64$ |
+
+$R^2=0.071081$, against a permutation null over $4000$ draws with
+median $0.037793$ and ninety-fifth percentile $0.153099$. **The fit
+sits between the null's median and its percentile** — indistinguishable
+from shuffling the residuals against the same shares. The
+underpowering clause did not fire: the percentile is below V3's cap,
+so V3's threshold was the conservative one and the answer does not
+turn on it.
+
+**So the residual is not a function of $N$'s arithmetic in any form
+this construction can express**, which is the reading V2's rule
+attached to this outcome. The split is the only thing that varies
+inside a radical once the trend is removed, and the residual does not
+see it. **The $0.007363$ [rem:levelfine] measured is noise of the
+object, and it is irreducible for a reason rather than by
+observation.**
+
+**What that costs and what it buys.** It costs any hope of sharpening
+a radical statement in this branch below its own scatter — there is
+nothing left to condition on. It buys the reason: the scatter is not
+a variable this branch failed to find, it is the absence of one. The
+list is closed *for this construction*; a quantity reaching $N$
+through something both the $k$-range and the singular series ignore
+would not be on it, and this repository knows of none.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 
