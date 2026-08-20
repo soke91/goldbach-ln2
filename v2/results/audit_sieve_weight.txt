@@ -1,0 +1,113 @@
+STATISTIC: the identity LK(j) = - sum_{d|j, d <= j/N^theta} mu(d)
+           log(j/d) on the composite part of sum a, its support,
+           and the rebuild of sum a from the prime part and the
+           truncated Mobius sieve weight.
+FIELD: N = [20000, 50000, 100000], the three N of rem:denominator's T4; j over every
+       index below N; k over the squarefree k < N^0.56 coprime to
+       N, the k-range of code/audit_lean_identity.py. The
+       published truncation-alone values are READ from
+       results/audit_denominator.txt.
+DERIVED: for squarefree j coprime to N with omega(j) >= 2 the
+         untruncated mu*log is Lambda(j) = 0, so LK(j) is exactly
+         minus what the truncation removed, rewritten by
+         cofactors d = j/k <= j/N^theta.
+
+READ audit_deficit_direct.txt 200000 87895.3236
+  |sum a| at the gate N, from the marker that is sum a itself
+  NOTE, disclosed: H1 first named rem:denominator's T4 'trunc only'
+  row as the published restricted sum. It is not -- that row drops the
+  other three restrictions. Found when the parse failed, before any
+  quantity had been computed; no verdict existed to change.
+PRINTBOUND audit_sieve_weight 4 0.00005000
+  theta 0.56, identity tolerance 1e-09, rebuild 1e-12, share 0.99
+sieving to 200000
+  N = 20000    sum a = -13183.3581
+  N = 50000    sum a = -28273.5932
+  N = 100000   sum a = -49891.7206
+
+H1  the gate: does this reproduce rem:denominator's sum a?
+  N = 200000   here 87895.3236 against its 87895.3236  ok
+  H1 hold   (cap: the published decimal)
+
+H2  the identity, on squarefree j coprime to N with omega>=2
+  N = 20000    4494    such j, worst relative 3.234e-15
+  N = 50000    11756   such j, worst relative 5.513e+00
+  N = 100000   24181   such j, worst relative 3.234e-15
+POINT identityworst 5.513122e+00
+  the smallest failing j is 16653, which names the dropped condition
+  H2 REFUTED   (cap: 1e-09 relative)
+
+H3  is the composite part empty below the level?
+  N = 20000    185    composite j below 256, |LK| summing to 165.2
+  N = 50000    325    composite j below 428, |LK| summing to 301.1
+  N = 100000   493    composite j below 631, |LK| summing to 447.5
+  H3 REFUTED   (cap: exactly zero)
+
+H4  rebuild: prime part plus sieve-weight part
+  N = 20000    prime +465.2297  sieve -8852.1359  total -8386.9061  relative 3.64e-01
+POINT rebuild_20000 3.638263e-01
+  N = 50000    prime +825.9385  sieve -17682.8580  total -16856.9195  relative 4.04e-01
+POINT rebuild_50000 4.037928e-01
+  N = 100000   prime +983.5233  sieve -24002.6853  total -23019.1620  relative 5.39e-01
+POINT rebuild_100000 5.386176e-01
+  H4 REFUTED   (cap: 1e-12 relative)
+
+H5  does the composite part carry the object?
+  N = 20000    composite -13648.5879 is 1.0353 of |sum a|, prime +465.2297
+POINT compshare_20000 1.035289
+  N = 50000    composite -29099.5318 is 1.0292 of |sum a|, prime +825.9385
+POINT compshare_50000 1.029212
+  N = 100000   composite -50875.2439 is 1.0197 of |sum a|, prime +983.5233
+POINT compshare_100000 1.019713
+SCALES 3
+  H5 hold   (cap: 0.99)
+
+  the two causes found after H2-H4, and the corrected checks
+  (a) the level is int(N^theta), not N^theta: at N = 50000
+      those are 427 and 427.979732, and j = 16653 = 3*7*13*61 has
+      the divisor 427 sitting in the gap
+  (b) H3 and H4 ranged over every j with Lambda(j) = 0, which includes
+      non-squarefree j the derivation never covered
+
+H6  the identity with the integer level, on squarefree j
+  N = 20000    level 256, 4494    such j, worst relative 3.234e-15
+  N = 50000    level 427, 11756   such j, worst relative 3.234e-15
+  N = 100000   level 630, 24181   such j, worst relative 3.234e-15
+POINT identityint 3.233819e-15
+  H6 hold   (cap: 1e-09 relative)
+
+H7  is that set empty below the integer level?
+  N = 20000    34    squarefree composite j below 256, |LK| summing to 6.2172e-15
+POINT belowlevel_20000 6.217249e-15
+  N = 50000    62    squarefree composite j below 427, |LK| summing to 1.3323e-14
+POINT belowlevel_50000 1.332268e-14
+  N = 100000   100   squarefree composite j below 630, |LK| summing to 2.1316e-14
+POINT belowlevel_100000 2.131628e-14
+  H7 REFUTED   (cap: exactly zero)
+  NOTE, disclosed: the cap was written as an exact zero on a sum of
+  floating-point magnitudes, which no computation can meet. The sums
+  above are the number the cap should have been compared with. The
+  rule is not rewritten; the cap was unmeetable as written and that
+  is recorded as the defect it is.
+
+H8  rebuild with the sieve weight where it applies
+  N = 20000    prime +465.2297  sieve -13650.3560  uncovered +1.7681  relative 0.00e+00
+  N = 50000    prime +825.9385  sieve -29099.5318  uncovered +0.0000  relative 1.29e-16
+  N = 100000   prime +983.5233  sieve -50878.3757  uncovered +3.1318  relative 0.00e+00
+  H8 hold   (cap: 1e-12 relative)
+
+H9  does the name cover the object?
+  N = 20000    squarefree composite carry -13650.3560 of the composite -13648.5879, share 1.0001
+POINT sqfshare_20000 1.000130
+  N = 50000    squarefree composite carry -29099.5318 of the composite -29099.5318, share 1.0000
+POINT sqfshare_50000 1.000000
+  N = 100000   squarefree composite carry -50878.3757 of the composite -50875.2439, share 1.0001
+POINT sqfshare_100000 1.000062
+  H9 hold   (cap: 0.90)
+
+======================================================================
+H6 hold  H7 REFUTED  H8 hold  H9 hold
+H1 hold  H2 REFUTED  H3 REFUTED  H4 REFUTED  H5 hold
+
+the rewriting is not the identity this run claimed, so the object is
+not named here and item 5 keeps the description it had.

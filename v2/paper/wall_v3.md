@@ -4349,8 +4349,8 @@ supplied one.
 without an answer and named what would open it: *a derivation that
 says which family the deficit belongs to, and no measurement in this
 repository has ever supplied one.* The deficit is a difference of two
-exponents, $e(\ell^1/\ell^2)-e(G)$, and six cycles have treated both
-as fitted. One of them need not be.
+exponents, $e(\ell^1/\ell^2)-e(G)$, and [rem:leanidentity]
+quotes the second as a measured $+0.283586$.
 
 [rem:leanidentity]'s W4 wrote the ingredient down and read it
 backwards. It observed $\ell^1\le\sqrt{\#k}\,\ell^2$ — Cauchy–Schwarz,
@@ -4393,6 +4393,21 @@ and the target side of the deficit needs no shape at all. What happens
 past the field is a question about $G$ alone. That is one of the two
 free terms [rem:deficitregion] complained of, removed by derivation
 rather than by fitting.
+
+*Corrected.* This remark was written saying "six cycles have treated
+both as fitted", and that is wrong: [rem:denominator] had already
+written the arithmetic form, "$e(G)\to\theta'/2$ is exactly
+$\alpha\to e(\ell^1)-\theta'/2$", and called the demand arithmetic
+rather than fitted. Its X1 even measured the gap $1-\alpha=+0.282084$
+against $\theta'/2=0.2800$. **The form was in the repository and this
+run did not find it.** What is this run's own is narrower and is what
+the rest of the remark reports: that $\#k$ matches its derived leading
+order to $0.370$ per cent so the ceiling carries no fitted quantity,
+that W4's "refuted" reading of a bounded ratio was the wrong reading,
+that the local exponent is measured falling below the ceiling, and
+that $\theta$ is a parameter of the $k$-range rather than the level —
+so the ceiling does not move with what the program is proving, which
+[rem:denominator]'s $\theta'$ notation leaves open.
 
 **What this does not do, stated at its own strength.** E5's registered
 bar was that the fall exceed the window error; it does, $+0.008119$
@@ -4468,6 +4483,75 @@ its motivation. The discrimination is not in the data, and picking a
 better-motivated shape does not put it there — the same limit
 [rem:curvereach] measured on the level axis, now measured on this one.
 [rem:shapepower] is not repealed by a derivation.
+
+#### Remark (the object has a name: a truncated Möbius sieve weight) {#rem:sieveweight}
+<!-- evidence: audit_sieve_weight.py -->
+
+OPEN item 5 ends its description of what the sign axis is left with by
+saying the object **has no name**, and [rem:deficitlog] then measured
+that this field cannot separate a logarithm from a line, so the shape
+of $G$ cannot be settled by fitting and what remains is an
+unconditional statement about $\lvert\sum a\rvert$. An unconditional
+statement needs an object such statements exist about. The algebra
+supplies one.
+
+[rem:denominator] has $\sum a=\sum_j\Lambda(N-j)\Lambda_K(j)$ and
+[rem:support] splits it. For **squarefree** $j$ coprime to $N$ every
+condition on $k$ is automatic and the untruncated $\mu*\log$ is
+$\Lambda(j)=0$ once $\omega(j)\ge2$, so $\Lambda_K(j)$ is exactly
+minus what the truncation threw away; rewriting those divisors by
+their cofactors $d=j/k$,
+$$\Lambda_K(j)=-\sum_{d\mid j,\ d\le j/K}\mu(d)\log(j/d),
+\qquad K=\lfloor N^{\theta}\rfloor,$$
+the Eratosthenes–Legendre sieve weight cut at $D_j=j/K$.
+
+**It holds, at machine precision** (H6): the worst relative departure
+is $3.234\cdot10^{-15}$ at each of $N=20000$, $50000$, $100000$, over
+$4494$, $11756$ and $24181$ such $j$. The rebuild is exact (H8) — the
+prime part, the sieve weight where it applies, and $\Lambda_K$ itself
+on the handful of $j$ the derivation does not cover, sum to $\sum a$
+at relative $0$, $1.29\cdot10^{-16}$, $0$. **And the name covers the
+object** (H9): the squarefree composite $j$ carry $1.0001$, $1.0000$,
+$1.0001$ of the composite part, which is itself the whole of $\sum a$
+(H5). The gate reproduces $\lvert\sum a\rvert=87895.3236$ at
+$N=200000$ (H1).
+
+**Three predictions were refuted first and stay refuted.** H2 wrote
+the level as the real $N^{\theta}$; the repository's $k$-range is
+`range(2, int(N**theta))`, so the truncation is at $\lfloor
+N^{\theta}\rfloor$. At $N=50000$ those are $427$ and $427.979732$, and
+$j=16653=3\cdot7\cdot13\cdot61$ has the divisor $427$ in the gap — one
+$j$ in $11756$, and the identity failed by a relative $5.513$ there.
+**The level being an integer is a fact about the construction, not a
+rounding convenience**, and H2 as written did not know it. H3 and H4
+ranged over every $j$ with $\Lambda(j)=0$, which includes $j=12$ and
+its kind, where $\mu*\log$ is not $\Lambda$ and the rewriting was
+never claimed: the test set was wrong, not the object.
+
+**H7's cap could not be met by any computation.** It asked that a sum
+of floating-point magnitudes be *exactly* zero; the sums are
+$6.2172\cdot10^{-15}$, $1.3323\cdot10^{-14}$, $2.1316\cdot10^{-14}$,
+which is zero to machine precision and is not zero. It stands refuted
+as written and the defect is the cap. That is the same family as
+[rem:identityforced]'s Q4 — a rule whose outcome no run could change —
+and its second instance here.
+
+**And this run's own closing sentence is wrong.** It was written to
+fire when H7 failed and says the object "is not named here and item 5
+keeps the description it had". H6, H8 and H9 say otherwise and H7's
+failure is a floating-point cap. The support claim H7 was testing is
+true and visible in the numbers it printed: below the level a
+squarefree $j$ has no divisor above the level to throw away, so
+$\Lambda_K$ vanishes there, and the composite part is supported on
+$j\ge K$.
+
+**What this buys, and no more.** $\lvert\sum a\rvert$ is a correlation
+of $\Lambda$ against a classical sieve weight, supported on $j\ge K$ —
+a family that unconditional bounds exist for, which is what item 5
+now needs and what "no name" was blocking. **An identity is not a
+bound.** Nothing here supplies an estimate, nothing says the classical
+bounds are strong enough to decide item 5, and no exponent or forecast
+is measured. [rem:shapepower] and [rem:deficitlog] are untouched.
 
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
