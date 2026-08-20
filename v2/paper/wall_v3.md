@@ -2183,6 +2183,53 @@ $1.9149$ is a sample minimum in a stronger sense than "smallest of
 $512$": it is the smallest of $512$ draws none of which realised the
 configuration the mechanism says is best.
 
+#### Remark (forced, the mechanism's best still stops short — and a prediction that could be omitted) {#rem:identityforced}
+<!-- evidence: audit_identity_forced.py -->
+
+[rem:identityfloor] found that no draw of $512$ reached $m=10$, so
+the observed minimum was the best of $m\le9$ and the configuration the
+mechanism calls best had never been seen. This run forces it: the
+first $J$ primes are set to $-1$ and the rest left iid, for
+$J=0,5,\dots,30$, $64$ draws each. The construction reproduces $\mu$'s
+own ratios $1.0039$ and $0.9865$ exactly (Q1).
+
+| $J$ | forced to | min | median |
+|---|---|---|---|
+| $0$ | — | $2.4168$ | $4.5493$ |
+| $10$ | $29$ | $1.8018$ | $2.1264$ |
+| $20$ | $71$ | $1.6716$ | $1.8172$ |
+| $30$ | $113$ | $1.6100$ | $1.6894$ |
+
+The ratio falls with $J$ at every step (Q2). **But it saturates, and
+not at $\mu$** (Q3, refuted). The medians run $4.5493$, $2.6273$,
+$2.1264$, $1.9401$, $1.8172$, $1.7391$, $1.6894$ — increments
+$1.92,\,0.50,\,0.19,\,0.12,\,0.08,\,0.05$, a sequence settling near
+$1.6$ while $\mu$ sits at $1.0039$. The closest any forced draw comes
+is $1.6100$.
+
+**The prediction registered here was that forcing would reach $\mu$**,
+on the algebra that $W$ dies wherever two primes dividing $v$ are
+negative, so emptying the support should drive $|T|$ down. The support
+does empty and the ratio does fall; it stops. Emptying $W$'s support
+removes mass from the numerator and the normalisation together, and
+past $J\approx20$ the two move at the same rate. So the reasoning was
+right about the direction and wrong about the destination, and the
+result is the *stronger* one for [rem:identitydeep]: the separation
+between $\mu$ and a multiplicative sign function is not a matter of
+how deep the ensemble is sampled. It survives the mechanism's own best
+configuration, forced rather than waited for. **Bounded at $J\le30$,
+which is a choice this run made and not a limit it established.**
+
+**And a registered prediction turned out not to be one** (Q4). Q4
+priced the rarity of "the smallest $J$ that reaches $\mu$", and its
+rule said it would be *omitted* if Q3 fell. Q3 fell, the object is
+empty, and the gate refused a pre-registered item with no verdict —
+correctly. Q4 is refuted, not omitted: it asserted an existence and
+the existence fails. The rule is not rewritten here. What is recorded
+is that **a prediction whose rule allows it to be omitted is not a
+prediction**, which is a defect of the same family as M9 and its
+fourth instance in this repository.
+
 #### Lemma (the placebo key) {#lem:placebo}
 <!-- evidence: lab_mask_placebo.py -->
 
