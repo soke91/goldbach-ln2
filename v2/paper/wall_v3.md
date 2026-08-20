@@ -5072,6 +5072,65 @@ slopes at all. Comparing $\log(\lvert\sum a\rvert/\ell^2)$ itself at
 matched $N$ removes the window entirely, and that is the design this
 question now needs.
 
+#### Remark (the level, at matched N, with no window in it) {#rem:levelmatched}
+<!-- evidence: audit_level_matched.py -->
+
+[rem:valuation] found the statistic this branch had compared for six
+ticks unstable under its own window and said the fix was to stop
+comparing slopes. $L(N)=\log(\lvert\sum a\rvert/\ell^2)$ is measured
+at one $N$ with no fitting at all. Twelve $N$ inside a band of factor
+$1.20$, ten radicals, three of them appearing twice as the control.
+
+| $N$ | radical | $L$ |
+|---|---|---|
+| $2097152$ | $\{2\}$ | $+1.341935$ |
+| $2085136$ | $\{2,19\}$ | $+1.727299$ |
+| $1874048$ | $\{2,11\}$ | $+1.812152$ |
+| $1827904$ | $\{2,13\}$ | $+1.816345$ |
+| $1882384,\ 2151296$ | $\{2,7\}$ | $+2.008906,\ +2.075538$ |
+| $2000000$ | $\{2,5\}$ | $+2.166023$ |
+| $1889568,\ 2125764$ | $\{2,3\}$ | $+2.995958,\ +3.032323$ |
+| $1921920$ | $\{2,3,5,7,11,13\}$ | $+3.071761$ |
+| $2000376$ | $\{2,3,7\}$ | $+3.141281$ |
+| $1800000,\ 2025000$ | $\{2,3,5\}$ | $+3.187272,\ +3.232112$ |
+
+**S3 holds by seventy-five times its own margin.** $L$ spreads
+$1.890177$ across the radicals against the $0.024960$ the band's width
+can contribute. **This is the first statement about the radical in
+this branch that no window can be blamed for**, and it is about the
+level rather than the drift.
+
+**S2 is refuted, on one pair of three.** The $\{2,7\}$ pair differs by
+$0.066632$ against a cap of $0.05$; $\{2,3\}$ gives $0.036365$ and
+$\{2,3,5\}$ gives $0.044840$. **And the bound the rule compared them
+against was itself one number where the branch had measured a range.**
+The registration used a single trend of $0.14$ per log unit; the
+drifts this branch has published run $0.066885$ to $0.284941$, a
+factor of four, so a pair's own bound is its $\log N$ gap times its
+own radical's drift — $0.007878$ to $0.033561$ for the first two,
+$0.008931$ to $0.038049$ for $\{2,7\}$. All three $\lvert\Delta
+L\rvert$ sit above the low end of their own bounds and the $\{2,7\}$
+one sits above the high end. **The rule is not rewritten and S2 stays
+refuted; the defect is that its bound was a single number, the ninth
+time this branch has capped on the wrong quantity.**
+
+**S4 is refuted, and informatively.** The primorial $N$ is not the
+largest — $\{2,3,5\}$ is, at $+3.232112$ against $+3.071761$, with
+$\{2,3,7\}$ between them. Adding $7$, $11$ and $13$ to $\{2,3,5\}$
+*lowers* $L$. That is the sub-additivity [rem:radicallaw] measured in
+the drift, now visible in a quantity with no fitting in it.
+
+**And this run's closing sentence is wrong.** It was written to fire
+when S2 failed and says the radical does not determine the level
+either, so that everything this branch has said about radicals
+"is describing something that is not there". S3 says otherwise by a
+factor of seventy-five, and two of the three control pairs sit inside
+the range their own radicals' drifts allow. What S2's failure
+establishes is narrower: **at $\{2,7\}$, two $N$ of one radical differ
+by more than that radical's own drift accounts for**, in a measurement
+with no window to blame. One pair out of three is a finding; it is not
+the collapse the sentence claims.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

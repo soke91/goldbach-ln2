@@ -1,0 +1,90 @@
+STATISTIC: L(N) = log(|sum a| / l2) measured at single N, with no
+           fitting of any kind, for twelve N inside a band of
+           factor 1.20 covering ten radicals, three of which
+           appear twice as the control.
+FIELD: N in [1800000, 2151296]; k over the squarefree k < N^0.56 coprime to N;
+       j over every index below N. |sum a| at N = 200000 is READ
+       from results/audit_deficit_direct.txt as the gate.
+NOTE: no slope is fitted here. rem:valuation measured that a
+      ten-point slope of this quantity moves 0.03 to 0.08 under
+      its own window; a level at one N has no window.
+
+READ audit_deficit_direct.txt 200000 87895.3236
+  |sum a| at the gate N
+PRINTBOUND audit_level_matched 4 0.00005000
+  theta 0.56, pair cap 0.05, spread cap 0.30
+  trend guess 0.14 per log unit; band 0.178284 in log N, so N
+  position contributes at most 0.024960 on that guess
+POINT bandbound 0.024960
+RADICALS 10
+sieving to 2151296
+
+S1  the gate
+  |sum a| at 200000 here 87895.3236 against its 87895.3236  ok
+  S1 hold   (cap: 4 decimals)
+
+    N          radical                  L = log(|sum a|/l2)
+  2097152    (2,)                     +1.341935
+POINT levelmatched_2097152 1.341935
+  2085136    (2, 19)                  +1.727299
+POINT levelmatched_2085136 1.727299
+  1874048    (2, 11)                  +1.812152
+POINT levelmatched_1874048 1.812152
+  1827904    (2, 13)                  +1.816345
+POINT levelmatched_1827904 1.816345
+  1882384    (2, 7)                   +2.008906
+POINT levelmatched_1882384 2.008906
+  2151296    (2, 7)                   +2.075538
+POINT levelmatched_2151296 2.075538
+  2000000    (2, 5)                   +2.166023
+POINT levelmatched_2000000 2.166023
+  1889568    (2, 3)                   +2.995958
+POINT levelmatched_1889568 2.995958
+  2125764    (2, 3)                   +3.032323
+POINT levelmatched_2125764 3.032323
+  1921920    (2, 3, 5, 7, 11, 13)     +3.071761
+POINT levelmatched_1921920 3.071761
+  2000376    (2, 3, 7)                +3.141281
+POINT levelmatched_2000376 3.141281
+  1800000    (2, 3, 5)                +3.187272
+POINT levelmatched_1800000 3.187272
+  2025000    (2, 3, 5)                +3.232112
+POINT levelmatched_2025000 3.232112
+SCALES 13
+
+S2  the control: do two N of one radical agree?
+  (2, 3)                   1889568 and 2125764: |dL| 0.036365, log N gap 0.117783
+POINT pairgap_1889568 0.036365
+  (2, 3, 5)                1800000 and 2025000: |dL| 0.044840, log N gap 0.117783
+POINT pairgap_1800000 0.044840
+  (2, 7)                   1882384 and 2151296: |dL| 0.066632, log N gap 0.133531
+POINT pairgap_1882384 0.066632
+  S2 REFUTED   (cap: 0.05)
+  NOTE, disclosed: the band bound above uses one trend, 0.14. This
+  branch's own drift measurements run 0.066885 to 0.284941 -- a factor of four
+  -- so the bound is not one number either, and a pair's own bound is its
+  log N gap times its own radical's drift. The rule is not rewritten; the
+  registration used a single trend where the branch had measured a range,
+  and that is recorded as the defect it is.
+READ drift range 0.066885 0.284941
+    (2, 3)                   |dL| 0.036365 against 0.007878 .. 0.033561
+    (2, 3, 5)                |dL| 0.044840 against 0.007878 .. 0.033561
+    (2, 7)                   |dL| 0.066632 against 0.008931 .. 0.038049
+
+S3  do the radicals separate in the level?
+  L runs +1.341935 to +3.232112, spread 1.890177
+POINT levelspread 1.890177
+  against the band's own contribution 0.024960
+  S3 hold   (cap: above 0.30)
+
+S4  is the primorial N the largest?
+  primorial 1921920 has L +3.071761; the largest is 2025000 at +3.232112
+  S4 REFUTED
+
+======================================================================
+S1 hold  S2 REFUTED  S3 hold  S4 REFUTED
+
+two N of one radical, measured with no fitting, disagree. the radical
+does not determine the level either, and this failure cannot be laid
+on a window because there is no window. everything this branch has
+said about radicals is describing something that is not there.
