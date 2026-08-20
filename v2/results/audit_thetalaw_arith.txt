@@ -1,0 +1,159 @@
+Is the theta'-law's crossing a fact about N, or about one family of N?
+
+Supports {#rem:thetalawarith}; audits {#rem:thetalaw}'s U4 and U5.
+
+WHAT IS AT STAKE
+
+{#rem:thetalaw}'s U4/U5 carry item 5's verdict. They fit e(G) against
+theta' and find the demand line e(G) = theta'/2 met only at
+theta' = 0.4041, below the 1/2 the reduction needs -- with a bracket
+[0.3017, 0.5351] whose upper end is inside the admissible region, so
+the branch is unresolved rather than closed.
+
+Every N behind that estimate is 2^a 5^b. Both S(N) and A(N) are then
+constant across the field, and so is the prime support that fixes the
+local densities. A ratio measured on a constant-arithmetic field has
+been shown once already in this repository to be a property of the
+family and not of the range: the demand ratio read 1.6 there and 40 at
+primorial N in the same range.
+
+This run asks the same question of the number that decides item 5.
+
+WHAT IS MEASURED
+
+For each arithmetic family F and each theta' in THETAS: over the N in F
+inside a fixed range, with a_k = (log k) H(N;k) over squarefree
+k < N^theta' coprime to N,
+
+    l1(N)  = sum_k |a_k|,       |sum a|(N) = |sum_k a_k|,
+    e(l1), e(|sum a|)           fitted in log N,
+    e(G)   = e(l1) - e(|sum a|),
+
+then e(G) is fitted against theta' and crossed with the derived ceiling
+theta'/2.  The reported quantity is the crossing point per family.
+
+FIELDS.  Four, all inside the same [LO, HI]:
+    A  2^a 5^b            -- the published field, reproduced
+    B  2^a 3^b            -- one small prime swapped
+    C  2 * squarefree odd -- prime support varies point to point
+    D  primorial-like     -- N divisible by 2,3,5,7,...
+
+FALSIFICATION, registered before the run
+
+  T1  REFUTED if family A's crossing does not reproduce the published
+      0.4041 to within its own published bracket. Then this
+      implementation is not measuring the published quantity and
+      nothing below is interpretable.
+
+  T2  the claim under test: the crossing is a property of the range.
+      REFUTED if the crossings across the four families span more than
+      0.05 in theta'. Then the published 0.4041 is one family's number.
+
+  T3  REFUTED if any family's crossing lands at or above 0.50. Then the
+      branch is open at the admissible end for that arithmetic, and
+      item 5 is not closed by this axis.
+
+  PREDICTION.  T2 is refuted and T3 is not: the crossings move with the
+  arithmetic -- the local factors that set l1's size differ by family --
+  but all stay below 1/2, so the direction of {#rem:thetalaw}'s verdict
+  survives while its precision does not.
+
+  A crossing is an extrapolation past the swept theta' whenever it lands
+  outside THETAS; it is reported with the fit's own bracket and is not
+  read as a measurement.
+
+NULL.  None applies: every quantity is a deterministic sum over a fixed
+finite set. There is no sampling and no sign input, so there is nothing
+for a null to preserve. The control here is the family comparison
+itself -- four fields measured the same way, which is what M4 asks for.
+
+======================================================================
+sieving to 12800000 ...
+
+STATISTIC: for a_k = (log k) H(N;k) over squarefree k < N^theta'
+           coprime to N, the exponents e(l1) and e(|sum a|)
+           fitted in log N, their difference e(G), then e(G)
+           fitted against theta' and crossed with theta'/2.
+           The reported number is that crossing, per family.
+FIELD: four arithmetic families inside [200000, 12800000]; k squarefree
+       with 2 <= k < N^theta', (k,N) = 1; m over 1 <= m < N/k
+       with (m,k) = 1. Lambda and mu from one integer sieve.
+CONSTANTS: LO = 200000, HI = 12800000, THETAS = 0.40,0.46,0.52,0.56,0.60,0.64, ceiling slope = 0.5,
+           T2 span cap = 0.05, T3 admissible edge = 0.50
+NULL: none applies -- deterministic sums over fixed finite sets,
+      no sampling, no sign input. The control is the family
+      comparison itself (M4).
+DENOM: no relative errors are printed.
+
+  A  2^a 5^b    50 points   P(N) classes: 1   N: 200000 .. 12800000
+  B  2^a 3^b    74 points   P(N) classes: 1   N: 209952 .. 12754584
+  C  2*sqfree   14 points   P(N) classes: 14   N: 200002 .. 12799994
+  D  primorial  14 points   P(N) classes: 14   N: 200970 .. 12792780
+
+e(G) at each theta', by family
+  theta'   A             B             C             D             
+  0.40     +0.198518     +0.145464     +0.069831     +0.000000     
+  0.46     +0.215517     +0.106407     +0.084498     +0.000000     
+  0.52     +0.170720     +0.077677     +0.070438     +0.000000     
+  0.56     +0.151870     +0.060333     +0.061543     +0.000000     
+  0.60     +0.129536     +0.045295     +0.062210     +0.000000     
+  0.64     +0.108334     +0.032975     +0.076667     +0.000000     
+
+  gap e(G) - theta'/2
+  theta'   A             B             C             D             
+  0.40     -0.001482     -0.054536     -0.130169     -0.200000     
+  0.46     -0.014483     -0.123593     -0.145502     -0.230000     
+  0.52     -0.089280     -0.182323     -0.189562     -0.260000     
+  0.56     -0.128130     -0.219667     -0.218457     -0.280000     
+  0.60     -0.170464     -0.254705     -0.237790     -0.300000     
+  0.64     -0.211666     -0.287025     -0.243333     -0.320000     
+
+  |sum a| / l1 -- 1 means no cancellation across dilations
+  theta'   A             B             C             D             
+  0.40     0.23010514    0.64344174    0.24039292    1.00000000    
+  0.46     0.28389353    0.72266408    0.28913979    1.00000000    
+  0.52     0.34987031    0.79588292    0.33083394    1.00000000    
+  0.56     0.40141539    0.83922282    0.36484280    1.00000000    
+  0.60     0.45784075    0.87521049    0.40645876    1.00000000    
+  0.64     0.51583249    0.90350004    0.45142666    1.00000000    
+
+crossing with the derived ceiling theta'/2
+  family          slope       intercept   crossing   bracket
+  A  2^a 5^b    -0.428655   +0.389603   0.4195     [0.4121, 0.4371]
+BRACKET crossing_A 0.4195 0.4121 0.4371
+DRIFT crossing_A 0.025063
+  B  2^a 3^b    -0.465521   +0.324751   0.3363     [0.2986, 0.3472]
+BRACKET crossing_B 0.3363 0.2986 0.3472
+DRIFT crossing_B 0.048603
+  C  2*sqfree   -0.026704   +0.085018   0.1614     [-0.1499, 0.1467]   (crossing outside its own bracket)
+BRACKET crossing_C 0.1614 -0.1499 0.1467
+DRIFT crossing_C 0.296605
+  D  primorial   e(G) = 0 at every theta' -- DEGENERATE, no crossing exists
+DEGENERATE D |sum a|/l1 = 1.00000000 at theta' = 0.56
+
+T1  family A reproduces the published crossing
+    published 0.4041, bracket [0.3017, 0.5351]; here 0.4195
+    T1 hold
+
+T2  the crossing is a property of the range, not the family
+    crossings 0.4195, 0.3363, 0.1614
+    span 0.2581 against cap 0.0500
+    T2 REFUTED
+
+T3  no family crosses at or above 0.50
+    none reaches 0.50
+    T3 hold
+
+DEGENERATE FAMILIES  D  primorial
+    For these the terms all carry one sign, so
+    |sum a| = l1 exactly and e(G) is 0 at every theta'.
+    There is no cancellation across dilations to measure,
+    and no theta' brings the ceiling down to meet a flat
+    zero. The gap there is the whole ceiling, not a margin.
+
+SPREAD crossing_across_families 0.2581
+COPRIME thetalaw_arith 4
+FIELD SPLIT four arithmetic families, measured identically
+
+======================================================================
+T1 hold  T2 REFUTED  T3 hold

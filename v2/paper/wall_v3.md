@@ -3858,6 +3858,81 @@ the pessimistic direction. The rule should have been written on
 $\lvert e(G)-\theta'/2\rvert$.
 
 
+
+
+#### Remark (the crossing is one family's number, and on another there is nothing to cross) {#rem:thetalawarith}
+<!-- evidence: audit_thetalaw_arith.py -->
+
+[rem:thetalaw]'s U5 places the meeting of $e(G)$ with the derived
+ceiling $\theta'/2$ at $\theta'=0.4041$, below the $1/2$ the reduction
+needs, with a bracket $[0.3017,0.5351]$ whose upper end is inside the
+admissible region. Every $N$ behind that estimate has radical
+$\{2,5\}$. [rem:jbarrierreach] already records that item 5's
+$+0.134019$ is that family's number; this run asks the same of the
+crossing, which is the quantity that decides whether the axis is closed
+at the admissible end.
+
+Four families were swept identically over $[2\cdot10^5,1.28\cdot10^7]$:
+$2^a5^b$, $2^a3^b$, $N=2q$ with $q$ odd squarefree, and $N$ carrying
+many small primes. The published field reproduces — family $A$ crosses
+at $0.4195$, inside U5's own bracket (T1) — so the three that follow
+are measured on the same quantity.
+
+**The crossing is not one number.**
+
+$$
+\begin{array}{lcc}
+ \text{family} & \text{crossing} & \text{bracket}\\\hline
+ 2^a5^b & 0.4195 & [0.4121,\,0.4371]\\
+ 2^a3^b & 0.3363 & [0.2986,\,0.3472]\\
+ 2q,\ q\ \text{odd squarefree} & 0.1614 & [-0.1499,\,0.1467]
+\end{array}
+$$
+
+The span is $0.2581$ against a pre-registered cap of $0.05$, so T2 is
+refuted. The third family's crossing falls outside its own bracket and
+its drift is $0.2966$: on a field whose prime support changes from
+point to point the line is not stable enough to extrapolate, and no
+crossing should be read from it. What survives across all three is the
+direction — none reaches $0.50$ (T3) — so [rem:thetalaw]'s verdict
+stands while its precision does not.
+
+**On the primorial family there is no line at all.** There
+$\lvert\sum a\rvert/\ell^1 = 1.00000000$ at every swept $\theta'$: the
+terms all carry one sign, so $\ell^1$ and $\lvert\sum a\rvert$ are the
+same number and $e(G)$ is identically $0$. The requirement asks
+$e(G)\to\theta'/2$, and no $\theta'$ in $(0,1)$ brings a positive
+ceiling down to meet a flat zero. **The shortfall there is not
+$0.134019$ but the whole ceiling**, and it does not move.
+
+The measured cancellation, family by family, is what the demand is
+about:
+
+$$
+\begin{array}{r|cccc}
+ \theta' & 2^a5^b & 2^a3^b & 2q & \text{primorial}\\\hline
+ 0.40 & 0.2301 & 0.6434 & 0.2404 & 1.0000\\
+ 0.56 & 0.4014 & 0.8392 & 0.3648 & 1.0000\\
+ 0.64 & 0.5158 & 0.9035 & 0.4514 & 1.0000
+\end{array}
+$$
+
+$\lvert\sum a\rvert/\ell^1$ rises with $\theta'$ in every family that
+has any cancellation — more dilations, proportionally less of it — and
+the demand needs it falling like $\#k^{-1/2}$. The primorial column
+does not participate.
+
+**What this does and does not settle.** It does not close the axis: T3
+holds, so on the families measured the crossing stays below $1/2$ and
+the direction of the earlier verdict survives. It does remove the one
+number the axis was being adjudicated on. A distance of $+0.134019$, a
+crossing at $0.4041$, and a bracket reaching $0.5351$ are all family
+$A$'s; on the family where $\SS(N)(1-\AAA(N))$ is smallest — where
+[prop:onesided]'s threshold is thinnest and the Goldbach margin is
+tightest — the quantity the demand is about is identically its own
+trivial bound. The pre-registered prediction for this run was exactly
+that pair, T2 refuted and T3 held, and both came out as written.
+
 #### Remark (the surviving correlation is a composite-index object) {#rem:support}
 <!-- evidence: audit_support.py -->
 
