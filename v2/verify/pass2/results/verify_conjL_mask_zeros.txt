@@ -1,0 +1,11 @@
+W1  the derived rule against the published count
+  grid N = 3e6 + 2500 j, j = 0..400, and k = 1..1000
+  pairs here 401000 against the published 401000
+  annihilated here 116000 against the published 115950
+  rate 28.92768%
+  W1 REFUTED   (cap: the published integer, exactly)
+COUNT conjL_zeros_derived 116000
+COUNT conjL_zeros_published 115950
+
+  W1 gates. The rule derived here is not the rule the
+  repository used, so W2 to W4 are not reported.

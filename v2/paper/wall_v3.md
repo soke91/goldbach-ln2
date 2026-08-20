@@ -400,12 +400,72 @@ field and no class structure.
 
 
 The evidence is of two kinds and we separate them. The E1 arm is stated
-above and has been reproduced independently. The remaining stamps —
-pair statistics, the exact $(v_2,v_3)$ cells, the blind mask
-prediction, and the Wishart pair spectrum — are recorded in the
-repository and have *not* been independently re-verified; they are
-cited here as the reason the conjecture is stated, not as measurements
-this paper vouches for.
+above and has been reproduced independently, and so, now, is the blind
+mask prediction — see [rem:maskstamp], which also records what
+re-verifying it cost and what its grid could not show. The remaining
+three stamps — pair statistics, the exact $(v_2,v_3)$ cells, and the
+Wishart pair spectrum — are recorded in the repository and have *not*
+been independently re-verified; they are cited here as the reason the
+conjecture is stated, not as measurements this paper vouches for.
+
+#### Remark (one of the four stamps re-verified, and what re-verifying it showed) {#rem:maskstamp}
+<!-- evidence: verify/pass2/code/verify_conjL_mask_zeros.py -->
+<!-- evidence: verify/pass2/code/verify_conjL_gap_resolve.py -->
+<!-- evidence: verify/pass2/code/verify_conjL_mask_branch.py -->
+
+Of the four stamps the paragraph above sets aside, the blind mask
+prediction was the one worth taking first, because it is not a
+statistic. It asserts a set equality — the field's support is empty on
+exactly the pairs the mask names — so a second implementation either
+lands on the same set or does not, and the failure mode that has
+limited nearly every other measurement in this program, *too noisy to
+tell*, does not exist for it. `verify/pass2` re-derived the rule from
+this conjecture's own statement, without reading the original code.
+
+**The rule holds.** On the grid re-derived here the mask names $116000$
+pairs of $401000$, and the field rebuilt independently has empty
+support on exactly those: zero predicted-but-nonzero, zero unpredicted
+zeros. What `M.3 EXACT` was asserting is true, and it is now true on a
+second implementation.
+
+**The number cannot be checked.** The stamp reports $115950$, and the
+re-derivation got $116000$. The gap is not a disagreement about the
+rule; it is a disagreement about the grid. The stamp publishes exactly
+two facts about its own grid — $401$ values of $N$, $1000$ values of
+$k$, and a note that $3\cdot10^6$ and the step $2500$ are both
+divisible by $4$ — and those two do not fix the offsets. Scanning the
+$4160$ grids consistent with them gives counts from $115950$ to
+$116101$, and **$100$ of them give exactly $115950$**. So the stamp is
+right and unreconstructible: a reader who does what this pass did
+cannot land on its number except by luck.
+
+**And its grid cannot see part of the rule it stamps.** Because $p$
+runs over odd primes there is a $2$-adic branch: if $v_2(N)=v_2(k)=a\ge
+1$ then $N/2^a - p\,k/2^a$ is even for every odd $p$, so
+$v_2(N-pk)\ge a+1\ge 2$ and the support is empty. At $a=1$ that is not
+of the form $q^2\mid\gcd(N,k)$ for any $q$. Every $N$ on the stamp's
+grid is divisible by $4$, which forces $a\ge2$ and folds the branch
+into $\min(v_q(N),v_q(k))\ge 2$ — the two rules agree on all $401000$
+pairs there, so no stamp on that grid can tell whether a mask contains
+the branch. On a grid with $2\,\|\,N$ they separate sharply:
+
+| | annihilated | field disagrees |
+|---|---|---|
+| with the branch | $25.94\%$ | $0$ of $101000$ |
+| without it | $1.26\%$ | $24930$ of $101000$ |
+
+and the branch alone carries $0.2468$ of the grid — the same quarter
+the stamp's own note records one valuation higher.
+
+This does not say the original mask omits the branch; the pass was
+blind and did not read that code. It says the single witness is a
+witness to less than the whole rule. Two things follow for the other
+three stamps, and they pull in opposite directions: the substance of
+this one survived independent re-derivation, which is evidence for the
+conjecture; and the stamp's *form* — a number without the grid that
+produced it — is what made re-verification cost three scripts instead
+of one.
+
 
 Conjecture [conj:L] is *stronger* than the chain needs: E1
 requires only square-root cancellation on average. What is missing is

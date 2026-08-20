@@ -48,6 +48,22 @@ CODE = os.path.join(ROOT, "code")
 RESULTS = os.path.join(ROOT, "results")
 VERIFY = os.path.join(ROOT, "verify")
 
+
+def evidence_paths(ev):
+    """어디에 그 증거가 있고 그 결과는 어디에 있는가.
+
+    `code/` 밑이 기본이다. 재검증 트리(`verify/passN/code/`)도 증거가 될
+    수 있고 -- pass2 가 처음으로 논문 remark 를 떠받쳤다 -- 그 결과는 같은
+    패스의 `results/` 에 있다. G1 과 G70 이 code/ 만 보던 동안 그 인용은
+    실재하는데도 없다고 보고됐다. 규칙("인용된 증거는 실재해야 한다")은
+    그대로이고 닿는 범위만 넓힌다.
+    """
+    stem = os.path.splitext(ev)[0] + ".txt"
+    if ev.replace(os.sep, "/").startswith("verify/"):
+        return (os.path.join(ROOT, ev),
+                os.path.join(ROOT, stem.replace("/code/", "/results/")))
+    return os.path.join(CODE, ev), os.path.join(RESULTS, stem)
+
 STMT = r"Theorem|Proposition|Lemma|Corollary|Conjecture"
 KINDS = "Theorem|Proposition|Lemma|Corollary|Conjecture|Remark"
 VERDICT = r"\b(PASS|FAIL|DEAD|ALIVE|CONFIRMED|REFUTED|PROVEN|VERIFIED)\b"
@@ -138,8 +154,7 @@ def g1_evidence(docs):
                 continue
             if ev == "analytic":
                 continue
-            s = os.path.join(CODE, ev)
-            r = os.path.join(RESULTS, os.path.splitext(ev)[0] + ".txt")
+            s, r = evidence_paths(ev)
             if not os.path.exists(s):
                 broken.append(f"{label} -> code/{ev} (missing)")
             elif not os.path.exists(r):
@@ -407,8 +422,12 @@ def g11_numbers_backed(docs):
     정하므로 반올림은 논문 쪽 정밀도로 판정한다.
     """
     pool = []
-    if os.path.isdir(RESULTS):
-        for base, _, fs in os.walk(RESULTS):
+    for top in (RESULTS, VERIFY):
+        if not os.path.isdir(top):
+            continue
+        for base, _, fs in os.walk(top):
+            if top is VERIFY and os.path.basename(base) != "results":
+                continue
             for f in sorted(fs):
                 if not f.endswith(".txt"):
                     continue
@@ -3618,8 +3637,7 @@ def g70_every_citation_exists(docs):
     n = 0
     for path, src in docs:
         for label, ev, ln in cited(src):
-            s = os.path.join(CODE, ev)
-            r = os.path.join(RESULTS, os.path.splitext(ev)[0] + ".txt")
+            s, r = evidence_paths(ev)
             if not os.path.exists(s):
                 fails.append(f"G70 {rel(path)}:{ln} cites code/{ev} for "
                              f"'{label}', which does not exist")

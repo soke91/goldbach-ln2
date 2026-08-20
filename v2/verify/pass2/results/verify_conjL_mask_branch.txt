@@ -1,0 +1,50 @@
+STATEMENT: Conjecture conj:L, paper/wall_v3.md -- M is
+           computed exactly by finite modular enumeration
+           from the v_q-data. This step asks what a stamp on
+           a grid with 4 | N can and cannot show about that
+           enumeration.
+METHOD HERE: the annihilation rule derived from the odd-p
+           field, against the same rule with its 2-adic
+           branch removed, both checked against the field
+           rebuilt over odd primes p <= 2000.
+REPOSITORY'S NUMBER: none. The repository publishes no stamp
+           on a grid with 2 || N, which is the finding.
+
+B1  the repository's grid cannot separate the two rules
+  N = 3e6 + 2500 j, j = 0..400; v_2(N) >= 2 for 401 of 401
+  the derived rule and "some q^2 divides gcd(N,k)" disagree on
+  0 of 401000 pairs
+  B1 hold   (cap: one pair)
+COUNT branch_visible_published 0
+
+B2  a grid with 2 || N, and which rule the field obeys
+  N = 3000002 + 10000 j, j = 0..100; v_2(N) = 1 for 101 of 101
+  derived rule annihilates 26200 of 101000 (0.2594)
+  weaker rule annihilates 1270 of 101000 (0.0126)
+  field disagrees with the derived rule on 0 pairs, with the weaker
+  rule on 24930, over odd primes p <= 2000
+  B2 hold   (cap: zero against the derived rule, positive against the
+        weaker one)
+COUNT branch_field_vs_derived 0
+COUNT branch_field_vs_weaker 24930
+
+B3  how much the branch carries on its own
+  24930 of 101000 pairs, 0.2468 of the grid
+  B3 hold   (cap: a tenth)
+SHARE branch_alone 0.2468
+
+B4  is it the repository's own quarter, one valuation down?
+  the repository's note reads "4 | gcd(k,N) alone annihilates a
+  quarter of the k"; on its grid that share is 0.2500
+  the branch's share on the 2 || N grid is 0.2468
+  B4 hold   (cap: 0.20 to 0.30)
+
+======================================================================
+B1 hold  B2 hold  B3 hold  B4 hold
+
+the mask has a branch that is not "q^2 divides gcd(N,k)", the field
+obeys it exactly, and no stamp on a grid with 4 | N can tell whether
+a rule contains it. The single witness OPEN.md item 4 names is a
+witness to less than the whole rule -- which is a statement about
+what the stamp can show, not a claim that the repository's mask
+omits the branch. This pass is blind and has not read v1/code/.

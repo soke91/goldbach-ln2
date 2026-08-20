@@ -1,0 +1,63 @@
+STATEMENT: the gap between verify_conjL_mask_zeros.py's
+           derived 116000 and conj:L's blind-mask stamp of 115950
+           on the grid the stamp's own note describes.
+METHOD HERE: the field rebuilt over odd primes p <= 2000 and
+           compared pair by pair against the derived rule;
+           then a finite scan over the grids consistent with
+           the two facts the stamp publishes about its own.
+REPOSITORY'S NUMBER: 115950 of 401000, reported exact in both
+           directions.
+
+the grid reconstructed from the stamp's two published facts
+  N = 3e6 + 2500 j, j = 0..400 and k = 1..1000
+  derived 116000 annihilated, published 115950, gap 50
+COUNT gap_pairs 50
+
+R1  does the field obey the derived rule?
+  over odd primes p <= 2000 (302 of them), a range this pass chose
+  predicted 116000, observed empty 116000
+  predicted-but-nonzero 0, unpredicted zeros 0
+  R1 hold   (cap: a single pair)
+COUNT resolve_predicted_nonzero 0
+
+R2  where the annihilations come from, modulus by modulus
+      q   q^2 | k   q^2 | N   pairs by q   q alone
+      2      250      401       100250     95046
+      3      111       44         4884      3562
+      5       40      401        16040     11898
+      7       20        8          160       118
+     11        8        4           32        24
+     13        5        2           10         8
+     17        3        1            3         3
+     19        2        1            2         2
+     23        1        1            1         1
+  sole-cause pairs 110662 of 116000; the rest are annihilated by more than
+  one modulus, which is why the columns do not add to the total
+  R2 hold   (cap: the accounting closes)
+
+R3  is there a grid consistent with the published facts that gives
+    115950?  scanning k0 in 1..64 and j0 in 0..64
+  4160 grids scanned, 48 distinct counts, range 115950 to 116101
+  grids giving exactly 115950: 100
+    j0 = 16, k0 = 10
+    j0 = 16, k0 = 11
+    j0 = 16, k0 = 12
+    j0 = 16, k0 = 13
+    j0 = 16, k0 = 14
+    j0 = 26, k0 = 10
+    j0 = 26, k0 = 11
+    j0 = 26, k0 = 12
+  R3 REFUTED   (cap: one hit refutes)
+  the scan is finite: it can fail to find a grid, it cannot prove
+  none exists, and the finding is stated at that strength
+COUNT resolve_grid_hits 100
+
+R4  which resolution, then
+  (b). A grid consistent with the published facts gives the stamp's
+  number, so the stamp is right and under-specified rather than
+  wrong. A stamp that cannot be reconstructed from what it prints
+  is not independently checkable, and that is the finding.
+  R4 REFUTED
+
+======================================================================
+R1 hold  R2 hold  R3 REFUTED  R4 REFUTED
