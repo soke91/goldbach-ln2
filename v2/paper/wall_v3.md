@@ -1723,6 +1723,62 @@ that is a statement about [conj:L]'s mask $\mathbf M$: the mask is a
 consequence of multiplicativity, and $\mu$'s own values add nothing to
 it that $512$ draws can see.
 
+#### Remark (it was the null, not the depth: the iid coin is narrower than the right one) {#rem:cncoindeep}
+<!-- evidence: audit_cn_coin_deep.py -->
+
+[rem:cnmultdeep] changed two things at once — $32$ draws to $512$, and
+iid signs to multiplicative ones — and nothing there separated which
+did the work. The separation is one run: the same statistic, the same
+band, the same $512$ draws, iid signs.
+
+| | iid, $512$ | multiplicative, $512$ |
+|---|---|---|
+| ensemble mean at $105\mid N$ | $1.00642$ | $1.00609$ |
+| ensemble spread there | $0.41025$ | $0.63553$ |
+| real arm's largest $\lvert z\rvert$ | $8.21$ | $5.30$ |
+| draws reaching it | $0$ of $512$ | $5$ of $512$ |
+
+Both ensembles satisfy their own identity (F2): the iid class means
+run $0.98707$ to $1.01534$, the furthest $1.01$ standard errors from
+$1$, and the deviation falls $0.06330$, $0.02551$, $0.02300$,
+$0.00409$, $0.00638$ as the draws go $32$ to $512$. So both are
+resolved and they still disagree.
+
+**F3 is REFUTED and F4 with it.** At full resolution the iid coin
+*still* excludes $\mu$ — none of $512$ draws reaches $8.21$, their own
+largest running $0.44$ to $7.73$ — while the multiplicative ensemble
+covers it. The iid spread is $0.6455$ of the multiplicative one. **The
+null type did the work, not the depth.**
+
+That has a consequence outside this branch, and the pre-registration
+said to state it plainly. [lem:coin] is an iid coin, and it is the
+control that has sunk claim after claim here. Where the object under
+test is multiplicative — $\mu$ is, and most of what this repository
+measures is built from it — **an iid coin is narrower than the right
+null**, so every significance calibrated against one is larger than it
+should be.
+
+The damage is bounded and the bound is worth stating exactly. A
+narrower null is *conservative* for killing: if the coin's ensemble
+already covers a measured value, a wider null covers it too, so every
+claim [lem:coin] killed stays killed. It is the other direction that
+fails. A value that escaped the coin has not been shown to escape the
+right null, and this remark is an instance — [rem:cnclass]'s $z=9.01$
+was a real escape from the coin at $32$ draws, is still an escape at
+$512$, and is not an escape from the multiplicative ensemble at all.
+
+One refinement to [rem:cnmultdeep], which read the closure as the
+multiplicative ensemble's tail. That reading is right about why $32$
+draws were not enough — the multiplicative spread more than doubles
+from $32$ to $512$ while the iid spread moves about a tenth — but it
+is not the whole cause. What covers $\mu$ is the multiplicative
+structure, and the depth is what was needed to see that the structure
+has a tail. Both were necessary; only one of them is the answer.
+
+One band, one class family, one statistic. What this settles is not
+[lem:coin] in general but that the question is worth asking of it,
+which nothing before this had established.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 
