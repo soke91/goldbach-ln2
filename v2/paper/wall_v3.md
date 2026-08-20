@@ -5647,6 +5647,63 @@ and such a model is not tested here. **The shape of $w$ remains
 undescribed, and nothing here revives the reduction
 [rem:residuemodel] closed.**
 
+#### Remark (kappa predicts three primes from two, and the transport is real) {#rem:omegafactor}
+<!-- evidence: audit_omega_factor.py -->
+
+[rem:weightshape] refuted the product form for $c(d)=w(d)/
+w_{\text{mod}}(d)$ and refuted it *systematically* — its three
+two-prime $d$ came in $16.8$ to $17.3$ per cent below
+$\prod_{p\mid d}c(p)$ — which is what an $\omega$-dependent factor
+produces. It also found its own transport test void: DD4 failed by
+$1.4754$ at the very $N$ where $c(p)$ was fitted, because $c(p)$
+existed only for $p\le50$. Both are fixed here, and the second fix is
+**written into the rule** rather than found afterwards.
+
+**EE3 holds, blind.** With $\kappa$ taken from $\omega=2$ alone,
+$c(d)=\prod_{p\mid d}c(p)\,\kappa^{2}$ predicts the three-prime $d$:
+
+| $d$ | $231$ | $273$ | $357$ | $399$ | $429$ | $483$ |
+|---|---|---|---|---|---|---|
+| per cent | $-4.50$ | $-0.34$ | $+4.20$ | $+2.93$ | $+1.94$ | $-2.65$ |
+
+six of them, all inside $4.5$ per cent, with no free parameter. **A
+correction fitted on two primes carries to three.**
+
+**EE4 is refuted on transport, and this time that means something.**
+The fitted $N$ comes in at $1.0448$ against its cap of $1.05$ — so the
+hole DD4 fell into is closed and the seven others are readable. They
+run $1.2747$, $1.2853$, $1.2743$, $1.2096$, $1.1226$, $1.1175$,
+$1.1085$ — the four smallest $N$ outside the $1.2$ cap. **The factors
+fall monotonically toward $1$ as $N$ grows**, so the model is not
+wrong so much as incomplete at small $N$; what it is missing is not
+measured here.
+
+**EE2 is refuted, and its statistic was the wrong one.** The cap was
+written on $\max-\min$ over however many $d$ the range supplies — $73$
+here against the $3$ [rem:weightshape] could test — and a range grows
+with the count. The same $73$ ratios have s.d. $0.025290$,
+interquartile $0.022543$ and median $0.829575$ against
+$\kappa=0.832904$. **The rule is not rewritten and EE2 stands
+refuted**; the defect in its statistic is recorded as one, and it is
+the reason EE3 could still hold on a $\kappa$ its own test called
+scattered.
+
+**And this run's closing sentence is wrong.** It fires when EE2 fails
+and says the blind set is too small or $\kappa$ is not a number, so
+"the omega model is not tested here and nothing is claimed for it."
+The blind set was six against a registered minimum of three, and EE3
+held. **The $\omega$ model was tested and it passed the test it was
+built for**; what failed is a spread statistic and a transport cap at
+small $N$.
+
+**What this describes and does not.** $w$ is $1/\varphi(d)$ times a
+taper, times a product over the primes of $d$, times
+$\kappa^{\omega-1}$ with $\kappa\approx0.833$ — a description that
+survives a blind extension in $\omega$ and improves with $N$. It is a
+description of the weights and not a bound on anything, and
+[rem:residuemodel]'s closure of the reduction to an elementary Möbius
+sum stands untouched.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 
