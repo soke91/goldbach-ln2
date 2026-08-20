@@ -1,0 +1,98 @@
+STATISTIC: the span max(g) - min(g) and the median of g over a
+           prime set fixed before the run, at eleven N, under
+           both normalisations of I(1); and how many of the
+           twenty primes are higher at the last N.
+FIELD: N = [25000, 50000, 100000, 200000, 400000, 800000, 1600000, 3200000, 6400000, 12800000, 25600000];
+       p over PSET = (3, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79),
+       every one of them squarefree, at most D = floor((N-1)/K)
+       and coprime to every N, with K = floor(N^0.56).
+       g(3) at the ends and g(17), g(19) at the last N are READ
+       from results/audit_derived_limit.txt and
+       results/audit_limit_direction.txt.
+DERIVED: a span is one number per N and needs no window; a span
+         that closes says nothing about where, so the median and
+         the count of risers are computed beside it.
+
+READ audit_derived_limit.txt POINT g3first 1.243394
+READ audit_derived_limit.txt POINT g3last 1.154331
+READ audit_limit_direction.txt POINT glast_17 0.959725
+READ audit_limit_direction.txt POINT glast_19 0.949940
+PRINTBOUND audit_limit_squeeze 6 0.0000005000
+  theta 0.56, 20 primes, falls at least 9 of ten,
+  centre within 0.10 of one, risers at least 15
+sieving to 25600000
+  N = 25000      D = 86    span 0.635782  median 0.948360  A/Araw 0.763851
+  N = 50000      D = 117   span 0.416215  median 0.933278  A/Araw 0.777285
+  N = 100000     D = 158   span 0.469122  median 0.897950  A/Araw 0.788089
+  N = 200000     D = 215   span 0.468654  median 0.885778  A/Araw 0.800129
+  N = 400000     D = 291   span 0.364143  median 0.889973  A/Araw 0.815290
+  N = 800000     D = 395   span 0.377223  median 0.897942  A/Araw 0.824485
+  N = 1600000    D = 536   span 0.355326  median 0.888403  A/Araw 0.831600
+  N = 3200000    D = 728   span 0.333379  median 0.890663  A/Araw 0.840655
+  N = 6400000    D = 987   span 0.320018  median 0.891305  A/Araw 0.847059
+  N = 12800000   D = 1340  span 0.307559  median 0.901797  A/Araw 0.854651
+  N = 25600000   D = 1818  span 0.293399  median 0.903414  A/Araw 0.861216
+SCALES 11
+
+LL1  the gate
+  g(3) first  1.243394 against its 1.243394   ok
+  g(3) last   1.154331 against its 1.154331   ok
+  g(17) last  0.959725 against its 0.959725   ok
+  g(19) last  0.949940 against its 0.949940   ok
+  LL1 hold
+
+LL2  does the span close?
+  span  0.6358 0.4162 0.4691 0.4687 0.3641 0.3772 0.3553 0.3334 0.3200 0.3076 0.2934
+  falls 8/10, two-sided coin tail 0.109375
+POINT spanfirst 0.635782
+POINT spanlast 0.293399
+POINT spanfalls 8
+  LL2 REFUTED   (floor: 9 of ten)
+
+LL3  does it close on one?
+  median 0.9484 0.9333 0.8980 0.8858 0.8900 0.8979 0.8884 0.8907 0.8913 0.9018 0.9034
+  |median - 1| first 0.051640, last 0.096586
+POINT medfirst 0.948360
+POINT medlast 0.903414
+  nearer at the last: False; inside the cap: True
+  LL3 REFUTED   (cap: 0.10)
+
+LL4  is the closing the d=1 shadow?
+  span without the exclusion  0.4856 0.3235 0.3697 0.3750 0.2969 0.3110 0.2955 0.2803 0.2711 0.2629 0.2527
+  falls 7/10
+  A/Araw 0.7639 0.7773 0.7881 0.8001 0.8153 0.8245 0.8316 0.8407 0.8471 0.8547 0.8612
+POINT spanrawfalls 7
+POINT spanrawlast 0.252680
+  LL4 REFUTED   (floor: 9 of ten)
+
+LL5  does the bulk climb?
+      p     g first   g last    change
+      3   1.243394  1.154331  -0.089064
+      7   1.060492  1.026768  -0.033725
+     11   0.994230  0.991622  -0.002608
+     13   1.001573  0.977350  -0.024223
+     17   0.916563  0.959725  +0.043162
+     19   0.926432  0.949940  +0.023508
+     23   0.829234  0.940098  +0.110865
+     29   0.911218  0.920034  +0.008816
+     31   0.968390  0.917326  -0.051065
+     37   1.050517  0.907341  -0.143176
+     41   0.980651  0.899488  -0.081163
+     43   1.032921  0.895969  -0.136952
+     47   0.928330  0.889692  -0.038639
+     53   0.756055  0.883652  +0.127597
+     59   0.607612  0.875120  +0.267509
+     61   0.976645  0.872434  -0.104211
+     67   0.919815  0.862771  -0.057044
+     71   0.987645  0.863706  -0.123939
+     73   0.675048  0.863590  +0.188542
+     79   0.820505  0.860931  +0.040427
+  8 of 20 rise: [17, 19, 23, 29, 53, 59, 73, 79]
+POINT risers 8
+  LL5 REFUTED   (floor: 15)
+
+======================================================================
+LL1 hold  LL2 REFUTED  LL3 REFUTED  LL4 REFUTED  LL5 REFUTED
+
+the curve does not close by a count, and rem:limitdirection's reading
+of five primes was a selection.

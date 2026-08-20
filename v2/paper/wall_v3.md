@@ -6030,6 +6030,59 @@ each $N$ the twenty primes span a range, and if that range shrinks at
 every doubling then $g \to 1$ is a reading and not a hope. At the top
 $N$ the span is $1.154331$ down to $0.853126$.
 
+#### Remark (the ladder is not square, and three runs stood on its bad end) {#rem:limitsqueeze}
+<!-- evidence: audit_limit_squeeze.py -->
+
+[rem:limitdirection] read a closing curve off five primes and this run
+was written to count it over twenty. **All four counts refuse it**, and
+the reason condemns the bottom of the ladder rather than the reading.
+
+**LL3 is the decisive one and it fails backwards.** The median of $g$
+over the twenty primes runs $0.948360$ at $N=25\,000$ and $0.903414$ at
+$N=25\,600\,000$: $|{\rm med}-1|$ goes from $0.051640$ to $0.096586$.
+**The centre moves away from $1$**, which is the opposite of closing on
+it, and the cap of $0.10$ that it stays inside is beside the point.
+
+**LL2 falls at $8/10$ and LL4 at $7/10$**, against a floor of $9$ that
+was fixed in advance precisely because a tail of $0.109375$ is a lean.
+**LL5 fails hard: $8$ of $20$ rise against a floor of $15$.**
+
+And LL5's eight are the tell. The primes that rise are $17$, $19$,
+$23$, $29$, $53$, $59$, $73$, $79$ — and at $N=25\,000$ their values
+include $0.829234$, $0.756055$, $0.607612$, $0.675048$, $0.820505$,
+while the primes that fall include $37$ at $1.050517$, $43$ at
+$1.032921$ and $71$ at $0.987645$. **LL5 counted regression to the
+mean, not motion.** The first rung's twenty values are scattered from
+$0.607612$ to $1.243394$ and its span is $0.635782$; the last rung's
+are smooth and monotone in $p$ with a span of $0.293399$. **The span
+"closing" is mostly noise settling.**
+
+Why the first rung is noise is not a mystery and was derivable before
+any of this. For prime $p$ the inner variable runs $m \in [K, N/p)$
+with $K=\lfloor N^{\theta}\rfloor$, so it has about $N/p - N^{\theta}$
+values, and $D = \lfloor (N-1)/K \rfloor$ is the largest $d$ the field
+holds at all. At $N=25\,000$, $D=86$ — and PSET's largest prime is
+$79$. **The set was chosen by "contributes at all eleven $N$", which
+is exactly the rule that pushes its largest primes to the edge of the
+field, where they have almost no $m$ to average.** [rem:derivedlimit]'s
+twenty-prime table, [rem:limitdirection]'s twenty-one shifts and this
+run's PSET all inherit that choice.
+
+So the honest position is smaller than it was two runs ago.
+eq:derivedlimit's $p/(p+1)$ still has no fitted parameter and the top
+rung still lands at $0.991622$ for $p=11$ and $1.026768$ for $p=7$.
+What is withdrawn is the claim that the curve was seen closing on it:
+that reading came from five primes and a count over twenty refuses it.
+
+**What LL3 leaves is a question, not a rescue.** Its eleven medians
+run $0.9484$, $0.9333$, $0.8980$, $0.8858$, $0.8900$, $0.8979$,
+$0.8884$, $0.8907$, $0.8913$, $0.9018$, $0.9034$: they fall through the
+noisy rungs, turn near $0.8858$, and **rise over the last four**. That
+is an observation made after the rule broke, so it is worth nothing
+until it is registered and run against a conditioning floor that is
+derived rather than chosen — how many $m$ a cell needs before its $g$
+resolves anything. LL3 is refuted and stays refuted.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 
