@@ -5908,6 +5908,72 @@ $10/10$, and it is exactly what stands.** The sentence was written for
 a disjunction and read as a conjunction; the verdicts are as
 registered and the reading here is what the numbers support.
 
+#### Remark (a limit that is derived, and the residual it leaves) {#rem:derivedlimit}
+<!-- evidence: audit_derived_limit.py -->
+
+[rem:driftsigns] could say that $c(3)$ falls and not where it lands.
+Writing the run that was to chase the landing produced it instead from
+the construction. Three densities multiply in $I(p)/I(1)$: the range
+$[K,N/p)$ against $[K,N)$, a factor $1/p$; the coprimality of $m$ to
+$p$, which among squarefree $m$ costs $p/(p+1)$; and the confinement of
+$N-pm$ to the class $N \bmod p$, where primes sit at $p/(p-1)$ times
+their unrestricted density. Their product is $p/(p^2-1)$, and dividing
+by the model's own $1/(p-1)$,
+$$ c(p) \;\longrightarrow\; \frac{p}{p+1}. \tag{eq:derivedlimit} $$
+**Nothing in that is fitted.** It is the first target this branch has
+had for the corrections that was not read off a curve, and it is
+checkable on the eleven $N$ already in hand: with $g(p,N) = c(p,N)
+\cdot (p+1)/p$ the claim is $g \to 1$.
+
+| $p$ | limit | $c(p)$ at $N=25\,600\,000$ | $g$ |
+|---|---|---|---|
+| $3$ | $0.750000$ | $0.865748$ | $1.154331$ |
+| $7$ | $0.875000$ | $0.898422$ | $1.026768$ |
+| $11$ | $0.916667$ | $0.908987$ | $\mathbf{0.991622}$ |
+| $13$ | $0.928571$ | $0.907539$ | $0.977350$ |
+
+**JJ2 holds and JJ3 holds.** The three primes the run named sit inside
+$0.05$ of the derived value with nothing tuned, and $g(3)$ is above $1$
+at all eleven $N$ and closer at the last — $1.243394$ down to
+$1.154331$. Set beside [rem:driftsigns], the $10/10$ descent of $c(3)$
+now has a floor under it rather than an open drop.
+
+**And $c(11)$ stopped where the derivation put it.** That remark saw
+its last three steps go $-0.0001$, $-0.0000$, $+0.0000$ and could only
+call it stopped; the value it stopped at is $0.991622$ of its derived
+limit. A quantity that halts is weak evidence; a quantity that halts
+at a number written down before it was looked at is not the same
+thing.
+
+**JJ4 is refuted — median $|g-1| = 0.102271$ against a cap of
+$0.10$ — and the shape of the failure matters more than the miss.**
+Over the twenty primes that contribute at all eleven $N$, $g$ runs
+$1.1543$, $1.0268$, $0.9916$, $0.9773$, $0.9597$, $\ldots$, $0.8637$,
+$0.8636$, $0.8609$, with **one rise in nineteen steps**, at $p=67\to
+71$. That is not scatter about $1$. It is a monotone descent in $p$
+crossing $1$ between $11$ and $13$ and flattening near $0.86$, so a
+$p$-dependence survives the density count and the count does not
+contain it.
+
+**The closing sentence this run printed is written on JJ2 and JJ3 and
+cannot see JJ4.** It says the other primes "sit within one scatter of
+it", and the twenty-prime table is exactly the evidence that they do
+not sit in scatter at all. The verdicts stand as registered; the
+reading here is the table's, not the sentence's. This is the third
+run in this branch whose pre-written conclusion overclaimed, and the
+common fault is the same each time: a message written to fire on a
+subset of the rules describes the whole run.
+
+What is open is which way the residual resolves. $g(3)$ and $g(7)$ sit
+above $1$ and fall toward it; $g(11)$ has arrived; $g(13)$ and every
+larger prime sit below $1$, and [rem:driftsigns] measured $c(13)$
+falling at $7$ of $10$ steps, which moves it **away**. Either the
+large primes are far from their own asymptotics — the approach is in
+$N/p$, not $N$ — or $p/(p+1)$ is the limit for small $p$ and not a
+law. The refutation rule fixed before the run named the resolution
+this field can offer: $0.05$ is one scatter of [rem:leveldense]'s
+$0.03$, so **a derivation that survives here is not thereby proved.**
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 
