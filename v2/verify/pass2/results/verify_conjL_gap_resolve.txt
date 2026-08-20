@@ -1,3 +1,15 @@
+STATISTIC: the same set equality, plus the count of
+           annihilated pairs over the grids consistent
+           with what the stamp publishes about its own.
+FIELD: N = 3*10^6 + 2500 j for j = 0..400 and
+       k = 1..1000, 401000 pairs, with the field
+       D(N,k) = sum of mu(N-pk) over the 302 odd
+       primes p <= 2000. The grid is reconstructed
+       from the two facts the stamp publishes about
+       its own and is this pass's declaration, not
+       a claim about which grid the stamp used.
+       The scan adds k-ranges [k0, k0+1000) for k0 in
+       1..64 and offsets j0 in 0..64 of the same N-grid.
 STATEMENT: the gap between verify_conjL_mask_zeros.py's
            derived 116000 and conj:L's blind-mask stamp of 115950
            on the grid the stamp's own note describes.

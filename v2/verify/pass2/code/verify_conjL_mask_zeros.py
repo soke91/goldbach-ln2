@@ -205,6 +205,36 @@ def weaker_rule(Ns, ks, qs):
     return (bN[:, None] & bk[None, :]) != 0
 
 
+HEAD = [
+    "STATISTIC: the set of (N,k) at which the field has empty",
+    "           support, against the set the annihilation rule",
+    "           derived from conj:L names -- a set equality,",
+    "           counted in both directions.",
+    "FIELD: N = 3*10^6 + 2500 j for j = 0..400 and",
+    "       k = 1..1000, 401000 pairs, with the field",
+    "       D(N,k) = sum of mu(N-pk) over the 302 odd",
+    "       primes p <= 2000. The grid is reconstructed",
+    "       from the two facts the stamp publishes about",
+    "       its own and is this pass's declaration, not",
+    "       a claim about which grid the stamp used.",
+    "STATEMENT: Conjecture conj:L, paper/wall_v3.md -- M is the",
+    "           deterministic local mask, computed exactly by",
+    "           finite modular enumeration from the v_q-data of",
+    "           (N,k,k'). The stamp under test is the blind mask",
+    "           prediction, which the paper lists as not",
+    "           independently re-verified.",
+    "METHOD HERE: the annihilation rule derived from the",
+    "           statement and from p being an odd prime, not read",
+    "           from v1/code/; mu by a least-prime-factor sieve",
+    "           written in this file; the field rebuilt over odd",
+    "           primes p <= %d." % PMAX,
+    "REPOSITORY'S NUMBER: %d annihilated of %d, exact in both"
+    % (PUBLISHED_ZEROS, PUBLISHED_PAIRS),
+    "           directions.",
+    "",
+]
+
+
 def main():
     lines = []
 
@@ -238,7 +268,7 @@ def main():
         say("  W1 gates. The rule derived here is not the rule the")
         say("  repository used, so W2 to W4 are not reported.")
         io.open(OUT, "w", encoding="utf-8", newline="\n").write(
-            "\n".join(lines) + "\n")
+            "\n".join(HEAD + lines) + "\n")
         raise SystemExit(1)
 
     # ------------------------------------------------------------- W2
@@ -336,25 +366,8 @@ def main():
             "distinguishes")
         say("the odd-p field from an all-m one.")
 
-    head = [
-        "STATEMENT: Conjecture conj:L, paper/wall_v3.md -- M is the",
-        "           deterministic local mask, computed exactly by",
-        "           finite modular enumeration from the v_q-data of",
-        "           (N,k,k'). The stamp under test is the blind mask",
-        "           prediction, which the paper lists as not",
-        "           independently re-verified.",
-        "METHOD HERE: the annihilation rule derived from the",
-        "           statement and from p being an odd prime, not read",
-        "           from v1/code/; mu by a least-prime-factor sieve",
-        "           written in this file; the field rebuilt over odd",
-        "           primes p <= %d." % PMAX,
-        "REPOSITORY'S NUMBER: %d annihilated of %d, exact in both"
-        % (PUBLISHED_ZEROS, PUBLISHED_PAIRS),
-        "           directions.",
-        "",
-    ]
     io.open(OUT, "w", encoding="utf-8", newline="\n").write(
-        "\n".join(head + lines) + "\n")
+        "\n".join(HEAD + lines) + "\n")
     print("\nwrote %s" % os.path.normpath(OUT))
     return 0
 

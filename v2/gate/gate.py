@@ -218,7 +218,7 @@ def g4_statistic_and_field(docs):
             if ev in checked:
                 continue
             checked.add(ev)
-            r = os.path.join(RESULTS, os.path.splitext(ev)[0] + ".txt")
+            _, r = evidence_paths(ev)
             if not os.path.exists(r):
                 continue                      # already reported by G1
             head = read(r)[:4000]

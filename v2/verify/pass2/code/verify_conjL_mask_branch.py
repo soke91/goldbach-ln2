@@ -263,6 +263,14 @@ def main():
             "v1/code/.")
 
     head = [
+        "STATISTIC: the annihilation rule with and without its",
+        "           2-adic branch, each as a set equality against",
+        "           the field, and the branch's share of the grid.",
+        "FIELD: two grids at 1000 values of k each, with the field",
+        "       D(N,k) = sum of mu(N-pk) over the 302 odd primes",
+        "       p <= 2000: N = 3*10^6 + 2500 j for j = 0..400,",
+        "       where 4 | N throughout, and N = 3000002 + 10000 j",
+        "       for j = 0..100, where 2 || N throughout.",
         "STATEMENT: Conjecture conj:L, paper/wall_v3.md -- M is",
         "           computed exactly by finite modular enumeration",
         "           from the v_q-data. This step asks what a stamp on",

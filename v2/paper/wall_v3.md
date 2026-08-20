@@ -402,10 +402,11 @@ field and no class structure.
 The evidence is of two kinds and we separate them. The E1 arm is stated
 above and has been reproduced independently, and so, now, is the blind
 mask prediction — see [rem:maskstamp], which also records what
-re-verifying it cost and what its grid could not show. The remaining
-three stamps — pair statistics, the exact $(v_2,v_3)$ cells, and the
-Wishart pair spectrum — are recorded in the repository and have *not*
-been independently re-verified; they are cited here as the reason the
+re-verifying it cost and what its grid could not show. The exact
+$(v_2,v_3)$ cells were attempted next and the attempt did not reach
+them — [rem:cellstamp] records what it would take. The remaining two
+stamps — pair statistics and the Wishart pair spectrum — are recorded
+in the repository and have *not* been independently re-verified; they are cited here as the reason the
 conjecture is stated, not as measurements this paper vouches for.
 
 #### Remark (one of the four stamps re-verified, and what re-verifying it showed) {#rem:maskstamp}
@@ -465,6 +466,58 @@ this one survived independent re-derivation, which is evidence for the
 conjecture; and the stamp's *form* — a number without the grid that
 produced it — is what made re-verification cost three scripts instead
 of one.
+
+
+#### Remark (the second stamp, and the second parameter it does not print) {#rem:cellstamp}
+<!-- evidence: verify/pass3/code/verify_conjL_exact_cells.py -->
+<!-- evidence: verify/pass3/code/verify_conjL_cells_range.py -->
+
+[rem:maskstamp] took the blind mask prediction and found it right and
+unreconstructible. `verify/pass3` took the next of the four, the exact
+cells, whose published form is a single interval: every viable
+$(v_2,v_3)$ cell between $0.99$ and $1.06$. The quantity is not in
+doubt — it is the variance ratio $E[D^2]/\mathrm{supp}$, which is $1$
+under exact square-root cancellation on the surviving terms, so a cell
+away from $1$ is the class structure [conj:L] forbids.
+
+**What is in doubt is the cell.** $(v_2,v_3)$ does not say of what.
+Three readings are natural — the valuations of $k$, of $\gcd(N,k)$, of
+$N$ — and on the field rebuilt here none of them reproduces the
+interval:
+
+| reading | viable cells | outside $[0.99,1.06]$ | mean |
+|---|---|---|---|
+| $k$ | $13$ | $8$ | $0.9844$ |
+| $\gcd(N,k)$ | $4$ | $3$ | $0.9750$ |
+| $N$ | $31$ | $20$ | $0.9674$ |
+
+**And a second parameter is missing.** The pooled ratio — which no
+cell choice can affect — runs from $0.99701$ at $p\le250$ to $0.98179$
+at $p\le2900$, a drift of $0.01522$, a fifth of the stamp's own
+interval. So even a correct reading of the cell leaves the number
+undetermined until the prime range is named, and it is not named. Over
+the twenty-one configurations tried, three readings by seven ranges,
+the best is $9$ viable cells of $13$ inside the interval, at the
+smallest range; never all.
+
+This is not a claim that the stamp is wrong, and the pre-registration
+fixed that reading before the run: three readings is a guess at a
+space whose size the stamp does not publish, and failing to find a
+measurement is not finding it false. Two of this pass's own
+predictions broke and are recorded broken — the band's asymmetry about
+$1$ is not a property of the quantity (every reading's mean is
+*below* $1$), and the drift is not monotone, one step of $+0.00016$
+reversing it. A third, that the repository's pooled $0.99781$ would
+lie inside the swept range, missed by $0.0008$ at the top: the
+direction points below $p\le250$ and the scan did not go there.
+
+**What the two passes together establish is about form, not truth.**
+Both stamps examined are right as far as anything here can tell, and
+neither can be reconstructed from what it prints — one missing its
+grid, this one missing its cell index and its prime range. That is a
+property of how the stamps were published, and it is the reason
+[conj:L]'s evidence paragraph separates what has been re-verified from
+what has been cited. The remaining two stamps are still cited only.
 
 
 Conjecture [conj:L] is *stronger* than the chain needs: E1
