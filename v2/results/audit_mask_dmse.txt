@@ -1,0 +1,82 @@
+STATISTIC: the decay exponent of the mask amplitude per
+           depth, fitted on |dm| as v1 fitted it and on
+           |dm/se| as v1's handed-forward instruction says
+           to, with the exponent of se itself so the
+           difference is accounted for; and whether the
+           monotone rise v1 reported across depths survives
+           the second fit.
+NULL: none is run and none applies. Nothing is sampled: two
+      fits are compared on the same recorded table and the
+      question is which exponent belongs to which quantity.
+      The coin arms for the mask were run in v1's
+      lab_mask_coin_control.py.
+FIELD: the per-depth band tables of
+       v1/results/wall/lab_mask_amplitude_law.txt -- fifteen
+       half-octave bands from N ~ 1.189e5 to 1.431e7, six
+       depths by which of 3, 5, 7, 11, 13 divide N, with the
+       cell mean minus band mean and its exact error from
+       Lemma lem:cellmom. Nothing is measured here; the fit
+       is weighted least squares of the log on log N with
+       weights (dm/se)^2 and the covariance scaled by the
+       residual variance, which E1 identifies against the
+       six exponents of
+       v1/results/wall/lab_mask_exponent_se.txt.
+
+read 6 depth tables from v1/results/wall/lab_mask_amplitude_law.txt and the published
+  exponents from lab_mask_exponent_se.txt; nothing is measured here
+PRINTBOUND audit_mask_dmse 4 0.00005000
+
+the reason the instruction exists, echoed from the table it was left in:
+  at depth 5 the cell population runs 2, 3, 4, 5, 8, 11, 16, 22
+  while se falls 0.7136 to 0.4727 and |dm| falls 7.0004 to 4.9979
+  so |z| = |dm|/se goes 9.81 to 10.57 -- it grows
+
+E1  the control: v1's fit, identified and reproduced
+  depth  pts  a here    a pub     se here   se pub    ok
+  5      14   0.1434    0.1434    0.0155    0.0155    yes
+  4      15   0.2152    0.2152    0.0065    0.0065    yes
+  3      15   0.2713    0.2713    0.0040    0.0040    yes
+  2      15   0.3686    0.3686    0.0052    0.0052    yes
+  1      14   0.0437    0.0437    0.0575    0.0556    a only
+  0      15   0.6289    0.6289    0.0122    0.0121    a only
+  E1 hold   (cap: the four decimals v1 prints)
+
+E2/E3/E4  the error's own decay, and what is left of the mask's
+  depth  a(|dm|)   s(se)     t(s)    a'(|dm/se|)  se(a')   t(a')  resolved?
+  5      +0.1434   +0.1117   11.18   +0.0317      0.0231   1.37   no
+TSTAT mask_dmse_depth5 1.37
+UNRESOLVED SIGN mask_dmse_depth5
+SPREAD mask_dmse_depth5 4.4436
+  4      +0.2152   +0.0498   22.19   +0.1655      0.0085   19.51  yes
+TSTAT mask_dmse_depth4 19.51
+SPREAD mask_dmse_depth4 4.7904
+  3      +0.2713   +0.0404   48.44   +0.2309      0.0047   48.74  yes
+TSTAT mask_dmse_depth3 48.74
+SPREAD mask_dmse_depth3 4.7904
+  2      +0.3686   +0.0404   57.65   +0.3283      0.0058   56.76  yes
+TSTAT mask_dmse_depth2 56.76
+SPREAD mask_dmse_depth2 4.7904
+  1      +0.0437   +0.0377   39.51   +0.0059      0.0578   0.10   no
+TSTAT mask_dmse_depth1 0.10
+UNRESOLVED SIGN mask_dmse_depth1
+SPREAD mask_dmse_depth1 4.7904
+  0      +0.6289   +0.0420   69.92   +0.5869      0.0123   47.73  yes
+TSTAT mask_dmse_depth0 47.73
+SPREAD mask_dmse_depth0 4.7904
+  E2 hold   (cap: positive and |t| > 2 at every depth)
+  E3 hold   (cap: smaller at every depth)
+  E4 hold   (cap: at least one depth loses its resolution)
+
+E5  does the monotone rise survive?
+  excluding depth 1, deepest first, the |dm| exponents run +0.1434, +0.2152, +0.2713, +0.3686, +0.6289
+  and they are monotone as v1 reports: yes
+  the |dm/se| exponents run +0.0317, +0.1655, +0.2309, +0.3283, +0.5869
+  monotone: yes
+SIGNRUN mask_dmse_monotone 4
+  E5 REFUTED   (cap: the order v1 reported)
+
+what this settles
+  the order survives, so the monotonicity is the mask's and not the design's
+
+======================================================================
+E1 hold  E2 hold  E3 hold  E4 hold  E5 REFUTED

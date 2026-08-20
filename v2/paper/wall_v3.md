@@ -2808,6 +2808,62 @@ deficit belongs to, and no measurement in this repository has ever
 supplied one.
 
 
+#### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
+<!-- evidence: audit_mask_dmse.py -->
+
+v1 handed one instruction forward with its open item on the mask's
+decay exponent and it has sat unexecuted ever since: **fit $dm/se$,
+not $dm$.** The reason is visible in the table it left. At depth 5
+the cell population runs $2,3,4,5,8,11,16,22$ across the bands while
+$se$ falls from $0.7136$ to $0.4727$; over the same bands $|dm|$ falls
+from $7.0004$ to $4.9979$. **The error shrinks faster than the
+amplitude**, and $|z|=|dm|/se$ — the quantity that says whether the
+mask is there at all — *grows*, from $9.81$ to $10.57$.
+
+Nothing is measured here; the fit v1 used is identified rather than
+assumed. Weighted least squares of $\log|dm|$ on $\log N$ with
+weights $(dm/se)^2$ and the covariance scaled by the residual
+variance returns all six published exponents exactly and four of the
+six published standard errors to the four decimals printed, the other
+two in the last digit (E1).
+
+**There is something to subtract** (E2). The exponent of $se$ itself
+is positive and resolved at every depth, $t$ running $11.18$ to
+$69.92$. So part of what was fitted as the mask decaying is the
+error decaying, and the split is exact: the $|dm/se|$ exponent is the
+$|dm|$ exponent minus the $se$ one (E3, smaller at every depth).
+
+**And at the deepest cell the decay does not survive it** (E4). Depth
+5 goes from $0.1434\pm0.0155$ — quoted at $9.2$ standard errors — to
+$0.0317\pm0.0231$, $t=1.37$: **unresolved**. What that depth was
+measuring was mostly its own error shrinking as the cell filled up.
+Depth 1, already unmeasurable in v1's table, goes to $t=0.10$.
+
+**But the reading v1 built on it survives** (E5, refuted). Excluding
+depth 1, the $|dm|$ exponents deepest-first run $+0.1434$, $+0.2152$,
+$+0.2713$, $+0.3686$, $+0.6289$ and the $|dm/se|$ exponents run
+$+0.0317$, $+0.1655$, $+0.2309$, $+0.3283$, $+0.5869$ — **monotone
+both times**. The order is a property of the mask and not of how the
+cell populations grow with depth, and *"the mask decays faster where
+fewer small primes divide $N$"* stands as written.
+
+So the instruction was worth executing and it does not overturn the
+paper. It removes one number: depth 5's exponent should not be quoted
+as a measured decay. It leaves the rest smaller and intact, and it
+leaves the open item where it was — [rem:shapepower]'s point applies
+here too, since these are still exponents of an assumed form over a
+factor $160$ in $N$, and nothing in this re-analysis touches that.
+
+One thing about the run itself is worth recording. E5's comparison
+was implemented in the wrong direction — v1 reports the exponent
+rising as the cell gets shallower, which listed deepest-first is an
+increase, and the code tested for a decrease. The verdict was
+unaffected, but the line it printed said the $|dm|$ exponents were
+*not* monotone as v1 reports, which contradicts a published table.
+**That contradiction is what caught it**, and it is an argument for
+printing the control's intermediate rather than only its verdict.
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 
