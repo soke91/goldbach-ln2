@@ -1,3 +1,4 @@
+SEED: the null draws from numpy default_rng at seed 20260823; without it the file does not reproduce its own null.
 STATISTIC: the coefficient beta of the quadratic term in
            log(|sum a|/l2) = c + alpha x + (1/2) beta x^2
            over every N in the field, x = log N -- the rate

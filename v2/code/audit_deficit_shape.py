@@ -323,6 +323,9 @@ def main():
                 for v in (b1, b2ok, b3, b4, b5)))
 
     head = [
+        "SEED: the null draws from numpy default_rng at "
+        "seed %d; without it the file does not reproduce "
+        "its own null." % SEED,
         "STATISTIC: the cubic coefficient of",
         "           log(|sum a|/l2) against log N over the whole",
         "           field -- the rate at which the deficit's own",

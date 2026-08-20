@@ -389,6 +389,9 @@ def main():
                 for v in (a1, a2, a3, a4, a5)))
 
     head = [
+        "SEED: the null draws from numpy default_rng at "
+        "seed %d; without it the file does not reproduce "
+        "its own null." % SEED,
         "STATISTIC: the coefficient beta of the quadratic term in",
         "           log(|sum a|/l2) = c + alpha x + (1/2) beta x^2",
         "           over every N in the field, x = log N -- the rate",

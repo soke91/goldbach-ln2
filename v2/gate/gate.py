@@ -4182,8 +4182,6 @@ PINPATH = ("OUT", "ROOT", "RES", "RESULTS", "CODE", "VERIFY")
 PINGRANDFATHER = {
     ("code/audit_beta_optimal.py", "SWEEP"),
     ("code/audit_cR_window.py", "OCT"),
-    ("code/audit_deficit_direct.py", "SEED"),
-    ("code/audit_deficit_shape.py", "SEED"),
     ("code/audit_flatness_shape.py", "UMAX"),
     ("code/audit_floor_law.py", "HALF"),
     ("code/audit_ladder_shape.py", "UMAX"),
@@ -4195,14 +4193,11 @@ PINGRANDFATHER = {
     ("code/audit_residue_arithmetic.py", "SEED"),
     ("code/audit_residue_coin_rank.py", "OCT"),
     ("code/audit_residue_kexponent.py", "OCT"),
-    ("code/audit_residue_kexponent.py", "SEED"),
     ("code/audit_shape_trust.py", "UMAX"),
     ("code/audit_weightgap_null.py", "JS"),
     ("code/audit_weightgap_pairing.py", "JS"),
     ("code/lab_elementary_provable.py", "OCT"),
-    ("code/lab_elementary_provable.py", "SEED"),
     ("code/lab_primorial_ladder.py", "SEED"),
-    ("code/lab_primorial_share.py", "SEED"),
     ("code/lab_residue_cancellation.py", "OCT"),
 }
 

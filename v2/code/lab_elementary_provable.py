@@ -479,6 +479,9 @@ def main():
         "nowhere near here" if ok else "REFUTED")
 
     head = [
+        "SEED: the null draws from numpy default_rng at "
+        "seed %d; without it the file does not reproduce "
+        "its own null." % SEED,
         "STATISTIC: the ratio of the measured |P(N;k)| to the classical",
         "           shape (N/k) exp(-c sqrt(log(N/k))) L(k) with",
         "           L(k) = prod_{p|k}(1-1/p)^{-1}, its octave profile,",

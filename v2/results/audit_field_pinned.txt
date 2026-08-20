@@ -19,20 +19,18 @@ a census of 154 script/result pairs that carry constants
 PRINTBOUND audit_field_pinned 4 0.00005000
 
 F1  is there any absence at all?
-  22 of 154 pairs have at least one absent constant, 24 absences in all
+  19 of 154 pairs have at least one absent constant, 19 absences in all
   F1 hold   (cap: at least one)
-COUNT fieldpinned_absences 24
+COUNT fieldpinned_absences 19
 
 F2  are most files clean?
-  clean 132 of 154, share 0.8571 against the cap 0.80
+  clean 135 of 154, share 0.8766 against the cap 0.80
   F2 hold   (cap: above 0.80)
-SHARE fieldpinned_clean 0.8571
+SHARE fieldpinned_clean 0.8766
 
 F3  is any absence a field bound?
   absences whose name is in the bound family N, K, P, MAX, MIN, LO, HI, CAP, RANGE, BAND, SCAN, DEPTH, SEED:
     code/audit_beta_optimal.py                           SWEEP        0.1
-    code/audit_deficit_direct.py                         SEED         2.02608e+07
-    code/audit_deficit_shape.py                          SEED         2.02608e+07
     code/audit_flatness_shape.py                         UMAX         400
     code/audit_ladder_shape.py                           UMAX         400
     code/audit_ladder_shape12.py                         UMAX         400
@@ -40,13 +38,10 @@ F3  is any absence a field bound?
     code/audit_mask_formreach.py                         WIN          0.95
     code/audit_mask_rivals.py                            WIN          0.95
     code/audit_residue_arithmetic.py                     SEED         2.02608e+07
-    code/audit_residue_kexponent.py                      SEED         2.02608e+07
     code/audit_shape_trust.py                            UMAX         400
-    code/lab_elementary_provable.py                      SEED         2.02608e+07
     code/lab_primorial_ladder.py                         SEED         2.02608e+07
-    code/lab_primorial_share.py                          SEED         2.02608e+07
   F3 REFUTED   (cap: a single one)
-COUNT fieldpinned_bound_absences 15
+COUNT fieldpinned_bound_absences 10
 
 F4  are the five files the last commit rewrote clean?
   verify/pass1/code/verify_rung_exponents.py                  3 constants, 0 absent
@@ -60,8 +55,6 @@ F4  are the five files the last commit rewrote clean?
       script                                               constant     values
       code/audit_beta_optimal.py                           SWEEP        0.1
       code/audit_cR_window.py                              OCT          8, 32
-      code/audit_deficit_direct.py                         SEED         2.02608e+07
-      code/audit_deficit_shape.py                          SEED         2.02608e+07
       code/audit_flatness_shape.py                         UMAX         400
       code/audit_floor_law.py                              HALF         0.5
       code/audit_ladder_shape.py                           UMAX         400
@@ -73,14 +66,11 @@ F4  are the five files the last commit rewrote clean?
       code/audit_residue_arithmetic.py                     SEED         2.02608e+07
       code/audit_residue_coin_rank.py                      OCT          524288
       code/audit_residue_kexponent.py                      OCT          8, 32, 128, 512, 2048, 8192, 32768, 131072, 524288
-      code/audit_residue_kexponent.py                      SEED         2.02608e+07
       code/audit_shape_trust.py                            UMAX         400
       code/audit_weightgap_null.py                         JS           0.75
       code/audit_weightgap_pairing.py                      JS           0.25, 0.5, 0.75
       code/lab_elementary_provable.py                      OCT          2.09715e+06
-      code/lab_elementary_provable.py                      SEED         2.02608e+07
       code/lab_primorial_ladder.py                         SEED         2.02608e+07
-      code/lab_primorial_share.py                          SEED         2.02608e+07
       code/lab_residue_cancellation.py                     OCT          524288, 2.09715e+06
 SCALES 1
 

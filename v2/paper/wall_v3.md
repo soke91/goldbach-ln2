@@ -520,56 +520,74 @@ property of how the stamps were published, and it is the reason
 what has been cited. The remaining two stamps are still cited only.
 
 
-#### Remark (the same question turned on this repository, and it does not pass) {#rem:fieldpinned}
+#### Remark (the same question turned on this repository, and what paying it costs) {#rem:fieldpinned}
 <!-- evidence: audit_field_pinned.py -->
 
 [rem:maskstamp] and [rem:cellstamp] found the same defect in two of
 [conj:L]'s stamps: the number is right as far as anything here could
 tell, and cannot be rebuilt from what was printed. Recording that
 about another tree and not asking it here would be incoherent, so it
-was asked. The test is one-sided and stated that way before the run: a
-script fixes its field in module-level constants, and if a constant's
-value appears nowhere in that script's own result file, a reader
-holding only the file cannot rebuild the run. A match may be
+was asked. The test is one-sided and was stated that way before the
+run: a script fixes its field in module-level constants, and if a
+constant's value appears nowhere in that script's own result file, a
+reader holding only the file cannot rebuild the run. A match may be
 coincidence; only an absence carries information.
 
-Of $154$ script–result pairs, $132$ are clean and $22$ are not, $24$
-absences in all — so the discipline mostly holds (F1, F2). **But F3
-was pre-registered as "no absence is a field bound", and it is
-REFUTED**, fifteen times:
+Of $154$ script–result pairs, $135$ are clean and $19$ are not — so
+the discipline mostly holds (F1, F2). **But F3 was pre-registered as
+"no absence is a field bound", and it is REFUTED.** As first measured
+it failed fifteen times, seven of them the seed of a null:
 
-| what is missing | files |
-|---|---|
-| `SEED` | $7$ |
-| `UMAX = 400` | $4$ |
-| `WIN = 0.95` | $3$ |
-| `SWEEP = 0.1` | $1$ |
+| what is missing | at first | now |
+|---|---|---|
+| `SEED` | $7$ | $2$ |
+| `UMAX = 400` | $4$ | $4$ |
+| `WIN = 0.95` | $3$ | $3$ |
+| `SWEEP = 0.1` | $1$ | $1$ |
 
 The seed is the one that matters. In all seven it drives
 `np.random.default_rng(SEED)` — the null, the bootstrap, the
 permutation — and a null whose seed is unrecorded is not reproducible
-from the file that reports it. That is not a lesser version of what
-[rem:cellstamp] recorded about the exact-cells stamp; it is the same
-thing, and this repository's own G4, which requires every result file
-to open with `STATISTIC:` and `FIELD:`, had already decided that a
-result file must stand alone.
+from the file that reports it. That is the same thing
+[rem:cellstamp] recorded about another tree's stamp, and this
+repository's own G4, which requires every result file to open with
+`STATISTIC:` and `FIELD:`, had already decided that a result file must
+stand alone. G4 only checks that the line is present, so **G78 now
+checks that the constants reach the file**, with the remaining
+absences on a list that may only shrink.
 
-G4 only checks that the line is present. A `FIELD:` line that names no
-numbers pins nothing, so **G78 now checks that the constants reach the
-file**, with the $24$ existing absences carried on a list that may
-only shrink — the same device G16, G17 and G77 use. The debt is now
-visible in the gate rather than in a document, which is the only place
-this repository keeps anything.
+**Five of the seven seeds were closed and two were not, and the reason
+is worth more than the fix.** Adding the seed to a header changes the
+script, so G18 requires the script be re-run, and G22 then requires
+every consumer of its result to be re-run in turn. For five of them
+that closure is minutes. `audit_residue_arithmetic` and
+`lab_primorial_ladder` sit upstream of the rung ladder —
+`lab_primorial_ladder` → `audit_primorial_reach` →
+`audit_primorial_rung10` → rungs $11$, $15$, $16$ and the uniform-cap
+sweep — so a one-line documentation fix on either of them costs a
+recomputation of the ladder at $N$ up to $1.97\cdot10^9$, hours of it,
+for numbers that would come back identical. **The debt is not
+unpaid because nobody noticed; it is unpaid because the gate prices a
+documentation change at the cost of the computation beneath it.**
+That is the correct price for a *content* change and the wrong one
+here, and the two files stay on the list carrying that reason.
 
-Two limits, both real. The census reads constants written as
+Every result file re-run in closing the five came back byte-identical
+apart from the header line — which is a second, unlooked-for check
+that the recorded seeds do determine their nulls exactly.
+
+Three limits, all real. The census reads constants written as
 `NAME = value` and misses tuple assignments like
 `NN, NK, PMAX = 401, 1000, 2000`, so the true count is higher than
-$24$ and the clean share is optimistic. And the bound family is a list
-of name fragments fixed before the run, so it can miss a bound named
-something else and can flag a constant that is cosmetic in its own
-script — which is why every absence is printed by file and name, to
-be read rather than counted.
-
+$19$ and the clean share is optimistic. The bound family is a list of
+name fragments fixed before the run, so it can miss a bound named
+otherwise and can flag a constant that is cosmetic in its own script —
+which is why every absence is printed by file and name, to be read
+rather than counted. And G18 and G22 compare modification times, which
+git does not carry: **the property that this repository's gate passes
+is not reproducible from the repository**, only from a working copy
+that has run everything in order. That is the same class of defect as
+the two stamps, one level up, and it is not fixed here.
 
 Conjecture [conj:L] is *stronger* than the chain needs: E1
 requires only square-root cancellation on average. What is missing is
@@ -594,8 +612,6 @@ delimit what can be measured about it at all.
 
 
 ### The exact scale
-
-
 #### Proposition (The exact scale) {#prop:V}
 <!-- evidence: lab_second_moment.py -->
 

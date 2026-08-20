@@ -1,3 +1,4 @@
+SEED: the null draws from numpy default_rng at seed 20260823; without it the file does not reproduce its own null.
 STATISTIC: the cubic coefficient of
            log(|sum a|/l2) against log N over the whole
            field -- the rate at which the deficit's own

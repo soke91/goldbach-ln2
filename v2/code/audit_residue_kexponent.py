@@ -406,6 +406,9 @@ def main():
         if ok else "REFUTED")
 
     head = [
+        "SEED: the null draws from numpy default_rng at "
+        "seed %d; without it the file does not reproduce "
+        "its own null." % SEED,
         "STATISTIC: the exponent a in |R(N;k)| ~ (N/k)^a, fitted to the",
         "           octave means of |R| against the inner length N/k, at",
         "           the seven N of the arithmetic test set; its span",

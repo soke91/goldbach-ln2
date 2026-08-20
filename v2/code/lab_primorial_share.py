@@ -502,6 +502,9 @@ def main():
         if ok else "REFUTED")
 
     head = [
+        "SEED: the null draws from numpy default_rng at "
+        "seed %d; without it the file does not reproduce "
+        "its own null." % SEED,
         "STATISTIC: rho(N) = sum_{k < sqrt N} (log k) |R(N;k)| divided",
         "           by S(N)(1-A(N))N, along N = 30030 * 2^j for",
         "           j = 0..9; rho < 1 is exactly the statement that the",
