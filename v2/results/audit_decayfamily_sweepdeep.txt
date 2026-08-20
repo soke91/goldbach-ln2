@@ -1,0 +1,91 @@
+STATISTIC: |1/2 - f(N)| at six N and the alpha sweep of
+           log|1/2-f| = a - c (log N)^alpha over that series, for
+           mu and for two ensembles of 512 sign patterns -- iid
+           on supp(mu^2), and random multiplicative with
+           f(m) the product of f(p) over p | m on squarefree m --
+           counting draws that reach mu in size at each N and
+           draws whose sweep has an interior minimiser at or
+           below mu's residual.
+FIELD: N = 2e5 through 6.4e6 by doubling, theta' = 0.56, k over
+       the squarefree k < N^theta' coprime to N, alpha over 0.05
+       to 1.50 in steps of 0.05 with the one-per-cent band rule;
+       field, weight, k-range and sweep taken unchanged from
+       code/audit_decayfamily_null.py. mu's published series and
+       sweep are READ from results/audit_decayfamily_null.txt and
+       re-measured here as the gate.
+SEED: the draws come from numpy default_rng at seed 20260905; without
+      it the file does not reproduce its own control.
+
+READ audit_decayfamily_null.txt 200000 0.2727
+READ audit_decayfamily_null.txt 400000 0.2772
+READ audit_decayfamily_null.txt 800000 0.2265
+READ audit_decayfamily_null.txt 1600000 0.1932
+READ audit_decayfamily_null.txt 3200000 0.1793
+READ audit_decayfamily_null.txt 6400000 0.1624
+READ audit_decayfamily_null.txt mu 1.45
+  mu's published series and its sweep minimiser, read from that file
+PRINTBOUND audit_decayfamily_sweepdeep 6 0.00000050
+  512 draws of each null, in 8 passes of 64
+sieving to 6400000
+  3890729 squarefree m carry the signs, 438410 primes
+  #k per N: 313, 462, 682, 1004, 1485, 2186
+
+K1  does this construction reproduce the published sweep?
+  |1/2-f| at the smallest N: here 0.2727 against its 0.2727
+  sweep: alpha* 1.45 interior True residual 0.011556 against its 1.45 and 0.011556
+  K1 hold   (cap: 4 decimals on the series, 6 on the residual)
+  iid ensemble done, 512 draws
+  multiplicative ensemble done, 512 draws
+
+K2  does the size separation fail at every N?
+      null              N       mu     draw max   draws reaching mu
+      iid                200000  0.2727   0.1238               0
+POINT sweepdeep_iid_200000 0.12377
+      iid                400000  0.2772   0.1263               0
+POINT sweepdeep_iid_400000 0.12626
+      iid                800000  0.2265   0.0824               0
+POINT sweepdeep_iid_800000 0.08240
+      iid               1600000  0.1932   0.0694               0
+POINT sweepdeep_iid_1600000 0.06945
+      iid               3200000  0.1793   0.0790               0
+POINT sweepdeep_iid_3200000 0.07900
+      iid               6400000  0.1624   0.0480               0
+POINT sweepdeep_iid_6400000 0.04798
+      multiplicative     200000  0.2727   0.5000              83
+POINT sweepdeep_mult_200000 0.50000
+      multiplicative     400000  0.2772   0.4999              71
+POINT sweepdeep_mult_400000 0.49995
+      multiplicative     800000  0.2265   0.4995              99
+POINT sweepdeep_mult_800000 0.49950
+      multiplicative    1600000  0.1932   0.4995             117
+POINT sweepdeep_mult_1600000 0.49952
+      multiplicative    3200000  0.1793   0.4995             125
+POINT sweepdeep_mult_3200000 0.49954
+      multiplicative    6400000  0.1624   0.4990             139
+POINT sweepdeep_mult_6400000 0.49898
+SCALES 6
+  K2 hold   (cap: a multiplicative draw at every N)
+
+K3  does the sweep separation fail against the multiplicative null?
+      null              interior   residual <= mu's   both     best residual
+      iid                    12                  0      0        0.089978
+POINT sweepdeep_best_iid 0.089978
+      multiplicative         18                 38      6        0.000003
+POINT sweepdeep_best_mult 0.000003
+COUNT sweepdeep_mult_both 6
+  mu's own residual is 0.011556 at an interior alpha* of 1.45
+  K3 hold   (cap: at least one multiplicative draw with both)
+
+K4  does the published iid claim survive depth?
+  iid draws with an interior minimiser at or below mu's residual: 0 of 512
+COUNT sweepdeep_iid_both 0
+  K4 hold   (cap: none)
+
+======================================================================
+K1 hold  K2 hold  K3 hold  K4 hold
+
+both halves of rem:decaynull go the same way. Size and sweep alike
+survive an iid coin at full depth and fail against a random
+multiplicative ensemble, so that block's control was the wrong kind
+throughout and the pattern rem:cncoindeep found holds wherever it
+has been looked for.

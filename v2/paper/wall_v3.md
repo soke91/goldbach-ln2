@@ -1880,6 +1880,61 @@ tests that**, and a multiplicative ensemble might behave differently
 there too. It is the next thing to ask of this block, not something
 this remark has answered.
 
+#### Remark (both halves go the same way, and the cost objection was mine) {#rem:decaysweep}
+<!-- evidence: audit_decayfamily_sweepdeep.py -->
+
+[rem:decaydeep] flipped one of [rem:decaynull]'s two claims and said
+what it had not done: two of six $N$, and nothing about the
+$\alpha$-sweep, which is the sharper claim — $\mu$ gives an interior
+minimiser at $\alpha^*=1.45$ with residual $0.011556$ while not one of
+eight published draws has an interior minimiser at all. It also gave a
+cost reason for stopping at two $N$, and **that reason was wrong.**
+One draw over the whole six-point sweep takes under half a second: the
+$k$-range is squarefree and coprime to $N$, which leaves $2186$ of
+them at the top $N$ rather than the $6570$ that $N^{0.56}$ suggests.
+So this run does all six $N$ and both claims, at $512$ draws of each
+null, and the gate reproduces $\mu$'s published sweep exactly (K1).
+
+**The size separation fails at every $N$, not only the two reached
+before** (K2), and it gets worse as $N$ grows:
+
+| $N$ | $\mu$ | iid draws reaching | multiplicative draws reaching |
+|---|---|---|---|
+| $200000$ | $0.2727$ | $0$ | $83$ |
+| $800000$ | $0.2265$ | $0$ | $99$ |
+| $3200000$ | $0.1793$ | $0$ | $125$ |
+| $6400000$ | $0.1624$ | $0$ | $139$ |
+
+**And the sweep goes the same way** (K3). Six multiplicative draws
+have both an interior minimiser and a residual at or below $\mu$'s,
+and the best residual any draw achieves is $0.000003$ against $\mu$'s
+$0.011556$ — better by more than three orders. The iid ensemble does
+not manage it once in $512$: twelve draws have an interior minimiser
+and none of them gets under $\mu$'s residual, the best being
+$0.089978$ (K4). **So the published claim survives depth and fails the
+null type, exactly as the size claim did.**
+
+Both halves of that block therefore rest on an iid coin, and
+[rem:cncoindeep]'s pattern now holds in every place it has been looked
+for: twice in the $C(N)$ branch and twice here.
+
+One objection has to be raised against this run rather than left for a
+reader. The multiplicative draws reach $0.4990$ to $0.5000$ in
+$|1/2-f|$, which is the largest the statistic can be — a single draw
+can make most $f(k)$ agree in sign, because the $k$ share small prime
+factors and $f$ is multiplicative. A null that saturates a statistic's
+range can be too wide to say anything. **It is not too wide here**, and
+the counts are how one tells: only $83$ to $139$ of $512$ draws reach
+$\mu$, so $\mu$ sits between roughly the seventy-third and
+eighty-fourth percentile rather than in the bulk. The correlation that
+makes the tail is the same correlation $\mu$ has, which is the whole
+reason this is the right null and not merely a wider one.
+
+What this does not settle. One seed per ensemble. And the counts
+rising with $N$ is a trend across six points that nothing here tests
+as a trend; it is printed because it points the other way from the
+block's extrapolation, not because this run measured a slope.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 
@@ -2809,8 +2864,11 @@ $\mu$ at either of the two smallest $N$, and $67$ and $54$
 multiplicative draws do. The claim that every draw sits an order
 below $\mu$ is true of the control run here and false of the
 wider one, so what follows about the *size* is a statement about
-an iid coin and not about $\mu$. The $\alpha$-sweep half is
-untouched and stands as written. With the field,
+an iid coin and not about $\mu$. The $\alpha$-sweep half was untouched then and is
+superseded now: [rem:decaysweep] finds six multiplicative draws of
+512 with both an interior minimiser and a residual at or below
+0.011556, the best at 0.000003, while no iid draw manages it in
+512. Both halves of this block rest on an iid coin. With the field,
 weight, $k$-range and $\theta'$ identical and only the sign pattern
 changed, $\mu$'s $|1/2-f|$ reads
 $0.2727,\,0.2772,\,0.2265,\,0.1932,\,0.1793,\,0.1624$ against a coin
