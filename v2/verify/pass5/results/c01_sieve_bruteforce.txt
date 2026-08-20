@@ -1,0 +1,49 @@
+C-01  sieve audit: every mu / Lambda implementation in code/ against
+      trial-division factorisation, exhaustively over n <= 10000.
+========================================================================
+
+  audit_amplification            mobius_upto(10000)       mu: 1 mismatches, first [0]
+  audit_circle_margin            sieves(10000)            mu: EXACT; Lambda: EXACT
+  audit_cn_coin_deep             sieves(10000)            mu: EXACT; Lambda: EXACT
+  audit_constants                mobius_small(10000)      (no mu/Lambda/phi array recognised in return value)
+  audit_constants                sieved(10000)            (no mu/Lambda/phi array recognised in return value)
+  audit_extraction_tradeoff      sieve_mu_phi(10000)      (no mu/Lambda/phi array recognised in return value)
+  audit_r4_blocks                mobius_big(10000)        mu: EXACT
+  audit_sieve                    sieves(10000)            mu: EXACT; Lambda: EXACT
+  audit_sieve                    sieves_by_factorisation(10000) mu: EXACT; Lambda: EXACT
+  audit_sieve                    sieves_by_recurrence(10000) mu: EXACT; Lambda: EXACT
+  audit_support_density          mobius_big(10000)        mu: EXACT
+  audit_switch_identity          sieves(10000)            mu: EXACT; Lambda: EXACT
+  lab_coin_discriminator         sieves(10000)            mu: EXACT; Lambda: EXACT
+  lab_combined_modulus           sieves(10000)            mu: EXACT; Lambda: EXACT
+  lab_dilate_identity            sieves(10000)            mu: EXACT; Lambda: EXACT
+  lab_direct_identity            sieves(10000)            mu: EXACT; Lambda: EXACT
+  lab_direct_route               sieves(10000)            mu: EXACT; Lambda: EXACT
+  lab_layer_decomposition        sieves(10000)            mu: EXACT; Lambda: EXACT
+  lab_onesided_demand            sieves(10000)            mu: EXACT; Lambda: EXACT
+  lab_positive_weights           sieves(10000)            mu: EXACT; Lambda: EXACT
+  lab_theta_sweep                sieves(10000)            mu: EXACT; Lambda: EXACT
+  lab_weight_gap                 sieves(10000)            mu: EXACT; Lambda: EXACT
+
+total mismatches against trial division: 1
+
+boundary probes (mu[0], mu[1], Lambda[1], Lambda[4], Lambda[8]):
+  audit_amplification            mobius_upto            mu0=1 mu1=1 L1=- L4=-1.000000 L8=-1.000000
+  audit_circle_margin            sieves                 mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  audit_cn_coin_deep             sieves                 mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  audit_r4_blocks                mobius_big             mu0=0 mu1=1 L1=- L4=-1.000000 L8=-1.000000
+  audit_sieve                    sieves                 mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  audit_sieve                    sieves_by_factorisation mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  audit_sieve                    sieves_by_recurrence   mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  audit_support_density          mobius_big             mu0=0 mu1=1 L1=- L4=-1.000000 L8=-1.000000
+  audit_switch_identity          sieves                 mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  lab_coin_discriminator         sieves                 mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  lab_combined_modulus           sieves                 mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  lab_dilate_identity            sieves                 mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  lab_direct_identity            sieves                 mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  lab_direct_route               sieves                 mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  lab_layer_decomposition        sieves                 mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  lab_onesided_demand            sieves                 mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  lab_positive_weights           sieves                 mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  lab_theta_sweep                sieves                 mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147
+  lab_weight_gap                 sieves                 mu0=0 mu1=1 L1=0.0 L4=0.693147 L8=0.693147

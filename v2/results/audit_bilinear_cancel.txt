@@ -1,0 +1,74 @@
+STATISTIC: the pieces I(d) of sum a's Type II form, the ratio of
+           their absolute sum to their signed sum, that ratio
+           against the square root of their number, and the
+           largest piece against l2.
+FIELD: N = [20000, 50000, 200000]; d over the squarefree d <= N/K coprime to N and m
+       over the squarefree m in [K, N/d) coprime to dN, with
+       K = floor(N^0.56), the ranges of rem:bilinear. The covered
+       part is READ from results/audit_bilinear.txt.
+DERIVED: BV covers d <= N^(1-theta) unconditionally exactly when
+         theta > 1/2; GRH applied per modulus gives exponent
+         1.5 - theta; neither is a bound established here.
+
+READ audit_bilinear.txt 20000 -13650.356005
+READ audit_bilinear.txt 50000 -29099.531787
+READ audit_bilinear.txt 200000 -89314.989471
+  the covered part rem:bilinear published, from its ten-digit marker
+  NOTE, disclosed: Y1 first read the six-decimal table and judged at
+  a relative 1e-12 -- TOL BELOW PRINT, the second instance of the
+  defect audit_which_floor's M1 had. The tolerance is unchanged; only
+  the source of the digits is.
+PRINTBOUND audit_bilinear_cancel 6 0.0000005000
+  theta 0.56, cancellation cap 3.0, square-root factor 2.0
+  the exponents this run reads the dimensions for:
+    trivial                  1.00
+    GRH per modulus          0.94
+    BV covers the d-range    yes, since 1 - theta = 0.44 < 0.5
+sieving to 200000
+  N = 20000    #d = 27   signed -13650.356005  sum|I| 210186.762754  max|I| 102638.288066  l2 2968.811914
+  N = 50000    #d = 40   signed -29099.531787  sum|I| 638903.395745  max|I| 297044.263480  l2 5450.891587
+  N = 200000   #d = 72   signed -89314.989471  sum|I| 3261917.259242  max|I| 1409338.164588  l2 13476.690007
+SCALES 3
+
+Y1  the gate
+  N = 20000    here -13650.356005 against its -13650.356005  relative 2.67e-16
+  N = 50000    here -29099.531787 against its -29099.531787  relative 3.75e-16
+  N = 200000   here -89314.989471 against its -89314.989471  relative 4.89e-16
+  Y1 hold   (cap: 1e-12 relative)
+
+Y2, Y3  how much does the d-sum cancel?
+    N          #d    sum|I|/|S|   sqrt(#d)   ratio
+  20000      27       15.3979     5.1962  2.9633
+POINT cancelratio_20000 15.397896
+POINT cancelsqrt_20000 2.963326
+  50000      40       21.9558     6.3246  3.4715
+POINT cancelratio_50000 21.955796
+POINT cancelsqrt_50000 3.471516
+  200000     72       36.5215     8.4853  4.3041
+POINT cancelratio_200000 36.521499
+POINT cancelsqrt_200000 4.304100
+  Y2 hold   (cap: above 3.0 at the largest N)
+  Y3 REFUTED   (cap: within a factor 2.0 of sqrt(#d))
+REFERENCE audit_bilinear_cancel 3 0.2442 0.3523
+  sqrt(#d) is the count-based reference this run uses; the magnitude-based
+  one for the same pieces is their own l1/l2, and the ratio of the two
+  is printed above -- bounded by one, as Cauchy-Schwarz forces
+
+Y4  is any single modulus small enough?
+  N = 20000    max|I| 102638.2881 at d = 1    against l2 2968.8119  above
+POINT maxpiece_20000 34.572176
+  N = 50000    max|I| 297044.2635 at d = 1    against l2 5450.8916  above
+POINT maxpiece_50000 54.494620
+  N = 200000   max|I| 1409338.1646 at d = 1    against l2 13476.6900  above
+POINT maxpiece_200000 104.575987
+  Y4 hold   (cap: max|I| above l2 at every N)
+
+======================================================================
+Y1 hold  Y2 hold  Y3 REFUTED  Y4 hold
+
+the smallness of sum a is cancellation over d, and no single modulus
+is small enough for a per-modulus bound to reach the target. item 5
+therefore needs cancellation between moduli, which is not what
+level-of-distribution input supplies -- BV covers this d-range only
+because theta > 1/2, and covering it is not the same as bounding it
+below the target.

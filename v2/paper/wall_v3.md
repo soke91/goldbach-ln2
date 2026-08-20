@@ -5352,6 +5352,72 @@ Nothing here supplies a bound, nothing here claims the known bounds
 reach $\ell^2$ order, and no exponent is measured or forecast.
 [rem:deficitlog] and [rem:shapepower] stand exactly where they stood.
 
+#### Remark (the smallness is cancellation between moduli, and better than square-root) {#rem:bilinearcancel}
+<!-- evidence: audit_bilinear_cancel.py -->
+
+[rem:bilinear] named the object; it supplied no bound. What the
+classical tools give can be read off the dimensions before anything is
+computed, and the arithmetic is not encouraging:
+
+| | exponent |
+|---|---|
+| trivial | $1$ |
+| Bombieri–Vinogradov, error | $1$ |
+| GRH applied to each modulus | $1.5-\theta=0.94$ |
+| measured $\alpha$ ([rem:denominator]) | $+0.717916$ |
+| the demand ([rem:denominator]) | $+0.587483$ |
+
+Two things follow from the ranges alone. **BV covers $d\le
+N^{1-\theta}$ unconditionally exactly when $\theta>1/2$** — the regime
+the program needs, so the $d$-range is inside reach for the same
+reason the reduction is interesting — and **the demand sits below what
+GRH gives applied per modulus**, so no per-modulus input of any
+strength reaches item 5. The measured $0.717916$ is far below $0.94$,
+so cancellation over $d$ is already happening. This run measures how
+much. (Nothing here reopens [rem:thetalaw]: $\alpha=1-\theta'/2$ is a
+coincidence at one level and stays withdrawn.)
+
+| $N$ | $\#d$ | $\sum_d\lvert I(d)\rvert/\lvert S\rvert$ | $\sqrt{\#d}$ | ratio |
+|---|---|---|---|---|
+| $20000$ | $27$ | $15.3979$ | $5.1962$ | $2.9633$ |
+| $50000$ | $40$ | $21.9558$ | $6.3246$ | $3.4715$ |
+| $200000$ | $72$ | $36.5215$ | $8.4853$ | $4.3041$ |
+
+**Y2 holds: the smallness is cancellation over $d$**, by a factor of
+$36.5$ at the largest $N$. **Y4 holds and locates the problem**: the
+largest piece is $d=1$ — $I(1)=1409338.1646$, which is $104$ times
+$\ell^2$ — so a single term of the $d$-sum is two orders above the
+target and the whole of the smallness is other moduli cancelling it.
+That is [rem:denominator]'s "the truncation does not shrink the main
+term; it removes it and overshoots", now visible term by term.
+
+**Y3 is refuted, and in the direction the rule called unexplained.**
+The cancellation is not square-root but $2.96$, $3.47$, $4.30$ times
+better, and **the excess grows with $N$**. A $d$-sum cancelling better
+than random signs is not what any bound in evidence here would give,
+and this run measures it without explaining it. Three points is three
+points.
+
+**What this establishes for item 5.** Its requirement needs
+cancellation *between* moduli, which is not what level-of-distribution
+input supplies: BV covers this $d$-range only because $\theta>1/2$,
+and covering a range is not bounding a sum over it below the target.
+**No bound is established here and none is claimed** — the four
+exponents are arithmetic on the ranges with BV and GRH cited for what
+they give, and the reading is that the demand lies below the
+per-modulus route, not that the demand is impossible.
+
+**The gate failed twice on the same defect before holding.** Y1 first
+read the covered part from a six-decimal table and judged it at a
+relative $10^{-12}$; the print bound there is $3.7\cdot10^{-11}$, so it
+was refuted by rounding and not by disagreement. Emitting the marker
+at ten digits did not fix it — that is still $5\cdot10^{-7}$ absolute,
+the same wall one decimal out — and only full double precision did,
+after which the three relatives are $2.67$, $3.75$ and
+$4.89\cdot10^{-16}$. **`TOL BELOW PRINT` twice in one run**, and the
+second instance of the defect [rem:whichfloor]'s M1 had. The tolerance
+was never changed; only the source of the digits.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

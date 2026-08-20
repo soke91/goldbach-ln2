@@ -393,6 +393,7 @@ def main():
         say("  N = %-8d covered %+.6f  bilinear %+.6f  relative %.2e"
             % (N, cov, bl, rel))
         say("POINT covrel_%d %.6e" % (N, rel))
+        say("POINT covered_%d %.17e" % (N, cov))
     say("  X1 %s   (cap: %.0e relative)"
         % ("hold" if x1 else "REFUTED", RELID))
 

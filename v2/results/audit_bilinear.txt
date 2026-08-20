@@ -64,10 +64,13 @@ POINT dcount_200000 -0.8483
 X1  does the form reproduce the part it covers?
   N = 20000    covered -13650.356005  bilinear -13650.356005  relative 0.00e+00
 POINT covrel_20000 0.000000e+00
+POINT covered_20000 -1.36503560054824738e+04
   N = 50000    covered -29099.531787  bilinear -29099.531787  relative 1.00e-15
 POINT covrel_50000 1.000148e-15
+POINT covered_50000 -2.90995317867582344e+04
   N = 200000   covered -89314.989471  bilinear -89314.989471  relative 1.63e-16
 POINT covrel_200000 1.629280e-16
+POINT covered_200000 -8.93149894708130305e+04
   X1 hold   (cap: 1e-12 relative)
 
 X2  is W2's discrepancy exactly the rest?
