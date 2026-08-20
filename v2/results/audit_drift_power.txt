@@ -1,0 +1,149 @@
+STATISTIC: the drift of each prime's weight correction c(p, N)
+           fitted on eight N and again on eleven, the change in
+           its standard error, and whether p = 11 and p = 13
+           resolve when the field is longer.
+FIELD: N = [25000, 50000, 100000, 200000, 400000, 800000, 1600000, 3200000, 6400000, 12800000, 25600000]; the first eight are rem:driftbyprime's and the
+       last three are new. d over the squarefree d <= D coprime
+       to N, D = floor((N-1)/K), K = floor(N^0.56). A at N = 200000
+       and the eight-N drifts are READ from
+       results/audit_mainterm_removal.txt and
+       results/audit_drift_by_prime.txt.
+
+READ audit_mainterm_removal.txt 200000 1.40933816458843928e+06
+READ audit_drift_by_prime.txt drift_3 -0.011551
+READ audit_drift_by_prime.txt sderr_3 0.000876
+  the eight-N drift and its standard error for p = 3
+READ audit_drift_by_prime.txt drift_7 -0.005152
+READ audit_drift_by_prime.txt sderr_7 0.000543
+  the eight-N drift and its standard error for p = 7
+READ audit_drift_by_prime.txt drift_11 -0.001589
+READ audit_drift_by_prime.txt sderr_11 0.001154
+  the eight-N drift and its standard error for p = 11
+READ audit_drift_by_prime.txt drift_13 -0.001948
+READ audit_drift_by_prime.txt sderr_13 0.003904
+  the eight-N drift and its standard error for p = 13
+PRINTBOUND audit_drift_power 6 0.0000005000
+  theta 0.56, |t| cap 3.0, error fall 30 per cent, stability 0.002
+  watching p = (11, 13)
+sieving to 25600000
+  N = 25000      D = 86    28 contributing d
+  N = 50000      D = 117   39 contributing d
+  N = 100000     D = 158   52 contributing d
+  N = 200000     D = 215   71 contributing d
+  N = 400000     D = 291   98 contributing d
+  N = 800000     D = 395   131 contributing d
+  N = 1600000    D = 536   179 contributing d
+  N = 3200000    D = 728   246 contributing d
+  N = 6400000    D = 987   332 contributing d
+  N = 12800000   D = 1340  453 contributing d
+  N = 25600000   D = 1818  614 contributing d
+SCALES 11
+
+HH1  the gate
+  A relative 0.00e+00 against 1e-12   ok
+  c(3) drift on the original eight -0.011551 against its -0.011551  ok
+  HH1 hold
+
+      p    eight-N drift    s.e.      t       eleven-N drift   s.e.      t
+      3   -0.011551  0.000876   -13.19    -0.009622  0.000679   -14.16
+POINT drift11_3 -0.009622
+SPREAD drift11_3 0.000679
+      7   -0.005152  0.000543    -9.49    -0.004298  0.000373   -11.52
+POINT drift11_7 -0.004298
+SPREAD drift11_7 0.000373
+     11   -0.001589  0.001154    -1.38    -0.001391  0.000587    -2.37
+POINT drift11_11 -0.001391
+SPREAD drift11_11 0.000587
+     13   -0.001948  0.003904    -0.50    -0.000977  0.001988    -0.49
+POINT drift11_13 -0.000977
+SPREAD drift11_13 0.001988
+     17   +0.004238  0.003336    +1.27    +0.002788  0.001733    +1.61
+POINT drift11_17 0.002788
+SPREAD drift11_17 0.001733
+     19   +0.001062  0.003259    +0.33    +0.001341  0.001654    +0.81
+POINT drift11_19 0.001341
+SPREAD drift11_19 0.001654
+     23   +0.009616  0.007430    +1.29    +0.007132  0.003805    +1.87
+POINT drift11_23 0.007132
+SPREAD drift11_23 0.003805
+     29   -0.001537  0.004715    -0.33    -0.000222  0.002419    -0.09
+POINT drift11_29 -0.000222
+SPREAD drift11_29 0.002419
+     31   -0.001401  0.009161    -0.15    +0.001427  0.004681    +0.30
+POINT drift11_31 0.001427
+SPREAD drift11_31 0.004681
+     37   -0.019126  0.010647    -1.80    -0.008570  0.006062    -1.41
+POINT drift11_37 -0.008570
+SPREAD drift11_37 0.006062
+     41   -0.004621  0.011402    -0.41    +0.000204  0.005898    +0.03
+POINT drift11_41 0.000204
+SPREAD drift11_41 0.005898
+     43   -0.015622  0.014069    -1.11    -0.005259  0.007609    -0.69
+POINT drift11_43 -0.005259
+SPREAD drift11_43 0.007609
+     47   -0.008242  0.007960    -1.04    -0.002446  0.004310    -0.57
+POINT drift11_47 -0.002446
+SPREAD drift11_47 0.004310
+     53   +0.007961  0.012224    +0.65    +0.005879  0.006201    +0.95
+POINT drift11_53 0.005879
+SPREAD drift11_53 0.006201
+     59   +0.015028  0.025866    +0.58    +0.009931  0.013119    +0.76
+POINT drift11_59 0.009931
+SPREAD drift11_59 0.013119
+     61   -0.011761  0.010173    -1.16    -0.003838  0.005541    -0.69
+POINT drift11_61 -0.003838
+SPREAD drift11_61 0.005541
+     67   -0.007309  0.006255    -1.17    -0.001336  0.003526    -0.38
+POINT drift11_67 -0.001336
+SPREAD drift11_67 0.003526
+     71   -0.022037  0.013654    -1.61    -0.007139  0.007919    -0.90
+POINT drift11_71 -0.007139
+SPREAD drift11_71 0.007919
+     73   +0.018483  0.015612    +1.18    +0.012727  0.008026    +1.59
+POINT drift11_73 0.012727
+SPREAD drift11_73 0.008026
+     79   -0.006346  0.016550    -0.38    -0.000801  0.008484    -0.09
+POINT drift11_79 -0.000801
+SPREAD drift11_79 0.008484
+
+HH3  the guard: did the extension buy power?
+  p = 11 standard error 0.001154 -> 0.000587, a fall of 49.10 per cent
+POINT errfall 49.1049
+  HH3 hold   (cap: at least 30 per cent)
+
+HH2  do 11 and 13 resolve?
+  p = 11  drift -0.001391 +- 0.000587, t -2.37   not resolved
+TSTAT drift11_11 -2.37
+        its eight-N drift was -0.001589, so the drift itself moved +0.000198
+  p = 13  drift -0.000977 +- 0.001988, t -0.49   not resolved
+TSTAT drift11_13 -0.49
+        its eight-N drift was -0.001948, so the drift itself moved +0.000971
+  HH2 REFUTED   (cap: |t| above 3.0 on both)
+
+HH4  do 3 and 7 stay put?
+  p = 3   -0.011551 -> -0.009622, moved 0.001929   ok
+POINT move_3 0.001929
+  p = 7   -0.005152 -> -0.004298, moved 0.000854   ok
+POINT move_7 0.000854
+  HH4 hold   (cap: 0.002)
+
+  a diagnostic, after the verdicts and predicted by nothing
+  HH4 capped how far the drifts moved, not by what factor. Relatively:
+    p = 3   -0.011551 -> -0.009622, a factor of 0.83298
+POINT shrink_3 0.832980
+    p = 7   -0.005152 -> -0.004298, a factor of 0.83429
+POINT shrink_7 0.834285
+    p = 11  -0.001589 -> -0.001391, a factor of 0.87551
+POINT shrink_11 0.875506
+    the two resolved primes shrink by 0.83298 and 0.83429, differing by 0.00130
+POINT shrinkgap 0.001305
+  a slope that shrinks when the field lengthens is not a slope; that the
+  two shrink together says the linear model is failing the same way at
+  both, and this run measures it without proposing what replaces it
+
+======================================================================
+HH1 hold  HH2 REFUTED  HH3 hold  HH4 hold
+
+power was bought and they still do not resolve. 3 and 7 are special
+rather than merely loudest, and the drift is not a property of the
+family.

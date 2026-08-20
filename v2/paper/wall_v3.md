@@ -5810,6 +5810,58 @@ the errors at $p\ge11$ are larger than the effect at $p=3$, so the
 absence is an absence of power as much as an absence of drift, and
 the remark claims no more.
 
+#### Remark (power was bought, and the slope is not a slope) {#rem:driftpower}
+<!-- evidence: audit_drift_power.py -->
+
+[rem:driftbyprime] found two of twenty primes with a resolved drift
+and refused to say whether $3$ and $7$ are special or the rest too
+noisy, because the errors at $p\ge11$ exceeded the effect at $p=3$.
+Power is buyable here: $\lvert w(p)\rvert$ is small partly because $p$
+sits high in a $d$-range ending at $D=\lfloor(N-1)/K\rfloor$, so
+raising $N$ raises $D$ and moves the same $p$ lower in it. Three more
+$N$ take $D$ from $728$ to $1815$.
+
+**HH3 holds and that is what makes the rest readable.** The $p=11$
+standard error falls from $0.001154$ to $0.000587$, **$49.10$ per
+cent** — power was genuinely bought, so a failure to resolve is about
+the primes and not about the extension. That guard was written into
+the rule before the run, in the shape that made
+[rem:omegafactor]'s transport failure readable.
+
+**HH2 is refuted, and the two watched primes fail differently.**
+
+| $p$ | eight-$N$ $t$ | eleven-$N$ $t$ | drift |
+|---|---|---|---|
+| $11$ | $-1.38$ | $\mathbf{-2.37}$ | $-0.001589\to-0.001391$ |
+| $13$ | $-0.50$ | $-0.49$ | $-0.001948\to-0.000977$ |
+
+At $p=13$ the error halved and $t$ did not move: that is a prime with
+no drift to find. At $p=11$ the error halved and $t$ rose from $1.38$
+to $2.37$ — **still short of $3$ and heading for it**, so the run's
+closing sentence, that $3$ and $7$ are special rather than merely
+loudest, is right about $13$ and premature about $11$.
+
+**HH4 holds at ninety-six per cent of its cap, and the diagnostic says
+why that matters.** It capped how far the drifts moved, not by what
+factor. Relatively:
+
+$$p=3:\ 0.83298,\qquad p=7:\ 0.83429,\qquad p=11:\ 0.87551 .$$
+
+**The two resolved primes shrink by the same factor, differing by
+$0.00130$.** A slope that shrinks when the field lengthens is not a
+slope, and two slopes shrinking together say the linear model is
+failing the same way at both. This run measures that and proposes
+nothing to replace it.
+
+**And it is the same disease twice.** [rem:valuation] found that a
+ten-point slope of the deficit moves $0.03$ to $0.08$ under its own
+window, because the underlying function is curved; the corrections'
+drifts now do the identical thing, by seventeen per cent over one
+extra decade. **Every "drift" this branch has quoted for $c(p,N)$ —
+including [rem:localcorrections]'s $t=-13.19$ and this run's own
+numbers — is a window-dependent quantity**, and the resolution of
+$c(3)$ and $c(7)$ says they move, not how fast.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 
