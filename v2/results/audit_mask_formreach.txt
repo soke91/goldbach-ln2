@@ -1,0 +1,94 @@
+STATISTIC: the fraction of simulated fields in which the
+           power law N^-a beats (log N)^-b on weighted
+           r.m.s., when the data are drawn from the power
+           law with the mask's own scatter, as the log-range
+           is extended with the band density and the error
+           law held fixed; and the extension at which that
+           fraction first reaches 95 per cent.
+NULL: RUN, and it is the whole measurement. Data are drawn
+      from the fitted power law with Gaussian errors of the
+      recorded se, both forms are fitted by the same
+      weighted least squares, and 'separated' counts the
+      draws in which the true form has the smaller weighted
+      r.m.s. The fixed SEED governs every draw.
+FIELD: the per-depth band tables of
+       v1/results/wall/lab_mask_amplitude_law.txt at the
+       three depths {#rem:maskfloornull} leaves standing --
+       0, 2 and 3 -- fifteen half-octave bands over a factor
+       160 in N, with the exact errors of Lemma lem:cellmom.
+       Nothing about the mask is measured here; the
+       exponents are refitted only as H1's control against
+       v1/results/wall/lab_mask_exponent_se.txt.
+
+read the depth tables from v1/results/wall/lab_mask_amplitude_law.txt; nothing about the mask
+  is measured here
+SEED 20260823
+DRAWS 2000
+PRINTBOUND audit_mask_formreach 4 0.00005000
+
+H1  the control on the surviving depths
+  depth 0  a = 0.6289 against v1's 0.6289  yes
+  depth 2  a = 0.3686 against v1's 0.3686  yes
+  depth 3  a = 0.2713 against v1's 0.2713  yes
+  H1 hold   (cap: the four decimals v1 prints)
+
+  the design: 15 bands over 4.7904 in log N, a factor of 120
+SCALES 1
+
+H2/H3/H4  extending the range with the band density fixed
+  depth  extension  factor in N   bands   power wins  effective n
+  0      1          1.204e+02     15      0.2440      4.99
+  0      2          1.448e+04     29      0.1970      5.01
+  0      4          2.098e+08     57      0.2110      5.01
+  0      8          4.402e+16     113     0.2155      5.01
+  0      16         1.938e+33     225     0.2360      5.01
+  0      32         3.755e+66     449     0.1995      5.01
+  0      64         1.410e+133    897     0.2215      5.01
+  0      128        1.989e+266    1793    0.2185      5.01
+NULL mask_formreach_depth0 0.2185
+  2      1          1.204e+02     15      0.3660      8.30
+  2      2          1.448e+04     29      0.2610      8.85
+  2      4          2.098e+08     57      0.2465      8.87
+  2      8          4.402e+16     113     0.2485      8.87
+  2      16         1.938e+33     225     0.2495      8.87
+  2      32         3.755e+66     449     0.2350      8.87
+  2      64         1.410e+133    897     0.2555      8.87
+  2      128        1.989e+266    1793    0.2460      8.87
+NULL mask_formreach_depth2 0.2460
+  3      1          1.204e+02     15      0.5690      10.47
+  3      2          1.448e+04     29      0.5505      12.33
+  3      4          2.098e+08     57      0.3620      12.58
+  3      8          4.402e+16     113     0.3435      12.58
+  3      16         1.938e+33     225     0.3465      12.58
+  3      32         3.755e+66     449     0.3440      12.58
+  3      64         1.410e+133    897     0.3135      12.58
+  3      128        1.989e+266    1793    0.3385      12.58
+NULL mask_formreach_depth3 0.3385
+
+  depth 0 does not separate at any extension tried (up to 128)
+FORMREACH mask_depth0 0.00
+  depth 2 does not separate at any extension tried (up to 128)
+FORMREACH mask_depth2 0.00
+  depth 3 does not separate at any extension tried (up to 128)
+FORMREACH mask_depth3 0.00
+  H2 hold   (cap: not separated at the observed range)
+  H3 REFUTED   (cap: separated at some extension tried)
+  H4 REFUTED   (cap: a factor above 10^6)
+
+why the table does not rise -- diagnosed after the run, predicted by nothing
+  the weights are (dm/se)^2 and dm/se itself decays: {#rem:maskdmse} measured
+  the amplitude exponent at 0.6289 and the error's at 0.0420, so the weight falls
+  like N to the minus twice their difference. Bands added past the observed
+  range carry almost no weight, and the effective sample size above stops
+  growing while the band count doubles. **The design cannot answer the question
+  it was registered to ask**, and the refutation of H3 and H4 is that, not a
+  fact about the two forms. What is real underneath it is that the informative
+  window is bounded: the mask sinks below its own error, and range past that
+  point adds bands that measure nothing.
+
+what this settles
+  no extension tried separates them; whether that is a ceiling or a short
+  search is what the table above shows
+
+======================================================================
+H1 hold  H2 hold  H3 REFUTED  H4 REFUTED

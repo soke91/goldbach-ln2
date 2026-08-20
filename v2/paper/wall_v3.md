@@ -2917,6 +2917,61 @@ the binding limitation on both other axes, and it is the binding one
 here too.
 
 
+#### Remark (a design that could not ask its question, and what that shows) {#rem:maskformreach}
+<!-- evidence: audit_mask_formreach.py -->
+
+v1 stated a limitation and OPEN.md item 3 carried it unquantified:
+over a factor $160$ in $N$ the data do not separate $N^{-a}$ from
+$(\log N)^{-b}$, so the mask's exponents are exponents of an assumed
+form. That says the forms do not separate. It does not say what
+would, and the answer decides whether the limitation is this
+program's budget or the question's nature.
+
+This run set out to measure it and **failed, in a way worth
+recording.** The exponents reproduce (H1) and v1's statement holds
+where it was made: drawing from the power law at the observed range,
+the power law wins on weighted r.m.s. in $0.2440$ of draws at depth
+0, so the forms are not separated (H2). Extending the range with the
+band density and the error law fixed, the fraction does not rise —
+$0.1970$, $0.2110$, $0.2155$, $0.2360$, $0.1995$, $0.2215$, $0.2185$
+across extensions to a factor $10^{266}$ in $N$. **H3 and H4 are
+refuted, and neither refutation means anything about the two forms.**
+
+The diagnostic says why, and it is one number. The effective sample
+size, $(\sum w)^2/\sum w^2$, reads $4.99$ at the observed range and
+$5.01$ at every extension after it, while the band count runs $15$,
+$29$, $57$, $113$, $225$, $449$, $897$, $1793$. **Every band added
+past the observed range carries no weight.** The weights are
+$(dm/se)^2$, and [rem:maskdmse] measured the amplitude's exponent at
+$0.6289$ against the error's at $0.0420$; the weight therefore falls
+like $N$ to twice their difference, and the design is asking for
+information from a region where the mask has already sunk below its
+own error.
+
+So the registered question was malformed, and its malformation is
+the finding. **The informative window is bounded.** Extending $N$
+does not buy range for this measurement — past a point it buys bands
+that measure nothing, and the point is set by how fast the signal
+falls relative to the error, not by any budget. Whatever separates
+$N^{-a}$ from $(\log N)^{-b}$ for this mask, it is not more $N$.
+
+That is the third axis to reach the same place by a different route.
+[rem:ladderdegree] found the level axis unable to challenge its own
+family for want of points; [rem:deficitregion] found the sign axis
+resolving a new degree at almost every order while the residual
+conceded nothing; and here the wall's mask cannot be given more
+information at all. **On none of the three does the form follow from
+the data, and on none of the three does more computation change
+that.**
+
+One caution on this remark itself. What is shown is that *this*
+design — v1's weights, v1's error law, the band density held fixed —
+cannot separate the forms at any range. A design that reweighted, or
+that measured the mask where it has not yet sunk, is untouched by
+this and unexplored. The claim is about the reach of a measurement
+already made, not about the mask.
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 
