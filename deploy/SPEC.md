@@ -252,6 +252,10 @@ Theorem 1, Corollary 2, Theorem 3, Proposition 4, Lemma 5, ...
 - [ ] `\subsection{What is not claimed}` 존재
 - [ ] §3.4 목록의 7개 항목이 전부 살아 있음
 - [ ] `\ref` 가 전부 실재하는 `\label` 을 가리킴 (미해결 참조 0)
-- [ ] `pdflatex` 2회 통과, 경고 외 오류 0
+- [ ] `pdflatex` 2회 통과, **오류 0 · 경고 0 · overfull hbox 0**
+      (수식이 든 절 제목은 `\texorpdfstring` 으로 감싼다 — 안 그러면
+      hyperref 가 북마크 문자열에서 토큰을 버리며 경고한다;
+      프리앰블에 `\emergencystretch=3em` 을 두어 긴 `\texttt{}` 이름과
+      수치 나열이 여백을 넘지 않게 한다)
 - [ ] `MANIFEST.md` 의 스크립트·결과가 `deploy/code`·`deploy/results` 에 실재
 - [ ] 한국어 0자 (`papers/` 안)

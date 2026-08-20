@@ -5131,6 +5131,63 @@ by more than that radical's own drift accounts for**, in a measurement
 with no window to blame. One pair out of three is a finding; it is not
 the collapse the sentence claims.
 
+#### Remark (packed close: the level carries scatter, and how much) {#rem:leveldense}
+<!-- evidence: audit_level_dense.py -->
+
+[rem:levelmatched]'s control failed on one pair of three: two $N$ of
+radical $\{2,7\}$, $0.133531$ apart in $\log N$, with $L$ differing by
+$0.066632$ where a smooth $L$ at that radical's drift gives $0.018$.
+Packing $N$ close inside one radical decides what that was — halve the
+gap and a smooth $L$ halves the difference, while scatter stays put.
+Fourteen $N$ of each of $\{2,7\}$ and $\{2,5\}$, all $2^ap^b$;
+$128/125=1.024$ makes $\{2,5\}$ supply seven pairs at a $\log$ gap of
+$0.0237$, where the two readings are $0.0034$ and $0.05$.
+
+**T3 is refuted: seven of twelve close pairs exceed the cap.**
+
+| radical | $\log$ gap | $\lvert\Delta L\rvert$ | smooth |
+|---|---|---|---|
+| $\{2,5\}$ | $0.023717$ | $0.064590$ | $0.003428$ |
+| $\{2,5\}$ | $0.023717$ | $0.028794$ | $0.003428$ |
+| $\{2,7\}$ | $0.025490$ | $0.062849$ | $0.003310$ |
+| $\{2,5\}$ | $0.023717$ | $0.002779$ | $0.003428$ |
+
+The largest is $0.064590$ — **nineteen times what a smooth $L$ gives
+at that spacing** — and the median of the twelve is $0.017737$, five
+times it. **The differences do not shrink with the gap**, which is
+what scatter at fixed radical means.
+
+**T2 and T4 hold, and the first of them is the scatter's size, not
+its absence.** A line through each radical's fourteen points has
+r.m.s. residual $0.029924$ and $0.028850$ against a cap of $0.03$ — a
+margin of one part in three hundred — and those residuals *are* the
+scatter T3 detects. The slopes, $+0.163956$ and $+0.127948$ against
+published drifts of $+0.144537$ and $+0.129861$, agree within $0.05$:
+**the level's own slope is the drift**, measured without any window.
+
+**So the size is the finding, as the rule required.** Every statement
+about the radical in this branch carries an unmodelled term of about
+$0.03$ in $L$. Against [rem:levelmatched]'s radical separation of
+$1.890177$ that is a sixtieth: **the radical effect is real and sixty
+times the noise, and the noise is the precision floor for any radical
+claim here.**
+
+**This run's closing sentence is wrong,** as written to fire on T3's
+failure: it says the radical does not determine the level. It
+determines it to within a sixtieth of its own range. What T3
+establishes is the size of what the radical does *not* determine, not
+that it determines nothing.
+
+**And the first execution had two wrong $N$**, disclosed in the result
+file. Its $p=7$ list carried $1834496$ and $3668992$ as $2^{18}\cdot7$
+and $2^{19}\cdot7$; they are $2^9\cdot3583$ and $2^{10}\cdot3583$, and
+$2^{18}\cdot7$ is $1835008$. Those two produced that run's largest
+$\lvert\Delta L\rvert$, both near one, by comparing across radicals —
+the radical effect, not scatter. The list is corrected, every verdict
+above is on the corrected field, and the script now asserts each $N$
+has the radical it claims. T3 was refuted in that execution and is
+refuted here on pairs the slip never touched.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

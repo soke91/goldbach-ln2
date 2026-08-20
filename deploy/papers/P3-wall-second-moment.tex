@@ -28,6 +28,9 @@
 \renewcommand{\SS}{\mathfrak{S}}
 \newcommand{\AAA}{\mathfrak{A}}
 
+% typographic slack: let TeX stretch a line rather than run into the margin
+\emergencystretch=3em
+
 \title{The exact second moment of
 $\sum_{n<N}\Lambda(n)\mu(N-n)$,\\
 and why Chowla's conjecture does not control it}
@@ -216,6 +219,7 @@ is $1.270800$ against the predicted $1/\AAA(N)=1.270204$. By cells,
 with cell $j$ the even $N$ divisible by $2$ and by the first $j-1$ of
 $3,5,7,11,13$:
 \[
+\setlength{\arraycolsep}{3pt}
 \begin{array}{r|cccccc}
  \text{modulus} & 2 & 6 & 30 & 210 & 2310 & 30030\\
  \text{count} & 7950000 & 2650000 & 530000 & 75714 & 6883 & 529\\\hline
@@ -250,9 +254,11 @@ Fix $X$ and let
 be the truncated convolution, whose support runs to $2X$. Then
 \[
   \sum_{N\le2X}\widehat C(N)^2\;=\;\sum_{|h|<X}M(h)\,P(h),
-  \qquad
+\]
+where
+\[
   M(h)=\sum_{v,\,v+h\le X}\mu(v)\mu(v+h),
-  \quad
+  \qquad
   P(h)=\sum_{w,\,w+h\le X}\Lambda(w)\Lambda(w+h).
 \]
 \end{lemma}
@@ -452,11 +458,18 @@ inversion.
 
 \begin{measurement}[the discriminator, and the price of inverting]%
 \label{meas:disc}
-$T(x)$ reads $-0.405600,\,-0.405270,\,-0.405286,\,-0.405295$ at
-$x=10^4,10^5,10^6,2\cdot10^6$ against $-4/\pi^2=-0.405285$, while the
-worst of twenty independent-sign draws on the same support is
-$0.020600,\,0.004570,\,0.001214,\,0.000935$. At the top the separation
-is about $430$ standard deviations of the sign ensemble.
+At $x=10^4,\,10^5,\,10^6,\,2\cdot10^6$, against
+$-4/\pi^2=-0.405285$,
+\[
+  T(x)\;=\;-0.405600,\ -0.405270,\ -0.405286,\ -0.405295,
+\]
+while the worst of twenty independent-sign draws on the same support
+is
+\[
+  0.020600,\ 0.004570,\ 0.001214,\ 0.000935 .
+\]
+At the top the separation is about $430$ standard deviations of the
+sign ensemble.
 
 The constructive route of (ii) is killed by amplification, not by
 information. The inverse filter grows geometrically: $|a(m)|$ runs

@@ -30,6 +30,9 @@
 \DeclareMathOperator{\rad}{rad}
 \DeclareMathOperator{\lcm}{lcm}
 
+% typographic slack: let TeX stretch a line rather than run into the margin
+\emergencystretch=3em
+
 \title{No weight extracts $\sum_{n<N}\Lambda(n)\mu(N-n)$:\\
 a no-go for the divisor-switch route,\\
 with the exact identities of its design space}
@@ -365,10 +368,12 @@ $\mu^2(k)=\sum_{d^2\mid k}\mu(d)$ and writing $k=d^2j$,
   \sum_{p<N}\Lambda(N-p)\log p
    \;=\!\!\sum_{\substack{m,d\ \text{squarefree}\\ (d,m)=1,\ md^2<N}}\!\!
      \mu(m)\mu(d)\,L_2(N;m,d),
-  \qquad
+\end{equation}
+where
+\[
   L_2(N;m,d)=\!\!\sum_{\substack{j<N/(md^2)\\ (j,m)=1}}\!\!
    \log(d^2j)\,\Lambda\bigl(N-md^2j\bigr),
-\end{equation}
+\]
 and $L_2$ carries no squarefree condition: it is a prime count in the
 progression $p\equiv N\pmod{md^2}$, an unadorned
 Bombieri--Vinogradov object of modulus $q=md^2$.
@@ -442,10 +447,13 @@ only near $N=10^{10.16}$
 \subsection{The two opposing constraints}
 
 \begin{lemma}[extraction]\label{lem:extract}
-$\displaystyle B_w=\sum_{\substack{d<K\\(d,N)=1}}b_d\,
- \frac{\mu(d)}{\varphi(d)}\,\rho_{dN}\!\left(\frac{K}{d}\right)$,
-where $\rho_{n}(x)=\sum_{j<x,\,(j,n)=1}\mu(j)/\varphi(j)
- \ll e^{-c_1\sqrt{\log x}}$.
+\[
+  B_w=\sum_{\substack{d<K\\(d,N)=1}}b_d\,
+   \frac{\mu(d)}{\varphi(d)}\,\rho_{dN}\!\left(\frac{K}{d}\right),
+  \qquad
+  \rho_{n}(x)=\!\!\sum_{j<x,\,(j,n)=1}\!\!\frac{\mu(j)}{\varphi(j)}
+   \;\ll\;e^{-c_1\sqrt{\log x}}.
+\]
 \end{lemma}
 
 \begin{proof}
@@ -710,8 +718,11 @@ Since the switch is closed over its whole design space, it is worth
 recording the exact position of the other classical mechanism. Write
 \[
   C(N)=\int_0^1S_\Lambda(\alpha)\,S_\mu(-\alpha)\,e(-N\alpha)\,d\alpha,
+\]
+where
+\[
+  S_\Lambda(\alpha)=\sum_{n\le N}\Lambda(n)e(n\alpha),
   \qquad
-  S_\Lambda(\alpha)=\sum_{n\le N}\Lambda(n)e(n\alpha),\quad
   S_\mu(\alpha)=\sum_{m\le N}\mu(m)e(m\alpha).
 \]
 

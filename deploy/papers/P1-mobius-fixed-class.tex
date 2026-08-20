@@ -32,6 +32,9 @@
 \DeclareMathOperator{\rad}{rad}
 \DeclareMathOperator{\lcm}{lcm}
 
+% typographic slack: let TeX stretch a line rather than run into the margin
+\emergencystretch=3em
+
 \title{An unconditional bound for a M\"obius-weighted correlation sum
 in fixed residue classes, with two consequences for the Huang--Li
 reduction of Goldbach to Elliott--Halberstam}
@@ -382,11 +385,11 @@ a multiple of $k$ in $[N-t,N)$,
   \sigma_K(u):=\sum_{\substack{k\mid u,\ k<K\\ (k,N)=1}}\mu(k).
 \end{equation}
 This is a finite rearrangement, hence exact. It is verified
-independently in
-\texttt{audit\_switch\_identity.py}, which accumulates the two sides
-in genuinely different index orders --- the $k$-side by modular
-slices, the $u$-side against a divisor-sum array --- and finds them
-equal to $10^{-16}$ relative to $N$.
+independently by a script that accumulates the two sides in genuinely
+different index orders --- the $k$-side by modular slices, the
+$u$-side against a divisor-sum array --- and finds them equal to
+$10^{-16}$ relative to $N$
+(\texttt{audit\_switch\_identity.py}).
 
 \subsection{Step 2: the complete divisor sum}
 
@@ -524,9 +527,12 @@ $Q\le N^{1/2}(\log N)^{-C}$,
 
 \begin{proof}
 Write $\mathcal E_q$ for the inner maximum. By Cauchy--Schwarz,
-$\sum_q\tau_3^B\mathcal E_q\le
-(\sum_q\tau_3^{2B}\mathcal E_q)^{1/2}(\sum_q\mathcal E_q)^{1/2}$. For
-the first factor use the trivial bound
+\[
+  \sum_q\tau_3^B\mathcal E_q
+  \;\le\;\Bigl(\sum_q\tau_3^{2B}\mathcal E_q\Bigr)^{1/2}
+         \Bigl(\sum_q\mathcal E_q\Bigr)^{1/2}.
+\]
+For the first factor use the trivial bound
 $\mathcal E_q\ll(N/\varphi(q))\log N$, giving $\ll N(\log N)^{C_1(B)}$;
 for the second use Bombieri--Vinogradov \cite{MV} with exponent
 $2A+C_1(B)$.
@@ -885,10 +891,13 @@ Goldbach count is largest
 
 \begin{measurement}[what the weakening relocates]\label{meas:relocate}
 At $\theta'=0.56$ and $N=2\cdot10^5$ through $3.2\cdot10^6$, the
-quantity $B(N)$ of \eqref{eq:Bsum} satisfies $B(N)/N=
-0.8086,\,0.7395,\,0.7303,\,0.6547,\,0.5916$ against a threshold of
-$0.3745N$, so the ratio $B(N)/(\SS(N)(1-\AAA(N))N)$ falls
-$2.159,\,1.975,\,1.950,\,1.748,\,1.580$. The object
+quantity $B(N)$ of \eqref{eq:Bsum} satisfies
+\[
+  B(N)/N\;=\;0.8086,\ 0.7395,\ 0.7303,\ 0.6547,\ 0.5916
+\]
+against a threshold of $0.3745N$, so the ratio
+$B(N)/(\SS(N)(1-\AAA(N))N)$ falls
+$2.159$, $1.975$, $1.950$, $1.748$, $1.580$. The object
 Proposition~\ref{prop:nolog} constrains is therefore already within a
 factor $1.6$ of the threshold at the top of the accessible range, and
 falling; but a constant-factor bound valid for \emph{all} large $N$ is

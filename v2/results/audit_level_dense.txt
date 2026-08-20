@@ -1,0 +1,152 @@
+STATISTIC: L(N) = log(|sum a| / l2) at single N, packed close
+           inside one radical, and the difference of neighbouring
+           L against what a smooth L rising at that radical's own
+           published drift would give.
+FIELD: N = 2^a p^b in [1000000, 3764768] for p = 7 and p = 5, fourteen
+       each; k over the squarefree k < N^0.56 coprime to N; j
+       over every index below N. Three L are READ from
+       results/audit_level_matched.txt as the gate and each
+       radical's drift from results/audit_valuation.txt.
+NOTE: no slope is used to judge anything here; the slope is
+      fitted only to be compared with the published drift.
+
+READ audit_level_matched.txt 1882384 2.008906
+READ audit_level_matched.txt 2151296 2.075538
+READ audit_level_matched.txt 2000000 2.166023
+READ audit_valuation.txt drift_5 0.144537
+READ audit_valuation.txt drift_7 0.129861
+READ audit_level_matched.txt spread 1.890177
+  three levels, each radical's mean drift, and the radical spread
+PRINTBOUND audit_level_dense 6 0.0000005000
+  theta 0.56, r.m.s. cap 0.03, close gap 0.03, close cap 0.01, slope cap 0.05
+RADICALS 2
+  NOTE, disclosed: the first execution's p = 7 list carried
+  1834496 and 3668992 as 2^18*7 and 2^19*7. They are not: they are
+  2^9*3583 and 2^10*3583, radical {2,3583}, and 2^18*7 is 1835008.
+  They gave the two largest |dL| of that run, both near one, by
+  comparing across radicals -- which rem:levelmatched measured as worth
+  up to 1.890177, so those were not scatter but the radical effect.
+  Their values are not quoted: that execution's result file has been
+  overwritten and a number no file carries is not one to print.
+  The list is corrected here and every verdict below is on the
+  corrected field. T3 was refuted in that execution and is refuted here
+  too, on pairs the slip never touched.
+  every N checked: each is 2^a p^b with the radical it claims
+sieving to 3764768
+
+radical {2,7}, drift +0.129861
+  N = 1075648   log N 13.888434   L +1.947782
+POINT dense_1075648 1.947782
+  N = 1229312   log N 14.021965   L +1.913381
+POINT dense_1229312 1.913381
+  N = 1404928   log N 14.155497   L +2.008386
+POINT dense_1404928 2.008386
+  N = 1605632   log N 14.289028   L +2.017114
+POINT dense_1605632 2.017114
+  N = 1647086   log N 14.314518   L +2.014718
+POINT dense_1647086 2.014718
+  N = 1835008   log N 14.422559   L +2.035603
+POINT dense_1835008 2.035603
+  N = 1882384   log N 14.448050   L +2.008906
+POINT dense_1882384 2.008906
+  N = 2151296   log N 14.581581   L +2.075538
+POINT dense_2151296 2.075538
+  N = 2458624   log N 14.715112   L +2.042503
+POINT dense_2458624 2.042503
+  N = 2809856   log N 14.848644   L +2.128969
+POINT dense_2809856 2.128969
+  N = 3211264   log N 14.982175   L +2.070285
+POINT dense_3211264 2.070285
+  N = 3294172   log N 15.007665   L +2.075348
+POINT dense_3294172 2.075348
+  N = 3670016   log N 15.115707   L +2.066584
+POINT dense_3670016 2.066584
+  N = 3764768   log N 15.141197   L +2.129433
+POINT dense_3764768 2.129433
+
+radical {2,5}, drift +0.144537
+  N = 1000000   log N 13.815511   L +2.098421
+POINT dense_1000000 2.098421
+  N = 1024000   log N 13.839227   L +2.095643
+POINT dense_1024000 2.095643
+  N = 1250000   log N 14.038654   L +2.093243
+POINT dense_1250000 2.093243
+  N = 1280000   log N 14.062371   L +2.106794
+POINT dense_1280000 2.106794
+  N = 1310720   log N 14.086087   L +2.078000
+POINT dense_1310720 2.078000
+  N = 1562500   log N 14.261798   L +2.178691
+POINT dense_1562500 2.178691
+  N = 1600000   log N 14.285514   L +2.114102
+POINT dense_1600000 2.114102
+  N = 1638400   log N 14.309231   L +2.119318
+POINT dense_1638400 2.119318
+  N = 2000000   log N 14.508658   L +2.166023
+POINT dense_2000000 2.166023
+  N = 2048000   log N 14.532374   L +2.187946
+POINT dense_2048000 2.187946
+  N = 2500000   log N 14.731801   L +2.282956
+POINT dense_2500000 2.282956
+  N = 2560000   log N 14.755518   L +2.260877
+POINT dense_2560000 2.260877
+  N = 3125000   log N 14.954945   L +2.237018
+POINT dense_3125000 2.237018
+  N = 3200000   log N 14.978661   L +2.240408
+POINT dense_3200000 2.240408
+SCALES 28
+
+T1  the gate
+  N = 1882384   here +2.008906 against its +2.008906  ok
+  N = 2151296   here +2.075538 against its +2.075538  ok
+  N = 2000000   here +2.166023 against its +2.166023  ok
+  T1 hold   (cap: 6 decimals)
+
+T2, T4  is L smooth inside a radical, and at the drift?
+  {2,5}: slope +0.163956 against drift +0.144537, r.m.s. residual 0.029924
+POINT denserms_5 0.029924
+POINT denseslope_5 0.163956
+  {2,7}: slope +0.127948 against drift +0.129861, r.m.s. residual 0.028850
+POINT denserms_7 0.028850
+POINT denseslope_7 0.127948
+  T2 hold   (cap: 0.03 r.m.s.)
+  T4 hold   (cap: 0.05)
+
+T3  the close pairs
+    radical  N1        N2         log gap    |dL|      smooth
+    {2,5}   1000000   1024000    0.023717  0.002779  0.003428  ok
+POINT closepair_1000000 0.002779
+    {2,5}   1250000   1280000    0.023717  0.013551  0.003428  ABOVE
+POINT closepair_1250000 0.013551
+    {2,5}   1280000   1310720    0.023717  0.028794  0.003428  ABOVE
+POINT closepair_1280000 0.028794
+    {2,5}   1562500   1600000    0.023717  0.064590  0.003428  ABOVE
+POINT closepair_1562500 0.064590
+    {2,5}   1600000   1638400    0.023717  0.005216  0.003428  ok
+POINT closepair_1600000 0.005216
+    {2,5}   2000000   2048000    0.023717  0.021923  0.003428  ABOVE
+POINT closepair_2000000 0.021923
+    {2,5}   2500000   2560000    0.023717  0.022078  0.003428  ABOVE
+POINT closepair_2500000 0.022078
+    {2,5}   3125000   3200000    0.023717  0.003390  0.003428  ok
+POINT closepair_3125000 0.003390
+    {2,7}   1605632   1647086    0.025490  0.002396  0.003310  ok
+POINT closepair_1605632 0.002396
+    {2,7}   1835008   1882384    0.025490  0.026697  0.003310  ABOVE
+POINT closepair_1835008 0.026697
+    {2,7}   3211264   3294172    0.025490  0.005063  0.003310  ok
+POINT closepair_3211264 0.005063
+    {2,7}   3670016   3764768    0.025490  0.062849  0.003310  ABOVE
+POINT closepair_3670016 0.062849
+  12 close pairs, largest |dL| 0.064590, median 0.017737
+POINT closemax 0.064590
+POINT closemedian 0.017737
+  T3 REFUTED   (cap: 0.01 on every close pair)
+
+======================================================================
+T1 hold  T2 hold  T3 REFUTED  T4 hold
+
+L carries scatter at fixed radical that does not shrink with the
+spacing. the radical does not determine the level, and the failure
+cannot be laid on a window because there is none. every radical
+number in this branch is a number plus an unmodelled term of the
+size printed above, and that size is what this run establishes.

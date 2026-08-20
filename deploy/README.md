@@ -9,6 +9,7 @@ SPEC.md        논문 작성 규약 — 양식, 규칙, 넣을 것, 뺄 것
 INVENTORY.md   전체 프로젝트 분석 — 진술 37개, 논문 주제 5편
 MANIFEST.md    논문 ↔ 진술 ↔ 코드 ↔ 결과 대응표
 papers/        P1..P5 (.tex, 각각 독립 컴파일)
+pdf/           컴파일 산출물 (검증본)
 code/          논문이 인용하는 스크립트 30개
 results/       그 결과 파일 30개
 lib/goldbach/  스크립트가 쓰는 공용 모듈
@@ -41,16 +42,33 @@ lib/goldbach/  스크립트가 쓰는 공용 모듈
 
 ---
 
-## 컴파일
+## 컴파일 — 검증됨
 
 ```bash
 cd papers
 pdflatex P1-mobius-fixed-class.tex && pdflatex P1-mobius-fixed-class.tex
 ```
 
+TeX Live(scheme-small)에서 **5편 전부 2회 통과, 종료코드 0**.
+
+| 논문 | 쪽 | 오류 | 미해결 참조 | 경고 | overfull |
+|---|---|---|---|---|---|
+| P1 | 14 | 0 | 0 | 0 | 0 |
+| P2 | 11 | 0 | 0 | 0 | 0 |
+| P3 | 7 | 0 | 0 | 0 | 0 |
+| P4 | 6 | 0 | 0 | 0 | 0 |
+| P5 | 8 | 0 | 0 | 0 | 0 |
+
+결과물은 `pdf/` 에 있다. 남은 것은 underfull hbox 뿐이고(P1–P3 각 2,
+P5 의 longtable 11) 이는 낱말 간격이 느슨하다는 뜻이라 지면에 드러나지
+않는다.
+
 외부 스타일 파일 없음. `amsmath`·`amssymb`·`amsthm`·`geometry`·`hyperref`
 (+ P5 는 `longtable`) 만 쓴다. 참고문헌은 `thebibliography` 내장이라
 BibTeX 불필요. arXiv 업로드에 그대로 올라간다.
+
+이 저장소의 `v1/paper/*.tex` 와 같은 프리앰블 계열이고, 그쪽은 예전에
+실제로 PDF 까지 간 적이 있다(`Z:\업무\소수증명\goldbach-ln2\v3\paper\*.pdf`).
 
 ## 재현
 
