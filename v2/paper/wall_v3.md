@@ -2124,6 +2124,65 @@ here, and the honest bound is the smallest ratio seen at each $N$.
 G19 caught two of those minima typed by hand into a sentence rather
 than read from the file that produced them; they are read now.
 
+#### Remark (the mechanism is measured, the word "floor" was wrong, and the bound is looser than it looked) {#rem:identityfloor}
+<!-- evidence: audit_identity_floor.py -->
+
+[rem:identityseeds] and [rem:identitybig] both saw the multiplicative
+ensemble's low end behave oddly and both offered the same reading as
+an observation. It is not a guess. For multiplicative $s$,
+$\log k=\sum_{p\mid k}\log p$ gives
+
+$$
+W(v)=\sum_{k\mid v}s(k)\log k
+ =\sum_{p\mid v}\log(p)\,s(p)\!\!\prod_{q\mid v,\,q\neq p}\!\!(1+s(q)),
+$$
+
+so **if two primes dividing $v$ carry $s(q)=-1$ every term has a zero
+factor and $W(v)=0$**: $W$ lives on the $v$ with at most one negative
+prime. Scoring each draw by $m$, how many of the ten smallest primes
+it sends to $-1$, tests whether that is what drives the measured
+minimum. The draws are the same draws — same seed, sieve top and pass
+order as [rem:identitydeep], and the minima reproduce at $1.9149$ and
+$2.0030$ (P1).
+
+| $m$ | draws | ratio min | ratio median |
+|---|---|---|---|
+| $1$ | $6$ | $8.3324$ | $9.4563$ |
+| $4$ | $104$ | $2.5903$ | $5.2067$ |
+| $7$ | $60$ | $1.9149$ | $3.0533$ |
+| $9$ | $5$ | $2.0899$ | $2.2391$ |
+
+**The mechanism is real and it dominates** (P2): the slope of
+$\log(\text{ratio})$ on $m$ is $-0.15802\pm0.00925$, $t=-17.08$, and
+the median falls monotonically from $9.4563$ to $2.2391$ across the
+range. The minimising draw has $m=7$, in the top decile (P3).
+
+**P4 is REFUTED and the sentence this run had waiting for that is
+wrong.** P4 asked whether the top decile of $m$ is tight — at most
+half the spread of the bottom decile — and got $1.2152$ against
+$1.8725$, a ratio of $0.6490$. The message written in advance for that
+outcome said the low end is a tail and the earlier reading was wrong.
+It does not follow, and P2 and P3 are why: the ratio is driven by $m$
+with a $t$ of seventeen, and the minimum is where $m$ is largest. What
+P4 actually shows is that the contraction with $m$ is **gradual**. The
+top decile is $m\ge7$ and is mostly $m=7$, where the ratio still runs
+$1.9149$ to $6.7781$; the tightness appears only at $m=9$, where five
+draws span $2.0899$ to $2.7002$. The cap was set without knowing that
+granularity.
+
+**And the run found something neither remark suspected.** The $m$
+counts are $6,27,59,104,137,94,60,20,5$ — no draw reached $m=10$.
+Ten independent signs give $m=10$ with probability $1/1024$, so $512$
+draws are expected to miss it, and they did. **The observed minimum is
+therefore the best of $m\le9$ and not the ensemble's infimum.** What a
+draw with every one of the ten smallest primes negative would give is
+not measured here, and it is the natural place for the bound to move.
+That does not touch [rem:identitydeep]'s refutation — no draw came
+within a factor of $1.9$ of $\mu$ — but it does mean the number
+$1.9149$ is a sample minimum in a stronger sense than "smallest of
+$512$": it is the smallest of $512$ draws none of which realised the
+configuration the mechanism says is best.
+
 #### Lemma (the placebo key) {#lem:placebo}
 <!-- evidence: lab_mask_placebo.py -->
 

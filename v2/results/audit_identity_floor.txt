@@ -1,0 +1,91 @@
+STATISTIC: for each of 512 random multiplicative draws, the
+           ratio |T|/(S(N)N) and m, the number of the 10
+           smallest primes the draw sends to -1; the slope of
+           log(ratio) on m, where the minimising draw sits in m,
+           and the ratio's spread in the top and bottom deciles
+           of m.
+FIELD: N = [200000, 400000]; k over every squarefree 2 <= k < N; S(N) from
+       the twin product at 4000000. Seed, sieve top (800000), pass
+       structure and draw order are those of
+       code/audit_directidentity_deep.py, so draw d here is draw
+       d there; that run's minima are READ from its result file
+       and re-measured here as the gate.
+SEED: numpy default_rng at 20260906; without it the file does not
+      reproduce its own control.
+
+READ audit_directidentity_deep.txt multiplicative 1.9149
+READ audit_directidentity_deep.txt multiplicative 2.0030
+  the minima this run has to reproduce, at N = [200000, 400000]
+PRINTBOUND audit_identity_floor 4 0.00005000
+  512 draws, scored by the 10 smallest primes
+sieving to 800000
+  the primes scored: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+
+  NOTE, disclosed: the first execution failed P1 -- the minima came out
+  higher than the run's own at both N, so the draws were not its draws.
+  Their values are not quoted here: that execution's result file has
+  been overwritten and a number no file carries is not one to print.
+  The cause is that
+  audit_directidentity_deep.py draws both arms from one generator, iid
+  first, so the multiplicative masks there come after the iid arm's
+  consumption. That consumption is replayed here and nothing else is
+  changed; P1 is what catches it either way.
+  pass 1 of 8, 64 draws
+  pass 2 of 8, 128 draws
+  pass 3 of 8, 192 draws
+  pass 4 of 8, 256 draws
+  pass 5 of 8, 320 draws
+  pass 6 of 8, 384 draws
+  pass 7 of 8, 448 draws
+  pass 8 of 8, 512 draws
+
+P1  are these the same draws?
+  N = 200000   minimum here 1.9149 against its 1.9149  ok
+  N = 400000   minimum here 2.0030 against its 2.0030  ok
+  P1 hold   (cap: 4 decimals at both)
+
+      m   draws     ratio min   ratio median   ratio max
+      1       6       8.3324         9.4563      9.6848
+POINT floorm_1 9.45634
+      2      27       4.1883         8.2789      9.7572
+POINT floorm_2 8.27893
+      3      59       3.3402         7.0173      9.7865
+POINT floorm_3 7.01732
+      4     104       2.5903         5.2067      9.8093
+POINT floorm_4 5.20669
+      5     137       2.4565         3.9884      8.5085
+POINT floorm_5 3.98843
+      6      94       2.3435         3.3398      7.0210
+POINT floorm_6 3.33982
+      7      60       1.9149         3.0533      6.7781
+POINT floorm_7 3.05334
+      8      20       2.2147         2.7237      5.4406
+POINT floorm_8 2.72372
+      9       5       2.0899         2.2391      2.7002
+POINT floorm_9 2.23912
+SCALES 1
+
+P2  does the ratio fall with m?
+  log(ratio) on m: slope -0.15802 +- 0.00925, t = -17.08
+TSTAT floor_slope -17.08
+SPREAD floor_slope 8.00000
+  P2 hold   (cap: negative and |t| > 2)
+
+P3  is the floor where m is largest?
+  the minimising draw has m = 7; the top decile of m starts at 7.0
+  the largest m any draw reaches is 9
+  P3 hold   (cap: in the top decile)
+
+P4  is it a floor or a tail?
+  top decile of m: 85 draws, ratio sd 1.2152
+  bottom decile:   92 draws, ratio sd 1.8725
+  ratio of spreads 0.6490
+POINT floor_spreadratio 0.64898
+  P4 REFUTED   (cap: at most 0.5 of the bottom decile's)
+
+======================================================================
+P1 hold  P2 hold  P3 hold  P4 REFUTED
+
+the low end is a tail and not a floor, so the reading rem:identityseeds
+and rem:identitybig offered is wrong and the stability they measured
+needs another explanation. The spreads are above.
