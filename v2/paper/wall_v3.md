@@ -4868,6 +4868,64 @@ can extrapolate, and [rem:shapepower] applies to it as to the rest.
 The design cannot separate $p$ from the base's own size or its
 $2$-adic valuation, one base per prime being all it has.
 
+#### Remark (the control this branch never ran, and the clause that barred it) {#rem:basecontrol}
+<!-- evidence: audit_base_control.py -->
+
+Writing this run made a larger gap plain than the one
+[rem:primecontrib] named. **Every measurement in this branch has used
+one base per radical.** [rem:whichfloor] compared $25000$ against
+$30030$; [rem:radicallaw] six bases with six radicals;
+[rem:primecontrib] nine more. In none of them was the same radical
+measured twice, so "the drift depends on which primes divide $N$" was
+never separated from "the drift depends on the base", and three
+remarks read a radical dependence off a design that could not tell.
+
+Six bases on $\{2,3\}$ spanning $2$-adic valuation $2$ to $12$, three
+on $\{2,5\}$, ten $N$ each. The gate reproduces both published drifts
+to six decimals on the nine $N$ that produced them (P1).
+
+| radical | drifts |
+|---|---|
+| $\{2,3\}$ | $.211888\ .213528\ .211865\ .205821\ .204441\ .208169$ |
+| $\{2,5\}$ | $.144190\ .138572\ .153405$ |
+
+P2, P3 and P4 all hold — ranges $0.009087$ and $0.014833$ against a
+cap of $0.02$, and the two radicals stay $+0.063896$ apart against a
+cap of $0.05$.
+
+**And P2's reading is barred by P2's own clause.** The clause said
+that a range below the largest single drift error means the control
+is underpowered rather than passed. The range is $0.009087$ and that
+error is $0.012752$, so it fires. **The control is not claimed to
+have passed.**
+
+**The clause used the wrong error, which is the sixth time in this
+branch.** It said "the largest single drift error" without saying
+within which radical, and the largest — $0.012752$, at base $31250$ —
+is in the *other* group. The $\{2,3\}$ group's own largest error is
+$0.007815$, below its range. The rule is not rewritten; it fires as
+written and the reading stays barred.
+
+**The statistic it meant to make** (a diagnostic, after the verdicts
+and predicted by nothing): each group against one constant, on its own
+errors. $\{2,3\}$ gives a weighted mean of $+0.209772$ with
+$\chi^2=2.512$ on five degrees; $\{2,5\}$ gives $+0.142637$ with
+$\chi^2=1.110$ on two. Both are comfortably consistent with one
+constant per radical, and neither shows any trend against $2$-adic
+valuation — the six $\{2,3\}$ bases run $v_2=6,8,2,10,4,12$ and their
+drifts do not order with it.
+
+**What this leaves.** The diagnostic says what the control was built
+to ask and answers it the favourable way, but it is a statistic chosen
+after seeing the numbers and **does not replace one chosen before
+them**. So the position is exactly this: the drift being a function of
+the radical is now *consistent with* a direct test at two radicals and
+nine bases, and is still not *established* by a pre-registered one.
+[rem:whichfloor], [rem:radicallaw] and [rem:primecontrib] keep their
+numbers and their readings remain uncontrolled until a run registers
+the $\chi^2$ test in advance — on a radical none of these used, so
+that it is blind as well as correct.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

@@ -1,0 +1,98 @@
+STATISTIC: the drift of log(|sum a|/l2) against log N for nine
+           doubling families sharing two radicals -- six on
+           {2,3} and three on {2,5} -- to separate a dependence
+           on the radical from a dependence on the base.
+FIELD: base * 2^j for j < 10; bases [15552, 20736, 26244, 27648, 34992, 36864] on {2,3} and [16000, 25000, 31250] on {2,5},
+       spanning 2-adic valuation 2 to 12. k over the squarefree
+       k < N^0.56 coprime to N; j over every index below N.
+       The two drifts rem:radicallaw published for its shared
+       bases are READ from results/audit_radical_law.txt and
+       reproduced on the 9 N that remark used.
+
+READ audit_radical_law.txt 20736 0.212384
+READ audit_radical_law.txt 25000 0.138010
+  the two drifts this run shares with rem:radicallaw
+PRINTBOUND audit_base_control 6 0.0000005000
+  theta 0.56, range cap 0.02, gap cap 0.05
+RADICALS 2
+sieving to 18874368
+
+radical {2,3}
+  base 15552  v2 6   drift +0.211888 +- 0.004659   (9 N: +0.214274)
+POINT basedrift_15552 0.211888
+SPREAD basedrift_15552 0.004659
+  base 20736  v2 8   drift +0.213528 +- 0.005467   (9 N: +0.212384)
+POINT basedrift_20736 0.213528
+SPREAD basedrift_20736 0.005467
+  base 26244  v2 2   drift +0.211865 +- 0.004101   (9 N: +0.217091)
+POINT basedrift_26244 0.211865
+SPREAD basedrift_26244 0.004101
+  base 27648  v2 10  drift +0.205821 +- 0.005465   (9 N: +0.209771)
+POINT basedrift_27648 0.205821
+SPREAD basedrift_27648 0.005465
+  base 34992  v2 4   drift +0.204441 +- 0.005309   (9 N: +0.207383)
+POINT basedrift_34992 0.204441
+SPREAD basedrift_34992 0.005309
+  base 36864  v2 12  drift +0.208169 +- 0.007815   (9 N: +0.215791)
+POINT basedrift_36864 0.208169
+SPREAD basedrift_36864 0.007815
+
+radical {2,5}
+  base 16000  v2 7   drift +0.144190 +- 0.008255   (9 N: +0.145248)
+POINT basedrift_16000 0.144190
+SPREAD basedrift_16000 0.008255
+  base 25000  v2 3   drift +0.138572 +- 0.006758   (9 N: +0.138010)
+POINT basedrift_25000 0.138572
+SPREAD basedrift_25000 0.006758
+  base 31250  v2 1   drift +0.153405 +- 0.012752   (9 N: +0.153218)
+POINT basedrift_31250 0.153405
+SPREAD basedrift_31250 0.012752
+SCALES 90
+
+P1  the gate, on the 9 N rem:radicallaw used
+  base 20736  here +0.212384 against its +0.212384  ok
+  base 25000  here +0.138010 against its +0.138010  ok
+  P1 hold   (cap: 6 decimals)
+  largest single drift error 0.012752
+
+P2  do the {2,3} bases agree?
+  drifts +0.211888 +0.213528 +0.211865 +0.205821 +0.204441 +0.208169
+  range 0.009087 over 6 bases
+POINT baserange_P2 0.009087
+  P2 hold   (cap: 0.02)
+  UNRESOLVED: the range is below the largest single drift error,
+  so the control is underpowered rather than passed and the reading
+  is barred, as the rule says
+
+P3  do the {2,5} bases agree?
+  drifts +0.144190 +0.138572 +0.153405
+  range 0.014833 over 3 bases
+POINT baserange_P3 0.014833
+  P3 hold   (cap: 0.02)
+
+P4  do the two radicals stay apart?
+  {2,3} mean +0.209285, {2,5} mean +0.145389, gap +0.063896
+POINT basegap 0.063896
+  P4 hold   (cap: above 0.05)
+
+  a diagnostic, after the verdicts and predicted by nothing
+  P2's clause compared the {2,3} range against the largest error over
+  both radicals, which lies in the other group. the statistic it meant
+  to make is each group against one constant, on its own errors.
+    {2,3}  weighted mean +0.209772, chi-square 2.512 on 5 degrees
+           range 0.009087 against this group's largest error 0.007815
+POINT groupchi_2_3 2.512040
+    {2,5}  weighted mean +0.142637, chi-square 1.110 on 2 degrees
+           range 0.014833 against this group's largest error 0.012752
+POINT groupchi_2_5 1.110284
+  read as a diagnostic and not as the registered control: the pre-
+  registered P2 is barred by its own clause and a statistic chosen
+  after the fact does not replace one chosen before it
+
+======================================================================
+P1 hold  P2 hold  P3 hold  P4 hold
+
+the control is underpowered. the bases neither agree nor disagree by
+more than one family's own error, so this field does not establish
+that the drift is a function of the radical -- and three remarks
+continue to rest on a design that cannot tell.

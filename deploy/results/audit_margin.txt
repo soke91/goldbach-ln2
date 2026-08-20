@@ -1,0 +1,68 @@
+STATISTIC: max |C(N)|/N over even N in each octave (T/2, T], with
+           C = mu * Lambda by exact FFT convolution; the exponent
+           b in a least-squares fit of log max|C|/N against
+           log T; the extrapolation 99 * 6.25^0.43; the Gumbel
+           form sqrt(N)/(a_n sqrt(A log N)) with
+           a_n = sqrt(2 log(N/2)) and A = 0.787275; and the
+           Cauchy-Schwarz closed form sqrt(6(log N - 1)/pi^2)
+           against ||S_Lambda||_2 ||S_mu||_2 / N.
+FIELD: even N; octaves with tops 3e4, 6e4, ... up to 1.6e7;
+       Lambda and mu from an integer sieve to 1.6e7; the Gumbel
+       evaluations at N = 10^12 and 10^50; the Cauchy-Schwarz
+       check at N = 2^20.
+
+sieving to 16000000 ...
+convolving C = mu * Lambda ...
+
+M1/M2   max |C|/N by octave, read as (X/2, X]
+  octave top     count      max |C|/N     argmax N
+  --------------------------------------------------------
+  30000          7500       0.169339      16170
+  60000          15000      0.172714      30030
+  120000         30000      0.108850      60060
+  240000         60000      0.068115      120120
+  480000         120000     0.041363      300300
+  960000         240000     0.041521      510510
+  1920000        480000     0.029798      1021020
+  3840000        960000     0.018580      2042040
+  7680000        1920000    0.013398      4084080
+  15360000       3840000    0.010068      9699690
+  M1  first 0.169339 (pub 0.114), last 0.010068 (pub 0.0101), 1/last = 99.325 (pub 99)   REFUTED
+  M2  fitted max|C|/N ~ N^{-0.477527}   published 0.43   REFUTED
+  leave-one-out on wall_max_decay: full -0.4775, without the smallest N -0.4948,
+  without the largest -0.4790 -- spread 0.0173
+SWEPT wall_max_decay N-range 0.0173
+  DIAGNOSTIC (post hoc). The top octave matches but the bottom
+  does not, so the octave grid's anchor is the free choice. The
+  grid above is anchored at 3e4 and doubles; \S{#sec:floor} uses
+  'eight octaves from 6.25e4 to 1.6e7', i.e. a grid anchored at
+  1.6e7 and halving. On that grid:
+  octave top     count      max |C|/N     argmax N
+  16000000       4000000    0.010068      9699690
+  8000000        2000000    0.013398      4084080
+  4000000        1000000    0.018580      2042040
+  2000000        500000     0.029798      1021020
+  1000000        250000     0.041521      510510
+  500000         125000     0.041363      300300
+  250000         62500      0.065552      139230
+  125000         31250      0.083154      66990
+  62500          15625      0.113524      39270
+  31250          7813       0.172714      30030
+  bottom 0.172714 (pub 0.114), top 0.010068 (pub 0.0101), 1/top = 99.325 (pub 99), fitted b = 0.440619 (pub 0.43)
+
+M3   extrapolation to N = 10^8: 99.325 * 6.25^0.43 = 218.42   published 'near 220'   hold
+
+M4   the Gumbel form  sqrt(N) / (a_n sqrt(A log N))
+  N          a_n        sqrt(A log N)   value        log10   pub
+  10^12       7.3400     4.6640          2.9211e+04   4.466   4.5  ok
+  10^50       15.1285    9.5204          6.9430e+22   22.842  22.9  ok
+  M4 hold
+
+M5   the Cauchy-Schwarz closed form at N = 2^20
+  closed form N sqrt(6(log N - 1)/pi^2) : 2.796378 N
+  measured   ||S_Lambda||_2 ||S_mu||_2  : 2.795445 N   (prop:E table prints 2.795)
+  M5 hold
+
+======================================================================
+M1 REFUTED  M2 REFUTED  M3 hold  M4 hold  M5 hold
+REFUTED

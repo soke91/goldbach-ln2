@@ -1,0 +1,576 @@
+% =====================================================================
+%  P5.  The negative map: no named coupling surface on the Mobius
+%       dilate field.  An experimental report.
+%
+%  Deployment version.  Written to deploy/SPEC.md.
+%  Compile:  pdflatex P5-negative-map.tex   (twice)
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{longtable}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{measurement}[theorem]{Measurement}
+\theoremstyle{remark}
+\newtheorem{note}[theorem]{Note}
+
+\renewcommand{\SS}{\mathfrak{S}}
+\newcommand{\AAA}{\mathfrak{A}}
+
+\title{The negative map:\\
+seventeen pre-registered closures on the M\"obius dilate field}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Any attempt to \emph{prove} the M\"obius-twisted
+Elliott--Halberstam hypothesis $EH_\mu$ by dispersion arrives at the
+dilate field
+\[
+  D(k)\;=\;\sum_{m}\mu(m)\,\mu(N-mk),
+\]
+in which the two M\"obius arguments are coupled by a product and a
+difference simultaneously. This report records what happens when
+seventeen distinct routes into that field are specified in advance,
+given a decision rule and a null, and run: five adjudications of
+existing machinery, nine technique designs kill-tested numerically,
+and four representation classes. Sixteen close; one is reopened here
+because its design turned out not to be computable on the field it was
+run on, and one representation class has no finite test and remains
+open with its three requirements itemised.
+
+The verdicts share one blocking coordinate. The pair constraint
+attached to $D$ is \emph{bilinear} --- $m'u-mu'=N(m'-m)$ --- where
+every route's decisive lemma consumes a \emph{linear} one as a
+hypothesis; the $h$-average of the shifted-convolution world is a
+translation, the $k$-average here is a dilation, and no character
+family, additive or multiplicative, diagonalizes it. In the automorphic
+setting, shifted convolutions $\sum a(n)a(n+h)$ are controlled because
+the coefficients come \emph{with} a spectral representation. $\mu$ has
+none, and each route below fails exactly where it tries to borrow one.
+
+We also state one positive conjecture that any future construction
+must reproduce: every M\"obius family probed here factorizes as a
+deterministic local mask, computable exactly by finite modular
+enumeration, times a fluctuation with no mean field and no class
+structure on the surviving support (Conjecture~\ref{conj:L}). Its
+evidence is graded: one of four supporting measurements has been
+independently re-implemented and reproduced; the others are cited as
+motivation and not as verified measurement.
+
+This is a negative report. Net progress toward Goldbach: zero. Its
+purpose is to spend a search once, so that the same seventeen
+directions need not be re-explored, and to make explicit what a
+successful technique would have to supply.
+\end{abstract}
+
+% =====================================================================
+\section{The field, and the consumable}
+
+Let $N$ be a large even integer. The Huang--Li reduction \cite{HL},
+once its demand side is evaluated \cite{P1}, needs
+$C(N)=\sum_{n<N}\Lambda(n)\mu(N-n)=o(N)$; the natural attempt to
+supply it by dispersion produces the dilate field. The distilled
+consumable is
+\begin{equation}\label{eq:E1}
+  \textbf{E1 (weak form)}:\quad
+  D(k)=\!\!\sum_{\sqrt N<m\le N/k}\!\!\mu(m)\mu(N-mk),
+  \qquad
+  \sum_{k\sim K}|D(k)|^2\ll(\log N)^{-2A-2}\sum_{k\sim K}M_k^2,
+\end{equation}
+for $K\le N^{1/3}$ dyadic, where $M_k$ is the length of the
+$m$-range. A fixed log-power saving is the currency; $o(1)$ and
+$\log\log$ savings are not consumable.
+
+\begin{note}[the normalisation is load-bearing]\label{note:scale}
+The normalisation in \eqref{eq:E1} is $M_k^2$, the \emph{trivial}
+bound, not $M_k$, the square-root scale. The wall is
+$T_{II}=\sum_{k\sim K}b_kD(k)$ with $|b_k|\ll\log N$, needed at
+$N(\log N)^{-A}$, and Cauchy--Schwarz in $k$ gives
+$\sum_k|D(k)|^2\ll N^2/(K(\log N)^{2A+2})$ with
+$\sum_{k\sim K}M_k^2\asymp N^2/K$. The distinction changes every
+budget by a power of $N$: at the square-root normalisation the demand
+at $N=10^8$, $A=1$ would be $\sum|D|^2/\sum M_k\ll8.8\cdot10^{-6}$,
+whereas the measured ratio is of order the density of the surviving
+support, four orders of magnitude larger. A target must be checked
+against one's own measurement of the same quantity before it is used
+to adjudicate anything.
+\end{note}
+
+\begin{measurement}[the surviving support, and its density]%
+\label{meas:supp}
+The three bands are $K<k\le2K$ for $K=58,116,232$, i.e.
+$[59,116],\,[117,232],\,[233,464]$ with
+$464=\lfloor N^{1/3}\rfloor$ at $N=10^8$. The convention has to be
+stated: the other reading of ``dyadic'', $K\le k<2K$, holds the same
+$58$, $116$, $232$ values of $k$ and so is not excluded by the counts,
+but it gives $0.3345,\,0.3278,\,0.3310$ for the support density below
+instead of $0.3303,\,0.3298,\,0.3320$ --- a shift larger than the
+effect the paragraph is about.
+
+It is tempting to read that density as $\prod_p(1-2/p^2)=0.3226341$,
+the value obtained by assuming $p^2\mid m$ and $p^2\mid N-mk$ cut out
+two distinct classes mod $p^2$. At $N=10^8=2^8\cdot5^8$ that
+assumption fails at $p=2$ and $p=5$, where $p^2\mid N$ collapses the
+second condition onto the first, and the true density depends on
+$v_p(k)$: measured exactly over all $k$ in the three bands it ranges
+from $0$ to $0.594330$, and lands within $0.01$ of $0.32263$ for only
+$1$, $1$ and $3$ of the $58$, $116$ and $232$ values of $k$. In
+particular $D(k)$ vanishes identically whenever $4\mid k$ or
+$25\mid k$ --- $2799$ of the $9999$ values $k<\sqrt N$, or $28.0\%$,
+and that set is exactly the vanishing set, with no other $k$ in the
+bands giving $D(k)=0$. Aggregated, the coincidence is close but not
+exact: $\sum_k\mathrm{supp}(k)/\sum_kM_k$ is
+$0.3303,\,0.3298,\,0.3320$ on the three bands, high by $2.2$ to
+$2.9\%$ against the closed form, which is therefore not the right one
+(\texttt{audit\_support\_density.py}).
+\end{measurement}
+
+What the measurements establish about \eqref{eq:E1} is the weaker of
+the two possible readings, and it is the one the section needs: the
+ratio $\sum_k|D(k)|^2/\sum_kM_k$ is of order the support density and
+not of order $(\log N)^{-2A-2}\approx8.8\cdot10^{-6}$, so the
+square-root normalisation is refuted by four orders of magnitude. At
+the correct normalisation the target is cleared with margin
+$(N/K)(\log N)^{-2A-2}$, which is asymptotic and is below $1$
+everywhere accessible; no computation is offered as evidence for it.
+
+% =====================================================================
+\section{The factorization law}
+
+\begin{conjecture}[the factorization law]\label{conj:L}
+Each M\"obius family of the following kinds --- prime-indexed dilate
+pairs $C_{k,k'}=\sum_{p\sim P}\mu(N-pk)\mu(N-pk')$, integer-indexed
+dilates and their pairs, and M\"obius sums over thin progressions ---
+factorizes as
+\[
+  \text{field}\;=\;\mathbf M\times\mathbf G,
+\]
+where $\mathbf M$ is the deterministic local mask, computed exactly by
+finite modular enumeration from the $v_q$-data of $(N,k,k')$, and
+$\mathbf G$ is, on the surviving support, a fluctuation with no mean
+field and no class structure.
+\end{conjecture}
+
+\begin{note}[the grade of the evidence]\label{note:Lgrade}
+The evidence is of two kinds and they are kept apart. The E1 arm
+(Measurement~\ref{meas:supp}) has been reproduced independently, and
+so has the blind mask prediction: it asserts a set equality --- the
+field's support is empty on exactly the pairs the mask names --- so a
+second implementation either reproduces it exactly or does not, and it
+does. The exact $(v_2,v_3)$ cell predictions were attempted next and
+the attempt did not reach them. The remaining two supporting
+measurements, pair statistics and the Wishart pair spectrum, are
+single-witness: they are the reason the conjecture is stated, not
+measurements this report vouches for.
+\end{note}
+
+% =====================================================================
+\section{The negative map}\label{sec:closures}
+
+Every entry below was pre-registered: the decision rule was fixed in
+writing before the computation ran, including the rule that would
+refute the hypothesis under test. Route adjudications were done in
+fresh context against the source papers' verbatim lemma hypotheses.
+The verdicts are stated without their supporting statistics; each
+carries its own null and its own error bar in the repository.
+
+\subsection{Adjudication of existing machinery (5)}
+
+\begin{longtable}{p{0.24\textwidth}p{0.10\textwidth}p{0.54\textwidth}}
+\hline
+Route & Verdict & Blocking coordinate\\
+\hline
+\endhead
+\cite{MRT15} / \cite{Li20}, shift $\to$ dilate & Blocked &
+ the orthogonality factorization needs a \emph{linear} pair
+ constraint ($h=m-n$); the dilate constraint $m'u-mu'=N(m'-m)$ is
+ bilinear. The $h$-average is a translation; the $k$-average is a
+ dilation, with no diagonalizing character family.\\
+\cite{Tao16} entropy decrement, $k$-averaged & Blocked $\times3$ &
+ (i) no $k$-analogue of approximate affine invariance; (ii) the
+ sampling prime enters the phase multiplicatively, so the
+ sparsification fails and the surviving input is the target itself;
+ (iii) the saving is triple-log, below spec.\\
+\cite{Li23} rerun in dilate coordinates & Blocked &
+ the congruence coupling is a genuine isomorphism but powers only the
+ typical-set restriction; the decoupling blocks at the same bilinear
+ coordinate, and the uniformity slot would need an $EH_\mu$-grade
+ input, which is circular.\\
+Dirichlet-polynomial fourth moment / Perron & Blocked &
+ every log-saving mean-value pillar assumes coefficient
+ multiplicativity in its own variable; $\mu(N-u)$ has none. Unfolding
+ by Perron costs $T\gtrsim N^{1-o(1)}$; opening the fourth moment
+ reproduces the binary correlation.\\
+Partial slices & Partial &
+ the type-I slice is already consumed; the \emph{$N$-averaged}
+ theorem is provable but lands in exceptional-set territory, which
+ \cite{HL} cannot consume; no nontrivial fixed-$N$ slice exists.\\
+\hline
+\end{longtable}
+
+\noindent
+\textbf{The common obstruction.} $\mu(m)\mu(N-mk)$ couples its
+variables simultaneously through the product $mk$ and the difference
+$N-mk$; the pair constraint is bilinear and is diagonalized by no
+single character family, additive or multiplicative, while each
+route's decisive lemma consumes exactly that diagonalization as a
+hypothesis.
+
+\subsection{Technique designs, kill-tested (9)}
+
+\begin{longtable}{p{0.05\textwidth}p{0.30\textwidth}p{0.55\textwidth}}
+\hline
+\# & Design & Result (pre-registered rule applied)\\
+\hline
+\endhead
+K1 & multiplicative Fej\'er kernel on the exact dilation ladder &
+ \textbf{open}. On the type-II field the design is not computable: the
+ $\sqrt N$ cut empties all but thirteen of the sixty-three orbit
+ columns, so what is measurable there is a fifth of the orbit the
+ design names. On the untruncated field, where the whole orbit is
+ live, the statistic lands in the band the pre-registration reserved
+ for ``repeat at a second $N$ before deciding''.\\
+K2 & manufactured pair congruence (determinant / Kloosterman) &
+ \textbf{dead}: congruent pairs are statistically $h$-blind, and the
+ verdict is quantitative --- the design would need several orders of
+ magnitude more than its own detection floor.\\
+K3 & Wishart / operator moment method &
+ \textbf{dead}: the second, third and fourth traces sit on the Wishart
+ null. No sub-Wishart surplus to fund the exchange.\\
+K4 & $N$-average descent &
+ \textbf{dead}: the dual field is $\delta$-blind and
+ $m$-uncorrelated.\\
+R1 & zero-spectrum visibility (explicit formula) &
+ \textbf{dead} on the measurement, which sits below its own null. No
+ exclusion interval is claimed, the null's spread being estimated from
+ too few draws to support one.\\
+R2 & determinant / Kloosterman phase &
+ \textbf{dead} on the measurement, which sits below its control. No
+ exclusion interval is claimed; the coherent-gain arm is not blind but
+ sits about $2.8$ standard errors above its own null.\\
+R3 & character transform of the $k$-average &
+ \textbf{dead by analysis}: for $K\le N^{1/3}$ the transform deposits
+ every component into thin progressions (moduli $\ge N^{2/3}$);
+ Parseval forbids a statistical gain.\\
+R4 & divisor switch &
+ \textbf{dead}: Section~\ref{sec:R4}.\\
+R5 & circle method applied directly to $C(N)$ &
+ \textbf{dead, zero margin}: both pairings lie at or above the trivial
+ bound, and the cap on the pointwise route is Parseval
+ \cite[Prop.~E]{P2}.\\
+\hline
+\end{longtable}
+
+\begin{note}[what a null verdict costs]\label{note:nullcost}
+A kill-test that does not fire is evidence of absence only against a
+stated floor, and a threshold chosen as an effect size is not a
+threshold. Every DEAD verdict above rests on the measurement --- the
+statistic never sits systematically above its null --- and not on a
+count of flagged levels; where the null's own precision could not be
+established, the verdict is retained but no exclusion interval is
+quoted. K1 is listed as open rather than closed because its design was
+not computable on the field it was run on, which is a defect of the
+run and not a result.
+\end{note}
+
+\subsection{Representation classes (3 closed, 1 open)}
+
+\begin{longtable}{p{0.13\textwidth}p{0.28\textwidth}p{0.50\textwidth}}
+\hline
+Class & Test & Result\\
+\hline
+\endhead
+C-I abelian & rational-peak energy vs mask-null &
+ \textbf{closed}: the abelian spectrum is mask-exact.\\
+C-II inverse domain & special-frequency excess in the modular-inverse
+ re-indexing &
+ \textbf{closed on verification}: fired under eight-draw nulls,
+ collapsed under sixty-four-draw nulls, with the permutation null
+ concurring and the second-$N$ replication empty.\\
+C-IV manufactured modularity & approximate Fricke law for
+ $\Phi(z)=\sum t_me(mz)$ &
+ \textbf{closed}. A true modular form drives the defect to
+ $\approx0$, so absence is meaningful here.\\
+C-III Motohashi type & (no finite test) &
+ \textbf{open}, needing exactly the three items of
+ Section~\ref{sec:c3}.\\
+\hline
+\end{longtable}
+
+% =====================================================================
+\section{R4 in detail: the divisor switch does not localize}%
+\label{sec:R4}
+
+\begin{proposition}[perfect cancellation, untruncated]\label{prop:R4}
+Over its full ranges the divisor switch gives the exact identity
+\[
+  \sum_{k\ge1}\ \sum_{m:\,mk\le N-1}\mu(m)\mu(N-mk)
+  \;=\;\sum_{u<N}\mu(N-u)\sum_{m\mid u}\mu(m)
+  \;=\;\mu(N-1).
+\]
+\end{proposition}
+
+\begin{proof}
+Exchange the order of summation and put $u=mk$; the inner sum
+$\sum_{m\mid u}\mu(m)$ is $\mathbf 1_{u=1}$.
+\end{proof}
+
+This is perfect cancellation: $O(1)$ for a double sum of
+$\sim N\log N$ terms, far beyond square root, and it is the strongest
+cancellation found anywhere in this programme. It is also useless,
+which is the content of the R4 verdict. E1 imposes two restrictions
+that make the inner divisor sum \emph{incomplete} --- the type-II cut
+$m>\sqrt N$ and the dyadic band $k\sim K$ --- and the kill-test asked
+whether any of the cancellation survives them, by measuring block sums
+$S_B(j)=\sum_{k\in\text{block}}D(k)$ against the $B$-independence that
+Conjecture~\ref{conj:L} predicts. It does not survive. The switch's
+cancellation is a property of \emph{complete} divisor sums, and the
+type-II cut makes every divisor sum incomplete.
+
+% =====================================================================
+\section{What the closures constrain}
+
+Any transform or invariance $T$ that linearizes the pair constraint at
+a cost of at most a log power must satisfy all of the following.
+
+\begin{itemize}
+\item \textbf{(K2)} $T$ cannot manufacture its congruence externally:
+collapse structure pays only when it arises inside an intrinsic
+average that is already present.
+\item \textbf{(K3)} $T$ cannot bootstrap from the field's own moments:
+every moment consumes higher $\mu$-correlations and the field carries
+no sub-Wishart surplus.
+\item \textbf{(K4)} $T$ cannot descend from the $N$-average: its
+linearization is load-bearing and the $k$-average holds no shadow of
+it.
+\item \textbf{(R4)} $T$ cannot be the divisor switch or a relative:
+the switch's cancellation is a property of complete divisor sums, and
+the type-II cut makes every divisor sum incomplete
+(Section~\ref{sec:R4}).
+\end{itemize}
+
+The constraint that K1 was to have supplied --- that $T$ cannot act
+through divisibility sub-sums --- is \emph{not} asserted, K1 being
+open. Together with the second-round findings, characters merely
+relocating the difficulty into thin progressions and determinant
+phases not reaching their bar, the field offers no coupling surface in
+any direction that has an existing mathematical name. The technique to
+be created is a spectral, or equivalent structural, representation of
+$\mu$-pairs themselves, not a projection onto existing spectra --- and
+its construction is a purely theoretical act, beyond what kill-testing
+can reach.
+
+% =====================================================================
+\section{C-III: what it needs}\label{sec:c3}
+
+The one representation class with no finite test is the Motohashi
+type. It needs exactly three items, and they are of decreasing
+tractability.
+
+\medskip\noindent
+\textbf{(1) A transform carrying the dilate average to a shift
+average.} Since $\mu$ lives on $\mathbb Z$ and any such map must send
+finite points to finite points, the available changes of variable are
+exactly the integral affine ones, and no integral affine map carries
+one family to the other. This settles by proof what a direct probe had
+only measured, the off-diagonal computed directly and via the obvious
+re-indexing agreeing exactly, i.e. the re-indexing being circular.
+What remains is the summation-formula class, blocked in general by the
+roughness of the outer weight $\mu$, with every named candidate in it
+already closed.
+
+\medskip\noindent
+\textbf{(2) A classification covering the type-II region.} The natural
+bookkeeping is a Heath--Brown-type identity of level $J$ with cut
+$z=M^{1/J}$, and it needs the M\"obius-side variable $a$ to satisfy
+$a\le M^{o(1)}$. It does not: the identity requires $z^J\ge x$, and its
+$j$-th term has $a\le z^j$, which at $j=J$ is $x$ for every admissible
+$(z,J)$ --- while the weight concentrates in exactly those high-$j$
+terms. Taking the absolute weight of the $j$-th term to be its $L^1$
+mass, $W_j=\binom{J}{j}\#\{(m_1..m_j,n_1..n_j):m_i\le z
+\ \text{squarefree},\ \prod m_i\prod n_i\le x\}$, and the share to be
+$W_j/\sum_iW_i$, the $j\in\{6,7,8\}$ share at $J=8$ reads
+$0.772590,\,0.833180,\,0.886081$ at $M=10^4,\,10^5,\,10^6$: the
+majority sits outside any region $a\le M^{\eta}$ with $\eta$ small,
+and the fraction increases with $M$. At $M=10^6$ the top-$j$ share is
+$0.848668$ at $J=3$. The obstruction is parameter-independent, which
+is what carries the paragraph; the shares are quoted to indicate size,
+and only the rounding $z=\lceil M^{1/J}\rceil$ is admissible at all
+three $M$, since rounding down violates $z^J\ge x$ at $J=3$ and $J=8$
+alike (\texttt{audit\_hb\_weight.py}).
+
+A repair would have to bound
+$\sum_a\sum_b\alpha(a)\beta(b)\mu(N-abk)$ with $\alpha$ rough and $a$
+long, where every individual piece is trivial and all the content is
+cancellation across $a$ --- a type-II estimate for $\mu(N-\cdot)$,
+i.e. the wall itself. Every identity decomposing $\mu$ produces such a
+term; one whose every piece had either a long free variable or a
+divisor-structured rough coefficient would dispose of the parity
+obstruction. \textbf{Completing the construction and breaking the wall
+are the same task.}
+
+\medskip\noindent
+\textbf{(3) Quantitative averaged Chowla.} Shift-averaged binary
+$\mu\mu$ correlations at a \emph{fixed} log-power saving, against a
+best known of $(\log)^{1-c}$. This is a named external open problem
+and is where C-III stands.
+
+That third item sets the character of the obstruction. The
+adjudication's central finding is that the \textbf{dilate} average
+admits no diagonalizing character family; but the \textbf{shift}
+average is precisely the home ground of the
+Matom\"aki--Radziwi{\l}{\l}--Tao machinery. If a legitimate transform
+converting one into the other exists, what remains is quantitative
+strength inside an active area rather than the absence of any coupling
+surface.
+
+% =====================================================================
+\section{Methodology}
+
+Four rules were followed throughout, and they are the reason the
+negative results are believable.
+
+\begin{itemize}
+\item \textbf{Pre-registration.} Every design's decision rule was
+written before its computation ran, including the rule that would
+refute the hypothesis under test.
+\item \textbf{Adversarial review in fresh context}, against the source
+papers' verbatim lemma hypotheses rather than against summaries of
+them, and repeated. Coverage is uneven and is stated rather than
+rounded up: material carried forward from the first version of this
+programme has been through three independent reviews; statements first
+written later have had fewer. The measured detection rate of a single
+review of this kind is about one half, so nothing here should be read
+as certified.
+\item \textbf{Nulls before thresholds.} A threshold means nothing
+until the spread of the quantity it judges has been measured, and a
+null must preserve the structure of the field it is a null for. A null
+built by shuffling a correlated field is not a null for a statistic
+that reads its correlation.
+\item \textbf{Weights and fields before comparisons.} Two summaries of
+one object are not comparable until each one's weight is stated
+(Note~\ref{note:scale}), and a measured figure is not interpretable
+until the range it was measured on is stated.
+\end{itemize}
+
+Three traps are worth recording because they are traps and not slips.
+
+\begin{itemize}
+\item \emph{The $(q,N)>1$ main-term trap.} Assigning a main term
+$T_m/\varphi(q)$ to a residue class with $(q,N)>1$ --- which is
+degenerate, its true contribution being $O(\log^2N)$ --- shifts the
+density of a whole computation by exactly $N/\varphi(N)$. Carried into
+the $\log k$ branch of the demand side, that error produces an
+apparent \emph{refutation} of $EH_\mu$. It is the most plausible false
+positive in this circle of ideas.
+\item \emph{Nulls estimated from too few draws} inflate maxima across
+a family of tests. One representation-class hit survived eight-draw
+nulls and died under sixty-four-draw nulls plus replication.
+\item \emph{Local factors evaluated at the wrong modulus.} Dividing by
+$W(N)$ where the definition calls for $V(N)$ changes the answer by
+exactly $\AAA(N)$ \cite{P3}.
+\end{itemize}
+
+% =====================================================================
+\section{Summary}
+
+\begin{itemize}
+\item Seventeen routes into the dilate field were pre-registered and
+run: five adjudications, nine kill-tests, four representation classes.
+Fifteen close, K1 is reopened, and C-III is open with its three
+requirements itemised.
+
+\item The common blocking coordinate is bilinearity of the pair
+constraint. Every route's decisive lemma consumes a linear constraint
+as a hypothesis.
+
+\item Proposition~\ref{prop:R4}: the untruncated dilate double sum
+cancels perfectly, to $\mu(N-1)$. The cancellation is a property of
+complete divisor sums and does not survive the type-II cut.
+
+\item Conjecture~\ref{conj:L} is what any future construction must
+reproduce: a deterministic modular mask times a structureless
+fluctuation. Its supporting measurements are graded in
+Note~\ref{note:Lgrade}.
+
+\item Net progress toward Goldbach: zero. The deliverable is the map,
+and the statement of what a successful technique must supply.
+\end{itemize}
+
+% =====================================================================
+\begin{thebibliography}{99}
+
+\bibitem{HL} J.-J.~Huang and H.~Li, \emph{On the connection between
+the Goldbach conjecture and the Elliott--Halberstam conjecture},
+arXiv:2005.03811v2 [math.NT], 2022.
+
+\bibitem{Li20} J.~D.~Lichtman, \emph{Averages of the M\"obius function
+on shifted primes}, arXiv:2009.08969 [math.NT], 2020.
+
+\bibitem{Li23} J.~D.~Lichtman (with an appendix by S.~Drappeau),
+\emph{Primes in arithmetic progressions to large moduli, and Goldbach
+beyond the square-root barrier}, arXiv:2309.08522 [math.NT], 2023.
+
+\bibitem{MRT15} K.~Matom\"aki, M.~Radziwi{\l}{\l} and T.~Tao,
+\emph{An averaged form of Chowla's conjecture}, Algebra Number Theory
+\textbf{9} (2015), 2167--2196.
+
+\bibitem{P1} \emph{An unconditional bound for a M\"obius-weighted
+correlation sum in fixed residue classes}, companion paper.
+
+\bibitem{P2} \emph{No weight extracts $\sum_{n<N}\Lambda(n)\mu(N-n)$:
+a no-go for the divisor-switch route}, companion paper.
+
+\bibitem{P3} \emph{The exact second moment of
+$\sum_{n<N}\Lambda(n)\mu(N-n)$, and why Chowla's conjecture does not
+control it}, companion paper.
+
+\bibitem{Tao16} T.~Tao, \emph{The logarithmically averaged Chowla and
+Elliott conjectures for two-point correlations}, Forum Math. Pi
+\textbf{4} (2016), e8.
+
+\end{thebibliography}
+
+% =====================================================================
+\appendix
+\section{Reproducibility}
+
+\begin{center}
+\begin{tabular}{lll}
+\hline
+Script & Result file & Supports\\
+\hline
+\texttt{audit\_support\_density.py} &
+ \texttt{audit\_support\_density.txt} & Measurement~\ref{meas:supp}\\
+\texttt{audit\_hb\_weight.py} & \texttt{audit\_hb\_weight.txt}
+ & Section~\ref{sec:c3}, item~(2)\\
+\texttt{audit\_r4\_blocks.py} & \texttt{audit\_r4\_blocks.txt}
+ & Section~\ref{sec:R4}\\
+\texttt{audit\_sieve.py} & \texttt{audit\_sieve.txt}
+ & the sieve variants used throughout\\
+\hline
+\end{tabular}
+\end{center}
+
+The verdicts of Section~\ref{sec:closures} are stated without their
+supporting statistics. Each design's decision rule, its null, and its
+result file are recorded in the repository accompanying this report;
+the table above lists only the measurements quoted in this document.
+
+\end{document}

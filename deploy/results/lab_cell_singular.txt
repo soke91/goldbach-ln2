@@ -1,0 +1,93 @@
+STATISTIC: D_c = E_same,c[S_2] - E_all[S_2] with
+           S_2(h) = 2 C_2 prod_{p|h,p>2}(p-1)/(p-2) the
+           Hardy-Littlewood singular series of the shift, E_same,c
+           the mean over sampled pairs N != N' both in cell c and
+           E_all the mean over sampled pairs in the band; its
+           spread across three octaves and its fitted exponent in
+           N; and its correlation across depths with the exact
+           floor se_c of Lemma {#lem:cellmom}.
+NULL: an exact permutation null on M3. D_c itself is a
+      deterministic arithmetic functional of the cell with no
+      sign input, so Lemma {#lem:coin} does not bite on it; but
+      M3 is a correlation across depths between D_c and the
+      exact floor, and that needed a control which nothing
+      supplied. With six depths the null is enumerable: all 720
+      permutations of the depth labels are run and the observed
+      |r| is placed in that distribution. The sampling error of
+      the pair average is reported alongside.
+FIELD: octaves (1e6,2e6], (2e6,4e6], (4e6,8e6]; even N; cells
+       indexed by depth = #{p in 3,5,7,11,13 dividing N};
+       400000 sampled ordered pairs per cell and per band, numpy
+       default_rng seed 20260808; S_2 sieved to 8e6; se_c taken
+       from lab_mask_placebo.py at (2e6,4e6].
+
+building S_2(h) to 8000000 ...
+  2*C_2 = 1.320324;  S_2(2) = 1.320324;  S_2(6) = 2.640647  (should be 2*C_2 * 2)
+
+  octave              depth  n_c        E_same,c[S_2]   D_c          se(D_c)
+  ----------------------------------------------------------------------------
+  (  1000000,  2000000] 0      191808     2.300852        0.302874     0.001358
+  (  1000000,  2000000] 1      210988     2.044711        0.046733     0.001316
+  (  1000000,  2000000] 2      81787      2.410224        0.412246     0.001358
+  (  1000000,  2000000] 3      14250      3.052504        1.054526     0.001368
+  (  1000000,  2000000] 4      1134       3.940718        1.942740     0.001182
+  (  1000000,  2000000] 5      33         5.146191        3.148213     0.000132
+      E_all[S_2] = 1.997978
+  (  2000000,  4000000] 0      383617     2.300893        0.302138     0.001358
+  (  2000000,  4000000] 1      421978     2.045521        0.046766     0.001318
+  (  2000000,  4000000] 2      163568     2.411259        0.412504     0.001359
+  (  2000000,  4000000] 3      28507      3.050884        1.052129     0.001370
+  (  2000000,  4000000] 4      2263       3.944864        1.946109     0.001183
+  (  2000000,  4000000] 5      67         5.170053        3.171298     0.000162
+      E_all[S_2] = 1.998755
+  (  4000000,  8000000] 0      767233     2.299179        0.297616     0.001359
+  (  4000000,  8000000] 1      843955     2.044237        0.042674     0.001316
+  (  4000000,  8000000] 2      327142     2.413274        0.411711     0.001363
+  (  4000000,  8000000] 3      57007      3.051852        1.050289     0.001370
+  (  4000000,  8000000] 4      4530       3.943655        1.942092     0.001189
+  (  4000000,  8000000] 5      133        5.186774        3.185212     0.000170
+      E_all[S_2] = 2.001563
+
+M1  D_c at (2e6,4e6] by depth: 0.302138, 0.046766, 0.412504, 1.052129, 1.946109, 3.171298
+    positive for d>=1 and increasing in depth: False   REFUTED
+
+M2/M4  scale invariance
+  depth  D_c per octave                       spread   fitted exponent
+  0      0.302874, 0.302138, 0.297616         0.0175   +0.012633
+  1      0.046733, 0.046766, 0.042674         0.0902   +0.065546
+  2      0.412246, 0.412504, 0.411711         0.0019   +0.000936
+  3      1.054526, 1.052129, 1.050289         0.0040   +0.002904
+  4      1.942740, 1.946109, 1.942092         0.0021   +0.000241
+  5      3.148213, 3.171298, 3.185212         0.0117   -0.008428
+  M2 REFUTED   M4 REFUTED
+  DIAGNOSTIC (post hoc). M2 and M4 fail only where D_c is small:
+  the spread across octaves is nearly the same size at every
+  depth while D_c itself grows, so the relative spread the
+  rule looks at is large only where D_c is small:
+  depth  spread across octaves   |D_c|      spread/|D_c|
+  0      0.005258                0.300876   0.0175
+  1      0.004092                0.045391   0.0902
+  2      0.000793                0.412153   0.0019
+  3      0.004237                1.052315   0.0040
+  4      0.004017                1.943647   0.0021
+  5      0.036999                3.168241   0.0117
+  Note also
+  that the pre-registration allowed three sampling standard
+  errors and the code applied the 2% band with no allowance --
+  the code is the stricter of the two and its verdict stands.
+  Re-sampling depths 0 and 1 ten times harder:
+    depth 0: 0.299231, 0.298312, 0.299596   spread 0.0043   exponent -0.000879
+    depth 1: 0.045937, 0.045186, 0.046982   spread 0.0390   exponent -0.016226
+
+M3  corr(se_c, D_c) across depths = 0.9805   (floor 0.8)   hold
+    se_c  = 0.12400, 0.04662, 0.14834, 0.24178, 0.33253, 0.43685
+    control: over all 720 permutations of the depth
+    labels, 1 reach |r| = 0.9805; the null median is
+    0.3475 and its 95th percentile 0.8084
+    -- the control lab_mask_placebo.py does not supply, since it permutes labels for z_c and not
+    for this pair.
+    D_c   = 0.30214, 0.04677, 0.41250, 1.05213, 1.94611, 3.17130
+
+======================================================================
+M1 REFUTED  M2 REFUTED  M3 hold  M4 REFUTED
+REFUTED

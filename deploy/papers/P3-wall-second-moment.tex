@@ -335,8 +335,11 @@ controls only $|S(h)|$.
 \end{proof}
 
 Two consequences. First, Chowla's conjecture asserts $S(h)=o(1)$ for
-fixed $h$; the strength the display needs is $S(h)=o(\log N/N)$, so
-the gap is a factor $N/\log N$. Second --- and this is what closes the
+fixed $h$ --- and the strongest unconditional results in that
+direction, the logarithmically averaged two-point theorem of
+\cite{Tao16} and the shift-averaged bound of \cite{MRT15}, give
+smallness of exactly that order. The strength the display needs is
+$S(h)=o(\log N/N)$, so the gap is a factor $N/\log N$. Second --- and this is what closes the
 absolute-value route rather than merely costing it a power of $\log$
 --- the true $S$ overspends that budget already. Define the
 \emph{absolute budget}, which is exactly what the triangle inequality
@@ -395,7 +398,8 @@ been shown not to be killed by this particular control. The
 distinction is quantitatively large. An i.i.d. sign ensemble is
 \emph{narrower} than a random multiplicative one wherever the object
 is multiplicative --- resolved to $512$ draws on one statistic, the
-i.i.d. spread was $0.6455$ of the multiplicative --- so significance
+i.i.d. spread was $0.6455$ of the multiplicative
+(	exttt{audit\_cn\_coin\_deep.py}) --- so significance
 read against an i.i.d. ensemble is larger than it should be. Because
 narrowness is conservative for killing, every claim this lemma kills
 stays killed; it is the other direction that fails. An estimator that
@@ -475,7 +479,9 @@ number of even $N$ below the point,
   \frac{\sqrt N}{a_n\sqrt{\AAA\log N}},
 \]
 which is $10^{4.466}$ at $N=10^{12}$ and $10^{22.842}$ at $N=10^{50}$
-with $a_n=\sqrt{2\log(N/2)}$ and $\AAA=0.787275$. The quantity is
+with $a_n=\sqrt{2\log(N/2)}$ and $\AAA=0.787275$, the value of
+\eqref{eq:constants} at a generic even $N$
+(	exttt{audit\_margin.py}, 	exttt{audit\_constants.py}). The quantity is
 therefore expected to be small by a wide margin and to be provably
 small by none: the gap between what is expected and what is reachable
 is the whole problem.

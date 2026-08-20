@@ -1,0 +1,88 @@
+STATISTIC: 2 C_2 = 2 prod_{p>2}(1-1/(p-1)^2) and Artin's
+           constant prod_p (1-1/(p(p-1))), each by two routes --
+           a sieved Euler product at seven bounds, and a
+           prime-free route through the prime zeta function --
+           together with their differences, their distance from
+           the published values, and the spread across bounds.
+NULL: none applies and none would mean anything. These are two
+      fixed real numbers with known values, so the reference is
+      the published constant, which W3 uses; a sign control has
+      nothing to randomise.
+FIELD: product bounds 1e5 through 1e7, covering every bound used
+       by the nine inline implementations in code/; power series
+       to degree 300 in u = 1/p; prime zeta from log zeta by
+       Mobius inversion over j <= 220; zeta by Euler-Maclaurin
+       split at 4000.
+
+the prime-free route: power series in u = 1/p to degree 200,
+prime zeta by Mobius inversion of log zeta, zeta by
+Euler-Maclaurin split at 4000. No prime is enumerated.
+  2 C_2  = 1.320323631694
+  Artin  = 0.373955813619
+
+the production route: sieve to a bound and multiply.
+  bound        2 C_2            Artin
+  100000       1.320324690933   0.373956113627
+  200000       1.320324133643   0.373955955786
+  400000       1.320323870056   0.373955881131
+  1000000      1.320323721180   0.373955838964
+  3200000      1.320323657600   0.373955820957
+  4000000      1.320323652136   0.373955819409
+  10000000     1.320323639431   0.373955815811
+
+W1  2 C_2: prime-free 1.320323631694 against sieved 1.320323639431
+    difference 7.737e-09   (tol 1e-9)   REFUTED
+W2  Artin: prime-free 0.373955813619 against sieved 0.373955815811
+    difference 2.191e-09   (tol 1e-9)   REFUTED
+
+W3  against the published constants
+    published 2 C_2 1.3203236317: prime-free off 6.261e-12, sieved off 7.731e-09
+    published Artin 0.3739558136: prime-free off 1.920e-11, sieved off 2.211e-09
+    W3 REFUTED
+
+W4  spread across the product bounds 100000 to 10000000
+    2 C_2 moves by 1.052e-06, Artin by 2.978e-07   (tol 5e-6)   hold
+
+  DIAGNOSTIC (post hoc). What the truncation actually costs at
+  each bound, against the prime-free value:
+  bound        |2C_2 - exact|   |Artin - exact|   1/(P log P)
+  100000       1.059e-06        3.000e-07         8.686e-07
+  200000       5.019e-07        1.422e-07         4.096e-07
+  400000       2.384e-07        6.751e-08         1.938e-07
+  1000000      8.949e-08        2.535e-08         7.238e-08
+  3200000      2.591e-08        7.337e-09         2.086e-08
+  4000000      2.044e-08        5.790e-09         1.645e-08
+  10000000     7.737e-09        2.191e-09         6.204e-09
+  The miss tracks 1/(P log P), which is the tail
+  sum_{p>P} 1/p^2, so the truncation is behaving as the
+  analysis says and not hiding anything else. That also says
+  what W1 to W3 got wrong: they asked a truncated product to
+  match an exact constant to 1e-9, and at the largest bound
+  used here the tail is already 6.204e-09. The tolerance was set
+  below the floor the mathematics imposes, which is the same
+  mistake as an effect size used in place of a null. Judged
+  against the floor, the prime-free route is off the published
+  constants by 6.261e-12 and 1.920e-11 -- three orders inside it.
+
+  DIAGNOSTIC 2 (post hoc). Whether the truncation reaches the
+  precision the papers print. The Goldbach threshold at
+  N = 2^a 5^b is S(1-A) with S = 2C_2*(4/3) and
+  A = Artin/((1-1/2)(1-1/20)); recomputed at each bound:
+  bound        S(N)        A(N)        S(1-A) to six places
+  100000       1.7604329   0.7872760   0.374486
+  200000       1.7604322   0.7872757   0.374487
+  400000       1.7604318   0.7872755   0.374487
+  1000000      1.7604316   0.7872755   0.374487
+  3200000      1.7604315   0.7872754   0.374487
+  4000000      1.7604315   0.7872754   0.374487
+  10000000     1.7604315   0.7872754   0.374487
+  distinct values at six places: 2
+  So the last printed digit of the threshold depends on the
+  bound the script happened to sieve to. Seven of the nine
+  implementations take the product over the measurement's
+  own prime list rather than over a fixed bound, and the
+  smallest of those runs to 2e5. That is a real ambiguity
+  in a printed number, not a rounding taste.
+
+======================================================================
+REFUTED

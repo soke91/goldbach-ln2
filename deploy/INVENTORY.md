@@ -55,6 +55,12 @@
 > 다른 34개와 같은 `Proposition` 으로 부른다. 등급이 다르므로 이름도
 > 달라야 한다 (SPEC §2, 규칙 T1).
 
+배포본의 진술 수는 **38개**다. 저장소가 §R4 본문에 인라인으로 두었던
+항등식 $\sum_k\sum_m\mu(m)\mu(N-mk)=\mu(N-1)$ 을 P5 에서 번호 붙은
+`prop:R4` 로 올렸다 — 증명이 두 줄이고, 그 절의 판정이 통째로 그것에
+기대기 때문이다. 등급 분해는 증명 35 / Observation 1 / Measurement 1 /
+Conjecture 1.
+
 ### 2.2 무조건적인 것 / 조건부인 것
 
 - **무조건적 (가정 없음)**: `thm:A`, `cor:B`, `thm:C`, `thm:D`,
@@ -73,15 +79,16 @@
 ## 3. 논문 주제 — 몇 편이 나오는가
 
 **핵심 답: 자립 가능한 논문 5편.** 세분하면 7편까지 가능하나, 4·5편을
-합치는 편이 낫다고 판단했다. 아래 표의 P1–P5 가 `deploy/papers/` 에 있다.
+합치는 편이 낫다고 판단했다. 아래 표의 P1–P5 가
+`deploy/papers/*.tex` 에 있다.
 
-| # | 논문 | 성격 | 주재료 | 자립도 |
-|---|---|---|---|---|
-| **P1** | 고정 잉여류 위 뫼비우스 가중 상관합의 무조건 유계와 Huang–Li 환원의 두 귀결 | 해석적, **무조건 정리** | `thm:A` `cor:B` `thm:C` `prop:onesided` `prop:nolog` §Δ + 보조정리 7 | ★★★ 단독 투고 가능 |
-| **P2** | 나눗수 교환 경로의 no-go: 어떤 가중치도 $C(N)$ 을 추출하지 못한다 | 해석적, **음성 정리** | `thm:D` `thm:Dprime` `prop:Dpp` `prop:E` `lem:Gb` `lem:extract` `lem:bv` + 항등식 5 | ★★★ 단독 투고 가능 |
-| **P3** | 벽의 정확한 2차 모멘트, 그리고 Chowla 가 그것을 통제하지 못하는 이유 | 해석적 + 계산 | `prop:V` `lem:MP` `prop:W` `lem:coin` `prop:coindisc` | ★★★ 단독 투고 가능 |
-| **P4** | 개수는 오차 막대가 아니다 — 산술 필드 셀 평균의 정확한 요동 바닥 | **방법론**, 타 분야 전용 가능 | `lem:cellmom` `prop:coh` `lem:placebo` `prop:placebo` `prop:scaleinv` | ★★★ 단독 투고 가능 |
-| **P5** | 음성 지도: $\mu$-쌍 필드에 이름 있는 결합면이 없다 (실험적 보고) | **실험수학 보고** | 17개 사전등록 폐쇄 + `conj:L` | ★★☆ Experimental Math 류 |
+| # | 파일 | 논문 | 성격 | 주재료 | 자립도 |
+|---|---|---|---|---|---|
+| **P1** | `P1-mobius-fixed-class.tex` | 고정 잉여류 위 뫼비우스 가중 상관합의 무조건 유계와 Huang–Li 환원의 두 귀결 | 해석적, **무조건 정리** | `thm:A` `cor:B` `thm:C` `prop:onesided` `prop:nolog` §Δ + 보조정리 7 | ★★★ 단독 투고 가능 |
+| **P2** | `P2-no-go-divisor-switch.tex` | 나눗수 교환 경로의 no-go: 어떤 가중치도 $C(N)$ 을 추출하지 못한다 | 해석적, **음성 정리** | `thm:D` `thm:Dprime` `prop:Dpp` `prop:E` `lem:Gb` `lem:extract` `lem:bv` + 항등식 7 | ★★★ 단독 투고 가능 |
+| **P3** | `P3-wall-second-moment.tex` | 벽의 정확한 2차 모멘트, 그리고 Chowla 가 그것을 통제하지 못하는 이유 | 해석적 + 계산 | `prop:V` `lem:MP` `prop:W` `lem:coin` `prop:coindisc` | ★★★ 단독 투고 가능 |
+| **P4** | `P4-coherent-cell-floor.tex` | 개수는 오차 막대가 아니다 — 산술 필드 셀 평균의 정확한 요동 바닥 | **방법론**, 타 분야 전용 가능 | `lem:cellmom` `prop:coh` `lem:placebo` `prop:placebo` `prop:scaleinv` | ★★★ 단독 투고 가능 |
+| **P5** | `P5-negative-map.tex` | 음성 지도: $\mu$-쌍 필드에 이름 있는 결합면이 없다 (실험적 보고) | **실험수학 보고** | 17개 사전등록 폐쇄 + `conj:L` + `prop:R4` | ★★☆ Experimental Math 류 |
 
 ### 세분하면 나오는 추가 2편 (권장하지 않음)
 

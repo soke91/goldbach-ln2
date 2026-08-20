@@ -1,0 +1,69 @@
+STATISTIC: (a) the residual of a*Lhat against delta_0, where
+           Lhat(m) = Lambda(m+2) and a is its convolution
+           inverse; (b) the growth rate |a(m)|^{1/m}; (c) the
+           error of the reconstruction mu_hat(M) = sum_m a(m)
+           C(M-m+2) against mu(M); (d) T(x) = (1/x) sum_{v<=x}
+           mu(v)mu(2v) against -4/pi^2, and the worst of 20 coin
+           draws of the same statistic on the same support.
+FIELD: filter length m <= 200; reconstruction at M up to 200 with
+       C(N) computed by direct summation for N <= 403; T(x) at
+       x = 1e4, 1e5, 1e6 and 2e6; Lambda and mu from an integer
+       sieve to 4e6; coin draws with numpy default_rng seed
+       20260808.
+NULL: the coin is the object under test. Twenty draws of eps on the
+      support of mu^2 for T(x); the reconstruction filter is
+      deterministic and needs none.
+
+sieving to 4000000 ...
+
+H1/H2   the inverse filter of Lhat(m) = Lambda(m+2)
+======================================================================
+  Lhat(0) = Lambda(2) = 0.693147
+  max |(a*Lhat)(m) - delta_{m,0}| over m <= 200 : 5.317e+37   (tol 1e-9)
+  H1 REFUTED
+  DIAGNOSTIC (post hoc). H1 used an ABSOLUTE tolerance on a sum
+  whose terms reach 1e56, so it tests double precision and not
+  the recursion. Relative to the mass of the sum:
+    max relative residual over m <= 200 : 7.018e-17
+    m at which the absolute residual first exceeds 1e-9 : 31
+    |a(m)| there : 4.479e+08
+  |a(m)| at m = 0,1,2,5,10,20,50,100,200:
+    1.443, 2.287, 2.182, 20.91, 512.3, 3.443e+05, 1.073e+14, 1.535e+28, 3.146e+56
+  |a(200)|^{1/200} = 1.916413   max |a| = 3.146e+56   hold
+
+H3   reconstructing mu from the C-field
+======================================================================
+  M     mu(M)   reconstruction      abs error
+  1     1       1.000000            0.000e+00
+  2     -1      -1.000000           0.000e+00
+  3     -1      -1.000000           0.000e+00
+  4     0       0.000000            0.000e+00
+  5     -1      -1.000000           8.882e-16
+  6     1       1.000000            1.776e-15
+  7     -1      -1.000000           0.000e+00
+  8     0       0.000000            0.000e+00
+  9     0       0.000000            2.842e-14
+  10    1       1.000000            8.527e-14
+  20    0       0.000000            1.455e-11
+  40    0       -0.000015           1.526e-05
+  60    0       -4.000000           4.000e+00
+  80    0       0.000000            0.000e+00
+  100   0       -1099511627776.000000 1.100e+12
+  150   0       0.000000            0.000e+00
+  200   0       0.000000            0.000e+00
+  accurate (<0.01) for every M <= 40 : True
+  wrong by > 0.5 for some M <= 200   : True
+  H3 hold
+
+H4   an estimator that does distinguish: multiplicativity
+======================================================================
+  x          T(x)          target        coin: max |T_eps(x)|   5/sqrt(x)
+  10000      -0.405600     -0.405285     0.020600             0.050000  ok
+  100000     -0.405270     -0.405285     0.004570             0.015811  ok
+  1000000    -0.405286     -0.405285     0.001214             0.005000  ok
+  2000000    -0.405295     -0.405285     0.000935             0.003536  ok
+  |T(x) - target| at the largest x = 0.000011   (tol 0.002)   hold
+
+======================================================================
+H1 REFUTED  H2 hold  H3 hold  H4 hold
+REFUTED
