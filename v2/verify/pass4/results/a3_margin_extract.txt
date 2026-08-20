@@ -1,0 +1,74 @@
+a3_margin_extract.py  --  pass4, blind mathematical re-verification.
+
+PRE-REGISTRATION (fixed before the run).
+
+WHAT IS MEASURED.
+
+ (J1) P1 Measurement 17, recomputed from the definitions in P1 eq:(3)
+      and eq:(4) rather than from the paper's script:
+        A(N) = prod_{q not| N} (1 - 1/(q(q-1)))
+        S(N) = 2 prod_{p>2}(1-1/(p-1)^2) prod_{p|N,p>2}(1+1/(p-2))
+      over the even N <= 1.6e7, reporting the median of S(1-A), its
+      0.001 quantile, its minimum and argmin, and the minimum of
+      S(1-A) log N loglog N over N >= 1e5, N >= 1e3, N >= 16.
+      The paper prints, in order:
+        0.333459, 0.119639, 0.060890 at N=9699690,
+        2.482019 at 510510, 1.737799 at 2310, 0.810202 at 30.
+      FALSIFIED by any disagreement in the sixth decimal, or by any
+      argmin different from the one printed.
+
+ (J2) P2 Measurement 17's ratio-7 table.  At N = 99999998,
+      K = floor(N^0.56) = 30199, for the single-divisor weights
+      w_k = [d0 | k] (so b = delta_{d0}), the brute-force
+        B_w = sum_{k<K, (k,N)=1} mu(k) w_k / phi(k)
+      against the factorised mu(d0)/phi(d0) * rho_{d0 N}(K/d0) of
+      P2 Lemma 12, and the set of values of |B_w| phi(d0) over the
+      d0 with floor(K/d0) = 7, split by gcd(d0,15).
+      The paper prints 0.250000, 0.750000, 0.500000, 1.000000 for
+      gcd = 1, 3, 5, 15, and says there are 184 such d0.
+      FALSIFIED if the factorisation misses the brute force by more
+      than 1e-12, or if the four values or the count 184 differ.
+
+ (J3) P3 Measurement 3's clause "the figure for S is unaffected [by
+      the lower cutoff]".  The shape residual sd(z_c/mean(z_c)) with
+      z_c = (V/W)/c(N), c in {A, S}, over even N in [cutoff, 1.6e7],
+      at cutoffs 1e5, 5e4, 1e4, 1e3, 1e2.  The paper prints the A
+      column (0.000323, 0.000346, 0.000398, 0.000470, 0.000529) and
+      asserts the S column is flat.
+      FALSIFIED if the S column moves by more than 10% of its value
+      across those cutoffs.
+      NOTE: V(N) here is recomputed as sum_{v<N} mu^2(v) Lambda(N-v)^2
+      by exact FFT, W(N) = sum_{w<N} Lambda(w)^2 by prefix sum, i.e.
+      independently of the paper's script.
+
+NULL.  J1 and J2 are deterministic arithmetic with no sign input; a
+sign control would randomise nothing.  J3 is a shape comparison
+between two fixed candidate constants, so the control is the second
+candidate itself, which is what the statistic already contrasts.
+
+J1  P1 Measurement 17, recomputed
+    Artin = 0.373955814952   2C_2 = 1.320323636400
+    median            = 0.333459   paper 0.333459
+    quantile 0.001    = 0.119639   paper 0.119639
+    minimum           = 0.060890 at N = 9699690   paper 0.060890 at 9699690
+    min over N >= 100000  = 2.482019 at N = 510510     paper 2.482019
+    min over N >= 1000    = 1.737799 at N = 2310       paper 1.737799
+    min over N >= 16      = 0.810202 at N = 30         paper 0.810202
+    ten smallest margins: 9699690:0.060890, 11741730:0.065623, 14804790:0.069136, 13123110:0.069379, 15825810:0.069839, 7657650:0.073312, 10720710:0.073312, 14294280:0.073312, 12762750:0.073312, 7147140:0.073312
+
+J2  P2 Measurement 17, the ratio-7 table
+    N = 99999998   prime factors [2, 7, 23, 310559]   K = 30199
+    d0 with floor(K/d0) = 7 : 184   paper says 184
+    worst |brute - factorised| = 0.000e+00
+      gcd(d0,15) = 1   -> [np.float64(0.25)]   paper 0.25
+      gcd(d0,15) = 3   -> [np.float64(0.75)]   paper 0.75
+      gcd(d0,15) = 5   -> [np.float64(0.5)]   paper 0.5
+      gcd(d0,15) = 15  -> [np.float64(1.0)]   paper 1.0
+
+J3  P3 Measurement 3, is the S column flat in the cutoff?
+    cutoff    sd for A     sd for S    
+    100000    0.000323     0.245235    
+    50000     0.000346     0.245235    
+    10000     0.000398     0.245235    
+    1000      0.000470     0.245235    
+    100       0.000529     0.245235    

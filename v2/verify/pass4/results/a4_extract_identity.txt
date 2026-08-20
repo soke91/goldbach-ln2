@@ -1,0 +1,56 @@
+a4_extract_identity.py  --  pass4, blind mathematical re-verification.
+
+PRE-REGISTRATION (fixed before the run).
+
+WHAT IS MEASURED.  P2's eq:(5) is displayed as "the identity"
+
+      B_w * C(N)  =  CP  -  R_w  +  O(N^{o(1)}),
+      CP  = sum_{u<N} Lambda(N-u) mu^2(u) b_u ,   b = mu * w,
+
+with R_w the residual of the divisor switch (the k >= K tail).  At
+N = 2e5, 4e5, 8e5 and theta' = 0.56, K = floor(N^0.56), for the two
+weights the papers use, w = 1 (b = delta_1) and w = log (b = Lambda),
+this script computes each of the five quantities separately and
+directly from its own definition:
+
+  A(N;k) = sum_{n<N, n = N (mod k)} Lambda(n) mu(N-n)
+  C(N)   = sum_{n<N} Lambda(n) mu(N-n)
+  B_w    = sum_{k<K,(k,N)=1} mu(k) w_k / phi(k)
+  D_w    = sum_{k<K,(k,N)=1} mu(k) w_k A(N;k)
+  T_w    = D_w - C(N) B_w                       (P2 eq:(2))
+  CP     = sum_{u<N} Lambda(N-u) * S_inf(u),
+             S_inf(u) = sum_{k|u,(k,N)=1} mu(k) w_k     (the COMPLETE sum)
+  R_w    = CP - D_w                             (complete minus truncated)
+
+and then reports the two residuals
+
+  gap_paper   = B_w C(N) - (CP - R_w)
+  gap_algebra = B_w C(N) - (CP - R_w - T_w)
+
+WHAT WOULD FALSIFY THE FINDING UNDER TEST.  The finding is: eq:(5)
+drops the term T_w, so it is not an identity; T_w is the object the
+whole subject is about and for w = log it is of order N.
+FALSIFIED if |gap_paper|/N is of size N^{o(1)}/N, i.e. if it is
+below 1e-3 at all three N and falling like a power of N.
+CONFIRMED if gap_algebra is zero to machine precision while
+|gap_paper|/N stays of order 1e-1 for w = log.
+
+Threshold: 1e-3 N, fixed here before the run, as the largest thing
+that could plausibly be called O(N^{o(1)}) at N = 8e5.
+
+NULL.  None applies.  Every quantity is a deterministic finite sum
+with no sign input of its own; the two gaps are differences of exact
+rearrangements of the same numbers, so a sign control would move both
+sides of each comparison alike and could not separate them.
+
+  N       w    K      C(N)          B_w           D_w           T_w           CP-R_w        gap_paper/N gap_alg/N  
+  --------------------------------------------------------------------------------------------------------------------------------
+  200000  1    930    1.95188e+02   -8.04267e-03  -1.56866e+04  -1.56850e+04  -1.56866e+04  0.07843     2.61e-18   
+  200000  log  930    1.95188e+02   -1.82784e+00  -8.78953e+04  -8.75386e+04  -8.78953e+04  0.43769     1.66e-16   
+  400000  1    1371   2.87064e+03   -5.12647e-03  -2.47317e+04  -2.47170e+04  -2.47317e+04  0.06179     1.15e-18   
+  400000  log  1371   2.87064e+03   -1.80662e+00  -1.58673e+05  -1.53487e+05  -1.58673e+05  0.38372     2.96e-17   
+  800000  1    2021   3.63701e+03   -3.02413e-03  -3.86305e+04  -3.86195e+04  -3.86305e+04  0.04827     1.43e-18   
+  800000  log  2021   3.63701e+03   -1.79030e+00  -2.60240e+05  -2.53729e+05  -2.60240e+05  0.31716     2.16e-17   
+
+  reading:  gap_alg is the algebraic identity  B_w C = CP - R_w - T_w;
+            gap_paper is P2 eq:(5) as printed, i.e. the same with T_w dropped.

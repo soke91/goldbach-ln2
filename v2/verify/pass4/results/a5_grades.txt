@@ -1,0 +1,110 @@
+a5_grades.py  --  pass4, blind mathematical re-verification.
+
+PRE-REGISTRATION (fixed before the run).
+
+WHAT IS MEASURED.  Two purely textual audits of the five .tex sources.
+
+ (G1) The grade audit of BRIEF A section 3.1.  For every numbered
+      environment in each paper, whether a \begin{proof} follows its
+      \end{...} before the next numbered environment starts.  A
+      theorem / corollary / proposition / lemma with no proof is a
+      grade violation; an observation / measurement / conjecture
+      without one is not.
+      FALSIFIED (no finding) if every plain-style statement has a
+      proof block.
+
+ (G2) The symbol audit of BRIEF A section 3.6, restricted to the one
+      letter the papers themselves single out.  P1 declares "one
+      symbol must not carry two meanings" when it renames Huang-Li's
+      A to \AAA.  This lists every distinct definitional use of the
+      letter B in P1 and P2.
+      FALSIFIED (no finding) if B is defined exactly once per paper.
+
+NULL.  None applies: both are exact textual enumerations of a fixed
+finite corpus with no sampling and no sign input.
+
+G1  grade audit: every numbered statement, and whether a proof follows
+
+  == P1-mobius-fixed-class.tex
+     theorem      thm:A                  line 167   proof=False   <-- NO PROOF BLOCK
+     corollary    cor:B                  line 192   proof=False   <-- NO PROOF BLOCK
+     theorem      thm:C                  line 202   proof=False   <-- NO PROOF BLOCK
+     proposition  prop:onesided          line 246   proof=False   <-- NO PROOF BLOCK
+     proposition  prop:nolog             line 260   proof=False   <-- NO PROOF BLOCK
+     lemma        lem:complete           line 396   proof=True 
+     lemma        lem:degen              line 432   proof=True 
+     lemma        lem:BV                 line 518   proof=True 
+     lemma        lem:density            line 559   proof=True 
+     lemma        lem:mu                 line 600   proof=True 
+     proposition  prop:MT                line 632   proof=True 
+     lemma        lem:completelog        line 714   proof=True 
+     measurement  meas:margin            line 870   proof=False
+     measurement  meas:relocate          line 892   proof=False
+     statements: 14   plain-style without a proof block: 5
+
+  == P2-no-go-divisor-switch.tex
+     lemma        lem:Gb                 line 144   proof=True 
+     proposition  prop:dilate            line 211   proof=True 
+     proposition  prop:posweights        line 238   proof=True 
+     proposition  prop:flatsum           line 264   proof=True 
+     measurement  meas:flatsum           line 293   proof=False
+     proposition  prop:untrunc           line 316   proof=True 
+     proposition  prop:layers            line 343   proof=True 
+     proposition  prop:combined          line 363   proof=True 
+     proposition  prop:direct            line 386   proof=True 
+     measurement  meas:direct            line 426   proof=False
+     lemma        lem:extract            line 449   proof=True 
+     lemma        lem:bv                 line 466   proof=True 
+     theorem      thm:D                  line 497   proof=True 
+     theorem      thm:Dprime             line 562   proof=True 
+     measurement  meas:extract           line 590   proof=False
+     proposition  prop:Dpp               line 648   proof=True 
+     measurement  meas:poly              line 691   proof=False
+     proposition  prop:E                 line 729   proof=True 
+     measurement  meas:circle            line 769   proof=False
+     statements: 19   plain-style without a proof block: 0
+
+  == P3-wall-second-moment.tex
+     proposition  prop:V                 line 160   proof=True 
+     measurement  meas:V                 line 199   proof=False
+     measurement  meas:secondorder       line 233   proof=False
+     lemma        lem:MP                 line 248   proof=True 
+     proposition  prop:W                 line 319   proof=True 
+     measurement  meas:budget            line 359   proof=False
+     lemma        lem:coin               line 383   proof=True 
+     proposition  prop:coindisc          line 424   proof=True 
+     measurement  meas:disc              line 459   proof=False
+     statements: 9   plain-style without a proof block: 0
+
+  == P4-coherent-cell-floor.tex
+     lemma        lem:cellmom            line 149   proof=True 
+     measurement  meas:mc                line 186   proof=False
+     observation  obs:coh                line 227   proof=False
+     measurement  meas:exponent          line 255   proof=False
+     lemma        lem:placebo            line 285   proof=True 
+     measurement  meas:placebo           line 309   proof=False
+     measurement  meas:Dc                line 368   proof=False
+     proposition  prop:scaleinv          line 392   proof=True 
+     measurement  meas:scaleinv          line 413   proof=False
+     statements: 9   plain-style without a proof block: 0
+
+  == P5-negative-map.tex
+     measurement  meas:supp              line 119   proof=False
+     conjecture   conj:L                 line 160   proof=False
+     proposition  prop:R4                line 324   proof=True 
+     statements: 3   plain-style without a proof block: 0
+
+G2  the letter B, definitional uses
+  == P1-mobius-fixed-class.tex
+     B\(K\)\s*=             line 369   ...ck{n\le t\\ n\equiv N\ (k)}}\Lambda(n)\mu(N-n), \end{equation} where $B(K)=\sum_{k<K,(k,N)=1}\mu(k)/\varphi(k)$. Huang--Li's Lemma~1 (a form of G...
+     B_\{?\\?log\}?\(K\)\s* line 776   ...dent \emph{(ii) The subtracted mean term.} It carries the factor \[ B_{\log}(K):=\sum_{\substack{k<K\\ (k,N)=1}} \frac{\mu(k)\log k}{\varphi(k)}...
+     \\tau_3\(q\)\^\{?B     line 522   ...=C(A,B)$ such that for $Q\le N^{1/2}(\log N)^{-C}$, \[ \sum_{q\le Q}\tau_3(q)^{B}\ \max_{y\le N}\ \max_{(a,q)=1} \Bigl|\psi(y;q,a)-\frac{y}{\varphi(...
+     with\s+\$?B=3          line 546   ...i(T_m;q,N)=T_m/\varphi(q)+\mathcal E$ and applying Lemma~\ref{lem:BV} with $B=3$ and \eqref{eq:level}, \begin{equation}\label{eq:R3} R(t)\;=\;\math...
+
+  == P2-no-go-divisor-switch.tex
+     B_\{?\\?log\}?\(K\)\s* line 245   ...=1}} \mu^2(k)\,(\log k)\,H(N;k)\;-\;C(N)\,B_{\log}(K), \qquad B_{\log}(K)=\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\! \frac{\mu(k)\log k}{\varph...
+     B_w\s*:?=              line 129   ...rm, and $b$ is determined by $w$. Put \begin{equation}\label{eq:Bw} B_w:=\sum_{\substack{k<K\\(k,N)=1}}\frac{\mu(k)w_k}{\varphi(k)}, \qquad...
+     B_w\s*:?=              line 451   ...osing constraints} \begin{lemma}[extraction]\label{lem:extract} \[ B_w=\sum_{\substack{d<K\\(d,N)=1}}b_d\, \frac{\mu(d)}{\varphi(d)}\,\rho...
+     B_H\(N\)\s*=           line 428   ...irect} At $\theta'=0.56$ over $N=2\cdot10^5$ to $3.2\cdot10^6$, with $B_H(N)=\sum_{k<K}(\log k)|H(N;k)|$, the new ratio $B_H(N)/(\SS(N)N)$ reads $0...
+     B\(s\)\s*=             line 684   ...ves the wrong way] Since $b=\mu*w$ we have $w=\mathbf 1*b$ and hence $B(s)=W(s)/\zeta(s)$. That series has a \emph{double} pole at $s=1$ for ever...
+

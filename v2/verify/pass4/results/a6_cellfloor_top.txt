@@ -1,0 +1,50 @@
+a6_cellfloor.py  --  pass4, blind mathematical re-verification.
+
+PRE-REGISTRATION (fixed before the run).
+
+WHAT IS MEASURED.  P4 Lemma 1 and the numbers P4 Measurements 8 and 10
+print, re-implemented here from the statements alone.
+
+  Band: the even N in (2e6, 4e6] with V(N) > 0.
+  Cells: depth d(N) = #{p in 3,5,7,11,13 : p | N}, six cells d=0..5.
+  V(N)  = sum_{v<N} mu^2(v) Lambda(N-v)^2       (exact FFT convolution)
+  C(N)  = sum_{n<N} Lambda(n) mu(N-n)           (exact FFT convolution)
+  Z(N)  = C(N)/sqrt(V(N))
+  u_c(v)= sum_{N in c} Lambda(N-v)/sqrt(V(N))   (exact FFT correlation)
+  Q_cd  = sum_v mu^2(v) u_c(v) u_d(v)
+  se_c  = sqrt( Q_cc/n_c^2 - 2 Q_ca/(n_c n) + Q_aa/n^2 )
+  z_c   = (m_c - mbar)/se_c
+
+  and, for P4 Note 6's clause "at the top octave the exact floor
+  exceeds sd(Z)/sqrt(n_c) by factors of 5.8 to 160, growing with the
+  cell", the ratios se_c / (sd(Z)/sqrt(n_c)).
+
+WHAT WOULD FALSIFY WHAT.
+  (a) P4 Measurement 8's printed n_c, se_c and z_c for this octave are
+      383617/421978/163568/28507/2263/67,
+      1.2400e-1/4.6622e-2/1.4834e-1/2.4178e-1/3.3253e-1/4.3685e-1,
+      +0.1069/+1.1133/-0.2314/-2.3990/-5.9997/-11.0258.
+      FALSIFIED if any recomputed value differs in the fourth
+      significant digit.
+  (b) The "5.8 to 160" clause is CONFIRMED only if the recomputed
+      ratio range brackets those two endpoints to within 10%; it is
+      an evidence gap, not a defect, if it does not, since the
+      packet prints no sd(Z) anywhere.
+
+NULL.  The floor of Lemma 1 IS the independent-sign variance, computed
+in closed form rather than simulated, so every z_c below is already
+quoted against its own coin null; no further control is run here and
+none of the thresholds above is set from an effect size.
+
+  band (8000000, 16000000]:  n = 4000000   mean Z = +0.000735   sd Z = 0.924687
+
+  depth  n_c       se_c          paper se_c    z_c         paper z_c se/(sdZ/sqrt n_c)
+  0      1534466   1.18233e-01   1.18230e-01   0.0440      0.0440    158.39
+  1      1687911   4.44520e-02   4.44520e-02   0.6905      0.6905    62.46
+  2      654281    1.41441e-01   1.41440e-01   -0.0561     -0.0561   123.73
+  3      114017    2.30526e-01   2.30530e-01   -1.5529     -1.5529   84.18
+  4      9059      3.16863e-01   3.16860e-01   -4.4589     -4.4589   32.62
+  5      266       4.11529e-01   4.11530e-01   -9.0642     -9.0642   7.26
+
+  P4 Note 6's clause: floor / (sd(Z)/sqrt n_c) ranges 7.26 to 158.39 here
+  (P4 Note 6 says 5.8 to 160 at the TOP octave (8e6,1.6e7], one octave above this one)
