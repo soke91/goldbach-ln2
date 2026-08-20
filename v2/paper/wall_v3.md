@@ -2748,6 +2748,66 @@ or close it is a functional form for the drift, which no measurement
 in this repository has ever supplied.
 
 
+#### Remark (the never-closes region has a boundary, and the family has none) {#rem:deficitregion}
+<!-- evidence: audit_deficit_region.py -->
+
+[rem:deficitshape] excluded one point of the "never closes" region at
+$3.28$ standard errors. The region has a boundary and it is simpler
+than that point. Writing the deficit as the cubic's derivative,
+$$\mathrm{deficit}(x) = c_1 + c_2 x + \tfrac12 c_3 x^2,$$
+a parabola in $x=\log N$: if $c_3<0$ it opens downward and the deficit
+reaches zero at some finite $N$ whatever else is true; if $c_3>0$ its
+vertex sits at $x=-c_2/c_3$, which with $c_2>0$ is at negative $x$,
+below the field entirely, so past the top the deficit only rises and
+never reaches zero. **Inside the cubic family the whole region is the
+single inequality $c_3>0$.**
+
+The premises hold (C2): the deficit at the top of the field is
+$+0.057813$, $c_2$ is $+0.02820735$, and a positive $c_3$ would put
+the vertex at $x=-13.97$ against the field's lowest point $12.2061$.
+And the inequality is excluded (C3): $c_3=-0.00201923\pm0.00068284$,
+one-sided $t=-2.96$.
+
+**And then the family fails** (C4, refuted). A quartic term added to
+the same fit is $+0.0025976491\pm0.0009936619$, $t=2.61$ — resolved,
+and positive, which is the direction that bends the deficit back up
+beyond the field and puts the region straight back. The refutation
+rule named this as the outcome that would cost the most and said it
+was not the one predicted. **So C3's exclusion is void, and the
+parabola argument does not describe the deficit past the field.**
+
+**A diagnostic, run after that refutation and predicted by nothing.**
+C4 asked whether one more degree resolves; it does, and the question
+that raises is whether the next ones do. Fitting degrees two through
+eight, the newest coefficient's $t$ reads $-11.67$, $-2.96$, $+2.61$,
+$-1.34$, $-1.16$, $+2.67$, $+7.41$, while the r.m.s. residual moves
+only from $0.032663$ to $0.030092$ — eight per cent across six added
+parameters. **Degree eight resolves at $t=7.41$ and buys almost
+nothing.** That is not a deficit that is a degree-eight polynomial;
+it is a family flexible enough to chase a shape it does not contain,
+and it means no polynomial statement about this deficit past the
+field is stable at any degree.
+
+So the computational branch of the sign axis closes, and it closes
+without an answer. [rem:deficitdirect] measured the drift and it is
+real: inside the field the deficit shrinks, resolved at $t=-11.67$,
+by two routes that agree. [rem:deficitshape] measured that the drift
+steepens. Neither licenses the next step, because every attempt to
+say what happens past $\log N=22.7030$ has to name a family, and the
+degrees say this field will resolve a new coefficient in whatever
+family is offered without the residual conceding that the shape was
+found. **[rem:shapepower] said this for the level axis. It is now
+measured for the sign axis, with the degree at which it bites.**
+
+What is left is not more $N$. Extending the field lengthens the
+lever arm for every degree at once, so a longer field resolves higher
+degrees rather than settling lower ones — the degree-eight $t$ of
+$7.41$ on ten and a half decades is what that looks like already.
+What would settle it is a derivation that says which family the
+deficit belongs to, and no measurement in this repository has ever
+supplied one.
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 

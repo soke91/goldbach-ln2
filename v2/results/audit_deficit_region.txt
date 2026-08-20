@@ -1,0 +1,79 @@
+STATISTIC: the cubic and quartic coefficients of
+           log(|sum a|/l2) against log N over the whole
+           field, and the premises under which the region
+           of shapes where the deficit never reaches zero
+           reduces, inside the cubic family, to the single
+           inequality c3 > 0.
+NULL: none is run and none applies. Nothing is sampled here:
+      two fits are compared on the same deterministic
+      points and the question is which coefficients the
+      data resolves. The nulls for the underlying quantity
+      were run in lab_primorial_share.py and in
+      {#rem:deficitshape}.
+FIELD: N = 2^a 5^b with both a >= 1 and b >= 1 in
+       [2e5, 8e9], one coprimality class. Nothing is
+       measured here: every |sum a| and l2 is read from a
+       POINT marker, the 81 below 1.024e8 from
+       results/audit_deficit_direct.txt and the 75 above it
+       from results/audit_alpha_reach.txt; the cubic
+       coefficient C1 checks against comes from
+       results/audit_deficit_shape.txt.
+
+read 156 POINT markers; nothing is measured here
+  the cubic coefficient -0.00201923 +- 0.00068284 comes from results/audit_deficit_shape.txt
+PRINTBOUND audit_deficit_region 6 0.00000050
+  the field is 156 points over 10.5966 in log N, topping at 22.8027
+SCALES 1
+
+C1  the control against {#rem:deficitshape}
+  cubic coefficient -0.00201923 +- 0.00068284 against -0.00201923 +- 0.00068284
+  C1 hold   (cap: the printing bound)
+
+C2  do the premises of the reduction hold?
+  the deficit at the top is +0.057813  (needs > 0): yes
+  c2 is +0.02820735  (needs > 0): yes
+  a positive c3 would put the vertex at x = -13.97, below the field's 12.2061: yes
+  C2 hold   (cap: all three)
+
+C3  is the whole never-closes region excluded?
+  inside the cubic family the region is the single inequality c3 > 0,
+  because c3 < 0 opens the parabola downward and the deficit must reach zero,
+  while c3 > 0 puts its vertex below the field and the deficit only rises
+  c3 = -0.00201923 +- 0.00068284, one-sided t = -2.96
+TSTAT deficit_region_c3 -2.96
+SPREAD deficit_region_c3 10.5966
+SCATTER slope_audit_deficit_region 0.031762
+  C3 hold   (cap: one-sided t = -2)
+
+C4/C5  is the cubic family big enough to carry the argument?
+  the quartic coefficient is +0.0025976491 +- 0.0009936619, t = 2.61
+TSTAT deficit_region_quartic 2.61
+SPREAD deficit_region_quartic 10.5966
+  r.m.s. residual 0.031066 against the cubic's 0.031762
+  with it in the fit the cubic coefficient reads -0.04769688 +- 0.01748562, t = -2.73
+  C4 REFUTED   (cap: |t| = 2 on the quartic)
+  C5 hold   (cap: the cubic stays negative beyond -2)
+
+a diagnostic, run after C4 was refuted and registered as nothing
+  C4 asked whether one more degree resolves. It does. The question that
+  answer raises is whether the next one does too, and the one after that --
+  because a family in which every added degree keeps resolving while the
+  residual barely moves is not a family the data is choosing from. This is
+  measured below and predicted by nothing; it is reported because C4's
+  refutation is uninterpretable without it.
+  degree   top coefficient t   r.m.s. residual   resolves?
+  2        -11.67              0.032663          yes
+  3        -2.96               0.031762          yes
+  4        +2.61               0.031066          yes
+  5        -1.34               0.030882          no
+  6        -1.16               0.030743          no
+  7        +2.67               0.030216          yes
+  8        +7.41               0.030092          yes
+DEGREES deficit_region 7
+
+what this settles
+  a quartic bend is resolved, so the parabola argument does not describe the
+  deficit past the field and the exclusion is void whatever C3's t said
+
+======================================================================
+C1 hold  C2 hold  C3 hold  C4 REFUTED  C5 hold
