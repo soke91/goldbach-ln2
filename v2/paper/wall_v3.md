@@ -1256,6 +1256,62 @@ does not surface in these quantities at this size. [lem:coin]'s reach
 is wider than it was stated for, and the demand-side measurement
 programme on $C(N)$ has met a wall that more $N$ does not move.
 
+#### Remark (the non-Gaussianity is not made anywhere) {#rem:cnkurtwhere}
+<!-- evidence: audit_cn_kurt_where.py -->
+
+Four routes closed, and one thing did not: the finite-$N$ separation
+in excess kurtosis is real and large — $z=16.5$ at $b=20$, $33.4$ at
+$b=17$ — and had no mechanism. Writing
+$C(N)=\sum_{p<N}\log p\,\mu(N-p)$ and splitting the sum by $v=N-p$
+dyadically splits it by how far the prime sits below $N$: small $v$ is
+few terms of weight about $\log N$, large $v$ is many terms of small
+weight. If one part makes the non-Gaussianity, that is a mechanism.
+
+The decomposition is exact — the pieces sum to $C$ to $1.455\cdot
+10^{-11}$ across the band, and the whole band reproduces
+$0.41549$ (W1). Each piece is scored against its own ensemble of $32$
+sign patterns restricted to the same $v$-range, so term counts and
+weights are matched.
+
+| $v$-piece | terms | real | coin mean | $z$ |
+|---|---|---|---|---|
+| $(2^{10},2^{11}]$ | $621$ | $+0.09297$ | $-0.04258$ | $4.96$ |
+| $(2^{12},2^{13}]$ | $2491$ | $+0.13139$ | $-0.01907$ | $6.27$ |
+| $(2^{14},2^{15}]$ | $9958$ | $+0.04683$ | $-0.01686$ | $1.68$ |
+| $(2^{17},2^{18}]$ | $79672$ | $+0.01047$ | $-0.02350$ | $1.17$ |
+| $(2^{20},2^{21}]$ | $637457$ | $+0.01005$ | $-0.01465$ | $0.54$ |
+
+**W2 broke: it is not concentrated.** The largest per-piece $|z|$ is
+$6.27$, well below the whole field's $16.5$. A quantity made in one
+place would show a piece at least as separated as the whole; instead
+fourteen pieces each carry a little and the whole carries more than
+any of them. The pre-registration fixed how to read that before the
+run — there is no mechanism of this kind to find, and that answers the
+question rather than leaving it open.
+
+**W4 broke, and for a reason worth recording as an error.** It
+predicted that some piece would show a coin excess kurtosis above
+$0.5$, on the thought that a piece with few terms is non-Gaussian for
+any signs. The sign is wrong: a weighted sum of independent $\pm1$ is
+*platykurtic*, with excess kurtosis about $-2\sum w^4/(\sum w^2)^2$,
+and the measured coin means run $-0.11969$ to $-0.01102$ — negative
+everywhere and largest in magnitude at the smallest piece, exactly as
+that formula says and opposite to what was predicted. No piece of the
+fourteen reaches $0.5$.
+
+W3 held and is not read, since a location means nothing once the
+concentration is absent.
+
+**What the table shows and this run did not test.** The per-piece
+$|z|$ is not flat: it runs $2.90,\,3.22,\,3.65,\,4.96,\,5.22,\,6.27,\,
+4.21$ over $v$ up to $2^{14}$ and then $1.68,\,1.74,\,0.84,\,1.17,\,
+0.82,\,1.50,\,0.54$ above it. The upper half of the ladder carries
+almost nothing. That is an observation from a printed table on the
+same data that produced it, not a tested claim, and it is not
+evidence: the way to make it evidence is to predict the same profile
+at a band this run never saw. Until then the finding is W2's, and it
+is negative.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 
