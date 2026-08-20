@@ -4611,6 +4611,12 @@ is offered for the constant, as K3's rule requires — the diagonal
 sketch that suggests one gives $6/\pi^2$ in the wrong direction, not
 a half.
 
+*Withdrawn.* A blind second radical family refutes the constant and the
+drift within that family resolves at $t=-7.90$: the two barriers do not
+share a scale. See [rem:jbarrierreach]. The paragraph below is what this
+remark suggested and it is no longer available; J1 to J4 and the
+exponents at family A stand.
+
 **What is suggested and not established.** If $D/\ell^2$ really is a
 constant, then $\ell^2$ is not the wrong floor for a sum indexed by
 $j$ — it is the right floor up to a factor of two, and item 5's demand
@@ -4621,6 +4627,70 @@ and a longer field, on the ratio rather than on the exponents. And
 $D$ is a heuristic floor, not a theorem: it is what the sum would be
 under random signs in $j$, and no lower bound on $\lvert\sum a\rvert$
 follows from measuring it.
+
+#### Remark (the half was the radical's, and the barriers do not share a scale) {#rem:jbarrierreach}
+<!-- evidence: audit_jbarrier_reach.py -->
+
+[rem:jbarrier] found $D/\ell^2$ flat at $0.498823$ across $2.41$
+decades, said its own evidence was weak — K2 and K3 were registered
+after that ratio was on the page — and named the test that would
+settle it: a second radical family and a longer field, on the ratio.
+This is that test, blind. **It refutes the constant.**
+
+| family | radical | $\prod_{p\mid N}\frac{p}{p+1}$ | mean $D/\ell^2$ |
+|---|---|---|---|
+| A | $\{2,5\}$ | $0.555556$ | $0.503442$ |
+| B | $\{2,3,5,7,11,13\}$ | $0.310330$ | $0.178268$ |
+
+The gate reproduces all nine published ratios to four decimals (L1)
+and family A extended two octaves keeps its mean at $0.503442$ (L2).
+**L3 and L4 are refuted**, the second by $0.325173$ against a cap of
+$0.02$. L4's rule named this outcome in advance as the one that would
+matter most, and it fires: the relation between the two barriers
+carries arithmetic, and a single number is the wrong shape for it.
+It is not the arithmetic factor either — the means stand in ratio
+$2.82$ while the factors stand in $1.79$ — and **no mechanism is
+offered.**
+
+**And it is not a constant within family B at all.** The ratio there
+runs $0.2303$, $0.2055$, $0.1899$, $0.1753$, $0.1711$, $0.1642$,
+$0.1577$, $0.1549$, $0.1555$ — falling throughout.
+
+**The half's proposed mechanism fails too.** The diagonals of $D^2$
+and $\ell^{2\,2}$ are the same quantity by algebra, so a ratio of a
+half would mean $D^2=\mathrm{DIAG}$ and $\ell^{2\,2}=4\,\mathrm{DIAG}$.
+L6 is refuted by $475$ per cent: $\ell^{2\,2}/\mathrm{DIAG}$ has mean
+$23.00$ and runs from $1.76$ to $53.96$. **L5 "holds" and must not be
+read as support**: its cap was on the mean of a series running $0.48$
+to $1.80$, and a mean of $1.01065$ from that spread tests the cap and
+not the claim. That is the same defect as [rem:identityforced]'s Q4
+and [rem:sieveweight]'s H7 — a rule that no outcome could have
+failed — and its third instance.
+
+**The statistic the caps should have been written on** (a diagnostic,
+run after the verdicts and predicted by nothing): the drift of
+$\log(D/\ell^2)$ against $\log N$ within each family.
+
+| family | drift | s.e. | $t$ |
+|---|---|---|---|
+| A | $+0.005736$ | $0.003313$ | $+1.73$ |
+| B | $-0.068713$ | $0.008699$ | $-7.90$ |
+
+**The two barriers do not share a scale.** Family B resolves the
+drift at $t=-7.90$, and family A's agreement — the whole of
+[rem:jbarrier]'s finding — is one radical's coincidence over a field
+too short to see its own drift.
+
+**So [rem:jbarrier]'s suggested reading is withdrawn.** It offered
+that $\ell^2$ might be the right floor for a $j$-indexed sum up to a
+factor of two, making item 5's demand a named barrier. It is not: the
+$j$-side barrier is a different size in a different family and falls
+away from $\ell^2$ as $N$ grows. What survives from that remark is
+what it measured and not what it suggested — J1 through J4, the
+exponents at family A, and $\lvert\sum a\rvert$ standing above both
+barriers at every $N$ there. **Which floor item 5 is measured against
+is open, and this run closes one candidate answer rather than
+supplying another.**
 
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->

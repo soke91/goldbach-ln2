@@ -1,0 +1,148 @@
+STATISTIC: the ratio D/l2 of the two square-root barriers of one
+           sum, on two radical families and two octaves beyond
+           rem:jbarrier's field, and each barrier against the
+           diagonal DIAG that the two share by algebra.
+FIELD: family A, N = 25000*2^j for j < 11, radical {2,5};
+       family B, N = 30030*2^j for j < 9, radical
+       {2,3,5,7,11,13}. k over the squarefree k < N^0.56 coprime
+       to N; j over every index below N. The nine ratios of
+       rem:jbarrier are READ from results/audit_jbarrier.txt as
+       the gate.
+DERIVED: the diagonals of D^2 and of l2^2 are the same quantity,
+         sum_k (log k)^2 sum_m mu^2(m) Lambda(N-mk)^2.
+
+READ audit_jbarrier.txt first 0.5090
+READ audit_jbarrier.txt last 0.4998
+  the published ratios, 9 of them, this run's gate
+PRINTBOUND audit_jbarrier_reach 4 0.00005000
+  half 0.5 +- 0.02, family cap 0.02, per cent cap 10.0, four 4.0
+RADICALS 2
+sieving to 25600000
+
+family A, radical [2, 5], arithmetic factor 0.555556
+  N = 25000      l2      3438.54  D      1750.12  D/l2 0.508970
+POINT reachratioA_25000 0.508970
+  N = 50000      l2      5450.89  D      2703.24  D/l2 0.495927
+POINT reachratioA_50000 0.495927
+  N = 100000     l2      8634.13  D      4267.35  D/l2 0.494242
+POINT reachratioA_100000 0.494242
+  N = 200000     l2     13476.69  D      6603.10  D/l2 0.489965
+POINT reachratioA_200000 0.489965
+  N = 400000     l2     20106.53  D     10266.70  D/l2 0.510615
+POINT reachratioA_400000 0.510615
+  N = 800000     l2     32093.73  D     15831.14  D/l2 0.493278
+POINT reachratioA_800000 0.493278
+  N = 1600000    l2     49542.26  D     24041.11  D/l2 0.485265
+POINT reachratioA_1600000 0.485265
+  N = 3200000    l2     71736.79  D     36683.25  D/l2 0.511359
+POINT reachratioA_3200000 0.511359
+  N = 6400000    l2    111409.08  D     55680.58  D/l2 0.499785
+POINT reachratioA_6400000 0.499785
+  N = 12800000   l2    160800.47  D     84326.81  D/l2 0.524419
+POINT reachratioA_12800000 0.524419
+  N = 25600000   l2    242585.06  D    127123.29  D/l2 0.524036
+POINT reachratioA_25600000 0.524036
+
+family B, radical [2, 3, 5, 7, 11, 13], arithmetic factor 0.310330
+  N = 30030      l2     10474.41  D      2412.15  D/l2 0.230290
+POINT reachratioB_30030 0.230290
+  N = 60060      l2     18837.75  D      3871.74  D/l2 0.205531
+POINT reachratioB_60060 0.205531
+  N = 120120     l2     31687.86  D      6017.85  D/l2 0.189910
+POINT reachratioB_120120 0.189910
+  N = 240240     l2     53245.73  D      9333.93  D/l2 0.175299
+POINT reachratioB_240240 0.175299
+  N = 480480     l2     83768.77  D     14334.09  D/l2 0.171115
+POINT reachratioB_480480 0.171115
+  N = 960960     l2    132828.11  D     21816.33  D/l2 0.164245
+POINT reachratioB_960960 0.164245
+  N = 1921920    l2    212827.23  D     33559.34  D/l2 0.157683
+POINT reachratioB_1921920 0.157683
+  N = 3843840    l2    330855.35  D     51246.37  D/l2 0.154891
+POINT reachratioB_3843840 0.154891
+  N = 7687680    l2    503661.58  D     78295.00  D/l2 0.155452
+POINT reachratioB_7687680 0.155452
+SCALES 20
+
+L1  the gate: do the shared N reproduce the published ratios?
+  N = 25000      here 0.5090 against its 0.5090  ok
+  N = 50000      here 0.4959 against its 0.4959  ok
+  N = 100000     here 0.4942 against its 0.4942  ok
+  N = 200000     here 0.4900 against its 0.4900  ok
+  N = 400000     here 0.5106 against its 0.5106  ok
+  N = 800000     here 0.4933 against its 0.4933  ok
+  N = 1600000    here 0.4853 against its 0.4853  ok
+  N = 3200000    here 0.5114 against its 0.5114  ok
+  N = 6400000    here 0.4998 against its 0.4998  ok
+  L1 hold   (cap: 4 decimals)
+
+L2  does the extension keep the half?
+  family A over 11 N to 25600000: mean 0.503442, off +0.003442
+POINT meanA 0.503442
+  L2 hold   (cap: 0.02)
+
+L3  does the second radical give the same constant?
+  family B over 9 N to 7687680: mean 0.178268, off -0.321732
+POINT meanB 0.178268
+  L3 REFUTED   (cap: 0.02)
+
+L4  does the constant depend on the radical?
+  A 0.503442 (factor 0.555556) against B 0.178268 (factor 0.310330)
+  difference +0.325173
+POINT famgap 0.325173
+ACROSS jbarrier_reach 0.325173
+  L4 REFUTED   (cap: 0.02)
+
+L5, L6  where does the half come from?
+    family  N            D^2/DIAG    l2^2/DIAG
+       A    25000         0.77639      2.99706
+       A    50000         0.73013      2.96867
+       A    100000        0.68724      2.81340
+       A    200000        0.65262      2.71852
+       A    400000        0.63029      2.41742
+       A    800000        0.60442      2.48400
+       A    1600000       0.57003      2.42071
+       A    3200000       0.54506      2.08446
+       A    6400000       0.52254      2.09198
+       A    12800000      0.50161      1.82395
+       A    25600000      0.48247      1.75690
+       B    30030         1.79823     33.90753
+       B    60060         1.74063     41.20522
+       B    120120        1.64853     45.70879
+       B    240240        1.56667     50.98226
+       B    480480        1.47744     50.45836
+       B    960960        1.40027     51.90741
+       B    1921920       1.34178     53.96472
+       B    3843840       1.28771     53.67454
+       B    7687680       1.24896     51.68438
+  mean D^2/DIAG  1.01065, off 1.07 per cent from 1
+  mean l2^2/DIAG 23.00351, off 475.09 per cent from 4.0
+POINT dsqdiag 1.010652
+POINT l2sqdiag 23.003513
+  L5 hold   L6 REFUTED   (cap: 10.0 per cent each)
+
+  a diagnostic, after the verdicts and predicted by nothing
+  L5's cap was on the mean of a series; the series is printed above and
+  runs far wider than the cap. the drift is what decides whether the
+  two barriers share a scale, and no prediction was written on it.
+    family   ratio drift        s.e.        t     range
+       A     +0.005736     0.003313    +1.73   0.4853-0.5244
+TSTAT reachdriftA 1.73
+SPREAD reachdriftA 0.003313
+POINT reachdriftA 0.005736
+       B     -0.068713     0.008699    -7.90   0.1549-0.2303
+TSTAT reachdriftB -7.90
+SPREAD reachdriftB 0.008699
+POINT reachdriftB -0.068713
+  a drift resolved in either family is the two barriers not sharing a
+  scale, whatever the mean of their ratio is
+
+======================================================================
+L1 hold  L2 hold  L3 REFUTED  L4 REFUTED  L5 hold  L6 REFUTED
+
+the constant depends on the radical. the relation between the two
+barriers carries arithmetic, as #k does, and rem:jbarrier's single
+number is the wrong shape for it -- the two family means and their
+arithmetic factors are printed above and that is the statement.
+D is the shared diagonal but l2 is not twice it, so the half is not
+explained and the unexplained part sits in l2's off-diagonal.
