@@ -1,0 +1,71 @@
+STATISTIC: at depth 5, the fraction of simulated fields in
+           which N^-a beats each of three two-parameter
+           rivals on weighted r.m.s. as the log-range is
+           extended, and the factor in N at which each
+           fraction first reaches 95 per cent.
+NULL: RUN, and it is the whole measurement. Data are drawn
+      from the fitted power law with Gaussian errors of the
+      modelled se, every form is fitted by the same
+      weighted least squares on two parameters, and
+      'separated' counts the draws in which the true form
+      has the smaller weighted r.m.s. The fixed SEED
+      governs every draw.
+FIELD: the depth-5 band table of
+       v1/results/wall/lab_mask_amplitude_law.txt -- the
+       cell where {#rem:maskdeepform} found the weights do
+       not collapse -- fourteen half-octave bands, with the
+       exact errors of Lemma lem:cellmom. The rivals are
+       log y = A - b log x, A - c sqrt(x) and A - d x/log x
+       with x = log N, each two free parameters like the
+       power law itself. Nothing about the mask is
+       measured; the exponent and the (log N)^-b reach are
+       refitted only as J1's control against
+       v1/results/wall/lab_mask_exponent_se.txt and
+       results/audit_mask_deepform.txt.
+
+read the depth-5 table from v1/results/wall/lab_mask_amplitude_law.txt and the reach
+READ audit_mask_deepform.txt FORMREACH mask_deep_depth5 7.72
+SEED 20260823
+DRAWS 2000
+PRINTBOUND audit_mask_rivals 4 0.00005000
+
+  depth 5: a = 0.1434 against v1's 0.1434, se exponent 0.1105
+SCALES 1
+
+  extension  factor in N   log-power    stretched    root-log   
+  1          8.508e+01     0.5560       0.5265       0.5005     
+  2          7.238e+03     0.7220       0.6205       0.5425     
+  4          5.239e+07     0.9935       0.8795       0.6460     
+  8          2.745e+15     1.0000       1.0000       0.9265     
+  16         7.534e+30     1.0000       1.0000       0.9990     
+  32         5.676e+61     1.0000       1.0000       0.9970     
+  64         3.222e+123    1.0000       1.0000       0.9945     
+  128        1.038e+247    1.0000       1.0000       0.9965     
+
+J1  the control
+  exponent 0.1434 against v1's 0.1434; the (log N)^-b reach 10^7.72 against 10^7.72
+  J1 hold   (cap: the printed decimals)
+
+J2  is anything separated at the observed range?
+  log-power 0.5560, stretched 0.5265, root-log 0.5005
+  J2 hold   (cap: none reaching 95 per cent)
+
+J3/J4  how far apart are the rivals?
+RIVALREACH mask_logpower 7.72
+  log-power   separates at 10^7.72
+RIVALREACH mask_stretched 15.44
+  stretched   separates at 10^15.44
+RIVALREACH mask_rootlog 30.88
+  root-log    separates at 10^30.88
+SPREAD mask_rivals 23.16
+  the separated rivals span 23.16 in log10 of the factor
+  J3 hold   (cap: a factor of ten between reaches)
+  J4 hold   (cap: above 10^7.72)
+
+what this settles
+  the reaches are rival-specific, so 10^7.72 is the price against (log N)^-b
+  and not the price of establishing the form; the honest figure is the hardest
+  rival's, and it is 10^30.88
+
+======================================================================
+J1 hold  J2 hold  J3 hold  J4 hold

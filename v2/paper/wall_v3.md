@@ -3030,6 +3030,62 @@ a contradiction but is worth stating: what makes it work is the
 *ratio* of the two exponents, not the amount of signal.
 
 
+#### Remark (the price was against one rival, and there is no price of the form) {#rem:maskrivals}
+<!-- evidence: audit_mask_rivals.py -->
+
+[rem:maskdeepform] priced the mask's form question at a factor of
+$10^{7.72}$ in $N$ and closed with a caution: the separation measured
+is between two named forms and says nothing about a third. That
+caution is the whole story, and this run measures it.
+
+Three two-parameter rivals are put against the power law at depth 5,
+on [rem:maskdeepform]'s design unchanged — the same bands, error law
+and extensions — so the comparison of weighted r.m.s. is fair and the
+$(\log N)^{-b}$ reach reproduces its $10^{7.72}$ exactly (J1). At the
+observed range none of the three is separated: the power law wins in
+$0.5560$, $0.5265$ and $0.5005$ of draws, which is a coin (J2).
+
+**And the reaches are not one number.**
+
+| rival | separates at |
+|---|---|
+| $A - b\log x$ | $10^{7.72}$ |
+| $A - c\sqrt{x}$ | $10^{15.44}$ |
+| $A - d\,x/\log x$ | $10^{30.88}$ |
+
+with $x=\log N$. They span $23.16$ in $\log_{10}$ of the factor (J3),
+and the hardest costs more than [rem:maskdeepform] quoted (J4).
+
+**So $10^{7.72}$ is the price against $(\log N)^{-b}$ and not the
+price of establishing the form**, and OPEN.md item 3 carried that
+mistake for one commit on my writing of it. The correction is not
+just a larger number. The ordering says what the number is doing:
+the rivals separate in the order of how nearly linear in $x$ they
+are, and $x/\log x$ — the shape a sieve bound takes — is nearly
+linear over any finite range. **A two-parameter rival can be made
+asymptotically as close to $x$ as one likes, so there is no supremum
+to take.** "The price of the form" is not a large number; it is not a
+number.
+
+What survives is narrower and still worth having. Against a *named*
+rival the question is decidable and the price is computable, and the
+three prices are now on the record. That is the shape of every
+statement this program can make about form: not *the mask decays like
+$N^{-a}$*, but *the mask's decay is distinguishable from $(\log
+N)^{-b}$ at $10^{7.72}$, from a stretched exponential at $10^{15.44}$,
+and from $x/\log x$ at $10^{30.88}$* — each a fact, none of them the
+fact that was wanted.
+
+This closes the form branch of item 3 the way the other three axes
+closed: not by answering the question but by showing what answering
+it would take, and here the showing is exact. [rem:ladderdegree]
+found a family the data cannot challenge, [rem:deficitregion] a
+family the data refutes at every order, [rem:maskformreach] a design
+that cannot be given more information. **This one found that even
+where the design works and the price is finite, the price depends on
+what you are pricing against, without bound.**
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 
