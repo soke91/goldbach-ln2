@@ -1,0 +1,63 @@
+STATISTIC: per labelled block of paper/, whether it mentions a
+           coin or an ensemble and whether it also contains one
+           of ten fixed phrases that state an escape from one;
+           the counts of each and the list of escapes.
+FIELD: every block of every document in v2/paper/ that carries a
+       {#label}, split at the labelled headings, at the commit
+       this was run on. The phrase list is fixed in the script
+       and printed with each hit, so the census is a lower bound
+       by construction: a block phrased otherwise is missed and a
+       block using a phrase to say the opposite is a false hit.
+NULL: none is run and none applies. This is a census of text on
+      disk, not a signal against a background.
+
+  NOTE, disclosed: the first execution failed H1 -- the positive control
+  rem:cncoindeep was missed because the paper writes its numbers inside
+  dollar signs and this census read the markup literally. The fix is to
+  the reader, not the rule: dollars are stripped and whitespace collapsed
+  before matching, and each phrase is matched at a word boundary so that
+  "0 of" does not fire inside "10 of". The phrase list is exactly the
+  one registered above.
+237 labelled blocks across 2 documents
+  the phrase list, fixed before the run and unchanged by the fix below: no coin draw; none of the; no draw of; 0 of; outside its coin; outside the coin; outside its control; cannot make; does not reach; does not go where
+
+H1  can the search tell an escape from its opposite?
+  positive controls found: rem:cnclass, rem:cncoindeep of rem:cnclass, rem:cncoindeep
+  negative control rem:cnshift: not flagged, as it should not be
+  H1 hold   (cap: both positives, neither negative)
+
+H2  how pervasive is the coin?
+  62 of 237 blocks mention a coin or an ensemble
+COUNT coinsurface_coined 62
+  H2 hold   (cap: at least 15)
+
+H3  how many claim an escape?
+  11 of the 62 coin blocks do
+      label                          document                  phrase that caught it
+      rem:identitynull               theorem_A.md             0 of
+      rem:cnlaw                      wall_v3.md               cannot make
+      rem:cnkurt                     wall_v3.md               outside its coin
+      rem:cnkurtlimit                wall_v3.md               outside its coin
+      rem:cnclass                    wall_v3.md               none of the
+      rem:cnclassreach               wall_v3.md               none of the
+      rem:cnmultm2                   wall_v3.md               none of the; does not go where
+      rem:cnmultdeep                 wall_v3.md               none of the
+      rem:cncoindeep                 wall_v3.md               0 of
+      rem:decaynull                  wall_v3.md               0 of
+      rem:maskrivals                 wall_v3.md               none of the
+SCALES 1
+COUNT coinsurface_escapes 11
+  H3 REFUTED   (cap: fewer than 10)
+
+H4  are they concentrated in this branch?
+  8 of 11 begin rem:cn, a share of 0.7273
+  the ones outside it: rem:identitynull, rem:decaynull, rem:maskrivals
+SHARE coinsurface_family 0.7273
+  H4 hold   (cap: at least half)
+
+======================================================================
+H1 hold  H2 hold  H3 REFUTED  H4 hold
+
+the caveat is not a footnote. Enough of the paper stands on escaping
+a coin that the right response is a pass over those blocks rather
+than a remark, and the list above is that pass's work list.

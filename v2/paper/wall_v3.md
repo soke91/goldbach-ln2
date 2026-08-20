@@ -1779,6 +1779,56 @@ One band, one class family, one statistic. What this settles is not
 [lem:coin] in general but that the question is worth asking of it,
 which nothing before this had established.
 
+#### Remark (counting what stands on a coin: eleven blocks, and the two that matter sit on eight draws) {#rem:coinsurface}
+<!-- evidence: audit_coin_surface.py -->
+
+[rem:cncoindeep] left a caveat with a fixed direction — a narrower
+null is conservative for killing, so what [lem:coin] killed stays
+killed, and only measurements recorded as *escaping* a coin are at
+risk — and no count. A caveat touching three remarks is a footnote and
+one touching thirty is a rewrite. This counts.
+
+Of $237$ labelled blocks across the two documents, $62$ mention a coin
+or an ensemble (H2) and **$11$ also contain one of ten phrases, fixed
+before the run, that state an escape** (H3, REFUTED against a cap of
+fewer than ten). $8$ of the $11$ are in this branch, labels beginning
+`rem:cn` (H4).
+
+**H1 caught the census before the census caught anything.** The
+positive control `rem:cncoindeep` was missed on the first execution,
+because the paper writes its numbers inside dollar signs and the
+search read the markup literally. The fix is to the reader and not to
+the rule: dollars are stripped, whitespace collapsed, and each phrase
+matched at a word boundary so that "0 of" does not fire inside
+"10 of". The phrase list is unchanged, and the disclosure sits in the
+result file.
+
+The count is a lower bound and every hit is a pointer to read, which
+the script says it cannot do for itself. Reading the three outside
+this branch:
+
+| block | what caught it | reading |
+|---|---|---|
+| [rem:maskrivals] | "none of the three is separated" | a false hit — it says the rivals are *not* separated |
+| [rem:identitynull] | "negative throughout where $0$ of $8$ draws are" | a real escape |
+| [rem:decaynull] | "$0$ of $8$ draws fall monotonically at all" | a real escape |
+
+So the surface outside the $C(N)$ branch is two blocks, not three, and
+**both rest on ensembles of eight draws.** That is the number worth
+carrying out of this run. [rem:cnmultdeep] measured a multiplicative
+ensemble's spread more than doubling between $32$ draws and $512$;
+eight is far below even the smaller of those. Neither block is
+impeached here — the census cannot say whether their objects are
+multiplicative or whether eight draws suffice for what they measure —
+but both now have a specific question against them that did not exist
+before, and it is the cheapest kind to answer.
+
+H3's refutation is the honest headline: eleven is not a footnote. What
+softens it is not the count but the reading. Eight of the eleven are
+the chain this branch already worked through and corrected in place,
+one is a false hit, and the two that remain need draws rather than a
+rewrite.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 
