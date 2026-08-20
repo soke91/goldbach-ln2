@@ -4407,6 +4407,68 @@ way, but "bounded and rising to a limit" is not what the field shows.
 **Nothing here measures $G$**, and the shape of $G$ past the field is
 exactly the thing [rem:deficitregion] said no measurement supplies.
 
+#### Remark (this field cannot tell a logarithm from a line) {#rem:deficitlog}
+<!-- evidence: audit_deficit_log.py -->
+
+[rem:deficitregion] closed the sign axis' computational branch on one
+pathology — the polynomial family resolves a new coefficient at any
+degree offered, degree eight at $t=+7.41$, while the r.m.s. residual
+moves only $0.032663\to0.030092$ — and named the cure: *a derivation
+that says which family the deficit belongs to.* A power of $\log N$
+is exactly what does that to a polynomial fit, and there is a reason
+to expect one. The diagonal of $\ell^2$'s second moment is the shape
+prop:V evaluates exactly; if it carries $\ell^2$, then $\ell^2$ is
+$\sqrt N$ times a power of $\log N$ and **the $+0.583897$ six remarks
+quote is a logarithm absorbed into a power**. If $\lvert\sum a\rvert$
+is too, the $\sqrt N$ cancels and
+$$y(x)=\log\bigl(\lvert\textstyle\sum a\rvert/\ell^2\bigr)
+ = c + C\log x$$
+with no $x$ term at all — two parameters where the cubic has four.
+The form even carries a check available before fitting: it forces
+$y''/y'=-1/x$, and [rem:deficitdirect]'s $-0.007380$ and $0.134019$
+give $x=18.16$, inside the field.
+
+**It was the coincidence.** The run reads all $156$ points from POINT
+markers and measures nothing new; the gate reproduces $0.134019$ and
+$\beta=-0.007380$ exactly (F1). Then:
+
+| | |
+|---|---|
+| log form, 2 parameters | r.m.s. $0.033651$ |
+| line, 2 parameters | $0.044911$ |
+| cubic, 4 parameters | $0.031762$ |
+
+**F2 is refuted**: the two-parameter log form does not match the
+cubic's residual. **F3 is refuted and by more**: the form implies a
+deficit of $C/\bar x=2.030302/18.0518=0.112471$ against the field's
+own $0.134019$, low by $16.08$ per cent. The pure $c+C\log x$ does not
+reproduce the slope it has to reproduce.
+
+**But the verdict this run is entitled to is narrower than either
+refutation, and it was registered in advance.** Over this field $x$
+runs $12.2061$ to $22.8027$ while $\log x$ runs $2.5019$ to $3.1269$,
+and their correlation is
+$$\mathrm{corr}(x,\log x)=0.996737 .$$
+G69's threshold is $0.99$, the marker `COEFF NOT SEPARABLE` is
+printed, and the rule fixed before the run says **F2, F4 and F5 may
+not be read as a win for either family**. So the log family's $t=-0.43$
+on an added $x$ term — against the polynomial family's $+7.41$ at
+degree eight — is not evidence that it contains the shape, and its
+walk-forward departure of $0.023586$ against the cubic's published
+$0.028534$ is not either. Both are recorded and neither is read.
+
+**What this establishes is a number for the reach, and it sharpens
+[rem:deficitregion] rather than answering it.** That remark said a
+longer field resolves higher degrees rather than settling lower ones.
+This one says something worse about the same field: at
+$\mathrm{corr}=0.996737$ **a logarithm and a line are the same
+regressor here**, so no fit performed on these $10.6$ decades can
+distinguish a family that closes from a family that does not, whatever
+its motivation. The discrimination is not in the data, and picking a
+better-motivated shape does not put it there — the same limit
+[rem:curvereach] measured on the level axis, now measured on this one.
+[rem:shapepower] is not repealed by a derivation.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

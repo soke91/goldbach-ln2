@@ -1,0 +1,68 @@
+STATISTIC: y = log(|sum a| / l2) over the sign axis' field, fitted
+           by the derived two-parameter form c + C log x against
+           the polynomial family of rem:deficitshape; the
+           regressors' correlation, the log family's next
+           coefficient, and walk-forward departures.
+FIELD: the 156 N of the sign axis, x = log N in [12.2061, 22.7030].
+       Nothing is measured here: every |sum a| and l2 is READ from
+       a POINT marker, 81 from results/audit_deficit_direct.txt
+       and the rest from results/audit_alpha_reach.txt, and the
+       quadratic's beta is READ from the BETA marker of the first.
+
+READ audit_deficit_direct.txt BETA -0.007380
+READ audit_deficit_direct.txt BETASE 0.000632
+  the quadratic's drift and its error, this run's gate
+PRINTBOUND audit_deficit_log 4 0.00005000
+  read 156 POINT markers, 81 of them published below 1.024e8
+  caps: 10.0 per cent, |t| 3.0, CORR 0.99
+  compared against the cubic's 0.031762 r.m.s. and 0.028534 out of sample,
+  and against the polynomial family's degree-eight t = 7.41
+SCALES 156
+  x runs 12.2061 to 22.8027, log x runs 2.5019 to 3.1269
+
+F1  the gate: do the read points reproduce rem:deficitdirect?
+  whole-field deficit on the 81 published: 0.134019
+  quadratic beta on all 156: -0.007380 against its -0.007380
+  F1 hold   (cap: 4 decimals)
+
+the separability question, before any verdict is read
+CORR deficitlog_regressors 0.996737
+  corr(x, log x) over this field is 0.996737
+COEFF NOT SEPARABLE deficitlog
+  at or above 0.99, so F2, F4 and F5 cannot separate the
+  families and none is read as a win for either, as the rule says
+
+F2  does the derived two-parameter form fit?
+  log form   c -3.225464  C +2.030302 (s.e. 0.015541)  r.m.s. 0.033651
+  line       r.m.s. 0.044911
+  cubic (4 parameters, read)  r.m.s. 0.031762
+POINT logrms 0.033651
+  F2 REFUTED   (cap: 0.031762)
+
+F3  does its implied deficit match the published one?
+  C / mean x = 2.030302 / 18.0518 = 0.112471 against F1's own 0.134019 (-16.08 per cent)
+POINT impliedeficit 0.112471
+  F3 REFUTED   (cap: 10.0 per cent)
+
+F4  does the log family keep buying coefficients?
+  adding an x term: -0.00481235 +- 0.01114202, t = -0.43
+  r.m.s. 0.033631 against the two-parameter 0.033651
+TSTAT deficitlog_next -0.43
+SPREAD deficitlog_next 0.01114202
+  the polynomial family's degree eight read 7.41
+  F4 hold   (cap: |t| < 3.0)
+
+F5  which family predicts forward better?
+  from point 40: log form 0.023586, cubic here 0.023333, cubic read 0.028534
+POINT logoos 0.023586
+  F5 hold   (cap: 0.028534)
+
+======================================================================
+F1 hold  F2 REFUTED  F3 REFUTED  F4 hold  F5 hold
+
+the field cannot tell the two families apart. corr(x, log x) is 0.996737
+over this range, so whatever F2, F4 and F5 read, they read it about
+reach and not about shape. That is the rule this run registered and
+it is the same limit rem:curvereach found on the level axis: the
+discrimination is not in the data, and no fit performed on it can
+put it there.
