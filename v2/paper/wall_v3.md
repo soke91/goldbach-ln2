@@ -2864,6 +2864,59 @@ unaffected, but the line it printed said the $|dm|$ exponents were
 printing the control's intermediate rather than only its verdict.
 
 
+#### Remark (the floor test and the fit answer different questions) {#rem:maskfloornull}
+<!-- evidence: audit_mask_floornull.py -->
+
+OPEN.md item 3 has said the mask has no decay exponent because at the
+three shallowest depths the amplitude does not clear the exact floor
+at any scale measured, **so nothing can be fitted there.** The premise
+is exact and F2 confirms it band by band: no band reaches $|z|=2$ at
+depth 0 or 1, only two of fifteen do at depth 2, and every band does
+at depths 3, 4 and 5.
+
+**The conclusion does not follow, and the null says so.** Under dm
+redrawn as $N(0,se^2)$ at each band and fitted the same way, the
+exponent comes out at $0.0437$ in the median — near the exponent of
+$se$ itself, because the magnitude of noise tracks its own scale —
+with a 95 per cent range of $[-0.2076,\,0.2945]$. Depth 0's observed
+$0.6289$ sits outside it at $p=0.0003$ (F3) and depth 2's $0.3686$ at
+$p=0.0043$ (F4). Depth 1's $0.0437$ sits inside at $p=0.4755$ (F5),
+so v1's "not measurable" stands exactly where v1 said it.
+
+The reason the two tests disagree is not subtle once stated. The
+floor test asks each band separately whether the amplitude is there;
+the fit asks fifteen bands together whether it is *falling*. At depth
+0 the amplitude runs $0.1005$, $0.0847$, $0.0632$, $0.0512$, $0.0411$
+across the first five bands — a smooth fall whose every term is
+inside its own error. **A quantity can decay systematically without
+any single measurement of it being significant**, and OPEN.md's
+sentence read one test's silence as the other's.
+
+**But the same null corrects the exponents in the other direction,
+and by more.** The fit's own standard error at depth 0 is $0.0121$,
+which puts the exponent at $52.0$ standard errors. The null's spread
+implies $0.1281$ — **eleven times larger** — and against that the
+exponent is $4.9$. At depth 2 the quoted $0.0052$ becomes $0.1298$,
+twenty-five times larger, and $70.9$ standard errors become $2.8$.
+The fit's errors assume its weights are the true inverse variances of
+$\log|dm|$, and that breaks exactly where $|dm|$ is comparable to
+$se$ — which is the definition of these depths.
+
+So item 3's sentence is wrong and its caution was right. Something
+*can* be fitted at depths 0 and 2, and what is fitted is much less
+certain than the fit reports: two of the six exponents survive as
+measurements at about $5$ and $3$ standard errors rather than $52$
+and $71$, one (depth 1) is noise as v1 said, and [rem:maskdmse]
+already removed depth 5's by a different route. **Three of six
+remain, at errors an order of magnitude wider than published.**
+
+Nothing here touches the form. These are still exponents of an
+assumed $N^{-a}$ over a factor $160$ in $N$, which
+[rem:ladderdegree] and [rem:deficitregion] have now measured to be
+the binding limitation on both other axes, and it is the binding one
+here too.
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 

@@ -1,0 +1,80 @@
+STATISTIC: per depth, how many of the fifteen half-octave
+           bands have |dm|/se at or above two; and the
+           fitted decay exponent of |dm| against the
+           distribution of that exponent when dm is redrawn
+           as N(0, se^2) band by band and fitted the same
+           way.
+NULL: RUN, and it is F3 to F5. At each shallow depth dm is
+      redrawn as N(0, se^2) with the recorded se, refitted
+      by the same weighted least squares, and the exponent
+      recorded; the range quoted is the 2.5 and 97.5
+      percentiles over 4000 draws with the fixed SEED. The
+      null is centred near the exponent of se itself, not
+      at zero, because the magnitude of noise tracks its
+      own scale.
+FIELD: the per-depth band tables of
+       v1/results/wall/lab_mask_amplitude_law.txt -- fifteen
+       half-octave bands from N ~ 1.189e5 to 1.431e7, six
+       depths by which of 3, 5, 7, 11, 13 divide N, with the
+       cell mean minus band mean and its exact error from
+       Lemma lem:cellmom. Nothing is measured here; the fit
+       is the weighted least squares identified in
+       {#rem:maskdmse} and checked again by F1 against
+       v1/results/wall/lab_mask_exponent_se.txt.
+
+read 6 depth tables from v1/results/wall/lab_mask_amplitude_law.txt; nothing is measured here
+SEED 20260823
+DRAWS 4000
+PRINTBOUND audit_mask_floornull 4 0.00005000
+
+F1  the control
+  depth 5  a = 0.1434 against v1's 0.1434  yes
+  depth 4  a = 0.2152 against v1's 0.2152  yes
+  depth 3  a = 0.2713 against v1's 0.2713  yes
+  depth 2  a = 0.3686 against v1's 0.3686  yes
+  depth 1  a = 0.0437 against v1's 0.0437  yes
+  depth 0  a = 0.6289 against v1's 0.6289  yes
+  F1 hold   (cap: the four decimals v1 prints)
+
+F2  the premise: where does the amplitude clear its floor?
+  depth 0  |z| runs 0.03 to 0.69, 0 of 15 bands reach 2.0
+  depth 1  |z| runs 0.00 to 0.11, 0 of 15 bands reach 2.0
+  depth 2  |z| runs 0.43 to 2.40, 2 of 15 bands reach 2.0
+  depth 3  |z| runs 2.04 to 6.37, 15 of 15 bands reach 2.0
+  depth 4  |z| runs 4.56 to 10.11, 15 of 15 bands reach 2.0
+  depth 5  |z| runs 8.39 to 12.19, 14 of 14 bands reach 2.0
+  F2 hold   (cap: none at 0 and 1, at most two at 2, all at 3, 4, 5)
+  and yet at depth 0 the amplitude falls smoothly: 0.1005, 0.0847, 0.0632, 0.0512, 0.0411
+  while its error barely moves: 0.1453, 0.1430, 0.1408, 0.1387, 0.1366
+
+F3/F4/F5  the null: what does fitting the magnitude of noise give?
+  depth  observed  null 2.5%   null 50%   null 97.5%  outside?
+  0      0.6289    -0.2076     0.0437     0.2945      yes
+NULL mask_floornull_depth0 0.0003
+  1      0.0437    -0.2381     0.0349     0.3170      no
+NULL mask_floornull_depth1 0.4755
+  2      0.3686    -0.2246     0.0359     0.2841      yes
+NULL mask_floornull_depth2 0.0043
+  F3 hold   (cap: depth 0 outside the null)
+  F4 hold   (cap: depth 2 outside the null)
+  F5 hold   (cap: depth 1 inside the null)
+
+what the null implies about the published errors, derived and predicted by nothing
+  the fit's own error assumes its weights are the true inverse variances of
+  log|dm|, which breaks where |dm| is comparable to se -- the definition of
+  these depths. The null's own spread is the honest one.
+  depth  fit se    null-implied se   fit t     null t
+  0      0.0121    0.1281            52.0      4.9
+NULLSE mask_floornull_depth0 0.1281
+  1      0.0556    0.1416            0.8       0.3
+NULLSE mask_floornull_depth1 0.1416
+  2      0.0052    0.1298            70.9      2.8
+NULLSE mask_floornull_depth2 0.1298
+
+what this settles
+  the amplitude at depths 0 and 2 never clears its floor band by band and its
+  decay is still outside what fitting the magnitude of noise produces, so
+  "nothing can be fitted there" does not follow from "no band clears"
+
+======================================================================
+F1 hold  F2 hold  F3 hold  F4 hold  F5 hold
