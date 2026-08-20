@@ -4754,6 +4754,65 @@ went into naming M2's unresolved case *before* the fact, which is
 where the previous three failures had been, and the defect moved to
 the gate instead.
 
+#### Remark (which primes, not how many) {#rem:radicallaw}
+<!-- evidence: audit_radical_law.py -->
+
+[rem:whichfloor] found the deficit's drift $24$ errors apart on two
+radicals and ended by saying two points do not determine a function.
+Six doubling families here, each with a fixed radical, and **three of
+them share $\omega=2$ and differ in which primes** — the one thing a
+two-family measurement cannot ask. The gate reproduces family B's
+drift to six decimals and $\lvert\sum a\rvert$ at $N=200000$ to four
+(N1).
+
+| radical | $\omega$ | $\prod\frac{p}{p+1}$ | drift of $\log(\lvert\sum a\rvert/\ell^2)$ |
+|---|---|---|---|
+| $\{2\}$ | $1$ | $0.666667$ | $+0.068281$ |
+| $\{2,5\}$ | $2$ | $0.555556$ | $+0.138010$ |
+| $\{2,7\}$ | $2$ | $0.583333$ | $+0.141444$ |
+| $\{2,3\}$ | $2$ | $0.500000$ | $+0.212384$ |
+| $\{2,3,5\}$ | $3$ | $0.416667$ | $+0.265357$ |
+| $\{2,3,5,7,11,13\}$ | $6$ | $0.310330$ | $+0.284941$ |
+
+**N3 is refuted and it decides the shape of the answer.** The three
+$\omega=2$ families span $0.074374$ — against the largest single drift
+error of $0.019289$, so the unresolved clause this run named in
+advance does *not* fire and the disagreement is real. $\{2,3\}$ sits
+half again above $\{2,5\}$ and $\{2,7\}$, which agree with each other.
+**No function of $\omega$ can be the answer. It is which primes divide
+$N$, not how many.**
+
+N2 and N4 are refuted too, and **their readings are barred by the rule
+that named this case**: a line through a variable already known not to
+be the cause is a fit, not a law. For the record the residuals were
+$0.044185$ in $\omega$, $0.019112$ in the arithmetic factor and
+$0.052354$ in $\log\mathrm{rad}$, and none of the three is read.
+
+**And the primes do not act one at a time** (a diagnostic, after the
+verdicts and predicted by nothing). Taking the two-prime families as
+each odd prime's own contribution — $3$ gives $+0.144102$, $5$ gives
+$+0.069729$, $7$ gives $+0.073163$, on a base of $+0.068281$ — the
+multi-prime families are then predictions:
+
+$$\{2,3,5\}:\ +0.282112 \text{ against } +0.265357,\quad
+\{2,3,5,7,11,13\}:\ +0.355275 \text{ against } +0.284941 .$$
+
+Both fall short, by $-0.016756$ and $-0.070333$, and the second
+shortfall is understated because the additive prediction there omits
+$11$ and $13$ entirely. **The contributions are sub-additive and this
+run does not say what they are instead.** What it does say is that
+$3$ carries about twice what $5$ does while $5$ and $7$ are not
+separated by their own errors — a shape, not a law, and no mechanism
+is offered for it.
+
+**What this costs item 5.** The demand's distance is not one number
+and it is not a number of $\omega$ either. Any statement of the form
+"the sum must travel $+0.134019$" is a statement about $N$ with
+radical $\{2,5\}$; on $\{2,3\}$ it is half again as far and the
+primes' contributions do not combine by any rule measured here.
+[rem:shapepower] applies to a law in the primes exactly as it does to
+one in $\log N$, and none is claimed.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

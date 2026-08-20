@@ -29,49 +29,71 @@
 
 ## 1. 파일 양식
 
-### 1.1 형식
+### 1.1 형식 — LaTeX
 
-- 마크다운 1파일 = 논문 1편. 확장자 `.md`.
-- 수식은 `$...$` (인라인), `$$...$$` (디스플레이). LaTeX 문법 그대로.
-- 상호참조는 `[thm:A]` 꼴 대신 **인쇄 번호**(`Theorem 1`)를 쓴다.
-  저장소는 번호를 손으로 못 쓰게 막지만(G2), 배포본은 최종본이므로
-  번호가 고정된다.
-- 매크로를 쓰지 않는다. `\mathfrak{S}` 를 그대로 쓴다. (변환기 없이
-  arXiv/저널 LaTeX로 옮길 수 있어야 한다.)
+- **LaTeX 1파일 = 논문 1편. 확장자 `.tex`.** 마크다운은 저장소의 형식이고
+  배포본의 형식이 아니다.
+- 문서클래스 `\documentclass[11pt,a4paper]{article}`, `amsmath`·`amssymb`·
+  `amsthm`·`hyperref` 만 쓴다. 외부 스타일 파일에 의존하지 않는다
+  (arXiv 업로드에서 그대로 컴파일돼야 한다).
+- 정리 환경은 `amsthm` 의 `\newtheorem` 으로 선언하고, **번호는
+  하나의 연속 카운터**를 공유한다:
+
+  ```latex
+  \theoremstyle{plain}
+  \newtheorem{theorem}{Theorem}
+  \newtheorem{corollary}[theorem]{Corollary}
+  \newtheorem{proposition}[theorem]{Proposition}
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{conjecture}[theorem]{Conjecture}
+  \theoremstyle{definition}
+  \newtheorem{observation}[theorem]{Observation}
+  \newtheorem{measurement}[theorem]{Measurement}
+  ```
+
+- 상호참조는 **전부 `\label`/`\ref`**. 번호를 손으로 적지 않는다.
+  저장소 라벨(`thm:A`, `prop:V` …)을 `\label{thm:A}` 로 **그대로 승계**해
+  추적성을 유지한다.
+- 매크로는 **프리앰블에서 한 번만** 정의하고 그 뒤에는 정의를 쓰지 않는다:
+  `\newcommand{\SS}{\mathfrak{S}}`, `\newcommand{\AAA}{\mathfrak{A}}`,
+  `\newcommand{\Emu}{E_\mu}`, `\DeclareMathOperator{\rad}{rad}`.
+- 참고문헌은 `thebibliography` 환경(외부 `.bib` 없음), 키는 저장소와
+  동일(`HL`, `GY`, `Bom76`, `Li23` …).
 - 한 줄 72–76자로 접는다. 표는 접지 않는다.
+- 주석(`%`)에 저장소 메타(evidence 마커, 게이트 번호)를 남기지 않는다.
 
 ### 1.2 문서 골격 (고정)
 
-```
-# 제목
-## Abstract
-## 1. Introduction
-   ### 1.1 배경 (Huang–Li 환원)
-   ### 1.2 결과 요약
-   ### 1.3 무엇을 주장하지 않는가
-## 2. Notation
-## 3..n. 본문 (정리 — 증명 — 필요한 수치)
-## n+1. Relation to the literature
-## n+2. Summary
-## References
-## Appendix: Reproducibility   (스크립트 ↔ 결과 대응)
+```latex
+\title{...}  \author{...}  \date{}
+\begin{abstract} ... \end{abstract}
+\section{Introduction}
+  \subsection{The Huang--Li reduction}
+  \subsection{Results}
+  \subsection{What is not claimed}      % 필수
+\section{Notation and the mechanism}
+\section{...}                            % 본문: 진술 — 증명 — 필요한 수치
+\section{Relation to the literature}
+\section{Summary}
+\begin{thebibliography}{99} ... \end{thebibliography}
+\appendix
+\section{Reproducibility}                % 스크립트 ↔ 결과 대응표
 ```
 
-`1.3 무엇을 주장하지 않는가`는 **필수 절**이다. 이 프로그램의 결과 대부분이
-음성이거나 골드바흐-중립이라, 범위를 본문 앞에서 못박지 않으면 과대주장으로
-읽힌다.
+`\subsection{What is not claimed}` 는 **필수 절**이다. 이 프로그램의 결과
+대부분이 음성이거나 골드바흐-중립이라, 범위를 본문 앞에서 못박지 않으면
+과대주장으로 읽힌다.
 
 ### 1.3 진술 번호
 
-한 논문 안에서 **종류를 가리지 않고 하나의 연속 번호**를 쓴다.
+한 논문 안에서 **종류를 가리지 않고 하나의 연속 번호**를 쓴다
+(위 프리앰블의 `[theorem]` 공유 카운터). 결과:
 
 ```
 Theorem 1, Corollary 2, Theorem 3, Proposition 4, Lemma 5, ...
 ```
 
-이유: 독자가 "Lemma 5"를 찾을 때 Lemma만 세지 않아도 된다. 저장소의
-라벨(`thm:A`, `prop:V` 등)은 각 진술 끝에 괄호로 병기해 추적성을 남긴다 —
-`**Theorem 1** (thm:A).`
+독자가 "Lemma 5"를 찾을 때 Lemma만 세지 않아도 된다.
 
 ---
 
@@ -192,7 +214,8 @@ Theorem 1, Corollary 2, Theorem 3, Proposition 4, Lemma 5, ...
 
 ## 5. 증명 서술 규칙
 
-- **P1.** 증명은 `**Proof.**` 로 시작해 `∎` 로 끝난다.
+- **P1.** 증명은 `\begin{proof} ... \end{proof}` 환경으로 쓴다.
+  증명이 없는 진술은 `Observation`/`Measurement`/`Conjecture` 로 부른다.
 - **P2.** "표준적이다", "잘 알려져 있다" 로 끝내지 않는다. 어느 문헌의
   무엇인지 적는다. (Theorem A의 재료는 전부 고전이며, 그렇게 적는다.)
 - **P3.** 상수 의존성을 명시한다: $\ll_{A,\theta'}$ 처럼.
@@ -222,11 +245,13 @@ Theorem 1, Corollary 2, Theorem 3, Proposition 4, Lemma 5, ...
 
 - [ ] `Version`, `earlier`, `withdrawn`, `fails`, `rule [A-Z]\d` 문자열이
       본문에 0회
-- [ ] 모든 `Theorem`/`Lemma`/`Proposition` 에 증명 존재 (규칙 T1)
-- [ ] 모든 `Observation`/`Measurement` 에 측정 범위 존재 (규칙 T2)
+- [ ] 모든 `theorem`/`lemma`/`proposition`/`corollary` 환경에
+      `\begin{proof}` 존재 (규칙 T1)
+- [ ] 모든 `observation`/`measurement` 에 측정 범위 존재 (규칙 T2)
 - [ ] 인쇄된 모든 소수가 `deploy/results/` 의 파일에 존재 (규칙 N1)
-- [ ] §1.3 "무엇을 주장하지 않는가" 존재
+- [ ] `\subsection{What is not claimed}` 존재
 - [ ] §3.4 목록의 7개 항목이 전부 살아 있음
-- [ ] 상호참조가 전부 인쇄 번호이고 실재
+- [ ] `\ref` 가 전부 실재하는 `\label` 을 가리킴 (미해결 참조 0)
+- [ ] `pdflatex` 2회 통과, 경고 외 오류 0
 - [ ] `MANIFEST.md` 의 스크립트·결과가 `deploy/code`·`deploy/results` 에 실재
-- [ ] 한국어 0자 (papers/ 안)
+- [ ] 한국어 0자 (`papers/` 안)
