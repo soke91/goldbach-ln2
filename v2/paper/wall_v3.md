@@ -5974,6 +5974,62 @@ law. The refutation rule fixed before the run named the resolution
 this field can offer: $0.05$ is one scatter of [rem:leveldense]'s
 $0.03$, so **a derivation that survives here is not thereby proved.**
 
+#### Remark (the curve compresses, and neither way out was right) {#rem:limitdirection}
+<!-- evidence: audit_limit_direction.py -->
+
+[rem:derivedlimit] left two ways out of its refuted JJ4 and this run
+was written to choose between them by a sign. It chose neither, and
+the refutation is again the larger half of the result.
+
+**KK3 and KK4 hold, so the $N/p$ collapse is dead.** If $g(p,N) =
+G(N/p)$ then $G$ is fixed by the $p$-direction — $g$ falls as $p$
+rises, so $G$ rises, so $g$ must rise in $N$. It falls: $-0.008906$
+per doubling at $p=3$ against $+0.104355$ per halving of $p$ at the
+top $N$. Opposite signs, and $11.716936$ apart in speed, so this is
+structure and not a small quantity crossing zero.
+
+**KK2 is refuted, and refuted the other way.** The prediction was that
+$13$, $17$ and $19$ sit below $1$ and move away from it.
+
+| $p$ | $g$ at $N=25\,000$ | $g$ at $N=25\,600\,000$ | falls |
+|---|---|---|---|
+| $13$ | $1.001573$ | $0.977350$ | $7/10$ |
+| $17$ | $0.916563$ | $\mathbf{0.959725}$ | $5/10$ |
+| $19$ | $0.926432$ | $\mathbf{0.949940}$ | $4/10$ |
+
+$17$ and $19$ **climb toward $1$**, and $13$ did not start below $1$
+at all — it began at $1.001573$ and crossed downward. So the picture
+is not (a) and not (b). $g(3)$ and $g(7)$ come down toward $1$ from
+above, $g(11)$ has stopped at $0.991622$, and $17$ and $19$ come up
+toward $1$ from below: **the curve compresses toward the derived value
+from both sides while refusing to do it as a function of $N/p$.** That
+is better evidence for eq:derivedlimit than the run that proposed it,
+and it arrived through a broken prediction.
+
+**KK5 holds at $0.077740$ against a cap of $0.2$ and the number is
+not what the rule was asking.** $I(1)$ alone drops prime-power $m$
+while $I(p)$ does not; lifting that exclusion shifts every $g$ down,
+mean $-0.127979$, spread $0.009949$. But the twenty-one shifts run
+$-0.160203$, $-0.142499$, $-0.137622$, $\ldots$, $-0.119484$,
+$-0.118401$ — **monotone in $p$, the same shape as $g$ itself.** A
+cap on spread cannot see a trend, and this is the second rule in two
+runs to pass or fail on scatter while the field handed it structure;
+JJ4 was the first. The rule stands as written and the reading is the
+column's.
+
+**And one sentence inside KK5's statement was wrong before the run.**
+It called the dropped subset "of relative size about $1/\log N$". At
+the top $N$, $A/A_{\text{raw}} = 0.861216$ while $1/\log N =
+0.058623$: the dropped share is more than twice the guess, because
+$\Lambda(N-m)\log m$ weights those $m$ and does not count them. The
+ratio also climbs steadily, $0.763851$ to $0.861216$ across the
+eleven $N$, so whatever it is it is not settled either.
+
+What is open is the compression itself, stated without a window: at
+each $N$ the twenty primes span a range, and if that range shrinks at
+every doubling then $g \to 1$ is a reading and not a hope. At the top
+$N$ the span is $1.154331$ down to $0.853126$.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

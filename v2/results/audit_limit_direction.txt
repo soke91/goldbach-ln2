@@ -1,0 +1,101 @@
+STATISTIC: the sign of the motion of g(p, N) = c(p, N)(p+1)/p,
+           in N at fixed p and in p at fixed N, tested against
+           the one thing a collapse g = G(N/p) would force.
+FIELD: N = [25000, 50000, 100000, 200000, 400000, 800000, 1600000, 3200000, 6400000, 12800000, 25600000];
+       d over the squarefree d <= D coprime to N, with
+       D = floor((N-1)/K), K = floor(N^0.56). g(3) at the first
+       and last N are READ from results/audit_derived_limit.txt.
+DERIVED: if g(p, N) = G(N/p) then G rises, because g falls in p;
+         so g must rise in N. It does not. No rate is needed and
+         no line is fitted -- every quantity below is a finite
+         difference.
+
+READ audit_derived_limit.txt POINT g3first 1.243394
+READ audit_derived_limit.txt POINT g3last 1.154331
+PRINTBOUND audit_limit_direction 6 0.0000005000
+  theta 0.56, watched primes (13, 17, 19), moves at least 8 of ten,
+  a lean below 9, speed ratio at least 5.0, spread under
+  0.2 of the mean; the two primes bracketing the
+  p-direction are 3 and 7
+sieving to 25600000
+  N = 25000      D = 86    A/Araw = 0.763851
+  N = 50000      D = 117   A/Araw = 0.777285
+  N = 100000     D = 158   A/Araw = 0.788089
+  N = 200000     D = 215   A/Araw = 0.800129
+  N = 400000     D = 291   A/Araw = 0.815290
+  N = 800000     D = 395   A/Araw = 0.824485
+  N = 1600000    D = 536   A/Araw = 0.831600
+  N = 3200000    D = 728   A/Araw = 0.840655
+  N = 6400000    D = 987   A/Araw = 0.847059
+  N = 12800000   D = 1340  A/Araw = 0.854651
+  N = 25600000   D = 1818  A/Araw = 0.861216
+SCALES 11
+
+KK1  the gate
+  g(3) first 1.243394 against its 1.243394   ok
+  g(3) last  1.154331 against its 1.154331   ok
+  KK1 hold
+
+KK2  do the primes below one move away from it?
+      p   g first   g last    falls   tail    verdict
+     13   1.001573  0.977350   7/10  0.343750  OUT
+POINT falls_13 7
+POINT glast_13 0.977350
+     17   0.916563  0.959725   5/10  1.246094  OUT
+POINT falls_17 5
+POINT glast_17 0.959725
+     19   0.926432  0.949940   4/10  0.753906  OUT
+POINT falls_19 4
+POINT glast_19 0.949940
+  adjusted two-sided bound 0.016667 over 3 named primes
+  KK2 REFUTED
+
+KK3  can one G(N/p) carry both directions?
+  per doubling of N at p = 3      -0.008906
+  per halving  of p at the top N   +0.104355
+POINT perN -0.008906
+POINT perP +0.104355
+  a collapse needs the same sign in both;  they differ
+  KK3 hold
+
+KK4  is the mismatch structural or a crossing of zero?
+  |per p| / |per N| = 11.716936
+POINT speedratio 11.716936
+  KK4 hold   (floor: 5.0)
+
+KK5  is the d=1 asymmetry a common offset?
+  A/Araw at the top N = 0.861216, 1/log N = 0.058623
+  21 primes; shift mean -0.127979, spread 0.009949, spread/mean 0.077740
+POINT shiftmean -0.127979
+POINT shiftspread 0.009949
+  KK5 hold   (cap: 0.2 of the mean)
+      p    g       g without the exclusion   shift
+      3  1.154331  0.994127  -0.160203
+      7  1.026768  0.884268  -0.142499
+     11  0.991622  0.854001  -0.137622
+     13  0.977350  0.841709  -0.135641
+     17  0.959725  0.826530  -0.133195
+     19  0.949940  0.818103  -0.131837
+     23  0.940098  0.809627  -0.130471
+     29  0.920034  0.792348  -0.127686
+     31  0.917326  0.790015  -0.127311
+     37  0.907341  0.781416  -0.125925
+     41  0.899488  0.774653  -0.124835
+     43  0.895969  0.771623  -0.124347
+     47  0.889692  0.766216  -0.123475
+     53  0.883652  0.761015  -0.122637
+     59  0.875120  0.753667  -0.121453
+     61  0.872434  0.751353  -0.121080
+     67  0.862771  0.743032  -0.119739
+     71  0.863706  0.743837  -0.119869
+     73  0.863590  0.743737  -0.119853
+     79  0.860931  0.741448  -0.119484
+     83  0.853126  0.734726  -0.118401
+
+======================================================================
+KK1 hold  KK2 REFUTED  KK3 hold  KK4 hold  KK5 hold
+
+the residual in p is not a finite-N artefact of the N/p form. g falls
+in p and falls in N, and one function of N/p cannot do both, by a
+factor of many rather than by a hair. what supplies the p-shape is
+still unnamed -- refuting one form is not producing another.
