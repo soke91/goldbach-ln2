@@ -5862,6 +5862,52 @@ including [rem:localcorrections]'s $t=-13.19$ and this run's own
 numbers — is a window-dependent quantity**, and the resolution of
 $c(3)$ and $c(7)$ says they move, not how fast.
 
+#### Remark (c(3) moves, and only c(3), once the window is gone) {#rem:driftsigns}
+<!-- evidence: audit_drift_signs.py -->
+
+[rem:driftpower] left every drift quoted for $c(p,N)$ a quantity of
+its own window: over one extra decade the two resolved slopes shrank
+by $0.83298$ and $0.83429$. [rem:levelmatched]'s cure — compare the
+quantity itself at matched $N$ — does not transfer, because the finest
+ruler here is radical $\{2,3,5\}$ and **$3$ and $5$ divide those $N$,
+so $c(3)$ cannot be measured on them at all.** The window can be
+killed a second way: by fitting nothing. *Falls at every step* is a
+statement no field can bend.
+
+| $p$ | $c(p,N)$ across eleven $N$ | falls | two-sided coin tail |
+|---|---|---|---|
+| $3$ | $0.9325\to0.8657$ | $\mathbf{10/10}$ | $\mathbf{0.001953}$ |
+| $7$ | $0.9279\to0.8984$ | $8/10$ | $0.109375$ |
+| $11$ | $0.9114\to0.9090$ | $5/10$ | $1.000000$ |
+| $13$ | $0.9300\to0.9075$ | $7/10$ | $0.343750$ |
+
+**II2 holds: $c(3)$ falls at all ten doublings.** Four primes were
+named before the run, so the multiplicity is four and the adjusted
+bound is $0.0078$ — still evidence. **This is the one statement about
+the corrections that survives the window**, and it says direction and
+nothing else: the steps run $-0.0090$ to $-0.0035$ and no rate is read
+from a count.
+
+**II3 is refuted and that is the narrowing.** $c(7)$ rises twice, at
+$+0.0027$ and $+0.0001$ — its two smallest steps — giving $8/10$ and a
+tail of $0.109375$, **fifty-six times $c(3)$'s.** [rem:driftpower]
+read "$3$ and $7$ are special"; with the window gone, **$3$ is
+established and $7$ is a lean.**
+
+**II4 holds** — $c(11)$ at $5/10$ and $c(13)$ at $7/10$, neither
+monotone — so that remark's other half stands. $c(11)$'s last three
+steps are $-0.0001$, $-0.0000$, $+0.0000$: it has stopped moving on
+this field, which is a different thing from never having moved and is
+all that can be said.
+
+**And this run's closing sentence is plainly wrong.** It fires when
+either sweep breaks and says that because "$c(3)$ or $c(7)$ breaks its
+run", the drift four remarks have quoted "is not even a direction" and
+"nothing about it stands." **$c(3)$ did not break its run — it is
+$10/10$, and it is exactly what stands.** The sentence was written for
+a disjunction and read as a conjunction; the verdicts are as
+registered and the reading here is what the numbers support.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

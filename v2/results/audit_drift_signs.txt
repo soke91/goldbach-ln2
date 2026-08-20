@@ -1,0 +1,97 @@
+STATISTIC: the sign of every step of c(p, N) across eleven N, for
+           four primes named before the run, with the per-step
+           differences printed beside the counts.
+FIELD: N = [25000, 50000, 100000, 200000, 400000, 800000, 1600000, 3200000, 6400000, 12800000, 25600000]; d over the squarefree d <= D coprime to N, with
+       D = floor((N-1)/K), K = floor(N^0.56). A at N = 200000 and
+       the eleven-N drift of c(3) are READ from
+       results/audit_mainterm_removal.txt and
+       results/audit_drift_power.txt.
+NOTE: no slope is used to judge anything. rem:driftpower measured
+      that a slope of this quantity shrinks by a sixth when the
+      field lengthens by a decade; a count of signs does not.
+
+READ audit_mainterm_removal.txt 200000 1.40933816458843928e+06
+READ audit_drift_power.txt drift11_3 -0.009622
+PRINTBOUND audit_drift_signs 6 0.0000005000
+  theta 0.56, primes named in advance (3, 7, 11, 13)
+  a run of one sign over 10 steps has coin probability 0.000977;
+  with 4 primes tested the expected number of accidental runs is 0.007812
+SEED: none; nothing here is random
+sieving to 25600000
+  N = 25000      D = 86    28 contributing d
+  N = 50000      D = 117   39 contributing d
+  N = 100000     D = 158   52 contributing d
+  N = 200000     D = 215   71 contributing d
+  N = 400000     D = 291   98 contributing d
+  N = 800000     D = 395   131 contributing d
+  N = 1600000    D = 536   179 contributing d
+  N = 3200000    D = 728   246 contributing d
+  N = 6400000    D = 987   332 contributing d
+  N = 12800000   D = 1340  453 contributing d
+  N = 25600000   D = 1818  614 contributing d
+SCALES 11
+
+II1  the gate
+  A relative 0.00e+00 against 1e-12   ok
+  c(3) eleven-N drift -0.009622 against its -0.009622  ok
+  II1 hold
+
+  c(p, N) at every N, and the step differences
+  p = 3   0.9325 0.9235 0.9171 0.9009 0.8933 0.8878 0.8844 0.8780 0.8744 0.8693 0.8657
+        steps -0.0090 -0.0065 -0.0162 -0.0076 -0.0055 -0.0033 -0.0064 -0.0036 -0.0052 -0.0035
+        10 of 10 fall
+COUNT signdown_3 10
+POINT stepfirst_3 -0.009011
+POINT steplast_3 -0.003507
+  p = 7   0.9279 0.9230 0.9175 0.9147 0.9128 0.9036 0.9063 0.9032 0.9002 0.8983 0.8984
+        steps -0.0049 -0.0055 -0.0029 -0.0019 -0.0092 +0.0027 -0.0031 -0.0030 -0.0020 +0.0001
+        8 of 10 fall
+COUNT signdown_7 8
+POINT stepfirst_7 -0.004928
+POINT steplast_7 0.000146
+  p = 11  0.9114 0.9223 0.9224 0.9087 0.9121 0.9147 0.9110 0.9090 0.9089 0.9089 0.9090
+        steps +0.0109 +0.0001 -0.0137 +0.0034 +0.0026 -0.0037 -0.0019 -0.0001 -0.0000 +0.0000
+        5 of 10 fall
+COUNT signdown_11 5
+POINT stepfirst_11 0.010914
+POINT steplast_11 0.000043
+  p = 13  0.9300 0.8789 0.9315 0.9168 0.9088 0.9064 0.9093 0.9041 0.9107 0.9103 0.9075
+        steps -0.0511 +0.0526 -0.0147 -0.0081 -0.0024 +0.0029 -0.0051 +0.0066 -0.0004 -0.0028
+        7 of 10 fall
+COUNT signdown_13 7
+POINT stepfirst_13 -0.051086
+POINT steplast_13 -0.002779
+
+II2  does c(3) fall at every step?
+  10 of 10 fall
+  II2 hold   (cap: all 10)
+
+II3  does c(7) fall at every step?
+  8 of 10 fall
+  II3 REFUTED   (cap: all 10)
+
+II4  and do 11 and 13 stay mixed?
+  p = 11  5 of 10 fall   mixed
+  p = 13  7 of 10 fall   mixed
+  II4 hold   (cap: neither monotone)
+
+  a diagnostic, after the verdicts and predicted by nothing
+  a clean sweep is the right question for a prime that sweeps; for the
+  others the two-sided coin tail is the statistic, on the same counts:
+    p = 3   10 of 10 one way, two-sided coin tail 0.001953
+POINT cointail_3 0.001953
+    p = 7   8 of 10 one way, two-sided coin tail 0.109375
+POINT cointail_7 0.109375
+    p = 11  5 of 10 one way, two-sided coin tail 1.000000
+POINT cointail_11 1.000000
+    p = 13  7 of 10 one way, two-sided coin tail 0.343750
+POINT cointail_13 0.343750
+  a sweep is 0.001953 and eight of ten is 56.0 times that, so the two do
+  not stand together: one is evidence and the other is a lean
+
+======================================================================
+II1 hold  II2 hold  II3 REFUTED  II4 hold
+
+c(3) or c(7) breaks its run, so the drift four remarks have quoted is
+not even a direction, only a fitted average, and after rem:driftpower
+nothing about it stands.
