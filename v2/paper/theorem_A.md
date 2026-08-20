@@ -4861,6 +4861,64 @@ measurement, not the thing measured, and [rem:shapepower] is
 untouched by knowing how well one can see.
 
 
+#### Remark (the ladder does not escalate, and that is not a vindication) {#rem:ladderdegree}
+<!-- evidence: audit_ladder_degree.py -->
+
+[rem:deficitregion] found the sign axis resolving a new polynomial
+coefficient at almost every degree it was offered while the residual
+barely moved, and read that as a family chasing a shape it does not
+contain. The level axis rests on a quadratic — [rem:laddercurve]
+resolved it at $t=3.29$, [rem:laddercap] at $t=4.58$, and three rung
+remarks each read a rung as that curvature predicting out of sample.
+So the same question is put to it. Nothing is measured; the nineteen
+uniform rungs are read from three result files, and the seventeen
+[rem:laddercap] fitted reproduce its $t=4.58$ exactly (D1).
+
+**The ladder does not escalate** (D2, D3). On all nineteen rungs the
+cubic coefficient is $-0.0001035913\pm0.0001091288$, $t=-0.95$, and
+across degrees two to six the top coefficient reads $+5.13$, $-0.95$,
+$-1.00$, $-0.15$, $+0.01$: **not one coefficient past the second
+resolves.** Where the sign axis resolved five of seven, the ladder
+resolves none. The quadratic also strengthens with the two rungs
+added since [rem:laddercap], from $t=4.58$ to $t=5.13$.
+
+**And that is not the quadratic being vindicated** (D4, refuted). The
+r.m.s. residual runs $0.003070$ at degree two to $0.002878$ at degree
+six — a fall of $0.0625$, against the $0.08$ the sign axis conceded
+over the same span of added parameters. **The ladder buys even less
+per parameter than the deficit did.** A family whose extra degrees
+are silent *and* buy nothing is not a family the data has chosen
+from; it is a family the data cannot argue with. Nineteen points
+resolve fewer degrees than a hundred and fifty-six whatever the
+shape, and D4 was registered precisely to keep that reading available
+against D2's silence.
+
+So the two axes fail differently and arrive together. The sign axis
+has the points to challenge its family and they refute it; the level
+axis has a family nothing challenges because there is not enough of
+it. **Neither licenses a statement past its own field**, and the
+level axis's licence was never the weaker of the two — it was the
+less tested.
+
+What this does not touch is what the rung remarks actually measured.
+[rem:rung16], [rem:rung17] and [rem:rung18] each recorded an
+out-of-sample prediction and each one landed; [rem:signrun] measured
+that the run of departures is ordinary under a correct-shape null,
+which is a fact about the departures and stands. A term that predicts
+six times is a term that predicts six times. What this remark denies
+is the step from there to *the shape is the quadratic* — the data has
+never been in a position to refuse a different one, and now the size
+of that inability is on the record.
+
+The consequence for $\theta'$ is the one [rem:shapepower] already
+carries and it is unchanged: no crossing is read off this curve. The
+consequence for what to do next is new. **Adding rungs will not
+settle the shape** — the sign axis shows what more points buy, and
+what they bought there was higher degrees resolving, not a lower one
+confirmed. The ladder's own residual, falling six per cent across
+four extra parameters, says the same about its future.
+
+
 #### Remark (the void between two rungs, filled) {#rem:primorialgap}
 <!-- evidence: audit_primorial_gap.py -->
 

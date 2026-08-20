@@ -1,0 +1,62 @@
+STATISTIC: the highest coefficient of a polynomial of each
+           degree from two to six fitted to the nineteen
+           uniform rungs' level exponents against log N,
+           with its t and the r.m.s. residual, against the
+           same escalation measured on the sign axis in
+           results/audit_deficit_region.txt.
+NULL: none is run and none applies. Nothing is sampled:
+      fits of different degree are compared on the same
+      deterministic exponents and the question is which
+      coefficients the data resolves. The coin arms for the
+      ladder were run in lab_primorial_ladder.py and
+      lab_primorial_share.py.
+FIELD: N = 30030*2^j for j = 0..18, the odd radical
+       3*5*7*11*13 fixed so the threshold is constant; the
+       level exponent log K*_R / log N at the uniform cap
+       1000000. Nothing is measured here: rungs 0 to 16 are
+       read from results/audit_ladder_cap.txt and the top
+       two from results/audit_primorial_rung17.txt and
+       results/audit_primorial_rung18.txt.
+
+read 19 uniform rungs: 17 from results/audit_ladder_cap.txt and the top two
+  from results/audit_primorial_rung17.txt and rung18.txt; nothing is measured here
+READ audit_ladder_cap.txt TSTAT ladder_cap_quadratic 4.58
+PRINTBOUND audit_ladder_degree 2 0.00500000
+  the ladder spans 12.4766 in log N
+SCALES 1
+
+D1  the control on the seventeen {#rem:laddercap} fitted
+  quadratic t here 4.58 against the declared 4.58
+  D1 hold   (cap: the printing bound)
+
+D2  does a cubic term resolve on all nineteen?
+  cubic coefficient -0.0001035913 +- 0.0001091288, t = -0.95
+TSTAT ladder_degree_cubic -0.95
+UNRESOLVED SIGN ladder_degree_cubic
+SPREAD ladder_degree_cubic 12.4766
+  D2 hold   (cap: |t| = 2)
+
+D3  does the escalation run here?
+  degree   top coefficient t   r.m.s. residual   resolves?
+  2        +5.13               0.003070          yes
+  3        -0.95               0.002982          no
+  4        -1.00               0.002881          no
+  5        -0.15               0.002878          no
+  6        +0.01               0.002878          no
+DEGREES ladder_degree 0
+  0 coefficient(s) past the second resolve
+  D3 hold   (cap: at most one)
+
+D4  does the residual concede what the coefficients claim?
+  the r.m.s. residual runs 0.003070 at degree two to 0.002878 at degree six,
+  a fall of 0.0625 against the 0.08 the sign axis conceded over the same
+  span of added parameters
+SCATTER slope_audit_ladder_degree 0.002878
+  D4 REFUTED   (cap: the sign axis's gain)
+
+what this settles
+  the cubic is quiet but the residual concedes little, so the silence is the
+  data running out rather than the shape being right
+
+======================================================================
+D1 hold  D2 hold  D3 hold  D4 REFUTED
