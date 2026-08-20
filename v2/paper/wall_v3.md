@@ -1371,6 +1371,70 @@ the gap is on the record: the empirical-over-$N$ kurtosis dies with
 the term count about six times more slowly than the marginal formula
 says.
 
+#### Remark (the last axis is not closed: C(N) has class structure V does not carry) {#rem:cnclass}
+<!-- evidence: audit_cn_class.py -->
+
+Five routes in this branch closed, and every one used $N$ only as a
+band. The axis left was the one the coin cannot follow: its
+$\varepsilon$ does not know $N$. Cutting the even $N$ of
+$(2^{20},2^{21}]$ by which of $3,5,7$ divide them gives eight classes,
+and within each the first and second moments of $G=C/\sqrt{V}$ are
+measured against $32$ sign patterns. Averaged over signs the coin
+gives $E[G^2]=1$ in *every* class exactly, since $V(N)$ is the exact
+second moment at each $N$ — so the null here is no structure at all,
+not merely no difference between classes.
+
+| $3\mid N$ | $5\mid N$ | $7\mid N$ | $N$ | $E[G^2]$ | coin | $z$ |
+|---|---|---|---|---|---|---|
+| — | — | — | $239675$ | $0.80803$ | $1.02249$ | $-0.90$ |
+| 3 | — | — | $119837$ | $0.83798$ | $1.03152$ | $-0.78$ |
+| 3 | 5 | — | $29960$ | $1.16445$ | $1.05787$ | $0.31$ |
+| 3 | — | 7 | $19973$ | $0.91322$ | $1.03594$ | $-0.49$ |
+| — | 5 | 7 | $9987$ | $0.95176$ | $1.07534$ | $-0.27$ |
+| **3** | **5** | **7** | $4993$ | $\mathbf{4.37497}$ | $1.02257$ | $\mathbf{9.01}$ |
+
+**Z2 holds and it is the first escape in this branch.** The real arm's
+largest $|z|$ over classes is $9.01$; the coin draws' own largest, each
+taken leave-one-out against the other $31$, run $0.54$ to $6.46$, and
+none of the $32$ reaches it. The bookkeeping gate is exact: the
+size-weighted average of the class second moments equals the whole
+band's $0.875667582379$ to twelve places (Z1).
+
+**The departure is one class, $105\mid N$, and its arithmetic is not
+in doubt.** If $3,5,7$ all divide $N$ then for every prime $p>7$ the
+argument $N-p$ is coprime to $105$: $N-p\equiv-p$, and $p$ is a unit
+modulo each. So $C(N)=\sum_p\log p\,\mu(N-p)$ runs $\mu$ over
+integers restricted to a class of $105$, while $V(N)$ counts
+$\mu^2(N-p)\log^2p$ without regard to it. That restriction is a
+deterministic local factor of exactly the kind [conj:L] calls the mask
+$\mathbf M$. **So this is not a refutation of that conjecture; it is a
+demonstration that its $\mathbf M$ is not absorbed into
+[prop:V]'s $V$.** $V$ is the coin's second moment and the field's is
+larger by a local factor at highly composite $N$ — here by a factor of
+$5.41$ against the class where none of the three divides.
+
+The size is measured and not attributed. Nothing here checks it
+against a singular series or any other formula, and the obvious next
+question is whether it is one.
+
+Two cautions, both against this remark's own result. **Z3 holds by
+$0.03$**: the first moment's largest $|z|$ is $3.20$ against a coin
+ceiling of $3.17$, so the escape in the mean is a hair and should be
+read as untested rather than shown. And **Z4 is REFUTED** — the median
+coin draw's largest $|z|$ over classes is $1.09$ on the second moment
+against a predicted floor of $1.5$, so the control was less necessary
+than the design assumed; the $105\mid N$ class would have stood out in
+a raw table. That does not weaken Z2, which is scored against the
+ensemble either way, but it does mean this design was more cautious
+than it needed to be.
+
+One band and three primes. Whether the factor persists at other $N$,
+whether it grows with the number of small primes dividing $N$ — the
+lower rows hint at $1.16$ at $15\mid N$ and $0.95$ at $35\mid N$
+against $4.37$ at $105\mid N$, which is not a pattern any of this
+tested — and whether it matches a computable local density, are three
+separate measurements and none is made here.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 
