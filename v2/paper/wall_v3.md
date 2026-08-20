@@ -875,6 +875,72 @@ cancellation is an open question and is stated as such.
 ### Two controls, and what they invalidate
 
 
+#### Remark (the withdrawn law, re-measured: one statistic survives the coin) {#rem:cnlaw}
+<!-- evidence: audit_cn_law.py -->
+<!-- evidence: audit_cn_coin_spread.py -->
+
+OPEN.md's wall item 1 is the first on that list and had never moved.
+The draft's $C(N)=m(N)+\sqrt{V(N)}\,G(N)$ was withdrawn for reasons
+about evidence rather than truth — the bulk and tail did not reproduce
+under the cell index the text specified, the phase content was
+reproduced by the coin and fell to [lem:coin], the mask's significance
+was overstated — and the closing condition written there was one
+thing: define those statistics and measure them again.
+
+They can now be defined without fitting anything. [prop:V] gives
+$V(N)=\sum_{v<N}\mu^2(v)\Lambda(N-v)^2$ exactly, so
+$G(N)=C(N)/\sqrt{V(N)}$ is a computed quantity, not an estimated one.
+Both $C$ and $V$ are linear convolutions, so one pair of FFTs gives
+every $N$ in a band at once; over even $N$ in $(2\cdot10^6,
+4\cdot10^6]$ that is $10^6$ values, and the convolution reproduces a
+direct sum at eight sampled $N$ to $10^{-11}$ (P1).
+
+**Two of the four predictions broke, and the reason they broke is the
+finding.** $\mathrm{sd}(G)=0.92953$, outside the registered
+$[0.95,1.05]$ (P2), and a coin arm — $\mu$'s support kept, its signs
+replaced, so $V$ is unchanged by construction — missed the real arm by
+$8.81$ blocked standard errors in $\mathrm{sd}$ and $15.79$ in excess
+kurtosis (P4). Both readings assumed a single coin draw was an error
+bar. It is not: one sign pattern is fixed and then used at every $N$,
+so all $10^6$ values share it and blocking over $N$ cannot see an
+offset common to every block. Sixty-four independent draws give the
+error bar the blocking could not, and the two halves of the result
+part company.
+
+| | real | coin, over $64$ draws | $z$ |
+|---|---|---|---|
+| $\mathrm{sd}(G)$ | $0.92953$ | $0.93420 \pm 0.04596$ | $-0.10$ |
+| excess kurtosis | $+0.26422$ | $-0.01825 \pm 0.03957$ | $+7.1$ |
+
+The draw-to-draw spread of $\mathrm{sd}$ is $55.4$ times the blocked
+standard error (Q2), so **P2's refutation is about the estimator and
+not about $\mu$**: $V$ is the second moment *in expectation over
+signs*, and no single pattern — $\mu$ among them — has mean square
+exactly $V$ across a band. $0.92953$ is where a sign pattern lands
+(Q3). Both predictions stay refuted as registered; what they refute is
+the reading.
+
+**The kurtosis does not go that way.** No draw among the $64$ comes
+near $+0.264$; the largest is $+0.042$ (Q4). $G$ is not Gaussian, and
+its non-Gaussianity is not something a sign pattern on $\mu$'s support
+produces. That is one statistic of the withdrawn law that the coin
+cannot make — the first thing in this branch to survive [lem:coin],
+and it is a property of the object binary Goldbach's demand side
+reduces to.
+
+The tail is printed beside it and is not symmetric: at the $0.1\%$ and
+$99.9\%$ quantiles the real arm reads $-3.1965$ and $+2.8074$ against
+a normal's $\mp3.0902$ and a coin draw's $-2.9631$ and $+2.6990$ —
+heavier on the left than the normal, lighter on the right. That
+asymmetry was not pre-registered and is recorded as an observation.
+
+Three limits. This is one band; nothing here measures how any of these
+quantities drifts with $N$, and a law needs that drift. Sixty-four
+draws make $z=7.1$ a bound rather than a measurement. And a single
+non-Gaussian moment is not the withdrawn law — it is the first term of
+it that has evidence, which is exactly what item 1 asked for and less
+than what the draft claimed.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 

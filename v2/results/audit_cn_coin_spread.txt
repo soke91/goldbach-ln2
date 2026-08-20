@@ -1,0 +1,67 @@
+STATISTIC: the draw-to-draw distribution of sd(G_coin) and of
+           its excess kurtosis over 64 independent sign
+           patterns, each recomputed over the whole band, used
+           as the error bar that a single draw and a blocked
+           standard error could not supply; and the real arm's
+           two numbers scored against it.
+FIELD: even N in (2000000, 4000000], the same band and the
+       same Lambda and mu as audit_cn_law.py, whose sd and
+       excess kurtosis are read from
+       results/audit_cn_law.txt rather than retyped. The gate
+       is at N = 3141592.
+SEED: the draws come from numpy default_rng at seed 20260820; without
+      it the file does not reproduce its own control.
+
+READ audit_cn_law.txt POINT cnlaw_sd 0.92953
+READ audit_cn_law.txt POINT cnlaw_kurt 0.26422
+READ audit_cn_law.txt SPREAD cnlaw_sd 0.00083
+  the real arm's standard deviation, its fourth moment and the blocked
+  standard error, read from that file rather than retyped
+  real arm sd 0.92953, excess kurtosis 0.26422, blocked s.e. 0.00083
+
+Q1  does the identity hold at a fixed N over fresh draws?
+  N = 3141592: mean C_coin^2 over 64 draws is 1.0266 of V(N)
+  Q1 hold   (cap: within 0.5000 of 1)
+
+  the coin's own spread over 64 draws
+      statistic          mean        sd     min       max
+      sd(G_coin)       0.93420   0.04596  0.86912  1.18138
+      excess kurt     -0.01825   0.03957 -0.25667 +0.04189
+SCALES 1
+SPREAD coin_sd_draws 0.04596
+SPREAD coin_kurt_draws 0.03957
+
+Q2  is one draw an error bar?
+  draw-to-draw sd 0.04596 against the blocked s.e. 0.00083, a factor of 55.4
+  Q2 hold   (cap: at least 10 times)
+
+Q3  is the deficit below 1 arithmetic?
+  the coin's own sd averages 0.93420, not 1: a fixed sign pattern does
+  not have mean square V over the band, only in expectation over patterns
+  real 0.92953 scores z = -0.10 against the coin's draws
+TSTAT cnspread_sd_z -0.10
+SPREAD cnspread_sd_z 0.04596
+UNRESOLVED SIGN cnspread_sd_z
+  Q3 hold   (cap: |z| < 2)
+
+Q4  does the kurtosis separation survive?
+  the coin's excess kurtosis averages -0.01825 over draws, spread 0.03957
+  real +0.26422 scores z = +7.1
+TSTAT cnspread_kurt_z 7.14
+SPREAD cnspread_kurt_z 0.03957
+  Q4 hold   (cap: |z| > 3)
+  with 64 draws a z this size is a bound and not a measurement
+
+======================================================================
+Q1 hold  Q2 hold  Q3 hold  Q4 hold
+
+audit_cn_law.py's P2 and the sd half of its P4 are artefacts of a
+single sign pattern. V is the second moment in expectation over
+signs and no one pattern -- mu included -- has mean square exactly V
+over a band. Both stay REFUTED as registered; what they refute is
+the reading, not prop:V and not mu.
+The kurtosis is different. No coin draw comes near the real arm's
+value, so G's tails are not what a sign pattern on mu's support
+produces. **That is one statistic of the withdrawn law that the
+coin cannot make** -- the first thing in this branch to survive
+lem:coin.
