@@ -1,0 +1,227 @@
+STATISTIC: L(N) = log(|sum a| / l2) at every N = 2^a 3^b 5^c with
+           a, b, c >= 1 in a band, and the difference of
+           neighbouring L against the log gap between them.
+FIELD: N of radical {2,3,5} in [700000, 1400000]; k over the squarefree
+       k < N^0.56 coprime to N; j over every index below N.
+       Two L are READ from results/audit_level_matched.txt as the
+       gate and the radical's drift from
+       results/audit_radical_law.txt.
+NOTE: the enumeration is exhaustive in the band, so the gaps are
+      whatever the arithmetic gives and were not chosen.
+
+READ audit_level_matched.txt 1800000 3.187272
+READ audit_level_matched.txt 2025000 3.232112
+READ audit_radical_law.txt drift 0.265357
+PRINTBOUND audit_level_fine 6 0.0000005000
+  theta 0.56, corr cap 0.50, fine gap 0.005, fine cap 0.01,
+  slope cap 0.05, minimum fine pairs 3
+RADICALS 1
+  the band holds 40 N of radical {2,3,5}
+  every one checked to have that radical exactly
+  the finest pair the enumeration reaches near a million is
+  983040 = 2^16*3*5 and 984150 = 2*3^9*5^2, log gap 0.001129
+POINT examplegap 0.001129
+  this band spans 0.6931 in log N; the two sets of rem:leveldense span
+    {2,5}  1.1632 over 14 N
+READ audit_level_dense.txt span_5 1.1632
+    {2,7}  1.2528 over 14 N
+READ audit_level_dense.txt span_7 1.2528
+COPRIME 1
+  one coprimality class: a, b, c are all at least one, so no
+  N here drops a prime and the k-range is the same for all of them
+sieving to 2025000
+
+U1  the gate
+  N = 1800000   here +3.187272 against its +3.187272  ok
+  N = 2025000   here +3.232112 against its +3.232112  ok
+  U1 hold   (cap: 6 decimals)
+  N = 720000    log N 13.487006   L +2.965312
+POINT fine_720000 2.965312
+  N = 729000    log N 13.499429   L +2.966592
+POINT fine_729000 2.966592
+  N = 737280    log N 13.510723   L +2.979823
+POINT fine_737280 2.979823
+  N = 750000    log N 13.527828   L +2.980772
+POINT fine_750000 2.980772
+  N = 768000    log N 13.551545   L +2.973946
+POINT fine_768000 2.973946
+  N = 777600    log N 13.563968   L +2.992709
+POINT fine_777600 2.992709
+  N = 787320    log N 13.576390   L +2.992573
+POINT fine_787320 2.992573
+  N = 810000    log N 13.604790   L +2.991036
+POINT fine_810000 2.991036
+  N = 829440    log N 13.628506   L +2.996842
+POINT fine_829440 2.996842
+  N = 843750    log N 13.645612   L +3.000909
+POINT fine_843750 3.000909
+  N = 864000    log N 13.669328   L +3.013528
+POINT fine_864000 3.013528
+  N = 874800    log N 13.681751   L +3.020241
+POINT fine_874800 3.020241
+  N = 900000    log N 13.710150   L +3.021130
+POINT fine_900000 3.021130
+  N = 911250    log N 13.722573   L +3.027423
+POINT fine_911250 3.027423
+  N = 921600    log N 13.733867   L +3.030407
+POINT fine_921600 3.030407
+  N = 933120    log N 13.746289   L +3.031752
+POINT fine_933120 3.031752
+  N = 937500    log N 13.750972   L +3.037883
+POINT fine_937500 3.037883
+  N = 960000    log N 13.774689   L +3.032847
+POINT fine_960000 3.032847
+  N = 972000    log N 13.787111   L +3.046464
+POINT fine_972000 3.046464
+  N = 983040    log N 13.798405   L +3.031478
+POINT fine_983040 3.031478
+  N = 984150    log N 13.799534   L +3.049030
+POINT fine_984150 3.049030
+  N = 1012500   log N 13.827933   L +3.047580
+POINT fine_1012500 3.047580
+  N = 1036800   log N 13.851650   L +3.061032
+POINT fine_1036800 3.061032
+  N = 1049760   log N 13.864072   L +3.067681
+POINT fine_1049760 3.067681
+  N = 1080000   log N 13.892472   L +3.050098
+POINT fine_1080000 3.050098
+  N = 1093500   log N 13.904894   L +3.079827
+POINT fine_1093500 3.079827
+  N = 1105920   log N 13.916188   L +3.071296
+POINT fine_1105920 3.071296
+  N = 1125000   log N 13.933294   L +3.075044
+POINT fine_1125000 3.075044
+  N = 1152000   log N 13.957010   L +3.087957
+POINT fine_1152000 3.087957
+  N = 1166400   log N 13.969433   L +3.086989
+POINT fine_1166400 3.086989
+  N = 1180980   log N 13.981855   L +3.080056
+POINT fine_1180980 3.080056
+  N = 1200000   log N 13.997832   L +3.080241
+POINT fine_1200000 3.080241
+  N = 1215000   log N 14.010255   L +3.099152
+POINT fine_1215000 3.099152
+  N = 1228800   log N 14.021549   L +3.118751
+POINT fine_1228800 3.118751
+  N = 1244160   log N 14.033971   L +3.109355
+POINT fine_1244160 3.109355
+  N = 1296000   log N 14.074793   L +3.106709
+POINT fine_1296000 3.106709
+  N = 1312200   log N 14.087216   L +3.124381
+POINT fine_1312200 3.124381
+  N = 1350000   log N 14.115615   L +3.125178
+POINT fine_1350000 3.125178
+  N = 1382400   log N 14.139332   L +3.118450
+POINT fine_1382400 3.118450
+  N = 1399680   log N 14.151754   L +3.144778
+POINT fine_1399680 3.144778
+SCALES 40
+
+    N1        N2         log gap    |dL|      smooth
+  720000    729000     0.012423  0.001280  0.003296  
+POINT finepair_720000 0.001280
+  729000    737280     0.011294  0.013231  0.002997  
+POINT finepair_729000 0.013231
+  737280    750000     0.017105  0.000949  0.004539  
+POINT finepair_737280 0.000949
+  750000    768000     0.023717  0.006827  0.006293  
+POINT finepair_750000 0.006827
+  768000    777600     0.012423  0.018764  0.003296  
+POINT finepair_768000 0.018764
+  777600    787320     0.012423  0.000136  0.003296  
+POINT finepair_777600 0.000136
+  787320    810000     0.028399  0.001537  0.007536  
+POINT finepair_787320 0.001537
+  810000    829440     0.023717  0.005806  0.006293  
+POINT finepair_810000 0.005806
+  829440    843750     0.017105  0.004067  0.004539  
+POINT finepair_829440 0.004067
+  843750    864000     0.023717  0.012619  0.006293  
+POINT finepair_843750 0.012619
+  864000    874800     0.012423  0.006713  0.003296  
+POINT finepair_864000 0.006713
+  874800    900000     0.028399  0.000889  0.007536  
+POINT finepair_874800 0.000889
+  900000    911250     0.012423  0.006293  0.003296  
+POINT finepair_900000 0.006293
+  911250    921600     0.011294  0.002984  0.002997  
+POINT finepair_911250 0.002984
+  921600    933120     0.012423  0.001345  0.003296  
+POINT finepair_921600 0.001345
+  933120    937500     0.004683  0.006131  0.001243  fine
+POINT finepair_933120 0.006131
+  937500    960000     0.023717  0.005036  0.006293  
+POINT finepair_937500 0.005036
+  960000    972000     0.012423  0.013617  0.003296  
+POINT finepair_960000 0.013617
+  972000    983040     0.011294  0.014986  0.002997  
+POINT finepair_972000 0.014986
+  983040    984150     0.001129  0.017552  0.000299  fine
+POINT finepair_983040 0.017552
+  984150    1012500    0.028399  0.001450  0.007536  
+POINT finepair_984150 0.001450
+  1012500   1036800    0.023717  0.013452  0.006293  
+POINT finepair_1012500 0.013452
+  1036800   1049760    0.012423  0.006649  0.003296  
+POINT finepair_1036800 0.006649
+  1049760   1080000    0.028399  0.017582  0.007536  
+POINT finepair_1049760 0.017582
+  1080000   1093500    0.012423  0.029729  0.003296  
+POINT finepair_1080000 0.029729
+  1093500   1105920    0.011294  0.008531  0.002997  
+POINT finepair_1093500 0.008531
+  1105920   1125000    0.017105  0.003748  0.004539  
+POINT finepair_1105920 0.003748
+  1125000   1152000    0.023717  0.012913  0.006293  
+POINT finepair_1125000 0.012913
+  1152000   1166400    0.012423  0.000968  0.003296  
+POINT finepair_1152000 0.000968
+  1166400   1180980    0.012423  0.006933  0.003296  
+POINT finepair_1166400 0.006933
+  1180980   1200000    0.015977  0.000185  0.004240  
+POINT finepair_1180980 0.000185
+  1200000   1215000    0.012423  0.018911  0.003296  
+POINT finepair_1200000 0.018911
+  1215000   1228800    0.011294  0.019598  0.002997  
+POINT finepair_1215000 0.019598
+  1228800   1244160    0.012423  0.009396  0.003296  
+POINT finepair_1228800 0.009396
+  1244160   1296000    0.040822  0.002646  0.010832  
+POINT finepair_1244160 0.002646
+  1296000   1312200    0.012423  0.017673  0.003296  
+POINT finepair_1296000 0.017673
+  1312200   1350000    0.028399  0.000796  0.007536  
+POINT finepair_1312200 0.000796
+  1350000   1382400    0.023717  0.006728  0.006293  
+POINT finepair_1350000 0.006728
+  1382400   1399680    0.012423  0.026328  0.003296  
+POINT finepair_1382400 0.026328
+
+U2  does |dL| follow the gap?
+  correlation -0.310186 over 39 adjacent pairs
+CORR levelfine_regressors 0.310186
+POINT finecorr -0.310186
+  U2 REFUTED   (cap: above 0.50)
+
+U3  are the finest pairs quiet?
+  2 pairs under a log gap of 0.005
+    gap 0.004683  |dL| 0.006131  smooth 0.001243  ok
+    gap 0.001129  |dL| 0.017552  smooth 0.000299  ABOVE
+COUNT finepairs 2
+POINT finemax 0.017552
+  U3 REFUTED   (cap: 0.01 on every fine pair)
+  UNDERPOWERED: fewer than 3 fine pairs, so U3's verdict
+  stands without a reading, as the rule says
+
+U4  is the band's slope the drift?
+  slope +0.251027 against drift +0.265357, r.m.s. residual 0.007363
+POINT fineslope 0.251027
+POINT finerms 0.007363
+  U4 hold   (cap: 0.05)
+
+======================================================================
+U1 hold  U2 REFUTED  U3 REFUTED  U4 hold
+
+the band did not supply enough fine pairs to decide. what the
+enumeration gives is what it gives, and this question needs a
+radical whose multiples pack closer than {2,3,5} does here.

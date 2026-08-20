@@ -5188,6 +5188,57 @@ above is on the corrected field, and the script now asserts each $N$
 has the radical it claims. T3 was refuted in that execution and is
 refuted here on pairs the slip never touched.
 
+#### Remark (the scatter is not a scale effect, and it is smaller here) {#rem:levelfine}
+<!-- evidence: audit_level_fine.py -->
+
+[rem:leveldense] measured the scatter at about $0.03$ and could not
+say what it is, because $2^ap^b$ cannot be packed tighter than a
+$\log$ gap of $0.0237$ at these $N$. Radical $\{2,3,5\}$ is a finer
+ruler: enumerating every $N=2^a3^b5^c$ with all three exponents at
+least one, $983040=2^{16}\cdot3\cdot5$ and $984150=2\cdot3^9\cdot5^2$
+sit $0.001129$ apart, a twenty-first of that. The band
+$[700000,\,1400000]$ holds forty such $N$, one coprimality class, and
+the gaps are whatever the arithmetic gives.
+
+**U2 is refuted and it is the well-powered verdict here.** Over
+thirty-nine adjacent pairs the correlation of $\lvert\Delta L\rvert$
+with the $\log$ gap is $-0.310186$, against a cap of $+0.5$ — not
+merely below it but the wrong sign. **$\lvert\Delta L\rvert$ does not
+follow the spacing, so the scatter is not a scale effect**, which is
+the reading U2's rule attached to exactly this outcome.
+
+**U3 is refuted and its reading is barred**, by the clause registered
+before the run: the band supplied two pairs under a $\log$ gap of
+$0.005$ where three were required. For the record they are gap
+$0.004683$ with $\lvert\Delta L\rvert=0.006131$, and gap $0.001129$
+with $0.017552$ against a smooth prediction of $0.000299$ — fifty-nine
+times it, at the finest spacing this ruler reaches. **Two pairs are
+two pairs and the conclusion is declined.**
+
+**U4 holds, and its residual is the news.** The slope is $+0.251027$
+against the published drift $+0.265357$, and the r.m.s. residual about
+the line is $\mathbf{0.007363}$ — **four times smaller than
+[rem:leveldense]'s $0.029924$ and $0.028850$.** So the scatter is not
+one number across radicals any more than the level is.
+
+**What is established and what is not.** The scatter does not shrink
+with spacing (U2, thirty-nine pairs), so refining the $N$ does not
+refine $L$; and its size at $\{2,3,5\}$ in this band is $0.0074$, not
+the $0.03$ [rem:leveldense] found at $\{2,5\}$ and $\{2,7\}$. **The
+comparison is not clean**: this band spans $0.6931$ in $\log N$ against
+their $1.1632$ and $1.2528$, and a shorter span through a curved $L$
+returns a smaller residual whatever the noise is. So the $0.0074$ is
+an upper bound on this radical's scatter and not a measurement of a
+difference between radicals.
+
+**And this run's closing sentence is incomplete.** It fires on U3's
+underpowering and says the band did not supply enough fine pairs to
+decide — true of U3, and it ignores that U2 decided the same question
+with thirty-nine pairs and the opposite kind of evidence. The
+spacing question is answered; what is not answered is whether the
+answer holds at the finest spacing, which is a smaller claim than the
+sentence implies.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 
