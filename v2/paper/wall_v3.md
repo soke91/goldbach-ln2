@@ -4692,6 +4692,68 @@ barriers at every $N$ there. **Which floor item 5 is measured against
 is open, and this run closes one candidate answer rather than
 supplying another.**
 
+#### Remark (the deficit carries the radical) {#rem:whichfloor}
+<!-- evidence: audit_which_floor.py -->
+
+[rem:jbarrierreach] left the question of which floor item 5's demand
+is measured against, and handed over the tool to answer it. On family
+A the two barriers sit on top of each other — $D/\ell^2$ drift
+$+0.005736$ at $t=+1.73$ — so that field cannot tell. **Family B
+separates them** at $t=-7.90$, and a sum can track at most one of two
+floors that are pulling apart.
+
+$\lvert\sum a\rvert$ on family B had never been computed. It is the
+half of this run that decides, and it was blind.
+
+| family | radical | $\lvert\sum a\rvert/\ell^2$ drift | s.e. | $t$ |
+|---|---|---|---|---|
+| A | $\{2,5\}$ | $+0.141100$ | $0.005708$ | $+24.72$ |
+| B | $\{2,3,5,7,11,13\}$ | $+0.284941$ | $0.001449$ | $+196.70$ |
+
+**M2 is refuted, and it is the outcome its own rule named as costing
+the most.** The difference is $-0.143841$ against an error of the
+difference of $0.005889$ — twenty-four times it, not a near miss and
+not the unresolved case this run named in advance. **The deficit
+carries the radical.**
+
+**The ranges do not explain it** (a diagnostic, run after the verdicts
+and predicted by nothing). The two families span different $\log N$
+and [rem:deficitdirect] measured the deficit's drift as itself
+drifting, so the windows were the obvious confound. Refitted on the
+$\log N$ the two share, $10.3100$ to $15.8551$, family A gives
+$+0.138586\pm0.010916$ against family B's $+0.284941\pm0.001449$: a
+difference of $-0.146355$ at $t=-13.29$. It is larger on the shared
+window, not smaller.
+
+**What this costs.** The published field is $168$ $N$ and **every one
+of them has radical $\{2,5\}$** — one family, family A's. So item 5's
+$+0.134019$ is that family's number. Family A measured here gives
+$+0.141100$ over eleven doubling points, consistent with it; family B
+gives twice as much. Every remark that quotes $+0.134019$ as *the*
+distance the demand has to travel is quoting a number of the
+primorial-free family, and on a primorial family the sum runs away
+from $\ell^2$ at twice the rate. **The demand is not one number.**
+
+M3 holds — the $\lvert\sum a\rvert/D$ drifts differ by $-0.218290$ —
+and it was registered only so the pair would be read together, since
+the two differ by the $D/\ell^2$ drift already published. M4 holds:
+$\lvert\sum a\rvert$ stands above both barriers at every $N$ of both
+families. **Neither floor is the one the deficit is flat against**,
+so the question [rem:jbarrierreach] left is not answered here — it is
+made harder, because the answer now has to explain a rate that
+depends on which primes divide $N$.
+
+**And the gate failed first, on a defect of its own.** M1 read
+$\lvert\sum a\rvert$ from a table printed to two decimals and judged
+it at four; it came out refuted by the print bound rather than by any
+disagreement — `TOL BELOW PRINT`, which G75 exists for. The script
+exits at M1, so no verdict on M2 to M4 existed when this was found,
+and the gate now reads markers carrying the digits it asks for with
+the tolerance unchanged. Worth recording beside it: this run's care
+went into naming M2's unresolved case *before* the fact, which is
+where the previous three failures had been, and the defect moved to
+the gate instead.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

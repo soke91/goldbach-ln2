@@ -1,0 +1,127 @@
+STATISTIC: |sum a| against each of the two square-root barriers,
+           l2 over the dilations k and D over the indices j, on
+           two radical families; the drift of each ratio within
+           each family and whether the drifts agree across them.
+FIELD: family A, N = 25000*2^j for j < 11, radical {2,5};
+       family B, N = 30030*2^j for j < 9, radical
+       {2,3,5,7,11,13}. k over the squarefree k < N^0.56 coprime
+       to N; j over every index below N. |sum a| and D/l2 at
+       N = 200000 are READ from results/audit_jbarrier.txt as the
+       gate.
+
+READ audit_deficit_direct.txt 200000 87895.3236
+READ audit_jbarrier.txt ratio 0.4900
+READ audit_deficit_log.txt deficit 0.134019
+  |sum a| and D/l2 at the gate N, both from POINT markers
+  NOTE, disclosed: M1 first read |sum a| from the table of
+  audit_jbarrier.txt, which prints two decimals, and judged it at four.
+  It read the two-decimal value there and M1 was refuted by the print
+  bound, not by a disagreement -- TOL BELOW PRINT. The script exits at
+  M1, so no
+  verdict on M2 to M4 existed when this was found. The tolerance is
+  unchanged; only the source of the digits is.
+PRINTBOUND audit_which_floor 4 0.00005000
+  theta 0.56, slope cap 0.02
+TOL NOT FROM PRINT audit_which_floor
+RADICALS 2
+sieving to 25600000
+
+family A, radical [2, 5]
+  N = 25000      |sum a|      16869.66  /l2   4.9061  /D   9.6392
+POINT floorA_25000 4.906052 9.639169
+  N = 50000      |sum a|      28273.59  /l2   5.1870  /D  10.4591
+POINT floorA_50000 5.186967 10.459132
+  N = 100000     |sum a|      49891.72  /l2   5.7784  /D  11.6915
+POINT floorA_100000 5.778429 11.691504
+  N = 200000     |sum a|      87895.32  /l2   6.5220  /D  13.3112
+POINT floorA_200000 6.522026 13.311216
+  N = 400000     |sum a|     158673.36  /l2   7.8916  /D  15.4552
+POINT floorA_400000 7.891632 15.455151
+  N = 800000     |sum a|     260240.32  /l2   8.1088  /D  16.4385
+POINT floorA_800000 8.108760 16.438510
+  N = 1600000    |sum a|     410316.01  /l2   8.2821  /D  17.0673
+POINT floorA_1600000 8.282141 17.067266
+  N = 3200000    |sum a|     674122.42  /l2   9.3972  /D  18.3768
+POINT floorA_3200000 9.397165 18.376848
+  N = 6400000    |sum a|    1162672.59  /l2  10.4361  /D  20.8811
+POINT floorA_6400000 10.436066 20.881114
+  N = 12800000   |sum a|    1872438.96  /l2  11.6445  /D  22.2046
+POINT floorA_12800000 11.644487 22.204552
+  N = 25600000   |sum a|    3216713.49  /l2  13.2601  /D  25.3039
+POINT floorA_25600000 13.260147 25.303888
+
+family B, radical [2, 3, 5, 7, 11, 13]
+  N = 30030      |sum a|      69935.20  /l2   6.6768  /D  28.9929
+POINT floorB_30030 6.676771 28.992887
+  N = 60060      |sum a|     151756.61  /l2   8.0560  /D  39.1960
+POINT floorB_60060 8.055985 39.195973
+  N = 120120     |sum a|     308592.42  /l2   9.7385  /D  51.2795
+POINT floorB_120120 9.738506 51.279490
+  N = 240240     |sum a|     626261.04  /l2  11.7617  /D  67.0951
+POINT floorB_240240 11.761715 67.095107
+  N = 480480     |sum a|    1221688.07  /l2  14.5841  /D  85.2296
+POINT floorB_480480 14.584052 85.229555
+  N = 960960     |sum a|    2355764.68  /l2  17.7354  /D 107.9817
+POINT floorB_960960 17.735438 107.981725
+  N = 1921920    |sum a|    4592782.70  /l2  21.5799  /D 136.8556
+POINT floorB_1921920 21.579864 136.855584
+  N = 3843840    |sum a|    8723138.94  /l2  26.3654  /D 170.2196
+POINT floorB_3843840 26.365416 170.219632
+  N = 7687680    |sum a|   16210103.93  /l2  32.1845  /D 207.0388
+POINT floorB_7687680 32.184515 207.038806
+SCALES 20
+
+M1  the gate: does family A reproduce the published pair?
+  |sum a| here 87895.3236 against its 87895.3236  ok
+  D/l2    here 0.4900 against its 0.4900  ok
+  M1 hold   (cap: 4 decimals on both)
+
+    family   ratio        drift          s.e.        t
+       A   |sum a|/l2  +0.141100     0.005708   +24.72
+TSTAT floorAL2 24.72
+SPREAD floorAL2 0.005708
+       A   |sum a|/D   +0.135365     0.005036   +26.88
+TSTAT floorAD 26.88
+SPREAD floorAD 0.005036
+       B   |sum a|/l2  +0.284941     0.001449   +196.70
+TSTAT floorBL2 196.70
+SPREAD floorBL2 0.001449
+       B   |sum a|/D   +0.353655     0.007597   +46.55
+TSTAT floorBD 46.55
+SPREAD floorBD 0.007597
+
+M2  do the |sum a|/l2 drifts agree across the families?
+  A +0.141100, B +0.284941, difference -0.143841
+  error of the difference 0.005889
+POINT l2driftgap -0.143841
+  M2 REFUTED   (cap: 0.02)
+
+M3  and do the |sum a|/D drifts disagree?
+  A +0.135365, B +0.353655, difference -0.218290
+  error of the difference 0.009115
+POINT ddriftgap -0.218290
+  M3 hold   (cap: above 0.02)
+
+M4  does the sum stand above both barriers everywhere?
+  failures: none
+  M4 hold   (cap: every N of both families)
+
+  a diagnostic, after the verdicts and predicted by nothing
+  the families span different log N and rem:deficitdirect measured the
+  deficit's drift as itself drifting, so the ranges could be doing this.
+  refitting both on the log N they share:
+  shared window 10.3100 to 15.8551
+       A   8 N   |sum a|/l2 drift +0.138586 +- 0.010916
+       B   9 N   |sum a|/l2 drift +0.284941 +- 0.001449
+  difference -0.146355, error of the difference 0.011012, t -13.29
+POINT matchedgap -0.146355
+TSTAT matchedgap -13.29
+SPREAD matchedgap 0.011012
+
+======================================================================
+M1 hold  M2 REFUTED  M3 hold  M4 hold
+
+the deficit carries the radical. item 5's 0.134019 is a number of the
+family it was measured on and not a property of the demand, and every
+remark quoting it inherits that. this is the outcome M2's rule named as
+costing the most.
