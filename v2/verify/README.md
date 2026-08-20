@@ -1,43 +1,65 @@
-# verify — 재검증 프로토콜
+# v2_verify — independent re-verification of v2
 
-한 패스당 하위 폴더 하나. 각 패스는 `FINDINGS.md` 하나 + `code/` + `results/`.
-이 파일이 프로토콜이고, 패스마다 다시 쓰지 않는다.
+Same intent as `v1_verify/`: a claim reproduced by a second
+implementation is worth more than one reproduced by rerunning the first.
+Each pass is written from the **statement**, not from the script behind
+it; where it reaches a different number, the disagreement is the finding,
+and neither side is assumed right until it is resolved.
 
 ```
-verify/pass1/FINDINGS.md   code/   results/
-verify/pass2/...
+passN/code/      re-implementations written from the statements
+passN/results/   one output file per script
 ```
 
-## 순서
+Passes 1–3 checked `conj:L`'s stamps and the ladder exponents. Passes 4
+and 5 checked the five papers in `deploy/` — one for the mathematics, one
+for whether the code computes the quantity the papers define. Pass 6, the
+projection audit, has not run.
 
-1. **봉인.** 대상 문서의 sha256을 `FINDINGS.md` 맨 위에 적는다. 끝난 뒤
-   다시 확인한다. 표적이 움직였으면 채점은 무효다.
-2. **블라인드.** 앞 패스의 `FINDINGS.md`를 열지 않고 `paper/`의 진술만으로
-   재검증한다. 남의 스크립트를 다시 돌리는 건 재검증이 아니다.
-3. **사전등록.** 스크립트 docstring에 판정 규칙과 **이 스크립트가 시험하려는
-   예측**을 실행 전에 적는다.
-4. **채점.** 다 쓴 뒤에 앞 패스를 열고 대조한다. 적중·부분·누락으로 나누고,
-   범위 밖 누락은 따로 센다.
-5. **자기 철회.** 대조에서 드러난 자기 발견은 철회하고 기록한다. 상대 오류만
-   보고하는 패스는 일을 안 한 것이다.
+Each pass's own record — what it looked at first and why, what it did not
+look at, what it proposes the gate should check — is a working document
+and is not distributed. It is available on request.
 
-## 우선순위
+---
 
-**직전 패스가 직접 쓴 것부터 본다.** 물려받은 내용은 여러 패스가 봤지만
-수정본·재작성 문단·새로 붙인 인용은 증인이 하나다. 틀린 수정은 원래 오류보다
-나쁘다 — 검증 스탬프를 달고 있으므로.
+## What was found
 
-그다음: 근거가 하나뿐인 수치, 아무 패스도 안 본 영역, 단계를 떠받치는 인용.
+Confirmed verdicts only, and what each changed. `code/` and `results/`
+here are the evidence.
 
-## 조립 결함
+### Passes 1–3 — the stamps of `conj:L`
 
-부분이 전부 검증돼도 조립은 새 작업이다. 전형은 **결론만 옮기고 그걸 참으로
-만드는 측정을 두고 오는 것** — 본문에 틀린 문장이 없고 남은 숫자는 전부
-재현되므로 아무 신호도 없다. 항목마다 "이 문장의 근거가 같이 왔는가"를 묻는다.
+| Verdict | What it changed | Evidence |
+|---|---|---|
+| The blind mask prediction reproduces | one of the conjecture's four stamps is now independently verified | `pass2/results/verify_conjL_mask_zeros.txt` |
+| Ladder exponents agree with an independent implementation, to the integer | the ladder figures stand | `pass1/results/verify_rung_exponents.txt` |
+| The exact $(v_2,v_3)$ cells were not reached | the conjecture's evidence is graded in the text, rather than claimed uniformly | `pass3/results/verify_conjL_exact_cells.txt` |
 
-게이트의 G6이 이걸 잡는다. 문서 하나가 아니라 짝 전체에 돌린다.
+### Pass 4 — the mathematics
 
-## 재검증이 발견을 확정하면
+| Verdict | What it changed | Evidence |
+|---|---|---|
+| **The extraction identity is not an identity** — a term of size $N$ had been dropped and its place written as $O(N^{o(1)})$ | the term is restored, and the no-go is restated so that it grants the hard bound and fails anyway | `pass4/results/a4_extract_identity.txt` |
+| The polynomial-weight case attributes a binary-Goldbach lower bound to classical sieve theory; the next clause of the same statement denies it | the claim is weakened to the upper bound, which is what the argument needs | internal comparison |
+| Two ratio lists were printed with different numerators while the argument requires one | the numerator is held fixed; the other quantity is named separately | `pass4/results/a1_bh_vs_b.txt` |
+| A definition omitted the squarefree restriction its own figures use | the restriction is written into the definition | `pass4/results/a1_bh_vs_b.txt` |
+| Two margin figures come from a law the same paper says it does not assert | the section states its scope | internal comparison |
+| Cell-floor endpoints and one range factor disagree with measurement | corrected | `pass4/results/a6_cellfloor_top.txt` |
+| **The defect reported in \[HL\] eq. (18) is correct** — checked against both arXiv versions, and the missing term reproduced to $8\cdot10^{-16}$ at twelve points | no correction needed; the restatement gains a $\mu^2$, and the truncation budget is replaced by the authors' own | `pass4/results/a7_hl18_delta.txt` |
 
-`gate/gate.py`에 검사를 추가한다. `FINDINGS.md`에만 적으면 다음 원고가 조용히
-되돌린다.
+### Pass 5 — the code
+
+| Verdict | What it changed | Evidence |
+|---|---|---|
+| **No closed route was closed by a wrong calculation.** Every computation behind a negative verdict matches its statement, with margins of $13\times$ to $10^4\times$ | — | `pass5/results/c01`–`c04` |
+| A flat sum was indexed from $k\ge2$ where the statement indexes from $k\ge1$; since $H(N;1)=C(N)$, exactly $C(N)$ was missing | eight ratios and one fitted exponent corrected | `pass5/results/c02_flatsum_k1.txt` |
+| The five $N$ behind one demand ratio are all $2^a5^b$, so the threshold is constant across them | the sentence now says what field it was measured on | `pass5/results/c03_demand_field.txt` |
+| One figure was quoted from a rounding the same sentence rules out | replaced by the admissible one | `results/audit_hb_weight.txt` |
+| One identity check is tautologically true and adjudicates nothing | the statement stands on the exhaustive comparison in the same script, and says so | `results/audit_switch_identity.txt` |
+| Sieve layer checked exhaustively against trial division across 22 entry points — one harmless mismatch; FFT precision supports every printed digit; nulls preserve the support | — | `pass5/results/c01`, `c04` |
+| Two exponents that looked inconsistent belong to different quantities | printed values stand | `pass5/results/c05_exponent_convention.txt` |
+
+### Pass 6 — the projection
+
+Has not run. It asks whether reducing `v2/paper/` to `deploy/papers/`
+left behind any measurement that a surviving sentence rests on.

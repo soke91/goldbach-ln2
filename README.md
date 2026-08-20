@@ -25,14 +25,23 @@ and one defect report for the source paper.
 | `v1/` | **Version 1 — frozen.** The paper, and the code and results it cites. | yes |
 | `v1_verify/` | Independent re-verification of `v1`, mirroring its structure. | yes |
 | `v2/` | The continuation. Open questions `v1` states but does not answer. | yes |
+| `v2_verify/` | Independent re-verification of `v2`, mirroring `v1_verify/`. | yes |
+| `deploy/` | The five papers `v2/paper/` is projected into, and the code and results they cite. | yes |
 | `lib/goldbach/` | Shared helper package, imported by scripts in every tree. | yes |
 | `v1_log/` | The program's own record for `v1`: process documents, exploratory code, uncited results. | **no** |
 | `v1_verify_log/` | The re-verification's own record, including disagreements while they are unresolved. | **no** |
-| `v2_log/` | The same, for `v2`. | **no** |
+| `v2_log/`, `v2_verify_log/` | The same, for `v2`. | **no** |
 
-The three `_log` trees are a lab notebook. They are on disk and they are not
-distributed: `.gitignore` excludes them. Nothing in `v1/` depends on
-them, so a clone is complete without them.
+The four `_log` trees are a lab notebook: process documents, working
+notes, the narrative of each verification pass, and results the papers do
+not cite. They are on disk and they are not distributed — `.gitignore`
+excludes them — and nothing in the distributed trees depends on them, so a
+clone is complete without them. **They are available on request.**
+
+What is distributed is the rule this program has followed since its first
+month: the paper, and the code and results it cites. A statement with no
+evidence behind it, or evidence with no statement in front of it, is a
+defect the gate fails on.
 
 `v1/` and `v1_verify/` share one structure:
 

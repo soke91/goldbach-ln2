@@ -29,7 +29,14 @@ import io
 import re
 import os
 
-PAPERS = "z:/\uc5c5\ubb34/goldbach-ln2-real-review/A-blind/papers"
+# The papers under audit.  Overridable so the pass can be re-run against
+# a copy held anywhere; it defaults to the deployed set in this
+# repository, which is where those files live once a pass is over.
+PAPERS = os.environ.get(
+    "AUDIT_PAPERS_DIR",
+    os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                 "..", "..", "..", "..", "deploy", "papers"),
+)
 FILES = sorted(f for f in os.listdir(PAPERS) if f.endswith(".tex"))
 PLAIN = {"theorem", "corollary", "proposition", "lemma"}
 LOOSE = {"observation", "measurement", "conjecture"}

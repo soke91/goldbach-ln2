@@ -64,7 +64,11 @@ Bombieri--Vinogradov only for $b$ supported below $N^{\theta'-1/2}$
 (Lemma~\ref{lem:bv}) --- and the two thresholds are separated by a
 factor $N^{1/2}$. Theorem~\ref{thm:D} converts this into the bound
 $\|b\|_1/|B_w|\gg\exp(c_1\sqrt{(1/2)\log N})$, which exceeds every
-power of $\log N$; Theorem~\ref{thm:Dprime} shows the separation
+power of $\log N$, and which destroys the extraction \emph{even when
+the hard input is granted for free} --- the switch identity carries a
+third term $T_w$, of size $N$, and the theorem hands over the bound on
+it that only $EH_\mu$ could supply;
+Theorem~\ref{thm:Dprime} shows the separation
 survives granting $EH(N^{\theta_E})$ for any fixed $\theta_E<1$, so
 the obstruction is not a shortage of level. The most natural family of
 weights, $w_k=f(\log k)$ with $f$ polynomial, falls outside the
@@ -137,10 +141,31 @@ identity
   B_w\cdot C(N)\;=\;
   \underbrace{\sum_{u<N}\Lambda(N-u)\mu^2(u)\,b_u}_{\text{complete part}}
   \;-\;\underbrace{\mathcal R_w}_{\text{residual}}
+  \;-\;\underbrace{T_w}_{\text{the object itself}}
   \;+\;O\!\left(N^{o(1)}\right),
 \end{equation}
 the complete part being evaluated by Lemma~\ref{lem:Gb} below, which
 identifies $b$ as exactly the complete divisor transform.
+
+\begin{note}[the third term is not a remainder]\label{note:Tw}
+The term $T_w$ in \eqref{eq:extract} is \eqref{eq:Tw} itself, and it is
+of size $N$: at $w=\log$ it \emph{is} $E_3(\alpha)$, which
+\cite[Thm.~3]{P1} evaluates as
+$\tilde r(N)-\SS(N)(N-C(N))+O_A(N(\log N)^{-A})$. It cannot be absorbed
+into the $O(N^{o(1)})$, and writing \eqref{eq:extract} without it turns
+a rearrangement into a false statement --- the two sides then differ by
+$0.44N$, $0.38N$, $0.32N$ at $N=2\cdot10^5,\,4\cdot10^5,\,8\cdot10^5$
+with $\theta'=0.56$, which are exactly the measured values of
+$|T_{\log}|/N$ at those $N$ (Measurement~\ref{meas:flatsum}). With
+$T_w$ restored the identity holds to $10^{-16}$ relative.
+
+Keeping it explicit is what makes Theorem~\ref{thm:D} say something.
+The identity by itself yields nothing about $C(N)$: an unconditional
+bound on $T_w$ is exactly what the whole problem asks for, and the only
+weight for which one is known is $w=1$, by \cite[Thm.~1]{P1}. The
+theorem below therefore \emph{grants} the bound on $T_w$ and shows the
+extraction fails anyway.
+\end{note}
 
 \begin{lemma}\label{lem:Gb}
 For squarefree $u$, $\sum_{k\mid u}\mu(k)w_k=\mu(u)\,b_u$.
@@ -297,14 +322,19 @@ $\theta'=0.56$, \eqref{eq:flatsum} holds to a worst relative error of
 $1.875\cdot10^{-16}$, and
 \[
   \frac{\bigl|\sum_kH(N;k)\bigr|}{\bigl|\sum_k(\log k)H(N;k)\bigr|}
-  \;=\;0.1807,\ 0.1740,\ 0.1624,\ 0.1389,\ 0.1456,\ 0.1216,\
-       0.1258,\ 0.1188,
+  \;=\;0.1785,\ 0.1559,\ 0.1484,\ 0.1483,\ 0.1367,\ 0.1334,\
+       0.1241,\ 0.1135,
 \]
-falling throughout; at the top $|T_1|/N=0.01425$ against
+falling on average; at the top $|T_1|/N=0.01425$ against
 $|T_{\log}|/N=0.1245$. Fitted against $\log N$ the flat sum decays as
-$N^{-0.3620}$ and $|T_{\log}|/N$ as $N^{-0.2658}$: the gap widens, as
+$N^{-0.3505}$ and $|T_{\log}|/N$ as $N^{-0.2658}$: the gap widens, as
 it must if one side is $\ll_AN(\log N)^{-A}$ and the other is
-$\asymp N$. Identity~\eqref{eq:dilate} itself is verified over every
+$\asymp N$. The index set here runs from $k=1$, as \eqref{eq:Tw} and
+\eqref{eq:flatsum} require; note that $H(N;1)=C(N)$ exactly, so
+dropping that one term removes $C(N)$ from the flat sum --- which
+changes the ratios above by up to $10.4\%$ and the fitted exponent to
+$-0.3620$, while leaving $|T_1|$ untouched to $10^{-18}$, since the
+$k=1$ term of $T_1$ is $A(N;1)-C(N)/\varphi(1)=0$. Identity~\eqref{eq:dilate} itself is verified over every
 squarefree $k<N^{0.56}$ coprime to $N$ at
 $N=2\cdot10^5,\,4\cdot10^5,\,8\cdot10^5$ with worst relative error
 $2.294\cdot10^{-14}$, $1.197\cdot10^{-13}$, $4.591\cdot10^{-14}$, and
@@ -430,14 +460,20 @@ $B_H(N)=\sum_{k<K}(\log k)|H(N;k)|$, the new ratio
 $B_H(N)/(\SS(N)N)$ reads
 $0.4578,\,0.4064,\,0.4079,\,0.3769,\,0.3338$ --- under $1$ throughout
 and falling --- against
-$2.1591,\,1.9747,\,1.9500,\,1.7483,\,1.5798$ for the old ratio
-$B_H(N)/(\SS(N)(1-\AAA(N))N)$, which is above $1$ throughout. Across a
+$2.1519,\,1.9105,\,1.9175,\,1.7720,\,1.5691$ for the same numerator
+against the old threshold, $B_H(N)/(\SS(N)(1-\AAA(N))N)$, which is
+above $1$ throughout. \emph{The numerator is held fixed across the two
+lists}; only the threshold constant moves, which is the whole of the
+comparison. (For the numerator of \cite[eq.~(9)]{P1}, which keeps the
+subtracted mean inside the absolute value and so is a different sum,
+the old ratio reads $2.1591,\,1.9747,\,1.9500,\,1.7483,\,1.5798$ ---
+the same conclusion, a different quantity.) Across a
 seven-point family of arithmetically diverse $N$ the new ratio spans a
 factor $2.00$ where the old spans $23.25$. The residual coupling is
 negligible at these $N$: $|B_{\log}+\SS|/\SS$ stays under $0.0383$ and
 $|C(N)(B_{\log}+\SS)|/N$ never exceeds $3.315\cdot10^{-4}$, four
 orders below $\SS(N)$. The residual of \eqref{eq:direct} decays as
-$N^{-0.2794}$ with correlation $0.99930$ and reaches $2\%$ of $\SS$
+$N^{-0.2794}$ with correlation $0.99930$ and falls to $2\%$ of $N$
 only near $N=10^{10.16}$
 (\texttt{lab\_direct\_route.py}, \texttt{lab\_direct\_identity.py}).
 \end{measurement}
@@ -500,18 +536,21 @@ Fix $\theta'\in(1/2,1)$ and $\delta>0$, and let $w$ be any weight
 whose transform $b=\mu*w$ is supported in
 $[1,\,N^{\theta'-1/2-\delta}]$ --- the range in which the residual is
 accessible to Bombieri--Vinogradov. Then
-\[
+\begin{equation}\label{eq:loss}
   \frac{\|b\|_1}{|B_w|}\;\gg\;
-   \exp\!\left(c_1\sqrt{(\tfrac12+\delta)\log N}\right),
-\]
-and consequently \eqref{eq:extract} yields at best
+   \exp\!\left(c_1\sqrt{(\tfrac12+\delta)\log N}\right).
+\end{equation}
+Consequently, \emph{even granted} $T_w\ll_A N(\log N)^{-A}$ for every
+$A>0$ --- which is what \cite[Thm.~1]{P1} supplies unconditionally at
+$w=1$, and the most that $EH_\mu$ would supply for a general $w$ ---
+identity \eqref{eq:extract} yields at best
 \[
   |C(N)|\;\ll_A\;\exp\!\left(c_1\sqrt{\tfrac12\log N}\right)
    \cdot\frac{N}{(\log N)^{A}},
 \]
 which is not a saving of any power of $\log N$. No weight in the
-design space extracts $C(N)$ by divisor switching plus
-Bombieri--Vinogradov.
+design space extracts $C(N)$ by divisor switching, not even when the
+hard input is given for free.
 \end{theorem}
 
 \begin{proof}
@@ -523,11 +562,34 @@ By Lemma~\ref{lem:extract} and $\varphi(d)\ge1$,
   \ll\|b\|_1\,e^{-c_1\sqrt{\log(K/D)}},
 \]
 with $D=N^{\theta'-1/2-\delta}$, so that $K/D=N^{1/2+\delta}$. This is
-the displayed ratio. Feeding it into \eqref{eq:extract} together with
-the complete-part bound $\ll\|b\|_1\log N$ (Lemma~\ref{lem:Gb}) and
-Lemma~\ref{lem:bv} gives the bound on $|C(N)|$; and
-$e^{c_1\sqrt{\log N/2}}$ exceeds every power of $\log N$.
+\eqref{eq:loss}.
+
+For the second assertion, solve \eqref{eq:extract} for $C(N)$ and bound
+the three terms on the right. The complete part is
+$\ll\|b\|_1\log N$ by Lemma~\ref{lem:Gb} and $\Lambda\ll\log N$; the
+residual is $\ll_A\|b\|_1N(\log N)^{-A}$ by Lemma~\ref{lem:bv}, the
+support hypothesis on $b$ being exactly what that lemma needs; and
+$T_w\ll_AN(\log N)^{-A}$ is the granted hypothesis. Since
+$\|b\|_1\ge|b_1|$ and the first two dominate,
+\[
+  |C(N)|\;\le\;\frac{\|b\|_1}{|B_w|}
+     \cdot O_A\!\left(\frac{N}{(\log N)^{A}}\right)
+  \;\ll_A\;\exp\!\left(c_1\sqrt{\tfrac12\log N}\right)
+     \frac{N}{(\log N)^{A}},
+\]
+by \eqref{eq:loss}. Finally $e^{c_1\sqrt{\log N/2}}$ exceeds every
+power of $\log N$, so the saving is destroyed for every $A$.
 \end{proof}
+
+\begin{note}[why granting $T_w$ is the right form]\label{note:granting}
+Without the granted hypothesis the theorem would be vacuous rather than
+strong: \eqref{eq:extract} could then be satisfied by $T_w$ alone being
+large, and it says nothing about $C(N)$ at all. Granting it isolates
+what the design space actually fails at. The failure is not a shortage
+of input --- the input is handed over --- but the arithmetic of two
+thresholds that lie a factor $N^{1/2}$ apart. That is why raising the
+level does not help either (Theorem~\ref{thm:Dprime}).
+\end{note}
 
 The loss factor is $\exp(c_1\sqrt{(1/2)\log N})$, and the $1/2$ in the
 exponent is literally the exponent of the $\sqrt N$ barrier: it is the
@@ -653,9 +715,13 @@ Let $w_k=f(\log k)$ with $f=\sum_{j\le D}c_jx^j$ real.
 Lemma~1): no extraction.
 \item[(ii)] If $f$ is a single monomial $x^D$, $D\ge1$, then every
 term of $\mathrm{CP}_D$ is nonnegative, since $\Lambda\ge0$ and
-$\Lambda_D\ge0$; by classical sieve bounds
-$\mathrm{CP}_D\asymp N(\log N)^{D-1}$, with a fixed sign. It is never
-$o(N)$.
+$\Lambda_D\ge0$; so $\mathrm{CP}_D\ge0$ and \emph{no cancellation is
+available inside it}. Classical sieve upper bounds give
+$\mathrm{CP}_D\ll N(\log N)^{D-1}$. A matching lower bound is not
+available: at $D=1$ the sum is exactly the binary Goldbach sum
+$\sum_{p<N}\Lambda(N-p)\log p$, whose order is the assertion to be
+proved. So $\mathrm{CP}_D$ is not known to be $o(N)$, and at $D=1$
+deciding whether it is would settle Goldbach.
 \item[(iii)] Cancellation therefore requires coefficients of opposite
 sign, i.e. tuning $c_1$ against $c_2,\dots$; but the ratio that would
 have to be matched involves the asymptotics of the $r=1$ piece, which
@@ -671,8 +737,12 @@ $\Lambda_D\ge0$ on the squarefree integers with $\omega\le D$ because
 each $\Lambda_D(u)$ is a finite difference of the convex increasing
 function $x\mapsto x^D$ at $\log p_1<\cdots<\log p_r$; every summand of
 \eqref{eq:CPD} is then a product of nonnegative factors, so no
-cancellation is available and the order of magnitude is that of the
-sieve upper and lower bounds for prime-plus-almost-prime sums. For
+cancellation is available and $\mathrm{CP}_D\ge0$. The upper bound is
+the classical sieve upper bound for prime-plus-almost-prime sums,
+applied to each $r$-piece. No lower bound of the same order is claimed:
+the $r=1$ piece is a prime-plus-prime count, on which the sieve gives
+none --- that is the parity obstruction of Note~\ref{note:bombieri} ---
+and at $D=1$ it is the whole of $\mathrm{CP}_1$. For
 (iii), a degree-$D$ tuning has $D$ free coefficients and the
 constraint that must be solved is an identity between the leading
 asymptotics of the $r$-pieces; the $r=1$ piece with $D=1$ is
@@ -801,7 +871,9 @@ discrepancy is a dilate, the signs $\mu(k)$ cancel on the $\log k$
 branch, and the untruncated object is the Goldbach count itself.
 
 \item Theorem~\ref{thm:D}: no weight whose transform is
-Bombieri--Vinogradov-accessible extracts $C(N)$; the loss is
+Bombieri--Vinogradov-accessible extracts $C(N)$, and this holds even
+when the bound on the switch identity's third term $T_w$ --- the object
+the whole problem is about --- is granted for free. The loss is
 $\exp(c_1\sqrt{(1/2)\log N})$, and the $1/2$ is the exponent of the
 square-root barrier.
 

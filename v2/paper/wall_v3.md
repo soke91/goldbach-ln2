@@ -6083,6 +6083,166 @@ until it is registered and run against a conditioning floor that is
 derived rather than chosen — how many $m$ a cell needs before its $g$
 resolves anything. LL3 is refuted and stays refuted.
 
+#### Remark (above a floor that is demanded, and what the floor cost) {#rem:conditionedlimit}
+<!-- evidence: audit_conditioned_limit.py -->
+
+[rem:limitsqueeze] located its four refutations in the ladder, so this
+run derived the floor the ladder was missing instead of choosing one.
+The sum over $m$ has about $n$ terms of which about $n/\log N$ are
+prime hits, so its relative fluctuation is about $\sqrt{\log N / n}$
+and resolving $\rho$ in $g$ demands
+$$ n \;\ge\; \frac{\log N}{\rho^{2}}. \tag{eq:condfloor} $$
+At $\rho=0.01$ that is $10^{4}\log N$ — severe enough that the run had
+to climb rather than widen, six rungs from $6\,400\,000$ to
+$204\,800\,000$.
+
+**MM2 holds and the floor is expensive.** The largest rectangle every
+cell of which clears eq:condfloor is ten primes by **four** rungs,
+$N \ge 25\,600\,000$: at $N=6\,400\,000$ the floor is $156718$ and
+$p=13$ brings only $152363$ terms. Everything [rem:limitsqueeze] and
+[rem:derivedlimit] read below the millions is under the floor.
+
+**MM3, MM4 and MM5 all hold.** On the rectangle the median of $g$ runs
+$0.954833$, $0.956512$, $0.958442$, $0.960884$ — up at every step —
+the span runs $0.246990$ down to $0.227705$, and at the top rung $g$
+descends in $p$ with **zero inversions in nine steps**, so the
+$p$-shape is not the conditioning that the last run exposed.
+
+**But four rungs is three steps, and the run's closing sentence says
+five.** It was written when six rungs were expected and prints "five
+steps is the whole budget and a clean sweep tails at $0.062500$"; the
+rectangle has three, where a clean sweep tails at $0.25$, and two
+rules were asked of the same three steps. **So MM3 and MM4 are weaker
+than the lean the rule already warned they would be.** This is the
+fourth pre-written conclusion in this branch to overstate, and the
+fault is again a message written before the shape of its own field was
+known. The verdicts stand, and the number that sentence now prints
+beside "five steps" is $0.250000$; the arithmetic here is the
+rectangle's.
+
+The motion is also tiny beside the distance. The median moves by
+$0.006052$ across three doublings and sits $0.039116$ below $1$;
+the span moves by $0.019285$ and is $0.227705$ wide. **Nothing
+on this machine reaches the limit** — which eq:condfloor now says in
+a quantity rather than as a caution.
+
+**What the top rung hands forward is a decomposition, not a fit.**
+$I(p)$ is a sum of $\Lambda(N-pm)\log m$, so it factors exactly into
+how many prime hits there are and how heavy their $\log m$ is; the
+first is what [rem:derivedlimit]'s density count actually predicted,
+and the second was never counted. Its size is forced: $m$ runs to
+$N/p$ against $N$, so the second factor is about $(\log(N/p)-1)$ over
+$(\log N - 1)$, which **falls in $p$ and rises to $1$ in $N$ — the two
+motions MM3 and MM5 just measured.** [rem:limitdirection]'s $A/A_{\rm
+raw}$, climbing and $p$-independent, is the candidate for the level.
+Both are derivable and neither is fitted, so the split can be measured
+against them rather than tuned.
+
+#### Remark (the second factor nobody counted) {#rem:logweightsplit}
+<!-- evidence: audit_logweight_split.py -->
+
+$I(p)$ is a sum of $\Lambda(N-pm)\log m$, so it factors with nothing
+assumed:
+$$ I(p) \;=\; W(p)\,L(p), \qquad W(p)=\sum_m \Lambda(N-pm), \quad
+L(p)=\frac{I(p)}{W(p)}, \tag{eq:logsplit} $$
+and $g = g_{\rm count}\cdot h_{\log}$ accordingly. The identity holds
+to a worst relative $2.40\times10^{-16}$, which is the only thing in
+this run that could not have come out otherwise.
+
+**[rem:derivedlimit]'s density count was a prediction about $W$
+alone.** The $m$-range, the coprimality of $m$ to $p$, the class
+density of primes in $N \bmod p$ — every one is a statement about how
+many hits there are. **The weight each hit carries was never
+counted**, and its size is not free: $m$ runs to $N/p$ against $N$, so
+$L(p)$ is about $\log(N/p)-1$ against $\log N - 1$.
+
+| $p$ | $g$ | $g_{\rm count}$ | $h_{\log}$ | derived |
+|---|---|---|---|---|
+| $3$ | $1.143089$ | $\mathbf{1.217140}$ | $0.939160$ | $0.939429$ |
+| $7$ | $1.022297$ | $1.145109$ | $0.892751$ | $0.892714$ |
+| $11$ | $0.991766$ | $1.142450$ | $0.868105$ | $0.867794$ |
+| $19$ | $0.957575$ | $1.142044$ | $0.838474$ | $0.837661$ |
+| $37$ | $0.915385$ | $1.140410$ | $0.802681$ | $0.800915$ |
+
+**NN2, NN3, NN4 and NN5 all hold and not by a hair.** The span of $g$
+is $0.227705$ and of $g_{\rm count}$ only $0.076803$, a share of
+$0.337290$ against a cap of $0.5$. The worst departure of $h_{\log}$
+from its derived form is $0.001766$ against a cap of $0.02$ — **an
+order inside**. The median of $g_{\rm count}$ is $1.141768$ against
+$A_{\rm raw}/A = 1.140615$, a difference of $0.001152$ against a cap
+of $0.05$.
+
+So the shape at the top rung is accounted for with no fitted
+parameter, and c(p,N) can be written:
+$$ c(p,N) \;\approx\; \frac{p}{p+1}\cdot\frac{A_{\rm raw}}{A}
+\cdot\frac{\log(N/p)-1}{\log N-1}. \tag{eq:cclosed} $$
+This branch has not had a formula for $c$ before. Both correction
+factors go to $1$ — the second visibly, in $p$ and in $N$ — so
+eq:derivedlimit's limit is now a consequence rather than a target,
+and the slowness [rem:conditionedlimit] measured is the $\log$ in the
+denominator.
+
+**And the leftover is one prime, not a trend.** From $p=7$ upward
+$g_{\rm count}$ sits at $1.145109$, $1.142450$, $1.141568$,
+$1.141777$, $1.142044$, $1.141758$, $1.141710$, $1.140337$,
+$1.140410$ — flat to about a thousandth. **$p=3$ alone stands at
+$1.217140$**, and the whole span of $g_{\rm count}$ is that one point.
+The excess is in $W$, the hit mass, and not in the weight:
+$h_{\log}(3)$ is the *closest* of the ten to its derived value, at
+$0.000269$. [rem:driftpower] and [rem:driftsigns] both found $3$
+special and could only say so; it is now localised to a single factor
+of the split, and what supplies it is unnamed.
+
+#### Remark (the form transports, and its level is the Goldbach series) {#rem:closedform}
+<!-- evidence: audit_closed_form.py -->
+
+eq:cclosed was read at one rung. This run put it against every cell of
+the six that clears eq:condfloor, and against a law for its own level
+that is derived rather than measured.
+
+**OO2 holds over forty-four cells.** For every clearing $(p,N)$ with
+$p\ge 7$ the departure of $g$ from $(A_{\rm raw}/A)(\log(N/p)-1)/(\log
+N-1)$ is at most $0.007294$, against a cap of $0.01$, and the column
+at $p=37$ runs $+0.007294$, $+0.004525$, $+0.003721$, $+0.001849$ —
+shrinking with $N$, as a leading-order form should. **eq:cclosed is a
+form and not one rung.**
+
+**OO3 holds and settles what $3$ is.** Its departure runs $+0.073767$,
+$+0.072599$, $+0.072621$, $+0.072149$, $+0.071879$, $+0.071562$: at
+least $0.071562$ at every rung, spread $0.002204$ across five
+doublings. **The excess belongs to $3$ and not to $N$** — it is not
+shrinking, so it is not a finite-$N$ effect, and [rem:driftsigns]'s
+$10/10$ was the same object seen through $c$.
+
+**OO4 and OO5 hold together, and this is the part that explains the
+slowness.** $A_{\rm raw}-A$ is exactly the part of the $d=1$ sum
+carried by prime $m$, where $\log m = \Lambda(m)$, so it *is* the
+Goldbach sum. Its size should be $\mathfrak{S}(N)N$, and
+$$ \Big(1-\tfrac{A}{A_{\rm raw}}\Big)(\log N-1) \;\approx\;
+\frac{\mathfrak{S}(N)}{\delta}. \tag{eq:levellaw} $$
+Measured, the left side runs $2.243928$, $2.233279$, $2.228616$,
+$2.230650$, $2.233469$, $2.236001$ — a spread of $0.015313$ against a
+cap of $0.02$ — and $(A_{\rm raw}-A)/(\mathfrak{S}(N)N)$ runs
+$1.003032$ down to $0.996381$ and back to $0.999832$, **worst
+departure from $1$ of $0.003619$ against a cap of $0.05$.** The
+identification is not approximate at the level the caps were set.
+
+So the whole of eq:cclosed is now derived. $p/(p+1)$ from three
+densities; $(\log(N/p)-1)/(\log N-1)$ from the range of $m$; and the
+level from the Goldbach singular series. **Both correction factors go
+to $1$ like a reciprocal logarithm**, which is why
+[rem:conditionedlimit] could measure only $0.006052$ of motion with
+$0.039116$ to go: the approach is $1/\log N$ and no ladder reaches it.
+
+**Two things this does not do.** OO4 and OO5 judge the same quantity
+twice and are not independent — a systematic error in $\delta$ moves
+both — and the rule said so before the run; OO4's spread landed at
+$0.015313$, inside the band where the cap decided it. And every rule
+here concerns $c(p,N)$, the error of [rem:residuemodel]'s elementary
+Möbius sum, which was refuted as a whole. **A derived description of
+a refuted model's error is not a route to the exponent**, and item 5's
+demand of $+0.134019$ is where it was.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

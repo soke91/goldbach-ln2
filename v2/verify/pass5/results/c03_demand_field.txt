@@ -1,3 +1,32 @@
+STATISTIC: B(N) = sum_{k<K,(k,N)=1} (log k) |E_mu(N;k)| of P1 [eq:Bsum],
+           divided by N and by the one-sided threshold
+           S(N)(1-A(N))N of {#prop:onesided}/{#prop:nolog}; alongside
+           |E_3(N)|/N on the same k-range, so that |E_3|/B -- what the
+           signs mu(k) buy -- can be read off. Reported for the target's
+           own five N and for primorial-type N inside the same range.
+FIELD: theta' = THETA = 0.56, so K = floor(N^0.56) and k runs over the
+       squarefree k in [2,K) coprime to N (k=1 contributes log 1 = 0 to
+       both B and E_3, so the index set is not at issue here -- see
+       c02_flatsum_k1 for the sum where it is); N = the target's
+       2e5, 4e5, 8e5, 1.6e6, 3.2e6, every one of them 2^a 5^b, plus
+       eight N of other prime support in the same range; Lambda and mu
+       from an independent integer sieve to PLIM (mu by an omega-counter
+       plus a squarefull mask); phi by trial-division factorisation;
+       the Euler products for 2C_2 and Artin truncated at CLIM.
+CONSTANTS: THETA = 0.56; PLIM = 4000000 (sieve bound);
+           CLIM = 4000000 (Euler-product truncation for 2C_2 and
+           Artin -- audit_constants.py puts the tail there at ~2e-8,
+           four orders below the sixth printed decimal of S(1-A));
+           NS_TARGET = 2e5, 4e5, 8e5, 1.6e6, 3.2e6;
+           NS_EXTRA = 210210, 510510, 570570, 1021020, 2042040,
+           2072070, 223092, 3063060; brute-force cross-check bound 10^4.
+NULL: none applies. B(N) and its threshold are deterministic arithmetic
+      and the comparison between two N-fields is a comparison of two
+      deterministic quantities; there is no sign pattern to permute and
+      no random number is drawn. There is no seed.
+DENOM: B/N and thresh/N are divided by N; B/thresh is divided by
+       S(N)(1-A(N))N, i.e. by thresh itself.
+
 C-03  B(N) against its threshold, with the arithmetic of N varied
 ======================================================================================
   self-check of this script's sieve against trial division: 0 mismatches

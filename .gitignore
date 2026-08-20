@@ -4,6 +4,7 @@
 v1_log/
 v1_verify_log/
 v2_log/
+v2_verify_log/
 
 # Correspondence with third parties: sent mail, replies, drafts. On disk
 # so that it sits with the work it is about, and never distributed --

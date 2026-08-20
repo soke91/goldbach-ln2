@@ -5,9 +5,17 @@ Ground truth is trial-division factorisation, not a sieve: the point is to
 have a second implementation that shares no code path with the target.
 """
 import math
+import os
 from functools import lru_cache
 
-CODE_DIR = r"z:\업무\goldbach-ln2-real-review\A-blind\code"
+# The tree whose scripts are under audit.  Overridable so the pass can be
+# re-run against a copy held anywhere; it defaults to this repository's
+# own code/, which is where those scripts live once a pass is over.
+CODE_DIR = os.environ.get(
+    "AUDIT_CODE_DIR",
+    os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                 "..", "..", "..", "code"),
+)
 
 
 def factor(n):

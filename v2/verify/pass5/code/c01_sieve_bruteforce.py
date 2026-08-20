@@ -19,6 +19,29 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)),
 LIM = 10_000
 lines = []
 
+HEAD = [
+    "STATISTIC: the number of integers n <= LIM at which an implementation",
+    "           in the audited code/ disagrees with trial-division factorisation",
+    "           on mu(n), Lambda(n) or phi(n); plus the boundary values",
+    "           mu(0), mu(1), Lambda(1), Lambda(4), Lambda(8) for each.",
+    "FIELD: every .py in the audited code/ that exposes a sieve entry point",
+    "       (sieves, sieve_mu_phi, sieves_by_factorisation,",
+    "       sieves_by_recurrence, mobius_upto, mobius_big, mobius_small,",
+    "       sieved), imported as a module so the audited code itself runs,",
+    "       not a copy of it; EVERY n in [0, LIM], exhaustively -- not a",
+    "       sample. Ground truth is trial division, which shares no code",
+    "       path with any sieve under test.",
+    "CONSTANTS: LIM = 10000 (the exhaustive comparison bound). Scripts that",
+    "           build their sieve inside main() rather than in a callable",
+    "           are not reachable this way and are listed as such.",
+    "NULL: none applies. This is an exact integer comparison against a",
+    "      second implementation; a mismatch count is not a test statistic",
+    "      and has no null distribution. No random number is drawn; there",
+    "      is no seed.",
+    "DENOM: none. All figures are integer counts.",
+    "",
+]
+
 
 def say(s=""):
     print(s)
@@ -127,5 +150,6 @@ for name in sorted(results):
                -1 if lam is None else float(lam[4]),
                -1 if lam is None else float(lam[8])))
 
-io.open(OUT, "w", encoding="utf-8", newline="\n").write("\n".join(lines) + "\n")
+io.open(OUT, "w", encoding="utf-8", newline="\n").write(
+    "\n".join(HEAD + lines) + "\n")
 print("\nwrote", os.path.abspath(OUT))

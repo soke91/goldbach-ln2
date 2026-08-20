@@ -1,0 +1,52 @@
+a7_hl18_delta.py  --  pass4 addendum, after the blind was lifted.
+
+PRE-REGISTRATION (fixed before the run).
+
+WHAT IS MEASURED.  Huang-Li arXiv:2005.03811v2, section 3.2, page 16.
+The line immediately above their (18) carries the n-DEPENDENT bound
+k < (N-n)/alpha; their (18) carries the n-FREE bound k < (N-1)/alpha.
+This script computes, exactly, at N in {2000, 4000, 8000, 16000} and
+theta in {0.30, 0.40, 0.45}, alpha = N**theta:
+
+  S2   = sum_{n<N} Lambda(n) mu^2(N-n) sum_{d|(N-n), d>alpha} mu(d) log(1/d)
+         (Huang-Li's definition of S_2(alpha), section 3, page 12)
+
+  R18  = sum_{k < (N-1)/alpha} mu(k) sum_{n<N, n = N (mod k)}
+              Lambda(n) mu(N-n) log(k/(N-n))
+         (the right-hand side of their (18) as printed)
+
+  Delta_P1 = sum_{2<=m<=alpha} mu(m) log m
+                sum_{k < (N-1)/alpha, (k,m)=1} mu^2(k) Lambda(N-mk)
+         (the correction term of P1 section 7, eq (25))
+
+WHAT WOULD FALSIFY WHAT.
+  (a) "the two ranges differ": FALSIFIED if S2 == R18 to machine
+      precision at every (N, theta).
+  (b) "P1's Delta is exactly that difference": FALSIFIED if
+      |S2 - (R18 + Delta_P1)| / N exceeds 1e-12 at any (N, theta).
+  (c) "the missing term is not negligible": the trivial bound P1
+      quotes is Delta << N (log N)^2.  Reported here as Delta/N so
+      that its actual size at accessible N is on the record.  No
+      threshold is attached to (c); it is a size, not a test.
+
+NULL.  None applies and none would mean anything.  All three
+quantities are deterministic finite sums over the same integers with
+no sign input of their own; (a) and (b) are exact identities between
+rearrangements, so a sign control would move every side alike.
+
+  N       theta  alpha     S2             R18            Delta_P1       |S2-R18-D|/N (R18-S2)/N  Delta/N   
+  --------------------------------------------------------------------------------------------------------------------
+  2000    0.30   9.78      2.090501e+03   2.632881e+03   -5.423801e+02  3.41e-16     0.27119     -0.27119  
+  2000    0.40   20.91     9.078759e+02   1.963428e+03   -1.055552e+03  2.27e-16     0.52778     -0.52778  
+  2000    0.45   30.58     8.501228e+02   1.662559e+03   -8.124366e+02  1.71e-16     0.40622     -0.40622  
+  4000    0.30   12.04     3.856915e+03   5.331452e+03   -1.474537e+03  7.39e-16     0.36863     -0.36863  
+  4000    0.40   27.59     2.301601e+03   3.889485e+03   -1.587884e+03  6.82e-16     0.39697     -0.39697  
+  4000    0.45   41.78     1.627941e+03   3.273101e+03   -1.645160e+03  6.25e-16     0.41129     -0.41129  
+  8000    0.30   14.82     6.628961e+03   9.926636e+03   -3.297674e+03  1.14e-16     0.41221     -0.41221  
+  8000    0.40   36.41     4.258510e+03   6.956085e+03   -2.697576e+03  1.71e-16     0.33720     -0.33720  
+  8000    0.45   57.07     3.351787e+03   5.618604e+03   -2.266817e+03  1.14e-16     0.28335     -0.28335  
+  16000   0.30   18.25     1.167050e+04   1.932145e+04   -7.650948e+03  7.96e-16     0.47818     -0.47818  
+  16000   0.40   48.04     5.877845e+03   1.336860e+04   -7.490758e+03  5.68e-16     0.46817     -0.46817  
+  16000   0.45   77.96     5.176513e+03   9.951175e+03   -4.774662e+03  3.41e-16     0.29842     -0.29842  
+
+  (R18-S2)/N is the size of what (18) silently gained; Delta/N is minus that.

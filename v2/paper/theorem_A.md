@@ -1721,7 +1721,8 @@ We record a genuine defect in the published paper, together with its
 repair.
 
 Huang–Li define
-$S_2(\alpha)=\sum_{n<N}\Lambda(n)\tilde\Lambda_\alpha(N-n)$ with
+$S_2(\alpha)=\sum_{n<N}\Lambda(n)\,\mu^2(N-n)\,\tilde\Lambda_\alpha(N-n)$
+with
 $\tilde\Lambda_\alpha(u)=\sum_{d\mid u,\ d>\alpha}\mu(d)\log(1/d)$, and
 substitute $k=u/d$, so that the constraint $d>\alpha$ becomes
 
@@ -1765,12 +1766,23 @@ It does close, by the machinery already used above and under hypotheses
 Huang–Li already assume. Indeed $\Delta$ has exactly the shape of the
 residual [eq:R1]: the Möbius factor sits on the *short*
 variable $m\le\alpha$, and the long variable $k$ carries only
-$\mu^2\ge0$. Expanding $\mu^2(k)$ and $\mathbf 1_{(k,m)=1}$ as in Step 4
+$\mu^2\ge0$. Since $\mu(m)\ne0$ on the range of summation, the two
+conditions on $k$ collapse into one,
+
+$$
+\begin{equation}\label{eq:mu2mk}
+  \mu^2(k)\,\mathbf 1_{(k,m)=1} \;=\; \mu^2(mk),
+\end{equation}
+$$
+
+and expanding $\mu^2(mk)=\sum_{b^2\mid mk}\mu(b)$ with the truncation
+$b\le B:=(\log N)^{A+4}$ — the same one Huang–Li use in their §3.1 —
 reduces $\Delta$ to sums of $\Lambda$ over progressions to moduli
-$\ll\alpha(\log N)^{4A+8}$, plus a main term
+$[m,b^2]\le\alpha B^2=\alpha(\log N)^{2A+8}$, plus a main term
 $A(N)\sum_{m\le\alpha}\mu(m)\lambda(m)(\log m)\,T_m/m$ which is
 $O(Ne^{-c\sqrt{\log N}})$ by Lemma [lem:mu] and partial summation.
-Hence:
+The level is then exactly the one their hypothesis supplies, with no
+enlargement of $A$. Hence:
 
 
 - In the Corollary-1 regime, $\alpha=N^{1-\theta'}<N^{1/2}$ and
@@ -1988,12 +2000,40 @@ $$
 \begin{equation}\label{eq:extract}
   B_w\cdot C(N) \;=\; \underbrace{\sum_{u<N}\Lambda(N-u)\mu^2(u)\,b_u}
   _{\text{complete part}} \;-\; \underbrace{\mathcal R_w}_{\text{residual}}
+  \;-\; \underbrace{T_w}_{\text{the object itself}}
   \;+\;O\!\left(N^{o(1)}\right),
 \end{equation}
 $$
 
 the complete part being evaluated by the following lemma, which
 identifies $b$ as exactly the complete divisor transform.
+
+
+#### Remark (the third term is not a remainder, and it was missing) {#rem:extractTw}
+<!-- evidence: analytic -->
+
+$T_w$ is the object of this whole note — at $w=\log$ it *is*
+$E_3(\alpha)$, which Theorem [thm:C] evaluates as
+$\tilde r(N)-\SS(N)(N-C(N))+O_A(N(\log N)^{-A})$ — and it is of size
+$N$, not $N^{o(1)}$. Earlier printings of [eq:extract] omitted it, and
+that turns a finite rearrangement into a false statement. The
+correction is algebra, not estimation: $T_w$ is defined as
+$\sum_k\mu(k)w_k[A(N;k)-C(N)/\varphi(k)]$, so $B_wC(N)$ is
+$\sum_k\mu(k)w_kA(N;k)$ minus $T_w$, and it is the first of those that
+the switch and Lemma [lem:Gb] evaluate. A blind re-verification
+computed the two sides separately and found the omitted form off by
+$\asymp N$ — by exactly $|T_{\log}|$ at each $N$ — and the corrected
+form exact to machine precision; the figures are recorded in
+`verify/pass4/FINDINGS.md`.
+
+The correction strengthens Theorem [thm:D] rather than weakening it,
+but it changes what that theorem must say. [eq:extract] on its own
+yields nothing about $C(N)$: an unconditional bound on $T_w$ is
+precisely what the problem asks for, and the only weight for which one
+is known is $w=1$, by Theorem [thm:A]. Theorem [thm:D] therefore
+*grants* $T_w\ll_A N(\log N)^{-A}$ — the most $EH_\mu$ would give —
+and shows the extraction fails anyway, on the separation of the two
+thresholds alone.
 
 
 #### Lemma {#lem:Gb}
@@ -6417,7 +6457,10 @@ $$
    \exp\!\left(c_1\sqrt{(\tfrac12+\delta)\log N}\right),
 $$
 
-and consequently [eq:extract] yields at best
+and consequently, *even granted* $T_w \ll_A N(\log N)^{-A}$ for every
+$A>0$ — what Theorem [thm:A] supplies unconditionally at $w=1$, and
+the most $EH_\mu$ would supply for a general $w$ (see
+[rem:extractTw]) — [eq:extract] yields at best
 
 $$
 |C(N)| \;\ll_A\; \exp\!\left(c_1\sqrt{\tfrac12\log N}\right)
@@ -6458,11 +6501,16 @@ $$
 $$
 
 with $D=N^{\theta'-1/2-\delta}$, so that
-$K/D=N^{1/2+\delta}$. This is the displayed ratio. Feeding it into
-[eq:extract] together with the complete-part bound
-$\ll\|b\|_1\log N$ (Lemma [lem:Gb]) and Lemma [lem:bv] gives
-the bound on $|C(N)|$; and $e^{c_1\sqrt{\log N/2}}$ exceeds every
-power of $\log N$.
+$K/D=N^{1/2+\delta}$. This is the displayed ratio.
+
+For the second assertion, solve [eq:extract] for $C(N)$ and bound the
+three terms on the right: the complete part is $\ll\|b\|_1\log N$ by
+Lemma [lem:Gb] and $\Lambda\ll\log N$; the residual is
+$\ll_A\|b\|_1N(\log N)^{-A}$ by Lemma [lem:bv], the support
+hypothesis on $b$ being exactly what that lemma needs; and
+$T_w\ll_AN(\log N)^{-A}$ is the granted hypothesis. Dividing by
+$|B_w|$ and using the displayed ratio gives the bound on $|C(N)|$; and
+$e^{c_1\sqrt{\log N/2}}$ exceeds every power of $\log N$.
  ∎
 
 

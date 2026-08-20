@@ -28,6 +28,36 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)),
 X = 16_000_000
 lines = []
 
+HEAD = [
+    "STATISTIC: the relative (V, r~) and absolute (C) difference between",
+    "           the zero-padded rfft convolution the target scripts use and",
+    "           direct summation of the same sum in a different index order;",
+    "           the same against math.fsum, which is exactly rounded; and",
+    "           the FFT padding length actually used against the 2X-1 a",
+    "           linear convolution of two length-X arrays requires.",
+    "FIELD: V(N) = sum_{v<N} mu^2(v) Lambda(N-v)^2, C(N) = sum_{n<N}",
+    "       Lambda(n) mu(N-n), r~(N) = sum_{n<N} Lambda(n) Lambda(N-n),",
+    "       W(N) = sum_{w<N} Lambda(w)^2, probed at N = 1e6, 4e6, 8e6 and",
+    "       15999998 (the last being the largest even N the targets' own",
+    "       band reaches); Lambda and mu from an independent integer sieve",
+    "       to X (mu by an omega-counter plus a squarefull mask); all three",
+    "       routes -- FFT, vectorised direct product, math.fsum -- run on",
+    "       that one sieve, so the comparison isolates the summation order.",
+    "CONSTANTS: X = 16000000 (sieve bound and array length, the same bound",
+    "           lab_second_moment.py, lab_cell_floor.py and",
+    "           lab_onesided_margin.py use); FFT length taken as the least",
+    "           power of two >= 2(X+1), i.e. 2^25 = 33554432, which is how",
+    "           the targets pick theirs; brute-force cross-check bound 10^4.",
+    "NULL: none applies. This compares two evaluations of the same",
+    "      deterministic sum; the quantity of interest is float64 rounding,",
+    "      which has no null hypothesis attached. No random number is drawn;",
+    "      there is no seed.",
+    "DENOM: V and r~ differences are divided by the value itself (relative);",
+    "       C is reported both absolutely and divided by |C(N)|, because",
+    "       C is the heavily cancelled one and the two differ by orders.",
+    "",
+]
+
 
 def say(s=""):
     print(s)
@@ -163,5 +193,6 @@ say("    W(4e6) = %.4f, so W/V = %.6f  (published 1.270800)"
 say("    note W(N) is sum_{w<N}, i.e. W[N-1]: using W[N] instead gives "
     "%.6f" % (float(W[4_000_000]) / float(V_fft[4_000_000])))
 
-io.open(OUT, "w", encoding="utf-8", newline="\n").write("\n".join(lines) + "\n")
+io.open(OUT, "w", encoding="utf-8", newline="\n").write(
+    "\n".join(HEAD + lines) + "\n")
 print("\nwrote", os.path.abspath(OUT))

@@ -116,9 +116,11 @@ and deduce (their Corollary~1) that, in view of Bombieri--Vinogradov,
 binary Goldbach for all sufficiently large even integers follows from
 $EH_\mu(N^{\theta'})$ alone for any single $\theta'>1/2$. Here
 \begin{equation}\label{eq:AN}
-  \AAA(N)\;=\;\prod_{q\,\nmid\,N}\Bigl(1-\frac{1}{q(q-1)}\Bigr)
+  \AAA(N)\;=\;\prod_{\substack{q\,\nmid\,N\\ q>2}}
+     \Bigl(1-\frac{1}{q(q-1)}\Bigr)
 \end{equation}
-is their equation~(7). We write $\AAA$ rather than their $A$ because
+is their equation~(7); $N$ is even, so $q>2$ is implied by $q\nmid N$
+and is written here only to match their display. We write $\AAA$ rather than their $A$ because
 $A$ is already the free exponent in \eqref{eq:EHmu}, and one symbol
 must not carry two meanings.
 
@@ -262,10 +264,15 @@ $c\,N/(\log N\log\log N)$ for an absolute constant $c>0$.
 \label{prop:nolog}
 Put
 \begin{equation}\label{eq:Bsum}
-  B(N)\;:=\;\sum_{\substack{k<K\\ (k,N)=1}}(\log k)\,\bigl|\Emu(N;k)\bigr|,
+  B(N)\;:=\;\sum_{\substack{k<K\\ (k,N)=1}}
+     \mu^2(k)\,(\log k)\,\bigl|\Emu(N;k)\bigr|,
 \end{equation}
-the quantity Huang--Li reach by the triangle inequality before
-appealing to $EH_\mu$. Then binary Goldbach for all sufficiently large
+the restriction to squarefree $k$ being what the triangle inequality
+on \eqref{eq:E3} leaves, since $\mu(k)=0$ elsewhere. This is sharper than the quantity
+\cite{HL} actually reach before appealing to $EH_\mu$, namely
+$\log N\sum_{k<K,(k,N)=1}|\Emu(N;k)|$, in which $\log k$ has been
+raised to $\log N$; the proposition below holds for either, and a
+fortiori for theirs. Then binary Goldbach for all sufficiently large
 even $N$ follows from
 \begin{equation}\label{eq:nolog}
   B(N)\;\le\;(1-\varepsilon)\,\SS(N)\bigl(1-\AAA(N)\bigr)N
@@ -847,7 +854,9 @@ By Theorem~\ref{thm:C},
 $\tilde r(N)=\SS(N)(N-C(N))+E_3(\alpha)+O_A(N(\log N)^{-A})$. The
 triangle inequality gives
 $|C(N)|\le U(N):=\sum_{n<N}\Lambda(n)\mu^2(N-n)$, and
-$U(N)=\AAA(N)N(1+o(1))$ by Mirsky's theorem on squarefree shifted
+$U(N)=\AAA(N)N(1+o(1))$ --- proved in \cite[\S3.3]{HL} itself by
+Bombieri--Vinogradov, with error $O(N(\log N)^{-A-1})$, and classically
+by Mirsky's theorem on squarefree shifted
 primes \cite{Mir49} together with partial summation. Hence
 $\SS(N)(N-C(N))\ge\SS(N)(1-\AAA(N))N(1+o(1))$, and $\AAA(N)<1$ for
 every $N$, so the right-hand side is positive. Substituting and using
@@ -923,8 +932,12 @@ have checked the passage below in \textbf{both} v1 (May 2020) and v2
 version published in the Springer volume and make no claim about it.
 
 Huang--Li define
-$S_2(\alpha)=\sum_{n<N}\Lambda(n)\tilde\Lambda_\alpha(N-n)$ with
-$\tilde\Lambda_\alpha(u)=\sum_{d\mid u,\ d>\alpha}\mu(d)\log(1/d)$,
+\[
+  S_2(\alpha)=\sum_{n<N}\Lambda(n)\,\mu^2(N-n)\,
+     \tilde\Lambda_\alpha(N-n),
+  \qquad
+  \tilde\Lambda_\alpha(u)=\sum_{d\mid u,\ d>\alpha}\mu(d)\log(1/d),
+\]
 and substitute $k=u/d$, so that the constraint $d>\alpha$ becomes
 \begin{equation}\label{eq:constraint}
   k\;<\;\frac{N-n}{\alpha},
@@ -957,12 +970,19 @@ It does close, by the machinery already used above and under
 hypotheses Huang--Li already assume. Indeed $\Delta$ has exactly the
 shape of the residual \eqref{eq:R1}: the M\"obius factor sits on the
 \emph{short} variable $m\le\alpha$, and the long variable $k$ carries
-only $\mu^2\ge0$. Expanding $\mu^2(k)$ and $\mathbf 1_{(k,m)=1}$ as in
-Step~4 reduces $\Delta$ to sums of $\Lambda$ over progressions to
-moduli $\ll\alpha(\log N)^{4A+8}$, plus a main term
+only $\mu^2\ge0$. Since $\mu(m)\neq0$ on the range of summation, the
+two conditions on $k$ collapse into one,
+\begin{equation}\label{eq:mu2mk}
+  \mu^2(k)\,\mathbf 1_{(k,m)=1}\;=\;\mu^2(mk),
+\end{equation}
+and expanding $\mu^2(mk)=\sum_{b^2\mid mk}\mu(b)$ with the truncation
+$b\le B:=(\log N)^{A+4}$ --- the same one Huang--Li use in their \S3.1
+--- reduces $\Delta$ to sums of $\Lambda$ over progressions to moduli
+$[m,b^2]\le\alpha B^2=\alpha(\log N)^{2A+8}$, plus a main term
 $\AAA(N)\sum_{m\le\alpha}\mu(m)\lambda(m)(\log m)\,T_m/m$ which is
 $O(Ne^{-c\sqrt{\log N}})$ by Lemma~\ref{lem:mu} and partial summation.
-Hence:
+The level is then exactly the one their hypothesis supplies, with no
+enlargement of $A$. Hence:
 \begin{itemize}
 \item In the Corollary-1 regime, $\alpha=N^{1-\theta'}<N^{1/2}$ and
   Bombieri--Vinogradov closes $\Delta$ \emph{unconditionally}.

@@ -1,0 +1,80 @@
+STATISTIC: the fitted decay exponent of two quantities that P2
+           {#meas:flatsum} and lab_weight_gap.txt both print --
+           |sum_k (log k) H(N;k)|/N and |T_log|/N = |E_3|/N -- fitted
+           the same way (polyfit of log y on log N), from the target's
+           own printed columns and from an independent recomputation;
+           their difference C(N) B_log(K)/N; and the quantities that
+           the sentence 'at the top |T_1|/N = 0.01425 against
+           |T_log|/N = 0.1245' places next to the ratio list.
+FIELD: N = 2e5 through 2.56e7 by doubling; theta' = THETA = 0.56, so k
+       runs over the squarefree k < floor(N^0.56) coprime to N, both
+       from k = 1 and from k = 2; Lambda and mu from an independent
+       integer sieve to 2.56e7 (mu by an omega-counter plus a
+       squarefull mask); phi by trial-division factorisation; sums in
+       float64; exponents by np.polyfit of log y on log N, 8 points.
+CONSTANTS: THETA = 0.56; NS = 2e5 ... 2.56e7 by doubling; sieve bound
+           NMAX = 25600000; PUB_EXP = -0.2658 and the two transcribed
+           columns TGT_E3, TGT_LOGH are quoted from
+           the audited results/lab_weight_gap.txt, not recomputed from it.
+NULL: none applies. Every quantity is a deterministic sum over one
+      integer sieve and the question is which of two labelled objects a
+      published exponent belongs to. No random number is drawn; there
+      is no seed.
+DENOM: both fitted quantities are divided by N before the log-log fit.
+
+C-05  which object owns the exponent -0.2658
+==============================================================================
+
+PART 1.  fitted from lab_weight_gap.txt's own printed columns
+------------------------------------------------------------------------------
+  |E_3|/N column          -> exponent -0.2658   (P2 prints -0.2658)
+  |sum (log k) H|/N (j=1) -> exponent -0.2696
+  c02_flatsum_k1.txt printed -0.2696 for the SECOND of these.
+
+PART 2.  independent recomputation (sieve self-check: 0 mismatches)
+------------------------------------------------------------------------------
+  N            |E_3|/N   |S(log k)H|/N  C*B_log/N   |T_1|/N   flat k>=1  flat k>=2
+  200000       0.43769   0.43948        -0.00178    0.07843   0.078433   0.079409
+  400000       0.38372   0.39668        -0.01297    0.06179   0.061829   0.069006
+  800000       0.31716   0.32530        -0.00814    0.04827   0.048288   0.052834
+  1600000      0.26083   0.25645        +0.00438    0.03805   0.038032   0.035624
+  3200000      0.20730   0.21066        -0.00336    0.02880   0.028807   0.030682
+  6400000      0.18550   0.18167        +0.00384    0.02425   0.024241   0.022098
+  12800000     0.14586   0.14628        -0.00043    0.01816   0.018161   0.018400
+  25600000     0.12446   0.12565        -0.00119    0.01425   0.014256   0.014925
+
+  exponent of |E_3|/N            : -0.2658
+  exponent of |sum (log k) H|/N  : -0.2696
+
+  the two differ by C(N) B_log(K), and B_log -> -S(N) does NOT vanish:
+    N = 200000      B_log(K) = -1.82784   C(N)/N = +0.000976   C*B_log/N = -0.001784
+    N = 400000      B_log(K) = -1.80662   C(N)/N = +0.007177   C*B_log/N = -0.012965
+    N = 800000      B_log(K) = -1.79030   C(N)/N = +0.004546   C*B_log/N = -0.008139
+    N = 1600000     B_log(K) = -1.81881   C(N)/N = -0.002407   C*B_log/N = +0.004378
+    N = 3200000     B_log(K) = -1.79076   C(N)/N = +0.001875   C*B_log/N = -0.003358
+    N = 6400000     B_log(K) = -1.78999   C(N)/N = -0.002143   C*B_log/N = +0.003836
+    N = 12800000    B_log(K) = -1.79672   C(N)/N = +0.000239   C*B_log/N = -0.000429
+    N = 25600000    B_log(K) = -1.77878   C(N)/N = +0.000668   C*B_log/N = -0.001189
+
+PART 3.  what |T_1|/N = 0.01425 is, and what it is not
+------------------------------------------------------------------------------
+  T_1 = sum_k mu(k)[A(N;k) - C(N)/phi(k)] and its k=1 term is
+  A(N;1) - C(N)/phi(1) = C(N) - C(N) = 0 exactly, so T_1 does not
+  depend on the index-set question at all.  It is CLOSE to the k>=1
+  flat sum only because T_1 = sum_{k>=1} H - C(N) B_1(K) and B_1 is
+  small -- that is Huang-Li's Lemma 1, and it is the whole reason the
+  w=1 branch is the proved one.
+
+  N            |T_1|/N    flat k>=1   gap = |C*B_1|/N   B_1(K)
+  200000       0.078425   0.078433    7.85e-06          -0.008043
+  400000       0.061793   0.061829    3.68e-05          -0.005126
+  800000       0.048274   0.048288    1.37e-05          -0.003024
+  1600000      0.038048   0.038032    1.61e-05          -0.006701
+  3200000      0.028801   0.028807    6.02e-06          -0.003210
+  6400000      0.024248   0.024241    6.60e-06          -0.003080
+  12800000     0.018160   0.018161    8.96e-07          -0.003754
+  25600000     0.014255   0.014256    1.19e-06          -0.001788
+
+  So at N = 2.56e7: |T_1|/N = 0.014255 and the k>=1 flat sum is 0.014256.
+  They agree to four decimals (both round to 0.01425) but they are
+  not the same number, and the k>=2 flat sum 0.014925 is a third one.
