@@ -1,0 +1,97 @@
+STATISTIC: the first and second moments of
+           G(N) = C(N)/sqrt(V(N)) inside the class of even N
+           divisible by 105, at six bands, against an ensemble of
+           32 sign patterns on mu's support; and the slope of
+           log|class mean| against log2 N.
+FIELD: even N in (2^b, 2^(b+1)] for b = 17..22, cut into the
+       eight classes given by which of (3, 5, 7) divide N; Lambda and
+       mu sieved once to 8388608 and both convolutions taken by FFT
+       over the whole range, then sliced per band and class. The
+       gate re-measures band b = 20's full class against
+       rem:cnclass's own value.
+SEED: the coin draws from numpy default_rng at seed 20260829; without
+      it the file does not reproduce its own control.
+
+READ audit_cn_class.txt POINT classm2_7 4.37497
+  the class this run has to reproduce, read from that file
+PRINTBOUND audit_cn_class_reach 3 0.00050000
+  32 fresh sign patterns over the whole ladder
+sieving to 8388608, which is 2^23
+  transform length 33554432
+
+A1  does this run reproduce the class it shares?
+  b = 20, class 105|N: E[G^2] here 4.37497 against its 4.37497
+  A1 hold   (cap: 3 decimals)
+
+  shift or spread, at the gate band
+  mean -1.70728, so mean^2 2.91479 of the E[G^2] 4.37497, leaving a
+  variance 1.46018 and a standard deviation 1.20838
+POINT classreach_meansq 2.91479
+POINT classreach_var 1.46018
+
+       b   class N     mean G     E[G^2]    coin mean     z(m2)   coin max |z|   beat
+      17       624   -2.91115  +10.20413   +1.05186     18.01   0.47- 8.24      0
+POINT classreach_m1_17 -2.91115
+POINT classreach_m2_17 10.20413
+POINT classreach_z_17 18.01037
+      18      1248   -2.42550   +7.69269   +1.07469     11.80   0.45- 5.48      0
+POINT classreach_m1_18 -2.42550
+POINT classreach_m2_18 7.69269
+POINT classreach_z_18 11.79610
+      19      2497   -2.03591   +5.79633   +0.94844     18.05   0.63- 5.19      0
+POINT classreach_m1_19 -2.03591
+POINT classreach_m2_19 5.79633
+POINT classreach_z_19 18.04598
+      20      4993   -1.70728   +4.37497   +0.90783     17.94   0.64- 6.04      0
+POINT classreach_m1_20 -1.70728
+POINT classreach_m2_20 4.37497
+POINT classreach_z_20 17.93612
+      21      9986   -1.42183   +3.42435   +0.90816     12.68   0.57- 4.25      0
+POINT classreach_m1_21 -1.42183
+POINT classreach_m2_21 3.42435
+POINT classreach_z_21 12.67879
+      22     19973   -1.16347   +2.67490   +0.95886      5.38   0.50- 5.06      0
+POINT classreach_m1_22 -1.16347
+POINT classreach_m2_22 2.67490
+POINT classreach_z_22 5.38407
+SCALES 6
+
+A2  does the escape survive at every band?
+  coin draws reaching the real arm, band by band: 0, 0, 0, 0, 0, 0
+TSTAT classreach_minz 5.38
+SPREAD classreach_minz 0.31873
+  A2 hold   (cap: none at any band)
+
+A3  does the shift keep its sign?
+  class means -2.91115, -2.42550, -2.03591, -1.70728, -1.42183, -1.16347
+  A3 hold   (cap: negative at every band)
+
+A4  does the shift fade with N?
+  log|class mean| on log2 N: slope -0.18183 +- 0.00203, t = -89.38
+  so the shift goes like N^-0.2623
+POINT classreach_power -0.26232
+TSTAT classreach_slope -89.38
+SPREAD classreach_slope 5.00000
+
+  NOT PRE-REGISTERED, reported because a t of 89 with no residual
+  printed is exactly what this repository flags elsewhere. No cap
+  above is changed.
+  residuals in log|mean|, band by band: -0.00332, -0.00400, +0.00273, +0.00852, +0.00739, -0.01131
+  r.m.s. 0.00695 against a mean |log| of 0.6173
+SCATTER slope_audit_cn_class_reach 0.00695
+  Six bands cut from one sieve are not independent samples, so the
+  standard error above is a lower bound and no significance is
+  claimed from the t. What the fit supports is that the six points
+  lie on a line to that r.m.s.
+  and the separation itself: |z| goes like N^-0.2402, so from 5.38 at
+  b = 22 it would reach 3 near b = 25.5 -- an extrapolation, not a
+  measurement, and printed so the next band to try is named.
+POINT classreach_zpower -0.24019
+  A4 REFUTED   (cap: not a resolved negative slope)
+
+======================================================================
+A1 hold  A2 hold  A3 hold  A4 REFUTED
+
+the escape is real at every band and fades with N, so it joins the
+pile: a sixth finite-N separation. The exponent is above and is
+what this run adds.

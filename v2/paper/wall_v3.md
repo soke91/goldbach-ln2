@@ -1435,6 +1435,64 @@ against $4.37$ at $105\mid N$, which is not a pattern any of this
 tested — and whether it matches a computable local density, are three
 separate measurements and none is made here.
 
+#### Remark (the escape is a shift, it lives at every band, and it fades slowest of all) {#rem:cnclassreach}
+<!-- evidence: audit_cn_class_reach.py -->
+
+[rem:cnclass] found this branch's first escape and left the two
+questions that decide what it is worth. The first is answered by
+arithmetic on its own numbers: of the $E[G^2]=4.37497$ at $105\mid N$,
+the class mean $-1.70728$ contributes $2.9148$, leaving a variance of
+$1.4602$. **It is not a few enormous $|G|$ but $4993$ values of $N$
+sitting about $1.7$ standard deviations low together** — a shift, not
+a spread.
+
+Six bands, $b=17\ldots22$, answer the rest. The gate reproduces
+$4.37497$ exactly (A1).
+
+| $b$ | class $N$ | mean $G$ | $E[G^2]$ | $z$ | coin's own largest |
+|---|---|---|---|---|---|
+| $17$ | $624$ | $-2.91115$ | $10.20413$ | $18.01$ | $0.47$–$8.24$ |
+| $18$ | $1248$ | $-2.42550$ | $7.69269$ | $11.80$ | $0.45$–$5.48$ |
+| $19$ | $2497$ | $-2.03591$ | $5.79633$ | $18.05$ | $0.63$–$5.19$ |
+| $20$ | $4993$ | $-1.70728$ | $4.37497$ | $17.94$ | $0.64$–$6.04$ |
+| $21$ | $9986$ | $-1.42183$ | $3.42435$ | $12.68$ | $0.57$–$4.25$ |
+| $22$ | $19973$ | $-1.16347$ | $2.67490$ | $5.38$ | $0.50$–$5.06$ |
+
+**The escape is not one band's** (A2): at every band, none of the $32$
+coin draws' own largest $|z|$ over classes reaches the real arm's.
+**And the shift keeps its sign** (A3), negative at all six — at
+$b=17$ it is $-2.91$, so $C(N)$ sits nearly three of its own standard
+deviations below zero, systematically, for $N$ divisible by $105$.
+
+**A4 broke.** The shift fades: $\log|{\rm mean}\,G|$ against $\log_2N$
+has slope $-0.18183\pm0.00203$, so the shift goes like $N^{-0.2623}$.
+The pre-registration fixed the reading — a sixth finite-$N$
+separation, and the exponent is what this run adds.
+
+Two things about that exponent are worth separating from the $t$ of
+$89.38$, which is not evidence and is not offered as any. Six bands
+cut from one sieve are not independent samples, so that standard error
+is a lower bound. What the fit does support is straightness: the
+residuals in $\log|{\rm mean}|$ are $-0.00332$, $-0.00400$, $+0.00273$,
+$+0.00852$, $+0.00739$, $-0.01131$, an r.m.s. of $0.00695$ against a
+mean $|\log|$ of $0.6173$. **Six octaves lie on a line to one part in
+ninety.**
+
+And the exponent is the slow one. Every other separation this branch
+measured decayed like $N^{-0.64}$ ([rem:cnskew]) or $N^{-0.73}$
+([rem:cnkurtlimit]). This one decays at $N^{-0.26}$, two to three
+times more slowly, and the separation itself — the $|z|$, which
+carries the control's own shrinking with it — goes like $N^{-0.2402}$.
+From $5.38$ at $b=22$ that reaches $3$ near $b=25.5$. **That is an
+extrapolation and not a measurement**, printed only so the next band
+to try has a name.
+
+So the sixth separation is still a finite-$N$ separation, and this
+branch has now produced six of them and no seventh kind. What is
+different here is only the rate, and what remains untouched is the
+same thing [rem:cnclass] left: nothing has checked the shift against a
+computable local density, at this class or any other.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 
