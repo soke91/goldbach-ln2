@@ -1,0 +1,86 @@
+STATISTIC: the departure of g from the closed form
+           (A_raw/A)(log(N/p)-1)/(log N -1) over every cell that
+           clears eq:condfloor, and the constancy and value of
+           (1 - A/A_raw)(log N - 1) across six rungs.
+FIELD: N = [6400000, 12800000, 25600000, 51200000, 102400000, 204800000];
+       p over CAND = (3, 7, 11, 13, 17, 19, 23, 29, 31, 37),
+       K = floor(N^0.56), D = floor((N-1)/K); a cell is kept
+       when n >= log N / 0.01^2. Four values are READ from
+       results/audit_logweight_split.txt.
+DERIVED: A_raw - A is the part of the d=1 sum carried by prime m,
+         where log m = Lambda(m), so it is the Goldbach sum and
+         is SS(N) N with SS(N) = 2 C_2 prod_{q|N, q>2} (q-1)/(q-2);
+         C_2 = 0.66016181584686962 is the published twin-prime constant and no
+         Euler product is built at the measurement range.
+
+READ audit_logweight_split.txt POINT medgcount 1.141768
+READ audit_logweight_split.txt POINT arawovera 1.140615
+READ audit_logweight_split.txt POINT hlogworst 0.001766
+READ audit_logweight_split.txt POINT share 0.337290
+PRINTBOUND audit_closed_form 6 0.0000005000
+  theta 0.56, resolution 0.01, form within 0.01,
+  p = 3 excess at least 0.05 with spread at most 0.02,
+  level spread at most 0.02, series within 0.05
+  candidates (3, 7, 11, 13, 17, 19, 23, 29, 31, 37)
+sieving to 204800000
+  N = 6400000    K = 6478   D = 987   A/Araw 0.847059  SS(N) 1.760432
+  N = 12800000   K = 9550   D = 1340  A/Araw 0.854651  SS(N) 1.760432
+  N = 25600000   K = 14080  D = 1818  A/Araw 0.861216  SS(N) 1.760432
+  N = 51200000   K = 20758  D = 2466  A/Araw 0.866837  SS(N) 1.760432
+  N = 102400000  K = 30603  D = 3346  A/Araw 0.871966  SS(N) 1.760432
+  N = 204800000  K = 45117  D = 4539  A/Araw 0.876720  SS(N) 1.760432
+SCALES 6
+
+OO1  the gate
+  medgcount  1.141768 against its 1.141768   ok
+  arawovera  1.140615 against its 1.140615   ok
+  share      0.337290 against its 0.337290   ok
+  hlogworst  0.001766 against its 0.001766   ok
+  OO1 hold
+
+OO2  does the form transport across the rungs?
+      p      6400000    12800000    25600000    51200000   102400000   204800000
+      3   +0.073767  +0.072599  +0.072621  +0.072149  +0.071879  +0.071562
+      7   +0.004866  +0.004717  +0.006325  +0.004852  +0.003732  +0.004054
+     11   +0.003967  +0.004111  +0.003863  +0.001317  +0.001573  +0.001947
+     13            .  +0.005600  +0.001670  +0.002443  +0.001890  +0.001295
+     17            .  +0.006462  +0.003443  +0.001357  +0.001661  +0.001751
+     19            .  +0.007043  +0.001700  +0.002320  +0.001392  +0.002126
+     23            .  +0.005665  +0.005674  +0.003936  +0.002106  +0.002055
+     29            .           .  +0.002371  +0.002534  +0.002562  +0.002418
+     31            .           .  +0.004485  +0.004423  +0.002793  +0.001411
+     37            .           .  +0.007294  +0.004525  +0.003721  +0.001849
+  44 clearing cells with p >= 7, worst |departure| 0.007294
+POINT cells 44
+POINT formworst 0.007294
+  OO2 hold   (cap: 0.01)
+
+OO3  does p = 3's excess belong to p or to N?
+  departures +0.073767 +0.072599 +0.072621 +0.072149 +0.071879 +0.071562
+  smallest 0.071562, spread 0.002204
+POINT ex3min 0.071562
+POINT ex3spread 0.002204
+  OO3 hold   (floor 0.05, cap 0.02)
+
+OO4  is the level constant against log N - 1?
+  (1 - A/Araw)(log N - 1)  2.243928 2.233279 2.228616 2.230650 2.233469 2.236001
+  spread 0.015313
+POINT levfirst 2.243928
+POINT levlast 2.236001
+POINT levspread 0.015313
+  OO4 hold   (cap: 0.02)
+
+OO5  is that level the Goldbach series?
+  (Araw - A) / (SS(N) N)  1.003032 0.998225 0.996381 0.997374 0.998643 0.999832
+  worst |ratio - 1| 0.003619
+POINT ssfirst 1.003032
+POINT sslast 0.999832
+  OO5 hold   (cap: 0.05)
+
+======================================================================
+OO1 hold  OO2 hold  OO3 hold  OO4 hold  OO5 hold
+
+the closed form is a form and not one rung, and its level moves at a
+rate the goldbach series sets. that is why eq:derivedlimit's limit is
+slow: the approach is a reciprocal logarithm and not a power. nothing
+here bounds the sum this repository is trying to bound.

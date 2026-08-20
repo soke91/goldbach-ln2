@@ -1,0 +1,108 @@
+STATISTIC: the exact factorisation of I(p) into a prime-hit mass
+           W(p) and a weighted mean of log m, and which of the
+           two carries the descent of g in p at the top rung.
+FIELD: N = [6400000, 12800000, 25600000, 51200000, 102400000, 204800000];
+       p over CAND = (3, 7, 11, 13, 17, 19, 23, 29, 31, 37),
+       K = floor(N^0.56), D = floor((N-1)/K); the rectangle is
+       the one eq:condfloor leaves at resolution 0.01. Six
+       values are READ from results/audit_derived_limit.txt,
+       results/audit_limit_direction.txt and
+       results/audit_conditioned_limit.txt.
+DERIVED: I(p) = W(p) L(p) is an identity. W is what the density
+         count of rem:derivedlimit predicted; L is about
+         log(N/p) - 1, never counted, falling in p and rising to
+         1 in N. Neither half is fitted.
+
+READ audit_derived_limit.txt POINT gtop_3 1.154331
+READ audit_derived_limit.txt POINT gtop_11 0.991622
+READ audit_limit_direction.txt POINT glast_17 0.959725
+READ audit_limit_direction.txt POINT glast_19 0.949940
+READ audit_conditioned_limit.txt POINT rectprimes 10
+READ audit_conditioned_limit.txt POINT rectrungs 4
+PRINTBOUND audit_logweight_split 6 0.0000005000
+  theta 0.56, resolution 0.01, identity to 1e-12,
+  span share under 0.5, derived form within 0.02,
+  level within 0.05, flatness under 0.10
+  candidates (3, 7, 11, 13, 17, 19, 23, 29, 31, 37)
+sieving to 204800000
+  N = 6400000    K = 6478   D = 987   A/Araw 0.847059
+  N = 12800000   K = 9550   D = 1340  A/Araw 0.854651
+  N = 25600000   K = 14080  D = 1818  A/Araw 0.861216
+  N = 51200000   K = 20758  D = 2466  A/Araw 0.866837
+  N = 102400000  K = 30603  D = 3346  A/Araw 0.871966
+  N = 204800000  K = 45117  D = 4539  A/Araw 0.876720
+SCALES 6
+
+NN1  the gate
+  g(3)   1.154331 against its 1.154331   ok
+  g(11)  0.991622 against its 0.991622   ok
+  g(17)  0.959725 against its 0.959725   ok
+  g(19)  0.949940 against its 0.949940   ok
+  rectangle 10 by 4 against its 10 by 4   ok
+  gcount * hlog against g, worst relative 2.40e-16   ok
+  NN1 hold
+
+      p      g         gcount    hlog      derived   diff
+      3  1.143089  1.217140  0.939160  0.939429  -0.000269
+POINT gcount_3 1.217140
+POINT hlog_3 0.939160
+      7  1.022297  1.145109  0.892751  0.892714  +0.000037
+POINT gcount_7 1.145109
+POINT hlog_7 0.892751
+     11  0.991766  1.142450  0.868105  0.867794  +0.000311
+POINT gcount_11 1.142450
+POINT hlog_11 0.868105
+     13  0.980608  1.141568  0.859001  0.858583  +0.000417
+POINT gcount_13 1.141568
+POINT hlog_13 0.859001
+     17  0.964194  1.141777  0.844468  0.843793  +0.000675
+POINT gcount_17 1.141777
+POINT hlog_17 0.844468
+     19  0.957575  1.142044  0.838474  0.837661  +0.000814
+POINT gcount_19 1.142044
+POINT hlog_19 0.838474
+     23  0.945489  1.141758  0.828099  0.827127  +0.000972
+POINT gcount_23 1.141758
+POINT hlog_23 0.828099
+     29  0.931274  1.141710  0.815683  0.814347  +0.001337
+POINT gcount_29 1.141710
+POINT hlog_29 0.815683
+     31  0.926073  1.140337  0.812104  0.810670  +0.001434
+POINT gcount_31 1.140337
+POINT hlog_31 0.812104
+     37  0.915385  1.140410  0.802681  0.800915  +0.001766
+POINT gcount_37 1.140410
+POINT hlog_37 0.802681
+
+NN2  which half carries the descent?
+  span of g      0.227705
+  span of gcount 0.076803
+  span of hlog   0.136480
+  share 0.337290
+POINT spang 0.227705
+POINT spangcount 0.076803
+POINT share 0.337290
+  NN2 hold   (cap: 0.5)
+
+NN3  is hlog the derived one?
+  worst |hlog - derived| 0.001766 over 10 primes
+POINT hlogworst 0.001766
+  NN3 hold   (cap: 0.02)
+
+NN4  is gcount's level the d=1 exclusion?
+  median gcount 1.141768, Araw/A 1.140615, difference +0.001152
+POINT medgcount 1.141768
+POINT arawovera 1.140615
+  NN4 hold   (cap: 0.05)
+
+NN5  is gcount flat?
+  span of gcount 0.076803
+  NN5 hold   (cap: 0.10)
+
+======================================================================
+NN1 hold  NN2 hold  NN3 hold  NN4 hold  NN5 hold
+
+the descent of g in p is the log weight, and the log weight is the one
+the construction forces. nothing is fitted on either side of an exact
+identity. this accounts for the shape at one rung and says nothing
+about the limit, which is a different run and a larger N.

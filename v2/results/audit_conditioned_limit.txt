@@ -1,0 +1,102 @@
+STATISTIC: the median and the span of g(p, N) = c(p, N)(p+1)/p
+           over the largest rectangle of (p, N) every cell of
+           which clears a term-count floor derived from the
+           resolution demanded, and the order of g in p there.
+FIELD: N = [6400000, 12800000, 25600000, 51200000, 102400000, 204800000];
+       p over CAND = (3, 7, 11, 13, 17, 19, 23, 29, 31, 37),
+       K = floor(N^0.56), D = floor((N-1)/K); a cell is kept
+       when its surviving term count n satisfies
+       n >= log N / 0.01^2. Four values at N = 25600000 are READ from
+       results/audit_derived_limit.txt and
+       results/audit_limit_direction.txt.
+DERIVED: the sum over m has about n terms of which about n/log N
+         are prime hits, so its relative fluctuation is about
+         sqrt(log N / n); resolving RESOL in g needs n >=
+         log N / RESOL^2. The floor is demanded, not chosen.
+
+READ audit_derived_limit.txt POINT gtop_3 1.154331
+READ audit_derived_limit.txt POINT gtop_11 0.991622
+READ audit_limit_direction.txt POINT glast_17 0.959725
+READ audit_limit_direction.txt POINT glast_19 0.949940
+PRINTBOUND audit_conditioned_limit 6 0.0000005000
+  theta 0.56, resolution 0.01, rectangle at least 4 primes
+  by 4 rungs, at most 2 inversions allowed
+  candidates (3, 7, 11, 13, 17, 19, 23, 29, 31, 37)
+sieving to 204800000
+  N = 6400000    K = 6478   D = 987   floor 156718
+  N = 12800000   K = 9550   D = 1340  floor 163649
+  N = 25600000   K = 14080  D = 1818  floor 170581
+  N = 51200000   K = 20758  D = 2466  floor 177512
+  N = 102400000  K = 30603  D = 3346  floor 184443
+  N = 204800000  K = 45117  D = 4539  floor 191375
+SCALES 6
+
+MM1  the gate
+  g(3)   1.154331 against its 1.154331   ok
+  g(11)  0.991622 against its 0.991622   ok
+  g(17)  0.959725 against its 0.959725   ok
+  g(19)  0.949940 against its 0.949940   ok
+  MM1 hold
+
+MM2  what does the derived floor leave?
+      p      6400000    12800000    25600000    51200000   102400000   204800000
+      3      538752*    1078337*    2157950*    4317774*    8638320*   17280726*
+      7      268275*     537559*    1076600*    2155386*    4313992*    8632731*
+     11      178115*     357289*     716147*    1434596*    2872535*    5750074*
+     13      152363      305794*     613171*    1228653*    2460695*    4926459*
+     17      118020      237118*     475855*     954046*    1911581*    3828318*
+     19      106007      213090*     427784*     857931*    1719392*    3443963*
+     23       87965      177036*     355692*     713794*    1431113*    2867407*
+     29       69928      140979      283606*     569614*    1142815*    2290903*
+     31       65431      131970      265583*     533585*    1070738*    2146768*
+     37       54749      110628      222895*     448234*     900045*    1805378*
+  (* = clears the floor for that N)
+  rectangle 10 primes by 4 rungs, area 40
+  primes (3, 7, 11, 13, 17, 19, 23, 29, 31, 37)
+  rungs  [25600000, 51200000, 102400000, 204800000]
+POINT rectprimes 10
+POINT rectrungs 4
+  MM2 hold   (floor: 4 by 4)
+
+MM3  does the centre climb on the rectangle?
+  median 0.954833 0.956512 0.958442 0.960884
+  rises 3/3
+POINT medbottom 0.954833
+POINT medtop 0.960884
+POINT medrises 3
+POINT medmotion 0.006052
+POINT medgap 0.039116
+  MM3 hold
+
+MM4  does the span close on the rectangle?
+  span   0.246990 0.240641 0.233322 0.227705
+  falls 3/3
+POINT spanbottom 0.246990
+POINT spantop 0.227705
+POINT spanfallsc 3
+POINT spanmotion 0.019285
+  MM4 hold
+
+MM5  is the descent in p still there at the top rung?
+      p     g at the top rung   p/(p+1)   g - 1
+      3   1.143089            0.750000  +0.143089
+      7   1.022297            0.875000  +0.022297
+     11   0.991766            0.916667  -0.008234
+     13   0.980608            0.928571  -0.019392
+     17   0.964194            0.944444  -0.035806
+     19   0.957575            0.950000  -0.042425
+     23   0.945489            0.958333  -0.054511
+     29   0.931274            0.966667  -0.068726
+     31   0.926073            0.968750  -0.073927
+     37   0.915385            0.973684  -0.084615
+  inversions 0 of 9 steps
+POINT inversions 0
+  MM5 hold   (cap: 2)
+
+======================================================================
+MM1 hold  MM2 hold  MM3 hold  MM4 hold  MM5 hold
+
+above a floor that is demanded rather than chosen, the centre climbs
+and the span closes at every rung. five steps is the whole budget and
+a clean sweep tails at 0.250000, so this is a lean and not a count --
+the rule said so before the run.
