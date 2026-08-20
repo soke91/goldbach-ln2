@@ -302,6 +302,13 @@ def main():
             % (N, ks.size, l1 / l2, r))
         say("POINT targetratio_%d %.6f" % (N, r))
     say("SCALES %d" % len(rows))
+    rr = [t[6] for t in rows]
+    say("REFERENCE audit_target_derived %d %.4f %.4f"
+        % (len(rr), min(rr), max(rr)))
+    say("  r is the count-based sqrt(#k) against the "
+        "magnitude-based l1/l2;")
+    say("  G47 asks for exactly this ratio and it is the "
+        "quantity this run is about")
 
     x = np.array([math.log(t[0]) for t in rows])
 

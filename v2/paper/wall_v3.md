@@ -4342,6 +4342,71 @@ deficit belongs to, and no measurement in this repository has ever
 supplied one.
 
 
+#### Remark (the target of the sign axis is derived, not fitted) {#rem:targetderived}
+<!-- evidence: audit_target_derived.py -->
+
+[rem:deficitregion] closed the computational branch of the sign axis
+without an answer and named what would open it: *a derivation that
+says which family the deficit belongs to, and no measurement in this
+repository has ever supplied one.* The deficit is a difference of two
+exponents, $e(\ell^1/\ell^2)-e(G)$, and six cycles have treated both
+as fitted. One of them need not be.
+
+[rem:leanidentity]'s W4 wrote the ingredient down and read it
+backwards. It observed $\ell^1\le\sqrt{\#k}\,\ell^2$ — Cauchy–Schwarz,
+an identity of norms — and then called W4 refuted because the measured
+exponent stood $3.15$ standard errors *above* the ceiling $\theta/2$.
+**A ratio bounded by one cannot exceed its ceiling asymptotically.**
+The excess is a transient, which is the argument [rem:headfraction]
+made about the head's share and which was never applied here.
+
+**And $\#k$ is not empirical.** The range is the squarefree $k<N^
+\theta$ coprime to $N$, so
+$$\#k=\frac{6}{\pi^2}\prod_{p\mid N}\frac{p}{p+1}\;N^{\theta}\,
+(1+o(1)),$$
+leading order derived. Measured against that formula at ten $N$ the
+worst error is **$0.370$ per cent** (E2), so the count carries no free
+parameter. And $\theta=0.56$ is a parameter of the *construction* —
+it defines the $k$-range — **not the level exponent the program is
+proving**, so the ceiling $\theta/2=0.28$ is an exactly known number
+that does not move with the target.
+
+| $N$ | $\#k$ | derived | $\ell^1/\ell^2$ | $r$ |
+|---|---|---|---|---|
+| $2\cdot10^5$ | $313$ | $314.2$ | $11.9596$ | $0.6760$ |
+| $1.28\cdot10^7$ | $3226$ | $3225.6$ | $39.6783$ | $0.6986$ |
+| $1.024\cdot10^8$ | $10338$ | $10335.9$ | $69.7186$ | $0.6857$ |
+
+$r=(\ell^1/\ell^2)/\sqrt{\#k}$ stays in $[0.6622,\,0.6986]$, below one
+everywhere (E3), and it has stopped climbing: the bottom half of the
+field rises $+0.01120$ and the top half **falls** $-0.00150$ (E4). The
+local exponent of $\ell^1/\ell^2$ on sliding windows of five runs
+$+0.285443$, $+0.289948$, $+0.288106$, $+0.290289$, $+0.284047$,
+$+0.277325$ — **the top window is below the ceiling**, at $-0.002675$
+(E5). The remaining rise available above $(\theta/2)\log N$ is
+$-\log r=0.3773$ (E6).
+
+**So the demand of [rem:leanidentity] is a fixed number.** It stops
+being "$e(G)$ must reach a fitted $+0.283586$" and becomes
+$$e(G)\longrightarrow \theta/2=0.28 ,$$
+and the target side of the deficit needs no shape at all. What happens
+past the field is a question about $G$ alone. That is one of the two
+free terms [rem:deficitregion] complained of, removed by derivation
+rather than by fitting.
+
+**What this does not do, stated at its own strength.** E5's registered
+bar was that the fall exceed the window error; it does, $+0.008119$
+against $0.006187$, but that is $t=1.31$ and **would not be resolved
+at the bar this repository normally uses**. The bar was set weak and
+is recorded as weak. The unconditional half is the inequality: $r\le1$
+gives $e(\ell^1/\ell^2)\le\theta/2$ with no assumption, while equality
+needs $r$ bounded away from zero, which is measured over ten $N$ and
+not proved. And $r$ turning over in the top half means the picture is
+not the monotone rise the setup described — the ceiling holds either
+way, but "bounded and rising to a limit" is not what the field shows.
+**Nothing here measures $G$**, and the shape of $G$ past the field is
+exactly the thing [rem:deficitregion] said no measurement supplies.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

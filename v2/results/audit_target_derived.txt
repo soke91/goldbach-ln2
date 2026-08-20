@@ -1,0 +1,115 @@
+STATISTIC: the ratio r = (l1/l2)/sqrt(#k) for the sign axis'
+           a_k = (log k)H(N;k), its rise, the local exponent of
+           l1/l2 on sliding windows against the derived ceiling
+           theta/2, and the remaining budget -log r.
+FIELD: N = 200000*2^j for j < 10, one radical throughout; k over
+       the squarefree k < N^0.56 coprime to N, the k-range of
+       code/audit_lean_identity.py. #k, l1/l2 for the eight N
+       that script published are READ from
+       results/audit_lean_identity.txt as the gate.
+DERIVED: #k = (6/pi^2) prod_{p|N} p/(p+1) N^theta (1+o(1)); the
+         ceiling theta/2 = 0.28 is a fact about the k-range and
+         not about the level exponent the program is proving.
+
+READ audit_lean_identity.txt 200000 11.9596
+READ audit_lean_identity.txt 400000 14.2336
+READ audit_lean_identity.txt 800000 17.8995
+READ audit_lean_identity.txt 1600000 21.4312
+READ audit_lean_identity.txt 3200000 26.2111
+READ audit_lean_identity.txt 6400000 32.1297
+READ audit_lean_identity.txt 12800000 39.6783
+READ audit_lean_identity.txt 25600000 47.6367
+  l1/l2 at the N that script published, its gate here
+PRINTBOUND audit_target_derived 4 0.00005000
+  window 5, tolerance 3.0 per cent, budget cap 0.5
+  theta 0.56, ceiling 0.28, 6/pi^2 0.607927
+sieving to 102400000
+  N = 200000      #k = 313     l1/l2 =    11.9596  r = 0.6760
+POINT targetratio_200000 0.675995
+  N = 400000      #k = 462     l1/l2 =    14.2336  r = 0.6622
+POINT targetratio_400000 0.662208
+  N = 800000      #k = 682     l1/l2 =    17.8995  r = 0.6854
+POINT targetratio_800000 0.685405
+  N = 1600000     #k = 1004    l1/l2 =    21.4312  r = 0.6764
+POINT targetratio_1600000 0.676363
+  N = 3200000     #k = 1485    l1/l2 =    26.2111  r = 0.6802
+POINT targetratio_3200000 0.680177
+  N = 6400000     #k = 2186    l1/l2 =    32.1297  r = 0.6872
+POINT targetratio_6400000 0.687199
+  N = 12800000    #k = 3226    l1/l2 =    39.6783  r = 0.6986
+POINT targetratio_12800000 0.698587
+  N = 25600000    #k = 4754    l1/l2 =    47.6367  r = 0.6909
+POINT targetratio_25600000 0.690895
+  N = 51200000    #k = 7009    l1/l2 =    57.6104  r = 0.6881
+POINT targetratio_51200000 0.688133
+  N = 102400000   #k = 10338   l1/l2 =    69.7186  r = 0.6857
+POINT targetratio_102400000 0.685694
+SCALES 10
+REFERENCE audit_target_derived 10 0.6622 0.6986
+  r is the count-based sqrt(#k) against the magnitude-based l1/l2;
+  G47 asks for exactly this ratio and it is the quantity this run is about
+
+E1  the gate: does this reproduce the published rows?
+  N = 200000      #k 313/313  l1/l2 11.9596/11.9596  ok
+  N = 400000      #k 462/462  l1/l2 14.2336/14.2336  ok
+  N = 800000      #k 682/682  l1/l2 17.8995/17.8995  ok
+  N = 1600000     #k 1004/1004  l1/l2 21.4312/21.4312  ok
+  N = 3200000     #k 1485/1485  l1/l2 26.2111/26.2111  ok
+  N = 6400000     #k 2186/2186  l1/l2 32.1297/32.1297  ok
+  N = 12800000    #k 3226/3226  l1/l2 39.6783/39.6783  ok
+  N = 25600000    #k 4754/4754  l1/l2 47.6367/47.6367  ok
+  E1 hold   (cap: #k exact, l1/l2 to 4 decimals)
+
+E2  does #k match its derived leading order?
+    N            #k        derived      per cent
+  200000       313              314.2      -0.370
+  400000       462              463.2      -0.251
+  800000       682              682.8      -0.121
+  1600000      1004            1006.7      -0.265
+  3200000      1485            1484.1      +0.061
+  6400000      2186            2188.0      -0.090
+  12800000     3226            3225.6      +0.011
+  25600000     4754            4755.5      -0.031
+  51200000     7009            7010.8      -0.026
+  102400000    10338          10335.9      +0.021
+POINT derivedcount_worst 0.3704
+  worst 0.370 per cent
+  E2 hold   (cap: 3.0 per cent)
+
+E3  is r <= 1 everywhere, as Cauchy-Schwarz forces?
+  r runs 0.6622 to 0.6986
+  E3 hold   (cap: 1)
+
+E4  does r rise with decaying increments?
+  bottom half rise +0.01120, top half rise -0.00150
+POINT riselow 0.01120
+POINT risehigh -0.00150
+  E4 hold   (cap: top half the smaller)
+
+E5  does the local exponent of l1/l2 fall toward 0.28?
+    window            slope        s.e.   above ceiling
+   5.30 -  6.51   +0.285443   0.006187   +0.005443
+   5.60 -  6.81   +0.289948   0.005534   +0.009948
+   5.90 -  7.11   +0.288106   0.004722   +0.008106
+   6.20 -  7.41   +0.290289   0.003529   +0.010289
+   6.51 -  7.71   +0.284047   0.004487   +0.004047
+   6.81 -  8.01   +0.277325   0.003608   -0.002675
+TSTAT targetdrop 1.31
+SPREAD targetdrop 0.006187
+  fall +0.008119 against the larger window error 0.006187
+  E5 hold   (cap: a fall larger than the window error)
+
+E6  how much rise is left to log(l1/l2) above the ceiling?
+  r at the top N is 0.6857, so the budget is 0.3773
+POINT budget 0.37732
+  E6 hold   (cap: 0.5)
+
+======================================================================
+E1 hold  E2 hold  E3 hold  E4 hold  E5 hold  E6 hold
+
+the target side of the deficit is derived. e(l1/l2) is not a free
+exponent: it is 0.28 plus a transient of a ratio bounded by one,
+the ceiling is a fact about the k-range rather than about the level
+the program is proving, and the fall toward it is visible here.
+rem:leanidentity's demand becomes e(G) -> 0.28 and what happens past
+the field is a question about G alone.
