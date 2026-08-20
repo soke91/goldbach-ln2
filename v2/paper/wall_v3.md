@@ -5291,6 +5291,67 @@ list is closed *for this construction*; a quantity reaching $N$
 through something both the $k$-range and the singular series ignore
 would not be on it, and this repository knows of none.
 
+#### Remark (the object is a Type II bilinear form with disjoint ranges) {#rem:bilinear}
+<!-- evidence: audit_bilinear.py -->
+
+[rem:levelresidual] closed the radical branch — the scatter above the
+radical is noise of the object on a candidate list that is complete —
+and item 5's demand was untouched by any of it. [rem:sieveweight] had
+said what kind of object would admit an unconditional statement. Push
+its form one step. For squarefree $j$, $\Lambda_K(j)=-\sum_{d\mid j,\,
+d\le j/K}\mu(d)\log(j/d)$; writing $j=dm$, the condition $d\le j/K$ is
+*exactly* $m\ge K$, so exchanging the order of summation gives
+$$\sum a\Big|_{\text{covered}}
+ = -\sum_{d\le N/K}\mu(d)\!\!\sum_{K\le m<N/d}\!\!\mu^2(m)\,
+   \Lambda(N-dm)\log m ,$$
+$d$ and $m$ squarefree and coprime to each other and to $N$. **That is
+a Type II bilinear form**, the shape Vaughan's identity and its
+descendants are written for.
+
+**The exchange is exact** (X1): the form reproduces the part it covers
+at relative $0$, $1.00\cdot10^{-15}$ and $1.63\cdot10^{-16}$ at
+$N=20000$, $50000$, $200000$, with the gate reproducing
+$\lvert\sum a\rvert=87895.3236$ (W1).
+
+**And the ranges do not meet** (W3). Since $\theta=0.56>1/2$,
+$N/K<K$:
+
+| $N$ | $d$ up to | $m$ from | gap |
+|---|---|---|---|
+| $20000$ | $77$ | $257$ | $180$ |
+| $50000$ | $113$ | $427$ | $314$ |
+| $200000$ | $213$ | $933$ | $720$ |
+
+so every contributing pair has $d<m$ with $N^{0.12}$ of clear air
+between the variables. **The short side is the derived length** (W4):
+the contributing $d$ number $27$, $40$, $72$ against
+$(6/\pi^2)\prod_{p\mid N}\frac{p}{p+1}N^{1-\theta}$ giving $26.4$,
+$39.5$, $72.6$ — within $2.4$ per cent, the same derived count
+[rem:targetderived] measured for $\#k$.
+
+**W2 is refuted and its target was the error, not the exchange.** It
+compared the form against $\sum a$'s whole composite part, which also
+contains $j$ like $12=2^2\cdot3$ where $\mu*\log$ is not $\Lambda$ and
+the cofactor rewriting was never claimed. The discrepancies are
+$1.768148$ at $N=20000$ and the *same* $1.768148$ at $200000$, and
+exactly zero at $50000$ — a fixed set of terms, not a growing error —
+and X2 confirms they are exactly [rem:sieveweight]'s "uncovered"
+column to relative $10^{-15}$. The rule is not rewritten; W2 stays
+refuted and the second block is registered as second.
+
+**What this buys.** Item 5's remaining requirement is a bound on a
+bilinear sum whose Möbius-weighted variable runs to $N^{0.44}$ and
+whose $\Lambda$-weighted variable starts at $N^{0.56}$, with the
+ranges separated. That is a question with a literature rather than a
+question with no name — which is what [rem:deficitlog] left the branch
+needing when it measured that no fit on this field can decide the
+shape.
+
+**And what it does not.** A bilinear form is a shape, not an estimate.
+Nothing here supplies a bound, nothing here claims the known bounds
+reach $\ell^2$ order, and no exponent is measured or forecast.
+[rem:deficitlog] and [rem:shapepower] stand exactly where they stood.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

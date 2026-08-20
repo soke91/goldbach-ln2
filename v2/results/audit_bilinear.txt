@@ -1,0 +1,89 @@
+STATISTIC: sum a's composite part computed two ways -- from the
+           (k,m) definition and as the Type II bilinear form
+           - sum_d mu(d) sum_m mu^2(m) Lambda(N-dm) log m -- and
+           the ranges of d and m in that form.
+FIELD: N = [20000, 50000, 200000]; k over the squarefree k < N^0.56 coprime to N;
+       d over the squarefree d <= N/K coprime to N and m over the
+       squarefree m in [K, N/d) coprime to dN, K = floor(N^0.56).
+       |sum a| at N = 200000 is READ from
+       results/audit_deficit_direct.txt as the gate.
+DERIVED: for squarefree j the condition d <= j/K is exactly
+         m >= K after writing j = dm, so the exchange of
+         summation is finite and exact.
+
+READ audit_deficit_direct.txt 200000 87895.3236
+  |sum a| at the gate N
+PRINTBOUND audit_bilinear 4 0.00005000
+  theta 0.56, identity tolerance 1e-12, count tolerance 5.0 per cent
+  6/pi^2 0.607927
+sieving to 200000
+  N = 20000    sum a -13183.3581  composite -13648.5879  bilinear -13650.3560
+  N = 50000    sum a -28273.5932  composite -29099.5318  bilinear -29099.5318
+  N = 200000   sum a -87895.3236  composite -89313.2213  bilinear -89314.9895
+SCALES 3
+
+W1  the gate
+  |sum a| here 87895.3236 against its 87895.3236  ok
+  W1 hold   (cap: 4 decimals)
+
+W2  the identity
+  N = 20000    composite -13648.587857  bilinear -13650.356005  relative 1.30e-04
+POINT bilinrel_20000 1.295481e-04
+  N = 50000    composite -29099.531787  bilinear -29099.531787  relative 1.13e-15
+POINT bilinrel_50000 1.125166e-15
+  N = 200000   composite -89313.221323  bilinear -89314.989471  relative 1.98e-05
+POINT bilinrel_200000 1.979716e-05
+  W2 REFUTED   (cap: 1e-12 relative)
+
+W3  are the ranges disjoint?
+  N = 20000    d up to 77     (bound 78), m from 257     (K = 256)
+              gap 180, so d < m at every contributing pair  ok
+POINT rangegap_20000 180
+  N = 50000    d up to 113    (bound 117), m from 427     (K = 427)
+              gap 314, so d < m at every contributing pair  ok
+POINT rangegap_50000 314
+  N = 200000   d up to 213    (bound 215), m from 933     (K = 930)
+              gap 720, so d < m at every contributing pair  ok
+POINT rangegap_200000 720
+  W3 hold   (cap: max d below min m)
+
+W4  is the short side the derived length?
+    N          d count   derived     per cent
+  20000      27               26.4      +2.407
+POINT dcount_20000 2.4075
+  50000      40               39.5      +1.376
+POINT dcount_50000 1.3758
+  200000     72               72.6      -0.848
+POINT dcount_200000 -0.8483
+  W4 hold   (cap: 5.0 per cent)
+
+  registered after W2: its target was the composite part, which contains
+  non-squarefree j the exchange never covered. rem:sieveweight measured
+  those separately. the covered part is the sum over squarefree j.
+
+X1  does the form reproduce the part it covers?
+  N = 20000    covered -13650.356005  bilinear -13650.356005  relative 0.00e+00
+POINT covrel_20000 0.000000e+00
+  N = 50000    covered -29099.531787  bilinear -29099.531787  relative 1.00e-15
+POINT covrel_50000 1.000148e-15
+  N = 200000   covered -89314.989471  bilinear -89314.989471  relative 1.63e-16
+POINT covrel_200000 1.629280e-16
+  X1 hold   (cap: 1e-12 relative)
+
+X2  is W2's discrepancy exactly the rest?
+  N = 20000    composite minus covered +1.768148, minus bilinear +1.768148, relative 0.00e+00
+  N = 50000    composite minus covered +0.000000, minus bilinear +0.000000, relative 1.00e-15
+  N = 200000   composite minus covered +1.768148, minus bilinear +1.768148, relative 1.63e-16
+  X2 hold   (cap: 1e-12 relative)
+
+======================================================================
+X1 hold  X2 hold
+W1 hold  W2 REFUTED  W3 hold  W4 hold
+
+sum a is a Type II bilinear form with a Mobius-weighted variable of
+length N^0.44 and a Lambda-weighted one above N^0.56, and the two
+ranges do not meet. an unconditional statement for item 5 is a bound
+on that form, which is a thing the literature is written about.
+that is a shape and not an estimate: no bound is supplied here, no
+claim is made that the known ones reach l2 order, and rem:deficitlog
+and rem:shapepower are untouched.
