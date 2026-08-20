@@ -33,6 +33,7 @@ from what the gate sees.
 | Proposition (`prop:flatsum`) | both ends are the same sum of dilated walls | `lab_weight_gap.py` | `results/lab_weight_gap.txt` |
 | Lemma (`lem:extract`) | extraction | `audit_extraction_tradeoff.py` | `results/audit_extraction_tradeoff.txt` |
 | Lemma (`lem:bv`) | BV-accessibility | analytic | — |
+| Theorem (`thm:D`) | no weight extracts $C(N)$; loss $\exp(c_1\sqrt{\log N/2})$ | analytic | — |
 | Theorem (`thm:Dprime`) | the no-go survives $EH(N^{\theta_E})$ for every $\theta_E<1$ | analytic | — |
 | Proposition (`prop:Dpp`) | polynomial weights | analytic | — |
 | Proposition (`prop:E`) | zero margin | `audit_circle_margin.py` | `results/audit_circle_margin.txt` |
@@ -57,6 +58,6 @@ from what the gate sees.
 
 ---
 
-36 numbered statements. Remarks carry their own evidence markers and are
+37 numbered statements. Remarks carry their own evidence markers and are
 reachable the same way; they are not listed here because they are not claims the
 papers stand on.
