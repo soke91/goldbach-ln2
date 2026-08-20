@@ -1,0 +1,74 @@
+STATISTIC: the class means of G(N) = C(N)/sqrt(V(N)) over the
+           eight classes cut by which of (3, 5, 7) divide N, scored
+           against an ensemble of 32 random multiplicative sign
+           functions -- f(p) = +-1 iid, f(m) = product over
+           p | m for squarefree m, zero otherwise -- by the
+           largest |z| over classes with each draw taken
+           leave-one-out against the rest.
+FIELD: even N in (2^20, 2^21], with Lambda and mu sieved once to
+       2097152 and every convolution taken by FFT over the whole
+       range. |f| = mu^2 exactly, so the null matches the
+       support and the multiplicativity and differs only in
+       which sign each prime carries.
+SEED: the draws come from numpy default_rng at seed 20260831; without
+      it the file does not reproduce its own control.
+
+READ audit_cn_class_reach.txt POINT classreach_m1_20 -1.70728
+  the class mean this run has to reproduce, read from that file
+PRINTBOUND audit_cn_multnull 3 0.00050000
+  32 random multiplicative draws; the iid coin's spread at this class
+  was 0.5646
+sieving to 2097152, which is 2^21
+  transform length 8388608
+
+C1  does this run reproduce the class it shares?
+  class 7 mean here -1.70728 against its -1.70728
+  C1 hold   (cap: 3 decimals)
+
+  building 32 multiplicative sign functions in one pass over 155611 primes
+
+      3|N 5|N 7|N        N      mean G    ens. mean      ens. sd       z
+       0   0   0    239675    +0.01376     +0.02068      0.33637   -0.02
+POINT multnull_z_0 -0.02057
+       1   0   0    119837    -0.00623     +0.05829      0.43986   -0.15
+POINT multnull_z_1 -0.14669
+       0   1   0     59918    +0.15415     +0.01190      0.33907    0.42
+POINT multnull_z_2 0.41953
+       1   1   0     29960    -0.46174     +0.06086      0.44825   -1.17
+POINT multnull_z_3 -1.16587
+       0   0   1     39945    +0.09170     +0.04102      0.38411    0.13
+POINT multnull_z_4 0.13195
+       1   0   1     19973    -0.21246     +0.06370      0.48218   -0.57
+POINT multnull_z_5 -0.57273
+       0   1   1      9987    +0.43997     +0.01167      0.41757    1.03
+POINT multnull_z_6 1.02569
+       1   1   1      4993    -1.70728     +0.03422      0.50217   -3.47
+POINT multnull_z_7 -3.46791
+SCALES 1
+
+C2  is mu inside the multiplicative ensemble?
+  real largest |z| 3.47 at class 7; the draws' own largest run 0.34 to 3.57,
+  and 1 of 32 reach it
+TSTAT multnull_maxz 3.47
+SPREAD multnull_maxz 0.75407
+  C2 hold   (cap: at least one draw)
+
+C3  is this null the stronger one?
+  ensemble spread at class 7 is 0.50217 against the iid coin's 0.5646,
+  a factor of 0.89
+POINT multnull_spreadratio 0.88943
+  C3 REFUTED   (cap: 3 times)
+
+C4  is the ensemble centred?
+  furthest from zero at class 3, at 0.77 of its own standard error
+  C4 hold   (cap: two standard errors)
+
+======================================================================
+C1 hold  C2 hold  C3 REFUTED  C4 hold
+
+the escape was the null's weakness, not mu's strength. A random
+multiplicative sign function shows the same class structure, so what
+rem:cnclass measured is what multiplicativity plus the coprimality
+constraint at 105 | N produce, and not something particular to mu.
+Six routes closed and the seventh escaped only a control weaker than
+the object it was controlling.

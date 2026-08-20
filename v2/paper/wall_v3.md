@@ -1548,6 +1548,58 @@ the unresolved case — the wording of B4's rule was amended after the
 run to say so, disclosed in the script, with the cap and the verdict
 unchanged.
 
+#### Remark (a multiplicative null, and three things it showed that were not the question) {#rem:cnmultnull}
+<!-- evidence: audit_cn_multnull.py -->
+
+Every control in this branch had been iid signs on $\mu$'s support,
+which is a weak null for a multiplicative function. The natural one
+keeps the structure and changes the values: $f(p)=\pm1$ iid,
+$f(m)=\prod_{p\mid m}f(p)$ on squarefree $m$, zero otherwise, so
+$|f|=\mu^2$ exactly and $f$ is multiplicative exactly as $\mu$ is.
+Anything the escape owes to multiplicativity plus the coprimality
+constraint at $105\mid N$, this ensemble has too.
+
+| $3\mid N$ | $5\mid N$ | $7\mid N$ | mean $G$ | ensemble mean | ensemble sd | $z$ |
+|---|---|---|---|---|---|---|
+| — | — | — | $+0.01376$ | $+0.02068$ | $0.33637$ | $-0.02$ |
+| 3 | 5 | — | $-0.46174$ | $+0.06086$ | $0.44825$ | $-1.17$ |
+| — | 5 | 7 | $+0.43997$ | $+0.01167$ | $0.41757$ | $1.03$ |
+| **3** | **5** | **7** | $-1.70728$ | $+0.03422$ | $0.50217$ | $-3.47$ |
+
+**C2 held by one draw of thirty-two.** The real arm's largest $|z|$ is
+$3.47$; the draws' own largest run $0.34$ to $3.57$, and exactly one
+reaches it. The pre-registration said a C2 that holds by one draw is
+not the same as one that holds by twenty and that the count would be
+reported, so: $\mu$ sits at about the $97$th percentile of this
+ensemble, inside it and near the edge.
+
+**C3 broke and the direction is the interesting part.** The
+multiplicative ensemble's spread at $105\mid N$ is $0.50217$ against
+the iid coin's $0.5646$ — a factor of $0.89$, *smaller*, where three
+times larger was predicted. Making the null multiplicative did not
+make it harder to escape. The two nulls behave almost identically on
+this statistic.
+
+**And the reading written in advance for "C2 holds" was wrong.** It
+said a random multiplicative sign function "shows the same class
+structure". It does not: the ensemble's class means are $+0.012$ to
+$+0.064$, flat and at zero, and C4 confirms it is centred. What the
+ensemble has is width, not structure — it covers $\mu$ by wandering,
+not by going where $\mu$ goes. The error was assuming that a null
+which covers a point must do so by reproducing what makes the point
+extreme. That sentence stands in
+`results/audit_cn_multnull.txt` as written and is superseded here.
+
+**What this run did not test is the escape itself.** [rem:cnclass]'s
+$z=9.01$ was on the *second* moment $E[G^2]$; the first moment was
+already marginal there, holding by $3.20$ against a coin ceiling of
+$3.17$, and that remark said so and said to read it as untested. This
+script compared class *means* only. So it has re-run the marginal
+comparison against a second null and found it still marginal, and has
+left the $9.01$ untouched. That is a shortfall in the design and not
+a finding, and the second-moment comparison against this ensemble is
+the measurement that should have been made.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 
