@@ -4078,6 +4078,83 @@ def g76_reads_match_their_source():
     return n
 
 
+# ----------------------------------------------------------------- G77
+M9TRIG = re.compile(r"REFUTED[^.\n]*(standard error|\|t\|\s*[<>=]"
+                    r"|two standard|below two)", re.I)
+M9NAMED = re.compile(r"unresolved|too noisy|cannot tell|not resolved"
+                     r"|fails to resolve|noisy to tell|is not zero",
+                     re.I)
+# 검사 이전에 쓰인 것들. 줄어들기만 한다 -- 목록에 있는데 더 이상
+# 방아쇠에 안 걸리거나 이미 경우를 명시했으면 그것도 실패다.
+M9GRANDFATHER = {
+    "audit_budget_gap.py", "audit_deficit_direct.py",
+    "audit_lean_extended.py", "audit_lean_floor.py",
+    "audit_lean_identity.py", "audit_level_magnitude.py",
+    "audit_level_slope_reach.py", "audit_level_threshold.py",
+    "audit_logweight_predictor.py", "audit_oddmertens_range.py",
+    "audit_predictable_null.py", "audit_primorial_rung16.py",
+    "audit_primorial_rung18.py", "audit_provable_forecast.py",
+    "audit_provable_share.py", "audit_residue_coin_rank.py",
+    "audit_sieve_depth.py", "audit_signed_gain.py",
+    "audit_split_value.py", "audit_survivor_range.py",
+}
+
+
+def _refutation_block(src):
+    m = re.search(r"REFUTATION RULE(.*?)"
+                  r"(?:\n\s*(?:NO NULL|THE NULL|A NULL)|\n\"\"\")",
+                  src, re.S)
+    return m.group(1) if m else None
+
+
+def g77_resolution_rules_name_the_unresolved():
+    """해소로 판정하는 반증 규칙은 '미해소'를 경우로 지목해야 한다.
+
+    M9 는 README 규칙인데 같은 오류를 세 번 못 막았다 --
+    {#rem:thetalaw} 의 U4, {#rem:alphalocal} 의 Z4, 그리고
+    {#rem:deficitshape} 의 B5 이고, 마지막은 두 번째를 기록한 바로 그
+    세션이 냈다. 안 무는 규칙은 규칙이 아니라 희망이다.
+
+    방아쇠는 좁다: 표준오차나 t 로 판정하는 REFUTED 절. 그런 절은 언제나
+    "너무 시끄러워 못 본다"로 깨질 수 있고, 블록이 그걸 한 번도 말하지
+    않으면 조건이 갖지 않은 사건을 지목하고 있는 것이다.
+
+    스무 스크립트가 검사보다 먼저 쓰였다. G16 이 체 해시를, G17 이 타이핑된
+    문턱을 명단으로 두는 것과 같이 명단에 둔다 -- 재계산 비용 없이 새
+    작업에만 물리고, 세 번의 실패가 전부 새 작업에서 났으므로 거기 걸린다.
+    """
+    n = 0
+    seen = set()
+    for f in sorted(os.listdir(CODE)):
+        if not f.endswith(".py"):
+            continue
+        blk = _refutation_block(read(os.path.join(CODE, f)))
+        if blk is None:
+            continue
+        trig = bool(M9TRIG.search(blk))
+        named = bool(M9NAMED.search(blk))
+        if f in M9GRANDFATHER:
+            seen.add(f)
+            if not trig or named:
+                fails.append(
+                    f"G77 code/{f} is on the grandfather list and no "
+                    f"longer needs to be; the list may only shrink")
+                n += 1
+            continue
+        if trig and not named:
+            fails.append(
+                f"G77 code/{f} judges a refutation by a standard "
+                f"error or a t and never names the unresolved case; "
+                f"'too noisy to tell' is always one way that "
+                f"condition fails (M9)")
+            n += 1
+    for f in sorted(M9GRANDFATHER - seen):
+        fails.append(f"G77 audit list names code/{f}, which is not in "
+                     f"code/; the list is stale")
+        n += 1
+    return n
+
+
 def main():
     docs = [(p, read(p)) for p in paper_files()]
     print("gate")
@@ -4220,6 +4297,8 @@ def main():
          g75_tolerances_follow_the_printing_they_judge()),
         ("G76 declared reads match their source",
          g76_reads_match_their_source()),
+        ("G77 resolution rules name the unresolved case",
+         g77_resolution_rules_name_the_unresolved()),
     ]
     print()
     for name, c in counts:
