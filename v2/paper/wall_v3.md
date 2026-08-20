@@ -1082,6 +1082,67 @@ enough to forecast two octaves out of sample; it has no floor this
 design can see, and it reaches the coin's own noise at $b\approx25$,
 which is where this instrument stops.
 
+#### Remark (the control does shrink, and it does not help) {#rem:cnskew}
+<!-- evidence: audit_cn_skew.py -->
+
+[rem:cnkurtlimit] closed the kurtosis route by finding its floor: the
+coin's draw-to-draw spread in excess kurtosis does not shrink with $N$
+— it is set by the field's correlation across $N$, not by sample size
+— while the real signal decays like $N^{-0.73}$, so the two meet at
+$b\approx25$ and more $N$ cannot separate them. What was needed next
+was not more $N$ but a statistic whose control *does* shrink.
+
+The skewness was the named candidate, and there is a structural reason
+it should behave differently: sending $\varepsilon\to-\varepsilon$
+sends $G_{\text{coin}}\to-G_{\text{coin}}$, and skewness is odd, so the
+coin's skewness distribution is exactly symmetric about zero — its
+centre is a construction, not a measurement. S5 confirms the
+instrument: over seven octaves the coin's mean skewness is never more
+than $1.46$ of its own standard error from zero.
+
+**The reasoning was right and the conclusion is negative.**
+
+| $b$ | real skew | coin sd | $z$ |
+|---|---|---|---|
+| $17$ | $-0.47174$ | $0.03691$ | $-12.73$ |
+| $19$ | $-0.21666$ | $0.05067$ | $-4.28$ |
+| $21$ | $-0.09094$ | $0.03870$ | $-2.49$ |
+| $23$ | $-0.03244$ | $0.02489$ | $-1.20$ |
+
+The asymmetry is negative at every octave, so [rem:cnlaw]'s heavier
+left tail is a property of $C$ and not of its band. **And the control
+shrinks** (S3): the coin's skew spread goes like $N^{-0.1198}$,
+resolved at $t=-2.32$, against a kurtosis spread that was flat. That
+is exactly the property the kurtosis lacked.
+
+**It buys nothing** (S4). The signal shrinks like $N^{-0.6367}$, five
+times faster than the control, and $|z|$ falls from $12.73$ to $1.20$
+across the seven octaves, a slope resolved at $t=-4.68$. S2 breaks
+with it: the separation is already below $3$ at $b=21$ and gone by
+$b=23$. **The skewness closes earlier than the kurtosis did**, at
+$N\sim10^7$ rather than $3\cdot10^7$, despite having the better
+control. The pre-registration wrote this case out in advance — a
+control that shrinks with a signal that shrinks faster is the same
+wall in a different place — and that is where it landed.
+
+Two cases are not a law, but they are the same shape twice, and it is
+worth stating as the thing to test rather than leaving implicit: in
+both, $G$'s departure from Gaussianity decays like $N^{-0.6}$ to
+$N^{-0.7}$ while the coin ensemble's own fluctuation in the same
+statistic decays like $N^{-0.12}$ or not at all. **If that is general,
+no standardised moment of $G$ separates $\mu$ from a coin
+asymptotically, and the finite-$N$ separations this branch measured
+are all of them.**
+
+What follows is a change of object rather than of statistic. Every
+quantity in this branch so far is a functional of the *marginal*
+collection $\{G(N)\}$, and the coin matches those because it has
+$\mu$'s support and independent signs, which is enough for a marginal.
+What it does not have is $\mu$'s multiplicative structure linking
+different $N$ — $G(N)$ against $G(2N)$, or against $G(N')$ with the
+same radical. Those are correlations of the field, not moments of its
+margin, and nothing here has measured one.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 
