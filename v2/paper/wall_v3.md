@@ -4754,6 +4754,13 @@ went into naming M2's unresolved case *before* the fact, which is
 where the previous three failures had been, and the defect moved to
 the gate instead.
 
+*Reading withdrawn.* A blind, pre-registered control at a radical this
+branch had never used finds five bases sharing one radical disagreeing
+beyond their own errors, at a chi-square of 14.233 against a cap of 9.49.
+The drift is therefore not a function of the radical, and this remark read it
+from one base per radical. **Its numbers stand and the reading built on
+them does not.** See [rem:radicalblind].
+
 #### Remark (which primes, not how many) {#rem:radicallaw}
 <!-- evidence: audit_radical_law.py -->
 
@@ -4813,6 +4820,13 @@ primes' contributions do not combine by any rule measured here.
 [rem:shapepower] applies to a law in the primes exactly as it does to
 one in $\log N$, and none is claimed.
 
+*Reading withdrawn.* A blind, pre-registered control at a radical this
+branch had never used finds five bases sharing one radical disagreeing
+beyond their own errors, at a chi-square of 14.233 against a cap of 9.49.
+The drift is therefore not a function of the radical, and this remark read it
+from one base per radical. **Its numbers stand and the reading built on
+them does not.** See [rem:radicalblind].
+
 #### Remark (three is the whole of it, and there is no decay) {#rem:primecontrib}
 <!-- evidence: audit_prime_contrib.py -->
 
@@ -4867,6 +4881,13 @@ prime and is flat-to-ragged afterwards is not a function anyone here
 can extrapolate, and [rem:shapepower] applies to it as to the rest.
 The design cannot separate $p$ from the base's own size or its
 $2$-adic valuation, one base per prime being all it has.
+
+*Reading withdrawn.* A blind, pre-registered control at a radical this
+branch had never used finds five bases sharing one radical disagreeing
+beyond their own errors, at a chi-square of 14.233 against a cap of 9.49.
+The drift is therefore not a function of the radical, and this remark read it
+from one base per radical. **Its numbers stand and the reading built on
+them does not.** See [rem:radicalblind].
 
 #### Remark (the control this branch never ran, and the clause that barred it) {#rem:basecontrol}
 <!-- evidence: audit_base_control.py -->
@@ -4925,6 +4946,67 @@ nine bases, and is still not *established* by a pre-registered one.
 numbers and their readings remain uncontrolled until a run registers
 the $\chi^2$ test in advance — on a radical none of these used, so
 that it is blind as well as correct.
+
+#### Remark (the control, blind and registered, and it fails) {#rem:radicalblind}
+<!-- evidence: audit_radical_blind.py -->
+
+[rem:basecontrol] ran the control this branch had never run and then
+could not claim it: its clause fired on an error from the other
+radical group, and the statistic that answered the question was chosen
+after the numbers were on the page. It named the fix — **register the
+$\chi^2$ in advance and run it on radicals none of these used.** Two
+fresh ones here, five bases each, $2$-adic valuation spanning $1$ to
+$11$, with base $20736$ riding along as the gate (Q1, exact).
+
+| $\{2,19\}$, $v_2$ | $1$ | $2$ | $6$ | $10$ | $11$ |
+|---|---|---|---|---|---|
+| drift | $.066885$ | $.069391$ | $.106752$ | $.104068$ | $.098167$ |
+
+| $\{2,3,7\}$, $v_2$ | $1$ | $2$ | $4$ | $8$ | $10$ |
+|---|---|---|---|---|---|
+| drift | $.249138$ | $.249852$ | $.251525$ | $.253167$ | $.248982$ |
+
+**Q2 is refuted at $\chi^2=14.233$ against a cap of $9.49$, and it is
+the outcome its own rule named as the most expensive this branch can
+produce.** Five bases sharing the radical $\{2,19\}$ disagree beyond
+their own errors. **So the drift is not a function of the radical**,
+and [rem:whichfloor], [rem:radicallaw] and [rem:primecontrib] each
+measured a quantity that moves with the base. **Their numbers stand
+and their readings are withdrawn**, as registered — including "the
+deficit carries the radical", "which primes, not how many", and the
+contribution function $f(p)$ itself, every one of which was read off
+one base per radical.
+
+**Q3 holds and makes the failure sharper, not softer.** The
+$\{2,3,7\}$ bases give $\chi^2=2.688$ with errors five times smaller,
+and that test could have detected a base scatter of $0.002093$ — while
+the effect visible in $\{2,19\}$ runs across $0.040$. So the same
+design finds base dependence at one radical and excludes anything a
+twentieth its size at another. The two groups disagree about whether
+the base matters, and this run does not say why.
+
+**What it moves along is not established.** Regressed on $v_2$ the
+$\{2,19\}$ drifts give $+0.003599\pm0.001334$, $t=+2.70$; on $\log$
+base, $t=+0.64$. But a base of fixed size cannot raise $v_2$ without
+lowering the odd primes' valuations, and the two are correlated at
+$-0.993884$ in $\{2,19\}$ and $-0.996116$ in $\{2,3,7\}$ — `COEFF NOT
+SEPARABLE` on both. **The $v_2$ slope names a direction, not a cause.
+Q2 establishes that the bases disagree, not what they disagree
+along.**
+
+**Q4 holds at $t=+33.89$** — the two radicals sit at $+0.088453$ and
+$+0.250223$ — so radicals are not irrelevant either. Both things are
+true at once: the radical moves the drift by a great deal, and within
+one radical the base moves it by more than the errors allow.
+
+**Where this leaves the branch.** Six ticks of radical structure
+reduce to two controlled statements: the drift differs enormously
+between radicals, and it is not determined by the radical alone. Every
+functional reading built on top — the count-versus-primes question,
+$f(p)$, the sub-additivity, item 5's distance carrying the radical —
+rests on a variable now known to be incomplete. The honest next step
+is a design that varies $v_2$ and $v_p$ independently, which requires
+bases of different sizes and therefore a control for size as well.
 
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->

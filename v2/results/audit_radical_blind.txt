@@ -1,0 +1,121 @@
+STATISTIC: the drift of log(|sum a|/l2) against log N for five
+           bases on each of two radicals never used in this
+           branch, their chi-square against one constant per
+           radical, and the smallest base scatter that test
+           could have detected.
+FIELD: base * 2^j for j < 10; bases [13718, 19456, 23104, 27436, 38912] on {2,19} and [15876, 16128, 21168, 21504, 23814] on {2,3,7},
+       spanning 2-adic valuation 1 to 11. Base 20736 rides along as
+       the gate. k over the squarefree k < N^0.56 coprime to N;
+       j over every index below N. The gate drift is READ from
+       results/audit_base_control.txt.
+
+READ audit_base_control.txt 20736 0.213528
+  the ten-N drift rem:basecontrol published for the gate base
+PRINTBOUND audit_radical_blind 6 0.0000005000
+  theta 0.56, chi-square cap 9.49 on 4 degrees, |t| cap 3.0
+RADICALS 2
+sieving to 19922944
+
+Q1  the gate
+  base 20736  here +0.213528 against its +0.213528  ok
+  Q1 hold   (cap: 6 decimals)
+
+radical {2,19}
+  base 13718  v2 1   drift +0.066885 +- 0.010186
+POINT blinddrift_13718 0.066885
+SPREAD blinddrift_13718 0.010186
+  base 19456  v2 10  drift +0.104068 +- 0.011117
+POINT blinddrift_19456 0.104068
+SPREAD blinddrift_19456 0.011117
+  base 23104  v2 6   drift +0.106752 +- 0.009716
+POINT blinddrift_23104 0.106752
+SPREAD blinddrift_23104 0.009716
+  base 27436  v2 2   drift +0.069391 +- 0.010154
+POINT blinddrift_27436 0.069391
+SPREAD blinddrift_27436 0.010154
+  base 38912  v2 11  drift +0.098167 +- 0.011573
+POINT blinddrift_38912 0.098167
+SPREAD blinddrift_38912 0.011573
+
+radical {2,3,7}
+  base 15876  v2 2   drift +0.249852 +- 0.001695
+POINT blinddrift_15876 0.249852
+SPREAD blinddrift_15876 0.001695
+  base 16128  v2 8   drift +0.253167 +- 0.002318
+POINT blinddrift_16128 0.253167
+SPREAD blinddrift_16128 0.002318
+  base 21168  v2 4   drift +0.251525 +- 0.002435
+POINT blinddrift_21168 0.251525
+SPREAD blinddrift_21168 0.002435
+  base 21504  v2 10  drift +0.248982 +- 0.001959
+POINT blinddrift_21504 0.248982
+SPREAD blinddrift_21504 0.001959
+  base 23814  v2 1   drift +0.249138 +- 0.001858
+POINT blinddrift_23814 0.249138
+SPREAD blinddrift_23814 0.001858
+SCALES 100
+
+Q2  are the {2,19} bases one constant?
+  weighted mean +0.088453 +- 0.004689
+  chi-square 14.233 on 4 degrees, cap 9.49
+POINT blindchi_2_19 14.232684
+  smallest base scatter this test could detect: 0.010986
+POINT blinddetect_2_19 0.010986
+  Q2 REFUTED   (cap: 9.49)
+    drift on v2        slope +0.003599 +- 0.001334, t +2.70
+TSTAT blindonv2_2_19 2.70
+SPREAD blindonv2_2_19 0.001334
+    drift on log base  slope +0.017173 +- 0.027044, t +0.64
+TSTAT blindonlogbase_2_19 0.64
+SPREAD blindonlogbase_2_19 0.027044
+
+Q3  are the {2,3,7} bases one constant?
+  weighted mean +0.250223 +- 0.000893
+  chi-square 2.688 on 4 degrees, cap 9.49
+POINT blindchi_2_3_7 2.688194
+  smallest base scatter this test could detect: 0.002093
+POINT blinddetect_2_3_7 0.002093
+  Q3 hold   (cap: 9.49)
+  a failure to reject, not a proof: base dependence below 0.002093
+  is not excluded, as the rule says
+
+Q4  are the two fresh radicals apart?
+  {2,19} +0.088453, {2,3,7} +0.250223
+  difference +0.161770 +- 0.004773, t +33.89
+TSTAT blindgap 33.89
+SPREAD blindgap 0.004773
+  Q4 hold   (cap: |t| above 3.0)
+
+  a diagnostic, after the verdicts and predicted by nothing
+  a base of fixed size cannot raise v2 without lowering the odd primes'
+  valuations, so any v2 slope here is not separable from a v_p one.
+    {2,19}
+      base 13718  v2 1   odd 19^3
+      base 19456  v2 10  odd 19^1
+      base 23104  v2 6   odd 19^2
+      base 27436  v2 2   odd 19^3
+      base 38912  v2 11  odd 19^1
+      corr(v2, total odd valuation) -0.993884
+CORR blindvalu_2_19_regressors 0.993884
+COEFF NOT SEPARABLE blindvalu_2_19
+    {2,3,7}
+      base 15876  v2 2   odd 3^4, 7^2
+      base 16128  v2 8   odd 3^2, 7^1
+      base 21168  v2 4   odd 3^3, 7^2
+      base 21504  v2 10  odd 3^1, 7^1
+      base 23814  v2 1   odd 3^5, 7^2
+      corr(v2, total odd valuation) -0.996116
+CORR blindvalu_2_3_7_regressors 0.996116
+COEFF NOT SEPARABLE blindvalu_2_3_7
+  so the v2 slope printed for {2,19} names a direction and not a cause;
+  what Q2 establishes is that the bases disagree, not what they disagree
+  along
+
+======================================================================
+Q1 hold  Q2 REFUTED  Q3 hold  Q4 hold
+
+bases sharing one radical disagree beyond their own errors. the drift
+is not a function of the radical, and rem:whichfloor, rem:radicallaw
+and rem:primecontrib each measured a quantity that moves with the
+base -- their numbers stand and their readings are withdrawn. what it
+moves with is reported above.
