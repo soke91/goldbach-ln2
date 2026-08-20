@@ -1935,6 +1935,54 @@ rising with $N$ is a trend across six points that nothing here tests
 as a trend; it is printed because it points the other way from the
 block's extrapolation, not because this run measured a slope.
 
+#### Remark (the one that survives, and it survives for a reason that can be written down) {#rem:identitydeep}
+<!-- evidence: audit_directidentity_deep.py -->
+
+[rem:coinsurface] left three blocks outside the $C(N)$ branch standing
+on eight draws; one was a false hit and [rem:decaydeep] and
+[rem:decaysweep] took the second, both halves of which failed a random
+multiplicative ensemble. This is the third and last, and it goes the
+other way.
+
+| null | $N=200000$ | $N=400000$ | $N=800000$ |
+|---|---|---|---|
+| iid, smallest of $512$ | $4.8387$ | $5.2286$ | $5.5530$ |
+| multiplicative, smallest of $512$ | $1.9149$ | $2.0030$ | $2.1084$ |
+| multiplicative, median | $4.2771$ | $4.5269$ | $4.7875$ |
+| $\mu$ | $1.0039$ | $0.9865$ | $0.9893$ |
+
+**Neither ensemble reaches $\mu$: $0$ of $512$ in both** (L2 holds, L3
+REFUTED). The gate is exact — $|T-R|/R$ comes out $6.752\cdot10^{-15}$
+and the three published ratios reproduce to four decimals (L1).
+
+**And the two nulls are not the same, which is where the content is.**
+Writing $v=N-i$, the statistic is
+$T=\sum_v\Lambda(N-v)\,s(v)\sum_{k\mid v,\,k\ge2}\log k\;s(k)$, and a
+random multiplicative $f$ has a cancellation an iid draw has none of:
+$\sum_{d\mid n}f(d)=\prod_{p\mid n}(1+f(p))$ vanishes as soon as one
+$f(p)=-1$. That cancellation is worth a factor of about two and a half
+— it takes the best draw from $4.8387$ down to $1.9149$ (L4) — and it
+is not worth the rest. Only $\mu$ has
+$\sum_{k\mid v}\mu(k)\log k=-\Lambda(v)$, which collapses $T$ to $R$
+exactly.
+
+So there are three tiers and each is explained: independent signs give
+about five, multiplicative signs about two at best, the Möbius
+identity gives one. **This is the only thing in this repository that a
+resolved multiplicative ensemble has failed to reach**, and every
+other block [rem:coinsurface] named has now been tested.
+
+Two things keep it in proportion. **The survival is not evidence of
+hidden structure** — the identity is a theorem, so of course no other
+sign function has it; what this run adds is the size of the gap that
+the identity is responsible for, which was not known and is not
+small. And the bound is the smallest ratio seen and not zero: $1.9149$
+at the smallest $N$, one seed per ensemble, $512$ draws, and three of
+the five $N$ that block publishes. L4 holds but not by much at the
+smaller $N$ — the gap of $2.9238$ against a multiplicative spread of
+$2.0400$ is a factor of $1.43$, which is a direction rather than a
+measurement, as its rule said in advance.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 

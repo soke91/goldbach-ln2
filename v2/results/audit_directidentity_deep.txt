@@ -1,0 +1,99 @@
+STATISTIC: the untruncated sum
+           T = sum_k (log k) s(k) A_s(N;k) over every squarefree
+           k with 2 <= k < N, as the ratio |T|/(S(N)N), for mu
+           and for two ensembles of 512 sign patterns -- iid on
+           supp(mu^2), and random multiplicative with f(m) the
+           product of f(p) over p | m on squarefree m; and mu's
+           |T-R|/R, which the Moebius identity makes zero.
+FIELD: N = [200000, 400000, 800000]; k over every squarefree 2 <= k < N; S(N) from
+       the twin product with the odd prime factors of N, at the
+       fixed bound 4000000. Field, k-range, S(N) and the twin
+       constant are taken unchanged from
+       code/audit_directidentity_null.py so the numbers are
+       comparable. mu's published ratios are READ from
+       results/audit_directidentity_null.txt and re-measured here
+       as the gate. The two largest N of that file are not run.
+SEED: the draws come from numpy default_rng at seed 20260906; without
+      it the file does not reproduce its own control.
+
+READ audit_directidentity_null.txt 200000 1.0039
+READ audit_directidentity_null.txt 400000 0.9865
+READ audit_directidentity_null.txt 800000 0.9893
+  mu's T/(S(N)N) at the three N, read from that file
+PRINTBOUND audit_directidentity_deep 4 0.00005000
+  512 draws of each null, in 8 passes of 64
+sieving to 800000
+  twin constant 1.320324, 63951 primes to 800000
+  N = 200000    #k = 121580    S = 1.760432  R/N = 1.7673
+  N = 400000    #k = 243164    S = 1.760432  R/N = 1.7366
+  N = 800000    #k = 486341    S = 1.760432  R/N = 1.7416
+
+L1  does this construction reproduce both published quantities?
+  N = 200000    |T-R|/R 6.752e-15   T/(S N) here 1.0039 against its 1.0039  ok
+  N = 400000    |T-R|/R 1.324e-14   T/(S N) here 0.9865 against its 0.9865  ok
+  N = 800000    |T-R|/R 3.676e-15   T/(S N) here 0.9893 against its 0.9893  ok
+  L1 hold   (cap: 1e-12 on the identity, 4 decimals on the ratio)
+  iid pass 1 of 8, 64 draws
+  iid pass 2 of 8, 128 draws
+  iid pass 3 of 8, 192 draws
+  iid pass 4 of 8, 256 draws
+  iid pass 5 of 8, 320 draws
+  iid pass 6 of 8, 384 draws
+  iid pass 7 of 8, 448 draws
+  iid pass 8 of 8, 512 draws
+  multiplicative pass 1 of 8, 64 draws
+  multiplicative pass 2 of 8, 128 draws
+  multiplicative pass 3 of 8, 192 draws
+  multiplicative pass 4 of 8, 256 draws
+  multiplicative pass 5 of 8, 320 draws
+  multiplicative pass 6 of 8, 384 draws
+  multiplicative pass 7 of 8, 448 draws
+  multiplicative pass 8 of 8, 512 draws
+
+      null              N        mu    draw min   draw median    draws reaching mu
+      iid                200000  1.0039     4.8387       5.0124               0
+POINT identdeep_iid_200000 4.83867
+      iid                400000  0.9865     5.2286       5.3308               0
+POINT identdeep_iid_400000 5.22859
+      iid                800000  0.9893     5.5530       5.6297               0
+POINT identdeep_iid_800000 5.55305
+      multiplicative     200000  1.0039     1.9149       4.2771               0
+POINT identdeep_mult_200000 1.91489
+      multiplicative     400000  0.9865     2.0030       4.5269               0
+POINT identdeep_mult_400000 2.00297
+      multiplicative     800000  0.9893     2.1084       4.7875               0
+POINT identdeep_mult_800000 2.10836
+SCALES 3
+
+L2  does the published claim survive depth?
+  iid draws reaching mu: 0, 0, 0 of 512 at each N
+COUNT identdeep_iid_reach 0
+  L2 hold   (cap: none at any N)
+
+L3  does the multiplicative null close it?
+  multiplicative draws reaching mu: 0, 0, 0 of 512 at each N
+COUNT identdeep_mult_reach 0
+  the smallest ratio any multiplicative draw reached: 1.9149, 2.0030, 2.1084
+  L3 REFUTED   (cap: at least one at every N)
+
+L4  which ensemble goes lower?
+  N = 200000    multiplicative min 1.9149, iid min 4.8387, gap +2.9238
+  their spreads are 2.0400 and 0.0445, so a gap below about 2.0400 is
+  not resolved by this design
+  N = 400000    multiplicative min 2.0030, iid min 5.2286, gap +3.2256
+  their spreads are 2.1980 and 0.0365, so a gap below about 2.1980 is
+  not resolved by this design
+  N = 800000    multiplicative min 2.1084, iid min 5.5530, gap +3.4447
+  their spreads are 2.3376 and 0.0286, so a gap below about 2.3376 is
+  not resolved by this design
+  L4 hold   (cap: multiplicative lower at every N)
+
+======================================================================
+L1 hold  L2 hold  L3 REFUTED  L4 hold
+
+the identity separation survives the right null. It is the only
+thing in this repository that a random multiplicative ensemble has
+failed to reach, and the mechanism is named: no sign function but mu
+has sum_{k|v} s(k) log k = -Lambda(v). One seed and 512 draws; the
+smallest ratio any draw achieved is printed above as the bound this
+run gives, and another seed is owed before it is leaned on.
