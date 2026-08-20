@@ -5589,6 +5589,64 @@ available. That is worth the run: a tempting reduction is closed
 rather than left as an unexamined hope, and the closing is by a
 pre-registered test that named its own failure mode before it fired.
 
+#### Remark (the correction is not a product over the primes of d) {#rem:weightshape}
+<!-- evidence: audit_weight_shape.py -->
+
+[rem:residuemodel] left a pattern: the weights miss the model
+$w_{\text{mod}}(d)=(1/\varphi(d))(1-d/D)/(1-1/D)$ by about ten per
+cent for prime $d$ and about a third for composite. Writing
+$c(d)=w(d)/w_{\text{mod}}(d)$, this run asks whether $c$ is a product
+over the primes dividing $d$ — a test with no free parameters, since
+the $\omega=1$ values determine every other. The test set was fixed
+before the run: every squarefree $d\le50$ coprime to $N$.
+
+**DD2 is refuted, and the failure is systematic rather than
+scattered:**
+
+| $d$ | $c(d)$ | $\prod_{p\mid d}c(p)$ | per cent |
+|---|---|---|---|
+| $21=3\cdot7$ | $+0.658776$ | $+0.793053$ | $-16.93$ |
+| $33=3\cdot11$ | $+0.664015$ | $+0.798162$ | $-16.81$ |
+| $39=3\cdot13$ | $+0.656835$ | $+0.793825$ | $-17.26$ |
+
+Three two-prime $d$, all short of the product by $16.8$ to $17.3$ per
+cent — a spread of $0.45$ points. **So the correction is not a product
+over the primes, and what it is instead is not scattered noise.** This
+run measures that and proposes nothing: a factor fitted to three
+points would be a law drawn from three points, and this branch has
+made that mistake before.
+
+**DD3 is refuted, narrowly, and $c(p)$ is not flat either.** The
+spread is $0.053187$ against a cap of $0.05$, and the values are not
+random about their mean of $0.886295$ — they rise from $0.8780$ at
+$p=3$ to $0.9090$ at $p=11$ and fall monotonically to $0.8559$ at
+$p=47$.
+
+**DD4 is refuted and could not have tested what it was for.** Its
+ratios run $1.3964$, $1.4461$, $1.4707$, $1.4356$, $1.3780$,
+$1.4267$, $1.4767$ and — **at the very $N$ where $c(p)$ was fitted** —
+$1.4754$. A test of transport that fails identically at its own
+fitting point has not measured transport. The cause is in the
+construction: $c(p)$ exists only for $p\le50$, the fixed test set, so
+every $d$ with a larger prime factor was corrected by $1$ where the
+measured corrections sit near $0.886$. **The verdict stands as
+written and the defect is the test's**, one more in this branch's list
+of rules no outcome could pass.
+
+**And what DD4 does show, read for what it is, is the opposite of its
+verdict.** The eight ratios span $0.0987$ about a mean of $1.4382$ —
+nearly constant across two decades. **The correction transports; the
+level is uniformly wrong** for the reason above.
+
+**So this run's closing sentence overstates.** It fires on DD2 and
+says the weights carry structure no multiplicative model expresses.
+What is refuted is *this* multiplicative form, a product over the
+primes of $d$; a systematic $-17$ per cent at every $\omega=2$ is
+exactly what a model with an $\omega$-dependent factor would produce,
+and such a model is not tested here. **The shape of $w$ remains
+undescribed, and nothing here revives the reduction
+[rem:residuemodel] closed.**
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

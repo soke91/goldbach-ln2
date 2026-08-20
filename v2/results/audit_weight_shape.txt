@@ -1,0 +1,118 @@
+STATISTIC: the correction c(d) = w(d) / w_model(d) of the Type II
+           weights, tested for multiplicativity over the primes
+           dividing d, and the corrected model's residue out of
+           sample.
+FIELD: N = [25000, 50000, 100000, 200000, 400000, 800000, 1600000, 3200000]; d over the squarefree d <= D coprime to N; the
+       multiplicativity test set is every squarefree d <= 50
+       coprime to N, fixed before the run. A at N = 200000 is READ
+       from results/audit_mainterm_removal.txt.
+MODEL: w_model(d) = (1/phi(d))(1-d/D)/(1-1/D), the model
+       rem:residuemodel refuted as a whole; c is measured against
+       it and nothing here revives it.
+
+READ audit_mainterm_removal.txt 200000 1.40933816458843928e+06
+PRINTBOUND audit_weight_shape 17 0.00000000000000000500
+  theta 0.56, test d <= 50, mult 10 per cent, spread 0.05,
+  out-of-sample factor 1.2, noise threshold 0.0010 of w(3)
+sieving to 3200000
+  N = 25000     D = 86    residue +0.125739
+  N = 50000     D = 117   residue +0.097964
+  N = 100000    D = 158   residue +0.078006
+  N = 200000    D = 215   residue +0.063374
+  N = 400000    D = 291   residue +0.052798
+  N = 800000    D = 395   residue +0.040359
+  N = 1600000   D = 536   residue +0.029912
+  N = 3200000   D = 728   residue +0.023066
+SCALES 8
+
+DD1  the gate
+  A here 1.40933816458843928e+06
+    its 1.40933816458843928e+06   relative 0.00e+00
+  DD1 hold   (cap: 1e-12 relative)
+
+  the correction at N = 3200000, on the fixed test set
+      d  omega   |w(d)|      c(d)
+      3    1   0.437803   +0.878021
+POINT corr_3 0.878021
+      7    1   0.149296   +0.903228
+POINT corr_7 0.903228
+     11    1   0.089654   +0.909047
+POINT corr_11 0.909047
+     13    1   0.074099   +0.904107
+POINT corr_13 0.904107
+     17    1   0.055303   +0.904762
+POINT corr_17 0.904762
+     19    1   0.048597   +0.896963
+POINT corr_19 0.896963
+     21    2   0.053388   +0.658776
+POINT corr_21 0.658776
+     23    1   0.039106   +0.887176
+POINT corr_23 0.887176
+     29    1   0.030628   +0.891944
+POINT corr_29 0.891944
+     31    1   0.028345   +0.886946
+POINT corr_31 0.886946
+     33    2   0.031739   +0.664015
+POINT corr_33 0.664015
+     37    1   0.022854   +0.865595
+POINT corr_37 0.865595
+     39    2   0.025938   +0.656835
+POINT corr_39 0.656835
+     41    1   0.020579   +0.871091
+POINT corr_41 0.871091
+     43    1   0.019452   +0.867092
+POINT corr_43 0.867092
+     47    1   0.017428   +0.855860
+POINT corr_47 0.855860
+
+DD2  is the correction multiplicative?
+  the noise threshold is 0.00043780, a thousandth of |w(3)|
+      d   factors        c(d)      product     per cent
+     21   3*7          +0.658776  +0.793053    -16.93  OUT
+POINT mult_21 -16.9316
+     33   3*11         +0.664015  +0.798162    -16.81  OUT
+POINT mult_33 -16.8070
+     39   3*13         +0.656835  +0.793825    -17.26  OUT
+POINT mult_39 -17.2570
+  DD2 REFUTED   (cap: 10 per cent on the d above the threshold)
+
+DD3  are the single-prime corrections near a constant?
+  c(p) for p = [3, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
+       0.8780 0.9032 0.9090 0.9041 0.9048 0.8970 0.8872 0.8919 0.8869 0.8656 0.8711 0.8671 0.8559
+  spread 0.053187, mean 0.886295
+POINT primspread 0.053187
+  DD3 REFUTED   (cap: 0.05)
+
+DD4  out of sample: the corrected model at the other N
+      N          measured     corrected     factor
+  25000      +0.125739    +0.175582      1.3964  OUT
+POINT oos_25000 1.396392
+  50000      +0.097964    +0.141665      1.4461  OUT
+POINT oos_50000 1.446098
+  100000     +0.078006    +0.114727      1.4707  OUT
+POINT oos_100000 1.470737
+  200000     +0.063374    +0.090977      1.4356  OUT
+POINT oos_200000 1.435569
+  400000     +0.052798    +0.072753      1.3780  OUT
+POINT oos_400000 1.377952
+  800000     +0.040359    +0.057578      1.4267  OUT
+POINT oos_800000 1.426656
+  1600000    +0.029912    +0.044170      1.4767  OUT
+POINT oos_1600000 1.476669
+  3200000    +0.023066    +0.034033      1.4754  fitted
+POINT oos_3200000 1.475434
+  DD4 REFUTED   (cap: factor 1.2 at the seven not fitted)
+  the eight factors span 0.0987 about a mean of 1.4382
+POINT oosspan 0.098717
+POINT oosmean 1.438188
+  a span that small across two decades is a level that is uniformly
+  wrong, not a correction that fails to transport; c(p) exists only for
+  p <= 50 so every d with a larger prime factor was corrected by 1
+
+======================================================================
+DD1 hold  DD2 REFUTED  DD3 REFUTED  DD4 REFUTED
+
+the correction is not a function of the primes dividing d one at a
+time. the weights carry structure no multiplicative model expresses,
+which is more than the previous run's failure said and is the outcome
+that says the most.
