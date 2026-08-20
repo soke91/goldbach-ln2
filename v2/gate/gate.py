@@ -4173,6 +4173,123 @@ def g77_resolution_rules_name_the_unresolved():
     return n
 
 
+
+# ----------------------------------------------------------------- G78
+PINCONST = re.compile(r"^([A-Z][A-Z0-9_]*)\s*=\s*(.+?)\s*(?:#.*)?$", re.M)
+PINNUM = re.compile(r"-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?")
+PINSKIP = ("BLOCK", "CHUNK", "WIDTH", "DEC", "DIGITS", "PREC")
+PINPATH = ("OUT", "ROOT", "RES", "RESULTS", "CODE", "VERIFY")
+PINGRANDFATHER = {
+    ("code/audit_beta_optimal.py", "SWEEP"),
+    ("code/audit_cR_window.py", "OCT"),
+    ("code/audit_deficit_direct.py", "SEED"),
+    ("code/audit_deficit_shape.py", "SEED"),
+    ("code/audit_flatness_shape.py", "UMAX"),
+    ("code/audit_floor_law.py", "HALF"),
+    ("code/audit_ladder_shape.py", "UMAX"),
+    ("code/audit_ladder_shape12.py", "UMAX"),
+    ("code/audit_mask_deepform.py", "WIN"),
+    ("code/audit_mask_formreach.py", "WIN"),
+    ("code/audit_mask_rivals.py", "WIN"),
+    ("code/audit_provable_uniformity.py", "OCT"),
+    ("code/audit_residue_arithmetic.py", "SEED"),
+    ("code/audit_residue_coin_rank.py", "OCT"),
+    ("code/audit_residue_kexponent.py", "OCT"),
+    ("code/audit_residue_kexponent.py", "SEED"),
+    ("code/audit_shape_trust.py", "UMAX"),
+    ("code/audit_weightgap_null.py", "JS"),
+    ("code/audit_weightgap_pairing.py", "JS"),
+    ("code/lab_elementary_provable.py", "OCT"),
+    ("code/lab_elementary_provable.py", "SEED"),
+    ("code/lab_primorial_ladder.py", "SEED"),
+    ("code/lab_primorial_share.py", "SEED"),
+    ("code/lab_residue_cancellation.py", "OCT"),
+}
+
+
+def _pin_consts(src):
+    body = src.split('"""', 2)[-1] if src.count('"""') >= 2 else src
+    out = {}
+    for m in PINCONST.finditer(body):
+        name, rhs = m.group(1), m.group(2)
+        if name in PINPATH or any(w in name for w in PINSKIP):
+            continue
+        if rhs.startswith(("os.", 'r"', "r'", '"', "'", "re.")):
+            continue
+        if "(" in rhs and not rhs.startswith(("(", "[")):
+            continue
+        toks = PINNUM.findall(rhs)
+        if not toks or len(toks) > 24:
+            continue
+        if re.search(r"[A-Za-z_]", re.sub(r"[eE]", "", rhs)):
+            continue
+        out[name] = [float(t) for t in toks]
+    return out
+
+
+def _pin_present(v, nums):
+    s = ("%r" % v).rstrip("0").rstrip(".")
+    d = len(s.split(".")[1]) if "." in s else 0
+    tol = 0.5 * 10.0 ** (-d)
+    return any(abs(v - x) <= tol for x in nums)
+
+
+def _pin_result(p):
+    if VERIFY in p:
+        return os.path.join(os.path.dirname(os.path.dirname(p)),
+                            "results",
+                            os.path.basename(p)[:-3] + ".txt")
+    return os.path.join(RESULTS, os.path.basename(p)[:-3] + ".txt")
+
+
+def g78_constants_reach_their_result():
+    """결과 파일은 홀로 서야 한다 -- G4 가 이미 그렇게 정했다.
+
+    G4 는 STATISTIC: 과 FIELD: 줄의 **존재**만 본다. 마당을 이름 없이
+    부르는 FIELD: 는 아무것도 고정하지 않는다. verify/pass2 와 pass3 가
+    다른 트리의 스탬프 둘에서 같은 결함을 찾았다 -- 수는 옳은데 인쇄된
+    것으로 재구성되지 않는다. 하나는 격자가, 하나는 셀 색인과 소수
+    범위가 없었다.
+
+    같은 기준을 여기 안 대는 건 앞뒤가 안 맞아서 audit_field_pinned.py
+    로 쟀고, 154 짝 중 22 에 구멍이 있었다. 그중 일곱은 SEED 다 --
+    np.random.default_rng(SEED) 를 모는 상수가 자기 결과 파일에 없다.
+    씨앗이 안 적힌 널은 그 파일만으로 재현되지 않는다.
+
+    규칙: 스크립트가 모듈 수준에 고정한 수치 상수는 자기 결과 파일
+    어딘가에 나타나야 한다. 값이 우연히 맞을 수 있으므로 이 검사는
+    한쪽으로만 유효하다 -- 걸린 것은 구멍이고, 통과한 것은 증명이 아니다.
+
+    BLOCK·CHUNK(타일링)와 WIDTH·DEC·DIGITS·PREC(인쇄)는 수를 못 바꾸므로
+    이름으로 뺀다. SEED 는 일부러 안 뺀다.
+
+    검사 이전의 것들은 G16·G17·G77 처럼 명단에 둔다. **명단은 줄기만
+    한다** -- 새로 넣으려면 그 스크립트를 고쳐 다시 돌리는 쪽이 싸다.
+    """
+    n = 0
+    for p in py_files(CODE) + py_files(VERIFY):
+        rel = os.path.relpath(p, ROOT).replace(os.sep, "/")
+        r = _pin_result(p)
+        if not os.path.exists(r):
+            continue
+        cons = _pin_consts(read(p))
+        if not cons:
+            continue
+        nums = [float(t) for t in PINNUM.findall(read(r))]
+        for name, vals in sorted(cons.items()):
+            if (rel, name) in PINGRANDFATHER:
+                continue
+            gone = [v for v in vals if not _pin_present(v, nums)]
+            if gone:
+                fails.append(
+                    f"G78 {rel} fixes {name} = "
+                    f"{', '.join('%g' % v for v in gone)} and no such "
+                    f"number is in {os.path.basename(r)}; a result "
+                    f"file has to carry the field it was run on")
+                n += 1
+    return n
+
+
 def main():
     docs = [(p, read(p)) for p in paper_files()]
     print("gate")
@@ -4317,6 +4434,8 @@ def main():
          g76_reads_match_their_source()),
         ("G77 resolution rules name the unresolved case",
          g77_resolution_rules_name_the_unresolved()),
+        ("G78 constants reach their result file",
+         g78_constants_reach_their_result()),
     ]
     print()
     for name, c in counts:

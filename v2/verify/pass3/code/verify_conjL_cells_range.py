@@ -165,6 +165,7 @@ def main():
         "interval is" % PUB_POOLED)
     say("  [%.2f, %.2f]" % (LO, HI))
     say("PRINTBOUND verify_conjL_cells_range 5 0.000005")
+    say("  a cell is viable at %d surviving pairs" % VIABLE)
     say()
     say("     p <=   primes   mean support   pooled ratio   cells in "
         "[%.2f,%.2f]" % (LO, HI))

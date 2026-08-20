@@ -23,6 +23,7 @@ the same grid, the prime range varied
   the published pooled ratio is 0.99781 and the stamp's interval is
   [0.99, 1.06]
 PRINTBOUND verify_conjL_cells_range 5 0.000005
+  a cell is viable at 100 surviving pairs
 
      p <=   primes   mean support   pooled ratio   cells in [0.99,1.06]
       250       52          44.34        0.99701          9 of 13

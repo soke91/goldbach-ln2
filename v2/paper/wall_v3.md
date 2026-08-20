@@ -520,6 +520,57 @@ property of how the stamps were published, and it is the reason
 what has been cited. The remaining two stamps are still cited only.
 
 
+#### Remark (the same question turned on this repository, and it does not pass) {#rem:fieldpinned}
+<!-- evidence: audit_field_pinned.py -->
+
+[rem:maskstamp] and [rem:cellstamp] found the same defect in two of
+[conj:L]'s stamps: the number is right as far as anything here could
+tell, and cannot be rebuilt from what was printed. Recording that
+about another tree and not asking it here would be incoherent, so it
+was asked. The test is one-sided and stated that way before the run: a
+script fixes its field in module-level constants, and if a constant's
+value appears nowhere in that script's own result file, a reader
+holding only the file cannot rebuild the run. A match may be
+coincidence; only an absence carries information.
+
+Of $154$ script–result pairs, $132$ are clean and $22$ are not, $24$
+absences in all — so the discipline mostly holds (F1, F2). **But F3
+was pre-registered as "no absence is a field bound", and it is
+REFUTED**, fifteen times:
+
+| what is missing | files |
+|---|---|
+| `SEED` | $7$ |
+| `UMAX = 400` | $4$ |
+| `WIN = 0.95` | $3$ |
+| `SWEEP = 0.1` | $1$ |
+
+The seed is the one that matters. In all seven it drives
+`np.random.default_rng(SEED)` — the null, the bootstrap, the
+permutation — and a null whose seed is unrecorded is not reproducible
+from the file that reports it. That is not a lesser version of what
+[rem:cellstamp] recorded about the exact-cells stamp; it is the same
+thing, and this repository's own G4, which requires every result file
+to open with `STATISTIC:` and `FIELD:`, had already decided that a
+result file must stand alone.
+
+G4 only checks that the line is present. A `FIELD:` line that names no
+numbers pins nothing, so **G78 now checks that the constants reach the
+file**, with the $24$ existing absences carried on a list that may
+only shrink — the same device G16, G17 and G77 use. The debt is now
+visible in the gate rather than in a document, which is the only place
+this repository keeps anything.
+
+Two limits, both real. The census reads constants written as
+`NAME = value` and misses tuple assignments like
+`NN, NK, PMAX = 401, 1000, 2000`, so the true count is higher than
+$24$ and the clean share is optimistic. And the bound family is a list
+of name fragments fixed before the run, so it can miss a bound named
+something else and can flag a constant that is cosmetic in its own
+script — which is why every absence is printed by file and name, to
+be read rather than counted.
+
+
 Conjecture [conj:L] is *stronger* than the chain needs: E1
 requires only square-root cancellation on average. What is missing is
 therefore not knowledge of the structure — the mask is an algorithm
