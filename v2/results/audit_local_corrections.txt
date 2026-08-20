@@ -1,0 +1,96 @@
+STATISTIC: the weight corrections c(p) and kappa fitted at each N
+           separately, the corrected model's residue with the
+           local constants, and how those constants move with N.
+FIELD: N = [25000, 50000, 100000, 200000, 400000, 800000, 1600000, 3200000]; d over the squarefree d <= D coprime to N, with
+       D = floor((N-1)/K), K = floor(N^0.56). c(p) is measured
+       for every prime in the range at every N. A at N = 200000 is
+       READ from results/audit_mainterm_removal.txt.
+MODEL: w_model(d) = (1/phi(d))(1-d/D)/(1-1/D) corrected by
+       prod_{p|d} c(p) times kappa^(omega-1), the description
+       rem:omegafactor gave; nothing here revives the reduction
+       rem:residuemodel closed.
+
+READ audit_mainterm_removal.txt 200000 1.40933816458843928e+06
+PRINTBOUND audit_local_corrections 17 0.00000000000000000500
+  theta 0.56, local factor 1.05, kappa range 0.02, |t| 3.0,
+  noise 0.0010 of |w(3)|
+sieving to 3200000
+  N = 25000     D = 86    kappa 0.777537 +- 0.034522 on 7   d   local factor 1.022997
+POINT localkappa_25000 0.777537
+SPREAD localkappa_25000 0.034522
+POINT localfactor_25000 1.022997
+  N = 50000     D = 117   kappa 0.796595 +- 0.026043 on 10  d   local factor 1.042679
+POINT localkappa_50000 0.796595
+SPREAD localkappa_50000 0.026043
+POINT localfactor_50000 1.042679
+  N = 100000    D = 158   kappa 0.823724 +- 0.021539 on 17  d   local factor 1.072761
+POINT localkappa_100000 0.823724
+SPREAD localkappa_100000 0.021539
+POINT localfactor_100000 1.072761
+  N = 200000    D = 215   kappa 0.778907 +- 0.011562 on 22  d   local factor 0.939555
+POINT localkappa_200000 0.778907
+SPREAD localkappa_200000 0.011562
+POINT localfactor_200000 0.939555
+  N = 400000    D = 291   kappa 0.823122 +- 0.008209 on 32  d   local factor 1.043540
+    d = D = 291 contributes w = +0.00001449 where the model gives exactly 0;
+    it is excluded from the c fits and the corrected model drops it
+POINT atD_400000 0.00001449
+POINT localkappa_400000 0.823122
+SPREAD localkappa_400000 0.008209
+POINT localfactor_400000 1.043540
+  N = 800000    D = 395   kappa 0.823711 +- 0.005872 on 43  d   local factor 1.064871
+POINT localkappa_800000 0.823711
+SPREAD localkappa_800000 0.005872
+POINT localfactor_800000 1.064871
+  N = 1600000   D = 536   kappa 0.830650 +- 0.003897 on 56  d   local factor 1.067229
+POINT localkappa_1600000 0.830650
+SPREAD localkappa_1600000 0.003897
+POINT localfactor_1600000 1.067229
+  N = 3200000   D = 728   kappa 0.832904 +- 0.002960 on 73  d   local factor 1.044800
+POINT localkappa_3200000 0.832904
+SPREAD localkappa_3200000 0.002960
+POINT localfactor_3200000 1.044800
+SCALES 8
+
+FF1  the gate
+  A here 1.40933816458843928e+06
+    its 1.40933816458843928e+06   relative 0.00e+00
+  FF1 hold   (cap: 1e-12 relative)
+
+FF2  is the local model right at every N?
+  N = 25000     factor 1.022997   ok
+  N = 50000     factor 1.042679   ok
+  N = 100000    factor 1.072761   OUT
+  N = 200000    factor 0.939555   OUT
+  N = 400000    factor 1.043540   ok
+  N = 800000    factor 1.064871   OUT
+  N = 1600000   factor 1.067229   OUT
+  N = 3200000   factor 1.044800   ok
+  FF2 REFUTED   (cap: 1.05 at every N)
+
+FF3  do the constants move?
+  kappa 0.7775 0.7966 0.8237 0.7789 0.8231 0.8237 0.8307 0.8329
+  range 0.055367, largest standard error 0.034522
+POINT kapparange 0.055367
+  FF3 hold   (cap: above 0.02)
+
+FF4  does kappa move smoothly?
+  slope +0.010340 +- 0.003562, t +2.90
+TSTAT localkappa_slope 2.90
+SPREAD localkappa_slope 0.003562
+  FF4 REFUTED   (cap: |t| above 3.0)
+
+  and the same for the three largest c(p), for the record
+    c(3)  0.9325 0.9235 0.9171 0.9009 0.8933 0.8878 0.8844 0.8780   slope -0.011551 +- 0.000876, t -13.19
+POINT cslope_3 -0.011551
+    c(7)  0.9279 0.9230 0.9175 0.9147 0.9128 0.9036 0.9063 0.9032   slope -0.005152 +- 0.000543, t -9.49
+POINT cslope_7 -0.005152
+    c(11)  0.9114 0.9223 0.9224 0.9087 0.9121 0.9147 0.9110 0.9090   slope -0.001589 +- 0.001154, t -1.38
+POINT cslope_11 -0.001589
+
+======================================================================
+FF1 hold  FF2 REFUTED  FF3 hold  FF4 REFUTED
+
+locally fitted constants do not absorb it. the model is incomplete in
+a way no coefficient can carry, so what rem:omegafactor described is a
+description of w near the N it was fitted at and not at every N.

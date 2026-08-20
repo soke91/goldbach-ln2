@@ -5704,6 +5704,64 @@ description of the weights and not a bound on anything, and
 [rem:residuemodel]'s closure of the reduction to an elementary Möbius
 sum stands untouched.
 
+#### Remark (the corrections drift, most for the smallest primes) {#rem:localcorrections}
+<!-- evidence: audit_local_corrections.py -->
+
+[rem:omegafactor] left the weight model right in shape and wrong in
+transport, and asked what shape the convergence has. The shape of a
+symptom is the wrong thing to fit when the cause is one step away: the
+constants were measured at one $N$ and used at seven others, so the
+question is whether $c(p)$ and $\kappa$ are themselves functions of
+$N$. Fitting them locally at every $N$ answers it.
+
+**They are, and decisively for the smallest primes.**
+
+| | values across the eight $N$ | slope | $t$ |
+|---|---|---|---|
+| $c(3)$ | $0.9325\to0.8780$ | $-0.011551\pm0.000876$ | $\mathbf{-13.19}$ |
+| $c(7)$ | | $-0.005152\pm0.000543$ | $-9.49$ |
+| $c(11)$ | | $-0.001589\pm0.001154$ | $-1.38$ |
+| $\kappa$ | $0.7775\to0.8329$ | $+0.010340\pm0.003562$ | $+2.90$ |
+
+**FF3 holds** — $\kappa$'s range is $0.055367$ against a largest
+standard error of $0.034522$, so the unresolved clause does not fire
+and the movement is real. **FF4 is refuted**, at $t=+2.90$ against a
+cap of $3$: $\kappa$ moves without a trend resolved at this bar, and
+no direction may be read into it. The $c(p)$ carry no such doubt, and
+their drifts fall away with $p$ — the correction moves fastest where
+the prime is smallest.
+
+**FF2 is refuted, and by how much matters.** The local factors are
+$1.0230$, $1.0427$, $1.0728$, $0.9396$, $1.0435$, $1.0649$, $1.0672$,
+$1.0448$, four of them outside the $1.05$ cap. But
+[rem:omegafactor]'s transported factors ran to $1.2853$: **local
+constants absorb most of the failure, from $28$ per cent down to $7$,
+and not all of it.** The registered reading — that the model is
+incomplete in a way locally fitted coefficients cannot absorb — stands
+as written, and the size of what is left is $7$ per cent rather than
+the $28$ it started from. The residual is not a systematic offset
+either: $N=200000$ comes in *below* one at $0.9396$ while the rest sit
+above.
+
+**A crash was fixed before any verdict existed, and it is a fact about
+the model.** The first execution divided by zero at $N=400000$, where
+$D=291=3\cdot97$ is squarefree and coprime to $N$ so $d=D$
+contributes — and the model's taper $(1-d/D)$ is exactly zero there.
+At $N=200000$ it did not arise because $D=215=5\cdot43$ shares a
+factor with $N$. **The model predicts $w(D)=0$ exactly and the
+measurement gives $+0.00001449$**, so $c(D)$ is not a ratio that
+exists; $d=D$ is excluded from the fits and its weight is printed
+rather than papered over.
+
+**What this leaves.** The description is $w=(1/\varphi(d))$ times a
+taper, times $\prod_{p\mid d}c(p,N)$, times $\kappa(N)^{\omega-1}$ —
+with the constants now known to move, most at $p=3$. Reading them
+locally accounts for three quarters of the transport failure and not
+the rest, so the question has moved to those constants **and has not
+been answered by moving it**: that is progress only if they are
+simpler than what they replace, and nothing here claims they are.
+[rem:residuemodel]'s closure stands.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 
