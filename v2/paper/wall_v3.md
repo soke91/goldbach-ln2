@@ -1143,6 +1143,60 @@ different $N$ — $G(N)$ against $G(2N)$, or against $G(N')$ with the
 same radical. Those are correlations of the field, not moments of its
 margin, and nothing here has measured one.
 
+#### Remark (the coin reproduces the two-point function too, and the test was the wrong kind) {#rem:cnshift}
+<!-- evidence: audit_cn_shiftcorr.py -->
+
+[rem:cnskew] closed the second marginal statistic and named what
+should replace it: every quantity measured in this branch is a
+functional of the marginal collection $\{G(N)\}$, and the coin has
+$\mu$'s support and independent signs, which is all a marginal needs.
+What the coin lacks is $\mu$'s structure linking different $N$. The
+shift correlation
+$\rho(h)=\operatorname{mean}_N G(N)G(N+h)$ is the natural place to
+look, and for a reason: averaging the coin over its signs kills every
+off-diagonal $\mu(v)\mu(w)$ term, leaving the diagonal
+$\sum_v\mu^2(v)\Lambda(N-v)\Lambda(N+h-v)$ exactly. **The off-diagonal
+is where $\mu$'s own correlations live.**
+
+They do not show. Over $32$ even shifts $h=2\ldots64$ at $b=23$, the
+real arm's largest $|z|$ against the coin ensemble is $2.23$, while
+the coin draws' own largest — each scored leave-one-out against the
+other $31$ — run from $0.73$ to $4.86$, and **four of the $32$ draws
+reach or exceed the real arm's value** (T2 refuted). At $b=21$ the
+same comparison gives $1.56$ against a coin range of $0.74$ to $3.72$.
+The real field sits inside its control at both octaves.
+
+T3 held — the largest $|z|$ rose from $1.56$ to $2.23$ — and holding
+inside a refuted frame carries no information: the coin's own range
+rose with it, from a ceiling of $3.72$ to $4.86$. It is recorded as
+held because that is what was registered, and read as nothing.
+
+**T4 broke, and it says why.** The coin's spread in $\rho(h)$ falls by
+a factor of $1.3608$ between the two octaves, where four times as many
+$N$ would give $2$ if the spread were sample-limited. It is not: like
+the excess kurtosis, this control is set by the field's correlation
+across $N$, not by how many $N$ are averaged. So even had the real arm
+escaped, the escape would not have widened with $N$.
+
+That is three routes closed, and together they say something sharper
+than any of them alone. **What the coin reproduces is not merely the
+margin.** It has $\mu^2$ — the support — and the shift correlation is
+dominated by a diagonal that $\mu^2$ fixes completely; the actual
+signs contribute nothing that rises above the control's own
+fluctuation at these ranges. [lem:coin]'s reach is wider than it was
+stated for.
+
+**And the test asked the wrong question.** [rem:cnskew] named
+$G(N)$ against $G(2N)$, and against $G(N')$ of the same radical —
+*multiplicative* relations, because $\mu$ is multiplicative and
+$\mu(2v)$ is tied to $\mu(v)$. What was measured here is the
+*additive* two-point function, $N$ against $N+h$. The diagonal that
+the coin fixes is exactly the additive overlap of two $\Lambda$-shifts,
+so an additive test was always the one the coin was best placed to
+survive. Nothing here bears on the multiplicative question, which
+remains as [rem:cnskew] left it, and the gap between what that remark
+named and what this one ran is the author's and is recorded as such.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 
