@@ -1,0 +1,104 @@
+STATISTIC: the dilation correlation rho(d) = mean over even N in
+           one band of G(N) G(dN), for d = (2, 3, 4, 5, 6, 7, 8, 9),
+           against an ensemble of 32 sign patterns on mu's
+           support, compared by the largest |z| over dilations
+           with each coin draw scored leave-one-out against the
+           rest, so the comparison is one max-statistic.
+FIELD: even N in (2^20, 2^21], and the dilates dN for those d,
+       so the largest index touched is 18874368; Lambda and mu are
+       sieved once to 33554432 and both convolutions taken by FFT
+       over the whole range. The gate re-measures band b = 23's
+       excess kurtosis against rem:cnkurt's own value.
+SEED: the coin draws from numpy default_rng at seed 20260825; without
+      it the file does not reproduce its own control.
+
+READ audit_cn_kurt_drift.txt POINT cnkurt_23 0.07411
+  the band this run has to reproduce, read from that file
+PRINTBOUND audit_cn_dilation 3 0.00050000
+  8 dilations, 32 fresh sign patterns
+sieving to 33554432, which is 2^25
+  transform length 134217728
+
+U1  does this run reproduce the band it shares?
+  b = 23 excess kurtosis: here 0.07411 against its 0.07411
+  U1 hold   (cap: 3 decimals)
+
+  even N in (2^20, 2^21], 524288 of them
+        d     rho real     coin mean      coin sd       z
+        2    +0.013500    +0.004225     0.071876     0.13
+POINT dilrho_2 0.013500
+POINT dilcoin_2 0.004225
+        3    -0.017365    +0.001189     0.027303    -0.68
+POINT dilrho_3 -0.017365
+POINT dilcoin_3 0.001189
+        4    +0.014312    +0.035083     0.064520    -0.32
+POINT dilrho_4 0.014312
+POINT dilcoin_4 0.035083
+        5    +0.026438    +0.009111     0.061814     0.28
+POINT dilrho_5 0.026438
+POINT dilcoin_5 0.009111
+        6    +0.024507    +0.008493     0.022194     0.72
+POINT dilrho_6 0.024507
+POINT dilcoin_6 0.008493
+        7    +0.044295    +0.030564     0.062769     0.22
+POINT dilrho_7 0.044295
+POINT dilcoin_7 0.030564
+        8    +0.031325    +0.017044     0.050352     0.28
+POINT dilrho_8 0.031325
+POINT dilcoin_8 0.017044
+        9    +0.006493    -0.006715     0.025239     0.52
+POINT dilrho_9 0.006493
+POINT dilcoin_9 -0.006715
+SCALES 1
+POINT dilmaxz 0.72157
+
+U2  does the dilated field escape the coin?
+  real largest |z| 0.72 at d = 6; the coin draws' own largest run
+  0.80 to 3.98, and 32 of 32 reach it
+TSTAT dilation_maxz 0.72
+SPREAD dilation_maxz 0.72007
+  U2 REFUTED   (cap: none of them)
+
+U3  is it at d = 2?
+  the largest |z| is at d = 6
+  U3 REFUTED   (cap: d = 2)
+  U2 failed, so U3 is not evidence for anything and is recorded only
+
+U4  does the control behave like the overlap it is?
+  coin means +0.004225, +0.001189, +0.035083, +0.009111, +0.008493, +0.030564, +0.017044, -0.006715
+  positive at every d: NO; falling at every step: NO
+  U4 REFUTED   (cap: positive and monotone)
+
+  NOT PRE-REGISTERED, reported because U4 is an instrument
+  check and a failed check needs its power stated. No cap
+  above is changed.
+        d   coin mean   its s.e.   |mean|/s.e.
+        2  +0.004225   0.012706         0.33
+        3  +0.001189   0.004827         0.25
+        4  +0.035083   0.011406         3.08
+        5  +0.009111   0.010927         0.83
+        6  +0.008493   0.003923         2.16
+        7  +0.030564   0.011096         2.75
+        8  +0.017044   0.008901         1.91
+        9  -0.006715   0.004462         1.51
+  3 of 8 coin means are resolved away from zero at two
+  standard errors, and the one negative mean is 1.51 of its own
+  So U4 asked whether eight numbers are positive and ordered
+  when 5 of them are not distinguishable from zero. The
+  check had no power, and its failure is not evidence that
+  rho(d) is other than the overlap -- it is evidence that
+  32 draws cannot say. U2 does not depend on this: it scores
+  each draw leave-one-out against the rest, so it is
+  self-calibrating whatever rho(d) is.
+SPREAD dilcoinmean_se 0.008531
+
+======================================================================
+U1 hold  U2 REFUTED  U3 REFUTED  U4 REFUTED
+
+four routes closed, and the fourth was the one the algebra most
+favoured. mu's multiplicativity is in the field by construction --
+mu(2v) = -mu(v) for v odd -- and it does not raise the dilation
+correlation above what independent signs on the same support give.
+So the coin's agreement with C(N) at these ranges is not an artefact
+of which statistics were chosen. That is a stronger negative than
+any of the three before it.

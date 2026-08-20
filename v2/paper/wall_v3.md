@@ -1197,6 +1197,65 @@ survive. Nothing here bears on the multiplicative question, which
 remains as [rem:cnskew] left it, and the gap between what that remark
 named and what this one ran is the author's and is recorded as such.
 
+#### Remark (the multiplicative question, asked properly, closes too) {#rem:cndilation}
+<!-- evidence: audit_cn_dilation.py -->
+
+[rem:cnshift] recorded that it had asked the wrong question: the
+additive two-point function is the one the coin is best placed to
+survive, because the diagonal the coin fixes exactly *is* the additive
+overlap of two $\Lambda$-shifts. What [rem:cnskew] had named was
+multiplicative — $G(N)$ against $G(dN)$ — because $\mu$ is
+multiplicative and the coin's $\varepsilon$ links nothing to anything.
+This is that question, with
+$\rho(d)=\operatorname{mean}_N G(N)G(dN)$ over even $N$ in
+$(2^{20},2^{21}]$ and $d=2,\ldots,9$.
+
+The algebra says the structure is there. Among the off-diagonal
+$\mu(v)\mu(w)$ terms are the pairs $w=dv$, and at $d=2$ they are
+exact: $\mu(2v)=-\mu(v)$ for $v$ odd, $0$ for $v$ even. The coin has
+zero of that by construction. What the algebra does not say is
+whether it is visible after normalisation and averaging, and it is
+not.
+
+**U2 broke, and it broke the wrong way round.** The real arm's largest
+$|z|$ over the eight dilations is $0.72$, at $d=6$. Each coin draw's
+own largest, scored leave-one-out against the other $31$, runs from
+$0.80$ to $3.98$ — **all $32$ of them exceed the real arm's.** The
+field is not merely inside its control; it is further inside than
+every draw of the control. U3 broke with it ($d=6$, not $2$) and is
+recorded without being read, since a location means nothing once the
+escape is absent.
+
+That is four routes closed, and this one was the route the algebra
+most favoured. The pre-registration wrote down what that would mean
+before the run: **the coin's agreement with $C(N)$ at these ranges is
+not an artefact of which statistics were chosen.** Marginal third
+moment, marginal fourth moment, additive two-point, multiplicative
+two-point — every one is reproduced by independent signs on $\mu$'s
+support.
+
+U4 was an instrument check and it broke, so its power is reported
+rather than left implicit. It asked whether the coin's mean $\rho(d)$
+is positive at every $d$ and falling; the means run $+0.004225$ to
+$+0.035083$ with one negative at $-0.006715$, against standard errors
+of $0.003923$ to $0.012706$. **Only three of the eight are resolved
+away from zero at all**, and the negative one is $1.51$ of its own
+standard error. The check asked whether eight numbers are ordered when
+five of them are not distinguishable from zero; its failure is
+evidence that $32$ draws cannot say, not that $\rho(d)$ is other than
+the overlap. U2 does not rest on it — scoring each draw leave-one-out
+against the rest is self-calibrating whatever $\rho(d)$ is.
+
+What this does **not** say. It does not say $\mu$ is a coin, and it
+does not license the coin as a model in any proof. It says that at
+$N\sim10^6$, across these four families of statistic, no measurement
+in this repository distinguishes $C(N)$ from a field with $\mu$'s
+support and independent signs. The distinguishing structure exists —
+$\mu(2v)=-\mu(v)$ is not a conjecture — and the finding is that it
+does not surface in these quantities at this size. [lem:coin]'s reach
+is wider than it was stated for, and the demand-side measurement
+programme on $C(N)$ has met a wall that more $N$ does not move.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 
