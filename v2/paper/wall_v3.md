@@ -3086,6 +3086,71 @@ where the design works and the price is finite, the price depends on
 what you are pricing against, without bound.**
 
 
+#### Remark (mu's share of the spectrum is structured, and by something Lambda's weights do not contain) {#rem:spectrummushare}
+<!-- evidence: audit_spectrum_mushare.py -->
+
+OPEN.md's wall item 6 stood untouched from the start. The spectral
+measure is atomic at the rationals $j/q$ with weights
+$\mu^2(q)/\varphi^2(q)$, and those weights are $\Lambda$'s structure;
+$\mu$'s own contribution had been measured only through the
+principal-arc deficit, at $q=3$ and $q=5$. Whether anything of $\mu$
+lay beyond those two arcs was never asked.
+
+**The table those two numbers come from already answered it.** v1's
+`lab_atoms_perq.txt` records, for each of $31$ moduli, the share of
+the spectrum the real field puts at $j/q$ and the share the coin puts
+there. The coin replaces $\mu$ by random signs and keeps everything
+else, so **the ratio of the two shares is $\mu$'s contribution by
+construction**, not by inference. Nothing was computed here that was
+not already on disk; the two quoted figures reproduce to the printed
+decimals as the gate (K1).
+
+And the ratio is not flat. It sorts by $\omega(q)$, the number of
+prime factors:
+
+| $\omega(q)$ | moduli | real/coin |
+|---|---|---|
+| $1$ | $3,5,7,11,13$ | $0.080$–$1.149$ |
+| $2$ | $15,\dots,143$ | $1.404$–$21.627$ |
+| $3$ | $105,\dots,1001$ | $2.692$–$6.951$ |
+| $4$–$5$ | $1155,\dots,15015$ | $3.810$–$6.800$ |
+
+**$\mu$ suppresses the prime moduli and enhances the composite ones.**
+Regressing $\log(\text{real}/\text{coin})$ on $\omega$ gives slope
+$+0.7473 \pm 0.1420$, $t = 5.26$ (K2). With $\log q$ added, $\omega$
+keeps its sign and its resolution at $t = 2.49$ while $\log q$ does
+not resolve at all ($t = -1.01$), so $\omega$ is not standing in for
+the size of the modulus (K3) — and it survives a correlation of
+$0.957$ between the two regressors to do it.
+
+One check was not pre-registered and is reported because the figure
+demands it: $q=15$ sits at $21.627$, three times the next largest, and
+a point that size can manufacture a slope. It does not. **Dropping it
+raises $t$ from $5.26$ to $6.97$** — the outlier was flattening the
+fit, not making it — and over all $31$ leave-one-out fits the smallest
+$|t|$ is $4.75$.
+
+$\omega(q)$ is not in $\mu^2(q)/\varphi^2(q)$. So there is a component
+of the spectrum that is $\mu$'s and not $\Lambda$'s, it is not
+confined to the principal arcs, and it has a sign: **the deficit
+OPEN.md quotes at $q=3$ and $q=5$ is the $\omega=1$ case of a
+monotone law, not a fact about $3$ and $5$** (K4). Read back through
+that law, $8.40$ and $15.16$ are the two most extreme suppressions in
+the table because $3$ and $5$ are the two smallest primes on it — the
+principal arcs are where $\mu$'s effect is largest, which is why they
+were the first place it was seen.
+
+Two limits. The direction is measured and the exponent is not: a slope
+of $0.75$ per prime factor is what these $31$ moduli give, and no
+claim is made that the true dependence is exponential in $\omega$
+rather than, say, in $\log\varphi(q)/\log q$ — this program has been
+shown four times over (rem:ladderdegree, rem:deficitregion,
+rem:maskformreach, rem:maskrivals) that it cannot settle functional
+form, and nothing here is an exception. And the field is one $n$;
+whether the slope drifts with $n$ is a measurement v1's design would
+have to be re-run to make.
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 

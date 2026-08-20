@@ -1,0 +1,98 @@
+STATISTIC: per modulus q, the ratio of the spectral share
+           the real field puts at j/q to the share the coin
+           puts there -- mu's contribution by construction,
+           since the coin replaces mu by random signs and
+           keeps the rest -- regressed on omega(q) alone and
+           on omega(q) with log q.
+NULL: none is run and none applies. The coin arm is already
+      in the table and is the comparison itself, not a
+      background to detect against; v1 ran it in
+      lab_spectrum_coin_control.py.
+FIELD: the 31 moduli of
+       v1/results/wall/lab_atoms_perq.txt at n = 3873870,
+       with the periodogram and exponential-sum ratios and
+       the real and coin shares v1 recorded. Nothing is
+       measured here; omega(q) is computed by trial
+       division and the two quoted moduli are checked
+       against the 8.399 and 15.163 that OPEN.md's wall
+       item 6 carries.
+
+read 31 moduli from v1/results/wall/lab_atoms_perq.txt; nothing is measured here
+PRINTBOUND audit_spectrum_mushare 3 0.00050000
+
+K1  the control on the two moduli OPEN.md names
+  q = 3 gives 8.399 against v1's published 8.399; q = 5 gives 15.163 against its published 15.163
+  K1 hold   (cap: the three decimals v1 prints)
+
+  the shares, and what mu does to them
+     q  omega   share real   share coin   real/coin
+      3  1      0.0901       0.4123       0.219
+      5  1      0.0162       0.2037       0.080
+      7  1      0.0116       0.0551       0.211
+     11  1      0.0258       0.0617       0.418
+     13  1      0.0502       0.0437       1.149
+     15  2      0.2206       0.0102       21.627
+     21  2      0.0879       0.0339       2.593
+     33  2      0.0560       0.0399       1.404
+     35  2      0.0366       0.0244       1.500
+     39  2      0.0308       0.0127       2.425
+     55  2      0.0296       0.0109       2.716
+     65  2      0.0183       0.0111       1.649
+     77  2      0.0190       0.0095       2.000
+     91  2      0.0156       0.0064       2.437
+    105  3      0.0994       0.0143       6.951
+    143  2      0.0108       0.0050       2.160
+    165  3      0.0349       0.0074       4.716
+    195  3      0.0292       0.0074       3.946
+    231  3      0.0181       0.0042       4.310
+    273  3      0.0139       0.0044       3.159
+    385  3      0.0070       0.0026       2.692
+    429  3      0.0078       0.0027       2.889
+    455  3      0.0064       0.0023       2.783
+    715  3      0.0048       0.0016       3.000
+   1001  3      0.0040       0.0011       3.636
+   1155  4      0.0102       0.0015       6.800
+   1365  4      0.0078       0.0012       6.500
+   2145  4      0.0057       0.0012       4.750
+   3003  4      0.0055       0.0013       4.231
+   5005  4      0.0080       0.0021       3.810
+  15015  5      0.0182       0.0041       4.439
+SCALES 1
+
+K2  does mu's share depend on omega(q)?
+  log(real/coin) on omega: slope +0.7473 +- 0.1420, t = 5.26, r.m.s. 0.7955
+TSTAT mushare_omega 5.26
+SPREAD mushare_omega 4.0000
+SCATTER slope_audit_spectrum_mushare 0.7955
+  K2 hold   (cap: positive and |t| > 2)
+
+K3  is omega standing in for the size of the modulus?
+  with log q added: omega +1.2213 +- 0.4908 (t = 2.49), log q -0.2464 +- 0.2443 (t = -1.01)
+TSTAT mushare_omega_adj 2.49
+SPREAD mushare_omega_adj 4.0000
+CORR mushare_regressors 0.95726
+  r.m.s. 0.7814 against 0.7955 without it
+  K3 hold   (cap: omega positive and resolved with log q in)
+
+  NOT PRE-REGISTERED, reported because honesty needs it:
+  q = 15 sits at 21.627, far above every other modulus, and a single
+  point that size could carry a slope on its own. Leaving each modulus
+  out in turn gives
+  slope t from 4.75 to 6.97 over the 31 leave-one-out fits, and dropping
+  q = 15 alone leaves t = 6.97
+TSTAT mushare_omega_loo_min 4.75
+SPREAD mushare_omega_loo_min 4.0000
+  so the dependence is not one modulus' doing
+
+K4  are the two quoted moduli special?
+  omega(3) = 1 and omega(5) = 1; the omega = 1 group has 5 moduli with
+  real/coin from 0.080 to 1.149
+  K4 hold   (cap: both have omega = 1)
+
+what this settles
+  mu's share is structured, and structured by omega, which mu^2(q)/phi^2(q)
+  does not contain -- so there is something of mu in the spectrum beyond
+  Lambda's weights and beyond the two principal arcs OPEN.md quotes
+
+======================================================================
+K1 hold  K2 hold  K3 hold  K4 hold
