@@ -4553,6 +4553,75 @@ bound.** Nothing here supplies an estimate, nothing says the classical
 bounds are strong enough to decide item 5, and no exponent or forecast
 is measured. [rem:shapepower] and [rem:deficitlog] are untouched.
 
+#### Remark (the sum has two square-root barriers and they differ by a factor of two) {#rem:jbarrier}
+<!-- evidence: audit_jbarrier.py -->
+
+[rem:sieveweight] named the object. Item 5's demand is
+$\lvert\sum a\rvert\lesssim\ell^2$, and $\ell^2$ is a norm **over
+$k$** while $\sum a$ is a sum **over $j$**. One number, two groupings,
+two square-root barriers — and only one had ever been computed:
+$$\ell^2=\Bigl(\sum_k(\log k)^2H(N;k)^2\Bigr)^{1/2},\qquad
+D=\Bigl(\sum_j\Lambda(N-j)^2\Lambda_K(j)^2\Bigr)^{1/2}.$$
+[rem:denominator]'s "already as small as chance allows" is a statement
+about the $k$ grouping; nothing here had said what chance allows in
+the $j$ one.
+
+Nine $N$ over $2.41$ decades, gate reproducing $87895.3236$ and
+$11.9596$ (J1):
+
+| quantity | exponent | s.e. |
+|---|---|---|
+| $\lvert\sum a\rvert$ | $+0.763327$ | $0.009864$ |
+| $\ell^2$ over $k$ | $+0.625318$ | $0.005519$ |
+| $D$ over $j$ | $+0.625057$ | $0.003179$ |
+
+The sum stands above both by the same amount — $+0.138271$ against
+$+0.138010$ (J3) — and above them at every $N$, not on average (J4).
+
+**J2's reading is barred by J2's own rule.** The gap $-0.000261$ sits
+inside the larger individual error $0.005519$, and the rule fixed
+before the run says that in that case neither consequence may be
+drawn. It is not drawn.
+
+**The correction this run then registered failed, and failed
+informatively** (K1). The rule had compared a difference to an error
+bar the difference does not have; refitting $\log(D/\ell^2)$ directly
+gives $-0.000261\pm0.003787$, $t=-0.07$ — unresolved, the same
+verdict — but the error is *above* $D$'s own $0.003179$. **So the two
+fits' errors are not strongly correlated**, which was the premise of
+the correction, and K1 is refuted on that clause. The exponent route
+cannot decide this question and neither of its two statistics does.
+
+**The ratio says what the exponents could not** (K2, K3). $D/\ell^2$
+runs
+
+$$0.5090,\ 0.4959,\ 0.4942,\ 0.4900,\ 0.5106,\ 0.4933,\ 0.4853,\
+0.5114,\ 0.4998$$
+
+— mean $0.498823$, range $5.23$ per cent, flat across the field. **The
+$j$-side barrier is half the $k$-side barrier**, and a flat ratio is a
+stronger statement than equal exponents.
+
+**Its evidential weight is low and the reason is disclosed.** K2 and
+K3 were registered after the first run printed those ratios, so they
+test a reading of data already seen; K3's cap of $0.02$ around a half
+was nearly certain to be met once the range $0.485$–$0.511$ was on the
+page. **They are confirmations, not blind predictions.** No mechanism
+is offered for the constant, as K3's rule requires — the diagonal
+sketch that suggests one gives $6/\pi^2$ in the wrong direction, not
+a half.
+
+**What is suggested and not established.** If $D/\ell^2$ really is a
+constant, then $\ell^2$ is not the wrong floor for a sum indexed by
+$j$ — it is the right floor up to a factor of two, and item 5's demand
+is exactly "achieve square-root cancellation", a named barrier rather
+than a gap between two fitted exponents. This field is consistent with
+that and does not establish it. What would is a second radical family
+and a longer field, on the ratio rather than on the exponents. And
+$D$ is a heuristic floor, not a theorem: it is what the sum would be
+under random signs in $j$, and no lower bound on $\lvert\sum a\rvert$
+follows from measuring it.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

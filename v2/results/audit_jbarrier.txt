@@ -1,0 +1,109 @@
+STATISTIC: the two square-root barriers of one sum -- l2 over the
+           dilations k and D = sqrt(sum_j Lambda(N-j)^2 LK(j)^2)
+           over the indices j -- their exponents, and where
+           |sum a| stands against each.
+FIELD: N = 25000*2^j for j < 9, one radical throughout, 2.41
+       decades; k over the squarefree k < N^0.56 coprime to N, the
+       k-range of code/audit_lean_identity.py; j over every index
+       below N. |sum a| and l1/l2 at N = 200000 are READ from
+       results/audit_deficit_direct.txt and
+       results/audit_lean_identity.txt as the gate.
+
+READ audit_deficit_direct.txt 200000 87895.3236
+READ audit_lean_identity.txt 200000 11.9596
+  |sum a| and l1/l2 at the gate N
+PRINTBOUND audit_jbarrier 4 0.00005000
+  theta 0.56, gap cap 0.03, published deficit 0.134019
+sieving to 6400000
+  N = 25000     |sum a|     16869.66   l2     3438.54   D     1750.12
+POINT jbarrier_25000 1.750116e+03 3.438541e+03
+  N = 50000     |sum a|     28273.59   l2     5450.89   D     2703.24
+POINT jbarrier_50000 2.703245e+03 5.450892e+03
+  N = 100000    |sum a|     49891.72   l2     8634.13   D     4267.35
+POINT jbarrier_100000 4.267348e+03 8.634133e+03
+  N = 200000    |sum a|     87895.32   l2    13476.69   D     6603.10
+POINT jbarrier_200000 6.603103e+03 1.347669e+04
+  N = 400000    |sum a|    158673.36   l2    20106.53   D    10266.70
+POINT jbarrier_400000 1.026670e+04 2.010653e+04
+  N = 800000    |sum a|    260240.32   l2    32093.73   D    15831.14
+POINT jbarrier_800000 1.583114e+04 3.209373e+04
+  N = 1600000   |sum a|    410316.01   l2    49542.26   D    24041.11
+POINT jbarrier_1600000 2.404111e+04 4.954226e+04
+  N = 3200000   |sum a|    674122.42   l2    71736.79   D    36683.25
+POINT jbarrier_3200000 3.668325e+04 7.173679e+04
+  N = 6400000   |sum a|   1162672.59   l2   111409.08   D    55680.58
+POINT jbarrier_6400000 5.568058e+04 1.114091e+05
+SCALES 9
+
+J1  the gate: does this reproduce the published pair?
+  |sum a| here 87895.3236 against its 87895.3236  ok
+  l1/l2   here 11.9596 against its 11.9596  ok
+  J1 hold   (cap: 4 decimals on both)
+
+        quantity        exponent        s.e.
+  |sum a|          +0.763327     0.009864
+  l2 over k        +0.625318     0.005519
+  D over j         +0.625057     0.003179
+TSTAT jbarrier_gap -0.05
+SPREAD jbarrier_gap 0.005519
+
+J2  do the two barriers have the same exponent?
+  e(D) - e(l2) = -0.000261, against the larger error 0.005519
+POINT barriergap -0.000261
+  J2 hold   (cap: 0.03)
+  UNRESOLVED: the gap is inside the larger standard error, so neither
+  reading may be drawn, as the rule says
+
+J3  does the sum stand above both by the same amount?
+  e(|sum a|/D)  = +0.138271
+  e(|sum a|/l2) = +0.138010, published 0.134019
+  difference +0.000261
+POINT abovebarrier 0.138271
+  J3 hold   (cap: positive and within 0.03)
+
+J4  does it stand above them at every N?
+  |sum a| <= D at no N
+  |sum a| <= l2 at no N
+  J4 hold   (cap: every N)
+
+  registered after J2: its rule compared a difference to an
+  error bar the difference does not have, since both fits use the
+  same nine N and their errors are correlated
+
+K1  the statistic J2 should have used
+  slope of log(D/l2) on log N: -0.000261 +- 0.003787, t = -0.07
+  against the individual errors 0.003179 and 0.005519
+TSTAT jbarrier_ratio -0.07
+SPREAD jbarrier_ratio 0.003787
+  K1 REFUTED   (cap: |t| < 2.0 and the smaller error)
+
+K2  is the ratio flat?
+    N            D/l2
+  25000       0.508970
+  50000       0.495927
+  100000      0.494242
+  200000      0.489965
+  400000      0.510615
+  800000      0.493278
+  1600000     0.485265
+  3200000     0.511359
+  6400000     0.499785
+  mean 0.498823, range 5.23 per cent
+POINT ratiomean 0.498823
+SERIES jbarrier_ratio 0.5090 0.4959 0.4942 0.4900 0.5106 0.4933 0.4853 0.5114 0.4998
+FLAT jbarrier_ratio
+  K2 hold   (cap: 10.0 per cent)
+
+K3  is it one half?
+  mean 0.498823 against 0.5, off by -0.001177
+  K3 hold   (cap: 0.02)
+  no mechanism is offered for this constant; it is measured here and
+  not derived, as the rule for K3 says
+
+======================================================================
+K1 REFUTED  K2 hold  K3 hold
+J1 hold  J2 hold  J3 hold  J4 hold
+
+the gap is inside the errors. the two barriers are not shown to
+differ and are not shown to agree, and neither reading is drawn --
+this field does not decide which floor item 5 is measured against.
