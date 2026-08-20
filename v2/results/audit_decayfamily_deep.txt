@@ -1,0 +1,67 @@
+STATISTIC: |1/2 - f(N)| for the decay family at the two smallest
+           N of rem:decaynull's sweep, for mu and for two
+           ensembles of 512 sign patterns -- iid on supp(mu^2),
+           and random multiplicative, f(p) = +-1 iid with
+           f(m) the product over p | m on squarefree m.
+FIELD: N in [200000, 400000] with theta' = 0.56, k over the squarefree
+       k < N^theta' coprime to N, the field, weight and k-range
+       taken unchanged from code/audit_decayfamily_null.py so the
+       numbers are comparable. mu's two values are READ from
+       results/audit_decayfamily_null.txt and re-measured here as
+       the gate.
+SEED: the draws come from numpy default_rng at seed 20260904; without
+      it the file does not reproduce its own control.
+
+READ audit_decayfamily_null.txt 200000 0.2727
+READ audit_decayfamily_null.txt 400000 0.2772
+  mu's |1/2 - f| at the two smallest N, read from that file
+PRINTBOUND audit_decayfamily_deep 4 0.00005000
+  512 draws of each null, in 8 passes of 64
+sieving to 400000
+  243165 squarefree m carry the signs, 33860 primes
+  N = 200000    K = 930       #k = 313
+  N = 400000    K = 1371      #k = 462
+
+J1  does this construction reproduce the published values?
+  N = 200000   here 0.2727 against its 0.2727  ok
+  N = 400000   here 0.2772 against its 0.2772  ok
+  J1 hold   (cap: 4 decimals at both)
+  iid ensemble done, 512 draws
+  multiplicative ensemble done, 512 draws
+
+      null              N      mu      draw max   draw median    draws reaching mu
+      iid                200000  0.2727     0.1213       0.0246               0
+POINT deepdecay_iid_200000 0.12126
+      iid                400000  0.2772     0.1197       0.0241               0
+POINT deepdecay_iid_400000 0.11971
+      multiplicative     200000  0.2727     0.4959       0.1105              67
+POINT deepdecay_mult_200000 0.49585
+      multiplicative     400000  0.2772     0.4937       0.1103              54
+POINT deepdecay_mult_400000 0.49370
+SCALES 2
+
+J2  does the separation survive depth, against iid?
+  draws reaching mu: 0, 0 of 512 at each N
+COUNT deepdecay_iid_reach 0
+  J2 hold   (cap: none at either N)
+
+J3  does it survive the multiplicative null?
+  draws reaching mu: 67, 54 of 512 at each N
+COUNT deepdecay_mult_reach 121
+  J3 REFUTED   (cap: none at either N)
+
+J4  which null is wider here?
+  N = 200000   multiplicative max 0.4959, iid max 0.1213, gap +0.3746
+  their spreads are 0.1127 and 0.0241, so a gap below about 0.1127 is
+  not resolved by this design
+  N = 400000   multiplicative max 0.4937, iid max 0.1197, gap +0.3740
+  their spreads are 0.1044 and 0.0203, so a gap below about 0.1044 is
+  not resolved by this design
+  J4 hold   (cap: multiplicative wider at both N)
+
+======================================================================
+J1 hold  J2 hold  J3 REFUTED  J4 hold
+
+the null type matters here as it did for C(N). Depth alone leaves the
+separation standing and the multiplicative ensemble does not, so
+rem:decaynull's control was the wrong one rather than too small.

@@ -1829,6 +1829,57 @@ the chain this branch already worked through and corrected in place,
 one is a false hit, and the two that remain need draws rather than a
 rewrite.
 
+#### Remark (the second branch says the same thing: the control was wrong, not small) {#rem:decaydeep}
+<!-- evidence: audit_decayfamily_deep.py -->
+
+[rem:coinsurface] narrowed the surface outside the $C(N)$ branch to two
+blocks, both resting on eight draws. This asks the question of one of
+them. [rem:decaynull]'s separation in size — $\mu$'s $|1/2-f|$ at
+$0.2727$ and $0.2772$ against a coin maximum of $0.0826$ — is
+re-measured at the two smallest $N$ with the field, weight, $k$-range
+and $\theta'$ taken from that script unchanged, against $512$ iid
+draws and $512$ random multiplicative ones. The gate reproduces both
+published values exactly (J1).
+
+| null | $N$ | $\mu$ | draw max | draws reaching $\mu$ |
+|---|---|---|---|---|
+| iid | $200000$ | $0.2727$ | $0.1213$ | $0$ |
+| iid | $400000$ | $0.2772$ | $0.1197$ | $0$ |
+| multiplicative | $200000$ | $0.2727$ | $0.4959$ | $67$ |
+| multiplicative | $400000$ | $0.2772$ | $0.4937$ | $54$ |
+
+**J2 holds and J3 is REFUTED, and the pair is the finding.** Depth
+alone leaves the separation exactly where [rem:decaynull] left it —
+none of $512$ iid draws comes near $\mu$ at either $N$. Against a
+random multiplicative ensemble, about one draw in eight reaches it at
+the smaller $N$ and one in ten at the larger. **Eight draws were not
+hiding a tail; the control was the wrong kind.**
+
+J4 holds and is resolved rather than nominal: the multiplicative
+maximum is $0.4959$ against the iid $0.1213$, a gap of $0.3746$
+against ensemble spreads of $0.1127$ and $0.0241$, so the widths
+genuinely differ here by about a factor of four.
+
+That is the shape [rem:cncoindeep] found for $C(N)$, now in a second
+and independent place, and it does more here than there. In the $C(N)$
+branch the iid coin's narrowness cost a reading that this repository
+had already flagged as its own. **Here it flips a published verdict**:
+[rem:decaynull] wrote that every draw sits an order below $\mu$ at
+every $N$, and that is true of iid draws and false of multiplicative
+ones. The sentence is flagged there.
+
+Two things this does not touch, and both matter. It covers $N=2\cdot
+10^5$ and $4\cdot10^5$ only — the statistic costs a strided sum for
+every squarefree $k<N^{0.56}$ at every draw, and $512$ draws over the
+published six-point sweep is hours rather than minutes — so the four
+larger $N$ are untested. And [rem:decaynull] makes a second, separate
+claim, that the $\alpha$-sweep discriminates: $\mu$'s interior
+$\alpha^*=1.45$ at residual $0.011556$ against draws pinning at the
+grid ends with residuals $2.991540$ to $10.078929$. **Nothing here
+tests that**, and a multiplicative ensemble might behave differently
+there too. It is the next thing to ask of this block, not something
+this remark has answered.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 
@@ -2751,7 +2802,15 @@ controlled by having measured $f$. Eight noisy points will produce a
 minimiser and a band whatever they contain — or so it seemed worth
 checking.
 
-**The pointer missed and the claim survives it.** With the field,
+**The pointer missed, and half of what follows is superseded.**
+[rem:decaydeep] re-measured the size separation below at $512$ iid
+draws and $512$ random multiplicative ones: no iid draw reaches
+$\mu$ at either of the two smallest $N$, and $67$ and $54$
+multiplicative draws do. The claim that every draw sits an order
+below $\mu$ is true of the control run here and false of the
+wider one, so what follows about the *size* is a statement about
+an iid coin and not about $\mu$. The $\alpha$-sweep half is
+untouched and stands as written. With the field,
 weight, $k$-range and $\theta'$ identical and only the sign pattern
 changed, $\mu$'s $|1/2-f|$ reads
 $0.2727,\,0.2772,\,0.2265,\,0.1932,\,0.1793,\,0.1624$ against a coin
