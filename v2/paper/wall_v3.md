@@ -941,6 +941,65 @@ non-Gaussian moment is not the withdrawn law — it is the first term of
 it that has evidence, which is exactly what item 1 asked for and less
 than what the draft claimed.
 
+#### Remark (the non-Gaussianity is real at every scale reached, and it decays slower than independence) {#rem:cnkurt}
+<!-- evidence: audit_cn_kurt_drift.py -->
+
+[rem:cnlaw] found the first quantity in this branch to survive
+[lem:coin], and said in the same breath what it could not do: one band
+is not a law. Seven octaves, $(2^b,2^{b+1}]$ for $b=17\ldots23$, on a
+single sieve and a single pair of FFTs, with a fresh ensemble of $32$
+sign patterns recomputed over the whole ladder, are that measurement.
+The gate is the overlap: re-measured at a different sieve top,
+[rem:cnlaw]'s band returns $+0.26422$ exactly (D1).
+
+| $b$ | even $N$ | excess kurtosis | $z$ against the coin |
+|---|---|---|---|
+| $17$ | $65\,536$ | $+1.57158$ | $33.4$ |
+| $18$ | $131\,072$ | $+1.06049$ | $39.8$ |
+| $19$ | $262\,144$ | $+0.69806$ | $20.7$ |
+| $20$ | $524\,288$ | $+0.41549$ | $16.5$ |
+| $21$ | $1\,048\,576$ | $+0.25305$ | $9.2$ |
+| $22$ | $2\,097\,152$ | $+0.14257$ | $6.2$ |
+| $23$ | $4\,194\,304$ | $+0.07411$ | $5.0$ |
+
+**The separation is not local to one band** (D2): every octave sits
+outside its coin ensemble, the smallest margin being $5.0$ standard
+deviations at the top. **And it decays** (D3): the slope against
+$\log_2$ of the band midpoint is $-0.24190\pm0.03457$, $t=-7.00$, and
+in log-log the seven points lie on a line — $\text{kurtosis}\sim
+N^{-0.7312}$ with a standard error of $0.019$ on the fitted slope. So
+this is a finite-$N$ effect and not yet a law, which is the weaker of
+the two readings the single band could not separate.
+
+**But it is not the decay independence would give.** A sum of $n$
+independent terms has excess kurtosis of order $1/n$, and this field
+has about $N/\log N$ terms, so an independent model predicts $N^{-1}$
+up to logs. The measured exponent is $-0.7312$, a nominal $9.8$
+standard errors away — nominal because seven octaves cut from one
+sieve are not independent samples, so that error is a lower bound and
+no significance is claimed from it. What the figure supports is
+weaker and still worth having: **over six doublings the
+non-Gaussianity of $C(N)$ dies out visibly more slowly than a sum of
+independent terms would let it.** Whatever correlation $\mu$ carries
+against $\Lambda$ is sustaining it.
+
+D4 broke and its breaking matters. The coin's own mean excess
+kurtosis is not zero but $-0.02103$ to $-0.01376$ across the bands,
+$4.43$ of its own standard errors from zero at the top. The $z$
+column above already scores against that mean so the separation is
+unaffected, but the fitted exponent is not: refitting the power law
+on real minus the control's mean gives $N^{-0.6953}$ against the raw
+$N^{-0.7312}$. Both are reported; the pre-registered fit is the raw
+one and neither is close to $-1$.
+
+Three limits. Seven octaves cannot tell decay to zero from decay to a
+positive limit, and that limit is the question this one becomes.
+Thirty-two draws make the large $z$ values bounds rather than
+measurements. And the comparison with $N^{-1}$ is against a heuristic
+for the independent case, not against a computed null — no ensemble
+of independent-term fields was built, and building one is the check
+that would turn the last paragraph from an observation into a test.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 
