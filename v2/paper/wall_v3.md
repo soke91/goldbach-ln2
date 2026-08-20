@@ -1393,7 +1393,10 @@ not merely no difference between classes.
 | — | 5 | 7 | $9987$ | $0.95176$ | $1.07534$ | $-0.27$ |
 | **3** | **5** | **7** | $4993$ | $\mathbf{4.37497}$ | $1.02257$ | $\mathbf{9.01}$ |
 
-**Z2 holds and it is the first escape in this branch.** The real arm's
+**Z2 holds against the iid coin.**  It was read as this branch's
+first escape and that reading is superseded: [rem:cnmultdeep]
+shows a resolved random-multiplicative ensemble reaches it, so
+what the coin could not make, multiplicativity can. The real arm's
 largest $|z|$ over classes is $9.01$; the coin draws' own largest, each
 taken leave-one-out against the other $31$, run $0.54$ to $6.46$, and
 none of the $32$ reaches it. The bookkeeping gate is exact: the
@@ -1438,8 +1441,11 @@ separate measurements and none is made here.
 #### Remark (the escape is a shift, it lives at every band, and it fades slowest of all) {#rem:cnclassreach}
 <!-- evidence: audit_cn_class_reach.py -->
 
-[rem:cnclass] found this branch's first escape and left the two
-questions that decide what it is worth. The first is answered by
+[rem:cnclass] found what was read as this branch's first escape --
+[rem:cnmultdeep] later showed the reading was against too weak a
+null -- and left the two questions that decide what the
+measurement is worth.  Those two are answered below and their
+answers do not depend on the withdrawn reading. The first is answered by
 arithmetic on its own numbers: of the $E[G^2]=4.37497$ at $105\mid N$,
 the class mean $-1.70728$ contributes $2.9148$, leaving a variance of
 $1.4602$. **It is not a few enormous $|G|$ but $4993$ values of $N$
@@ -1615,7 +1621,11 @@ multiplicative ensemble.
 | — | 5 | 7 | $0.95176$ | $0.85394$ | $0.14589$ | $0.67$ |
 | **3** | **5** | **7** | $\mathbf{4.37497}$ | $0.90114$ | $0.29369$ | $\mathbf{11.83}$ |
 
-**D2 is REFUTED, and that is the strong outcome.** The real arm's
+**D2 is REFUTED, and the caveat below turned out to matter more
+than the refutation.**  [rem:cnmultdeep] resolved the ensemble to
+$512$ draws and the $11.83$ became $5.30$ with five draws
+reaching it; what follows is recorded as measured and its
+reading is superseded there. The real arm's
 largest $|z|$ is $11.83$; the draws' own largest, leave-one-out, run
 $0.70$ to $6.63$, and none of the $32$ reaches it. A random
 multiplicative sign function has $\mu$'s support, $\mu$'s
@@ -1651,6 +1661,67 @@ would remain outside a properly resolved ensemble. **The fix is more
 draws**, until the ensemble's class means come to $1$ as the identity
 requires, and that is the measurement this remark asks for rather than
 a conclusion it offers.
+
+#### Remark (the escape was the tail: seven routes, none of them open) {#rem:cnmultdeep}
+<!-- evidence: audit_cn_multnull_deep.py -->
+
+[rem:cnmultm2] measured $\mu$ outside the multiplicative null at
+$|z|=11.83$ and, in the same run, found the ensemble sitting at
+$0.854$–$0.930$ where the identity $E[C_f(N)^2]=V(N)$ puts it at $1$.
+It wrote the honest position — what is measured is that $\mu$ is
+outside what $32$ draws produce, by a margin those $32$ draws cannot
+calibrate — and asked for this run. $512$ draws answer it.
+
+**E2 caught a bug before it caught anything else, which is what it was
+for.** The first execution put the ensemble at $1387$ to $1795$
+instead of $1$. The cause was in this script: masks drawn from
+`integers(0, 1 << 63)` never set bit $63$, so one draw per pass had
+every sign $+1$ and $C_f=\sum_m\mu^2(m)\Lambda(N-m)$, eight degenerate
+draws swamping $512$. E2's refutation rule had named exactly that
+possibility — "the construction of $f$ is not what it is taken to be"
+— and E3's jump between $32$ and $64$ draws located the first one.
+The masks are now built from two $32$-bit halves; the numbers below
+are the corrected execution of the same pre-registration, and the
+earlier two multiplicative runs are unaffected, their masks having
+been drawn over the full $2^{32}$.
+
+| $3\mid N$ | $5\mid N$ | $7\mid N$ | $E[G^2]$ | ensemble mean | ensemble sd | $z$ |
+|---|---|---|---|---|---|---|
+| — | — | — | $0.80803$ | $1.04608$ | $1.27572$ | — |
+| 3 | 5 | — | $1.16445$ | $1.04262$ | $0.85337$ | — |
+| **3** | **5** | **7** | $4.37497$ | $1.00609$ | $0.63553$ | $\mathbf{5.30}$ |
+
+**The ensemble now sits where the identity puts it** (E2): the class
+means run $1.00290$ to $1.06459$, the furthest $1.30$ standard errors
+from $1$. **And it got there by converging** (E3): the mean deviation
+falls $0.13591$, $0.10868$, $0.03961$, $0.02859$, $0.02769$ as the
+draws go $32$ to $512$. E2 on its own would have been the
+too-weak-to-tell case — a wide ensemble makes the standard error large
+and any centre passes — and E3 is what makes it mean anything.
+
+**With the instrument fixed, the escape closes** (E4). The real arm's
+largest $|z|$ is $5.30$, not $11.83$: at $512$ draws the ensemble's
+spread at $105\mid N$ is $0.63553$ against $0.29369$ at $32$, and
+$5$ of the $512$ draws reach or exceed the real arm, their own largest
+running $0.12$ to $30.88$. $\mu$ sits near the $99$th percentile of
+the resolved multiplicative ensemble — inside it, near the edge,
+which is where [rem:cnmultnull] had already put it on the first
+moment at the $97$th.
+
+So the seventh route closes with the other six, and
+[rem:cnmultm2]'s caveat was right about its own headline. **What
+remains true, and is worth separating from the withdrawn reading, is
+everything that was measured rather than compared.** The class
+structure at $105\mid N$ is real: $E[G^2]=4.37497$ against $0.80803$
+where none of $3,5,7$ divides, a shift of $-1.70728$ in the mean,
+present at all six bands [rem:cnclassreach] measured and fading like
+$N^{-0.2623}$. $V(N)$ is not the right scale for highly composite $N$.
+**What has changed is why**: it is what multiplicativity and the
+coprimality constraint produce, not something particular to $\mu$ —
+a random multiplicative sign function does the same. Read forward,
+that is a statement about [conj:L]'s mask $\mathbf M$: the mask is a
+consequence of multiplicativity, and $\mu$'s own values add nothing to
+it that $512$ draws can see.
 
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
