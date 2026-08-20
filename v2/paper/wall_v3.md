@@ -1600,6 +1600,58 @@ left the $9.01$ untouched. That is a shortfall in the design and not
 a finding, and the second-moment comparison against this ensemble is
 the measurement that should have been made.
 
+#### Remark (mu is outside the multiplicative null — and the same run says not to build on it yet) {#rem:cnmultm2}
+<!-- evidence: audit_cn_multnull_m2.py -->
+
+[rem:cnmultnull] built the right null and compared the wrong
+statistic. This is the comparison that was missing: the second moment,
+where [rem:cnclass]'s escape actually lives, against the random
+multiplicative ensemble.
+
+| $3\mid N$ | $5\mid N$ | $7\mid N$ | $E[G^2]$ | ensemble mean | ensemble sd | $z$ |
+|---|---|---|---|---|---|---|
+| — | — | — | $0.80803$ | $0.90346$ | $0.16415$ | $-0.58$ |
+| 3 | 5 | — | $1.16445$ | $0.93021$ | $0.29866$ | $0.78$ |
+| — | 5 | 7 | $0.95176$ | $0.85394$ | $0.14589$ | $0.67$ |
+| **3** | **5** | **7** | $\mathbf{4.37497}$ | $0.90114$ | $0.29369$ | $\mathbf{11.83}$ |
+
+**D2 is REFUTED, and that is the strong outcome.** The real arm's
+largest $|z|$ is $11.83$; the draws' own largest, leave-one-out, run
+$0.70$ to $6.63$, and none of the $32$ reaches it. A random
+multiplicative sign function has $\mu$'s support, $\mu$'s
+multiplicativity, and $\mu$'s coprimality constraint at $105\mid N$,
+and it does not go where $\mu$ goes. D3 held: the two nulls are of
+similar strength here, the ensemble's spread being $0.79$ of the iid
+coin's.
+
+**And D4 is REFUTED in the way its own rule said would carry a
+reading.** For a random multiplicative $f$, $E[C_f(N)^2]=V(N)$ is
+exact — $f(m)f(m')$ is a product over the symmetric difference of two
+prime sets, so it has mean zero unless $m=m'$ — hence $E[G_f^2]=1$ in
+every class at every $N$. The measured ensemble means are $0.85394$ to
+$0.93021$, **every one of the eight below $1$**, the furthest at
+$5.66$ of its own standard error. D4's rule named the
+too-noisy-to-tell case and named what would escape it: a crossing
+repeated across classes. Eight of eight is that.
+
+So the ensemble does not sit where the algebra puts it, and the
+explanation available is that $G_f^2$ is heavy-tailed, so a $32$-draw
+sample mean lands systematically below a mean carried by rare large
+draws. **That is a hypothesis, not something measured here**, and it
+bears directly on D2: the $z$ is computed against a sample mean that
+is too low and a sample standard deviation that under-resolves a heavy
+tail, so $11.83$ is an overstatement of an unknown size, and "none of
+$32$" says less about a tail than about $32$.
+
+The honest position is therefore narrower than the headline. What is
+measured: on the statistic where the escape lives, $\mu$ is outside
+what $32$ draws of the strongest available null produce, by a margin
+the same $32$ draws cannot calibrate. What is not established: that it
+would remain outside a properly resolved ensemble. **The fix is more
+draws**, until the ensemble's class means come to $1$ as the identity
+requires, and that is the measurement this remark asks for rather than
+a conclusion it offers.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 

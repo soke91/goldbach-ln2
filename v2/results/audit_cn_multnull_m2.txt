@@ -1,0 +1,73 @@
+STATISTIC: the second moments E[G^2] of
+           G(N) = C(N)/sqrt(V(N)) over the eight classes cut by
+           which of (3, 5, 7) divide N, scored against an ensemble of
+           32 random multiplicative sign functions by the
+           largest |z| over classes, each draw taken
+           leave-one-out against the rest.
+FIELD: even N in (2^20, 2^21], with Lambda and mu sieved once to
+       2097152 and every convolution taken by FFT over the whole
+       range. For a random multiplicative f the identity
+       E[C_f(N)^2] = V(N) is exact, so the ensemble's E[G^2] is
+       1 in every class at every N and the null is no structure
+       at all.
+SEED: the draws come from numpy default_rng at seed 20260901; without
+      it the file does not reproduce its own control.
+
+READ audit_cn_class.txt POINT classm2_7 4.37497
+  the class second moment this run has to reproduce
+PRINTBOUND audit_cn_multnull_m2 3 0.00050000
+  32 random multiplicative draws; the iid coin's spread at this class
+  was 0.3721
+sieving to 2097152, which is 2^21
+  transform length 8388608
+
+D1  does this run reproduce the class it shares?
+  class 7 E[G^2] here 4.37497 against its 4.37497
+  D1 hold   (cap: 3 decimals)
+
+  building 32 multiplicative sign functions in one pass over 155611 primes
+
+      3|N 5|N 7|N        N      E[G^2]    ens. mean      ens. sd       z     mean G   ens. m1 sd
+       0   0   0    239675    +0.80803     +0.90346      0.16415   -0.58   +0.01376     0.28756
+POINT multm2_z_0 -0.58136
+       1   0   0    119837    +0.83798     +0.91232      0.21143   -0.35   -0.00623     0.35584
+POINT multm2_z_1 -0.35162
+       0   1   0     59918    +0.81369     +0.87535      0.14456   -0.43   +0.15415     0.29105
+POINT multm2_z_2 -0.42657
+       1   1   0     29960    +1.16445     +0.93021      0.29866    0.78   -0.46174     0.42221
+POINT multm2_z_3 0.78431
+       0   0   1     39945    +0.79576     +0.91376      0.18168   -0.65   +0.09170     0.27085
+POINT multm2_z_4 -0.64950
+       1   0   1     19973    +0.91322     +0.86387      0.18813    0.26   -0.21246     0.33007
+POINT multm2_z_5 0.26230
+       0   1   1      9987    +0.95176     +0.85394      0.14589    0.67   +0.43997     0.28084
+POINT multm2_z_6 0.67051
+       1   1   1      4993    +4.37497     +0.90114      0.29369   11.83   -1.70728     0.45520
+POINT multm2_z_7 11.82832
+SCALES 1
+
+D2  does the ensemble cover the escape?
+  real largest |z| 11.83 at class 7; the draws' own largest run 0.70 to 6.63,
+  and 0 of 32 reach it
+TSTAT multm2_maxz 11.83
+SPREAD multm2_maxz 1.44544
+  D2 REFUTED   (cap: at least one draw)
+
+D3  are the two nulls of similar strength here?
+  ensemble spread at class 7 is 0.29369 against the iid coin's 0.3721,
+  a factor of 0.79
+POINT multm2_spreadratio 0.78927
+  D3 hold   (cap: within 1.5 either way)
+
+D4  is the ensemble centred at one?
+  furthest from one at class 6, at 5.66 of its own standard error
+  D4 REFUTED   (cap: two standard errors)
+
+======================================================================
+D1 hold  D2 REFUTED  D3 hold  D4 REFUTED
+
+mu is outside the strongest null this branch can build, on the
+statistic where the escape lives. No draw of a random multiplicative
+sign function -- same support, same multiplicativity, same constraint
+at 105 | N -- reaches it. That is a large claim on one band and it
+needs repeating at another before anything is built on it.
