@@ -1493,6 +1493,61 @@ different here is only the rate, and what remains untouched is the
 same thing [rem:cnclass] left: nothing has checked the shift against a
 computable local density, at this class or any other.
 
+#### Remark (the shift is not made anywhere: it is what survives a 198-fold cancellation) {#rem:cnclassomega}
+<!-- evidence: audit_cn_class_omega.py -->
+
+OPEN.md item 1 asks whether the $105\mid N$ shift is a computable local
+density. It cannot be asked from [rem:cnclass]'s table, because
+fitting a multiplicative law needs resolved classes and seven of the
+eight are noise — the first-moment $z$ runs $-0.00,-0.09,+0.38,-0.94,
++0.17,-0.54,+0.87$, with only $-3.20$ at $105\mid N$. What has to come
+first is where in the sum the shift is made.
+
+The sum splits exactly. For squarefree $m$, $\mu(m)=(-1)^{\omega(m)}$,
+so $C(N)=\sum_j(-1)^jS_j(N)$ with
+$S_j(N)=\sum_{\omega(m)=j,\ \mu^2(m)=1}\Lambda(N-m)\ge0$. The
+alternating sum rebuilds $C$ to $7.194\cdot10^{-10}$ across the band
+and the class mean returns $-1.70728$ (B1).
+
+| $j$ | $m$ in bucket | contribution to the class mean |
+|---|---|---|
+| $1$ | $155611$ | $-115.48990$ |
+| $2$ | $425951$ | $+164.60003$ |
+| $3$ | $436477$ | $-54.12597$ |
+| $4$ | $207617$ | $+3.31153$ |
+| $5$ | $45500$ | $-0.00396$ |
+
+**B2 passed its cap and the cap does not measure what it was written
+for.** It asked whether one bucket carries more than half the shift;
+four of them clear that, at $67.65$, $96.41$, $31.70$ and $1.94$ times
+the total, because any bucket larger than the residue clears it. The
+buckets sum in absolute value to $337.53238$ and cancel to
+$-1.70728$: **a cancellation of $197.70$ to one.** B3 passed on the
+same vacuous footing and is recorded without being read.
+
+So the answer is the one B2's refutation clause was written for even
+though B2 did not formally break: the shift is not made in a place. It
+is the residue of a near-total cancellation between $\omega$-buckets
+each one to two orders of magnitude larger than it. The
+$\omega$-distribution of the shifted primes $N-p$ peaks at $j=2$ with
+a mean near $2.65$, the alternating sum of that distribution is small
+by parity, and **the class shift is a $0.5$ per cent asymmetry in how
+completely it cancels.**
+
+That sharpens item 1's question and makes it much harder. A local
+density describing this shift would have to predict the parity balance
+of $\omega(N-p)$ for $N$ divisible by $105$ to about one part in two
+hundred. Nothing in this repository predicts anything about
+$\omega(N-p)$ at all.
+
+B4 was the instrument check and it broke, at $2.13$ standard errors in
+the $j=1$ bucket. **That is a threshold crossed, not an instrument
+shown broken**: eight buckets at a two-standard-error threshold fire by
+chance about one time in three. The refutation is recorded and read as
+the unresolved case — the wording of B4's rule was amended after the
+run to say so, disclosed in the script, with the cap and the verdict
+unchanged.
+
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
 

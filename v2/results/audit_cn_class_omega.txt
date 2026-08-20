@@ -1,0 +1,82 @@
+STATISTIC: the class mean of G(N) = C(N)/sqrt(V(N)) at
+           N divisible by 105, split over the buckets
+           S_j(N) = sum of Lambda(N-m) over squarefree m with
+           omega(m) = j, so that C = sum_j (-1)^j S_j exactly;
+           each bucket against an ensemble of 32 sign patterns
+           restricted to the same m.
+FIELD: even N in (2^20, 2^21], the class divisible by 105,
+       with Lambda, mu and omega sieved once to 2097152 and every
+       bucket's convolution taken by FFT over the whole range.
+       The gate re-measures the class mean against
+       results/audit_cn_class_reach.txt.
+SEED: the coin draws from numpy default_rng at seed 20260830; without
+      it the file does not reproduce its own control.
+
+READ audit_cn_class_reach.txt POINT classreach_m1_20 -1.70728
+  the class mean this run has to reproduce, read from that file
+PRINTBOUND audit_cn_class_omega 3 0.00050000
+  32 fresh sign patterns per bucket
+sieving to 2097152, which is 2^21
+  transform length 8388608
+  the class holds 4993 of the band's 524288 even N
+  omega runs 0 to 7 on the squarefree m below 2097152
+
+B1  does the alternating sum rebuild C, and the class mean?
+  largest |sum of buckets - C| over the band 7.194e-10
+  class mean here -1.70728 against its -1.70728
+  B1 hold   (cap: 1e-06 and 3 decimals)
+
+       j       m in bucket    contribution    coin mean     coin s.e.       z
+       0                 1        +0.00099     -0.00006      0.00018     1.05
+POINT omegabucket_0 0.00099
+       1            155611      -115.48990     +0.11256      0.05273  -387.53
+POINT omegabucket_1 -115.48990
+       2            425951      +164.60003     -0.02774      0.07632   381.33
+POINT omegabucket_2 164.60003
+       3            436477       -54.12597     +0.00752      0.04567  -209.53
+POINT omegabucket_3 -54.12597
+       4            207617        +3.31153     -0.00427      0.00982    59.66
+POINT omegabucket_4 3.31153
+       5             45500        -0.00396     -0.00005      0.00022    -3.11
+POINT omegabucket_5 -0.00396
+       6              3709        +0.00000     +0.00000      0.00000    38.46
+POINT omegabucket_6 0.00000
+       7                52        +0.00000     +0.00000      0.00000     6.99
+POINT omegabucket_7 0.00000
+SCALES 1
+  the contributions sum to -1.70728 against the class mean -1.70728
+
+  NOT PRE-REGISTERED, reported because B2's cap turns out not to
+  measure what it was meant to. No cap above is changed.
+  the buckets sum in absolute value to 337.53238 and cancel to -1.70728,
+  a cancellation of 197.70 to one
+POINT omega_gross 337.53238
+POINT omega_cancel 197.70240
+  so a bucket's "share of the total" exceeds one wherever the bucket
+  is larger than the residue, and 4 buckets clear B2's cap of 0.5:
+      j = 1 at 67.65, j = 2 at 96.41, j = 3 at 31.70, j = 4 at 1.94
+  B2 is passed by its stated cap and the cap does not separate a shift
+  made in one bucket from a residue left by a cancellation across all
+  of them. What the table shows is the second.
+
+B2  is the shift made in one bucket?
+  the largest is j = 2 at +164.60003, which is 96.4110 of the total shift
+SHARE omega_top 96.4110
+  B2 hold   (cap: more than half)
+
+B3  is it at small omega?
+  the carrying bucket is j = 2 against the cap 3
+  B3 hold   (cap: j <= 3)
+
+B4  does the control sit at zero in every bucket?
+  furthest from zero at j = 1, at 2.13 of its own standard error
+  B4 REFUTED   (cap: two standard errors)
+
+======================================================================
+B1 hold  B2 hold  B3 hold  B4 REFUTED
+
+the shift is made where m has few prime factors. Barring 3, 5 and 7
+from the factorisation of N-p bites hardest there, and a local
+density describing the shift would have to be a statement about the
+distribution of omega(N-p) at small omega -- which names what to
+test and is what OPEN item 1 was missing.
