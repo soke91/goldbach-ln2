@@ -1,0 +1,133 @@
+STATISTIC: the drift of log(|sum a|/l2) against log N for five
+           bases at each of two odd primes, with the prime's
+           exponent b running 1 to 5 while the base size is held
+           inside a factor of two, and that drift regressed on b
+           and on log base separately.
+FIELD: base * 2^j for j < 10; bases [20480, 25600, 16000, 20000, 25000] at p = 5 and [14336, 28672, 25088, 21952, 19208] at
+       p = 7. k over the squarefree k < N^0.56 coprime to N;
+       j over every index below N. Two drifts are READ from
+       results/audit_base_control.txt as the gate.
+NOTE: in a doubling family v2(N) = a + j is not fixed along the
+      family; the odd prime's exponent b is.
+
+READ audit_base_control.txt 25000 0.138572
+READ audit_base_control.txt 16000 0.144190
+  the two drifts this run shares with rem:basecontrol
+PRINTBOUND audit_valuation 6 0.0000005000
+  theta 0.56, |t| cap on the exponent 3.0, on the size 2.0
+RADICALS 2
+sieving to 14680064
+
+p = 5
+  base 20480  v5 1   drift +0.146109 +- 0.005571
+POINT valdrift_20480 0.146109
+SPREAD valdrift_20480 0.005571
+  base 25600  v5 2   drift +0.147112 +- 0.010101
+POINT valdrift_25600 0.147112
+SPREAD valdrift_25600 0.010101
+  base 16000  v5 3   drift +0.144190 +- 0.008255
+POINT valdrift_16000 0.144190
+SPREAD valdrift_16000 0.008255
+  base 20000  v5 4   drift +0.146704 +- 0.004772
+POINT valdrift_20000 0.146704
+SPREAD valdrift_20000 0.004772
+  base 25000  v5 5   drift +0.138572 +- 0.006758
+POINT valdrift_25000 0.138572
+SPREAD valdrift_25000 0.006758
+
+p = 7
+  base 14336  v7 1   drift +0.132931 +- 0.007989
+POINT valdrift_14336 0.132931
+SPREAD valdrift_14336 0.007989
+  base 28672  v7 1   drift +0.132003 +- 0.007916
+POINT valdrift_28672 0.132003
+SPREAD valdrift_28672 0.007916
+  base 25088  v7 2   drift +0.135051 +- 0.010282
+POINT valdrift_25088 0.135051
+SPREAD valdrift_25088 0.010282
+  base 21952  v7 3   drift +0.142463 +- 0.008954
+POINT valdrift_21952 0.142463
+SPREAD valdrift_21952 0.008954
+  base 19208  v7 4   drift +0.106857 +- 0.012140
+POINT valdrift_19208 0.106857
+SPREAD valdrift_19208 0.012140
+SCALES 100
+
+R1  the gate
+  base 16000  here +0.144190 against its +0.144190  ok
+  base 25000  here +0.138572 against its +0.138572  ok
+  R1 hold   (cap: 6 decimals)
+
+R2  does the drift depend on the exponent at p = 5?
+  on v5      slope -0.001548 +- 0.000922, t -1.68
+  on log base slope -0.003966 +- 0.010365, t -0.38
+  corr(v5, log base) +0.125599
+CORR valuation5_regressors 0.125599
+TSTAT valexp_5 -1.68
+SPREAD valexp_5 0.000922
+TSTAT valsize_5 -0.38
+SPREAD valsize_5 0.010365
+  smallest exponent slope this could resolve at |t| = 3.0: 0.002767
+POINT valpower_5 0.002767
+  R2 REFUTED   (cap: |t| above 3.0)
+
+R3  does the drift depend on the exponent at p = 7?
+  on v7      slope -0.005679 +- 0.004998, t -1.14
+  on log base slope +0.010685 +- 0.028620, t +0.37
+  corr(v7, log base) -0.054910
+CORR valuation7_regressors 0.054910
+TSTAT valexp_7 -1.14
+SPREAD valexp_7 0.004998
+TSTAT valsize_7 0.37
+SPREAD valsize_7 0.028620
+  smallest exponent slope this could resolve at |t| = 3.0: 0.014995
+POINT valpower_7 0.014995
+  R3 REFUTED   (cap: |t| above 3.0)
+
+R4  and is the size not the variable?
+  p = 5: size slope unresolved at the 2.0 cap
+  p = 7: size slope unresolved at the 2.0 cap
+  R4 hold   (cap: |t| below 2.0 on both)
+
+  a diagnostic, after the verdicts and predicted by nothing
+  the fitted quantity is a slope of a curved function, so a window that
+  sits elsewhere returns a different slope. each family's own first six
+  and last six points, against the spread between bases:
+    p 5 base 20480  full +0.146109   low +0.139081   high +0.154785   span 0.015703
+    p 5 base 25600  full +0.147112   low +0.184332   high +0.114863   span 0.069469
+    p 5 base 16000  full +0.144190   low +0.176638   high +0.116991   span 0.059647
+    p 5 base 20000  full +0.146704   low +0.155082   high +0.138471   span 0.016611
+    p 5 base 25000  full +0.138572   low +0.160444   high +0.116587   span 0.043857
+    p 5: mean within-family window span 0.041057, spread between bases 0.008540
+POINT windowspan_5 0.041057
+POINT betweenbase_5 0.008540
+    p 7 base 14336  full +0.132931   low +0.148603   high +0.134231   span 0.014372
+    p 7 base 28672  full +0.132003   low +0.138955   high +0.129420   span 0.009536
+    p 7 base 25088  full +0.135051   low +0.180851   high +0.104773   span 0.076078
+    p 7 base 21952  full +0.142463   low +0.157655   high +0.126049   span 0.031605
+    p 7 base 19208  full +0.106857   low +0.123023   high +0.096174   span 0.026849
+    p 7: mean within-family window span 0.031688, spread between bases 0.035607
+POINT windowspan_7 0.031688
+POINT betweenbase_7 0.035607
+  and the size span of each group of bases, here and in rem:radicalblind,
+  beside how far that group's drifts disagreed:
+    p 5        bases span 1.600x   drifts spread 0.008540
+POINT sizespan_5 1.600000
+    p 7        bases span 2.000x   drifts spread 0.035607
+POINT sizespan_7 2.000000
+    {2,19}     bases span 2.837x   chi-square 14.232684
+READ audit_radical_blind.txt chi_2_19 14.232684
+POINT sizespan_2_19 2.836565
+    {2,3,7}    bases span 1.500x   chi-square 2.688194
+READ audit_radical_blind.txt chi_2_3_7 2.688194
+POINT sizespan_2_3_7 1.500000
+  a within-family span of the same size as the between-base spread
+  would mean the scatter this branch has been reading as arithmetic is
+  the slope of a curve moving under its own window
+
+======================================================================
+R1 hold  R2 REFUTED  R3 REFUTED  R4 hold
+
+the exponent is not the variable either. this branch has now refuted
+the radical and the exponent and has no candidate left, which is
+worth more than another fit and is said in those words.

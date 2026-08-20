@@ -5008,6 +5008,70 @@ rests on a variable now known to be incomplete. The honest next step
 is a design that varies $v_2$ and $v_p$ independently, which requires
 bases of different sizes and therefore a control for size as well.
 
+#### Remark (the exponent is not it either, and the slope is not a number) {#rem:valuation}
+<!-- evidence: audit_valuation.py -->
+
+[rem:radicalblind] refuted the radical and barred reading its own
+$v_2$ slope. Writing this run made the reason plainer: **in a doubling
+family $v_2$ is not a property of the family at all** — for base
+$2^ap^b$ the family is $N_j=2^{a+j}p^b$, so $v_2$ runs through ten
+values inside every family while $b$ stays fixed. Read by $b$ that
+remark's numbers group exactly, so $b$ was registered here as the
+variable and tested on bases built to separate it from size: sizes
+held inside a factor of two while $b$ runs one to five, giving
+correlations of $+0.126$ and $-0.055$ between $b$ and $\log$ base.
+
+| $p=5$, $v_5$ | $1$ | $2$ | $3$ | $4$ | $5$ |
+|---|---|---|---|---|---|
+| drift | $.146109$ | $.147112$ | $.144190$ | $.146704$ | $.138572$ |
+
+**R2 and R3 are both refuted** — slopes $-0.001548\pm0.000922$
+($t=-1.68$) and $-0.005679\pm0.004998$ ($t=-1.14$) — with resolvable
+sizes of $0.002767$ and $0.014995$ printed beside them. R4 holds: the
+size slope is unresolved at both primes. **The branch has now refuted
+the radical and the exponent and has no candidate left**, which its
+own rule required be said in those words.
+
+**And then the diagnostic found why there may be nothing to explain**
+(run after the verdicts, predicted by nothing). The fitted quantity is
+the slope of a curved function — [rem:deficitdirect] put the curvature
+at $-0.007380$ and [rem:deficitshape] found it steepening — so a
+ten-point slope depends on where its window sits. Refitting each
+family on its own first six and last six points:
+
+| | between bases | **within one family** |
+|---|---|---|
+| $p=5$ | $0.008540$ | $\mathbf{0.041057}$ |
+| $p=7$ | $0.035607$ | $\mathbf{0.031688}$ |
+
+**One family's own drift moves by $0.03$ to $0.08$ depending on which
+six of its ten points are used** — base $25600$ gives $+0.184332$ and
+$+0.114863$, base $25088$ gives $+0.180851$ and $+0.104773$. That is
+larger than the $\{2,3\}$ against $\{2,5\}$ gap of $0.074374$ this
+branch has been chasing. **And none of it is in the printed standard
+errors**, which measure scatter about a line, not the movement of the
+line under its own window.
+
+**Every family in this branch sits on a different window**, because a
+different base gives a different set of $N$. So every cross-family
+comparison here has used an uncertainty that omits its dominant term.
+The pattern across runs is what that predicts: ordered by how far
+their bases span in size, $\{2,19\}$ at $2.837\times$ gave $\chi^2=
+14.233$ and failed; $p=7$ at $2.000\times$ spread $0.035607$; $p=5$ at
+$1.600\times$ spread $0.008540$; $\{2,3,7\}$ at $1.500\times$ gave
+$\chi^2=2.688$ and passed. **The disagreement tracks the size span,
+not the arithmetic.**
+
+**What this does and does not do.** It is a diagnostic, run after the
+verdicts and predicted by nothing, so it does not reinstate what
+[rem:radicalblind] withdrew — a post-hoc argument does not undo a
+registered refutation. What it establishes is that the statistic this
+branch has been comparing is unstable under a change no arithmetic
+variable controls, and that the next test must not be a comparison of
+slopes at all. Comparing $\log(\lvert\sum a\rvert/\ell^2)$ itself at
+matched $N$ removes the window entirely, and that is the design this
+question now needs.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 
