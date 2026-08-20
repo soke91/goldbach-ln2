@@ -269,7 +269,7 @@ def main():
         rows.append((N, A, B, S, l2, K))
         say("  N = %-9d A %+14.2f  B %+14.2f  A+B %+12.2f  |S|/l2 "
             "%8.4f" % (N, A, B, A + B, abs(S) / l2))
-        say("POINT mainA_%d %.6e" % (N, A))
+        say("POINT mainA_%d %.17e" % (N, A))
         say("POINT mainres_%d %.6e" % (N, abs(A + B) / abs(A)))
     say("SCALES %d" % len(rows))
 

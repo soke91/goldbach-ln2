@@ -5479,6 +5479,61 @@ $+0.583897$, and **the two statements of the demand differ by $0.084$
 in exponent and this run does not choose between them.** The bounded
 ratio above is the part that needs no choice.
 
+#### Remark (the two rates, and the deficit reached without fitting the sum) {#rem:tworates}
+<!-- evidence: audit_two_rates.py -->
+
+[rem:maintermremoval] left a puzzle in its own numbers: the
+cancellation improves — $\lvert B\rvert/\lvert A\rvert$ runs
+$0.874261$ to $0.976934$ — and yet $\lvert S\rvert/\ell^2$ grows,
+$5.0350$ to $9.5118$. Both hold because two rates are racing. The
+arithmetic fixes what to measure: $\lvert S\rvert=\lvert A\rvert r$
+exactly with $r=\lvert A+B\rvert/\lvert A\rvert$, so $e(\lvert
+S\rvert)=e(\lvert A\rvert)+e(r)$ — verified to $2.22\cdot10^{-16}$
+(AA2), which is what makes the labels trustworthy — and the demand
+$\lvert S\rvert\lesssim\ell^2$ is
+$$e(r)\ \le\ e(\ell^2)-e(\lvert A\rvert).$$
+
+| quantity | exponent | s.e. |
+|---|---|---|
+| $\lvert A\rvert$ | $+1.107864$ | $0.002950$ |
+| $r=\lvert A+B\rvert/\lvert A\rvert$ | $-0.342848$ | $0.009184$ |
+| $\lvert S\rvert$ | $+0.765016$ | $0.011771$ |
+| $\ell^2$ | $+0.629287$ | $0.006482$ |
+
+**The required residue exponent is $-0.478577$ and the achieved one is
+$-0.342848$.** The gap is $+0.135730$, fitted directly on
+$\log(\lvert S\rvert/\ell^2)$ so its error is the error of the
+difference and not the sum of two — $\pm0.010646$, the mistake
+[rem:jbarrier]'s K1 made and not repeated here.
+
+**That gap is the published deficit, reached by a route that never
+fits $\lvert\sum a\rvert$ against anything** (AA3): $+0.135730$
+against $+0.134019$, agreeing to $0.0017$. It is a cross-check of the
+published number and not a new one, and the two fields differ —
+$e(\ell^2)$ here is $+0.629287$ on $2.1$ decades against the published
+$+0.583897$ on ten and a half.
+
+**And in plain terms** (AA4). At $N=3200000$ the cancellation between
+$A$ and the rest of the $d$-sum is exact to $0.023066$. To meet item
+5's demand there it would have to be exact to $0.002425$ — **a factor
+of $9.5118$ closer, half a per cent instead of two and a third.**
+
+**The gate failed on the same defect for a third tick, and this time
+it was anticipated in words and missed in fact.** AA1 read its markers
+at full double precision "because ten digits was not enough last
+time" — and that fixed the *reader* while both *emitters* still
+carried seven significant figures, giving relatives of
+$1.17\cdot10^{-7}$ and $5.33\cdot10^{-10}$ against a $10^{-12}$ cap.
+`TOL BELOW PRINT` again. The `mainA` marker is this repository's own
+with exactly one consumer, so it was widened and re-run with no
+cascade; `audit_jbarrier.py` was not, because re-running it would make
+[rem:jbarrierreach]'s and [rem:whichfloor]'s runs older than what they
+read and G22 would demand those be re-run too — **a print-width fix is
+not worth invalidating two measured runs.** So BB1, registered second,
+judges the $\ell^2$ leg at that marker's own print bound of
+$5\cdot10^{-7}$ and keeps $10^{-12}$ on the other; both pass. AA1
+stays refuted as written.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

@@ -1,0 +1,101 @@
+STATISTIC: the exponents of |A|, of the relative residue
+           r = |A+B|/|A|, of |S| = |A| r and of l2 on one field,
+           the residue exponent the demand requires, and the gap
+           between required and achieved.
+FIELD: N = [25000, 50000, 100000, 200000, 400000, 800000, 1600000, 3200000]; the Type II split of rem:bilinear at K =
+       floor(N^0.56). A at N = 200000, l2 there, and the published
+       deficit are READ from results/audit_mainterm_removal.txt,
+       results/audit_jbarrier.txt and
+       results/audit_deficit_log.txt.
+DERIVED: |S| = |A| r exactly, so e(|S|) = e(|A|) + e(r) and the
+         demand |S| <~ l2 is e(r) <= e(l2) - e(|A|).
+
+READ audit_mainterm_removal.txt 200000 1.40933816458843928e+06
+READ audit_jbarrier.txt 200000 13476.690000
+READ audit_deficit_log.txt deficit 0.134019
+PRINTBOUND audit_two_rates 17 0.00000000000000000500
+  theta 0.56, identity cap 0.001, gap cap 0.05, need cap 0.005
+sieving to 3200000
+  N = 25000     1-|B|/|A| 0.125739   |S|/l2   5.0350
+POINT rate_25000 0.125739
+POINT sl2_25000 5.035034
+  N = 50000     1-|B|/|A| 0.097964   |S|/l2   5.3385
+POINT rate_50000 0.097964
+POINT sl2_50000 5.338490
+  N = 100000    1-|B|/|A| 0.078006   |S|/l2   5.8927
+POINT rate_100000 0.078006
+POINT sl2_100000 5.892702
+  N = 200000    1-|B|/|A| 0.063374   |S|/l2   6.6274
+POINT rate_200000 0.063374
+POINT sl2_200000 6.627368
+  N = 400000    1-|B|/|A| 0.052798   |S|/l2   8.0213
+POINT rate_400000 0.052798
+POINT sl2_400000 8.021261
+  N = 800000    1-|B|/|A| 0.040359   |S|/l2   8.2110
+POINT rate_800000 0.040359
+POINT sl2_800000 8.211005
+  N = 1600000   1-|B|/|A| 0.029912   |S|/l2   8.3955
+POINT rate_1600000 0.029912
+POINT sl2_1600000 8.395549
+  N = 3200000   1-|B|/|A| 0.023066   |S|/l2   9.5118
+POINT rate_3200000 0.023066
+POINT sl2_3200000 9.511825
+SCALES 8
+
+AA1  the gate
+  A  here 1.40933816458843928e+06
+     its  1.40933816458843928e+06   relative 0.00e+00
+  l2 here 13476.690007 against its 13476.690000   relative 5.33e-10
+  AA1 REFUTED   (cap: 1e-12 relative on both)
+
+BB1  the gate, registered after AA1 and judging the l2 leg at its
+     source's own precision
+PRINTBOUND audit_jbarrier 7 0.0000005000
+  POINT jbarrier carries seven significant figures, so its print bound
+  is 5e-07 relative; the A leg keeps 1e-12 on a marker widened to full
+  double precision. TOL BELOW PRINT is what AA1 hit and is not repeated.
+  A  relative 0.00e+00 against 1e-12   ok
+  l2 relative 5.33e-10 against 5e-07   ok
+  BB1 hold
+
+    quantity          exponent        s.e.
+  |A|              +1.107864     0.002950
+POINT exp_A 1.107864
+  r = |A+B|/|A|    -0.342848     0.009184
+POINT exp_r -0.342848
+  |S|              +0.765016     0.011771
+POINT exp_S 0.765016
+  l2               +0.629287     0.006482
+POINT exp_l2 0.629287
+
+AA2  the identity
+  e(|S|) +0.765016 against e(|A|) + e(r) +0.765016, difference 2.22e-16
+  AA2 hold   (cap: 0.001)
+
+AA3  the number
+  required residue exponent e(l2) - e(|A|) = -0.478577
+  achieved                              e(r) = -0.342848
+  gap +0.135730, and e(|S|) - e(l2) fitted directly is +0.135730 +- 0.010646
+  against the published deficit 0.134019
+TSTAT tworates_gap 12.75
+SPREAD tworates_gap 0.010646
+POINT tworates_need -0.478577
+POINT tworates_gap 0.135730
+  AA3 hold   (cap: positive and within 0.05 of the published)
+
+AA4  what the demand asks at the top N, in plain terms
+  at N = 3200000 the cancellation is exact to 0.023066
+  to meet the demand there it would have to be exact to 0.002425
+  a factor of 9.5118 closer
+POINT neededcancel 0.002425
+  AA4 hold   (cap: below 0.005)
+
+======================================================================
+BB1 hold
+AA1 REFUTED  AA2 hold  AA3 hold  AA4 hold
+
+the two rates are measured and the number between them is the deficit,
+reached here by a route that never fits |sum a| against anything: it
+is the residue exponent the demand requires minus the one the
+cancellation achieves. that agreement is a cross-check of the
+published number and not a new one.
