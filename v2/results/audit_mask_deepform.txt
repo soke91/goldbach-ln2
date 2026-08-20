@@ -1,0 +1,84 @@
+STATISTIC: the fraction of simulated fields in which N^-a
+           beats (log N)^-b on weighted r.m.s. at the three
+           depths where every band clears |z| = 2, as the
+           log-range is extended with the band density and
+           the error law held fixed; the effective sample
+           size at each extension; and the factor in N at
+           which the fraction first reaches 95 per cent.
+NULL: RUN, and it is the whole measurement. Data are drawn
+      from the fitted power law with Gaussian errors of the
+      modelled se, both forms are fitted by the same
+      weighted least squares, and 'separated' counts the
+      draws in which the true form has the smaller weighted
+      r.m.s. The fixed SEED governs every draw.
+FIELD: the per-depth band tables of
+       v1/results/wall/lab_mask_amplitude_law.txt at depths
+       3, 4 and 5, where |z| runs from 2.04 to 12.19 and no
+       band fails to clear -- the region
+       {#rem:maskformreach} named as untried. Fifteen
+       half-octave bands over a factor 160 in N, with the
+       exact errors of Lemma lem:cellmom. Nothing about the
+       mask is measured; the exponents are refitted only as
+       I1's control against
+       v1/results/wall/lab_mask_exponent_se.txt.
+
+read the depth tables from v1/results/wall/lab_mask_amplitude_law.txt; nothing about the mask
+  is measured here
+SEED 20260823
+DRAWS 2000
+PRINTBOUND audit_mask_deepform 4 0.00005000
+
+I1  the control on the depths where every band clears
+  depth 3  a = 0.2713 against v1's 0.2713; se exponent 0.0385; |z| runs 2.04 to 6.37  yes
+  the weight falls like N to minus 0.4657
+  depth 4  a = 0.2152 against v1's 0.2152; se exponent 0.0465; |z| runs 4.56 to 10.11  yes
+  the weight falls like N to minus 0.3375
+  depth 5  a = 0.1434 against v1's 0.1434; se exponent 0.1105; |z| runs 8.39 to 12.19  yes
+  the weight falls like N to minus 0.0659
+  I1 hold   (cap: the four decimals v1 prints)
+
+I2/I3/I4/I5  extending the range where the signal is strong
+  depth  extension  factor in N   bands   power wins  effective n
+  3      1          1.204e+02     15      0.5640      10.47
+  3      2          1.448e+04     29      0.5705      12.33
+  3      4          2.098e+08     57      0.3815      12.58
+  3      8          4.402e+16     113     0.3355      12.58
+  3      16         1.938e+33     225     0.3365      12.58
+  3      32         3.755e+66     449     0.3505      12.58
+  3      64         1.410e+133    897     0.3560      12.58
+  3      128        1.989e+266    1793    0.3420      12.58
+NULL mask_deepform_depth3 0.3420
+  4      1          1.204e+02     15      0.5705      12.13
+  4      2          1.448e+04     29      0.7850      16.16
+  4      4          2.098e+08     57      0.8350      17.29
+  4      8          4.402e+16     113     0.7960      17.34
+  4      16         1.938e+33     225     0.7555      17.34
+  4      32         3.755e+66     449     0.7915      17.34
+  4      64         1.410e+133    897     0.7575      17.34
+  4      128        1.989e+266    1793    0.7810      17.34
+NULL mask_deepform_depth4 0.7810
+  5      1          8.508e+01     14      0.5515      13.89
+  5      2          7.238e+03     27      0.7235      26.20
+  5      4          5.239e+07     53      0.9900      47.49
+  5      8          2.745e+15     105     1.0000      73.54
+  5      16         7.534e+30     209     1.0000      87.19
+  5      32         5.676e+61     417     1.0000      88.76
+  5      64         3.222e+123    833     1.0000      88.78
+  5      128        1.038e+247    1665    1.0000      88.78
+NULL mask_deepform_depth5 1.0000
+
+  at depth 5 the effective sample goes 13.89 to 88.78, a factor of 6.4
+  I2 hold   (cap: a factor of four)
+  at the observed range the power law wins 0.5640, 0.5705, 0.5515
+  I3 hold   (cap: none reaching 95 per cent)
+FORMREACH mask_deep_depth5 7.72
+  depth 5 separates at a factor of 10^7.72 in N
+  I4 hold   (cap: 95 per cent at some extension)
+  I5 hold   (cap: a factor above 10^6)
+
+what this settles
+  where the mask has not sunk the weights do not collapse and the forms do
+  separate, so the limitation is the shallow depths' and not the question's
+
+======================================================================
+I1 hold  I2 hold  I3 hold  I4 hold  I5 hold

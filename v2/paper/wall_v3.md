@@ -2972,6 +2972,64 @@ this and unexplored. The claim is about the reach of a measurement
 already made, not about the mask.
 
 
+#### Remark (where the mask has not sunk, the form is measurable) {#rem:maskdeepform}
+<!-- evidence: audit_mask_deepform.py -->
+
+[rem:maskformreach] could not measure what range separates $N^{-a}$
+from $(\log N)^{-b}$, because at the depths it used the weights
+collapsed — the effective sample froze at $5.01$ while the band count
+went to $1793$. It named the untried design: measure where the mask
+has not yet sunk below its own error. That design is in the same
+table, and it works.
+
+**The mechanism is visible in the exponents** (I1). The weight is
+$(dm/se)^2$ and falls like $N$ to twice the gap between the amplitude
+and error exponents. At depth 3 that is $N^{-0.4657}$ and at depth 4
+$N^{-0.3375}$ — still collapsing. **At depth 5 it is $N^{-0.0659}$**,
+almost flat, because [rem:maskdmse] found the amplitude and the error
+decaying at nearly the same rate there.
+
+**So the sample grows** (I2). At depth 5 the effective size runs
+$13.89$ to $88.78$ as the range extends, a factor of $6.4$, against
+the $4.99$ to $5.01$ [rem:maskformreach] recorded. Depths 3 and 4 sit
+between, reaching $12.58$ and $17.34$ and then stopping.
+
+**v1's statement holds where it was made** (I3). At the observed
+range the power law wins in $0.5640$, $0.5705$ and $0.5515$ of draws
+at the three depths — barely better than a coin, exactly as "the data
+do not separate them" says.
+
+**And extending the range does separate them** (I4). At depth 5 the
+fraction runs $0.5515$, $0.7235$, $0.9900$, then $1.0000$ at every
+larger extension. **The first extension to clear $95$ per cent
+corresponds to a factor of $10^{7.72}$ in $N$.** Depths 3 and 4
+plateau instead, at $0.34$ and $0.78$, for the reason their weight
+exponents give.
+
+So OPEN.md item 3's limitation is a reach and not a property of the
+question, and the reach now has a number. It is not a small one (I5):
+starting from the bands' floor at $N\sim1.189\cdot10^5$, a factor of
+$10^{7.72}$ puts the top at $6.24\cdot10^{12}$. The kind-byte sieve
+this session built carried $8\cdot10^9$ in $14.90$ GB; $6.24\cdot10^{12}$ is $780$ times that and would need about $12.5$ TB by the
+same packing. **The form is measurable and this machine cannot
+measure it.**
+
+That is a different sentence from the three the other axes produced,
+and worth keeping separate from them. [rem:ladderdegree],
+[rem:deficitregion] and [rem:maskformreach] each found a place where
+more computation buys nothing. **This one found a place where it
+would buy the answer, and priced it.** A limitation with a price is a
+different object from a limitation without one, and item 3 should
+carry the price rather than the word "assumed".
+
+Two cautions. The separation measured is between two named forms and
+says nothing about a third. And depth 5 is the deepest cell — the one
+with fewest bands and the smallest population — so the design that
+succeeds here is the one with the least data behind it, which is not
+a contradiction but is worth stating: what makes it work is the
+*ratio* of the two exponents, not the amount of signal.
+
+
 #### Remark (the flatness cannot rise forever) {#rem:flatnessshape}
 <!-- evidence: audit_flatness_shape.py -->
 
