@@ -1,0 +1,575 @@
+% =====================================================================
+%  P3.  The exact second moment of sum_{n<N} Lambda(n) mu(N-n),
+%       and why Chowla's conjecture does not control it.
+%
+%  Deployment version.  Written to deploy/SPEC.md.
+%  Compile:  pdflatex P3-wall-second-moment.tex   (twice)
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{measurement}[theorem]{Measurement}
+\theoremstyle{remark}
+\newtheorem{note}[theorem]{Note}
+
+\renewcommand{\SS}{\mathfrak{S}}
+\newcommand{\AAA}{\mathfrak{A}}
+
+\title{The exact second moment of
+$\sum_{n<N}\Lambda(n)\mu(N-n)$,\\
+and why Chowla's conjecture does not control it}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The Huang--Li reduction of binary Goldbach to Elliott--Halberstam
+\cite{HL}, once its demand side is evaluated \cite{P1}, rests on the
+single scalar
+\[
+  C(N)\;=\;\sum_{n<N}\Lambda(n)\mu(N-n)\;=\;o(N).
+\]
+This paper establishes what is exactly computable about that scalar.
+Its second moment has a closed form,
+$V(N)=\sum_{v<N}\mu^2(v)\Lambda(N-v)^2\sim\AAA(N)N\log N$, whose local
+factor is $\AAA(N)=\prod_{q\nmid N}(1-1/(q(q-1)))$ and \emph{not} the
+Hardy--Littlewood singular series (Proposition~\ref{prop:V}); the same
+constant is, not coincidentally, the deficiency in Huang--Li's own
+lower bound. The aggregate second moment of the truncated convolution
+is an exact unconditional identity in terms of the prime-pair sum and
+the binary Chowla sum (Lemma~\ref{lem:MP}), the truncation being
+load-bearing.
+
+We then quantify why the natural conditional route does not close.
+Writing $\rho(N)=\mathrm{Var}\,C(N)/V(N)$, the coefficient amplifying
+the Chowla correlation $S(h)$ grows like $N/(\AAA(N)\log N)$ and is
+nonnegative, so a hypothesis $|S(h)|\le\varepsilon$ gives $\rho\to1$
+only for $\varepsilon=o(\log N/N)$ --- a factor $N/\log N$ beyond
+Chowla --- and no such bound is true, because the measured absolute
+budget already exceeds $1$ by an order of magnitude and grows
+(Proposition~\ref{prop:W}). The only surviving route is signed
+cancellation across $h$, and we state that as an open question.
+
+Finally we delimit what can be measured about $C(N)$ at all. Replacing
+$\mu$ by an arbitrary sign pattern on its own support leaves $V(N)$
+unchanged, so any estimator reproduced under that replacement is not
+measuring $\mu$ (Lemma~\ref{lem:coin}); in particular no centred
+estimator calibrates $\rho$. The obstruction is not
+information-theoretic --- estimators reading multiplicativity separate
+$\mu$ from a coin cheaply, and the field determines $\mu$ by an
+invertible additive convolution (Proposition~\ref{prop:coindisc}) ---
+but the constructive inverse is numerically dead, its filter growing
+like $1.92^{m}$.
+
+Net progress toward Goldbach: zero. What is offered is the exact
+facts, and the precise reason two natural routes to $C(N)=o(N)$ are
+not routes.
+\end{abstract}
+
+% =====================================================================
+\section{Introduction}
+
+\subsection{The reduction}
+
+Let $N$ be a large even integer, $\Lambda$ the von Mangoldt function,
+$\mu$ the M\"obius function,
+$\tilde r(N)=\sum_{n<N}\Lambda(n)\Lambda(N-n)$, and
+\begin{equation}\label{eq:constants}
+  \AAA(N)=\prod_{q\,\nmid\,N}\Bigl(1-\frac{1}{q(q-1)}\Bigr),
+  \qquad
+  \SS(N)=2\prod_{p>2}\Bigl(1-\tfrac{1}{(p-1)^2}\Bigr)
+          \prod_{\substack{p\mid N\\ p>2}}\Bigl(1+\tfrac{1}{p-2}\Bigr),
+\end{equation}
+$q$ and $p$ denoting primes. Huang and Li \cite{HL} proved that binary
+Goldbach for all sufficiently large even $N$ follows from
+$EH_\mu(N^{\theta'})$ for a single $\theta'>1/2$. The companion paper
+\cite{P1} evaluates that hypothesis: one half of it is an
+unconditional theorem, and the other half is, by an unconditional
+identity, equivalent to Huang--Li's equation~(22) --- which yields the
+asymptotic $\tilde r(N)\sim\SS(N)N$ exactly when
+\begin{equation}\label{eq:C}
+  C(N)\;=\;\sum_{n<N}\Lambda(n)\mu(N-n)\;=\;o(N).
+\end{equation}
+This paper is about \eqref{eq:C}.
+
+The constant $\AAA(N)$ is Huang--Li's equation~(7), and it enters
+their argument through the triangle inequality
+$|C(N)|\le\sum_{n<N}\Lambda(n)\mu^2(N-n)$, whose right-hand side
+counts squarefree shifted primes. Proposition~\ref{prop:V} evaluates
+exactly that count. So the deficiency $1-\AAA(N)$ in their lower bound
+is one minus the local density of the second moment of $C$, and the
+two sides of the problem meet at a constant neither names.
+
+\subsection{Results}
+
+Section~\ref{sec:exact} gives the exact facts:
+Proposition~\ref{prop:V} (the scale), Lemma~\ref{lem:MP} (the exact
+aggregate identity). Section~\ref{sec:chowla} gives the obstruction to
+the conditional route (Proposition~\ref{prop:W}).
+Section~\ref{sec:controls} gives the two controls that delimit
+measurement (Lemma~\ref{lem:coin}, Proposition~\ref{prop:coindisc}).
+Section~\ref{sec:margin} records the size of the margin the problem
+demands.
+
+\subsection{What is not claimed}\label{sec:notclaimed}
+
+\begin{itemize}
+\item \textbf{No law for $C(N)$ is conjectured here.} In particular no
+distributional statement of the form
+$C(N)=m(N)+\sqrt{V(N)}\,G(N)$ is asserted.
+
+\item \textbf{No level or rate for $\rho=\mathrm{Var}\,C/V$ is
+quoted.} By Lemma~\ref{lem:coin} the centred estimator cannot
+distinguish $\mu$ from a sign pattern, so any such figure calibrates
+nothing.
+
+\item \textbf{The decoupling is not assumed.} Passing from
+$\mathrm{OffDiag}(N)$ to $\sum_{h\ne0}c(h)S(h)$ replaces values
+sampled on a sparse set of primes by an average over all integers;
+that step is not algebra and is not assumed anywhere below.
+Proposition~\ref{prop:W} shows the conditional route fails
+\emph{even granting it}.
+
+\item \textbf{No progress toward Goldbach.} Nothing here bounds
+$C(N)$.
+\end{itemize}
+
+% =====================================================================
+\section{The wall, exactly}\label{sec:exact}
+
+\subsection{The exact scale}
+
+\begin{proposition}[the exact scale]\label{prop:V}
+Let
+\[
+  V(N)=\sum_{v<N}\mu^2(v)\,\Lambda(N-v)^2,
+  \qquad
+  W(N)=\sum_{w<N}\Lambda(w)^2 .
+\]
+Then $V(N)=W(N)\,\AAA(N)\,(1+o(1))$, and consequently
+$V(N)\sim\AAA(N)\,N\log N$.
+\end{proposition}
+
+\begin{proof}
+$\Lambda(w)^2$ is supported on prime powers with weight $(\log p)^2$,
+so with $w=N-v$,
+\[
+  V(N)=\sum_{p^k<N}(\log p)^2\mu^2(N-p^k)
+      =\sum_{p<N}(\log p)^2\mu^2(N-p)+O(\sqrt N\log^2N),
+\]
+a $(\log p)^2$-weighted count of \emph{squarefree shifted primes}. Its
+local density at a prime $q$ is $1$ when $q\mid N$ --- there
+$q^2\mid N-p$ forces $q\mid p$, hence $p=q$, a single term --- and
+$1-1/\varphi(q^2)=1-1/(q(q-1))$ when $q\nmid N$, since the bad class
+$p\equiv N\pmod{q^2}$ is then a unit class. The count is then Mirsky's
+theorem on squarefree values of shifted primes \cite{Mir49}, and
+partial summation converts it to the stated asymptotic.
+\end{proof}
+
+\begin{note}[the local factor is $\AAA$, not $\SS$]\label{note:AvsS}
+The singular series $\SS(N)$ is Hardy--Littlewood's and is correct for
+the Goldbach \emph{count}; the right object for the second moment of
+$C(N)$ is $\AAA(N)$. Both depend on $N$ only through the set of primes
+dividing $N$ --- though in opposite ways, $\SS$ through a product
+\emph{over} those primes and $\AAA$ through a product over the primes
+\emph{not} among them --- which is why the substitution is easy to
+make and hard to see. One reconstruction error of exactly this kind
+divides by $W(N)$ where the definition calls for $V(N)$; the two
+differ by exactly $\AAA(N)$.
+\end{note}
+
+\begin{measurement}[the local factor, discriminated]\label{meas:V}
+The statistic, stated: for a candidate $c\in\{\AAA,\SS\}$ put
+$z_c(N)=\bigl(V(N)/W(N)\bigr)/c(N)$; the figure quoted is
+$\mathrm{sd}\bigl(z_c/\overline{z_c}\bigr)$, i.e. the candidate is
+rescaled to the measured mean so that only its shape in $N$ is judged.
+Over even $N\in[10^5,\,1.6\cdot10^7]$ it is $0.000323$ for $\AAA$
+against $0.245235$ for $\SS$, a factor of $759.3$. The reading has to
+be stated: subtracting a least-mean multiple rather than dividing
+gives $0.000317$ and $0.299040$ instead. The lower cutoff is not
+cosmetic --- the figure for $\AAA$ rises as the cutoff falls, reading
+$0.000346,\,0.000398,\,0.000470,\,0.000529$ at cutoffs
+$5\cdot10^4,\,10^4,\,10^3,\,10^2$, while the figure for $\SS$ is
+unaffected, being dominated by $\SS$'s wrong shape rather than by
+noise.
+
+Dividing through by $W(N)$ removes the analytic factor exactly, so no
+asymptotic for $\sum(\log p)^2$ is assumed: the ratio $V(N)/W(N)$
+against $\AAA(N)$ has mean $1.0000002$ with standard deviation
+$0.0001659$ in the top octave, and at $N=4\cdot10^6$ the ratio $W/V$
+is $1.270800$ against the predicted $1/\AAA(N)=1.270204$. By cells,
+with cell $j$ the even $N$ divisible by $2$ and by the first $j-1$ of
+$3,5,7,11,13$:
+\[
+\begin{array}{r|cccccc}
+ \text{modulus} & 2 & 6 & 30 & 210 & 2310 & 30030\\
+ \text{count} & 7950000 & 2650000 & 530000 & 75714 & 6883 & 529\\\hline
+ \overline{V/(W\AAA)} & 1.000000475 & 1.000000147 & 1.000000010
+   & 0.999999570 & 0.999999037 & 0.999999646
+\end{array}
+\]
+(\texttt{lab\_second\_moment.py}).
+\end{measurement}
+
+\begin{measurement}[the second-order form]\label{meas:secondorder}
+The asymptotic $V\sim\AAA N\log N$ converges slowly and should be
+quoted in its second-order form. The measured ratio
+$V/(\AAA N\log N)$ is $0.927137,\,0.933409,\,0.939701$ at
+$N=10^6,\,4\cdot10^6,\,1.6\cdot10^7$. Partial summation from
+$\theta(x)\sim x$ gives $\sum_{p\le x}(\log p)^2\sim x\log x-x$, so
+the second-order form is $\AAA(N)\,(N\log N-N)$, a factor
+$1-1/\log N$ smaller --- $0.939716$ at the top, against the measured
+$0.939701$. Against that form the ratio reads
+$0.999482,\,0.999134,\,0.999984$ at the same three $N$
+(\texttt{lab\_second\_moment.py}).
+\end{measurement}
+
+\subsection{The aggregate second moment, exactly}
+
+\begin{lemma}[the second-moment identity]\label{lem:MP}
+Fix $X$ and let
+\[
+  \widehat C(N)\;=\;\sum_{\substack{n+v=N\\ n\le X,\ v\le X}}
+    \Lambda(n)\,\mu(v)
+\]
+be the truncated convolution, whose support runs to $2X$. Then
+\[
+  \sum_{N\le2X}\widehat C(N)^2\;=\;\sum_{|h|<X}M(h)\,P(h),
+  \qquad
+  M(h)=\sum_{v,\,v+h\le X}\mu(v)\mu(v+h),
+  \quad
+  P(h)=\sum_{w,\,w+h\le X}\Lambda(w)\Lambda(w+h).
+\]
+\end{lemma}
+
+\begin{proof}
+Expanding the square as a double sum over $(n,v)$ and $(n',v')$ with
+$n+v=n'+v'$ and summing over \emph{all} $N$ leaves the single
+constraint $n-n'=v'-v=:h$, with $(n,n')$ and $(v,v')$ otherwise
+ranging independently over $[1,X]^2$. Collecting the $\Lambda$-pairs
+and the $\mu$-pairs separately gives the two factors.
+\end{proof}
+
+\begin{note}[the truncation is load-bearing]\label{note:trunc}
+The truncation on the left is necessary and it is easy to lose. If one
+writes instead $\sum_{N\le X}C(N)^2$ with $C$ the untruncated
+convolution, the three surviving indices $(n,v,h)$ are constrained by
+$n+v\le X$ --- a \emph{simplex} --- while $M(h)P(h)$ ranges them over
+the \emph{box} $[1,X]^2$ and so also counts every pair with
+$X<n+v\le2X$. The two sides then differ by a factor near $1.57$ at $X$
+from $800$ to $3200$, and the ratio does not tend to $1$. The form of
+Lemma~\ref{lem:MP} is exact to machine precision at every $X$ tested,
+to $X=1.6\cdot10^7$.
+\end{note}
+
+The identity is exact and unconditional, and it makes the aggregate
+size of the wall a statement about two shifted correlations, one of
+which ($P$) is the Hardy--Littlewood prime-pair sum and the other of
+which ($M$) is the binary Chowla sum.
+
+% =====================================================================
+\section{What the excess is, and why Chowla does not control it}%
+\label{sec:chowla}
+
+Write $\rho(N)=\mathrm{Var}\,C(N)/V(N)$, which is $1$ if the $\mu(v)$
+on the surviving support are replaced by independent signs. Pointwise,
+$C(N)^2=V(N)+\mathrm{OffDiag}(N)$ with
+\begin{equation}\label{eq:offdiag}
+  \mathrm{OffDiag}(N)
+  =\sum_{h\ne0}\ \sum_{\substack{p,\,p+h\ \text{prime}}}
+    (\log p)(\log(p+h))\,\mu(N-p)\mu(N-p-h),
+\end{equation}
+which is algebra. Passing from there to $\sum_{h\ne0}c(h)S(h)$ is
+\emph{not} algebra: it replaces the values $\mu(N-p)\mu(N-p-h)$,
+sampled on the sparse set of $p$ with $p$ and $p+h$ both prime, by an
+average over all $u$. We do not assume that decoupling. What we record
+is that even granting it, the conditional route does not close.
+
+Throughout this section
+\begin{equation}\label{eq:cdef}
+  c(h)\;=\;\sum_{\substack{p'-p=h\\ p,p'\le X}}(\log p)(\log p'),
+\end{equation}
+the sum being over \emph{primes}, not prime powers. This fixes the
+meaning of $c$ once; the alternative
+$c(h)=\sum_n\Lambda(n)\Lambda(n+h)$ differs by $1+O(N^{-1/2})$, since
+$\psi(x)-\theta(x)\asymp\sqrt x$ and the relevant quantity is squared,
+and nothing below turns on the choice.
+
+\begin{proposition}[the amplification]\label{prop:W}
+Let $\Gamma(N)=\bigl(\sum_{h\ne0}c(h)\bigr)/V(N)$ with $c$ as in
+\eqref{eq:cdef} and $X=N$. Then
+\[
+  \Gamma(N)\;\sim\;\frac{N}{\AAA(N)\log N},
+\]
+and consequently a hypothesis $|S(h)|\le\varepsilon$ yields nothing
+better than $|\rho-1|\le\varepsilon\,\Gamma(N)$. Because $c(h)\ge0$
+that inequality is sharp, so such a hypothesis can give $\rho\to1$
+only for $\varepsilon=o(1/\Gamma(N))=o(\log N/N)$.
+\end{proposition}
+
+\begin{proof}
+The numerator needs no correlation input: summing $c(h)$ over all
+$h\ne0$ is exactly $\theta(N)^2-\sum_{p<N}(\log p)^2$, which is
+$N^2(1+o(1))$ by the prime number theorem. The denominator is
+$\AAA(N)N\log N(1+o(1))$ by Proposition~\ref{prop:V}. Dividing gives
+the asymptotic. The inequality $|\rho-1|\le\varepsilon\Gamma$ is the
+triangle inequality applied to $\sum_{h\ne0}c(h)S(h)$ after division
+by $V$, and it is sharp because every $c(h)$ is nonnegative, so no
+cancellation among the coefficients is available to a hypothesis that
+controls only $|S(h)|$.
+\end{proof}
+
+Two consequences. First, Chowla's conjecture asserts $S(h)=o(1)$ for
+fixed $h$; the strength the display needs is $S(h)=o(\log N/N)$, so
+the gap is a factor $N/\log N$. Second --- and this is what closes the
+absolute-value route rather than merely costing it a power of $\log$
+--- the true $S$ overspends that budget already. Define the
+\emph{absolute budget}, which is exactly what the triangle inequality
+spends,
+\begin{equation}\label{eq:budget}
+  \mathcal B(X)=\frac{1}{V(X)}\sum_{0<|h|<X}c(h)\,\bigl|S(h)\bigr|,
+  \qquad
+  S(h)=\frac{1}{X-|h|}\!\!\sum_{|h|<u\le X}\!\!\mu(u)\,\mu(u-|h|).
+\end{equation}
+
+\begin{measurement}[the budget is already overspent]\label{meas:budget}
+Measured, $\mathcal B(X)=13.3,\,17.3,\,23.1,\,30.5$ at
+$X=2\cdot10^4,\ 4\cdot10^4,\ 8\cdot10^4,\ 1.6\cdot10^5$: above $1$ by
+an order of magnitude, and growing. Normalising $S$ by $X$ rather than
+by the number $X-|h|$ of terms gives $7.9,\,10.3,\,13.8,\,18.2$ ---
+smaller, same conclusion. Both are reported because the phrase
+``binary Chowla sum'' does not fix the normalisation, and a budget is
+not interpretable until it does. The amplification itself measures
+$\Gamma=1.5128\cdot10^{3},\ 1.8412\cdot10^{4},\ 3.5759\cdot10^{5}$ at
+$N=10^4,\,1.6\cdot10^5,\,4\cdot10^6$, with
+$\Gamma\log N/N=1.3933,\,1.3789,\,1.3590$ against the predicted
+$1/\AAA(N)=1.270204$
+(\texttt{audit\_amplification.py}).
+\end{measurement}
+
+Hence no bound on $|S(h)|$ alone can give $\rho\to1$. The only route
+is \emph{signed cancellation across $h$}, which is a different object
+from Chowla's smallness and from the averaged absolute bound of
+\cite{MRT15}. Naming what supplies that cancellation is open, and we
+state it as such.
+
+% =====================================================================
+\section{Two controls, and what they delimit}\label{sec:controls}
+
+\begin{lemma}[the coin control]\label{lem:coin}
+Let $\varepsilon(v)=\pm1$ be arbitrary signs on
+$\{v:\mu(v)\neq0\}$ and zero elsewhere. Then $\varepsilon^2=\mu^2$
+pointwise, so $V(N)$ is unchanged, and the field
+$C_\varepsilon(N)=\sum_v\varepsilon(v)\Lambda(N-v)$ has the same exact
+second moment as $C(N)$ for every $N$. Consequently any estimator
+whose output is reproduced when $\mu$ is replaced by $\varepsilon$ is
+not measuring $\mu$.
+\end{lemma}
+
+\begin{proof}
+Immediate from $\varepsilon^2=\mu^2$ and the definition of $V$.
+\end{proof}
+
+\begin{note}[what the lemma licenses, and what it does not]%
+\label{note:coinscope}
+The implication runs one way: \emph{reproduced under $\varepsilon$}
+$\Rightarrow$ \emph{not measuring $\mu$}. The converse does not follow
+and is not proved anywhere here, so a statistic that a sign ensemble
+fails to reach has not thereby been shown to measure $\mu$; it has
+been shown not to be killed by this particular control. The
+distinction is quantitatively large. An i.i.d. sign ensemble is
+\emph{narrower} than a random multiplicative one wherever the object
+is multiplicative --- resolved to $512$ draws on one statistic, the
+i.i.d. spread was $0.6455$ of the multiplicative --- so significance
+read against an i.i.d. ensemble is larger than it should be. Because
+narrowness is conservative for killing, every claim this lemma kills
+stays killed; it is the other direction that fails. An estimator that
+escapes an i.i.d. ensemble has cleared the weakest available control,
+and until it has been put against an ensemble sharing $\mu$'s
+multiplicativity, the escape is a fact about the control.
+\end{note}
+
+Lemma~\ref{lem:coin} invalidates the natural measurement of $\rho$:
+the centred estimator returns the same value on $\varepsilon$ as on
+$\mu$, so a quoted level for $\rho$ calibrates nothing. \emph{Any
+claim about $\mathrm{Var}\,C$ relative to $V$ must first exhibit an
+estimator that distinguishes $\mu$ from a sign pattern, and show that
+it does.}
+
+\begin{proposition}[the coin obstruction is arithmetic, not
+informational]\label{prop:coindisc}
+\begin{enumerate}
+\item[(i)] Estimators separating $\mu$ from a sign pattern exist and
+are cheap, provided they read \emph{multiplicativity} rather than
+variability. Since $\mu(2v)=-\mu(v)$ for odd $v$ is an exact identity
+while $\varepsilon(2v)$ and $\varepsilon(v)$ are independent signs,
+\[
+  T(x)\;=\;\frac1x\sum_{v\le x}\mu(v)\mu(2v)
+  \;\longrightarrow\;-\frac{4}{\pi^2},
+\]
+minus the density of odd squarefree integers, while its analogue for
+independent signs is $O(x^{-1/2})$.
+\item[(ii)] The field determines $\mu$. Writing $M=N-2$ and
+$\widehat\Lambda(m)=\Lambda(m+2)$, one has
+$C(N)=(\widehat\Lambda*\mu)(M)$ as an additive convolution with
+$\widehat\Lambda(0)=\Lambda(2)=\log2\neq0$, so $\widehat\Lambda$ is
+invertible and $\mu(M)=\sum_{m<M}a(m)\,C(M-m+2)$ for the inverse
+filter $a$.
+\end{enumerate}
+Hence Lemma~\ref{lem:coin} is not an information-theoretic
+obstruction: two different sign patterns give two different fields.
+\end{proposition}
+
+\begin{proof}
+(i) On odd squarefree $v$, $\mu(2v)=\mu(2)\mu(v)=-\mu(v)$, so
+$\mu(v)\mu(2v)=-\mu^2(v)$ there; on even $v$, $\mu(2v)=0$. Summing
+gives $-\#\{v\le x:v\ \text{odd squarefree}\}=-(4/\pi^2)x(1+o(1))$.
+For independent signs the summands are independent mean-zero, whence
+the $O(x^{-1/2})$. (ii) An additive convolution by a sequence with
+nonzero value at $0$ is invertible over $\mathbb Q$ by forward
+substitution, which defines $a$ uniquely and gives the stated
+inversion.
+\end{proof}
+
+\begin{measurement}[the discriminator, and the price of inverting]%
+\label{meas:disc}
+$T(x)$ reads $-0.405600,\,-0.405270,\,-0.405286,\,-0.405295$ at
+$x=10^4,10^5,10^6,2\cdot10^6$ against $-4/\pi^2=-0.405285$, while the
+worst of twenty independent-sign draws on the same support is
+$0.020600,\,0.004570,\,0.001214,\,0.000935$. At the top the separation
+is about $430$ standard deviations of the sign ensemble.
+
+The constructive route of (ii) is killed by amplification, not by
+information. The inverse filter grows geometrically: $|a(m)|$ runs
+$1.443,\,2.287,\,2.182,\,20.91,\,512.3,\,3.443\cdot10^{5},\,
+1.073\cdot10^{14},\,1.535\cdot10^{28},\,3.146\cdot10^{56}$ at
+$m=0,1,2,5,10,20,50,100,200$, a growth of about $1.92^{m}$. Any
+numerical use of the inversion is therefore dead at once
+(\texttt{lab\_coin\_discriminator.py}).
+\end{measurement}
+
+% =====================================================================
+\section{The margin the problem demands}\label{sec:margin}
+
+The requirement $C(N)=o(N)$ constrains every $N$, so the figure to
+quote is the one at the extreme rather than at a typical $N$. With
+$\max|C|\approx a_n\sqrt{V(N)}$ and $a_n$ the Gumbel location for the
+number of even $N$ below the point,
+\[
+  \frac{N}{\max_{N\le X}|C(N)|}\;\approx\;
+  \frac{\sqrt N}{a_n\sqrt{\AAA\log N}},
+\]
+which is $10^{4.466}$ at $N=10^{12}$ and $10^{22.842}$ at $N=10^{50}$
+with $a_n=\sqrt{2\log(N/2)}$ and $\AAA=0.787275$. The quantity is
+therefore expected to be small by a wide margin and to be provably
+small by none: the gap between what is expected and what is reachable
+is the whole problem.
+
+% =====================================================================
+\section{Open questions}
+
+\begin{enumerate}
+\item $C(N)=o(N)$ itself.
+\item Name the mechanism supplying \emph{signed} cancellation across
+$h$ in \eqref{eq:offdiag}. Proposition~\ref{prop:W} shows that no
+bound on $|S(h)|$ can substitute for it, and nothing in the literature
+supplies it.
+\item Exhibit an estimator of $\rho$ that provably distinguishes $\mu$
+from a sign pattern in the sense of Lemma~\ref{lem:coin}, and
+calibrate it against a random multiplicative ensemble rather than an
+i.i.d. one (Note~\ref{note:coinscope}).
+\end{enumerate}
+
+% =====================================================================
+\section{Summary}
+
+\begin{itemize}
+\item Proposition~\ref{prop:V}: $V(N)\sim\AAA(N)N\log N$, with the
+local factor $\AAA$ and not the singular series $\SS$; the same
+constant is the deficiency in Huang--Li's lower bound.
+
+\item Lemma~\ref{lem:MP}: the aggregate second moment of the truncated
+convolution is exactly $\sum_h M(h)P(h)$, unconditionally. The
+truncation is load-bearing.
+
+\item Proposition~\ref{prop:W}: the coefficient amplifying $S(h)$
+grows like $N/(\AAA\log N)$ and is nonnegative, and the measured
+absolute budget already exceeds $1$ by an order of magnitude and
+grows. So no bound on $|S(h)|$ gives $\mathrm{Var}\,C\sim V$; only
+signed cancellation across $h$ would.
+
+\item Lemma~\ref{lem:coin} and Proposition~\ref{prop:coindisc}: no
+centred estimator calibrates $\rho$; discriminating estimators exist
+and must read multiplicativity; the constructive inversion is
+numerically dead.
+
+\item Net progress toward Goldbach: zero.
+\end{itemize}
+
+% =====================================================================
+\begin{thebibliography}{99}
+
+\bibitem{HL} J.-J.~Huang and H.~Li, \emph{On the connection between
+the Goldbach conjecture and the Elliott--Halberstam conjecture},
+arXiv:2005.03811v2 [math.NT], 2022.
+
+\bibitem{Mir49} L.~Mirsky, \emph{The number of representations of an
+integer as the sum of a prime and a $k$-th power free integer},
+Amer. Math. Monthly \textbf{56} (1949), 17--19.
+
+\bibitem{MRT15} K.~Matom\"aki, M.~Radziwi{\l}{\l} and T.~Tao,
+\emph{An averaged form of Chowla's conjecture}, Algebra Number Theory
+\textbf{9} (2015), 2167--2196.
+
+\bibitem{P1} \emph{An unconditional bound for a M\"obius-weighted
+correlation sum in fixed residue classes, with two consequences for
+the Huang--Li reduction of Goldbach to Elliott--Halberstam},
+companion paper.
+
+\bibitem{Tao16} T.~Tao, \emph{The logarithmically averaged Chowla and
+Elliott conjectures for two-point correlations}, Forum Math. Pi
+\textbf{4} (2016), e8.
+
+\end{thebibliography}
+
+% =====================================================================
+\appendix
+\section{Reproducibility}
+
+\begin{center}
+\begin{tabular}{lll}
+\hline
+Script & Result file & Supports\\
+\hline
+\texttt{lab\_second\_moment.py} & \texttt{lab\_second\_moment.txt}
+ & Measurements~\ref{meas:V},~\ref{meas:secondorder}\\
+\texttt{audit\_amplification.py} & \texttt{audit\_amplification.txt}
+ & Measurement~\ref{meas:budget}\\
+\texttt{lab\_coin\_discriminator.py} &
+ \texttt{lab\_coin\_discriminator.txt} & Measurement~\ref{meas:disc}\\
+\hline
+\end{tabular}
+\end{center}
+
+Every measurement above states the range on which it was taken, and
+the statistic and field it was taken of. No computation is used as a
+premise of Proposition~\ref{prop:V}, Lemma~\ref{lem:MP},
+Proposition~\ref{prop:W} or Proposition~\ref{prop:coindisc}, each of
+which is proved.
+
+\end{document}

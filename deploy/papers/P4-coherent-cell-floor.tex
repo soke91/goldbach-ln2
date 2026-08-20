@@ -1,0 +1,504 @@
+% =====================================================================
+%  P4.  A count is not an error bar: exact fluctuation floors for cell
+%       means of arithmetic fields, with an application to
+%       sum_{n<N} Lambda(n) mu(N-n).
+%
+%  Deployment version.  Written to deploy/SPEC.md.
+%  Compile:  pdflatex P4-coherent-cell-floor.tex   (twice)
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{measurement}[theorem]{Measurement}
+\theoremstyle{remark}
+\newtheorem{note}[theorem]{Note}
+
+\renewcommand{\SS}{\mathfrak{S}}
+\newcommand{\AAA}{\mathfrak{A}}
+
+\title{A count is not an error bar:\\
+exact fluctuation floors for cell means of arithmetic fields}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $F(N)$ be an arithmetic field built by convolving a sign-valued
+multiplicative function against a fixed nonnegative weight --- the
+model case is $C(N)=\sum_{n<N}\Lambda(n)\mu(N-n)$, normalised as
+$Z(N)=C(N)/\sqrt{V(N)}$. Partition a band of $N$ into cells indexed by
+divisibility, and ask whether a cell mean differs from the band mean.
+The usual error bar for that question is $\mathrm{sd}/\sqrt{n_c}$,
+built from the cell count $n_c$.
+
+That error bar is wrong, and not by a constant. We give the exact
+fluctuation of any cell mean in closed form under the natural null in
+which the signs are replaced by independent ones
+(Lemma~\ref{lem:cellmom}): three convolution terms, no simulation. We
+then show that this quantity does not decay like $n_c^{-1/2}$ but like
+$(\log N)^{-1/2}$ (Observation~\ref{obs:coh}), because the summand
+$u_c(v)$ is a \emph{coherent} sum rather than a self-averaging one:
+every $N$ in the cell reads the same arithmetic input at the same
+$v$. Over a factor $140$ in $N$, a count-based interval predicts the
+error bar shrinks by $11.8$; it shrinks by $1.21$, against the $1.19$
+that $(\log N)^{-1/2}$ predicts. An interval built from a count is
+therefore about ten times too narrow at the top of that range relative
+to the bottom, and in absolute terms the exact floor exceeds
+$\mathrm{sd}(Z)/\sqrt{n_c}$ by factors of $5.8$ to $160$.
+
+The exact floor is not merely a corrected noise level. Under the
+label permutation that preserves every cell size while destroying the
+correspondence between cells and arithmetic (Lemma~\ref{lem:placebo}),
+the floor \emph{collapses} by factors from $3.8$ to $105$: it is
+itself a second measurement of that correspondence, and quoting
+against it is conservative by about two orders of magnitude. What
+predicts its size is the excess of the shift's singular series over
+same-cell pairs, a quantity that is scale-invariant by construction
+(Proposition~\ref{prop:scaleinv}) --- so whatever produces the decay
+of the effect it measures, it is not the arithmetic that produces its
+size.
+
+The conclusion applies to any cell mean of a field whose summands
+share a common arithmetic input, and is independent of the Goldbach
+context in which it was found.
+\end{abstract}
+
+% =====================================================================
+\section{Introduction}
+
+\subsection{The setting}
+
+Let $N$ range over the even integers of a band, let
+\begin{equation}\label{eq:field}
+  C(N)=\sum_{n<N}\Lambda(n)\mu(N-n),
+  \qquad
+  V(N)=\sum_{v<N}\mu^2(v)\Lambda(N-v)^2,
+  \qquad
+  Z(N)=\frac{C(N)}{\sqrt{V(N)}},
+\end{equation}
+so that $Z$ has second moment $1$ under the null in which the $\mu(v)$
+on their own support are replaced by independent signs. Partition the
+band into \emph{cells} indexed by \emph{depth} $d$, the number of
+$3,5,7,11,13$ dividing $N$. The question is whether
+$m_c-\overline m$, the difference between the cell mean of $Z$ and the
+band mean, is larger than chance.
+
+Answering it requires an error bar for $m_c-\overline m$. The reflex
+is $\mathrm{sd}(Z)/\sqrt{n_c}$ with $n_c$ the cell count. This paper
+shows that reflex fails here, gives the correct quantity in closed
+form, and identifies the mechanism --- which is generic, not specific
+to \eqref{eq:field}.
+
+\subsection{Results}
+
+\begin{itemize}
+\item Lemma~\ref{lem:cellmom} gives $\mathrm{Var}(m_c-\overline m)$
+exactly under the sign null, as three convolution terms.
+\item Observation~\ref{obs:coh} identifies its decay: $(\log N)^{-1/2}$,
+not $n_c^{-1/2}$.
+\item Lemma~\ref{lem:placebo} is the control that separates a
+property of the cell \emph{sizes} from a property of the
+correspondence between cells and arithmetic.
+\item Measurement~\ref{meas:placebo} runs it, and finds that the
+effect survives while the floor itself does not --- so the floor is a
+second measurement of the same correspondence.
+\item Proposition~\ref{prop:scaleinv} shows the quantity predicting
+the floor's size is scale-invariant.
+\end{itemize}
+
+\subsection{What is not claimed}\label{sec:notclaimed}
+
+\begin{itemize}
+\item \textbf{No decay exponent for the effect is quoted.} At the
+three shallowest depths the amplitude does not clear the exact floor
+at any scale measured, so nothing can be fitted there, and whether the
+exponents differ by depth is not decided by the accessible range.
+\item \textbf{No distributional law for $Z$ is asserted.}
+\item \textbf{No consequence for the Goldbach problem.} The effect
+measured here is lower order under every parameterisation considered
+and does not threaten $C(N)=o(N)$.
+\item \textbf{Observation~\ref{obs:coh} is offered for its form, not
+its constant.} Its heuristic is quantitatively loose by a factor of
+about $2.5$; the exponent is confirmed directly instead.
+\end{itemize}
+
+% =====================================================================
+\section{The floor, in closed form}\label{sec:floor}
+
+\begin{lemma}[exact cell moments]\label{lem:cellmom}
+Let a band of even $N$ be partitioned into cells, let $c$ be a cell of
+size $n_c$ inside a band of size $n$, let $m_c$ and $\overline m$ be
+the means of $Z$ over $c$ and over the band, and set
+\[
+  u_c(v)\;=\;\sum_{N\in c}\frac{\Lambda(N-v)}{\sqrt{V(N)}},
+  \qquad
+  Q_{cd}\;=\;\sum_v\mu^2(v)\,u_c(v)\,u_d(v).
+\]
+Then, when the $\mu(v)$ on the surviving support are replaced by
+independent signs,
+\begin{equation}\label{eq:cellmom}
+  \mathrm{Var}\bigl(m_c-\overline m\bigr)
+  \;=\;\frac{Q_{cc}}{n_c^{2}}
+  \;-\;\frac{2\,Q_{ca}}{n_c\,n}
+  \;+\;\frac{Q_{aa}}{n^{2}},
+\end{equation}
+where $a$ denotes the whole band. Every term is computable exactly by
+one convolution; no simulation is involved.
+\end{lemma}
+
+\begin{proof}
+Under independent signs
+$E[\varepsilon(v)\varepsilon(v')]=\mu^2(v)\delta_{vv'}$, so
+$\mathrm{Cov}(n_cm_c,n_dm_d)=Q_{cd}$ exactly. Expanding
+$\mathrm{Var}(m_c-\overline m)$ bilinearly gives the three terms.
+\end{proof}
+
+\begin{note}[all three terms are needed]\label{note:threeterms}
+The substitution $u_c(v)\approx n_c/\sqrt V$, which gives the right
+scale for $Q_{cc}/n_c^2$, is not specific to $c$; applied to all three
+terms it returns the same value $S$ for each and hence $S-2S+S=0$. So
+it cannot be used to estimate the variance of the difference. Exactly,
+the variance is smaller than $Q_{cc}/n_c^2$ by a factor that is a
+structural constant rather than noise.
+\end{note}
+
+\begin{measurement}[the closed form, checked against simulation]%
+\label{meas:mc}
+The lemma does not need simulation, but simulation is the only thing
+that would catch an error in the formula, and every normalised cell
+mean below is divided by it. Run in the band $(10^5,2\cdot10^5]$ with
+$2000$ draws:
+\[
+\begin{array}{r|cccccc}
+ \text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\
+ n_c & 19181 & 21097 & 8183 & 1421 & 115 & 3\\\hline
+ \text{closed form} & 0.140080 & 0.052724 & 0.167579 & 0.273630
+   & 0.378073 & 0.639330\\
+ \text{MC}/\text{closed} & 0.9920 & 0.9993
+   & 0.9918 & 1.0044 & 1.0157 & 1.0320
+\end{array}
+\]
+--- worst deviation $0.0320$, at the depth whose cell holds three
+elements, and the six ratios straddle $1$ three and three.
+
+The six ratios are estimated from the \emph{same} draws, so their
+deviations are strongly correlated and their common sign would be one
+observation, not six; that is why the check is run at $2000$ draws
+rather than at a number where the Monte-Carlo precision, here
+$1/\sqrt{2\cdot1999}$, is comparable to the deviation being judged.
+
+The structural constant of Note~\ref{note:threeterms} is visible
+directly: at the top octave of $1.6\cdot10^7$,
+$\mathrm{Var}/(Q_{cc}/n_c^2)$ is
+$0.113119,\,0.016302,\,0.288567,\,0.551516$ at depths $0,1,3,5$, and
+at a quarter of that $N$ the three shallow ratios agree to six digits
+--- $0.113118,\,0.016303,\,0.288571$. Depth $5$ does not: it reads
+$0.557654$ there against $0.551516$ at the top, differing in the third
+digit, and it is much the smallest cell --- $266$ values of $N$ in the
+top octave against $1\,687\,911$ at depth $1$
+(\texttt{lab\_cellmom\_montecarlo.py}).
+\end{measurement}
+
+% =====================================================================
+\section{The floor's uncertainty does not fall like a count}%
+\label{sec:coh}
+
+\begin{observation}[coherent sums]\label{obs:coh}
+The error bar of Lemma~\ref{lem:cellmom} does \emph{not} decay like
+$n_c^{-1/2}$. For fixed $v$, about $n_c/\log N$ of the terms of
+$u_c(v)$ are nonzero, each of size $\log N/\sqrt V$, so
+$u_c(v)\approx n_c/\sqrt V$ and
+\[
+  \frac{Q_{cc}}{n_c^2}
+  \;\approx\;\frac{\sum_v\mu^2(v)}{V}
+  \;\asymp\;\frac{1}{\log N},
+\]
+independently of $n_c$; and by Note~\ref{note:threeterms} the variance
+itself is a fixed fraction of this. So the standard error falls like
+$(\log N)^{-1/2}$.
+\end{observation}
+
+The heuristic is quantitatively loose and is offered for the
+\emph{form} and not the constant: at $N=1.6\cdot10^7$,
+\[
+\begin{array}{r|cccccc}
+ \text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\\hline
+ Q_{cc}/n_c^2 & 0.123577 & 0.121208 & 0.146026 & 0.184159 & 0.235171
+   & 0.307074
+\end{array}
+\]
+against the heuristic's
+$\bigl(\sum_{v<N}\mu^2(v)\bigr)/V(N)=0.049540$. The row is not
+monotone in the depth; its minimum is $0.121208$ at depth $1$.
+
+\begin{measurement}[the exponent, fitted]\label{meas:exponent}
+The form is confirmed directly. Fitting $\mathrm{se}\propto N^{-b}$ to
+the exact floor across eight octaves gives
+$b=0.039451,\,0.039671,\,0.039388$ at depths $2,1,0$, against the
+$0.5$ that a count would give and against $0.036038$, the value of
+$1/(2\langle\log N\rangle)$ with $\langle\log N\rangle$ the mean of
+$\log N$ over the eight octave midpoints. Nothing turns on the third
+decimal: the point is that $0.039$ is near $0.036$ and nowhere near
+$0.5$ (\texttt{lab\_cell\_floor.py}).
+\end{measurement}
+
+\begin{note}[a count is not an error bar]\label{note:notanerrorbar}
+The consequence is not confined to this field. Over a factor $140$ in
+$N$ --- the sub-range of $10^5<N\le1.6\cdot10^7$ on which the exact
+floor was fitted --- $n_c^{-1/2}$ says the error bar shrinks by
+$11.8$; it shrinks by $1.21$, against the $1.19$ that
+$(\log N)^{-1/2}$ predicts over the same factor. \textbf{An interval
+built from a count is therefore about ten times too narrow at the top
+of this range relative to the bottom}, and in absolute terms the
+discrepancy is larger still: at the top octave the exact floor exceeds
+$\mathrm{sd}(Z)/\sqrt{n_c}$ by factors of $5.8$ to $160$, growing with
+the cell, exactly as $Q_{cc}/n_c^2\asymp1/\log N$ predicts. The cause
+is that $u_c(v)$ is a coherent sum, not a self-averaging one, and the
+same is true of any cell mean of a field whose summands share a common
+arithmetic input.
+\end{note}
+
+% =====================================================================
+\section{The control, and what running it shows}\label{sec:placebo}
+
+\begin{lemma}[the placebo key]\label{lem:placebo}
+Let the cells be indexed by a labelling $\ell(N)$, and let $\pi$ be a
+permutation of the even integers in the band. Replacing $\ell$ by
+$\ell\circ\pi$ preserves every cell size and leaves the field $Z$
+pointwise unchanged, while destroying the correspondence between cells
+and arithmetic. Any cell-indexed statistic that survives this
+replacement is a property of the cell sizes and not of that
+correspondence.
+\end{lemma}
+
+\begin{proof}
+The permutation acts on labels only; the multiset
+$\{Z(N):N\ \text{in the band}\}$ and the multiset of cell sizes are
+both invariant, and the joint distribution of $(\ell\circ\pi,Z)$ is
+that of independent labels.
+\end{proof}
+
+Against the exactly computed floor of Lemma~\ref{lem:cellmom}, the
+cell means of the field \eqref{eq:field} are not zero. Over every
+octave from $6.25\cdot10^4$ to $1.6\cdot10^7$, $\max_c|z_c|$ runs
+$9.1$ to $13.0$ and clears Bonferroni in each; the signal is carried
+by the deep cells, with depths $3,4,5$ at $z=-1.6,\,-4.5,\,-9.1$ at
+the top octave while depths $0,1,2$ sit at $+0.0,\,+0.7,\,-0.1$.
+
+\begin{measurement}[the effect survives the placebo; the floor does
+not]\label{meas:placebo}
+Run on the octave $(2\cdot10^6,\,4\cdot10^6]$, with cell sizes
+preserved exactly and the floor recomputed from scratch for each
+permutation:
+\[
+\begin{array}{r|cccccc}
+ \text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\
+ n_c & 383617 & 421978 & 163568 & 28507 & 2263 & 67\\\hline
+ z_c\ \text{(true)} & +0.1069 & +1.1133 & -0.2314 & -2.3990
+   & -5.9997 & -11.0258
+\end{array}
+\]
+against $\max_c|z_c|$ over ten label permutations reading
+$0.9359,\,1.6073,\,1.9921,\,1.5687,\,2.1392,\,1.1216,\,1.7178,\,
+1.1348,\,3.2040,\,1.3192$ --- mean $1.6741$, never above $3.3$. The
+correlation between depth and $z_c$ is $-0.9106$ for the true
+labelling and $+0.0042$ on average under permutation. So what is
+detected is the correspondence between cells and divisibility, not the
+cell sizes.
+
+The same run corrects a natural reading of Lemma~\ref{lem:cellmom}.
+One expects the floor $\mathrm{se}_c$ to be a property of the cell
+sizes, hence nearly invariant under permutation. It is not: the floor
+\textbf{collapses}, by factors from $3.8$ at depth $5$ to $105$ at
+depth $0$ --- $1.2400\cdot10^{-1}$ against $1.1794\cdot10^{-3}$ there
+(\texttt{lab\_mask\_placebo.py}).
+\end{measurement}
+
+\begin{note}[the floor is itself signal]\label{note:floorsignal}
+The mechanism of that collapse is the three-term structure of
+\eqref{eq:cellmom}. For a random subset of the band,
+$u_c(v)\approx(n_c/n)\,u_a(v)$, and then
+$Q_{cc}/n_c^2-2Q_{ca}/(n_cn)+Q_{aa}/n^2$ cancels to leading order,
+leaving only the fluctuation around proportionality. An arithmetic
+cell breaks that proportionality, and the floor is what is left over.
+\textbf{The exact floor is therefore not a noise level but a second
+measurement of the same correspondence}, and quoting $z_c$ against it
+is conservative by about two orders of magnitude: with the permuted
+floor in the denominator the depth-$5$ cell would read $z\approx-42$
+rather than $-11$. The conservative figure is the one kept throughout.
+\end{note}
+
+% =====================================================================
+\section{What predicts the floor's size}\label{sec:size}
+
+Write $\SS_2(h)$ for the Hardy--Littlewood singular series of the
+shift $h$ --- the local density of pairs $(p,p+h)$ --- and, for a cell
+$c$ in the band, let $E_{\mathrm{same},c}[\SS_2]$ be the mean of
+$\SS_2(N-N')$ over pairs $N,N'$ both lying in $c$, and
+$E_{\mathrm{all}}[\SS_2]$ the same mean over all pairs in the band.
+Put
+\begin{equation}\label{eq:Dc}
+  D_c\;:=\;E_{\mathrm{same},c}[\SS_2]-E_{\mathrm{all}}[\SS_2].
+\end{equation}
+
+\begin{measurement}[the floor tracks $D_c$, including its shape]%
+\label{meas:Dc}
+At the octave $(2\cdot10^6,\,4\cdot10^6]$:
+\[
+\begin{array}{r|cccccc}
+ \text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\\hline
+ D_c & 0.302138 & 0.046766 & 0.412504 & 1.052129 & 1.946109
+   & 3.171298\\
+ \mathrm{se}_c & 0.12400 & 0.04662 & 0.14834 & 0.24178 & 0.33253
+   & 0.43685
+\end{array}
+\]
+with correlation $0.9805$ across depths. Neither row is monotone: both
+dip at depth $1$, and that is the mechanism made visible. Depth $0$ is
+the cell on which \emph{none} of $3,5,7,11,13$ divides $N$, and
+excluding a class concentrates the shift just as fixing one does ---
+if $3\nmid N$ and $3\nmid N'$ then both lie in $\{1,2\}\bmod3$ and
+$3\mid h$ with probability $\tfrac12$ against $\tfrac13$ for a random
+pair. Both ends of the depth index concentrate $h$; depth $1$ mixes
+the patterns and washes out. Depth is therefore a coarse index for
+$D_c$, and the floor follows the same coarse index
+(\texttt{lab\_mask\_placebo.py}).
+\end{measurement}
+
+\begin{proposition}[the size mechanism is scale-invariant]%
+\label{prop:scaleinv}
+$D_c$ depends only on the distribution of the shift $h$ in the residue
+classes mod $3,5,7,11,13$ that the cell fixes. That distribution is
+the same at every scale, so $D_c$ is scale-invariant and predicts a
+fitted exponent of zero at every depth.
+\end{proposition}
+
+\begin{proof}
+For $N,N'$ in a band, $\SS_2(N-N')$ depends on $N-N'$ only through the
+local factors at primes dividing $h=N-N'$, and the conditioning that
+defines the cell fixes the residue of $N$ modulo each of
+$3,5,7,11,13$. The induced law of $h$ modulo each of those primes is
+therefore determined by the cell alone, and the band enters only
+through the residues of $h$ at primes larger than $13$, whose joint
+law over a band is the uniform one to $O(1/|{\rm band}|)$. Hence the
+difference \eqref{eq:Dc} converges to a constant depending only on the
+cell, and its scale exponent is $0$.
+\end{proof}
+
+\begin{measurement}[the exponent, measured]\label{meas:scaleinv}
+Measured over $(10^6,2\cdot10^6]$, $(2\cdot10^6,4\cdot10^6]$ and
+$(4\cdot10^6,8\cdot10^6]$, the fitted exponents are
+\[
+\begin{array}{r|cccccc}
+ \text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\\hline
+ e & -0.000879 & -0.016226 & +0.000936 & +0.002904 & +0.000241
+   & -0.008428
+\end{array}
+\]
+--- zero to three decimals at every depth but one. The exception is
+depth~$1$, and it is the depth at which $D_c=0.046766$ is six times
+smaller than any other while the sampling error of the pair average is
+the same $0.0013$ throughout; its fitted exponent flips sign from
+$+0.065546$ to $-0.016226$ when the sample is taken ten times larger,
+which is the signature of noise rather than of a trend. Depth~$1$ is
+also the cell that carries no effect ($z=+1.11$ in
+Measurement~\ref{meas:placebo}), so nothing rests on it
+(\texttt{lab\_cell\_singular.py}).
+\end{measurement}
+
+Proposition~\ref{prop:scaleinv} settles one thing and deliberately not
+another. Whatever produces the decay of the effect with $N$, it is not
+the arithmetic excess that produces the floor's size, since that
+excess does not decay at all. The decay exponent of the effect itself
+is not determined here: at the three shallowest depths the amplitude
+does not clear the exact floor at any scale measured, so no exponent
+can be fitted there.
+
+% =====================================================================
+\section{Summary}
+
+\begin{itemize}
+\item Lemma~\ref{lem:cellmom}: the fluctuation of any cell mean under
+the sign null is exactly
+$Q_{cc}/n_c^2-2Q_{ca}/(n_cn)+Q_{aa}/n^2$; all three terms are needed
+and all three are one convolution each.
+
+\item Observation~\ref{obs:coh} and Note~\ref{note:notanerrorbar}:
+that quantity decays like $(\log N)^{-1/2}$, not $n_c^{-1/2}$. A
+count-based interval is about ten times too narrow across a factor
+$140$ in $N$, and absolutely too narrow by factors of $5.8$ to $160$.
+
+\item Lemma~\ref{lem:placebo} and Measurement~\ref{meas:placebo}: the
+cell effect survives label permutation; the floor does not. The floor
+is a second measurement of the same correspondence, and quoting
+against it is conservative by two orders of magnitude.
+
+\item Proposition~\ref{prop:scaleinv}: the quantity that predicts the
+floor's size is scale-invariant, so it is not what makes the effect
+decay.
+
+\item The mechanism --- coherence of $u_c(v)$ across the cell --- is
+generic. Any cell mean of a field whose summands share a common
+arithmetic input has the same property.
+\end{itemize}
+
+% =====================================================================
+\begin{thebibliography}{99}
+
+\bibitem{HL} J.-J.~Huang and H.~Li, \emph{On the connection between
+the Goldbach conjecture and the Elliott--Halberstam conjecture},
+arXiv:2005.03811v2 [math.NT], 2022.
+
+\bibitem{Mir49} L.~Mirsky, \emph{The number of representations of an
+integer as the sum of a prime and a $k$-th power free integer},
+Amer. Math. Monthly \textbf{56} (1949), 17--19.
+
+\bibitem{P3} \emph{The exact second moment of
+$\sum_{n<N}\Lambda(n)\mu(N-n)$, and why Chowla's conjecture does not
+control it}, companion paper.
+
+\end{thebibliography}
+
+% =====================================================================
+\appendix
+\section{Reproducibility}
+
+\begin{center}
+\begin{tabular}{lll}
+\hline
+Script & Result file & Supports\\
+\hline
+\texttt{lab\_cellmom\_montecarlo.py} &
+ \texttt{lab\_cellmom\_montecarlo.txt} & Measurement~\ref{meas:mc}\\
+\texttt{lab\_cell\_floor.py} & \texttt{lab\_cell\_floor.txt}
+ & Measurement~\ref{meas:exponent}\\
+\texttt{lab\_mask\_placebo.py} & \texttt{lab\_mask\_placebo.txt}
+ & Measurements~\ref{meas:placebo},~\ref{meas:Dc}\\
+\texttt{lab\_cell\_singular.py} & \texttt{lab\_cell\_singular.txt}
+ & Measurement~\ref{meas:scaleinv}\\
+\hline
+\end{tabular}
+\end{center}
+
+Lemma~\ref{lem:cellmom}, Lemma~\ref{lem:placebo} and
+Proposition~\ref{prop:scaleinv} are proved and use no computation.
+The measurements state the band, the cell index and the statistic they
+were taken of; each was run with its decision rule fixed in advance,
+and each cell-indexed claim was run against the permutation control of
+Lemma~\ref{lem:placebo}.
+
+\end{document}

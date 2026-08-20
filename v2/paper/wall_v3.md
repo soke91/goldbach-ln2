@@ -4813,6 +4813,61 @@ primes' contributions do not combine by any rule measured here.
 [rem:shapepower] applies to a law in the primes exactly as it does to
 one in $\log N$, and none is claimed.
 
+#### Remark (three is the whole of it, and there is no decay) {#rem:primecontrib}
+<!-- evidence: audit_prime_contrib.py -->
+
+[rem:radicallaw] left $f(p)$, the amount a single odd prime dividing
+$N$ adds to the drift of $\log(\lvert\sum a\rvert/\ell^2)$, with three
+points and no shape. Neighbouring primes cannot be ordered at this
+precision — $f(5)$ and $f(7)$ differ by $0.0034$ against errors near
+$0.010$ — so this run does not try. It spreads $p$ from $3$ to $101$,
+where a $1/p$ decay would put $f(101)$ at a thirtieth of $f(3)$, and
+asks for the exponent. The gate reproduces all four shared drifts to
+six decimals (O1).
+
+| $p$ | $3$ | $5$ | $7$ | $11$ | $13$ | $17$ | $23$ | $47$ | $101$ |
+|---|---|---|---|---|---|---|---|---|---|
+| $f(p)$ | $.1441$ | $.0697$ | $.0732$ | $.0745$ | $.0392$ | $.0339$ | $.0090$ | $.0560$ | $.0512$ |
+
+**O2, O3 and O4 are all refuted.** $f(101)/f(3)=0.3555$ against a cap
+of a quarter; the slope of $\log f$ on $\log p$ is $-0.317171\pm
+0.234902$, which stands $2.91$ errors from $-1$; and the r.m.s.
+residual is $0.642640$ against a cap of $0.35$. **The cost of
+excluding $p$ from the $k$-range is not of order $1/p$**, so the
+natural derivation — that the excluded $k$ are a $1/(p+1)$ share of
+the squarefree ones — does not describe it. The sequence is not even
+monotone: it bottoms at $p=23$ and comes back up.
+
+**What the numbers say instead** (a diagnostic, after the verdicts and
+predicted by nothing). Every $f(p)$ is a drift minus the *same* base
+drift, whose error $0.019289$ is the largest here and is common to all
+of them, so it cancels in differences and must not be used when
+comparing them. Compared properly, **$f(3)$ stands apart from every
+other prime**: the differences run $+0.0696$ to $+0.1351$ at
+$t=+3.94$ to $+9.12$. The eight primes from $5$ to $101$ have weighted
+mean $+0.054986$ with $\chi^2=19.04$ on seven degrees and a largest
+deviation of $2.68$ of its own error — **higher than a constant
+comfortably allows, but the departure is not a decay**: the low point
+is $p=23$ and $47$ and $101$ are above it.
+
+**And this run's closing sentence is wrong.** It was written to fire
+when O2 failed and says that reading the two-prime families as one
+contribution each "is wrong, not merely unshaped", withdrawing
+[rem:radicallaw]'s contributions as a description. That does not
+follow: a contribution that fails to decay is still a contribution,
+and nothing here tests additivity — [rem:radicallaw] tested it and
+found it sub-additive, which stands. **What is refuted is the decay
+and the $1/(p+1)$ derivation, not the reading.**
+
+**Where this leaves item 5.** The demand's distance depends on which
+primes divide $N$; the dependence is carried almost entirely by
+whether $3$ divides $N$, and among the primes above $3$ this field
+measures scatter and no shape. A quantity that jumps at one small
+prime and is flat-to-ragged afterwards is not a function anyone here
+can extrapolate, and [rem:shapepower] applies to it as to the rest.
+The design cannot separate $p$ from the base's own size or its
+$2$-adic valuation, one base per prime being all it has.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

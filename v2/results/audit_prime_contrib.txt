@@ -1,0 +1,111 @@
+STATISTIC: f(p), the amount a single odd prime dividing N adds to
+           the drift of log(|sum a|/l2), for nine primes from 3
+           to 101, and the exponent of its decay in p.
+FIELD: ten doubling families, base * 2^j for j < 9; base 16384 for
+       radical {2} and one base per odd prime for radical {2,p},
+       p in [3, 5, 7, 11, 13, 17, 23, 47, 101]. k over the squarefree
+       k < N^0.56 coprime to N; j over every index below N.
+       The four drifts rem:radicallaw published for the shared
+       bases are READ from results/audit_radical_law.txt as the
+       gate.
+
+READ audit_radical_law.txt 16384 0.068281
+READ audit_radical_law.txt 20736 0.212384
+READ audit_radical_law.txt 25000 0.138010
+READ audit_radical_law.txt 25088 0.141444
+  the four drifts this run shares with rem:radicallaw
+PRINTBOUND audit_prime_contrib 6 0.0000005000
+  theta 0.56, quarter 0.25, slope -1.0 +- 0.3, r.m.s. cap 0.35
+RADICALS 10
+sieving to 9048064
+
+  base {2} at 16384: drift +0.068281 +- 0.019289
+POINT contribbase 0.068281
+  p = 3    base 20736   drift +0.212384 +- 0.006803   f(p) +0.144102
+POINT contrib_3 0.144102
+SPREAD contrib_3 0.006803
+  p = 5    base 25000   drift +0.138010 +- 0.008462   f(p) +0.069729
+POINT contrib_5 0.069729
+SPREAD contrib_5 0.008462
+  p = 7    base 25088   drift +0.141444 +- 0.012030   f(p) +0.073163
+POINT contrib_7 0.073163
+SPREAD contrib_7 0.012030
+  p = 11   base 21296   drift +0.142776 +- 0.014309   f(p) +0.074495
+POINT contrib_11 0.074495
+SPREAD contrib_11 0.014309
+  p = 13   base 35152   drift +0.107432 +- 0.009276   f(p) +0.039150
+POINT contrib_13 0.039150
+SPREAD contrib_13 0.009276
+  p = 17   base 18496   drift +0.102175 +- 0.015947   f(p) +0.033893
+POINT contrib_17 0.033893
+SPREAD contrib_17 0.015947
+  p = 23   base 33856   drift +0.077321 +- 0.017159   f(p) +0.009040
+POINT contrib_23 0.009040
+SPREAD contrib_23 0.017159
+  p = 47   base 35344   drift +0.124330 +- 0.016964   f(p) +0.056049
+POINT contrib_47 0.056049
+SPREAD contrib_47 0.016964
+  p = 101  base 20402   drift +0.119508 +- 0.022559   f(p) +0.051227
+POINT contrib_101 0.051227
+SPREAD contrib_101 0.022559
+SCALES 90
+
+O1  the gate: do the shared bases reproduce their drifts?
+  base 16384   here +0.068281 against its +0.068281  ok
+  base 20736   here +0.212384 against its +0.212384  ok
+  base 25000   here +0.138010 against its +0.138010  ok
+  base 25088   here +0.141444 against its +0.141444  ok
+  O1 hold   (cap: 6 decimals)
+
+O2  does f decay across the range of p?
+  f(3) +0.144102, f(101) +0.051227, quarter of f(3) +0.036026
+  ratio f(101)/f(3) 0.3555
+POINT decayratio 0.355487
+  O2 REFUTED   (cap: below a quarter)
+
+O3, O4  the exponent of the decay
+  9 of 9 f(p) are positive and enter the fit
+  slope of log f on log p: -0.317171 +- 0.234902, t against -1 +2.91
+  r.m.s. residual in log f 0.642640
+TSTAT contribslope 2.91
+SPREAD contribslope 0.234902
+POINT contribslope -0.317171
+POINT contribrms 0.642640
+  O3 REFUTED   (cap: -1.0 +- 0.3)
+  O4 REFUTED   (cap: 0.35 r.m.s.)
+COEFF NOT SEPARABLE primecontrib
+  1/p, 1/(p-1) and 1/(p+1) are within a fifth of each other for every
+  p >= 11 here, so this design does not choose among them and the
+  exponent is all that is read, as the rule says
+
+  a diagnostic, after the verdicts and predicted by nothing
+  every f(p) is a drift minus the same base drift, whose error 0.019289
+  is the largest here and is common to all of them. it cancels in
+  differences between the f(p), so comparisons among them use only
+  the two families' own errors.
+  f(3) against each of the others:
+    3 vs 5     +0.074374 +- 0.010858   t  +6.85
+    3 vs 7     +0.070940 +- 0.013821   t  +5.13
+    3 vs 11    +0.069608 +- 0.015844   t  +4.39
+    3 vs 13    +0.104952 +- 0.011503   t  +9.12
+    3 vs 17    +0.110209 +- 0.017337   t  +6.36
+    3 vs 23    +0.135063 +- 0.018459   t  +7.32
+    3 vs 47    +0.088054 +- 0.018277   t  +4.82
+    3 vs 101   +0.092876 +- 0.023562   t  +3.94
+TSTAT contrib3vs5 6.85
+SPREAD contrib3vs5 0.010858
+  the 8 primes from 5 to 101 against a constant:
+    weighted mean +0.054986, chi-square 19.04 on 7 degrees, largest deviation 2.68 of its own error
+POINT contribflatmean 0.054986
+POINT contribflatchi 19.042028
+  so f(3) stands apart and the rest are not resolved from one another;
+  what is refuted is the decay, and this run does not measure any
+  shape among the primes above 3
+
+======================================================================
+O1 hold  O2 REFUTED  O3 REFUTED  O4 REFUTED
+
+f does not decay across a factor of thirty-three in p. reading the
+two-prime families as one contribution each is wrong, not merely
+unshaped, and rem:radicallaw's contributions are withdrawn as a
+description.
