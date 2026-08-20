@@ -1302,15 +1302,74 @@ fourteen reaches $0.5$.
 W3 held and is not read, since a location means nothing once the
 concentration is absent.
 
-**What the table shows and this run did not test.** The per-piece
-$|z|$ is not flat: it runs $2.90,\,3.22,\,3.65,\,4.96,\,5.22,\,6.27,\,
-4.21$ over $v$ up to $2^{14}$ and then $1.68,\,1.74,\,0.84,\,1.17,\,
-0.82,\,1.50,\,0.54$ above it. The upper half of the ladder carries
-almost nothing. That is an observation from a printed table on the
-same data that produced it, not a tested claim, and it is not
-evidence: the way to make it evidence is to predict the same profile
-at a band this run never saw. Until then the finding is W2's, and it
-is negative.
+**WITHDRAWN.** This paragraph observed that the per-piece $|z|$
+is not flat — $2.90$ to $6.27$ over $v\le2^{14}$ and $0.54$ to
+$1.74$ above it — and said the way to make it evidence is to
+predict the same profile at a band this run never saw.
+[rem:cnwherereach] did that and the profile is not a profile: a
+piece's $|z|$ is a function of how many terms it holds, fitted
+here and forecasting two unseen bands with an out-of-sample
+r.m.s. error of $0.8194$ against a constant's $1.5392$. The
+upper half of the ladder looks empty because those pieces hold
+the most terms, and nothing about where the prime sits below
+$N$ is involved.
+
+#### Remark (there is no profile in v, only a count — and the coin's own law is not the textbook one) {#rem:cnwherereach}
+<!-- evidence: audit_cn_where_reach.py -->
+
+[rem:cnkurtwhere] left an observation it refused to call evidence: the
+per-piece $|z|$ was not flat, running $2.90$ to $6.27$ over $v\le2^{14}$
+and $0.54$ to $1.74$ above it. Two readings fit that shape — a profile
+in $v$, meaning where the prime sits below $N$ matters; or no profile
+at all, the $|z|$ being a function of how many terms the piece holds,
+which for a dyadic piece is about $2^j/\log N$ and so nearly the same
+at every band. The second explains the shape with no arithmetic, so it
+is the one to try to confirm.
+
+Fitted on $b=20$'s fourteen pieces alone, $|z| = 6.92713 - 0.32369
+\log_2(\text{terms})$ with residual r.m.s. $1.36790$. That fit then
+forecast the pieces of $b=18$ and $b=19$, which it had never seen, and
+both bands first reproduced their published whole-band kurtosis
+exactly — $1.06049$ and $0.69806$ (Y1).
+
+**All $25$ pieces landed inside the two-standard-error forecast**
+(Y2). That alone is a weak pass and is reported as one: the interval
+is about $\pm2.7$ while the new $|z|$ span $0.38$ to $5.33$, so a
+constant would catch most of them too. Against a constant at $b=20$'s
+mean $|z|$ of $2.7662$, on the same $25$ unseen pieces:
+
+| forecast | out-of-sample r.m.s. error |
+|---|---|
+| from the term count | $0.8194$ |
+| constant | $1.5392$ |
+
+a ratio of $1.8784$. The count does not merely fail to be contradicted
+— it predicts the unseen pieces nearly twice as well as knowing
+nothing.
+
+**So [rem:cnkurtwhere]'s observation is withdrawn.** There is no
+profile in $v$. A piece's separation from its own coin is set by how
+many terms it holds, and the apparent emptiness of the upper half of
+the ladder is that those pieces hold the most terms. Nothing about
+where the prime sits below $N$ is involved. The non-concentration
+reproduces out of sample too (Y3): largest piece $5.33$ against the
+whole field's $39.8$ at $b=18$, and $4.61$ against $20.7$ at $b=19$.
+
+**Y4 tested the formula that W4's failure identified, and the formula
+is wrong in the same way twice.** The coin's per-piece excess kurtosis
+is negative at all $25$ pieces, as $-2\sum w^4/(\sum w^2)^2$ requires,
+and it falls with the term count at $t=-5.62$. But that expression
+predicts a slope of $-1$ against $\log_2(\text{terms})$ and the
+measured slope is $-0.17584\pm0.03130$. The reason is the one
+[rem:cnkurtlimit] recorded when withdrawing a different comparison:
+$-2\sum w^4/(\sum w^2)^2$ is the excess kurtosis of $\sum
+w_v\varepsilon_v$ *as a random variable over the signs*, and what is
+measured is the excess kurtosis of the empirical distribution *over
+$N$* of one fixed sign pattern. **The same confusion has now produced
+one withdrawn paragraph and one broken prediction**, and the size of
+the gap is on the record: the empirical-over-$N$ kurtosis dies with
+the term count about six times more slowly than the marginal formula
+says.
 
 #### Lemma (the coin control) {#lem:coin}
 <!-- evidence: analytic -->
