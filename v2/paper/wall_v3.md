@@ -5418,6 +5418,67 @@ $4.89\cdot10^{-16}$. **`TOL BELOW PRINT` twice in one run**, and the
 second instance of the defect [rem:whichfloor]'s M1 had. The tolerance
 was never changed; only the source of the digits.
 
+#### Remark (the demand is a main term removed to a relative accuracy) {#rem:maintermremoval}
+<!-- evidence: audit_mainterm_removal.py -->
+
+[rem:bilinearcancel] located the whole problem at one modulus: the
+largest piece of the Type II sum is $d=1$, at $104$ times $\ell^2$. So
+split there. With $A=I(1)$, $B=\sum_{d\ge2}\mu(d)I(d)$ and $S=-(A+B)$,
+the gate reproduces the published covered part at relative
+$8.15\cdot10^{-16}$ (Z1).
+
+**$B$ fights $A$ at every $N$, and ever harder** (Z2):
+
+| $N$ | $25000$ | $200000$ | $800000$ | $3200000$ |
+|---|---|---|---|---|
+| $\lvert B\rvert/\lvert A\rvert$ | $0.874261$ | $0.936626$ | $0.959641$ | $0.976934$ |
+
+monotone to $0.977$ — the second variable cancels the first to within
+$2.3$ per cent at the top and improving. **That is the structure of
+item 5**: a term of main-term order is removed by the rest of the
+$d$-sum, and what the demand asks is how exact the removal is.
+
+**And the model-free number needs no exponent at all.**
+$\lvert S\rvert/\ell^2$ runs
+
+$$5.0350,\ 5.3385,\ 5.8927,\ 6.6274,\ 8.0213,\ 8.2110,\ 8.3955,\
+9.5118$$
+
+across the field. **The demand needs it bounded; it grows by $89$ per
+cent over $2.1$ decades.**
+
+**Z4 is refuted and the error is mine, two lines above its own cap.**
+It asked whether $\lvert A\rvert$ has exponent $1$; it has
+$+1.107864\pm0.002950$. $I(1)=\sum_m\mu^2(m)\Lambda(N-m)\log m$
+carries a $\log m$ weight — written in this run's own formula — so its
+main term is $N\log N$, not $N$. Fitted over the same eight $N$,
+$N\log N$ gives $+1.080429$, and $\lvert A\rvert$ stands
+$+0.027436$ from it. **The cap was written on the wrong quantity, not
+the measurement on the wrong object.**
+
+**Z3 is refuted for the same reason.** It compared the residue's
+exponent against $\alpha-1=-0.282084$, which presumes
+$e(\lvert A\rvert)=1$. Measured, the residue runs $-0.342848\pm
+0.009184$ — six errors from the target, so this is a real
+disagreement and not an unresolved one, and it is what
+$e(\lvert S\rvert)-e(\lvert A\rvert)$ on this short field gives once
+$\lvert A\rvert$ is allowed its logarithm.
+
+**And this run's closing sentence is wrong.** It fires on Z4 and says
+that because $A$ is not of main-term order, calling the requirement a
+main-term removal is the wrong description. $A$ *is* a main term —
+times $\log N$. **The description stands; the exponent in the cap did
+not.**
+
+**What the restatement is worth, stated with its own limits.** Item 5
+is that a main term of order $N\log N$ is cancelled to leave something
+of order $\ell^2$. The exponent form of that — a relative $N^{-1/2}$ —
+rests on $\ell^2$ being $\sqrt N$ times logs, which is an asymptotic
+reading and not measured here; this repository's fitted $e(\ell^2)$ is
+$+0.583897$, and **the two statements of the demand differ by $0.084$
+in exponent and this run does not choose between them.** The bounded
+ratio above is the part that needs no choice.
+
 #### Remark (dm/se, as v1 said to fit and nobody had) {#rem:maskdmse}
 <!-- evidence: audit_mask_dmse.py -->
 

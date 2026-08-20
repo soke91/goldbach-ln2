@@ -1,0 +1,35 @@
+C-04  FFT convolution against direct summation
+==============================================================================
+  sieve self-check to 10^4: 0 mismatches
+  FFT length used by the targets: 2^25 = 33554432;  a linear convolution of
+  two length-16000001 arrays needs 32000001.  padding is sufficient
+
+  N            V direct          V fft             rel diff    V fsum rel diff
+  ----------------------------------------------------------------------------
+  1000000      10084112.896140  10084112.896140   3.69e-16   9.24e-16
+  4000000      44684177.862529  44684177.862529   6.67e-16   1.17e-15
+  8000000      93768561.144356  93768561.144356   6.36e-16   0.00e+00
+  15999998     191087727.916921  191087727.916921   1.40e-15   1.56e-16
+
+  N            C direct          C fft             abs diff    |C| relative
+  ----------------------------------------------------------------------------
+  1000000      +71.224959  +71.224959   1.45e-11   2.04e-13
+  4000000      -1606.168820  -1606.168820   2.27e-13   1.42e-16
+  8000000      +20512.961200  +20512.961200   3.64e-12   1.77e-16
+  15999998     +21575.983163  +21575.983163   1.46e-11   6.74e-16
+
+  N            r~ direct         r~ fft            rel diff
+  ----------------------------------------------------------------------------
+  1000000      1756567.536732  1756567.536732   1.99e-15
+  4000000      7053691.443939  7053691.443939   2.64e-16
+  15999998     25397588.521525  25397588.521525   0.00e+00
+
+  cross-check between two scripts in the corpus, on the same number:
+    audit_amplification.txt prints V(4e6) = 44684177.8625 (direct,
+      prime-power enumeration, its own mu sieve)
+    lab_second_moment.txt prints W(4e6)/V(4e6) = 1.270800 (FFT)
+    this script, direct : V(4e6) = 44684177.8625
+    this script, fsum   : V(4e6) = 44684177.8625
+    this script, FFT    : V(4e6) = 44684177.8625
+    W(4e6) = 56784667.6443, so W/V = 1.270800  (published 1.270800)
+    note W(N) is sum_{w<N}, i.e. W[N-1]: using W[N] instead gives 1.270800

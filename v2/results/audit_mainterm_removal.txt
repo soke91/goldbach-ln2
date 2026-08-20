@@ -1,0 +1,93 @@
+STATISTIC: the Type II sum split at the modulus, A = I(1) against
+           B = sum over d >= 2, their signs, the relative residue
+           |A+B|/|A| and its exponent, and the exponent of A.
+FIELD: N = [25000, 50000, 100000, 200000, 400000, 800000, 1600000, 3200000]; d over the squarefree d <= N/K coprime to N and m
+       over the squarefree m in [K, N/d) coprime to dN, with
+       K = floor(N^0.56), the ranges of rem:bilinear. The covered
+       part at N = 200000 is READ from results/audit_bilinear.txt at
+       full double precision.
+DERIVED: the demand |S| <~ l2 with l2 of order sqrt(N) times logs
+         is |A+B|/|A| <~ N^(-1/2); alpha puts the achieved ratio
+         at N^(alpha-1).
+
+READ audit_bilinear.txt 200000 -8.93149894708130305e+04
+  the covered part, at full double precision
+PRINTBOUND audit_mainterm_removal 17 0.00000000000000000500
+  theta 0.56, tolerance 1e-12, alpha-1 -0.282084, slope cap 0.05
+  the demand's exponent for the relative residue: -0.50
+sieving to 3200000
+  N = 25000     A     +137690.85  B     -120377.68  A+B    +17313.17  |S|/l2   5.0350
+POINT mainA_25000 1.376909e+05
+POINT mainres_25000 1.257394e-01
+  N = 50000     A     +297044.26  B     -267944.73  A+B    +29099.53  |S|/l2   5.3385
+POINT mainA_50000 2.970443e+05
+POINT mainres_50000 9.796362e-02
+  N = 100000    A     +652233.66  B     -601355.28  A+B    +50878.38  |S|/l2   5.8927
+POINT mainA_100000 6.522337e+05
+POINT mainres_100000 7.800636e-02
+  N = 200000    A    +1409338.16  B    -1320023.18  A+B    +89314.99  |S|/l2   6.6274
+POINT mainA_200000 1.409338e+06
+POINT mainres_200000 6.337371e-02
+  N = 400000    A    +3054647.19  B    -2893367.44  A+B   +161279.75  |S|/l2   8.0213
+POINT mainA_400000 3.054647e+06
+POINT mainres_400000 5.279816e-02
+  N = 800000    A    +6529519.62  B    -6265997.88  A+B   +263521.74  |S|/l2   8.2110
+POINT mainA_800000 6.529520e+06
+POINT mainres_800000 4.035852e-02
+  N = 1600000   A   +13905212.21  B   -13489277.72  A+B   +415934.49  |S|/l2   8.3955
+POINT mainA_1600000 1.390521e+07
+POINT mainres_1600000 2.991213e-02
+  N = 3200000   A   +29582116.80  B   -28899769.04  A+B   +682347.76  |S|/l2   9.5118
+POINT mainA_3200000 2.958212e+07
+POINT mainres_3200000 2.306622e-02
+SCALES 8
+
+Z1  the gate
+  -(A+B) here -8.93149894708129577e+04
+  against its       -8.93149894708130305e+04   relative 8.15e-16
+  Z1 hold   (cap: 1e-12 relative)
+
+Z2  do A and B fight?
+  N = 25000     sign A +1, sign B -1, |B|/|A| 0.874261
+  N = 50000     sign A +1, sign B -1, |B|/|A| 0.902036
+  N = 100000    sign A +1, sign B -1, |B|/|A| 0.921994
+  N = 200000    sign A +1, sign B -1, |B|/|A| 0.936626
+  N = 400000    sign A +1, sign B -1, |B|/|A| 0.947202
+  N = 800000    sign A +1, sign B -1, |B|/|A| 0.959641
+  N = 1600000   sign A +1, sign B -1, |B|/|A| 0.970088
+  N = 3200000   sign A +1, sign B -1, |B|/|A| 0.976934
+  Z2 hold   (cap: opposite at every N)
+
+Z3  the relative residue's exponent
+  slope -0.342848 +- 0.009184 against alpha-1 -0.282084, gap -0.060764
+  the demand wants -0.50, so the gap to the demand is +0.157152
+TSTAT mainres_slope -37.33
+SPREAD mainres_slope 0.009184
+POINT mainres_exp -0.342848
+  Z3 REFUTED   (cap: 0.05 of alpha-1)
+
+Z4  is A a main term?
+  exponent of |A| +1.107864 +- 0.002950 against 1.00, gap +0.107864
+TSTAT mainA_slope 36.56
+SPREAD mainA_slope 0.002950
+POINT mainA_exp 1.107864
+  Z4 REFUTED   (cap: 0.05 of 1.0)
+
+  a diagnostic, after the verdicts and predicted by nothing
+  I(1) = sum_m mu^2(m) Lambda(N-dm) log m carries a log m weight, so a
+  main term for it is N log N and not N. Z4's cap was written on N.
+    N log N over these same 8 N fits exponent +1.080429
+    |A| fits +1.107864 +- 0.002950, so it stands +0.027436 from N log N
+POINT nlogn_exp 1.080429
+POINT mainA_vs_nlogn 0.027436
+  and the model-free statement this run makes needs no exponent at all:
+    |S|/l2 runs 5.0350 to 9.5118 across the field, and the demand needs it
+    bounded
+POINT sl2_first 5.035034
+POINT sl2_last 9.511825
+
+======================================================================
+Z1 hold  Z2 hold  Z3 REFUTED  Z4 REFUTED
+
+A is not of main-term order, so calling the requirement a main-term
+removal is the wrong description whatever the residue does.
