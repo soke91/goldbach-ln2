@@ -6,15 +6,15 @@
 ```
 papers/   P1..P5 (.tex, 각각 독립 컴파일)
 pdf/      컴파일 산출물
-code/     논문이 인용하는 스크립트 33개
-results/  그 결과 파일 32개 (indep.py 는 모듈이라 결과가 없다)
+code/     논문이 인용하는 스크립트 34개
+results/  그 결과 파일 33개 (indep.py 는 모듈이라 결과가 없다)
 lib/      스크립트가 쓰는 공용 모듈
 ```
 
 > **상태.** 투고도 발표도 하지 않았다. 재검증 세 패스 중 둘이 끝났다 —
 > 수학(`pass4`)과 코드(`pass5`). **셋째(`pass6`, 사영 감사: 줄이면서
 > 떠받치던 것이 빠졌는지)는 아직 안 돌았다.** 무엇이 나왔고 무엇이
-> 바뀌었는지는 `../v2_verify/README.md`.
+> 바뀌었는지는 `../v2/verify/README.md`.
 
 ---
 
@@ -22,7 +22,7 @@ lib/      스크립트가 쓰는 공용 모듈
 
 | 파일 | 무엇 | 성격 | 진술 |
 |---|---|---|---|
-| `P1-mobius-fixed-class.tex` | 고정 잉여류 위 뫼비우스 가중 상관합의 무조건 유계 | 무조건 정리 둘 + 항등식 | 12 |
+| `P1-mobius-fixed-class.tex` | 고정 잉여류 위 뫼비우스 가중 상관합의 무조건 유계 | 무조건 정리 둘 + 항등식 | 15 |
 | `P2-no-go-divisor-switch.tex` | 어떤 가중치도 $C(N)$ 을 추출하지 못한다 | 음성 정리 | 14 |
 | `P3-wall-second-moment.tex` | 벽의 정확한 2차 모멘트, 그리고 Chowla 가 안 되는 이유 | 정확한 사실 + 장애물 | 5 |
 | `P4-coherent-cell-floor.tex` | 개수는 오차 막대가 아니다 | 방법론 | 5 |
@@ -43,9 +43,13 @@ lib/      스크립트가 쓰는 공용 모듈
 **골드바흐를 향한 순진전: 0.** 다섯 편 모두 초록과 "What is not claimed"
 에서 이를 명시한다.
 
-또한 P1 §7 이 [HL] 식 (18) 의 결함 하나를 보고한다 — $n$-의존 제약이
+또한 P1 §7 이 [HL] 식 (18) 의 결함 하나를 기록한다 — $n$-의존 제약이
 $n$-무관 상한으로 바뀌면서 누락된 항 $\Delta$. arXiv v1·v2 원문 대조로
-확인했고, 그들의 Theorem 1 과 Corollary 1 은 그대로 성립한다.
+확인했고, 그들의 Theorem 1 과 Corollary 1 은 그대로 성립한다. **이 관측은
+우리 것이 아니다** — S. Zheleznov 가 먼저 했고, 저자들은 제약을 그대로
+두는 쪽으로 고쳐서 그 판에서는 $\Delta$ 가 생기지 않는다. 두 형식은
+정확히 $\Delta$ 모양의 항만큼 떨어져 있고, P1 Proposition 19 가 고정 절단
+정리와 그 항으로 고친 형식의 경계를 준다.
 
 ---
 
@@ -57,7 +61,7 @@ pdflatex P1-mobius-fixed-class.tex && pdflatex P1-mobius-fixed-class.tex
 ```
 
 TeX Live(scheme-small) 에서 다섯 편 전부 2회 통과, **오류 0 · 미해결 참조 0 ·
-경고 0 · overfull 0**. 쪽수 P1 14 · P2 12 · P3 7 · P4 6 · P5 8.
+경고 0 · overfull 0**. 쪽수 P1 16 · P2 12 · P3 7 · P4 6 · P5 8.
 
 외부 스타일 파일 없음. `amsmath`·`amssymb`·`amsthm`·`geometry`·`hyperref`
 (+ P5 는 `longtable`) 뿐이고, 참고문헌은 `thebibliography` 내장이라 BibTeX
@@ -83,7 +87,7 @@ python code/<이름>.py > results/<이름>.txt 2>&1; echo $?
 | | `v2/paper/` | `deploy/papers/` |
 |---|---|---|
 | 형식 | 마크다운 | LaTeX |
-| Remark | 218 | 0 — 필요한 것은 본문과 Note 로 흡수 |
+| Remark | 251 | 0 — 필요한 것은 본문과 Note 로 흡수 |
 | 정정 이력 | 보존 | 싣지 않음 |
 | 철회된 수치 | 철회 사실과 함께 보존 | 인쇄하지 않음 |
 | 진술 등급 | 전부 `Proposition` | 증명 유무로 `Proposition` / `Observation` / `Measurement` 분리 |
@@ -91,3 +95,7 @@ python code/<이름>.py > results/<이름>.txt 2>&1; echo $?
 
 그 사영이 옳았는지 — 줄이면서 문장을 떠받치던 것을 두고 오지 않았는지 —
 는 `pass6` 이 판정한다. 아직 안 돌았다.
+
+앞선 두 패스가 무엇을 바꿨는지는 `../v2/verify/README.md` 에 있다. 요약:
+`pass4` 는 식 (8) 이 $\mu^2(k)$ 없이는 항등식이 아니라는 것을 포함해 열
+개를 냈고, `pass5` 는 코드 쪽 둘을 냈다. 전부 반영됐다.

@@ -73,10 +73,15 @@ demand: Goldbach needs only a one-sided bound on $E_3$
 (Proposition~\ref{prop:onesided}), at a threshold of order $N$ for
 almost all $N$, and hence only a constant-factor bound on exactly the
 object $EH_\mu$ bounds (Proposition~\ref{prop:nolog}). Finally we
-record a defect in \cite{HL}: equation~(18) drops an
-$n$-dependent constraint present in the definition of $S_2(\alpha)$;
-we give the missing term and show it is harmless under the hypotheses
-already assumed (Section~\ref{sec:delta}).
+record a defect in \cite{HL}, first observed by S.~Zheleznov:
+equation~(18) drops an $n$-dependent constraint present in the
+definition of $S_2(\alpha)$. The missing term $\Delta$ is exhibited and
+shown harmless under the hypotheses already assumed
+(Section~\ref{sec:delta}). The authors have since corrected the
+manuscript by keeping the constraint instead, so that $\Delta$ does not
+arise there; the two formulations differ by exactly $\Delta$'s shape,
+and Theorem~\ref{thm:A} together with that estimate gives the bound
+against the corrected one (Proposition~\ref{prop:movingcut}).
 
 We state plainly what is not claimed. Theorem~\ref{thm:A} removes only
 the part of the demand that carries no Goldbach content, and the net
@@ -201,8 +206,9 @@ $A>0$, unconditionally. Consequently Huang--Li's estimate
 $S_4(\alpha)=O(N(\log N)^{-A})$ requires no hypothesis, their Lemma~4
 is not needed, and the entire $EH_\mu$ demand of their argument
 collapses to the single scalar $E_3(\alpha)$ --- together with the
-correction $\Delta$ of Section~\ref{sec:delta}, which is likewise
-unconditional there.
+term $\Delta$ of Section~\ref{sec:delta} where the published form of
+(18) is used, which is likewise unconditional there, and which does not
+arise on the corrected form.
 \end{corollary}
 
 \begin{theorem}\label{thm:C}
@@ -931,11 +937,19 @@ out of reach of that design space.
 \section{The correction \texorpdfstring{$\Delta$}{Delta} to
 equation~(18)}\label{sec:delta}
 
-We record a defect in \cite{HL}, together with its repair. The scope of
-the report has to be stated: we have worked from the arXiv version, and
-have checked the passage below in \textbf{both} v1 (May 2020) and v2
-(August 2022), where it appears identically. We have not seen the
-version published in the Springer volume and make no claim about it.
+The published form of equation~(18) drops a range. What follows records
+the defect and one way of closing it. Neither is claimed as new: the
+observation is S.~Zheleznov's, and the authors have since corrected the
+manuscript by a different route, on which the dropped range never
+appears. What is set down here is kept because the mechanism it uses is
+the one Theorem~\ref{thm:A} rests on, and because
+Proposition~\ref{prop:movingcut} below shows the two routes meet.
+
+The scope of the report has to be stated: we have worked from the arXiv
+version, and have checked the passage below in \textbf{both} v1 (May
+2020) and v2 (August 2022), where it appears identically. We have not
+seen the version published in the Springer volume and make no claim
+about it.
 
 Huang--Li define
 \[
@@ -996,8 +1010,100 @@ enlargement of $A$. Hence:
   $\Delta$ closes under the hypothesis
   $EH(N^{\theta}(\log N)^{2A+8})$, which is assumed there.
 \end{itemize}
-So \cite{HL}'s Theorem~1 and their Corollary~1 stand as stated; what
-is missing is the treatment of $\Delta$.
+So \cite{HL}'s Theorem~1 and their Corollary~1 stand as stated. In the
+published text the treatment of $\Delta$ is missing; in the corrected
+text $\Delta$ does not arise, because the truncation is not moved off
+the inner variable in the first place.
+
+\subsection{The two formulations differ by \texorpdfstring{$\Delta$}%
+{Delta}}\label{sec:movingcut}
+
+The corrected argument keeps the moving cut: with
+$Y_k=\lceil N-\alpha k\rceil-1$ the inner sum stops at $Y_k$, the terms
+with $m\le\alpha$ never enter, and \eqref{eq:Delta} has nothing to
+correct. Every statement above was proved against the fixed cut, so the
+question is whether it survives the move. It does, and the term that
+carries the difference is $\Delta$ itself.
+
+Write $J=T_1(N-1)$ for the fixed-cut object at its extreme endpoint and
+$T_1^\ast=\sum_{k<K,(k,N)=1}\mu(k)\Emu(Y_k;k)$ for the moving-cut one.
+The difference is carried by the $n$ the moving cut drops, and there
+\[
+  n>Y_k \iff N-n\le\alpha k \iff m\le\alpha,
+  \qquad m=\frac{N-n}{k},
+\]
+so on exactly those terms $\mu(k)\mu(N-n)=\mu(k)\mu(mk)$, which
+vanishes unless $mk$ is squarefree and equals $\mu(m)\mu^2(k)$
+otherwise: the M\"obius factor on the \emph{short} variable, the long
+one carrying only $\mu^2\ge0$. That is \eqref{eq:Delta}'s shape with
+weight $1$ in place of $\log m$.
+
+\begin{proposition}[the bound survives the corrected cut]%
+\label{prop:movingcut}
+Fix $\theta'\in(1/2,1)$, put $\alpha=N^{1-\theta'}$ and
+$K=(N-1)/\alpha$. Then for every $A>0$,
+$T_1^\ast\ll_{A,\theta'}N(\log N)^{-A}$, unconditionally.
+\end{proposition}
+
+\begin{proof}
+Exchanging as above,
+$J-T_1^\ast=\Xi_{\mathrm{main}}-\Xi_{\mathrm{mean}}$ with
+\[
+  \Xi_{\mathrm{main}}=\sum_{m\le\alpha}\mu(m)\!\!
+    \sum_{\substack{k<K\\ (k,mN)=1}}\!\!\mu^2(k)\,\Lambda(N-mk),
+  \qquad
+  \Xi_{\mathrm{mean}}=\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!
+    \frac{\mu(k)}{\varphi(k)}\bigl(C(N-1)-C(Y_k)\bigr),
+\]
+the constraint $n\ge1$ being automatic since $m\le\alpha$ and $k<K$
+force $mk<N-1$.
+
+$J\ll_{A,\theta'}N(\log N)^{-A}$ is Theorem~\ref{thm:A} at $t=N-1$,
+which lies in the range of its supremum; this is the only place
+$\theta'>1/2$ is used.
+
+In $\Xi_{\mathrm{main}}$ the term $m=1$ is
+$\sum_{k<K,(k,N)=1}\mu^2(k)\Lambda(N-k)\le\sum_{N-K<j<N}\Lambda(j)\ll
+K\log N=N^{\theta'}\log N$, which is $\ll_AN(\log N)^{-A}$ because
+$\theta'<1$. The terms $2\le m\le\alpha$ are \eqref{eq:Delta} with
+$\log m$ replaced by $1$ and close by the argument above verbatim, the
+main term dying by Lemma~\ref{lem:mu} applied directly --- the weight
+being $1$, no partial summation is needed to remove a $\log m$.
+
+For $\Xi_{\mathrm{mean}}$, since $n>Y_k$ iff
+$k>R_n:=\lceil(N-n)/\alpha\rceil-1$, exchanging gives
+$\Xi_{\mathrm{mean}}=\sum_{n<N}a_n(\rho_N(K)-\rho_N(R_n+1))$ with
+$\rho_N$ as in \cite[Lem.~14]{P2} and
+$a_n=\Lambda(n)\mu(N-n)$. Split at $N-n=H$ with
+$H:=2N^{1-\theta'/2}$. On $N-n\le H$ use $|\rho_N|\ll1$ and
+$\sum_{N-H\le n<N}|a_n|\ll H\log N$, which is $\ll_AN(\log N)^{-A}$
+since $1-\theta'/2<1$. On $N-n>H$ one has $R_n\ge N^{\theta'/2}$, so
+both arguments of $\rho_N$ meet its hypothesis against $n=N$ and both
+terms are $\ll e^{-c\sqrt{\theta'\log N}}$; with
+$\sum_{n<N}|a_n|\ll N$ this is $\ll_AN(\log N)^{-A}$ as well.
+\end{proof}
+
+\begin{note}[what the proposition does not cover]
+It is stated in the Corollary-1 regime only. In the general Theorem-1
+regime $\alpha\asymp N^{\theta}$ the outer truncation is
+$K\asymp N^{1-\theta}$, which drops below $N^{1/2}$ as soon as
+$\theta>1/2$, and Theorem~\ref{thm:A} is stated for $K=N^{\theta'}$
+with $\theta'\in(1/2,1)$. The exchange and the estimate of
+$\Xi_{\mathrm{main}}$ are unaffected --- the latter closes under the
+$EH$ assumed there, as $\Delta$ does --- but the fixed-cut input is not
+available, so no claim is made outside $\theta'>1/2$. That is the same
+threshold the no-go of \cite{P2} turns on, and not by accident: below
+it the cofactor left by the completion is no longer short.
+\end{note}
+
+The exchange, the split of $\Xi$ and the shortness of its variable were
+verified as identities rather than as estimates, over
+$N=2\cdot10^5$ to $3.2\cdot10^6$ at $\alpha=N^{0.44}$: the two sides of
+each agree to $2.274\cdot10^{-18}$ and $4.547\cdot10^{-18}$ relative to
+$N$, accumulated in index orders that share nothing, and the largest
+$m$ carrying a surviving term is $213,\,291,\,393,\,533,\,727$ against
+$\alpha=215,\,292,\,396,\,537,\,728$
+(\texttt{audit\_delta\_bridge.py}).
 
 % =====================================================================
 \section{Relation to the literature}\label{sec:lit}
@@ -1094,6 +1200,13 @@ $\asymp N$, equivalently a constant-factor bound on the object
 $EH_\mu$ bounds --- weaker than the consumed bound by a factor
 $(\log N)^A$ for every $A$.
 
+\item Proposition~\ref{prop:movingcut}: the bound of
+Theorem~\ref{thm:A} holds against the corrected formulation of
+\cite{HL}, unconditionally for $\theta'>1/2$. The two formulations
+differ by a term of $\Delta$'s shape, so the fixed cut is not
+superseded --- it is one of the two ingredients and the omitted term is
+the other.
+
 \item Section~\ref{sec:delta}: equation~(18) of \cite{HL} omits an
 $n$-dependent constraint; the missing term $\Delta$ is exhibited and
 closes under hypotheses already assumed.
@@ -1156,6 +1269,8 @@ Script & Result file & Supports\\
 \hline
 \texttt{audit\_switch\_identity.py} &
  \texttt{audit\_switch\_identity.txt} & \eqref{eq:switch}\\
+\texttt{audit\_delta\_bridge.py} &
+ \texttt{audit\_delta\_bridge.txt} & \S\ref{sec:movingcut}\\
 \texttt{audit\_density\_identity.py} &
  \texttt{audit\_density\_identity.txt} & Lemma~\ref{lem:density}\\
 \texttt{audit\_E3\_constant.py} &
