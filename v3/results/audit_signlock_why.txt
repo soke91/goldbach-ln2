@@ -1,0 +1,105 @@
+STATISTIC: per k, the Lambda-weighted positive-to-negative mass
+           ratio r_k of H(N;k), and the unweighted count ratio
+           q_k over the same index set with the primality of
+           N - mk discarded; their maxima, medians, and the
+           Pearson correlation of r_k against q_k across k.
+FIELD: N = 30030*2^j, j = 0..8; k squarefree, 2 <= k < N^THETA,
+       (k,N) = 1; m < N/k coprime to k and to rad(N) with
+       mu(m) != 0; mu and Lambda from one vectorised sieve.
+CONSTANTS: THETA = 0.56, CORE = 30030, CORR_FLOOR = 0.8,
+           MED_GAP = 0.15
+NULL: none applies -- deterministic counts and sums over one
+      sieve. The control is internal: r_k and q_k read the same
+      index set two ways.
+DENOM: both ratios are positive over negative; the lock is
+      max < 1.
+
+Is the sign lock a fact about primes, or a fact about rough integers?
+
+Supports {#rem:signlockwhy}.
+
+WHAT IS AT STAKE
+
+{#rem:signlock} found that every H(N;k) is negative on a family whose
+radical carries 2,3,5,7,11,13, and that primality of N - mk forces the
+contributing m to be coprime to rad(N).  {#rem:signlockmargin} found
+the margin saturating below 1 rather than crossing it.
+
+That leaves one question, and it decides what the finding is worth.
+Primality enters twice: it forces m to be rough, and it decides which
+rough m carry a term at all.  If only the first matters, the lock is a
+statement about the parity of omega on rough integers in a short range
+-- elementary, and nothing to do with the Goldbach problem.  If the
+second matters too, the lock says something about how primes sit in
+the progressions N - mk, and that is a different object.
+
+The test separates them.  For each k compare
+
+    r_k = sum_{mu(m)=+1} Lambda(N-mk) / sum_{mu(m)=-1} Lambda(N-mk),
+
+which is the real quantity, against
+
+    q_k = #{m rough, (m,k)=1, mu(m)=+1} / #{m rough, (m,k)=1, mu(m)=-1},
+
+which counts the same m with the primality of N - mk thrown away.  If
+r_k and q_k agree, the primes did nothing but force roughness.
+
+WHAT IS MEASURED
+
+For N on the many-prime family and k squarefree, 2 <= k < N^theta',
+(k,N) = 1, and m < N/k coprime to k and to rad(N):
+
+  W1  max_k q_k -- whether the unweighted parity ratio is locked too.
+  W2  how closely r_k tracks q_k: the Pearson correlation across k, and
+      the gap between their medians.
+  W3  reported, not judged: both medians and both maxima, per N.
+
+FALSIFICATION, registered before the run
+
+  W1  REFUTED if max_k q_k >= 1 at any N.  Then the unweighted ratio is
+      not locked, the lock is not a fact about rough integers alone,
+      and the primality of N - mk is doing part of the work.
+  W2  REFUTED if the correlation between r_k and q_k across k is below
+      0.8 at any N, or if the two medians differ by more than 0.15 at
+      any N.  Same conclusion as W1 from the other side.
+  W3  reported, not judged.
+
+  PREDICTION.  W1 and W2 hold, and the finding deflates: the lock is
+  the parity of omega on rough integers below N/k, primality having
+  contributed the roughness and nothing else.  That is worth knowing
+  precisely because it is the deflating outcome -- {#rem:signlock} is
+  currently written as though a mechanism about primes had been found.
+
+NULL.  None applies: deterministic counts and sums over one sieve, no
+sampling and no sign input.  The control is internal: r_k and q_k are
+two readings of the same index set, and W2 is the comparison.
+
+==============================================================================
+sieving to 7687680 ...
+
+  N           #k     max r_k    max q_k    med r_k    med q_k    corr    
+  -----------------------------------------------------------------------
+  30030       60     0.189038   0.168539   0.047053   0.040000   0.7423  
+  60060       88     0.288218   0.286008   0.048278   0.035099   0.9135  
+  120120      129    0.428106   0.400000   0.047204   0.030769   0.9596  
+  240240      190    0.523080   0.520507   0.056434   0.044115   0.9779  
+  480480      284    0.662312   0.629690   0.083234   0.070354   0.9785  
+  960960      419    0.772048   0.721216   0.122117   0.112903   0.9804  
+  1921920     622    0.809645   0.797412   0.174476   0.153610   0.9781  
+  3843840     921    0.871295   0.855550   0.223824   0.209402   0.9746  
+  7687680     1355   0.914682   0.899701   0.282392   0.257840   0.9720  
+
+W1  the unweighted parity ratio is locked too
+    W1 hold
+W2  the weighted ratio tracks the unweighted one
+    W2 REFUTED
+W3  both maxima and both medians are in the table, reported
+    not judged.
+
+  If W1 and W2 hold, the primality of N - mk contributed the
+  roughness of m and nothing further, and the lock is a
+  statement about the parity of omega on rough integers below
+  N/k. If either fails, it is not.
+
+==============================================================================
+W1 hold  W2 REFUTED

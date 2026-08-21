@@ -1,0 +1,89 @@
+gate
+paper: 1 document(s)
+==============================================================
+    prose 71 / paper 1971 = 0.04  (cap 1.50)
+
+  G1 evidence exists                     ok
+  G2 no hand-written numbers             ok
+  G3 one meaning per symbol              ok
+  G4 statistic and field declared        ok
+  G5 no verdict without failure path     ok
+  G6 one home per claim                  ok
+  G8 prose budget                        ok
+  G9 no stray CR                         ok
+  G10 named scripts exist                ok
+  G11 printed decimals backed            ok
+  G12 refutations disclosed              ok
+  G13 lab measurements declare a null    ok
+  G14 evidence names its statement       ok
+  G15 cross-references resolve           ok
+  G16 every sieve variant is audited     ok
+  G17 N-dependent thresholds are computed ok
+  G18 results are not stale              ok
+  G19 no hand-written measurements in output ok
+  G20 Euler products use a fixed bound   ok
+  G21 cross-checked statistics agree     ok
+  G22 consumers run after what they read ok
+  G23 every source is non-empty and parses ok
+  G24 fitted exponents are swept         ok
+  G25 values from elsewhere are read, not copied ok
+  G26 declined nulls have an auditor     ok
+  G27 every pre-registered prediction is adjudicated ok
+  G28 forecasts carry a bracket          ok
+  G29 octave fits have no unbounded bin  ok
+  G30 octave fits declare their thinnest bin ok
+  G31 octave fits declare their correlation ok
+  G32 reported levels declare their budget ok
+  G33 forecasts declare the drift they extrapolate ok
+  G34 reported levels declare their arithmetic ok
+  G35 slope forecasts declare their scatter ok
+  G36 slope forecasts declare their shape count ok
+  G37 spans declare their noise floor    ok
+  G38 published slopes declare their significance ok
+  G39 t-ratios declare the range they were measured over ok
+  G40 single-point crossings beat their own floor ok
+  G41 censored crossings are counted and declared ok
+  G42 two per-N ranges require a paired ratio ok
+  G43 spans declare how many scales they cover ok
+  G44 quoted means declare the series behind them ok
+  G45 cross-radical spans are judged against the sweep ok
+  G46 counts are judged against an exchangeable null ok
+  G47 count references declare the magnitude one ok
+  G48 reference levels declare their own trend ok
+  G49 delegated floors cover the range they are used on ok
+  G50 mechanisms declare the window they were shown on ok
+  G51 disjoint windows are adjudicated on the target ok
+  G52 declined nulls meet a one-sided randomisation ok
+  G53 shape survival is redone on every point ok
+  G54 predictors are ranked on a declared score ok
+  G55 predictors declare their sieve level ok
+  G56 thresholds follow from the declared statistic ok
+  G57 one axis carries every statistic's threshold ok
+  G58 negligible remainders are accounted for ok
+  G59 capped spreads declare their sampling error ok
+  G60 shape gaps are read against their own error ok
+  G61 whole-range gains declare their split ok
+  G62 mass splits declare their overlap with the range ok
+  G63 residual spreads are reported at every scale ok
+  G64 shape forecasts declare their trust range ok
+  G65 frozen constants declare the other convention ok
+  G66 forecasts on frozen constants declare both ok
+  G67 maximised constants are checked off axis ok
+  G68 subset claims declare the share they carry ok
+  G69 two-regressor fits declare their collinearity ok
+  G70 every citation exists, not just the numbered ones ok
+  G71 residual lists declare their sign run ok
+  G72 within/between splits declare their resolution ok
+  G73 agreements declare the predictor's marginals ok
+  G74 parametric families declare their classes ok
+  G75 tolerances follow the printing they judge ok
+  G76 declared reads match their source  ok
+  G77 resolution rules name the unresolved case ok
+  G78 constants reach their result file  ok
+  G79 one finding, both trees            ok
+  G80 a cited script produces its numbers ok
+  G81 deployed evidence is accounted for ok
+  G7 applied to every document in paper/          ok
+
+
+failures: 0

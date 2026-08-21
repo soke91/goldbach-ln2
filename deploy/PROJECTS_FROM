@@ -1,0 +1,11 @@
+# Which generation each deployed paper is a projection of.
+# One row per file in papers/. The gate reads this: a paper is compared
+# against its own source and against no other, so that a fix landing in
+# one tree and not the other is caught per paper rather than per repo.
+#
+# paper                          source
+P1-mobius-fixed-class.tex        v3/paper/theorem_A.md
+P2-no-go-divisor-switch.tex      v2/paper/theorem_A.md
+P3-wall-second-moment.tex        v2/paper/wall_v3.md
+P4-coherent-cell-floor.tex       v2/paper/wall_v3.md
+P5-negative-map.tex              v2/paper/wall_v3.md

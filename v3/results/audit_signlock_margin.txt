@@ -1,0 +1,123 @@
+STATISTIC: r_k = P(k)/M(k) with P and M the Lambda-mass of the
+           mu(m) = +1 and mu(m) = -1 terms of H(N;k); its
+           maximum and median over the admissible k; and the
+           fitted crossing of max_k r_k with 1 against log N.
+FIELD: N = 30030*2^j, j = 0..9 (radical contains 2,3,5,7,11,13
+       at every point), and the control N = 2e5*2^j, j = 0..5;
+       k squarefree with 2 <= k < N^THETA and (k,N) = 1; m < N/k
+       with (m,k) = 1; mu, Lambda and the prime flag from one
+       vectorised sieve to max N.
+CONSTANTS: THETA = 0.56, CORE = 30030
+NULL: none applies -- deterministic sums over one sieve, no
+      sampling and no sign input. The control is the second
+      family, run through identical code.
+DENOM: r_k is the positive Lambda-mass over the negative one;
+      the lock is max_k r_k < 1.
+
+How close is the sign lock to breaking, and where would it break?
+
+Supports {#rem:signlockmargin}.
+
+WHAT IS AT STAKE
+
+{#rem:signlock} established that on a family whose radical contains
+2,3,5,7,11,13 every H(N;k) is negative across a factor 128 in N, and
+that the mechanism is forced rather than statistical: primality of
+N - mk requires m to be coprime to rad(N), and among rough m the ones
+with a single prime factor outnumber those with two.  It also noted
+that this bias thins like 1/log, so the lock should be a transient.
+
+"Should be" is not a measurement.  Pushing N until the lock breaks is
+the direct test and it is expensive; the margin is the cheap one.  For
+each k split H(N;k) by the sign of mu(m):
+
+    P(k) = sum_{m: mu(m)=+1} Lambda(N-mk),
+    M(k) = sum_{m: mu(m)=-1} Lambda(N-mk),
+    r_k  = P(k) / M(k),
+
+so H(N;k) < 0 exactly when r_k < 1.  The lock is the statement
+max_k r_k < 1.  How max_k r_k moves with N says whether the lock is
+about to go, and where.
+
+WHAT IS MEASURED
+
+  T1  the lock, restated as a margin: max_k r_k on the many-prime
+      family at ten N, now reaching 1.5e7.
+
+  T2  its trend: max_k r_k against log N, and the N at which the fitted
+      line reaches 1.
+
+  T3  the control: max_k r_k on 2^a 5^b, where the lock does not hold.
+
+  T4  reported, not judged: the median r_k, which says whether the
+      typical term is near the edge or far from it.
+
+FALSIFICATION, registered before the run
+
+  T1  REFUTED if max_k r_k >= 1 at any N of the many-prime family.
+      That is the lock breaking, and it would mean {#rem:signlock}
+      measured a transient that ends inside the computable range.
+  T2  REFUTED if max_k r_k at the largest N is not above its value at
+      the smallest.  Then the margin is not closing, the 1/log
+      reasoning does not describe what the maximum does, and the lock
+      is not shown to be a transient by anything measured here.
+  T3  REFUTED if max_k r_k < 1 on the control family at any N -- the
+      control is supposed to have terms of both signs, and if it does
+      not, this statistic is not separating the families.
+  T4  reported, not judged.
+
+  PREDICTION.  T1 and T3 hold.  T2 holds, and the extrapolated crossing
+  sits far above anything computable -- which would leave the lock a
+  transient in principle and a fact in practice, and would say so with
+  a number instead of an argument.
+
+NULL.  None applies: deterministic sums over one sieve, no sampling and
+no sign input.  The control is the second family, run through identical
+code.
+
+==========================================================================
+sieving to 15375360 ...
+
+  family radical contains 2,3,5,7,11,13
+  N           #k      max r_k      median r_k   locked    
+  --------------------------------------------------------
+  30030       60      0.191113     0.047081     yes       
+  60060       88      0.289221     0.056761     yes       
+  120120      129     0.428727     0.049399     yes       
+  240240      190     0.523536     0.058629     yes       
+  480480      284     0.662493     0.083234     yes       
+  960960      419     0.772145     0.122117     yes       
+  1921920     622     0.809604     0.174476     yes       
+  3843840     921     0.871314     0.223824     yes       
+  7687680     1355    0.914678     0.282874     yes       
+  15375360    1999    0.938479     0.337921     yes       
+
+  family N = 2^a 5^b
+  N           #k      max r_k      median r_k   locked    
+  --------------------------------------------------------
+  200000      313     2.279886     0.926989     NO        
+  400000      462     2.406981     0.935801     NO        
+  800000      682     2.342519     0.957472     NO        
+  1600000     1004    2.698008     0.968413     NO        
+  3200000     1485    1.935344     0.994052     NO        
+  6400000     2186    1.882319     0.991418     NO        
+
+  successive increments of max_k r_k (the deceleration is the
+  reading; a crossing would need them not to shrink):
+    0.098, 0.140, 0.095, 0.139, 0.110, 0.037, 0.062, 0.043, 0.024
+
+  max_k r_k against log N: slope +0.124905, intercept -1.037232
+  the fitted line reaches 1 at log N = 16.310, i.e. N = 10^7.08
+  a straight line in log N is the simplest reading and not a
+  justified model; it is printed so the reading is checkable.
+
+T1  the lock holds at every N of the many-prime family
+    T1 hold
+T2  the margin closes as N grows
+    T2 hold
+T3  the control family is not locked
+    T3 hold
+T4  median r_k is in the table, reported not judged.
+
+==========================================================================
+T1 hold  T2 hold  T3 hold

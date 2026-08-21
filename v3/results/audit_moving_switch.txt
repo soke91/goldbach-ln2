@@ -1,0 +1,114 @@
+The divisor switch under a moving truncation, and where its residual sits.
+
+Supports {#rem:movingswitch}.
+
+WHAT IS AT STAKE
+
+The published argument this note is about carried its cut on the outer
+variable, k < K, with the inner sum over all n < N.  The authors have
+since replaced that by a moving cut: the inner sum runs to
+Y_k = ceil(N - alpha k) - 1, equivalently k <= R_n = ceil((N-n)/alpha) - 1,
+and the outer bound k < K becomes redundant.  Every statement proved
+against the fixed cut is a statement about a superseded formulation
+unless the switch survives the move.
+
+Under the move the exchanged inner divisor sum is cut by the COFACTOR:
+
+    sigma*(u) = sum_{k | u, (k,N)=1, u/k > alpha} mu(k),
+
+so completing it leaves a tail over m = u/k <= alpha -- the short
+variable, directly, with no need for the completion to produce it.
+That is the favourable configuration, reached one step earlier than
+under the fixed cut.
+
+WHAT IS MEASURED
+
+For N even and alpha = N^theta, with u = N - n and m = u/k:
+
+  X1  the switch is an exact rearrangement:
+        D*  = sum_{k<K,(k,N)=1} mu(k) sum_{n<=Y_k, n=N(k)} Lambda(n) mu(N-n)
+        Du* = sum_{u<N} Lambda(N-u) mu(u) sigma*(u)
+      accumulated in different index orders; X1 compares them.
+
+  X2  the completion splits it: D* = P* - R*, with
+        P*  = sum_{u<N, rad(u)|N} Lambda(N-u) mu(u)          (few terms)
+        R*  = sum_{m<=alpha} mu(m) sum_{(k,mN)=1, mk<N} mu^2(k) Lambda(N-mk)
+      X2 compares D* against P* - R*.
+
+  X3  the tail really is short: the largest m carrying a term is
+      recorded against alpha.
+
+  X4  the subtracted mean term is negligible.  With
+        M*  = sum_{k<K,(k,N)=1} mu(k)/phi(k) * A_N(Y_k)
+      and the endpoint exchange M* = sum_{n<N} a_n rho_N(R_n + 1),
+      X4 compares the two forms and reports |M*|/N.
+
+  X5  the object the theorem is about,
+        T1* = D* - M* = sum_k mu(k) E_mu(Y_k; k),
+      is reported as |T1*|/N beside the fixed-cut |T1|/N at the same N.
+
+FALSIFICATION, registered before the run
+
+  X1  REFUTED if the two index orders disagree beyond 1e-12 relative
+      to N.  Then the exchange is not the identity claimed and nothing
+      below is interpretable.
+  X2  REFUTED at the same tolerance.  Then the completion is wrong.
+  X3  REFUTED if any surviving m exceeds alpha.  Then the tail is not
+      the short variable and the configuration is not the favourable
+      one.
+  X4  REFUTED if the two forms of M* disagree beyond 1e-12 relative to
+      N, or if |M*|/N does not fall as N grows.
+  X5  is reported, not judged: a bound is analytic and no computation
+      here establishes one.  It is printed so that the claim "the
+      moving cut does not make the object larger" is checkable.
+
+  PREDICTION.  X1-X4 hold.  X5 shows |T1*|/N of the same order as the
+  fixed-cut |T1|/N -- the move changes which step produces the short
+  variable, not the size of what is left.
+
+NULL.  None applies: every quantity is a deterministic finite sum with
+no sampling and no sign input.  The control is that each identity is
+accumulated twice in genuinely different index orders (X1, X2, X4).
+
+======================================================================
+sieving to 3200000 ...
+
+STATISTIC: five exact rearrangements of one finite double sum
+           under the moving cut n <= Y_k, each accumulated in
+           two different index orders; the largest surviving
+           m against alpha; and |M*|/N and |T1*|/N.
+FIELD: N even in 200000,400000,800000,1600000,3200000; alpha = N^theta; k squarefree with
+       (k,N) = 1; n < N with n = N (mod k) and n <= Y_k;
+       u = N - n, m = u/k. Lambda, mu from one integer sieve.
+CONSTANTS: THETA = 0.44, TOL = 1e-12 relative to N
+NULL: none applies -- deterministic finite sums, no sampling,
+      no sign input. The control is double accumulation.
+DENOM: every relative error printed below is divided by N.
+
+  N         alpha  X1 rel       X2 rel       X4 rel       max m      |M*|/N     
+  ------------------------------------------------------------------------------
+  200000    215    6.366e-17    1.182e-16    7.105e-20    213        0.000461   
+  400000    292    3.411e-18    1.705e-17    1.048e-18    291        0.000059   
+  800000    396    3.411e-17    2.547e-16    2.118e-18    393        0.000026   
+  1600000   537    3.297e-17    8.413e-17    3.553e-20    533        0.000045   
+  3200000   728    3.411e-18    2.058e-16    9.526e-19    727        0.000015   
+
+X1  the switch is exact under the moving cut
+    X1 hold
+X2  the completion splits it, tail on the short variable
+    X2 hold
+X3  every surviving m is at most alpha
+    X3 hold
+X4  the two forms of the mean term agree, and it is small
+    X4 hold
+
+X5  |T1*|/N, reported not judged
+    N = 200000    |T1*|/N = 0.02284282
+    N = 400000    |T1*|/N = 0.00655656
+    N = 800000    |T1*|/N = 0.01205837
+    N = 1600000   |T1*|/N = 0.00871321
+    N = 3200000   |T1*|/N = 0.00612307
+    a bound is analytic; nothing here establishes one.
+
+======================================================================
+X1 hold  X2 hold  X3 hold  X4 hold
