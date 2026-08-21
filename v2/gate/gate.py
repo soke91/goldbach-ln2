@@ -4303,6 +4303,71 @@ def g78_constants_reach_their_result():
     return n
 
 
+# ----------------------------------------------------------------- G79
+DEPLOY = os.path.join(os.path.dirname(ROOT), "deploy", "papers")
+
+# 확정된 결함마다 (이름, 다시 나타나면 안 되는 문자열). 두 트리 모두에서
+# 사라졌는지 본다. 문자열은 결함의 서명이지 문장 전체가 아니다.
+PARITY = [
+    ("pass4 F3  the two lists must not share a numerator silently",
+     "against $2.1591"),
+    # 서명은 고쳐진 형태에 걸리면 안 된다. 처음 쓴 "(\log k)\,\n  \bigl|"
+    # 은 mu^2 를 넣은 줄에도 그대로 남아 있어 늘 실패했다 -- 결함의
+    # 서명은 "(k,N)=1}} 바로 뒤에 (\log k)" 라는 자리다.
+    ("pass4 F4  B(N) carries mu^2(k)",
+     "(k,N)=1}} (\\log k)"),
+    ("pass4 F11 the coin factor is not a standard deviation",
+     "coin standard deviations"),
+    ("pass4 F15 the ineligible rounding of the Heath-Brown share",
+     "0.833180,"),
+    ("pass4 F19c the residual is measured against N",
+     "of $\\SS$ only near"),
+    ("pass6 F1  one table, one resolution",
+     "e & -0.000879"),
+    ("pass6 F2  the adjective must match the cell that carries the effect",
+     "conservative by about two orders of magnitude"),
+    ("pass6 F3  the sampling error is not the same at every depth",
+     "the same $0.0013$ throughout"),
+    ("pass6 F7  a generic even N does not have that local factor",
+     "at a generic even $N$"),
+]
+
+
+def g79_one_finding_both_trees():
+    """한 발견은 두 트리 모두에 가야 한다.
+
+    pass6 이 찾은 것: 확정된 결함 열 중 셋은 어느 트리에도 반영되지
+    않았고 일곱은 한 트리에만 반영됐다. 커밋이 `paper/` 와 `deploy/`
+    를 번갈아 만지는 동안 같은 수정이 한쪽에만 갔고, 어느 검사도 그
+    비대칭을 보지 않았다. 배포본이 이미 고친 결함을 원본이 나르면
+    다음 원고가 그것을 물려받는다 -- 그중 하나는 이항 골드바흐 등가
+    하한을 고전 문헌에 귀속시키고 있었다.
+
+    규칙: 아래 서명 문자열은 `paper/` 에도 `deploy/papers/` 에도
+    나타나면 안 된다. 어느 한쪽에만 남아 있으면 반영이 절반만 간
+    것이고, 그것이 이 검사가 잡는 것이다.
+    """
+    n = 0
+    trees = [("paper", PAPER)]
+    if os.path.isdir(DEPLOY):
+        trees.append(("deploy/papers", DEPLOY))
+    else:
+        notes.append("G79 deploy/papers not present; only paper/ checked")
+    for name, stale in PARITY:
+        for tag, base in trees:
+            for b, _, fs in os.walk(base):
+                for f in sorted(fs):
+                    if not f.endswith((".md", ".tex")):
+                        continue
+                    if stale in read(os.path.join(b, f)):
+                        fails.append(
+                            f"G79 {tag}/{f} still carries the signature of "
+                            f"[{name}] -- the fix reached one tree only")
+                        n += 1
+    return n
+
+
+
 def main():
     docs = [(p, read(p)) for p in paper_files()]
     print("gate")
@@ -4449,6 +4514,8 @@ def main():
          g77_resolution_rules_name_the_unresolved()),
         ("G78 constants reach their result file",
          g78_constants_reach_their_result()),
+        ("G79 one finding, both trees",
+         g79_one_finding_both_trees()),
     ]
     print()
     for name, c in counts:

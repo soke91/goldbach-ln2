@@ -1,0 +1,277 @@
+STATISTIC: survival and grade-move of every numbered source object in the projection, matched on label stem then on title text
+FIELD:     289 source objects (251 Remark + 38 numbered) vs 77 projection environments
+CONSTANTS: title-similarity acceptance threshold 0.62 (SequenceMatcher on lowercased, math-stripped titles)
+NULL:      none -- a correspondence table, not a test; the threshold is fixed before reading the output
+DENOM:     289 source objects
+
+==========================================================================
+A. NUMBERED (non-Remark) SOURCE STATEMENTS -- grade moves
+==========================================================================
+  DOWN     prop:coh           Proposition  -> observation  P4-coherent-cell-floor.tex  
+           key prop:coh -> obs:coh   [stem]
+           coherent sums
+  DOWN     prop:placebo       Proposition  -> lemma        P4-coherent-cell-floor.tex  
+           key prop:placebo -> lem:placebo   [stem]
+           the mask survives its placebo
+
+  numbered statements: 38 ; missing 0 ; regraded 2
+
+==========================================================================
+B. REMARKS THAT SURVIVE AS A PROJECTION ENVIRONMENT
+==========================================================================
+  rem:threeway               -> note         P1-mobius-fixed-class.tex    230   stem
+  rem:onesided               -> proposition  P1-mobius-fixed-class.tex    258   stem
+  rem:relocate               -> measurement  P1-mobius-fixed-class.tex    914   stem
+  rem:trap                   -> note         P1-mobius-fixed-class.tex    514   stem
+  rem:movingcutscope         -> note         P1-mobius-fixed-class.tex    1086  title 1.00
+  rem:thetasweep             -> note         P1-mobius-fixed-class.tex    828   stem
+  rem:directmargin           -> note         P2-no-go-divisor-switch.tex  462   title 0.71
+  rem:cutbridge              -> measurement  P2-no-go-divisor-switch.tex  792   title 0.63
+  rem:extractTw              -> note         P2-no-go-divisor-switch.tex  152   title 0.78
+  rem:bombieri               -> note         P2-no-go-divisor-switch.tex  632   stem
+  (no anchor)                -> note         P2-no-go-divisor-switch.tex  783   title 1.00
+  rem:hbround                -> note         P2-no-go-divisor-switch.tex  317   title 0.65
+  rem:budget                 -> measurement  P3-wall-second-moment.tex    360   stem
+  rem:loadbearing            -> note         P3-wall-second-moment.tex    275   title 0.63
+  rem:trunc                  -> note         P3-wall-second-moment.tex    275   stem
+  rem:secondorder            -> measurement  P3-wall-second-moment.tex    234   stem
+  rem:leanidentity           -> lemma        P3-wall-second-moment.tex    249   title 0.70
+  rem:allswept               -> measurement  P4-coherent-cell-floor.tex   443   title 0.63
+  (no anchor)                -> note         P4-coherent-cell-floor.tex   269   title 1.00
+  rem:floorsignal            -> note         P4-coherent-cell-floor.tex   363   stem
+  rem:supp                   -> measurement  P5-negative-map.tex          121   stem
+  rem:scale                  -> note         P5-negative-map.tex          106   stem
+  (no anchor)                -> note         P5-negative-map.tex          286   title 1.00
+  surviving as an environment: 23 of 251
+
+==========================================================================
+C. REMARKS WITH NO ENVIRONMENT IN THE PROJECTION (228)
+==========================================================================
+  theorem_A 175   (no anchor)                  
+  theorem_A 423   rem:threshfam                the threshold is not a constant, and the sweep held 
+  theorem_A 567   rem:directlevel              where the direct condition's level actually sits
+  theorem_A 649   rem:whereitlives             where the count actually lives
+  theorem_A 717   rem:layerdecay               what the layers weigh
+  theorem_A 759   rem:layertail                the truncation in $m$ is cheap, and where the barrie
+  theorem_A 853   rem:combmod                  the modulus the demand really needs
+  theorem_A 907   rem:levelaudit               the withdrawn level measurement, re-examined
+  theorem_A 1037  rem:tolerance                the exponents were the tolerance, not the count
+  theorem_A 1086  rem:signedlevel              what the signs across $k$ are worth
+  theorem_A 1137  rem:levelmeas                a level measurement, and its withdrawal
+  theorem_A 1683  rem:bound                    
+  theorem_A 1813  rem:movingswitch             the cut has since moved, and the switch survives the
+  theorem_A 2179  rem:sign                     the sign, and why it is the whole identity
+  theorem_A 2271  (no anchor)                  
+  theorem_A 2441  rem:identitynull             the last declined null, rule by rule
+  theorem_A 2485  rem:weightgapnull            the declined null, run
+  theorem_A 2525  rem:heuristic                the heuristic, corrected
+  theorem_A 2568  rem:modeltransfer            a model of the exponent, not of the constant
+  theorem_A 2635  rem:elemsize                 the binding half is square-root too
+  theorem_A 2684  rem:elemreach                the reach that cannot be bought
+  theorem_A 2778  rem:muvscoin                 the elementary sum beats a coin, by a constant
+  theorem_A 2839  rem:provablehalf             size and provability point at opposite halves
+  theorem_A 2934  rem:residuelevel             what the conditional reduction actually buys
+  theorem_A 2990  rem:residuesigned            what the signs cost once the elementary half is gone
+  theorem_A 3053  rem:residuearithmetic        the knife-edge is a fact about one family
+  theorem_A 3118  rem:primorialladder          the primorial failure is finite-$N$, and nearly reac
+  theorem_A 3179  rem:primorialreach           the first bracket to be tested, and it failed
+  theorem_A 3244  rem:primorialshare           a better instrument that turned out worse
+  theorem_A 3315  rem:primorialrung10          the barrier crossed, at the hard arithmetic
+  theorem_A 3378  rem:laddershape              the shape decides, and the data do not fix the shape
+  theorem_A 3454  rem:laddermodel              no derived shape is available either
+  theorem_A 3497  rem:cRwindow                 the exponent moves, not the constant
+  theorem_A 3540  rem:kexponent                the k-exponent is too noisy to carry an arithmetic
+  theorem_A 3578  rem:ladderderived            repairing the model's constant does not derive the s
+  theorem_A 3636  rem:shapetrust               how far the ladder can be read
+  theorem_A 3681  rem:laddershape12            what one more rung buys the shape question
+  theorem_A 3721  rem:provableuniformity       the premise, checked along the axis it is about
+  theorem_A 3769  rem:uniformityreach          the drift is real, and nowhere near the bound
+  theorem_A 3814  rem:provableforecast         two answers to two questions, 5465 decades apart
+  theorem_A 3862  rem:provableshare            the overspend worsens only with the constant frozen
+  theorem_A 3902  rem:provablearithmetic       the exposure that remark names, tested
+  theorem_A 3947  rem:budgetgap                the budget gap is not a constant, and both halves pa
+  theorem_A 3980  rem:arithmeticonevar         one variable, and it explains more as N grows
+  theorem_A 4022  rem:arithmeticreach          the one-radical caveat does not close
+  theorem_A 4063  rem:splitvalue               both losses decline together
+  theorem_A 4100  rem:signedgain               the largest loss is a decline, and it is not monoton
+  theorem_A 4143  rem:primorialrung11          the rung that separates crossed from fluctuated
+  theorem_A 4182  rem:rung12                   the thirteenth rung, out of sample
+  theorem_A 4227  rem:rung13                   the fourteenth rung is above both shapes
+  theorem_A 4277  rem:rung14                   three rungs above the line, none of them growing
+  theorem_A 4326  rem:laddercurve              measured on its own slopes, the ladder curves
+  theorem_A 4373  rem:curvereach               the shape contest could not have seen it
+  theorem_A 4414  rem:curvebound               the curvature predicts, and has an expiry
+  theorem_A 4458  rem:rung15                   the sixteenth rung, and an extrapolation that settle
+  theorem_A 4512  rem:rung16                   the seventeenth rung, and the wall that was named wr
+  theorem_A 4596  rem:laddercap                the whole ladder at one cap, and what survives it
+  theorem_A 4671  rem:rung17                   the eighteenth rung, where the fit could not call it
+  theorem_A 4746  rem:rung18                   the nineteenth rung: 0.56 crossed, and inside the fl
+  theorem_A 4831  rem:signrun                  the run is real, ordinary, and not growing
+  theorem_A 4891  rem:rung18fill               the floor was the wrong one: 0.56 resolved
+  theorem_A 4958  rem:localfloor               the floor is scale-dependent, and 1/2 is crossed mor
+  theorem_A 5029  rem:targetband               0.56 is crossed once, and the band says why 1/2 was 
+  theorem_A 5112  rem:floorlaw                 the floor falls like a power, and 1/2 was understate
+  theorem_A 5177  rem:floormid                 the floor law predicts a window it was not fitted on
+  theorem_A 5235  rem:ladderdegree             the ladder does not escalate, and that is not a vind
+  theorem_A 5293  rem:primorialgap             the void between two rungs, filled
+  theorem_A 5373  rem:primorialdense           fifty points to a doubling, and what they buy
+  theorem_A 5472  rem:densenoise               the noise is the field's, and both lenses see it
+  theorem_A 5553  rem:gainprofile              part of the cancellation is between the blocks
+  theorem_A 5651  rem:gainopposition           the opposition is below chance and chance does not g
+  theorem_A 5740  rem:headsign                 the inner sums already cancel; the sign is what does
+  theorem_A 5829  rem:tailasymmetry            a null refuted before it could adjudicate
+  theorem_A 5895  rem:tailmertens              the one candidate, eliminated for being constant
+  theorem_A 5977  rem:tailpredictors           a bounded modulus does reach the tail
+  theorem_A 6051  rem:levelmagnitude           the level's signs, and why swapping them proves noth
+  theorem_A 6126  rem:flatnessfill             the excess over the ceiling was eight points
+  theorem_A 6198  rem:fillfield                the seventy points were three fields
+  theorem_A 6278  rem:fieldreach               two more octaves, and the shape question retires
+  theorem_A 6340  rem:shapepower               the tie was never a measurement
+  theorem_A 6410  rem:destination              asking for the destination instead of the shape
+  theorem_A 6470  rem:slopes                   which of these slopes is above its own noise
+  theorem_A 6522  rem:slopereach               two more octaves settle it
+  theorem_A 6562  rem:betafree                 the split constant is free and buys nothing
+  theorem_A 6607  rem:splitbudget              which half exhausts the budget
+  theorem_A 6666  rem:pairingnull              the control the ratio could take
+  theorem_A 6712  rem:weightgap                where the weight puts its mass
+  theorem_A 6855  (no anchor)                  what the obstruction is
+  theorem_A 6866  (no anchor)                  scope, stated honestly
+  theorem_A 6911  (no anchor)                  
+  theorem_A 6976  rem:toprdom                  a prediction of ours that the measurement refuted
+  theorem_A 7166  rem:ratiotable               the ratio does not determine the entry
+  theorem_A 7205  rem:cap                      a pre-registered threshold of ours that failed
+  theorem_A 7272  rem:band                     a pre-registered check of ours that failed
+  wall_v3.m 320   rem:e1row                    this row is not reproduced
+  wall_v3.m 429   rem:maskstamp                one of the four stamps re-verified, and what re-veri
+  wall_v3.m 488   rem:cellstamp                the second stamp, and the second parameter it does n
+  wall_v3.m 540   rem:fieldpinned              the same question turned on this repository, and wha
+  wall_v3.m 775   (no anchor)                  
+  wall_v3.m 838   rem:cdef                     one symbol, two meanings, in one paragraph
+  wall_v3.m 895   rem:cnlaw                    the withdrawn law, re-measured: one statistic surviv
+  wall_v3.m 961   rem:cnkurt                   the non-Gaussianity is real at every scale reached, 
+  wall_v3.m 1020  rem:cnkurtlimit              the forecast held, the floor did not, and this branc
+  wall_v3.m 1102  rem:cnskew                   the control does shrink, and it does not help
+  wall_v3.m 1163  rem:cnshift                  the coin reproduces the two-point function too, and 
+  wall_v3.m 1217  rem:cndilation               the multiplicative question, asked properly, closes 
+  wall_v3.m 1276  rem:cnkurtwhere              the non-Gaussianity is not made anywhere
+  wall_v3.m 1334  rem:cnwherereach             there is no profile in v, only a count — and the coi
+  wall_v3.m 1391  rem:cnclass                  the last axis is not closed: C(N) has class structur
+  wall_v3.m 1458  rem:cnclassreach             the escape is a shift, it lives at every band, and i
+  wall_v3.m 1519  rem:cnclassomega             the shift is not made anywhere: it is what survives 
+  wall_v3.m 1574  rem:cnmultnull               a multiplicative null, and three things it showed th
+  wall_v3.m 1626  rem:cnmultm2                 mu is outside the multiplicative null — and the same
+  wall_v3.m 1682  rem:cnmultdeep               the escape was the tail: seven routes, none of them 
+  wall_v3.m 1743  rem:cncoindeep               it was the null, not the depth: the iid coin is narr
+  wall_v3.m 1799  rem:coinsurface              counting what stands on a coin: eleven blocks, and t
+  wall_v3.m 1849  rem:decaydeep                the second branch says the same thing: the control w
+  wall_v3.m 1900  rem:decaysweep               both halves go the same way, and the cost objection 
+  wall_v3.m 1955  rem:identitydeep             the one that survives, and it survives for a reason 
+  wall_v3.m 2048  rem:identityseeds            the seed is paid, and the tail is steadier than the 
+  wall_v3.m 2095  rem:identitybig              the last two N, and a floor the draws cannot get und
+  wall_v3.m 2144  rem:identityfloor            the mechanism is measured, the word "floor" was wron
+  wall_v3.m 2203  rem:identityforced           forced, the mechanism's best still stops short — and
+  wall_v3.m 2310  rem:filter                   but the inverse filter is numerically dead
+  wall_v3.m 2390  rem:whycoinwins              why the coin beat $\mu$ on the level
+  wall_v3.m 2448  rem:nocrossk                 there is no cancellation across dilations
+  wall_v3.m 2494  rem:mertens                  a Mertens reduction, closed
+  wall_v3.m 2533  rem:signmass                 the correlation sits in the large terms
+  wall_v3.m 2584  rem:leanmertens              the lean is not the Mertens function
+  wall_v3.m 2634  rem:leanodd                  it is the Mertens function the parity leaves
+  wall_v3.m 2676  rem:levelweighted            the weights are free; the survivor set is everything
+  wall_v3.m 2717  rem:leveldemand              holding the sign is not cutting the demand
+  wall_v3.m 2764  rem:levelthreshold           the level at which the sign stops slipping
+  wall_v3.m 2809  rem:sievedepth               the missing piece is sieve depth, and that is the ba
+  wall_v3.m 2854  rem:logweightpredictor       the missing weight is not log(N-mk
+  wall_v3.m 2898  rem:predictablenull          which half of the predictor does the cutting
+  wall_v3.m 2942  rem:survivorrange            the sieve-weighted predictor on the lean's own k
+  wall_v3.m 2991  rem:oddmertensrange          the mechanism was shown on the wrong window
+  wall_v3.m 3027  rem:survivors                which $m$ survive, and why the lean is deeper
+  wall_v3.m 3067  rem:predictable              how much of the demand is elementary
+  wall_v3.m 3112  rem:copiedfloor              a copied floor, and the control M3 was owed
+  wall_v3.m 3147  rem:decaynull                the decay sweep, controlled
+  wall_v3.m 3196  rem:forecastnull             a pointer that missed, and the control it owed
+  wall_v3.m 3236  rem:extendnull               the extrapolation's declined null, run
+  wall_v3.m 3272  rem:splitnull                the control the split never had
+  wall_v3.m 3308  rem:residue                  the residue is square-root
+  wall_v3.m 3372  rem:headidentity             the head is not a range, but its sign is the lean
+  wall_v3.m 3416  rem:signmasshead             half of the lean is in the head, and half is not
+  wall_v3.m 3462  rem:gainsplit                the tail cancels better than randomly; the head not 
+  wall_v3.m 3513  rem:splitreach               the same split on eighty-one points
+  wall_v3.m 3576  rem:headaxis                 which axis holds the head, and for how long
+  wall_v3.m 3629  rem:headbounded              no prefix of the inner sum owns the head's sign
+  wall_v3.m 3693  rem:coherencenull            most of the coherence was the conditioning
+  wall_v3.m 3747  rem:denominator              the gain's denominator is a truncated Chebyshev corr
+  wall_v3.m 3819  rem:thetalaw                 raising the level moves away from the demand
+  wall_v3.m 3880  rem:thetalawarith            the crossing is one family's number, and on another 
+  wall_v3.m 3953  rem:support                  the surviving correlation is a composite-index objec
+  wall_v3.m 4004  rem:meanonly                 it is a correlation and not a mean
+  wall_v3.m 4037  rem:sumhead                  the signed sum is the head's, and increasingly
+  wall_v3.m 4085  rem:headfraction             the excess was transient, and the set is not thin
+  wall_v3.m 4133  rem:alphalocal               alpha is a constant of the range, and the octaves ca
+  wall_v3.m 4181  rem:alphareach               the sign axis, seven octaves further, and what one o
+  wall_v3.m 4253  rem:deficitdirect            the deficit is closing, and where it closes is not q
+  wall_v3.m 4318  rem:deficitshape             the drift steepens, and two of this run's own rules 
+  wall_v3.m 4377  rem:deficitregion            the never-closes region has a boundary, and the fami
+  wall_v3.m 4437  rem:targetderived            the target of the sign axis is derived, not fitted
+  wall_v3.m 4517  rem:deficitlog               this field cannot tell a logarithm from a line
+  wall_v3.m 4579  rem:sieveweight              the object has a name: a truncated Möbius sieve weig
+  wall_v3.m 4648  rem:jbarrier                 the sum has two square-root barriers and they differ
+  wall_v3.m 4723  rem:jbarrierreach            the half was the radical's, and the barriers do not 
+  wall_v3.m 4787  rem:whichfloor               the deficit carries the radical
+  wall_v3.m 4856  rem:radicallaw               which primes, not how many
+  wall_v3.m 4922  rem:primecontrib             three is the whole of it, and there is no decay
+  wall_v3.m 4984  rem:basecontrol              the control this branch never ran, and the clause th
+  wall_v3.m 5042  rem:radicalblind             the control, blind and registered, and it fails
+  wall_v3.m 5103  rem:valuation                the exponent is not it either, and the slope is not 
+  wall_v3.m 5167  rem:levelmatched             the level, at matched N, with no window in it
+  wall_v3.m 5226  rem:leveldense               packed close: the level carries scatter, and how muc
+  wall_v3.m 5283  rem:levelfine                the scatter is not a scale effect, and it is smaller
+  wall_v3.m 5334  rem:levelresidual            the residual is noise, on a closed list of candidate
+  wall_v3.m 5386  rem:bilinear                 the object is a Type II bilinear form with disjoint 
+  wall_v3.m 5447  rem:bilinearcancel           the smallness is cancellation between moduli, and be
+  wall_v3.m 5513  rem:maintermremoval          the demand is a main term removed to a relative accu
+  wall_v3.m 5574  rem:tworates                 the two rates, and the deficit reached without fitti
+  wall_v3.m 5629  rem:residuemodel             the primes do not drop out
+  wall_v3.m 5684  rem:weightshape              the correction is not a product over the primes of d
+  wall_v3.m 5742  rem:omegafactor              kappa predicts three primes from two, and the transp
+  wall_v3.m 5799  rem:localcorrections         the corrections drift, most for the smallest primes
+  wall_v3.m 5857  rem:driftbyprime             the drift belongs to two primes, not to the family
+  wall_v3.m 5905  rem:driftpower               power was bought, and the slope is not a slope
+  wall_v3.m 5957  rem:driftsigns               c(3) moves, and only c(3), once the window is gone
+  wall_v3.m 6003  rem:derivedlimit             a limit that is derived, and the residual it leaves
+  wall_v3.m 6069  rem:limitdirection           the curve compresses, and neither way out was right
+  wall_v3.m 6125  rem:limitsqueeze             the ladder is not square, and three runs stood on it
+  wall_v3.m 6178  rem:conditionedlimit         above a floor that is demanded, and what the floor c
+  wall_v3.m 6233  rem:logweightsplit           the second factor nobody counted
+  wall_v3.m 6288  rem:closedform               the form transports, and its level is the Goldbach s
+  wall_v3.m 6338  rem:maskdmse                 dm/se, as v1 said to fit and nobody had
+  wall_v3.m 6394  rem:maskfloornull            the floor test and the fit answer different question
+  wall_v3.m 6447  rem:maskformreach            a design that could not ask its question, and what t
+  wall_v3.m 6502  rem:maskdeepform             where the mask has not sunk, the form is measurable
+  wall_v3.m 6560  rem:maskrivals               the price was against one rival, and there is no pri
+  wall_v3.m 6616  rem:spectrummushare          mu's share of the spectrum is structured, and by som
+  wall_v3.m 6681  rem:flatnessshape            the flatness cannot rise forever
+  wall_v3.m 6785  rem:leanextended             and it holds over a factor 128
+  wall_v3.m 6820  rem:leanfloor                the floor moved faster than the lean
+  wall_v3.m 6863  rem:crosskreference          what independent signs would actually give
+  wall_v3.m 6912  rem:coinrank                 mu ranks fourth of seventeen
+  wall_v3.m 6955  rem:residuecancel            the residue buys exactly a coin's cancellation
+  wall_v3.m 7006  rem:residueconstant          the residue has no law, only a fit
+  wall_v3.m 7057  rem:leandecay                the lean is finite-$N$ and decays
+  wall_v3.m 7104  rem:leanbracket              the lean, by a second route, and its bracket
+  wall_v3.m 7154  rem:extendrange              two more octaves, and what they settle
+  wall_v3.m 7205  rem:decayfamily              the decay exponent is not determined, and by how muc
+  wall_v3.m 7255  rem:dilateprofile            the dilated wall obeys a square-root law, and what t
+  wall_v3.m 7319  rem:extrap                   the extrapolation, tested out of sample
+  wall_v3.m 7347  rem:artifact                 that prediction was an artifact; the corrected one i
+  wall_v3.m 7393  rem:forecast                 where the model puts the route's hypothesis
+  wall_v3.m 7455  rem:forecastbracket          the bracket that forecast has to carry
+  wall_v3.m 7580  rem:mcratios                 six ratios are one observation
+  wall_v3.m 7695  rem:sdzrange                 the factor does not grow with the cell
+  wall_v3.m 8102  rem:r4null                   a null that is not reproduced
+  wall_v3.m 8307  rem:grid                     the octave grid, and the fitted exponent
+  wall_v3.m 8342  rem:marginbracket            the base checked without the transform, and the brac
+  wall_v3.m 8398  rem:marginoos                the bracket, tested on the octave it forecasts
+  wall_v3.m 8473  (no anchor)                  
+  wall_v3.m 8591  rem:constants                the two constants, and how far they were trusted
+  wall_v3.m 8633  rem:sieve                    the arithmetic underneath, audited

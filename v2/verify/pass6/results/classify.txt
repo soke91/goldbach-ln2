@@ -1,0 +1,435 @@
+STATISTIC: pre-registered H/S/M cue tags per source remark, its distinctive numeric literals, and how many of those reach the projection text or deploy/results/
+FIELD:     all 251 remarks of v2/paper/*.md
+CONSTANTS: cue-phrase lists fixed in PREREG.md sec.A and printed below; numeric literal = >=3 decimal places
+NULL:      none -- a triage that ranks remarks for hand reading; no verdict is taken from the tags alone
+DENOM:     251 remarks
+
+H cues (33): an earlier version, earlier version, we previously, previously, withdrawn, withdraw, retract, was wrong, were wrong, the wrong one, pre-registered, preregistered, our rule, rule failed, fails there, the audit's rule, declined null, this program reported, version 3, v1 said, v2 said, the code was, a bug, the bug, superseded, my own, the objection was mine, the control was owed, nobody had, artifact, could not have seen, misspecified, the error was
+S cues (38): only, not a constant, does not, cannot, no longer, is not, must state, must be stated, the range, at every scale reached, one family, is not closed, not closed, the escape, survives, does not survive, convention, we write, one symbol, two meanings, scope, is dead, closed, no-go, below its own, does not grow, not reproduced, is not the, caveat, expiry, out of sample, and it fails, the price, buys nothing, is free, not a proof, measurement and not, not thereby
+M cues (18): \breads\b, \bmeasured\b, \bfitted\b, \bslope\b, \bcorrelation\b, \bmedian\b, \bsd\b, \bstandard deviation\b, \bdraws\b, \boctave, \brung, \bat \$N, \bover \$N, \bfactor \$, \bratio\b, \bpercentile\b, \bband\b, \bnull\b
+
+==========================================================================
+A. TAG DISTRIBUTION (mechanical, before hand adjudication)
+==========================================================================
+   ?      1
+   HM     3
+   HS     2
+   HSM    114
+   M      5
+   S      9
+   SM     117
+   total  251
+
+   carries H cues            : 119
+   carries S cues            : 242
+   carries M cues or numbers : 239
+   H and S both (mixed)      : 116
+   survives as a projection environment: 17
+
+==========================================================================
+B. RANKED CANDIDATES -- S or M cues, no number reaching the projection, no surviving environment
+==========================================================================
+  156 of 251 remarks
+
+  theorem_A 6126  rem:flatnessfill           HSM  n=36  res=3    the excess over the ceiling was eight points
+        evidence: audit_flatness_fill.py
+  theorem_A 5373  rem:primorialdense         SM   n=35  res=0    fifty points to a doubling, and what they bu
+        evidence: audit_primorial_dense.py
+  theorem_A 6198  rem:fillfield              HSM  n=35  res=1    the seventy points were three fields
+        evidence: audit_fill_field.py
+  wall_v3.m 3819  rem:thetalaw               HSM  n=34  res=0    raising the level moves away from the demand
+        evidence: audit_theta_law.py
+  theorem_A 3578  rem:ladderderived          SM   n=33  res=1    repairing the model's constant does not deri
+        evidence: audit_ladder_derived.py
+  wall_v3.m 6233  rem:logweightsplit         SM   n=33  res=0    the second factor nobody counted
+        evidence: audit_logweight_split.py
+  theorem_A 6666  rem:pairingnull            HSM  n=30  res=13   the control the ratio could take
+        evidence: audit_weightgap_pairing.py
+  theorem_A 6051  rem:levelmagnitude         SM   n=29  res=1    the level's signs, and why swapping them pro
+        evidence: audit_level_magnitude.py
+  wall_v3.m 6125  rem:limitsqueeze           HSM  n=29  res=1    the ladder is not square, and three runs sto
+        evidence: audit_limit_squeeze.py
+  wall_v3.m 7057  rem:leandecay              SM   n=28  res=6    the lean is finite-$N$ and decays
+        evidence: lab_lean_decay.py
+  theorem_A 4596  rem:laddercap              SM   n=27  res=3    the whole ladder at one cap, and what surviv
+        evidence: audit_ladder_cap.py
+  theorem_A 3378  rem:laddershape            HSM  n=27  res=1    the shape decides, and the data do not fix t
+        evidence: audit_ladder_shape.py
+  theorem_A 4958  rem:localfloor             SM   n=26  res=2    the floor is scale-dependent, and 1/2 is cro
+        evidence: audit_local_floor.py
+  theorem_A 6278  rem:fieldreach             HSM  n=26  res=3    two more octaves, and the shape question ret
+        evidence: audit_field_reach.py
+  wall_v3.m 3067  rem:predictable            HSM  n=26  res=0    how much of the demand is elementary
+        evidence: lab_predictable_part.py
+  theorem_A 2525  rem:heuristic              HSM  n=26  res=2    the heuristic, corrected
+        evidence: audit_directlevel_heuristic.py
+  theorem_A 2684  rem:elemreach              HSM  n=25  res=1    the reach that cannot be bought
+        evidence: lab_elementary_reach.py
+  theorem_A 5029  rem:targetband             SM   n=25  res=1    0.56 is crossed once, and the band says why 
+        evidence: audit_target_band.py
+  wall_v3.m 1458  rem:cnclassreach           HSM  n=25  res=1    the escape is a shift, it lives at every ban
+        evidence: audit_cn_class_reach.py
+  wall_v3.m 6288  rem:closedform             SM   n=25  res=0    the form transports, and its level is the Go
+        evidence: audit_closed_form.py
+  wall_v3.m 4437  rem:targetderived          SM   n=24  res=3    the target of the sign axis is derived, not 
+        evidence: audit_target_derived.py
+  wall_v3.m 5167  rem:levelmatched           SM   n=24  res=0    the level, at matched N, with no window in i
+        evidence: audit_level_matched.py
+  theorem_A 6410  rem:destination            SM   n=24  res=1    asking for the destination instead of the sh
+        evidence: audit_power_reach.py
+  theorem_A 4414  rem:curvebound             SM   n=24  res=3    the curvature predicts, and has an expiry
+        evidence: audit_curve_bound.py
+  wall_v3.m 3027  rem:survivors              SM   n=24  res=0    which $m$ survive, and why the lean is deepe
+        evidence: lab_survivor_selection.py
+  wall_v3.m 4648  rem:jbarrier               HSM  n=23  res=3    the sum has two square-root barriers and the
+        evidence: audit_jbarrier.py
+  theorem_A 3315  rem:primorialrung10        HSM  n=23  res=2    the barrier crossed, at the hard arithmetic
+        evidence: audit_primorial_rung10.py
+  wall_v3.m 6069  rem:limitdirection         HSM  n=23  res=0    the curve compresses, and neither way out wa
+        evidence: audit_limit_direction.py
+  wall_v3.m 3272  rem:splitnull              M    n=23  res=1    the control the split never had
+        evidence: lab_split_null.py
+  wall_v3.m 5103  rem:valuation              SM   n=22  res=2    the exponent is not it either, and the slope
+        evidence: audit_valuation.py
+  wall_v3.m 3308  rem:residue                SM   n=22  res=1    the residue is square-root
+        evidence: lab_residue_size.py
+  wall_v3.m 5226  rem:leveldense             SM   n=22  res=2    packed close: the level carries scatter, and
+        evidence: audit_level_dense.py
+  wall_v3.m 4085  rem:headfraction           SM   n=22  res=1    the excess was transient, and the set is not
+        evidence: audit_head_fraction.py
+  wall_v3.m 1682  rem:cnmultdeep             HSM  n=21  res=5    the escape was the tail: seven routes, none 
+        evidence: audit_cn_multnull_deep.py
+  theorem_A 3053  rem:residuearithmetic      HSM  n=21  res=3    the knife-edge is a fact about one family
+        evidence: audit_residue_arithmetic.py
+  wall_v3.m 5513  rem:maintermremoval        SM   n=21  res=3    the demand is a main term removed to a relat
+        evidence: audit_mainterm_removal.py
+  theorem_A 3454  rem:laddermodel            SM   n=21  res=2    no derived shape is available either
+        evidence: audit_ladder_model.py
+  theorem_A 4891  rem:rung18fill             SM   n=20  res=1    the floor was the wrong one: 0.56 resolved
+        evidence: audit_rung18_fill.py
+  wall_v3.m 4723  rem:jbarrierreach          HSM  n=20  res=0    the half was the radical's, and the barriers
+        evidence: audit_jbarrier_reach.py
+  theorem_A 6607  rem:splitbudget            HSM  n=20  res=1    which half exhausts the budget
+        evidence: lab_split_budget.py
+  theorem_A 907   rem:levelaudit             HSM  n=20  res=1    the withdrawn level measurement, re-examined
+        evidence: audit_levelmeas_budget.py
+  theorem_A 2485  rem:weightgapnull          SM   n=20  res=6    the declined null, run
+        evidence: audit_weightgap_null.py
+  theorem_A 3947  rem:budgetgap              SM   n=20  res=0    the budget gap is not a constant, and both h
+        evidence: audit_budget_gap.py
+  theorem_A 2839  rem:provablehalf           SM   n=19  res=1    size and provability point at opposite halve
+        evidence: lab_elementary_provable.py
+  wall_v3.m 4181  rem:alphareach             SM   n=19  res=2    the sign axis, seven octaves further, and wh
+        evidence: audit_alpha_reach.py
+  theorem_A 3244  rem:primorialshare         SM   n=19  res=2    a better instrument that turned out worse
+        evidence: lab_primorial_share.py
+  wall_v3.m 5574  rem:tworates               M    n=19  res=0    the two rates, and the deficit reached witho
+        evidence: audit_two_rates.py
+  wall_v3.m 2584  rem:leanmertens            HSM  n=19  res=0    the lean is not the Mertens function
+        evidence: lab_lean_mechanism.py
+  wall_v3.m 5799  rem:localcorrections       SM   n=18  res=0    the corrections drift, most for the smallest
+        evidence: audit_local_corrections.py
+  theorem_A 2441  rem:identitynull           HSM  n=18  res=12   the last declined null, rule by rule
+        evidence: audit_directidentity_null.py
+  theorem_A 649   rem:whereitlives           HSM  n=18  res=18   where the count actually lives
+        evidence: lab_direct_identity.py
+  theorem_A 3721  rem:provableuniformity     HSM  n=18  res=1    the premise, checked along the axis it is ab
+        evidence: audit_provable_uniformity.py
+  wall_v3.m 4517  rem:deficitlog             SM   n=17  res=1    this field cannot tell a logarithm from a li
+        evidence: audit_deficit_log.py
+  theorem_A 3118  rem:primorialladder        SM   n=17  res=0    the primorial failure is finite-$N$, and nea
+        evidence: lab_primorial_ladder.py
+  wall_v3.m 2048  rem:identityseeds          SM   n=17  res=0    the seed is paid, and the tail is steadier t
+        evidence: audit_directidentity_seeds.py
+  theorem_A 3497  rem:cRwindow               SM   n=17  res=0    the exponent moves, not the constant
+        evidence: audit_cR_window.py
+  wall_v3.m 1276  rem:cnkurtwhere            HSM  n=16  res=1    the non-Gaussianity is not made anywhere
+        evidence: audit_cn_kurt_where.py
+  wall_v3.m 7255  rem:dilateprofile          HSM  n=16  res=0    the dilated wall obeys a square-root law, an
+        evidence: lab_dilate_profile.py
+  wall_v3.m 1020  rem:cnkurtlimit            HSM  n=15  res=1    the forecast held, the floor did not, and th
+        evidence: audit_cn_kurt_limit.py
+  wall_v3.m 2144  rem:identityfloor          HSM  n=15  res=0    the mechanism is measured, the word "floor" 
+        evidence: audit_identity_floor.py
+  wall_v3.m 1574  rem:cnmultnull             HSM  n=15  res=2    a multiplicative null, and three things it s
+        evidence: audit_cn_multnull.py
+  wall_v3.m 5629  rem:residuemodel           HSM  n=15  res=1    the primes do not drop out
+        evidence: audit_residue_model.py
+  theorem_A 853   rem:combmod                HSM  n=15  res=13   the modulus the demand really needs
+        evidence: lab_combined_modulus.py
+  wall_v3.m 1955  rem:identitydeep           SM   n=15  res=3    the one that survives, and it survives for a
+        evidence: audit_directidentity_deep.py
+  wall_v3.m 2634  rem:leanodd                HSM  n=15  res=2    it is the Mertens function the parity leaves
+        evidence: lab_lean_oddmertens.py
+  wall_v3.m 6681  rem:flatnessshape          SM   n=15  res=1    the flatness cannot rise forever
+        evidence: audit_flatness_shape.py
+  theorem_A 3681  rem:laddershape12          M    n=15  res=1    what one more rung buys the shape question
+        evidence: audit_ladder_shape12.py
+  wall_v3.m 4787  rem:whichfloor             HSM  n=14  res=0    the deficit carries the radical
+        evidence: audit_which_floor.py
+  wall_v3.m 4253  rem:deficitdirect          SM   n=14  res=1    the deficit is closing, and where it closes 
+        evidence: audit_deficit_direct.py
+  wall_v3.m 6338  rem:maskdmse               SM   n=14  res=1    dm/se, as v1 said to fit and nobody had
+        evidence: audit_mask_dmse.py
+  theorem_A 3769  rem:uniformityreach        SM   n=14  res=1    the drift is real, and nowhere near the boun
+        evidence: audit_uniformity_reach.py
+  wall_v3.m 2717  rem:leveldemand            SM   n=14  res=1    holding the sign is not cutting the demand
+        evidence: audit_level_demand.py
+  wall_v3.m 3372  rem:headidentity           SM   n=14  res=1    the head is not a range, but its sign is the
+        evidence: audit_head_identity.py
+  wall_v3.m 2764  rem:levelthreshold         SM   n=14  res=1    the level at which the sign stops slipping
+        evidence: audit_level_threshold.py
+  wall_v3.m 2676  rem:levelweighted          SM   n=14  res=1    the weights are free; the survivor set is ev
+        evidence: audit_level_weighted.py
+  wall_v3.m 2991  rem:oddmertensrange        HM   n=14  res=0    the mechanism was shown on the wrong window
+        evidence: audit_oddmertens_range.py
+  theorem_A 3980  rem:arithmeticonevar       SM   n=14  res=5    one variable, and it explains more as N grow
+        evidence: audit_arithmetic_onevar.py
+  theorem_A 6340  rem:shapepower             HSM  n=13  res=5    the tie was never a measurement
+        evidence: audit_shape_power.py
+  wall_v3.m 3747  rem:denominator            HSM  n=13  res=1    the gain's denominator is a truncated Chebys
+        evidence: audit_denominator.py
+  wall_v3.m 1391  rem:cnclass                HSM  n=13  res=6    the last axis is not closed: C(N) has class 
+        evidence: audit_cn_class.py
+  theorem_A 2990  rem:residuesigned          SM   n=13  res=1    what the signs cost once the elementary half
+        evidence: lab_residue_signed.py
+  wall_v3.m 3693  rem:coherencenull          SM   n=13  res=0    most of the coherence was the conditioning
+        evidence: audit_coherence_null.py
+  wall_v3.m 5742  rem:omegafactor            HSM  n=13  res=0    kappa predicts three primes from two, and th
+        evidence: audit_omega_factor.py
+  wall_v3.m 1849  rem:decaydeep              SM   n=13  res=1    the second branch says the same thing: the c
+        evidence: audit_decayfamily_deep.py
+  wall_v3.m 2203  rem:identityforced         HSM  n=13  res=2    forced, the mechanism's best still stops sho
+        evidence: audit_identity_forced.py
+  wall_v3.m 3196  rem:forecastnull           HSM  n=13  res=0    a pointer that missed, and the control it ow
+        evidence: audit_forecast_null.py
+  wall_v3.m 2494  rem:mertens                HSM  n=13  res=2    a Mertens reduction, closed
+        evidence: lab_mertens_reduction.py
+  theorem_A 1137  rem:levelmeas              HSM  n=12  res=0    a level measurement, and its withdrawal
+        evidence: lab_level_coin_null.py
+  wall_v3.m 895   rem:cnlaw                  HSM  n=12  res=1    the withdrawn law, re-measured: one statisti
+        evidence: audit_cn_law.py
+  wall_v3.m 5447  rem:bilinearcancel         HSM  n=12  res=0    the smallness is cancellation between moduli
+        evidence: audit_bilinear_cancel.py
+  wall_v3.m 1626  rem:cnmultm2               HSM  n=12  res=4    mu is outside the multiplicative null — and 
+        evidence: audit_cn_multnull_m2.py
+  wall_v3.m 2095  rem:identitybig            SM   n=12  res=3    the last two N, and a floor the draws cannot
+        evidence: audit_directidentity_bigN.py
+  wall_v3.m 5334  rem:levelresidual          SM   n=12  res=0    the residual is noise, on a closed list of c
+        evidence: audit_level_residual.py
+  theorem_A 2635  rem:elemsize               SM   n=12  res=1    the binding half is square-root too
+        evidence: lab_elementary_size.py
+  wall_v3.m 2854  rem:logweightpredictor     SM   n=12  res=1    the missing weight is not log(N-mk
+        evidence: audit_logweight_predictor.py
+  theorem_A 3636  rem:shapetrust             HSM  n=12  res=1    how far the ladder can be read
+        evidence: audit_shape_trust.py
+  wall_v3.m 320   rem:e1row                  HSM  n=12  res=12   this row is not reproduced
+        evidence: audit_support_density.py
+  wall_v3.m 8398  rem:marginoos              HSM  n=11  res=0    the bracket, tested on the octave it forecas
+        evidence: audit_margin_oos.py
+  wall_v3.m 6616  rem:spectrummushare        HSM  n=11  res=1    mu's share of the spectrum is structured, an
+        evidence: audit_spectrum_mushare.py
+  wall_v3.m 4318  rem:deficitshape           SM   n=11  res=0    the drift steepens, and two of this run's ow
+        evidence: audit_deficit_shape.py
+  theorem_A 2778  rem:muvscoin               HSM  n=11  res=0    the elementary sum beats a coin, by a consta
+        evidence: lab_mu_vs_coin_size.py
+  theorem_A 567   rem:directlevel            HSM  n=11  res=0    where the direct condition's level actually 
+        evidence: lab_direct_level.py
+  theorem_A 1086  rem:signedlevel            HSM  n=11  res=0    what the signs across $k$ are worth
+        evidence: lab_signed_level.py
+  wall_v3.m 3147  rem:decaynull              HSM  n=11  res=2    the decay sweep, controlled
+        evidence: audit_decayfamily_null.py
+  theorem_A 3540  rem:kexponent              SM   n=11  res=1    the k-exponent is too noisy to carry an arit
+        evidence: audit_residue_kexponent.py
+  theorem_A 4100  rem:signedgain             SM   n=11  res=0    the largest loss is a decline, and it is not
+        evidence: audit_signed_gain.py
+  theorem_A 4022  rem:arithmeticreach        SM   n=11  res=1    the one-radical caveat does not close
+        evidence: audit_arithmetic_reach.py
+  theorem_A 5112  rem:floorlaw               SM   n=10  res=0    the floor falls like a power, and 1/2 was un
+        evidence: audit_floor_law.py
+  wall_v3.m 1102  rem:cnskew                 SM   n=10  res=0    the control does shrink, and it does not hel
+        evidence: audit_cn_skew.py
+  wall_v3.m 1334  rem:cnwherereach           HSM  n=10  res=0    there is no profile in v, only a count — and
+        evidence: audit_cn_where_reach.py
+  wall_v3.m 6447  rem:maskformreach          SM   n=10  res=0    a design that could not ask its question, an
+        evidence: audit_mask_formreach.py
+  theorem_A 6470  rem:slopes                 HSM  n=10  res=0    which of these slopes is above its own noise
+        evidence: audit_slope_significance.py
+  wall_v3.m 5905  rem:driftpower             SM   n=10  res=0    power was bought, and the slope is not a slo
+        evidence: audit_drift_power.py
+  wall_v3.m 7104  rem:leanbracket            SM   n=10  res=1    the lean, by a second route, and its bracket
+        evidence: audit_lean_bracket.py
+  theorem_A 6712  rem:weightgap              HSM  n=10  res=10   where the weight puts its mass
+        evidence: lab_weight_gap.py
+  wall_v3.m 5042  rem:radicalblind           HSM  n=9   res=1    the control, blind and registered, and it fa
+        evidence: audit_radical_blind.py
+  wall_v3.m 4984  rem:basecontrol            HSM  n=9   res=0    the control this branch never ran, and the c
+        evidence: audit_base_control.py
+  wall_v3.m 4037  rem:sumhead                HSM  n=9   res=0    the signed sum is the head's, and increasing
+        evidence: audit_sum_head.py
+  wall_v3.m 6912  rem:coinrank               SM   n=9   res=1    mu ranks fourth of seventeen
+        evidence: audit_residue_coin_rank.py
+  wall_v3.m 2448  rem:nocrossk               HSM  n=9   res=9    there is no cancellation across dilations
+        evidence: lab_positive_weights.py
+  wall_v3.m 6863  rem:crosskreference        SM   n=9   res=5    what independent signs would actually give
+        evidence: audit_crossk_reference.py
+  wall_v3.m 2390  rem:whycoinwins            HM   n=9   res=9    why the coin beat $\mu$ on the level
+        evidence: lab_dilate_identity.py
+  wall_v3.m 4377  rem:deficitregion          SM   n=8   res=1    the never-closes region has a boundary, and 
+        evidence: audit_deficit_region.py
+  wall_v3.m 3953  rem:support                SM   n=8   res=0    the surviving correlation is a composite-ind
+        evidence: audit_support.py
+  wall_v3.m 1519  rem:cnclassomega           SM   n=8   res=0    the shift is not made anywhere: it is what s
+        evidence: audit_cn_class_omega.py
+  theorem_A 3862  rem:provableshare          SM   n=8   res=1    the overspend worsens only with the constant
+        evidence: audit_provable_share.py
+  wall_v3.m 8342  rem:marginbracket          HSM  n=7   res=0    the base checked without the transform, and 
+        evidence: audit_margin_bracket.py
+  wall_v3.m 7205  rem:decayfamily            HSM  n=7   res=0    the decay exponent is not determined, and by
+        evidence: lab_decay_family.py
+  theorem_A 4373  rem:curvereach             HSM  n=7   res=0    the shape contest could not have seen it
+        evidence: audit_curve_reach.py
+  wall_v3.m 4004  rem:meanonly               SM   n=7   res=0    it is a correlation and not a mean
+        evidence: audit_meanonly.py
+  wall_v3.m 8633  rem:sieve                  SM   n=6   res=6    the arithmetic underneath, audited
+        evidence: audit_sieve.py
+  theorem_A 3814  rem:provableforecast       SM   n=6   res=0    two answers to two questions, 5465 decades a
+        evidence: audit_provable_forecast.py
+  wall_v3.m 8307  rem:grid                   HSM  n=6   res=6    the octave grid, and the fitted exponent
+        evidence: audit_margin.py
+  wall_v3.m 6785  rem:leanextended           SM   n=6   res=0    and it holds over a factor 128
+        evidence: audit_lean_extended.py
+  wall_v3.m 7319  rem:extrap                 SM   n=6   res=0    the extrapolation, tested out of sample
+        evidence: lab_dilate_extrapolation.py
+  theorem_A 1813  rem:movingswitch           HSM  n=5   res=1    the cut has since moved, and the switch surv
+        evidence: audit_moving_switch.py
+  wall_v3.m 1217  rem:cndilation             SM   n=5   res=0    the multiplicative question, asked properly,
+        evidence: audit_cn_dilation.py
+  wall_v3.m 8102  rem:r4null                 HSM  n=5   res=5    a null that is not reproduced
+        evidence: audit_r4_blocks.py
+  theorem_A 5235  rem:ladderdegree           SM   n=4   res=0    the ladder does not escalate, and that is no
+        evidence: audit_ladder_degree.py
+  wall_v3.m 6560  rem:maskrivals             SM   n=3   res=0    the price was against one rival, and there i
+        evidence: audit_mask_rivals.py
+  wall_v3.m 838   rem:cdef                   HSM  n=3   res=3    one symbol, two meanings, in one paragraph
+        evidence: audit_amplification.py
+  wall_v3.m 5386  rem:bilinear               SM   n=2   res=0    the object is a Type II bilinear form with d
+        evidence: audit_bilinear.py
+  wall_v3.m 8177  rem:hbround                HSM  n=2   res=2    the rounding is not a convention
+        evidence: audit_hb_weight.py
+  wall_v3.m 429   rem:maskstamp              SM   n=1   res=0    one of the four stamps re-verified, and what
+        evidence: verify/pass2/code/verify_conjL_mask_zeros.py
+  wall_v3.m 1163  rem:cnshift                SM   n=1   res=0    the coin reproduces the two-point function t
+        evidence: audit_cn_shiftcorr.py
+  wall_v3.m 540   rem:fieldpinned            HSM  n=0   res=0    the same question turned on this repository,
+        evidence: audit_field_pinned.py
+  wall_v3.m 1799  rem:coinsurface            SM   n=0   res=0    counting what stands on a coin: eleven block
+        evidence: audit_coin_surface.py
+  wall_v3.m 775   (none)                     SM   n=0   res=0    
+  theorem_A 2097  rem:movingcutscope         S    n=0   res=0    what the proposition does not cover
+  theorem_A 175   (none)                     S    n=0   res=0    
+  wall_v3.m 7983  (none)                     HSM  n=0   res=0    what a null verdict costs
+  theorem_A 2271  (none)                     S    n=0   res=0    
+  theorem_A 6911  (none)                     S    n=0   res=0    
+  theorem_A 6866  (none)                     S    n=0   res=0    scope, stated honestly
+  theorem_A 1683  rem:bound                  HS   n=0   res=0    
+  wall_v3.m 8473  (none)                     SM   n=0   res=0    
+
+==========================================================================
+C. REMARKS WHOSE NUMBERS DO REACH THE PROJECTION TEXT
+==========================================================================
+  theorem_A 6976  rem:toprdom                16/16 nums in tex  a prediction of ours that the measuremen
+  wall_v3.m 7765  rem:floorsignal            15/15 nums in tex  the floor is itself signal
+  theorem_A 508   rem:directmargin           14/38 nums in tex  what the cancellation buys
+  theorem_A 294   rem:onesided               11/11 nums in tex  what this does and does not open
+  theorem_A 377   rem:relocate               11/21 nums in tex  what the weakening relocates
+  wall_v3.m 349   rem:supp                    9/9  nums in tex  the support density is not $\prod_p(1-2/
+  wall_v3.m 7154  rem:extendrange             9/42 nums in tex  two more octaves, and what they settle
+  wall_v3.m 7580  rem:mcratios                8/11 nums in tex  six ratios are one observation
+  wall_v3.m 725   rem:secondorder             7/7  nums in tex  the second-order form
+  wall_v3.m 2310  rem:filter                  7/10 nums in tex  but the inverse filter is numerically de
+  theorem_A 7166  rem:ratiotable              6/6  nums in tex  the ratio does not determine the entry
+  theorem_A 2199  rem:thetasweep              5/12 nums in tex  the identity cannot be tested numericall
+  wall_v3.m 7695  rem:sdzrange                4/4  nums in tex  the factor does not grow with the cell
+  theorem_A 1907  rem:cutbridge               3/22 nums in tex  the two cuts are a $\Delta$ apart
+  theorem_A 7004  rem:trunc                   3/5  nums in tex  the last table was truncated, not rounde
+  theorem_A 7272  rem:band                    3/16 nums in tex  a pre-registered check of ours that fail
+  wall_v3.m 7676  (none)                      3/3  nums in tex  a count is not an error bar
+  theorem_A 423   rem:threshfam               2/9  nums in tex  the threshold is not a constant, and the
+  theorem_A 1037  rem:tolerance               2/37 nums in tex  the exponents were the tolerance, not th
+  theorem_A 2179  rem:sign                    2/2  nums in tex  the sign, and why it is the whole identi
+  theorem_A 2568  rem:modeltransfer           2/29 nums in tex  a model of the exponent, not of the cons
+  theorem_A 4227  rem:rung13                  2/24 nums in tex  the fourteenth rung is above both shapes
+  theorem_A 4326  rem:laddercurve             2/10 nums in tex  measured on its own slopes, the ladder c
+  theorem_A 4458  rem:rung15                  2/29 nums in tex  the sixteenth rung, and an extrapolation
+  theorem_A 4746  rem:rung18                  2/22 nums in tex  the nineteenth rung: 0.56 crossed, and i
+  theorem_A 5293  rem:primorialgap            2/32 nums in tex  the void between two rungs, filled
+  theorem_A 5472  rem:densenoise              2/32 nums in tex  the noise is the field's, and both lense
+  theorem_A 5977  rem:tailpredictors          2/21 nums in tex  a bounded modulus does reach the tail
+  wall_v3.m 488   rem:cellstamp               2/9  nums in tex  the second stamp, and the second paramet
+  wall_v3.m 2942  rem:survivorrange           2/16 nums in tex  the sieve-weighted predictor on the lean
+  wall_v3.m 5957  rem:driftsigns              2/16 nums in tex  c(3) moves, and only c(3), once the wind
+  wall_v3.m 6003  rem:derivedlimit            2/24 nums in tex  a limit that is derived, and the residua
+  wall_v3.m 6502  rem:maskdeepform            2/9  nums in tex  where the mask has not sunk, the form is
+  wall_v3.m 7006  rem:residueconstant         2/30 nums in tex  the residue has no law, only a fit
+  theorem_A 717   rem:layerdecay              1/21 nums in tex  what the layers weigh
+  theorem_A 759   rem:layertail               1/30 nums in tex  the truncation in $m$ is cheap, and wher
+  theorem_A 962   rem:allswept                1/9  nums in tex  every exponent, swept
+  theorem_A 1001  rem:budget                  1/22 nums in tex  the surviving exponent, audited
+  theorem_A 2934  rem:residuelevel            1/16 nums in tex  what the conditional reduction actually 
+  theorem_A 3179  rem:primorialreach          1/20 nums in tex  the first bracket to be tested, and it f
+  theorem_A 3902  rem:provablearithmetic      1/12 nums in tex  the exposure that remark names, tested
+  theorem_A 4063  rem:splitvalue              1/13 nums in tex  both losses decline together
+  theorem_A 4143  rem:primorialrung11         1/9  nums in tex  the rung that separates crossed from flu
+  theorem_A 4182  rem:rung12                  1/15 nums in tex  the thirteenth rung, out of sample
+  theorem_A 4277  rem:rung14                  1/22 nums in tex  three rungs above the line, none of them
+  theorem_A 4512  rem:rung16                  1/31 nums in tex  the seventeenth rung, and the wall that 
+  theorem_A 4671  rem:rung17                  1/22 nums in tex  the eighteenth rung, where the fit could
+  theorem_A 4831  rem:signrun                 1/9  nums in tex  the run is real, ordinary, and not growi
+  theorem_A 5177  rem:floormid                1/15 nums in tex  the floor law predicts a window it was n
+  theorem_A 5553  rem:gainprofile             1/24 nums in tex  part of the cancellation is between the 
+  theorem_A 5651  rem:gainopposition          1/32 nums in tex  the opposition is below chance and chanc
+  theorem_A 5740  rem:headsign                1/39 nums in tex  the inner sums already cancel; the sign 
+  theorem_A 5829  rem:tailasymmetry           1/13 nums in tex  a null refuted before it could adjudicat
+  theorem_A 5895  rem:tailmertens             1/32 nums in tex  the one candidate, eliminated for being 
+  theorem_A 6522  rem:slopereach              1/15 nums in tex  two more octaves settle it
+  theorem_A 6562  rem:betafree                1/9  nums in tex  the split constant is free and buys noth
+  theorem_A 7018  (none)                      1/14 nums in tex  the canonical tuning moves the wrong way
+  theorem_A 7205  rem:cap                     1/8  nums in tex  a pre-registered threshold of ours that 
+  wall_v3.m 961   rem:cnkurt                  1/14 nums in tex  the non-Gaussianity is real at every sca
+  wall_v3.m 1743  rem:cncoindeep              1/12 nums in tex  it was the null, not the depth: the iid 
+  wall_v3.m 1900  rem:decaysweep              1/9  nums in tex  both halves go the same way, and the cos
+  wall_v3.m 2533  rem:signmass                1/34 nums in tex  the correlation sits in the large terms
+  wall_v3.m 2809  rem:sievedepth              1/12 nums in tex  the missing piece is sieve depth, and th
+  wall_v3.m 2898  rem:predictablenull         1/18 nums in tex  which half of the predictor does the cut
+  wall_v3.m 3112  rem:copiedfloor             1/3  nums in tex  a copied floor, and the control M3 was o
+  wall_v3.m 3236  rem:extendnull              1/12 nums in tex  the extrapolation's declined null, run
+  wall_v3.m 3416  rem:signmasshead            1/29 nums in tex  half of the lean is in the head, and hal
+  wall_v3.m 3462  rem:gainsplit               1/19 nums in tex  the tail cancels better than randomly; t
+  wall_v3.m 3513  rem:splitreach              1/28 nums in tex  the same split on eighty-one points
+  wall_v3.m 3576  rem:headaxis                1/20 nums in tex  which axis holds the head, and for how l
+  wall_v3.m 3629  rem:headbounded             1/12 nums in tex  no prefix of the inner sum owns the head
+  wall_v3.m 3880  rem:thetalawarith           1/26 nums in tex  the crossing is one family's number, and
+  wall_v3.m 4133  rem:alphalocal              1/20 nums in tex  alpha is a constant of the range, and th
+  wall_v3.m 4579  rem:sieveweight             1/9  nums in tex  the object has a name: a truncated Möbiu
+  wall_v3.m 4856  rem:radicallaw              1/26 nums in tex  which primes, not how many
+  wall_v3.m 4922  rem:primecontrib            1/11 nums in tex  three is the whole of it, and there is n
+  wall_v3.m 5283  rem:levelfine               1/17 nums in tex  the scatter is not a scale effect, and i
+  wall_v3.m 5684  rem:weightshape             1/22 nums in tex  the correction is not a product over the
+  wall_v3.m 5857  rem:driftbyprime            1/8  nums in tex  the drift belongs to two primes, not to 
+  wall_v3.m 6178  rem:conditionedlimit        1/11 nums in tex  above a floor that is demanded, and what
+  wall_v3.m 6394  rem:maskfloornull           1/17 nums in tex  the floor test and the fit answer differ
+  wall_v3.m 6723  rem:leanidentity            1/21 nums in tex  three exponents, one identity
+  wall_v3.m 6820  rem:leanfloor               1/11 nums in tex  the floor moved faster than the lean
+  wall_v3.m 6955  rem:residuecancel           1/14 nums in tex  the residue buys exactly a coin's cancel
+  wall_v3.m 7347  rem:artifact                1/19 nums in tex  that prediction was an artifact; the cor
+  wall_v3.m 7393  rem:forecast                1/22 nums in tex  where the model puts the route's hypothe
+  wall_v3.m 7455  rem:forecastbracket         1/19 nums in tex  the bracket that forecast has to carry
+  wall_v3.m 8591  rem:constants               1/10 nums in tex  the two constants, and how far they were
+  total: 88
+
+==========================================================================
+D. REMARKS WITH NO NUMBERS AND NO S CUES (pre-registered -> H)
+==========================================================================
+  theorem_A 6855  (none)                     what the obstruction is
+  total: 1

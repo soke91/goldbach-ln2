@@ -1,0 +1,79 @@
+STATISTIC: for each source remark, whether its evidence script was carried into deploy/code/, whether the remark itself survived as a projection environment, and whether any of its numbers reach the projection text
+FIELD:     251 source remarks; deploy/code/ (34 scripts) against v2/code/ (235)
+CONSTANTS: none; the evidence pointer is the remark's own <!-- evidence: --> comment
+NULL:      a remark standing on a deployed script, dropped, and with no number reaching the projection, is the shortlist this pass reads by hand; the rest are threads the projection never raised
+DENOM:     251 remarks
+
+==========================================================================
+A. PARTITION
+==========================================================================
+  remarks total                                   : 251
+  standing on a script that WAS deployed          : 31
+  standing on a script that was NOT deployed      : 201
+  carrying no evidence pointer (analytic/prose)   : 19
+
+  of the deployed-script remarks:
+     survive as a projection environment          : 8
+     dropped, but some number reaches the tex     : 12
+     dropped, and NO number reaches the tex       : 11
+
+==========================================================================
+B. SHORTLIST -- deployed script, remark dropped, no number in the projection
+==========================================================================
+  theorem_A 649   rem:whereitlives         where the count actually lives
+        evidence: lab_direct_identity.py
+  theorem_A 853   rem:combmod              the modulus the demand really needs
+        evidence: lab_combined_modulus.py
+  theorem_A 6712  rem:weightgap            where the weight puts its mass
+        evidence: lab_weight_gap.py
+  wall_v3.m 320   rem:e1row                this row is not reproduced
+        evidence: audit_support_density.py
+  wall_v3.m 838   rem:cdef                 one symbol, two meanings, in one paragraph
+        evidence: audit_amplification.py
+  wall_v3.m 2390  rem:whycoinwins          why the coin beat $\mu$ on the level
+        evidence: lab_dilate_identity.py
+  wall_v3.m 2448  rem:nocrossk             there is no cancellation across dilations
+        evidence: lab_positive_weights.py
+  wall_v3.m 8102  rem:r4null               a null that is not reproduced
+        evidence: audit_r4_blocks.py
+  wall_v3.m 8177  rem:hbround              the rounding is not a convention
+        evidence: audit_hb_weight.py
+  wall_v3.m 8307  rem:grid                 the octave grid, and the fitted exponent
+        evidence: audit_margin.py
+  wall_v3.m 8633  rem:sieve                the arithmetic underneath, audited
+        evidence: audit_sieve.py
+  count: 11
+
+==========================================================================
+C. DEPLOYED-SCRIPT REMARKS THAT DID REACH THE PROJECTION
+==========================================================================
+  rem:onesided             env      what this does and does not open
+  rem:relocate             env      what the weakening relocates
+  rem:directmargin         nums     what the cancellation buys
+  rem:layerdecay           nums     what the layers weigh
+  rem:cutbridge            env      the two cuts are a $\Delta$ apart
+  rem:sign                 nums     the sign, and why it is the whole identity
+  rem:thetasweep           env      the identity cannot be tested numerically, a
+  rem:toprdom              nums     a prediction of ours that the measurement re
+  rem:trunc                env      the last table was truncated, not rounded
+  rem:ratiotable           nums     the ratio does not determine the entry
+  rem:cap                  nums     a pre-registered threshold of ours that fail
+  rem:supp                 env      the support density is not $\prod_p(1-2/p^2)
+  rem:secondorder          env      the second-order form
+  rem:cncoindeep           nums     it was the null, not the depth: the iid coin
+  rem:filter               nums     but the inverse filter is numerically dead
+  rem:copiedfloor          nums     a copied floor, and the control M3 was owed
+  rem:mcratios             nums     six ratios are one observation
+  rem:sdzrange             nums     the factor does not grow with the cell
+  rem:floorsignal          env      the floor is itself signal
+  rem:constants            nums     the two constants, and how far they were tru
+
+==========================================================================
+D. SCRIPTS CITED BY SOURCE REMARKS BUT ABSENT FROM v2/code/
+==========================================================================
+  verify_conjL_cells_range.py              cited by rem:cellstamp
+  verify_conjL_exact_cells.py              cited by rem:cellstamp
+  verify_conjL_gap_resolve.py              cited by rem:maskstamp
+  verify_conjL_mask_branch.py              cited by rem:maskstamp
+  verify_conjL_mask_zeros.py               cited by rem:maskstamp
+  count: 5

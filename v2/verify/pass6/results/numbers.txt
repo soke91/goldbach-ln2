@@ -1,0 +1,379 @@
+STATISTIC: for each numeric literal with >=3 decimals in the projection, its presence in the source and in the evidence trees, and whether the source paragraph carrying it withdraws it
+FIELD:     deploy/papers/*.tex (5 files) against v2/paper/*.md, v2/results/, deploy/results/, v2/code/, deploy/code/
+CONSTANTS: decimal-place threshold 3; withdrawal keyword list of 29 phrases, fixed before the run and printed below
+NULL:      a faithful projection quotes only numbers that the source states as current and that the evidence trees reproduce; the null is 0 unsourced and 0 withdrawn-but-quoted
+DENOM:     every distinct such literal in the projection
+
+withdrawal keywords: withdraw, withdrawn, retract, was wrong, were wrong, superseded, no longer, earlier version, an earlier, previously, we previously, the bug, buggy, a bug, incorrect, in error, mistaken, misspecified, this was an artifact, artifact, corrected below, since been, obsolete, does not survive, not reproduced, declined, stale, replaced by, supersedes
+
+==========================================================================
+DIRECTION 2 -- CONTAMINATION (projection number -> source)
+==========================================================================
+  10.1007        x5  P1-mobius-fixed-class.tex:1229,P2- src=N   res=-                      NOT-IN-SOURCE NOT-IN-EVIDENCE
+  2005.03811     x5  P1-mobius-fixed-class.tex:1227,P2- src=Y   res=-                      NOT-IN-EVIDENCE
+  0.7797         x4  P2-no-go-divisor-switch.tex:876,P2 src=Y   res=results,results,code,c 
+  2309.08522     x3  P1-mobius-fixed-class.tex:1239,P2- src=Y   res=-                      NOT-IN-EVIDENCE
+  0.016226       x2  P4-coherent-cell-floor.tex:449,P4- src=Y   res=results,results        
+  0.036038       x2  P4-coherent-cell-floor.tex:262,P4- src=Y   res=results,results        
+  0.046766       x2  P4-coherent-cell-floor.tex:396,P4- src=Y   res=results,results        
+  0.121208       x2  P4-coherent-cell-floor.tex:250,P4- src=Y   res=results,results        
+  0.3298         x2  P5-negative-map.tex:129,P5-negativ src=Y   res=results,results,code,c 
+  0.3303         x2  P5-negative-map.tex:129,P5-negativ src=Y   res=results,results,code,c 
+  0.3320         x2  P5-negative-map.tex:129,P5-negativ src=Y   res=results,results,code,c 
+  0.551516       x2  P4-coherent-cell-floor.tex:217,P4- src=Y   res=results,results        
+  0.6455         x2  P3-wall-second-moment.tex:408,P3-w src=Y   res=results,results        
+  0.787275       x2  P3-wall-second-moment.tex:507,P3-w src=Y   res=results,results,code,c 
+  0.939701       x2  P3-wall-second-moment.tex:237,P3-w src=Y   res=results,results        
+  1.000000       x2  P2-no-go-divisor-switch.tex:525,P2 src=Y   res=results,results,code,c 
+  1.270204       x2  P3-wall-second-moment.tex:219,P3-w src=Y   res=results,results        
+  0.0001         x1  P2-no-go-divisor-switch.tex:889    src=Y   res=results,results,code,c 
+  0.0001659      x1  P3-wall-second-moment.tex:218      src=Y   res=results,results        
+  0.000170       x1  P1-mobius-fixed-class.tex:905      src=Y   res=results,results        
+  0.000241       x1  P4-coherent-cell-floor.tex:449     src=Y   res=results,results        
+  0.000317       x1  P3-wall-second-moment.tex:208      src=Y   res=results,results        
+  0.000323       x1  P3-wall-second-moment.tex:205      src=Y   res=results,results,code,c 
+  0.000346       x1  P3-wall-second-moment.tex:210      src=Y   res=results,results        ALL-SOURCE-CONTEXTS-FLAGGED
+  0.000398       x1  P3-wall-second-moment.tex:210      src=Y   res=results,results        ALL-SOURCE-CONTEXTS-FLAGGED
+  0.000470       x1  P3-wall-second-moment.tex:210      src=Y   res=results,results        ALL-SOURCE-CONTEXTS-FLAGGED
+  0.000529       x1  P3-wall-second-moment.tex:210      src=Y   res=results,results,code,c SOME-CONTEXT-FLAGGED(1/2)
+  0.000879       x1  P4-coherent-cell-floor.tex:449     src=Y   res=results,results        
+  0.000935       x1  P3-wall-second-moment.tex:470      src=Y   res=results,results        
+  0.000936       x1  P4-coherent-cell-floor.tex:449     src=Y   res=results,results        
+  0.001214       x1  P3-wall-second-moment.tex:470      src=Y   res=results,results        
+  0.0013         x1  P4-coherent-cell-floor.tex:456     src=Y   res=results,results,code   
+  0.002904       x1  P4-coherent-cell-floor.tex:449     src=Y   res=results,results        
+  0.0032         x1  P2-no-go-divisor-switch.tex:889    src=Y   res=results,results,code,c SOME-CONTEXT-FLAGGED(1/6)
+  0.004145       x1  P2-no-go-divisor-switch.tex:699    src=Y   res=results,results        
+  0.0042         x1  P4-coherent-cell-floor.tex:351     src=Y   res=results,results        
+  0.004570       x1  P3-wall-second-moment.tex:470      src=Y   res=results,results        
+  0.0059         x1  P2-no-go-divisor-switch.tex:889    src=Y   res=results,results,code,c 
+  0.008428       x1  P4-coherent-cell-floor.tex:450     src=Y   res=results,results        
+  0.0105         x1  P2-no-go-divisor-switch.tex:889    src=Y   res=results,results,code,c 
+  0.01425        x1  P2-no-go-divisor-switch.tex:343    src=Y   res=results,results        
+  0.016302       x1  P4-coherent-cell-floor.tex:217     src=Y   res=results,results        
+  0.016303       x1  P4-coherent-cell-floor.tex:219     src=Y   res=results,results        
+  0.020600       x1  P3-wall-second-moment.tex:470      src=Y   res=results,results        
+  0.0320         x1  P4-coherent-cell-floor.tex:205     src=Y   res=results,results        
+  0.036          x1  P4-coherent-cell-floor.tex:265     src=Y   res=results,results        SOME-CONTEXT-FLAGGED(1/7)
+  0.0383         x1  P2-no-go-divisor-switch.tex:492    src=Y   res=results,results        
+  0.039          x1  P4-coherent-cell-floor.tex:265     src=Y   res=results,results,code,c 
+  0.039388       x1  P4-coherent-cell-floor.tex:261     src=Y   res=results,results        
+  0.039451       x1  P4-coherent-cell-floor.tex:261     src=Y   res=results,results        
+  0.0395         x1  P4-coherent-cell-floor.tex:276     src=Y   res=results,results,code,c 
+  0.039671       x1  P4-coherent-cell-floor.tex:261     src=Y   res=results,results        
+  0.04662        x1  P4-coherent-cell-floor.tex:398     src=Y   res=results,results        
+  0.049540       x1  P4-coherent-cell-floor.tex:255     src=Y   res=results,results        
+  0.052724       x1  P4-coherent-cell-floor.tex:199     src=Y   res=-                      NOT-IN-EVIDENCE
+  0.060890       x1  P1-mobius-fixed-class.tex:895      src=Y   res=results,results        
+  0.065546       x1  P4-coherent-cell-floor.tex:457     src=Y   res=results,results        
+  0.066667       x1  P2-no-go-divisor-switch.tex:710    src=Y   res=results,results,code,c 
+  0.1069         x1  P4-coherent-cell-floor.tex:340     src=Y   res=results,results        
+  0.113118       x1  P4-coherent-cell-floor.tex:219     src=Y   res=results,results        
+  0.113119       x1  P4-coherent-cell-floor.tex:217     src=Y   res=results,results        
+  0.1135         x1  P2-no-go-divisor-switch.tex:341    src=Y   res=results,results        
+  0.118          x1  P4-coherent-cell-floor.tex:286     src=Y   res=results,results,code   
+  0.119639       x1  P1-mobius-fixed-class.tex:895      src=Y   res=results,results        
+  0.123577       x1  P4-coherent-cell-floor.tex:250     src=Y   res=results,results        
+  0.12400        x1  P4-coherent-cell-floor.tex:398     src=Y   res=results,results        
+  0.1241         x1  P2-no-go-divisor-switch.tex:341    src=Y   res=results,results        
+  0.1245         x1  P2-no-go-divisor-switch.tex:344    src=Y   res=results,results        SOME-CONTEXT-FLAGGED(1/3)
+  0.1334         x1  P2-no-go-divisor-switch.tex:340    src=Y   res=results,results,code   SOME-CONTEXT-FLAGGED(1/2)
+  0.1367         x1  P2-no-go-divisor-switch.tex:340    src=Y   res=results,results        
+  0.140080       x1  P4-coherent-cell-floor.tex:199     src=Y   res=-                      NOT-IN-EVIDENCE
+  0.146026       x1  P4-coherent-cell-floor.tex:250     src=Y   res=results,results        
+  0.1483         x1  P2-no-go-divisor-switch.tex:340    src=Y   res=results,results        
+  0.14834        x1  P4-coherent-cell-floor.tex:398     src=Y   res=results,results        
+  0.1484         x1  P2-no-go-divisor-switch.tex:340    src=Y   res=results,results        
+  0.152          x1  P2-no-go-divisor-switch.tex:881    src=Y   res=results,results,code,c 
+  0.1559         x1  P2-no-go-divisor-switch.tex:340    src=Y   res=results                
+  0.158          x1  P2-no-go-divisor-switch.tex:880    src=Y   res=results,results,code,c 
+  0.167579       x1  P4-coherent-cell-floor.tex:199     src=Y   res=-                      NOT-IN-EVIDENCE
+  0.168          x1  P2-no-go-divisor-switch.tex:880    src=Y   res=results,results,code,c 
+  0.170167       x1  P1-mobius-fixed-class.tex:838      src=Y   res=results,results        
+  0.175          x1  P2-no-go-divisor-switch.tex:880    src=Y   res=results,code,code      SOME-CONTEXT-FLAGGED(1/3)
+  0.1785         x1  P2-no-go-divisor-switch.tex:340    src=Y   res=results                
+  0.184159       x1  P4-coherent-cell-floor.tex:250     src=Y   res=results,results        
+  0.2314         x1  P4-coherent-cell-floor.tex:340     src=Y   res=results,results        
+  0.235171       x1  P4-coherent-cell-floor.tex:250     src=Y   res=results,results        
+  0.24178        x1  P4-coherent-cell-floor.tex:398     src=Y   res=results,results        
+  0.245235       x1  P3-wall-second-moment.tex:206      src=Y   res=results,results,code,c 
+  0.250000       x1  P2-no-go-divisor-switch.tex:706    src=Y   res=results,results        
+  0.2658         x1  P2-no-go-divisor-switch.tex:345    src=Y   res=results,results        
+  0.273630       x1  P4-coherent-cell-floor.tex:199     src=Y   res=-                      NOT-IN-EVIDENCE
+  0.2794         x1  P2-no-go-divisor-switch.tex:495    src=Y   res=results,results        
+  0.288567       x1  P4-coherent-cell-floor.tex:217     src=Y   res=results,results        
+  0.288571       x1  P4-coherent-cell-floor.tex:219     src=Y   res=results,results        
+  0.299040       x1  P3-wall-second-moment.tex:208      src=Y   res=results,results        
+  0.302138       x1  P4-coherent-cell-floor.tex:396     src=Y   res=results,results        
+  0.307074       x1  P4-coherent-cell-floor.tex:251     src=Y   res=results,results        
+  0.3108         x1  P1-mobius-fixed-class.tex:835      src=Y   res=results,results        
+  0.32263        x1  P5-negative-map.tex:138            src=Y   res=results,results,code,c 
+  0.3226341      x1  P5-negative-map.tex:132            src=Y   res=results,results        
+  0.3278         x1  P5-negative-map.tex:128            src=Y   res=results,results        
+  0.3310         x1  P5-negative-map.tex:128            src=Y   res=results,results        
+  0.33253        x1  P4-coherent-cell-floor.tex:398     src=Y   res=results,results        
+  0.333459       x1  P1-mobius-fixed-class.tex:894      src=Y   res=results,results        
+  0.3338         x1  P2-no-go-divisor-switch.tex:480    src=Y   res=results,results        
+  0.3345         x1  P5-negative-map.tex:128            src=Y   res=results,results        
+  0.3505         x1  P2-no-go-divisor-switch.tex:345    src=Y   res=results,results        
+  0.3620         x1  P2-no-go-divisor-switch.tex:351    src=Y   res=results,results        
+  0.3729         x1  P1-mobius-fixed-class.tex:835      src=Y   res=results,results        
+  0.3745         x1  P1-mobius-fixed-class.tex:920      src=Y   res=results,results,code   SOME-CONTEXT-FLAGGED(2/7)
+  0.3769         x1  P2-no-go-divisor-switch.tex:480    src=Y   res=results,results        
+  0.378073       x1  P4-coherent-cell-floor.tex:200     src=Y   res=-                      NOT-IN-EVIDENCE
+  0.405270       x1  P3-wall-second-moment.tex:465      src=Y   res=results,results        
+  0.405285       x1  P3-wall-second-moment.tex:463      src=Y   res=results,results,code,c 
+  0.405286       x1  P3-wall-second-moment.tex:465      src=Y   res=results,results        
+  0.405295       x1  P3-wall-second-moment.tex:465      src=Y   res=results,results        
+  0.405600       x1  P3-wall-second-moment.tex:465      src=Y   res=results,results        
+  0.4064         x1  P2-no-go-divisor-switch.tex:480    src=Y   res=results,results        
+  0.4079         x1  P2-no-go-divisor-switch.tex:480    src=Y   res=results,results        SOME-CONTEXT-FLAGGED(1/2)
+  0.412          x1  P4-coherent-cell-floor.tex:286     src=Y   res=results,results,code   
+  0.412504       x1  P4-coherent-cell-floor.tex:396     src=Y   res=results,results        
+  0.43685        x1  P4-coherent-cell-floor.tex:399     src=Y   res=results,results        
+  0.4558         x1  P1-mobius-fixed-class.tex:835      src=Y   res=results,results        
+  0.4578         x1  P2-no-go-divisor-switch.tex:480    src=Y   res=results,results        
+  0.500000       x1  P2-no-go-divisor-switch.tex:706    src=Y   res=results,results        
+  0.557654       x1  P4-coherent-cell-floor.tex:220     src=Y   res=results,results        
+  0.566667       x1  P2-no-go-divisor-switch.tex:710    src=Y   res=results,results        
+  0.5916         x1  P1-mobius-fixed-class.tex:918      src=Y   res=results,results,code   
+  0.594330       x1  P5-negative-map.tex:138            src=Y   res=results,results        
+  0.639330       x1  P4-coherent-cell-floor.tex:200     src=Y   res=-                      NOT-IN-EVIDENCE
+  0.6547         x1  P1-mobius-fixed-class.tex:918      src=Y   res=results,results,code   
+  0.7303         x1  P1-mobius-fixed-class.tex:918      src=Y   res=results,results,code   
+  0.7395         x1  P1-mobius-fixed-class.tex:918      src=Y   res=results,results,code   
+  0.750000       x1  P2-no-go-divisor-switch.tex:706    src=Y   res=results,results,code,c 
+  0.7713         x1  P2-no-go-divisor-switch.tex:802    src=Y   res=results,results        
+  0.772590       x1  P5-negative-map.tex:425            src=Y   res=results,results        
+  0.7798         x1  P2-no-go-divisor-switch.tex:876    src=Y   res=code,code              
+  0.7903         x1  P2-no-go-divisor-switch.tex:802    src=Y   res=results,results        
+  0.8086         x1  P1-mobius-fixed-class.tex:918      src=Y   res=results,results,code   
+  0.810202       x1  P1-mobius-fixed-class.tex:900      src=Y   res=results,results        
+  0.8104         x1  P2-no-go-divisor-switch.tex:802    src=Y   res=results,results        
+  0.840039       x1  P5-negative-map.tex:425            src=N   res=results,results        NOT-IN-SOURCE
+  0.848668       x1  P5-negative-map.tex:428            src=Y   res=results,results        
+  0.886081       x1  P5-negative-map.tex:425            src=Y   res=results,results        
+  0.9106         x1  P4-coherent-cell-floor.tex:350     src=Y   res=results,results        
+  0.924687       x1  P4-coherent-cell-floor.tex:283     src=Y   res=results,results        
+  0.927137       x1  P3-wall-second-moment.tex:237      src=Y   res=results,results        
+  0.929384       x1  P4-coherent-cell-floor.tex:283     src=Y   res=results,results        
+  0.933409       x1  P3-wall-second-moment.tex:237      src=Y   res=results,results        
+  0.9359         x1  P4-coherent-cell-floor.tex:346     src=Y   res=results,results        
+  0.939716       x1  P3-wall-second-moment.tex:241      src=Y   res=results,results        
+  0.9805         x1  P4-coherent-cell-floor.tex:402     src=Y   res=results,results        SOME-CONTEXT-FLAGGED(1/3)
+  0.9918         x1  P4-coherent-cell-floor.tex:202     src=Y   res=results,results        
+  0.9920         x1  P4-coherent-cell-floor.tex:201     src=Y   res=results,results        
+  0.999134       x1  P3-wall-second-moment.tex:243      src=Y   res=results,results        
+  0.9993         x1  P4-coherent-cell-floor.tex:201     src=Y   res=results,results        SOME-CONTEXT-FLAGGED(1/3)
+  0.99930        x1  P2-no-go-divisor-switch.tex:495    src=Y   res=results,results        
+  0.999482       x1  P3-wall-second-moment.tex:243      src=Y   res=results,results        
+  0.999984       x1  P3-wall-second-moment.tex:243      src=Y   res=results,results        
+  0.999996       x1  P1-mobius-fixed-class.tex:904      src=Y   res=results,results        
+  0.999999037    x1  P3-wall-second-moment.tex:228      src=Y   res=results,results        
+  0.999999570    x1  P3-wall-second-moment.tex:228      src=Y   res=results,results        
+  0.999999646    x1  P3-wall-second-moment.tex:228      src=Y   res=results,results        
+  1.000000010    x1  P3-wall-second-moment.tex:227      src=Y   res=results,results        
+  1.000000147    x1  P3-wall-second-moment.tex:227      src=Y   res=results,results        
+  1.0000002      x1  P3-wall-second-moment.tex:217      src=Y   res=results,results        
+  1.000000475    x1  P3-wall-second-moment.tex:227      src=Y   res=results,results        
+  1.0044         x1  P4-coherent-cell-floor.tex:202     src=Y   res=results,results        
+  1.0157         x1  P4-coherent-cell-floor.tex:202     src=Y   res=results,results        
+  1.0320         x1  P4-coherent-cell-floor.tex:202     src=Y   res=results,results        
+  1.052129       x1  P4-coherent-cell-floor.tex:396     src=Y   res=results,results        
+  1.073          x1  P3-wall-second-moment.tex:483      src=Y   res=results,results        
+  1.1133         x1  P4-coherent-cell-floor.tex:340     src=Y   res=results,results        
+  1.1216         x1  P4-coherent-cell-floor.tex:347     src=Y   res=results,results        
+  1.1348         x1  P4-coherent-cell-floor.tex:347     src=Y   res=results,results        
+  1.1794         x1  P4-coherent-cell-floor.tex:359     src=Y   res=results,results        
+  1.197          x1  P2-no-go-divisor-switch.tex:359    src=Y   res=results,results        
+  1.2400         x1  P4-coherent-cell-floor.tex:359     src=Y   res=results,results        
+  1.270800       x1  P3-wall-second-moment.tex:219      src=Y   res=results,results        
+  1.3192         x1  P4-coherent-cell-floor.tex:347     src=Y   res=results,results        
+  1.3590         x1  P3-wall-second-moment.tex:370      src=Y   res=results,results        
+  1.3789         x1  P3-wall-second-moment.tex:370      src=Y   res=results,results        
+  1.3933         x1  P3-wall-second-moment.tex:370      src=Y   res=results,results        
+  1.443          x1  P3-wall-second-moment.tex:482      src=Y   res=results,results        
+  1.5128         x1  P3-wall-second-moment.tex:368      src=Y   res=results,results        
+  1.535          x1  P3-wall-second-moment.tex:483      src=Y   res=results,results        
+  1.5687         x1  P4-coherent-cell-floor.tex:346     src=Y   res=results,results        
+  1.5691         x1  P2-no-go-divisor-switch.tex:482    src=N   res=-                      NOT-IN-SOURCE NOT-IN-EVIDENCE
+  1.5798         x1  P2-no-go-divisor-switch.tex:488    src=Y   res=results,results        
+  1.580          x1  P1-mobius-fixed-class.tex:922      src=Y   res=results,results        
+  1.6073         x1  P4-coherent-cell-floor.tex:346     src=Y   res=results,results        
+  1.6741         x1  P4-coherent-cell-floor.tex:349     src=Y   res=results,results        
+  1.7178         x1  P4-coherent-cell-floor.tex:347     src=Y   res=results,results        
+  1.737799       x1  P1-mobius-fixed-class.tex:899      src=Y   res=results,results        
+  1.748          x1  P1-mobius-fixed-class.tex:922      src=Y   res=results,results        
+  1.7483         x1  P2-no-go-divisor-switch.tex:488    src=Y   res=results,results        
+  1.7565         x1  P2-no-go-divisor-switch.tex:808    src=Y   res=results,results,code,c 
+  1.760250       x1  P1-mobius-fixed-class.tex:790      src=Y   res=results,results        SOME-CONTEXT-FLAGGED(1/2)
+  1.76043        x1  P2-no-go-divisor-switch.tex:809    src=Y   res=results,results,code,c SOME-CONTEXT-FLAGGED(1/5)
+  1.760432       x1  P1-mobius-fixed-class.tex:791      src=Y   res=results,results        SOME-CONTEXT-FLAGGED(1/3)
+  1.7614         x1  P2-no-go-divisor-switch.tex:808    src=Y   res=results,results,code,c 
+  1.7633         x1  P2-no-go-divisor-switch.tex:808    src=Y   res=results,results,code,c 
+  1.7720         x1  P2-no-go-divisor-switch.tex:482    src=N   res=results                NOT-IN-SOURCE
+  1.8412         x1  P3-wall-second-moment.tex:368      src=Y   res=results,results        
+  1.875          x1  P2-no-go-divisor-switch.tex:337    src=Y   res=results,results        
+  1.9105         x1  P2-no-go-divisor-switch.tex:482    src=N   res=-                      NOT-IN-SOURCE NOT-IN-EVIDENCE
+  1.9175         x1  P2-no-go-divisor-switch.tex:482    src=N   res=-                      NOT-IN-SOURCE NOT-IN-EVIDENCE
+  1.946          x1  P2-no-go-divisor-switch.tex:878    src=Y   res=results,results,code,c 
+  1.946109       x1  P4-coherent-cell-floor.tex:396     src=Y   res=results,results        
+  1.950          x1  P1-mobius-fixed-class.tex:922      src=Y   res=results,results        
+  1.9500         x1  P2-no-go-divisor-switch.tex:488    src=Y   res=results,results        
+  1.9747         x1  P2-no-go-divisor-switch.tex:488    src=Y   res=results,results        
+  1.975          x1  P1-mobius-fixed-class.tex:922      src=Y   res=results,results        
+  1.9921         x1  P4-coherent-cell-floor.tex:346     src=Y   res=results,results        
+  10.019         x1  P4-coherent-cell-floor.tex:323     src=N   res=results,results        NOT-IN-SOURCE
+  10.099         x1  P4-coherent-cell-floor.tex:323     src=N   res=results,results        NOT-IN-SOURCE
+  10.954         x1  P4-coherent-cell-floor.tex:323     src=N   res=results,results        NOT-IN-SOURCE
+  11.0258        x1  P4-coherent-cell-floor.tex:341     src=Y   res=results,results        
+  11.026         x1  P4-coherent-cell-floor.tex:323     src=N   res=results,results        NOT-IN-SOURCE
+  11.179         x1  P4-coherent-cell-floor.tex:323     src=N   res=results,results        NOT-IN-SOURCE
+  11.885         x1  P4-coherent-cell-floor.tex:323     src=N   res=results,results        NOT-IN-SOURCE
+  12.968         x1  P4-coherent-cell-floor.tex:323     src=N   res=results,results        NOT-IN-SOURCE
+  13.8744        x1  P4-coherent-cell-floor.tex:274     src=Y   res=results,results        
+  17.3648        x1  P2-no-go-divisor-switch.tex:801    src=Y   res=results,results        
+  19.7926        x1  P2-no-go-divisor-switch.tex:801    src=Y   res=results,results        
+  2.084          x1  P2-no-go-divisor-switch.tex:878    src=Y   res=results,results,code,c 
+  2.1392         x1  P4-coherent-cell-floor.tex:346     src=Y   res=results,results        
+  2.1519         x1  P2-no-go-divisor-switch.tex:482    src=N   res=-                      NOT-IN-SOURCE NOT-IN-EVIDENCE
+  2.159          x1  P1-mobius-fixed-class.tex:922      src=Y   res=results,results        
+  2.1591         x1  P2-no-go-divisor-switch.tex:488    src=Y   res=results,results        
+  2.182          x1  P3-wall-second-moment.tex:482      src=Y   res=results,results        
+  2.219          x1  P2-no-go-divisor-switch.tex:878    src=Y   res=code,code              
+  2.274          x1  P1-mobius-fixed-class.tex:1102     src=Y   res=results,results        ALL-SOURCE-CONTEXTS-FLAGGED
+  2.287          x1  P3-wall-second-moment.tex:482      src=Y   res=results,results        
+  2.294          x1  P2-no-go-divisor-switch.tex:359    src=Y   res=results,results        
+  2.297          x1  P2-no-go-divisor-switch.tex:879    src=Y   res=results,results,code,c 
+  2.346          x1  P2-no-go-divisor-switch.tex:878    src=Y   res=results,results,code,c 
+  2.3990         x1  P4-coherent-cell-floor.tex:340     src=Y   res=results,results        
+  2.473          x1  P2-no-go-divisor-switch.tex:879    src=Y   res=results,results,code,c 
+  2.482019       x1  P1-mobius-fixed-class.tex:898      src=Y   res=results,results        
+  2.639          x1  P2-no-go-divisor-switch.tex:879    src=Y   res=results,results,code,c 
+  2.742          x1  P2-no-go-divisor-switch.tex:877    src=Y   res=results,results,code,c 
+  2.795          x1  P2-no-go-divisor-switch.tex:879    src=Y   res=results,results,code,c 
+  2.801          x1  P2-no-go-divisor-switch.tex:877    src=Y   res=results,results,code,c 
+  2.853          x1  P2-no-go-divisor-switch.tex:877    src=Y   res=results,results,code,c 
+  2.8866         x1  P2-no-go-divisor-switch.tex:803    src=Y   res=results,results        
+  2.9494         x1  P2-no-go-divisor-switch.tex:803    src=Y   res=results,results        
+  2.9967         x1  P2-no-go-divisor-switch.tex:803    src=Y   res=results,results        
+  2006.07088     x1  P1-mobius-fixed-class.tex:1235     src=Y   res=-                      NOT-IN-EVIDENCE
+  2009.08969     x1  P5-negative-map.tex:544            src=Y   res=-                      NOT-IN-EVIDENCE
+  22.2512        x1  P2-no-go-divisor-switch.tex:801    src=Y   res=results,results        
+  22.5145        x1  P2-no-go-divisor-switch.tex:799    src=Y   res=results,results        
+  22.842         x1  P3-wall-second-moment.tex:506      src=Y   res=results,results        
+  25.0438        x1  P2-no-go-divisor-switch.tex:799    src=Y   res=results,results        
+  27.4579        x1  P2-no-go-divisor-switch.tex:799    src=Y   res=results,results        
+  3.058          x1  P2-no-go-divisor-switch.tex:877    src=Y   res=results,results,code,c 
+  3.146          x1  P3-wall-second-moment.tex:483      src=Y   res=results,results        
+  3.171298       x1  P4-coherent-cell-floor.tex:397     src=Y   res=results,results        
+  3.2040         x1  P4-coherent-cell-floor.tex:347     src=Y   res=results,results        
+  3.315          x1  P2-no-go-divisor-switch.tex:493    src=Y   res=results,results        
+  3.443          x1  P3-wall-second-moment.tex:482      src=Y   res=results,results        
+  3.5759         x1  P3-wall-second-moment.tex:368      src=Y   res=results,results        
+  3.7038         x1  P1-mobius-fixed-class.tex:908      src=Y   res=results,results        
+  4.2902         x1  P1-mobius-fixed-class.tex:908      src=Y   res=results,results        
+  4.466          x1  P3-wall-second-moment.tex:506      src=Y   res=results,results        
+  4.547          x1  P1-mobius-fixed-class.tex:1102     src=Y   res=results,results        ALL-SOURCE-CONTEXTS-FLAGGED
+  4.591          x1  P2-no-go-divisor-switch.tex:359    src=Y   res=results,results        
+  4.991178       x1  P1-mobius-fixed-class.tex:838      src=Y   res=results,results        
+  5.9997         x1  P4-coherent-cell-floor.tex:341     src=Y   res=results,results        
+  9.064          x1  P4-coherent-cell-floor.tex:323     src=N   res=results,results        NOT-IN-SOURCE
+  95.0889        x1  P1-mobius-fixed-class.tex:908      src=Y   res=results,results        
+
+  distinct literals in projection : 271
+  absent from source              : 15
+  source context carries a withdrawal keyword: 18
+
+==========================================================================
+DETAIL -- literals absent from the source
+==========================================================================
+  10.1007  at P1-mobius-fixed-class.tex:1229, P2-no-go-divisor-switch.tex:939, P3-wall-second-moment.tex:565, P4-coherent-cell-floor.tex:508, P5-negative-map.tex:539
+      evidence trees containing it: NONE
+      |  \bibitem{HL} J.-J.~Huang and H.~Li, \emph{On the connection between the Goldbach conjecture and the Elliott--Halberstam conjecture}, arXiv:2005.03811 [math.NT]; v1 (May 2020), v2 (August 2022). Also published in a Springer volume, \texttt{doi:10.1007/978-3-030-67996-5\_17}. References here are to t
+      |  \bibitem{HL} J.-J.~Huang and H.~Li, \emph{On the connection between the Goldbach conjecture and the Elliott--Halberstam conjecture}, arXiv:2005.03811 [math.NT]; v1 (May 2020), v2 (August 2022). Also published in a Springer volume, \texttt{doi:10.1007/978-3-030-67996-5\_17}. References here are to t
+      |  \bibitem{HL} J.-J.~Huang and H.~Li, \emph{On the connection between the Goldbach conjecture and the Elliott--Halberstam conjecture}, arXiv:2005.03811 [math.NT]; v1 (May 2020), v2 (August 2022). Also published in a Springer volume, \texttt{doi:10.1007/978-3-030-67996-5\_17}. References here are to t
+      |  \bibitem{HL} J.-J.~Huang and H.~Li, \emph{On the connection between the Goldbach conjecture and the Elliott--Halberstam conjecture}, arXiv:2005.03811 [math.NT]; v1 (May 2020), v2 (August 2022). Also published in a Springer volume, \texttt{doi:10.1007/978-3-030-67996-5\_17}. References here are to t
+      |  \bibitem{HL} J.-J.~Huang and H.~Li, \emph{On the connection between the Goldbach conjecture and the Elliott--Halberstam conjecture}, arXiv:2005.03811 [math.NT]; v1 (May 2020), v2 (August 2022). Also published in a Springer volume, \texttt{doi:10.1007/978-3-030-67996-5\_17}. References here are to t
+  0.840039  at P5-negative-map.tex:425
+      evidence trees containing it: ['v2/results', 'deploy/results']
+      |  \medskip\noindent \textbf{(2) A classification covering the type-II region.} The natural bookkeeping is a Heath--Brown-type identity of level $J$ with cut $z=M^{1/J}$, and it needs the M\"obius-side variable $a$ to satisfy $a\le M^{o(1)}$. It does not: the identity requires $z^J\ge x$, and its $j$-
+  1.5691  at P2-no-go-divisor-switch.tex:482
+      evidence trees containing it: NONE
+      |  \begin{measurement}[the two thresholds, compared]\label{meas:direct} At $\theta'=0.56$ over $N=2\cdot10^5$ to $3.2\cdot10^6$, with $B_H(N)=\sum_{k<K}\mu^2(k)(\log k)|H(N;k)|$, the new ratio $B_H(N)/(\SS(N)N)$ reads $0.4578,\,0.4064,\,0.4079,\,0.3769,\,0.3338$ --- under $1$ throughout and falling --
+  1.7720  at P2-no-go-divisor-switch.tex:482
+      evidence trees containing it: ['v2/results']
+      |  \begin{measurement}[the two thresholds, compared]\label{meas:direct} At $\theta'=0.56$ over $N=2\cdot10^5$ to $3.2\cdot10^6$, with $B_H(N)=\sum_{k<K}\mu^2(k)(\log k)|H(N;k)|$, the new ratio $B_H(N)/(\SS(N)N)$ reads $0.4578,\,0.4064,\,0.4079,\,0.3769,\,0.3338$ --- under $1$ throughout and falling --
+  1.9105  at P2-no-go-divisor-switch.tex:482
+      evidence trees containing it: NONE
+      |  \begin{measurement}[the two thresholds, compared]\label{meas:direct} At $\theta'=0.56$ over $N=2\cdot10^5$ to $3.2\cdot10^6$, with $B_H(N)=\sum_{k<K}\mu^2(k)(\log k)|H(N;k)|$, the new ratio $B_H(N)/(\SS(N)N)$ reads $0.4578,\,0.4064,\,0.4079,\,0.3769,\,0.3338$ --- under $1$ throughout and falling --
+  1.9175  at P2-no-go-divisor-switch.tex:482
+      evidence trees containing it: NONE
+      |  \begin{measurement}[the two thresholds, compared]\label{meas:direct} At $\theta'=0.56$ over $N=2\cdot10^5$ to $3.2\cdot10^6$, with $B_H(N)=\sum_{k<K}\mu^2(k)(\log k)|H(N;k)|$, the new ratio $B_H(N)/(\SS(N)N)$ reads $0.4578,\,0.4064,\,0.4079,\,0.3769,\,0.3338$ --- under $1$ throughout and falling --
+  10.019  at P4-coherent-cell-floor.tex:323
+      evidence trees containing it: ['v2/results', 'deploy/results']
+      |  \begin{measurement}[the cell means are not zero]\label{meas:notzero} Against the exactly computed floor of Lemma~\ref{lem:cellmom}, the cell means of the field \eqref{eq:field} are not zero. Over the eight octaves from $(6.25\cdot10^4,\,1.25\cdot10^5]$ to $(8\cdot10^6,\,1.6\cdot10^7]$, $\max_c|z_c|
+  10.099  at P4-coherent-cell-floor.tex:323
+      evidence trees containing it: ['v2/results', 'deploy/results']
+      |  \begin{measurement}[the cell means are not zero]\label{meas:notzero} Against the exactly computed floor of Lemma~\ref{lem:cellmom}, the cell means of the field \eqref{eq:field} are not zero. Over the eight octaves from $(6.25\cdot10^4,\,1.25\cdot10^5]$ to $(8\cdot10^6,\,1.6\cdot10^7]$, $\max_c|z_c|
+  10.954  at P4-coherent-cell-floor.tex:323
+      evidence trees containing it: ['v2/results', 'deploy/results']
+      |  \begin{measurement}[the cell means are not zero]\label{meas:notzero} Against the exactly computed floor of Lemma~\ref{lem:cellmom}, the cell means of the field \eqref{eq:field} are not zero. Over the eight octaves from $(6.25\cdot10^4,\,1.25\cdot10^5]$ to $(8\cdot10^6,\,1.6\cdot10^7]$, $\max_c|z_c|
+  11.026  at P4-coherent-cell-floor.tex:323
+      evidence trees containing it: ['v2/results', 'deploy/results']
+      |  \begin{measurement}[the cell means are not zero]\label{meas:notzero} Against the exactly computed floor of Lemma~\ref{lem:cellmom}, the cell means of the field \eqref{eq:field} are not zero. Over the eight octaves from $(6.25\cdot10^4,\,1.25\cdot10^5]$ to $(8\cdot10^6,\,1.6\cdot10^7]$, $\max_c|z_c|
+  11.179  at P4-coherent-cell-floor.tex:323
+      evidence trees containing it: ['v2/results', 'deploy/results']
+      |  \begin{measurement}[the cell means are not zero]\label{meas:notzero} Against the exactly computed floor of Lemma~\ref{lem:cellmom}, the cell means of the field \eqref{eq:field} are not zero. Over the eight octaves from $(6.25\cdot10^4,\,1.25\cdot10^5]$ to $(8\cdot10^6,\,1.6\cdot10^7]$, $\max_c|z_c|
+  11.885  at P4-coherent-cell-floor.tex:323
+      evidence trees containing it: ['v2/results', 'deploy/results']
+      |  \begin{measurement}[the cell means are not zero]\label{meas:notzero} Against the exactly computed floor of Lemma~\ref{lem:cellmom}, the cell means of the field \eqref{eq:field} are not zero. Over the eight octaves from $(6.25\cdot10^4,\,1.25\cdot10^5]$ to $(8\cdot10^6,\,1.6\cdot10^7]$, $\max_c|z_c|
+  12.968  at P4-coherent-cell-floor.tex:323
+      evidence trees containing it: ['v2/results', 'deploy/results']
+      |  \begin{measurement}[the cell means are not zero]\label{meas:notzero} Against the exactly computed floor of Lemma~\ref{lem:cellmom}, the cell means of the field \eqref{eq:field} are not zero. Over the eight octaves from $(6.25\cdot10^4,\,1.25\cdot10^5]$ to $(8\cdot10^6,\,1.6\cdot10^7]$, $\max_c|z_c|
+  2.1519  at P2-no-go-divisor-switch.tex:482
+      evidence trees containing it: NONE
+      |  \begin{measurement}[the two thresholds, compared]\label{meas:direct} At $\theta'=0.56$ over $N=2\cdot10^5$ to $3.2\cdot10^6$, with $B_H(N)=\sum_{k<K}\mu^2(k)(\log k)|H(N;k)|$, the new ratio $B_H(N)/(\SS(N)N)$ reads $0.4578,\,0.4064,\,0.4079,\,0.3769,\,0.3338$ --- under $1$ throughout and falling --
+  9.064  at P4-coherent-cell-floor.tex:323
+      evidence trees containing it: ['v2/results', 'deploy/results']
+      |  \begin{measurement}[the cell means are not zero]\label{meas:notzero} Against the exactly computed floor of Lemma~\ref{lem:cellmom}, the cell means of the field \eqref{eq:field} are not zero. Over the eight octaves from $(6.25\cdot10^4,\,1.25\cdot10^5]$ to $(8\cdot10^6,\,1.6\cdot10^7]$, $\max_c|z_c|
+
+==========================================================================
+DETAIL -- literals whose source paragraph carries a withdrawal word
+==========================================================================
+  0.000346 (1 of 1 source paragraphs flagged) at P3-wall-second-moment.tex:210
+      keywords: withdraw,withdrawn
+  0.000398 (1 of 1 source paragraphs flagged) at P3-wall-second-moment.tex:210
+      keywords: withdraw,withdrawn
+  0.000470 (1 of 1 source paragraphs flagged) at P3-wall-second-moment.tex:210
+      keywords: withdraw,withdrawn
+  0.000529 (1 of 2 source paragraphs flagged) at P3-wall-second-moment.tex:210
+      keywords: withdraw,withdrawn
+  0.0032 (1 of 6 source paragraphs flagged) at P2-no-go-divisor-switch.tex:889
+      keywords: withdraw,withdrawn
+  0.036 (1 of 7 source paragraphs flagged) at P4-coherent-cell-floor.tex:265
+      keywords: superseded
+  0.1245 (1 of 3 source paragraphs flagged) at P2-no-go-divisor-switch.tex:344
+      keywords: no longer
+  0.1334 (1 of 2 source paragraphs flagged) at P2-no-go-divisor-switch.tex:340
+      keywords: no longer
+  0.175 (1 of 3 source paragraphs flagged) at P2-no-go-divisor-switch.tex:880
+      keywords: withdraw,withdrawn
+  0.3745 (2 of 7 source paragraphs flagged) at P1-mobius-fixed-class.tex:920
+      keywords: does not survive; no longer
+  0.4079 (1 of 2 source paragraphs flagged) at P2-no-go-divisor-switch.tex:480
+      keywords: withdraw,withdrawn
+  0.9805 (1 of 3 source paragraphs flagged) at P4-coherent-cell-floor.tex:402
+      keywords: an earlier
+  0.9993 (1 of 3 source paragraphs flagged) at P4-coherent-cell-floor.tex:201
+      keywords: withdraw,withdrawn
+  1.760250 (1 of 2 source paragraphs flagged) at P1-mobius-fixed-class.tex:790
+      keywords: an earlier
+  1.76043 (1 of 5 source paragraphs flagged) at P2-no-go-divisor-switch.tex:809
+      keywords: an earlier
+  1.760432 (1 of 3 source paragraphs flagged) at P1-mobius-fixed-class.tex:791
+      keywords: an earlier
+  2.274 (1 of 1 source paragraphs flagged) at P1-mobius-fixed-class.tex:1102
+      keywords: superseded
+  4.547 (1 of 1 source paragraphs flagged) at P1-mobius-fixed-class.tex:1102
+      keywords: superseded

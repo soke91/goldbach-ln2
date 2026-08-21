@@ -1,0 +1,430 @@
+{
+ "eq:EHmu": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:HL22": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:AN": [
+  "deploy/papers/P1-mobius-fixed-class.tex",
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "eq:E3": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:E4": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:Emu": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "thm:A": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "cor:B": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "thm:C": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "note:threeway": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "prop:onesided": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:onesided": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "prop:nolog": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:Bsum": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:nolog": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "sec:notclaimed": [
+  "deploy/papers/P1-mobius-fixed-class.tex",
+  "deploy/papers/P2-no-go-divisor-switch.tex",
+  "deploy/papers/P3-wall-second-moment.tex",
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "sec:mechanism": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "sec:proof": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:trunc": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:split0": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:meanterm": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:switch": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "lem:complete": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:PR": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:P": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:R1": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "lem:degen": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:Tm": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:R2": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "note:trap": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:level": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "lem:BV": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:R3": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "lem:density": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "lem:mu": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "prop:MT": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "sec:C": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "lem:completelog": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:goldbachback": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:Gtilde": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "note:thetasweep": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "sec:strength": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "meas:margin": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "meas:relocate": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "sec:delta": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:constraint": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:Delta": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:mu2mk": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "sec:movingcut": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "prop:movingcut": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "sec:lit": [
+  "deploy/papers/P1-mobius-fixed-class.tex"
+ ],
+ "eq:C": [
+  "deploy/papers/P2-no-go-divisor-switch.tex",
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "eq:Tw": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "eq:Bw": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "eq:extract": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "note:Tw": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "lem:Gb": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "sec:identities": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "prop:dilate": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "eq:dilate": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "prop:posweights": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "eq:posweights": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "prop:flatsum": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "eq:flatsum": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "meas:flatsum": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "prop:untrunc": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "eq:untrunc": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "prop:layers": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "eq:layers": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "prop:combined": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "eq:combined": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "prop:direct": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "eq:direct": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "eq:directcond": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "meas:direct": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "sec:nogo": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "lem:extract": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "lem:bv": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "thm:D": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "eq:loss": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "note:granting": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "note:bombieri": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "thm:Dprime": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "meas:extract": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "sec:Dpp": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "eq:CPD": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "prop:Dpp": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "meas:poly": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "sec:circle": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "prop:E": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "meas:circle": [
+  "deploy/papers/P2-no-go-divisor-switch.tex"
+ ],
+ "eq:constants": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "sec:exact": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "prop:V": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "note:AvsS": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "meas:V": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "meas:secondorder": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "lem:MP": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "note:trunc": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "sec:chowla": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "eq:offdiag": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "eq:cdef": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "prop:W": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "eq:budget": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "meas:budget": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "sec:controls": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "lem:coin": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "note:coinscope": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "prop:coindisc": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "meas:disc": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "sec:margin": [
+  "deploy/papers/P3-wall-second-moment.tex"
+ ],
+ "eq:field": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "sec:floor": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "lem:cellmom": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "eq:cellmom": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "note:threeterms": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "meas:mc": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "sec:coh": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "obs:coh": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "meas:exponent": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "note:notanerrorbar": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "sec:placebo": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "lem:placebo": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "meas:notzero": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "meas:placebo": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "note:floorsignal": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "sec:size": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "eq:Dc": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "meas:Dc": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "prop:scaleinv": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "meas:scaleinv": [
+  "deploy/papers/P4-coherent-cell-floor.tex"
+ ],
+ "eq:E1": [
+  "deploy/papers/P5-negative-map.tex"
+ ],
+ "note:scale": [
+  "deploy/papers/P5-negative-map.tex"
+ ],
+ "meas:supp": [
+  "deploy/papers/P5-negative-map.tex"
+ ],
+ "conj:L": [
+  "deploy/papers/P5-negative-map.tex"
+ ],
+ "note:Lgrade": [
+  "deploy/papers/P5-negative-map.tex"
+ ],
+ "sec:closures": [
+  "deploy/papers/P5-negative-map.tex"
+ ],
+ "note:nullcost": [
+  "deploy/papers/P5-negative-map.tex"
+ ],
+ "sec:R4": [
+  "deploy/papers/P5-negative-map.tex"
+ ],
+ "prop:R4": [
+  "deploy/papers/P5-negative-map.tex"
+ ],
+ "sec:c3": [
+  "deploy/papers/P5-negative-map.tex"
+ ]
+}

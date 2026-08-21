@@ -504,8 +504,12 @@ number of even $N$ below the point, and
   \frac{\sqrt N}{a_n\sqrt{\AAA\log N}},
 \]
 which is $10^{4.466}$ at $N=10^{12}$ and $10^{22.842}$ at $N=10^{50}$
-with $a_n=\sqrt{2\log(N/2)}$ and $\AAA=0.787275$, the value of
-\eqref{eq:constants} at a generic even $N$
+with $a_n=\sqrt{2\log(N/2)}$ and $\AAA=0.787275$. That is the value of
+\eqref{eq:constants} on the family the sweep uses --- $N$ whose only
+odd prime factor is $5$ --- and not a generic one: $\AAA$ depends on
+the prime support of $N$, and an even $N$ not divisible by $5$ carries
+the extra local factor $1-\frac{1}{5\cdot4}$, so it gives
+$0.95$ times as much
 (\texttt{audit\_margin.py}, \texttt{audit\_constants.py}). Those two
 $N$ lie five and thirty-eight orders of magnitude beyond anything
 measured here, and the digits are the arithmetic of the display under

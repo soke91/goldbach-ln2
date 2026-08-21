@@ -61,5 +61,22 @@ here are the evidence.
 
 ### Pass 6 — the projection
 
-Has not run. It asks whether reducing `v2/paper/` to `deploy/papers/`
-left behind any measurement that a surviving sentence rests on.
+It asked whether reducing `v2/paper/` to `deploy/papers/` left behind
+any measurement that a surviving sentence rests on. The answer is
+mostly no, and the defect it found instead is a different one.
+
+| Verdict | What it changed | Evidence |
+|---|---|---|
+| **Nothing was dropped that a surviving statement rests on.** All 38 numbered statements crossed, none with an altered statement; of 251 remarks, 201 belong to branches the projection does not raise, and the 11 the projection could rest on were read one by one | — | `pass6/results/coverage.txt`, `pass6/results/stmtdiff.txt` |
+| **No withdrawn figure stands as current.** All 271 printed decimals traced to their source context; the 18 whose context carries a withdrawal word were read individually | — | `pass6/results/numbers.txt` |
+| **A finding reaches one tree and not the other.** Three confirmed defects had reached neither tree; seven had reached one | all ten applied to both; the gate now checks the signature of each in both trees (G79) | `pass6/results/pass4_landed.txt` |
+| One table printed two sampling resolutions in one row, so its claim held at one depth fewer than stated | the declared field's figures stand alone; the ten-times-harder resample is reported separately | `results/lab_cell_singular.txt` |
+| An adjective was quoted from the cell that carries no effect | the figure is given at the cell that carries it, and at the other | `results/lab_mask_placebo.txt` |
+| A sampling error called "the same throughout" is eight times smaller at one depth | stated by depth | `results/lab_cell_singular.txt` |
+| A measurement's printed figures came from a script that does not produce them | the script that does is named and shipped | `pass4/results/a1_bh_vs_b.txt` |
+| Three measurements whose unfavourable half was left behind — the threshold's arithmetic dependence, what re-verifying a stamp cost, how large the combined modulus must be | all three carried into the projection | `results/audit_threshold_arithmetic.txt`, `pass2/`, `results/lab_combined_modulus.txt` |
+| The gate's first signature for one of the ten matched the corrected form as well as the broken one, so it could never pass | anchored to the position that distinguishes them | `gate/gate.py` |
+
+The pass retracted four of its own findings before reporting, three of
+them because it looked for the verification code in the log tree and
+concluded from one path that it did not exist.

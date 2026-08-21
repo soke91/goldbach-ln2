@@ -1,0 +1,250 @@
+STATISTIC: token-level similarity between each source statement and its projection counterpart, after a fixed normalisation
+FIELD:     the 38 numbered source statements and their projection counterparts
+CONSTANTS: the 22 normalisation rules printed below; report threshold: every statement is printed with its ratio, and every one below 0.92 is dumped in full
+NULL:      a faithful projection restates each result with the same hypotheses, the same quantifiers and the same inequality directions; the normalisation touches none of those
+DENOM:     38 statements
+
+normalisation rules (pattern -> replacement):
+   \\begin\{(equation|align|equation\*)\}                           -> ' '
+   \\end\{(equation|align|equation\*)\}                             -> ' '
+   \\begin\{[a-z]+\}(\[[^\]]*\])?                                   -> ' '
+   \\end\{[a-z]+\}                                                  -> ' '
+   \\label\{[^}]*\}                                                 -> ' '
+   \\(ref|eqref|texorpdfstring|emph|textbf|text)\b                  -> ' '
+   \\cite\[[^\]]*\]\{[^}]*\}                                        -> ' '
+   \\cite\{[^}]*\}                                                  -> ' '
+   <!--.*?-->                                                       -> ' '
+   \*\*                                                             -> ' '
+   \*                                                               -> ' '
+   \[(thm|cor|prop|lem|conj|eq|rem|sec|note|meas|obs):[A-Za-z0-9]*\] -> ' REF '
+   \\(AAA|Emu|SS)\b                                                 -> '<fn>'
+   \bA\(N\)                                                         -> 'A(N)'
+   \\!+                                                             -> ' '
+   \\,                                                              -> ' '
+   \\;                                                              -> ' '
+   \\                                                               -> ' '
+   \\bigl|\\bigr|\\Bigl|\\Bigr|\\left|\\right                       -> ' '
+   [{}$~]                                                           -> ' '
+   —|--|---                                                         -> '-'
+   \s+                                                              -> ' '
+
+==========================================================================
+A. SIMILARITY, WORST FIRST
+==========================================================================
+  0.024  prop:untrunc       -> prop:untrunc       Proposition/proposition
+  0.032  prop:placebo       -> lem:placebo        Proposition/lemma
+  0.069  prop:flatsum       -> prop:flatsum       Proposition/proposition
+  0.111  prop:posweights    -> prop:posweights    Proposition/proposition
+  0.166  lem:bv             -> lem:BV             Lemma/lemma
+  0.197  prop:combined      -> prop:combined      Proposition/proposition
+  0.198  prop:scaleinv      -> prop:scaleinv      Proposition/proposition
+  0.304  lem:placebo        -> lem:placebo        Lemma/lemma
+  0.310  prop:E             -> prop:E             Proposition/proposition
+  0.312  lem:coin           -> lem:coin           Lemma/lemma
+  0.342  prop:layers        -> prop:layers        Proposition/proposition
+  0.350  prop:coh           -> obs:coh            Proposition/observation
+  0.466  lem:extract        -> lem:extract        Lemma/lemma
+  0.518  prop:W             -> prop:W             Proposition/proposition
+  0.562  conj:L             -> conj:L             Conjecture/conjecture
+  0.610  prop:coindisc      -> prop:coindisc      Proposition/proposition
+  0.673  prop:dilate        -> prop:dilate        Proposition/proposition
+  0.721  prop:nolog         -> prop:nolog         Proposition/proposition
+  0.738  prop:movingcut     -> prop:movingcut     Proposition/proposition
+  0.743  prop:Dpp           -> prop:Dpp           Proposition/proposition
+  0.817  thm:D              -> thm:D              Theorem/theorem
+  0.817  lem:MP             -> lem:MP             Lemma/lemma
+  0.824  prop:V             -> prop:V             Proposition/proposition
+  0.852  prop:direct        -> prop:direct        Proposition/proposition
+  0.865  cor:B              -> cor:B              Corollary/corollary
+  0.937  thm:C              -> thm:C              Theorem/theorem
+  0.941  lem:mu             -> lem:mu             Lemma/lemma
+  0.954  prop:onesided      -> prop:onesided      Proposition/proposition
+  0.973  lem:Gb             -> lem:Gb             Lemma/lemma
+  0.974  lem:density        -> lem:density        Lemma/lemma
+  0.978  thm:Dprime         -> thm:Dprime         Theorem/theorem
+  0.978  prop:MT            -> prop:MT            Proposition/proposition
+  0.979  lem:degen          -> lem:degen          Lemma/lemma
+  0.983  thm:A              -> thm:A              Theorem/theorem
+  0.987  lem:BV             -> lem:BV             Lemma/lemma
+  0.993  lem:cellmom        -> lem:cellmom        Lemma/lemma
+  0.994  lem:completelog    -> lem:completelog    Lemma/lemma
+  0.995  lem:complete       -> lem:complete       Lemma/lemma
+
+==========================================================================
+B. FULL TEXT OF EVERY STATEMENT BELOW 0.92
+==========================================================================
+
+----------------------------------------------------------------------
+  prop:untrunc  (0.024)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : Sum the direct route's terms over all k , with no truncation and no coprimality restriction. Since A(N;k) sums n over k\mid N-n , exchanging the order and applying \sum_ d\mid u \mu(d)\log d=-\Lambda(u) gives \sum_ k\ge1 (\log k) \mu(k) A(N;k) = -\sum_ n<N \Lambda(n) \mu(N-n)\Lambda(N-n) = \sum_ p<N \Lambda(N-p)\log p , the last step because \mu(u)\Lambda(u)=-\log p at u=p prime and vanishes at every higher prime power. So the untruncated object is \tilde r(N) , up to its prime-power part. 
+
+  PROJECTION: % Summing over all k , with no truncation and no coprimality restriction, \sum_ k\ge1 (\log k) \mu(k) A(N;k) = -\sum_ n<N \Lambda(n) \mu(N-n)\Lambda(N-n) = \sum_ p<N \Lambda(N-p)\log p . So the untruncated object is \tilde r(N) , up to its prime-power part.
+
+----------------------------------------------------------------------
+  prop:placebo  (0.032)   Proposition -> lemma
+----------------------------------------------------------------------
+  SOURCE    : The permutation of Lemma REF is the control this claim rests on, and until now it had been cited rather than run. Run on the octave (2\cdot10^6, 4\cdot10^6] , with cell sizes preserved exactly and the floor recomputed from scratch for each permutation: r|cccccc depth & 0 & 1 & 2 & 3 & 4 & 5\\ n_c & 383617 & 421978 & 163568 & 28507 & 2263 & 67\\\hline z_c (true) & +0.1069 & +1.1133 & -0.2314 & -2.3990 & -5.9997 & -11.0258 against \max_c|z_c| over ten label permutations reading 0.9359, 1.6073, 1.9921, 1.5687, 2.1392, 1.1216, 1.7178, 1.1348, 3.2040, 1.3192 - mean 1.6741 , never above 3.3 . The correlation between depth and z_c is -0.9106 for the true labelling and +0.0042 on average under permutation. So what is detected is the correspondence between cells and divisibility, not the cell sizes.
+
+  PROJECTION: Let the cells be indexed by a labelling \ell(N) , and let \pi be a permutation of the even integers in the band. Replacing \ell by \ell\circ\pi preserves every cell size and leaves the field Z pointwise unchanged, while destroying the correspondence between cells and arithmetic. Any cell-indexed statistic that survives this replacement is a property of the cell sizes and not of that correspondence.
+
+----------------------------------------------------------------------
+  prop:flatsum  (0.069)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : Put REF into T_w . The transform carries \mu(k) , so terms with \mu(k)=0 contribute nothing on the left; on the remaining k , \mu(k)A(N;k)=\mu(k)^2H(N;k) . The restriction must therefore be carried on the right, and T_w(N) = \sum_ \substack k<K\\(k,N)=1 \mu^2(k) w_k H(N;k) - B_w C(N) . Dropping \mu^2(k) does not give a weaker identity but a false one: H(N;k) does not vanish at squarefull k , and the terms it would add are of the size of T_w itself. The two known cases are therefore T_1(N) = \sum_ \substack k<K\\(k,N)=1 \mu^2(k)H(N;k) - B_1 C(N), \qquad E_3(N) = \sum_ \substack k<K\\(k,N)=1 \mu^2(k)(\log k)H(N;k) - B_ \log C(N), and both weights are nonnegative on the range. Since B_1\ll e^ -c\sqrt \log K kills the second term while B_ \log \to-S(N) does not, Theorem REF - unconditional - says exactly that the flat sum of dilated walls is \ll_A N(\log N)^ -A , and the wall says the same sum weighted by \log k is not small. Everything between what is proved and what is open is the factor \log k inside a positively weighted sum of the same terms. The identity is not the point; the sizes are. Over N=2\cdot10^5 to 2.56\cdot10^7 by doubling at \theta'=0.56 , REF holds to a worst relative error of 1.875\cdot10^ -16 , and \frac |\sum_k \mu^2(k)H(N;k) | |\sum_k \mu^2(k)(\log k)H(N;k) | = 0.1785, 0.1559, 0.1484, 0.1483, 0.1367, 0.1334,\ 0.1241, 0.1135 , falling throughout; at the top |T_
+
+  PROJECTION: % For any weight w that is a function of k alone, T_w = \sum_ \substack k<K\\(k,N)=1 \mu^2(k) w_k H(N;k) - B_w C(N). In particular \[ T_1= \sum_ \substack k<K\\(k,N)=1 \mu^2(k)H(N;k)-B_1C(N), \qquad T_ \log = \sum_ \substack k<K\\(k,N)=1 \mu^2(k)(\log k)H(N;k) -B_ \log C(N), \] and both weights are nonnegative on the range.
+
+----------------------------------------------------------------------
+  prop:posweights  (0.111)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : Substituting REF into E_3 and using \mu(k)^2=1 on the squarefree k , E_3(\alpha) = \sum_ \substack k<K\\(k,N)=1 \mu^2(k) (\log k) H(N;k) - C(N) B_ \log (K). The signs \mu(k) cancel exactly. They cancel against the \mu(k) that REF extracts from the progression sum, and what is left is a sum of dilated walls whose weights \mu^2(k)\log k are nonnegative. Verified to machine zero - the relative error of REF against a direct evaluation of E_3 is at most 1.8\cdot10^ -16 over N=2\cdot10^5 to 3.2\cdot10^6 . This is worth pausing on. Huang–Li discard the \mu(k) by the triangle inequality, and \S REF says that keeping them is what the results here exploit. Keeping them is what Theorem REF exploits, on the w_k=1 branch. On the \log k branch they are not there to keep.
+
+  PROJECTION: Substituting eq:dilate into T_ \log and using \mu(k)^2=1 on squarefree k , T_ \log = \sum_ \substack k<K\\(k,N)=1 \mu^2(k) (\log k) H(N;k) - C(N) B_ \log (K), \qquad B_ \log (K)= \sum_ \substack k<K\\(k,N)=1 \frac \mu(k)\log k \varphi(k) .
+
+----------------------------------------------------------------------
+  lem:bv  (0.166)   Lemma -> lemma
+----------------------------------------------------------------------
+  SOURCE    : Expanding w_k=\sum_ d\mid k b_d inside the residual gives \mathcal R_w=\sum_d b_d \mathcal R^ (d) , where \mathcal R^ (d) is a sum of \Lambda over progressions to moduli md with m<N^ 1-\theta' . Bombieri–Vinogradov bounds each \mathcal R^ (d) \ll_A N(\log N)^ -A provided d\le N^ 1/2-\delta /N^ 1-\theta' =N^ \theta'-1/2-\delta ; hence, on that support, \mathcal R_w\ll_A \|b\|_1 N(\log N)^ -A . The two lemmas pull in opposite directions. Lemma REF says B_w is controlled by the part of b sitting at the truncation point K : mass at d\le K^ 1-\varepsilon is damped by e^ -c\sqrt \varepsilon\log K . Lemma REF says b may only live below N^ \theta'-1/2 . The two thresholds are separated by a factor N^ 1/2 .
+
+  PROJECTION: For all A,B>0 there is C=C(A,B) such that for Q\le N^ 1/2 (\log N)^ -C , \[ \sum_ q\le Q \tau_3(q)^ B \max_ y\le N \max_ (a,q)=1 |\psi(y;q,a)-\frac y \varphi(q) | \ll_ A,B \frac N (\log N)^ A . \]
+
+----------------------------------------------------------------------
+  prop:combined  (0.197)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : Expand the squarefree condition inside REF by \mu^2(k)=\sum_ d^2\mid k \mu(d) and write k=d^2j . Then \sum_ p<N \Lambda(N-p)\log p = \sum_ \substack m,d squarefree \ (d,m)=1, md^2<N \mu(m)\mu(d) L_2(N;m,d), L_2(N;m,d) = \sum_ \substack j<N/(md^2)\ (j,m)=1 \log(d^2j) \Lambda (N-md^2j ), and L_2 carries no squarefree condition: it is a prime count in the progression p\equiv N\pmod md^2 , an unadorned Bombieri–Vinogradov object of modulus q=md^2 . 
+
+  PROJECTION: % Expanding the squarefree condition inside eq:layers by \mu^2(k)=\sum_ d^2\mid k \mu(d) and writing k=d^2j , \sum_ p<N \Lambda(N-p)\log p = \sum_ \substack m,d squarefree \ (d,m)=1, md^2<N \mu(m)\mu(d) L_2(N;m,d), where \[ L_2(N;m,d)= \sum_ \substack j<N/(md^2)\ (j,m)=1 \log(d^2j) \Lambda (N-md^2j ), \] and L_2 carries no squarefree condition: it is a prime count in the progression p\equiv N\pmod md^2 , an unadorned Bombieri-Vinogradov object of modulus q=md^2 .
+
+----------------------------------------------------------------------
+  prop:scaleinv  (0.198)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : D_c := E_ \mathrm same ,c [\SS_2] - E_ \mathrm all [\SS_2] depends only on the distribution of the shift h in the residue classes mod 3,5,7,11,13 that the cell fixes. That distribution is the same at every scale, so D_c is scale-invariant and predicts an exponent of zero at every depth. Measured over (10^6,2\cdot10^6] , (2\cdot10^6,4\cdot10^6] and (4\cdot10^6,8\cdot10^6] , the fitted exponents are r|cccccc depth & 0 & 1 & 2 & 3 & 4 & 5\\\hline e & -0.000879 & -0.016226 & +0.000936 & +0.002904 & +0.000241 & -0.008428 - zero to three decimals at every depth but one. The exception is depth 1 , and it is the depth at which D_c=0.046766 is six times smaller than any other while the sampling error of the pair average is the same 0.0013 throughout; its fitted exponent flips sign from +0.065546 to -0.016226 when the sample is taken ten times larger, which is the signature of noise rather than of a trend. Depth 1 is also the cell that carries no mask ( z=+1.11 ), so nothing rests on it. The audit pre-registered a 2\% band on the spread across octaves and |e|<0.01 , as rules M2 and M4, and both fail at depths 0 and 1 at the original sample size. Depth 0 passes once resampled - spread 0.0043 , exponent -0.000879 - so its failure was sampling; depth 1 does not resolve. Two further caveats belong with the verdict: the pre-registration allowed three sampling standard errors and the code appl
+
+  PROJECTION: % D_c depends only on the distribution of the shift h in the residue classes mod 3,5,7,11,13 that the cell fixes. That distribution is the same at every scale, so D_c is scale-invariant and predicts a fitted exponent of zero at every depth.
+
+----------------------------------------------------------------------
+  lem:placebo  (0.304)   Lemma -> lemma
+----------------------------------------------------------------------
+  SOURCE    : Let the cells be indexed by a labelling \ell(N) , and let \pi be a permutation of the even integers in the band. Replacing \ell by \ell\circ\pi preserves every cell size and leaves the field Z(N)=C(N)/\sqrt V(N) byte-identical, while destroying the correspondence between cells and arithmetic. Any cell-indexed statistic that survives this replacement is a property of the cell sizes and not of that correspondence. These are trivial and they are load-bearing. Lemma REF invalidates the natural measurement of \rho : the centred estimator returns the same value on \varepsilon as on \mu , so a quoted level for \rho calibrates nothing. Any claim about \mathrm Var C relative to V must first exhibit an estimator that distinguishes \mu from a coin, and show that it does. Lemma REF is what confirms, in Section REF , that the cell floor is a property of the arithmetic and not of the partition.
+
+  PROJECTION: Let the cells be indexed by a labelling \ell(N) , and let \pi be a permutation of the even integers in the band. Replacing \ell by \ell\circ\pi preserves every cell size and leaves the field Z pointwise unchanged, while destroying the correspondence between cells and arithmetic. Any cell-indexed statistic that survives this replacement is a property of the cell sizes and not of that correspondence.
+
+----------------------------------------------------------------------
+  prop:E  (0.310)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : Both standard ways of estimating this integral lie at or above the trivial bound |C(N)|\le\psi(N)\sim N : - (i) \|S_\Lambda\|_2\|S_\mu\|_2 = (\sum_ n\le N \Lambda(n)^2 )^ 1/2 (\sum_ m\le N \mu^2(m) )^ 1/2 \sim (6/\pi^2)^ 1/2 N(\log N)^ 1/2 , exceeding the trivial bound by a factor \asymp(\log N)^ 1/2 , which grows ; - (ii) any bound of the shape \sup_\alpha|S_\mu(\alpha)|\cdot\|S_\Lambda\|_1 is at least \|S_\mu\|_2\|S_\Lambda\|_1 \gg N^ 1/2 \cdot N^ 1/2 =N . The two factors in (ii) are bounded below for different reasons, and only the first is Parseval's. Parseval gives \sup_\alpha|S_\mu| \ge \|S_\mu\|_2 = (6N/\pi^2)^ 1/2 , an identity-level constraint: no improvement in Möbius exponential-sum technology can lower \sup_\alpha|S_\mu| below (6/\pi^2)^ 1/2 N^ 1/2 . For the second factor Parseval runs the wrong way : it gives \|S_\Lambda\|_1\le\|S_\Lambda\|_2 \ll (N\log N)^ 1/2 , an upper bound. The trivial lower bound \|S_\Lambda\|_1 \ge |\int_0^1 S_\Lambda(\alpha) e(-n\alpha) d\alpha | = \Lambda(n) reaches only \log N , short of N^ 1/2 by a full power. The bound \|S_\Lambda\|_1\gg N^ 1/2 that (ii) uses is a theorem of Vaughan [Vau88]. Davenport's uniform bound S_\mu(\alpha)\ll_A N(\log N)^ -A is therefore useless here: it is a saving over N , whereas the pairing needs a bound at the scale N^ 1/2 , which Parseval forbids. This is the parity obstruction in circle-method language - 
+
+  PROJECTION: Both standard ways of estimating this integral lie at or above the trivial bound |C(N)|\le\psi(N)\sim N : \item[(i)] \|S_\Lambda\|_2\|S_\mu\|_2 = (\sum_ n\le N \Lambda(n)^2 )^ 1/2 (\sum_ m\le N \mu^2(m) )^ 1/2 \sim(6/\pi^2)^ 1/2 N(\log N)^ 1/2 , exceeding the trivial bound by a factor \asymp(\log N)^ 1/2 , which grows ; \item[(ii)] any bound of the shape \sup_\alpha|S_\mu(\alpha)|\cdot\|S_\Lambda\|_1 is at least \|S_\mu\|_2\|S_\Lambda\|_1\gg N^ 1/2 \cdot N^ 1/2 =N .
+
+----------------------------------------------------------------------
+  lem:coin  (0.312)   Lemma -> lemma
+----------------------------------------------------------------------
+  SOURCE    : Let \varepsilon(v)=\pm1 be arbitrary signs on \ v : \mu(v)\neq0\ and zero elsewhere. Then \varepsilon^2 = \mu^2 pointwise, so V(N) is unchanged, and the field C_\varepsilon(N)=\sum_v\varepsilon(v)\Lambda(N-v) has the same exact second moment as C(N) for every N . Consequently any estimator whose output is reproduced when \mu is replaced by \varepsilon is not measuring \mu . What this licenses, and what it does not. The implication runs one way: reproduced under \varepsilon \Rightarrow not measuring \mu . Its converse does not follow and is not proved anywhere here, so a statistic that a coin ensemble fails to reach has not thereby been shown to measure \mu - it has been shown not to be killed by this particular control. Four measurements now say how large that distinction is. REF resolved an iid ensemble to 512 draws beside a random multiplicative one on the same statistic and found the iid spread 0.6455 of the multiplicative: a coin is narrower than the right null wherever the object is multiplicative , so significance read against one is larger than it should be. Because narrowness is conservative for killing, every claim this lemma has killed stays killed; it is the other direction that fails. REF counted the blocks in the affected direction - eleven contain a phrase claiming an escape, of which one is a false hit - and the three outside the C(N) branch have since been teste
+
+  PROJECTION: Let \varepsilon(v)=\pm1 be arbitrary signs on \ v:\mu(v)\neq0\ and zero elsewhere. Then \varepsilon^2=\mu^2 pointwise, so V(N) is unchanged, and the field C_\varepsilon(N)=\sum_v\varepsilon(v)\Lambda(N-v) has the same exact second moment as C(N) for every N . Consequently any estimator whose output is reproduced when \mu is replaced by \varepsilon is not measuring \mu .
+
+----------------------------------------------------------------------
+  prop:layers  (0.342)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : Cut the same double sum along the inner variable of REF instead. Exchanging the order in \sum_k\mu^2(k)(\log k)H(N;k)=\sum_k\mu^2(k)(\log k)\sum_ m<N/k,(m,k)=1 \Lambda(N-mk)\mu(m) , \sum_ k \mu^2(k)(\log k)H(N;k) = \sum_ m \mu(m) L(N;m), \qquad L(N;m) := \sum_ \substack k<N/m, (k,m)=1\ \mu(k)\neq0 (\log k) \Lambda(N-mk) . Every L(N;m) is nonnegative. With REF , the Goldbach count is therefore an alternating sum, signed by \mu , of nonnegative layers. 
+
+  PROJECTION: Cutting the same double sum along the inner variable of eq:dilate , \sum_ k \mu^2(k)(\log k)H(N;k) = \sum_ m \mu(m) L(N;m), \qquad L(N;m):= \sum_ \substack k<N/m, (k,m)=1\ \mu(k)\neq0 (\log k) \Lambda(N-mk), and every L(N;m) is nonnegative. With Proposition prop:untrunc , the Goldbach count is therefore an alternating sum, signed by \mu , of nonnegative layers.
+
+----------------------------------------------------------------------
+  prop:coh  (0.350)   Proposition -> observation
+----------------------------------------------------------------------
+  SOURCE    : The error bar of Lemma REF does not decay like n_c^ -1/2 . For fixed v , about n_c/\log N of the terms of u_c(v) are nonzero, each of size \log N/\sqrt V , so u_c(v)\approx n_c/\sqrt V and \frac Q_ cc n_c^2 \approx \frac \sum_v\mu^2(v) V \asymp \frac 1 \log N , independently of n_c ; and by the previous subsection the variance itself is a fixed fraction of this. So the standard error falls like (\log N)^ -1/2 . The heuristic is quantitatively loose - at N=1.6\cdot10^7 , Q_ cc /n_c^2 reads r|cccccc depth & 0 & 1 & 2 & 3 & 4 & 5\\\hline Q_ cc /n_c^2 & 0.123577 & 0.121208 & 0.146026 & 0.184159 & 0.235171 & 0.307074 against the heuristic's (\sum_ v<N \mu^2(v) )/V(N) = 0.049540 - so it is offered for the form and not the constant. Version 3 said the row "runs 0.124 to 0.307 "; the audit's rule C3 fails on the low end, because the row is not monotone in the depth and its minimum is 0.121208 at depth 1 , not 0.123577 at depth 0 . C3 also fails on the heuristic, which is 0.049540 and so rounds to 0.050 rather than to the printed 0.049 . The form is confirmed directly. Fitting \mathrm se \propto N^ -b to the exact floor across eight octaves gives b = 0.039451, 0.039671, 0.039388 at depths 2,1,0 - reproducing the printed 0.0395, 0.0397, 0.0394 - against the 0.5 that a count would give. The comparison constant is a different matter: version 3 put the apparent exponent at 1/(2\langle\log N
+
+  PROJECTION: The error bar of Lemma lem:cellmom does not decay like n_c^ -1/2 . For fixed v , about n_c/\log N of the terms of u_c(v) are nonzero, each of size \log N/\sqrt V , so u_c(v)\approx n_c/\sqrt V and \[ \frac Q_ cc n_c^2 \approx \frac \sum_v\mu^2(v) V \asymp \frac 1 \log N , \] independently of n_c ; and by Note note:threeterms the variance itself is a fixed fraction of this. So the standard error falls like (\log N)^ -1/2 .
+
+----------------------------------------------------------------------
+  lem:extract  (0.466)   Lemma -> lemma
+----------------------------------------------------------------------
+  SOURCE    : \displaystyle B_w=\sum_ \substack d<K\\(d,N)=1 b_d \frac \mu(d) \varphi(d) \rho_ dN (\frac K d ) , where \rho_ n (x)=\sum_ j<x, (j,n)=1 \mu(j)/\varphi(j) satisfies \rho_n(x)\ll e^ -c_1\sqrt \log x whenever \log n\ll\log x . 
+
+  PROJECTION: \[ B_w=\sum_ \substack d<K\\(d,N)=1 b_d \frac \mu(d) \varphi(d) \rho_ dN (\frac K d ), \qquad \rho_ n (x)= \sum_ j<x, (j,n)=1 \frac \mu(j) \varphi(j) , \] and \rho_n(x)\ll e^ -c_1\sqrt \log x whenever \log n\ll\log x .
+
+----------------------------------------------------------------------
+  prop:W  (0.518)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : Let \Gamma(N) = (\sum_ h\ne0 c(h) )/V(N) . Then \Gamma(N) \sim N/(A(N)\log N) , and consequently a hypothesis |S(h)|\le\varepsilon yields nothing better than |\rho-1| \le \varepsilon \Gamma(N) . Because c(h)\ge0 that inequality is sharp, so such a hypothesis can give \rho\to1 only for \varepsilon = o(1/\Gamma(N)) = o(\log N/N) ; and no bound of that strength is true, because the measured S already exceeds the budget - display REF below. Hence no bound on |S(h)| alone can give \rho\to1 . Measured with c as defined above - over primes, not prime powers - \Gamma = 1.5128\cdot10^ 3 , 1.8412\cdot10^ 4 , 3.5759\cdot10^ 5 at N=10^4, 1.6\cdot10^5, 4\cdot10^6 , with \Gamma\log N/N = 1.3933, 1.3789, 1.3590 against the predicted 1/A(N) = 1.270204 . The numerator needs no correlation: summing c(h) over all h\ne0 is exactly \theta(N)^2-\sum_ p<N (\log p)^2 .
+
+  PROJECTION: Let \Gamma(N)= (\sum_ h\ne0 c(h) )/V(N) with c as in eq:cdef and X=N . Then \[ \Gamma(N) \sim \frac N A(N)\log N , \] and consequently a hypothesis |S(h)|\le\varepsilon yields nothing better than |\rho-1|\le\varepsilon \Gamma(N) . Because c(h)\ge0 that inequality is sharp, so such a hypothesis can give \rho\to1 only for \varepsilon=o(1/\Gamma(N))=o(\log N/N) .
+
+----------------------------------------------------------------------
+  conj:L  (0.562)   Conjecture -> conjecture
+----------------------------------------------------------------------
+  SOURCE    : Each Möbius family probed in this program - prime-indexed dilate pairs C_ k,k' = \sum_ p\sim P \mu(N-pk)\mu(N-pk') , integer-indexed dilates and their pairs, and Möbius sums over thin progressions - factorizes as field = \mathbf M \times \mathbf G, where \mathbf M is the deterministic local mask, computed exactly by finite modular enumeration from the v_q -data of (N,k,k') , and \mathbf G is, on the surviving support, a fluctuation with no mean field and no class structure. The evidence is of two kinds and we separate them. The E1 arm is stated above and has been reproduced independently, and so, now, is the blind mask prediction - see REF , which also records what re-verifying it cost and what its grid could not show. The exact (v_2,v_3) cells were attempted next and the attempt did not reach them - REF records what it would take. The remaining two stamps - pair statistics and the Wishart pair spectrum - are recorded in the repository and have not been independently re-verified; they are cited here as the reason the conjecture is stated, not as measurements this paper vouches for.
+
+  PROJECTION: Each M\"obius family of the following kinds -- prime-indexed dilate pairs C_ k,k' =\sum_ p\sim P \mu(N-pk)\mu(N-pk') , integer-indexed dilates and their pairs, and M\"obius sums over thin progressions -- factorizes as \[ field = \mathbf M\times\mathbf G, \] where \mathbf M is the deterministic local mask, computed exactly by finite modular enumeration from the v_q -data of (N,k,k') , and \mathbf G is, on the surviving support, a fluctuation with no mean field and no class structure.
+
+----------------------------------------------------------------------
+  prop:coindisc  (0.610)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : An earlier version added that with one realisation of \mu such an estimator "may not be possible at all, and saying so would itself be a result". It is possible, on both counts: (i) Estimators that separate \mu from a coin are cheap, provided they read multiplicativity rather than variability. \mu(2v)=-\mu(v) for odd v is an exact identity, while \varepsilon(2v) and \varepsilon(v) are independent signs, so T(x) = \frac1x\sum_ v\le x \mu(v)\mu(2v) \longrightarrow -\frac 4 \pi^2 - minus the density of odd squarefree integers - while its coin analogue is O(x^ -1/2 ) . Measured, T(x) reads -0.405600, -0.405270, -0.405286, -0.405295 at x=10^4,10^5,10^6,2\cdot10^6 against -4/\pi^2=-0.405285 , while the worst of twenty coin draws on the same support is 0.020600, 0.004570, 0.001214, 0.000935 . At the top the separation is about 430 coin standard deviations. (ii) The field itself determines \mu . Writing M=N-2 and \widehat\Lambda(m)=\Lambda(m+2) , one has C(N)=(\widehat\Lambda \mu)(M) as an additive convolution with \widehat\Lambda(0)=\Lambda(2)=\log2\neq0 , so \widehat\Lambda is invertible and \mu(M)=\sum_ m<M a(m) C(M-m+2) for the inverse filter a . Lemma REF is therefore not an information-theoretic obstruction: two different sign patterns give two different fields.
+
+  PROJECTION: \item[(i)] Estimators separating \mu from a sign pattern exist and are cheap, provided they read multiplicativity rather than variability. Since \mu(2v)=-\mu(v) for odd v is an exact identity while \varepsilon(2v) and \varepsilon(v) are independent signs, \[ T(x) = \frac1x\sum_ v\le x \mu(v)\mu(2v) \longrightarrow -\frac 4 \pi^2 , \] minus the density of odd squarefree integers, while its analogue for independent signs is O(x^ -1/2 ) . \item[(ii)] The field determines \mu . Writing M=N-2 and \widehat\Lambda(m)=\Lambda(m+2) , one has C(N)=(\widehat\Lambda \mu)(M) as an additive convolution with \widehat\Lambda(0)=\Lambda(2)=\log2\neq0 , so \widehat\Lambda is invertible and \mu(M)=\sum_ m<M a(m) C(M-m+2) for the inverse filter a . Hence Lemma lem:coin is not an information-theoretic obstruction: two different sign patterns give two different fields.
+
+----------------------------------------------------------------------
+  prop:dilate  (0.673)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : Write A(N;k)=\sum_ n<N, n\equiv N (k) \Lambda(n)\mu(N-n) for the progression sum inside EMU(N;k) . Then, unconditionally, A(N;k) = \mu(k) H(N;k), \qquad H(N;k) = \sum_ \substack m<N/k\ (m,k)=1 \Lambda(N-mk) \mu(m). 
+
+  PROJECTION: Unconditionally, A(N;k) = \mu(k) H(N;k), \qquad H(N;k) = \sum_ \substack m<N/k\ (m,k)=1 \Lambda(N-mk) \mu(m).
+
+----------------------------------------------------------------------
+  prop:nolog  (0.721)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : Put B(N) := \sum_ \substack k<K\ (k,N)=1 (\log k) |EMU(N;k) | , the quantity Huang–Li reach by the triangle inequality before appealing to EH_\mu . Then binary Goldbach for all sufficiently large even N follows from B(N) \le (1-\varepsilon) S(N) (1-A(N) )N for a single fixed \varepsilon>0 . Since S(N)(1-A(N))\asymp1 for almost all even N , REF is a constant-factor bound on exactly the object EH_\mu bounds - absolute values kept, and no saving in \log N whatsoever - where EH_\mu(N^ \theta' ) asks for \ll_A N(\log N)^ -A for every A . 
+
+  PROJECTION: % Put B(N) := \sum_ \substack k<K\ (k,N)=1 \mu^2(k) (\log k) |EMU(N;k) |, the restriction to squarefree k being what the triangle inequality on eq:E3 leaves, since \mu(k)=0 elsewhere. This is sharper than the quantity actually reach before appealing to EH_\mu , namely \log N\sum_ k<K,(k,N)=1 |EMU(N;k)| , in which \log k has been raised to \log N ; the proposition below holds for either, and a fortiori for theirs. Then binary Goldbach for all sufficiently large even N follows from B(N) \le (1-\varepsilon) S(N) (1-A(N) )N for a single fixed \varepsilon>0 . Since S(N)(1-A(N))\asymp1 for almost all even N , eq:nolog is a constant-factor bound on exactly the object EH_\mu bounds -- absolute values kept, and no saving in \log N whatsoever -- where EH_\mu(N^ \theta' ) asks for \ll_A N(\log N)^ -A for every A .
+
+----------------------------------------------------------------------
+  prop:movingcut  (0.738)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : Fix \theta'\in(1/2,1) , put \alpha=N^ 1-\theta' and K=(N-1)/\alpha , and let Y_k=\lceil N-\alpha k\rceil-1 . Then for every A>0 , T_1^\ast := \sum_ \substack k<K\\(k,N)=1 \mu(k) EMU(Y_k;k) \ll_ A,\theta' \frac N (\log N)^ A , unconditionally. 
+
+  PROJECTION: % Fix \theta'\in(1/2,1) , put \alpha=N^ 1-\theta' and K=(N-1)/\alpha . Then for every A>0 , T_1^\ast\ll_ A,\theta' N(\log N)^ -A , unconditionally.
+
+----------------------------------------------------------------------
+  prop:Dpp  (0.743)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : Let w_k = f(\log k) with f=\sum_ j\le D c_jx^j real. - (i) If D=0 then B_w \ll e^ -c\sqrt \log K (Huang–Li's Lemma 1): no extraction. - (ii) If f is a single monomial x^D , D\ge1 , then every term of \mathrm CP _D is nonnegative, since \Lambda\ge0 and \Lambda_D\ge0 ; by classical sieve bounds \mathrm CP _D \asymp N(\log N)^ D-1 , with a fixed sign. It is never o(N) . - (iii) Cancellation therefore requires coefficients of opposite sign, i.e. tuning c_1 against c_2,\dots ; but the ratio that would have to be matched involves the asymptotics of the r=1 piece, which for D=1 is the binary Goldbach sum. The tuning is circular. Consequently no polynomial weight makes the complete part a classically known object.
+
+  PROJECTION: Let w_k=f(\log k) with f=\sum_ j\le D c_jx^j real. \item[(i)] If D=0 then B_w\ll e^ -c\sqrt \log K (Huang-Li's Lemma 1): no extraction. \item[(ii)] If f is a single monomial x^D , D\ge1 , then every term of \mathrm CP _D is nonnegative, since \Lambda\ge0 and \Lambda_D\ge0 ; so \mathrm CP _D\ge0 and no cancellation is available inside it . Classical sieve upper bounds give \mathrm CP _D\ll N(\log N)^ D-1 . A matching lower bound is not available: at D=1 the sum is exactly the binary Goldbach sum \sum_ p<N \Lambda(N-p)\log p , whose order is the assertion to be proved. So \mathrm CP _D is not known to be o(N) , and at D=1 deciding whether it is would settle Goldbach. \item[(iii)] Cancellation therefore requires coefficients of opposite sign, i.e. tuning c_1 against c_2,\dots ; but the ratio that would have to be matched involves the asymptotics of the r=1 piece, which for D=1 is the binary Goldbach sum. The tuning is circular. Consequently no polynomial weight makes the complete part a classically known object.
+
+----------------------------------------------------------------------
+  thm:D  (0.817)   Theorem -> theorem
+----------------------------------------------------------------------
+  SOURCE    : Fix \theta'\in(1/2,1) and \delta>0 , and let w be any weight whose transform b=\mu w is supported in [1, N^ \theta'-1/2-\delta ] - the range in which the residual is accessible to Bombieri–Vinogradov. Then \frac \|b\|_1 |B_w| \gg \exp (c_1\sqrt (\tfrac12+\delta)\log N ), and consequently, even granted T_w \ll_A N(\log N)^ -A for every A>0 - what Theorem REF supplies unconditionally at w=1 , and the most EH_\mu would supply for a general w (see REF ) - REF yields at best |C(N)| \ll_A \exp (c_1\sqrt \tfrac12\log N ) \cdot \frac N (\log N)^ A , which is not a saving of any power of \log N . No weight in the design space extracts C(N) by divisor switching plus Bombieri–Vinogradov.
+
+  PROJECTION: Fix \theta'\in(1/2,1) and \delta>0 , and let w be any weight whose transform b=\mu w is supported in [1, N^ \theta'-1/2-\delta ] -- the range in which the residual is accessible to Bombieri-Vinogradov. Then \frac \|b\|_1 |B_w| \gg \exp (c_1\sqrt (\tfrac12+\delta)\log N ). Consequently, even granted T_w\ll_A N(\log N)^ -A for every A>0 -- which is what supplies unconditionally at w=1 , and the most that EH_\mu would supply for a general w -- identity eq:extract yields at best \[ |C(N)| \ll_A \exp (c_1\sqrt \tfrac12\log N ) \cdot\frac N (\log N)^ A , \] which is not a saving of any power of \log N . No weight in the design space extracts C(N) by divisor switching, not even when the hard input is given for free.
+
+----------------------------------------------------------------------
+  lem:MP  (0.817)   Lemma -> lemma
+----------------------------------------------------------------------
+  SOURCE    : Fix X and let \widehat C(N) = \sum_ \substack n+v=N\ n\le X, v\le X \Lambda(n) \mu(v) be the truncated convolution, whose support runs to 2X . Then \sum_ N\le 2X \widehat C(N)^2 = \sum_ |h|<X M(h) P(h), \qquad M(h) = \sum_ v, v+h\le X \mu(v)\mu(v+h), \quad P(h) = \sum_ w, w+h\le X \Lambda(w)\Lambda(w+h). 
+
+  PROJECTION: Fix X and let \[ \widehat C(N) = \sum_ \substack n+v=N\ n\le X, v\le X \Lambda(n) \mu(v) \] be the truncated convolution, whose support runs to 2X . Then \[ \sum_ N\le2X \widehat C(N)^2 = \sum_ |h|<X M(h) P(h), \] where \[ M(h)=\sum_ v, v+h\le X \mu(v)\mu(v+h), \qquad P(h)=\sum_ w, w+h\le X \Lambda(w)\Lambda(w+h). \]
+
+----------------------------------------------------------------------
+  prop:V  (0.824)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : Let V(N) = \sum_ v<N \mu^2(v) \Lambda(N-v)^2, \qquad W(N) = \sum_ w<N \Lambda(w)^2, and let A(N) = \prod_ q \nmid N (1-\frac 1 q(q-1) ). Then V(N) = W(N) A(N) (1+o(1)) , and consequently V(N) \sim A(N) N\log N . 
+
+  PROJECTION: Let \[ V(N)=\sum_ v<N \mu^2(v) \Lambda(N-v)^2, \qquad W(N)=\sum_ w<N \Lambda(w)^2 . \] Then V(N)=W(N) A(N) (1+o(1)) , and consequently V(N)\simA(N) N\log N .
+
+----------------------------------------------------------------------
+  prop:direct  (0.852)   Proposition -> proposition
+----------------------------------------------------------------------
+  SOURCE    : Substitute Proposition REF , E_3=\sum_ k<K \mu^2(k)(\log k)H(N;k)-C(N)B_ \log (K) , into the identity of Theorem REF . The two occurrences of C(N) carry opposite signs and cancel: \tilde r(N) = S(N)N + \sum_ \substack k<K\\(k,N)=1 \mu^2(k)(\log k)H(N;k) - C(N) (B_ \log (K)+S(N) ) + O_A (\frac N (\log N)^ A ). Since B_ \log (K)\to-S(N) , the wall enters the Goldbach count only through the vanishing factor B_ \log (K)+S(N) . Consequently \sum_ \substack k<K\\(k,N)=1 \mu^2(k)(\log k) |H(N;k) | \le (1-\varepsilon) S(N) N suffices for \tilde r(N)>0 , for all large even N . 
+
+  PROJECTION: % Substituting eq:posweights into the identity of , the two occurrences of C(N) carry opposite signs and cancel: \tilde r(N) = S(N)N + \sum_ \substack k<K\\(k,N)=1 \mu^2(k)(\log k)H(N;k) - C(N) (B_ \log (K)+S(N) ) + O_A (\frac N (\log N)^ A ). Since B_ \log (K)\to-S(N) , the quantity C(N) enters the Goldbach count only through the vanishing factor B_ \log (K)+S(N) . Consequently \sum_ \substack k<K\\(k,N)=1 \mu^2(k)(\log k) |H(N;k) | \le (1-\varepsilon) S(N) N suffices for \tilde r(N)>0 , for all large even N .
+
+----------------------------------------------------------------------
+  cor:B  (0.865)   Corollary -> corollary
+----------------------------------------------------------------------
+  SOURCE    : In the Corollary-1 regime, E_4(\alpha)\ll_A N(\log N)^ -A for every A>0 , unconditionally. Consequently Huang–Li's estimate S_4(\alpha)=O(N(\log N)^ -A ) requires no hypothesis, their Lemma 4 is not needed, and the entire EH_\mu demand of their argument collapses to the single scalar E_3(\alpha) (together with the term \Delta of Section REF where the published form of (18) is used; it is likewise unconditional here, and on the corrected form it is absent).
+
+  PROJECTION: In the Corollary-1 regime, E_4(\alpha)\ll_A N(\log N)^ -A for every A>0 , unconditionally. Consequently Huang-Li's estimate S_4(\alpha)=O(N(\log N)^ -A ) requires no hypothesis, their Lemma 4 is not needed, and the entire EH_\mu demand of their argument collapses to the single scalar E_3(\alpha) -- together with the term \Delta of Section sec:delta where the published form of (18) is used, which is likewise unconditional there, and which does not arise on the corrected form.

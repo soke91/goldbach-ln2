@@ -1,0 +1,38 @@
+STATISTIC: counts of numbered environments on each side, by kind
+FIELD:     v2/paper/*.md (source) and deploy/papers/*.tex (projection)
+CONSTANTS: none
+NULL:      n/a -- this is an inventory, not a test
+DENOM:     every heading matching the kind regex in each file
+
+SOURCE by kind:
+   Conjecture     1
+   Corollary      1
+   Lemma          13
+   Proposition    19
+   Remark         251
+   Theorem        4
+   TOTAL          289
+
+SOURCE remarks per file:
+   theorem_A.md             109
+   wall_v3.md               142
+
+PROJECTION by env:
+   conjecture     1
+   corollary      1
+   lemma          13
+   measurement    18
+   note           21
+   observation    1
+   proposition    18
+   theorem        4
+   TOTAL          77
+
+PROJECTION per file:
+   P1-mobius-fixed-class.tex        20
+   P2-no-go-divisor-switch.tex      26
+   P3-wall-second-moment.tex        12
+   P4-coherent-cell-floor.tex       13
+   P5-negative-map.tex              6
+
+source anchors {#...}: 297   projection \label{}: 141

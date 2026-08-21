@@ -1,0 +1,11729 @@
+[
+ {
+  "key": "(none)",
+  "file": "theorem_A.md",
+  "line": 175,
+  "title": "",
+  "cls": "S",
+  "h": [],
+  "s": [
+   "does not",
+   "is not"
+  ],
+  "m": [],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": null,
+  "len": 631
+ },
+ {
+  "key": "rem:threeway",
+  "file": "theorem_A.md",
+  "line": 221,
+  "title": "three statements, not two",
+  "cls": "HS",
+  "h": [
+   "an earlier version",
+   "earlier version"
+  ],
+  "s": [
+   "closed",
+   "does not",
+   "is not"
+  ],
+  "m": [],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": "note:threeway",
+  "len": 1500
+ },
+ {
+  "key": "rem:onesided",
+  "file": "theorem_A.md",
+  "line": 294,
+  "title": "what this does and does not open",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "version 3"
+  ],
+  "s": [
+   "does not",
+   "is not"
+  ],
+  "m": [
+   "factor \\$",
+   "measured",
+   "median",
+   "octave",
+   "percentile",
+   "standard deviation"
+  ],
+  "nums": [
+   "0.000170",
+   "0.060890",
+   "0.119639",
+   "0.333459",
+   "0.810202",
+   "0.999996",
+   "1.737799",
+   "2.482019",
+   "3.7038",
+   "4.2902",
+   "95.0889"
+  ],
+  "in_tex": [
+   "0.000170",
+   "0.060890",
+   "0.119639",
+   "0.333459",
+   "0.810202",
+   "0.999996",
+   "1.737799",
+   "2.482019",
+   "3.7038",
+   "4.2902",
+   "95.0889"
+  ],
+  "in_res": [
+   "0.000170",
+   "0.060890",
+   "0.119639",
+   "0.333459",
+   "0.810202",
+   "0.999996",
+   "1.737799",
+   "2.482019",
+   "3.7038",
+   "4.2902",
+   "95.0889"
+  ],
+  "evidence": "lab_onesided_margin.py",
+  "proj": "prop:onesided",
+  "len": 2235
+ },
+ {
+  "key": "rem:relocate",
+  "file": "theorem_A.md",
+  "line": 377,
+  "title": "what the weakening relocates",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "does not grow",
+   "is not",
+   "is not the",
+   "not thereby"
+  ],
+  "m": [
+   "factor \\$",
+   "measured",
+   "ratio",
+   "reads"
+  ],
+  "nums": [
+   "0.2073",
+   "0.2608",
+   "0.3172",
+   "0.35041",
+   "0.3745",
+   "0.3837",
+   "0.39839",
+   "0.43431",
+   "0.4377",
+   "0.51889",
+   "0.54132",
+   "0.5916",
+   "0.6547",
+   "0.7303",
+   "0.7395",
+   "0.8086",
+   "1.580",
+   "1.748",
+   "1.950",
+   "1.975",
+   "2.159"
+  ],
+  "in_tex": [
+   "0.3745",
+   "0.5916",
+   "0.6547",
+   "0.7303",
+   "0.7395",
+   "0.8086",
+   "1.580",
+   "1.748",
+   "1.950",
+   "1.975",
+   "2.159"
+  ],
+  "in_res": [
+   "0.2073",
+   "0.2608",
+   "0.3172",
+   "0.35041",
+   "0.3745",
+   "0.3837",
+   "0.39839",
+   "0.43431",
+   "0.4377",
+   "0.51889",
+   "0.54132",
+   "0.5916",
+   "0.6547",
+   "0.7303",
+   "0.7395",
+   "0.8086",
+   "1.580",
+   "1.748",
+   "1.950",
+   "1.975",
+   "2.159"
+  ],
+  "evidence": "lab_onesided_demand.py",
+  "proj": "meas:relocate",
+  "len": 2420
+ },
+ {
+  "key": "rem:threshfam",
+  "file": "theorem_A.md",
+  "line": 423,
+  "title": "the threshold is not a constant, and the sweep held it fixed",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "does not survive",
+   "is not",
+   "is not the",
+   "measurement and not",
+   "survives"
+  ],
+  "m": [
+   "factor \\$",
+   "measured",
+   "median"
+  ],
+  "nums": [
+   "0.0012",
+   "0.0208",
+   "0.073312",
+   "0.1289",
+   "0.270682",
+   "0.374487",
+   "0.3745",
+   "2.7763",
+   "5.3505"
+  ],
+  "in_tex": [
+   "0.0012",
+   "0.3745"
+  ],
+  "in_res": [
+   "0.0012",
+   "0.073312",
+   "0.374487",
+   "0.3745"
+  ],
+  "evidence": "audit_threshold_arithmetic.py",
+  "proj": null,
+  "len": 2660
+ },
+ {
+  "key": "rem:directmargin",
+  "file": "theorem_A.md",
+  "line": 508,
+  "title": "what the cancellation buys",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "cannot",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "correlation",
+   "factor \\$",
+   "measured",
+   "median",
+   "null",
+   "ratio",
+   "reads"
+  ],
+  "nums": [
+   "0.0157",
+   "0.0383",
+   "0.0860",
+   "0.2076",
+   "0.2462",
+   "0.2596",
+   "0.2794",
+   "0.3110",
+   "0.3124",
+   "0.3338",
+   "0.3732",
+   "0.3769",
+   "0.3970",
+   "0.4064",
+   "0.4073",
+   "0.4079",
+   "0.4559",
+   "0.4578",
+   "0.4716",
+   "0.4920",
+   "0.9409",
+   "0.9559",
+   "0.9853",
+   "0.99930",
+   "1.0124",
+   "1.0373",
+   "1.5798",
+   "1.6290",
+   "1.7080",
+   "1.7483",
+   "1.9500",
+   "1.9747",
+   "2.1591",
+   "2.3920",
+   "28.2303",
+   "3.315",
+   "37.8696",
+   "5.6100"
+  ],
+  "in_tex": [
+   "0.0383",
+   "0.2794",
+   "0.3338",
+   "0.3769",
+   "0.4064",
+   "0.4079",
+   "0.4578",
+   "0.99930",
+   "1.5798",
+   "1.7483",
+   "1.9500",
+   "1.9747",
+   "2.1591",
+   "3.315"
+  ],
+  "in_res": [
+   "0.0157",
+   "0.0383",
+   "0.0860",
+   "0.2076",
+   "0.2462",
+   "0.2596",
+   "0.2794",
+   "0.3110",
+   "0.3124",
+   "0.3338",
+   "0.3732",
+   "0.3769",
+   "0.3970",
+   "0.4064",
+   "0.4073",
+   "0.4079",
+   "0.4559",
+   "0.4578",
+   "0.4716",
+   "0.4920",
+   "0.9409",
+   "0.9559",
+   "0.9853",
+   "0.99930",
+   "1.0124",
+   "1.0373",
+   "1.5798",
+   "1.6290",
+   "1.7080",
+   "1.7483",
+   "1.9500",
+   "1.9747",
+   "2.1591",
+   "2.3920",
+   "28.2303",
+   "3.315",
+   "37.8696",
+   "5.6100"
+  ],
+  "evidence": "lab_direct_route.py",
+  "proj": "",
+  "len": 3142
+ },
+ {
+  "key": "rem:directlevel",
+  "file": "theorem_A.md",
+  "line": 567,
+  "title": "where the direct condition's level actually sits",
+  "cls": "HSM",
+  "h": [
+   "this program reported",
+   "withdraw"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "correlation",
+   "fitted",
+   "measured",
+   "null",
+   "reads"
+  ],
+  "nums": [
+   "0.0218",
+   "0.0872",
+   "0.7361",
+   "0.99954",
+   "10.7177",
+   "11.5448",
+   "13.0793",
+   "22.7246",
+   "6.6478",
+   "8.0780",
+   "8.9678"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "lab_direct_level.py",
+  "proj": null,
+  "len": 2922
+ },
+ {
+  "key": "rem:whereitlives",
+  "file": "theorem_A.md",
+  "line": 649,
+  "title": "where the count actually lives",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "cannot",
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "and",
+   "ratio",
+   "reads"
+  ],
+  "nums": [
+   "0.0000",
+   "0.8034",
+   "0.9146",
+   "0.9865",
+   "0.9893",
+   "0.9968",
+   "1.0017",
+   "1.0039",
+   "2.4564",
+   "2.6529",
+   "3.136",
+   "3.2078",
+   "3.2932",
+   "4.3412",
+   "4.6951",
+   "5.0055",
+   "5.3075",
+   "5.6291"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0000",
+   "0.8034",
+   "0.9146",
+   "0.9865",
+   "0.9893",
+   "0.9968",
+   "1.0017",
+   "1.0039",
+   "2.4564",
+   "2.6529",
+   "3.136",
+   "3.2078",
+   "3.2932",
+   "4.3412",
+   "4.6951",
+   "5.0055",
+   "5.3075",
+   "5.6291"
+  ],
+  "evidence": "lab_direct_identity.py",
+  "proj": null,
+  "len": 2083
+ },
+ {
+  "key": "rem:layerdecay",
+  "file": "theorem_A.md",
+  "line": 717,
+  "title": "what the layers weigh",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "cannot",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "factor \\$",
+   "measured",
+   "null",
+   "ratio"
+  ],
+  "nums": [
+   "0.999986",
+   "0.999999",
+   "1.5163",
+   "1.6143",
+   "1.6593",
+   "1.7090",
+   "1.7366",
+   "1.7416",
+   "1.7634",
+   "1.7673",
+   "1.8609",
+   "10.4611",
+   "2.641",
+   "4.4112",
+   "4.6742",
+   "5.0139",
+   "5.348",
+   "5.9423",
+   "7.0547",
+   "7.198",
+   "8.8266"
+  ],
+  "in_tex": [
+   "0.999999"
+  ],
+  "in_res": [
+   "0.999986",
+   "0.999999",
+   "1.5163",
+   "1.6143",
+   "1.6593",
+   "1.7090",
+   "1.7366",
+   "1.7416",
+   "1.7634",
+   "1.7673",
+   "1.8609",
+   "10.4611",
+   "2.641",
+   "4.4112",
+   "4.6742",
+   "5.0139",
+   "5.348",
+   "5.9423",
+   "7.0547",
+   "7.198",
+   "8.8266"
+  ],
+  "evidence": "lab_layer_decomposition.py",
+  "proj": null,
+  "len": 2332
+ },
+ {
+  "key": "rem:layertail",
+  "file": "theorem_A.md",
+  "line": 759,
+  "title": "the truncation in $m$ is cheap, and where the barrier goes",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "withdraw"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "and",
+   "correlation",
+   "draws",
+   "factor \\$",
+   "fitted",
+   "measured",
+   "reads"
+  ],
+  "nums": [
+   "0.0001",
+   "0.0015",
+   "0.0020",
+   "0.0047",
+   "0.0067",
+   "0.0240",
+   "0.0398",
+   "0.0660",
+   "0.4088",
+   "1.0484",
+   "1.4227",
+   "1.4299",
+   "1.4319",
+   "1.4340",
+   "1.4885",
+   "1.7690",
+   "1.7730",
+   "1.7819",
+   "1.7882",
+   "10.4611",
+   "18.4789",
+   "2.5168",
+   "2.5388",
+   "2.5479",
+   "2.5644",
+   "3.5477",
+   "3.9771",
+   "6.0127",
+   "7.2404",
+   "8.1840"
+  ],
+  "in_tex": [
+   "0.0001"
+  ],
+  "in_res": [
+   "0.0001",
+   "0.0020",
+   "10.4611"
+  ],
+  "evidence": "lab_layer_tail.py",
+  "proj": null,
+  "len": 3574
+ },
+ {
+  "key": "rem:combmod",
+  "file": "theorem_A.md",
+  "line": 853,
+  "title": "the modulus the demand really needs",
+  "cls": "HSM",
+  "h": [
+   "an earlier version",
+   "earlier version",
+   "pre-registered",
+   "withdraw"
+  ],
+  "s": [
+   "is not"
+  ],
+  "m": [
+   "draws",
+   "fitted",
+   "measured",
+   "ratio",
+   "reads"
+  ],
+  "nums": [
+   "0.00000",
+   "0.0038",
+   "0.01058",
+   "0.01496",
+   "0.0733",
+   "0.0825",
+   "0.22560",
+   "0.6716",
+   "0.6904",
+   "0.7250",
+   "317.5686",
+   "358.0213",
+   "4.525",
+   "465.8059",
+   "539.5509"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.00000",
+   "0.0038",
+   "0.01058",
+   "0.01496",
+   "0.0733",
+   "0.0825",
+   "0.22560",
+   "0.6904",
+   "317.5686",
+   "358.0213",
+   "4.525",
+   "465.8059",
+   "539.5509"
+  ],
+  "evidence": "lab_combined_modulus.py",
+  "proj": null,
+  "len": 2638
+ },
+ {
+  "key": "rem:levelaudit",
+  "file": "theorem_A.md",
+  "line": 907,
+  "title": "the withdrawn level measurement, re-examined",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "does not grow",
+   "survives"
+  ],
+  "m": [
+   "null",
+   "reads"
+  ],
+  "nums": [
+   "0.00931",
+   "0.0430",
+   "0.0545",
+   "0.0609",
+   "0.0771",
+   "0.1217",
+   "0.1632",
+   "0.6753",
+   "0.6813",
+   "0.7057",
+   "0.7258",
+   "0.7299",
+   "0.8369",
+   "0.9509",
+   "0.99298",
+   "0.99937",
+   "1.1258",
+   "1.1459",
+   "1.3033",
+   "1.3120"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.1632"
+  ],
+  "evidence": "audit_levelmeas_budget.py",
+  "proj": null,
+  "len": 2685
+ },
+ {
+  "key": "rem:allswept",
+  "file": "theorem_A.md",
+  "line": 962,
+  "title": "every exponent, swept",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "is not"
+  ],
+  "m": [
+   "fitted",
+   "measured"
+  ],
+  "nums": [
+   "0.0058",
+   "0.0084",
+   "0.0094",
+   "0.0100",
+   "0.0143",
+   "0.0173",
+   "0.0208",
+   "0.0441",
+   "0.1055"
+  ],
+  "in_tex": [
+   "0.0084"
+  ],
+  "in_res": [
+   "0.0058",
+   "0.0084",
+   "0.0094",
+   "0.0100",
+   "0.0173",
+   "0.1055"
+  ],
+  "evidence": "",
+  "proj": "meas:scaleinv",
+  "len": 1482
+ },
+ {
+  "key": "rem:budget",
+  "file": "theorem_A.md",
+  "line": 1001,
+  "title": "the surviving exponent, audited",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "survives"
+  ],
+  "m": [
+   "fitted",
+   "reads"
+  ],
+  "nums": [
+   "0.00931",
+   "0.0429",
+   "0.3341",
+   "0.3772",
+   "0.4079",
+   "0.4081",
+   "0.4601",
+   "0.6932",
+   "0.7126",
+   "0.7133",
+   "0.7257",
+   "0.7361",
+   "0.99733",
+   "0.99969",
+   "1.2953",
+   "1.3033",
+   "1.3452",
+   "1.3566",
+   "1.3703",
+   "1.3754",
+   "2.1013",
+   "93.0646"
+  ],
+  "in_tex": [
+   "0.4079"
+  ],
+  "in_res": [
+   "0.4079"
+  ],
+  "evidence": "audit_directlevel_budget.py",
+  "proj": "meas:budget",
+  "len": 1692
+ },
+ {
+  "key": "rem:tolerance",
+  "file": "theorem_A.md",
+  "line": 1037,
+  "title": "the exponents were the tolerance, not the count",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "does not"
+  ],
+  "m": [
+   "fitted",
+   "reads",
+   "slope"
+  ],
+  "nums": [
+   "0.0022",
+   "0.003",
+   "0.00931",
+   "0.01172",
+   "0.01247",
+   "0.01444",
+   "0.01890",
+   "0.01953",
+   "0.02081",
+   "0.02104",
+   "0.02248",
+   "0.03318",
+   "0.0358",
+   "0.04266",
+   "0.06288",
+   "0.08131",
+   "0.1086",
+   "0.11679",
+   "0.13028",
+   "0.16424",
+   "0.16745",
+   "0.2238",
+   "0.2658",
+   "0.2922",
+   "0.42134",
+   "0.4303",
+   "0.54921",
+   "0.56215",
+   "0.6904",
+   "0.8094",
+   "0.8116",
+   "0.8730",
+   "0.96357",
+   "0.98006",
+   "0.99066",
+   "0.99474",
+   "1.3033"
+  ],
+  "in_tex": [
+   "0.003",
+   "0.2658"
+  ],
+  "in_res": [
+   "0.003",
+   "0.0358",
+   "0.2658",
+   "0.6904",
+   "0.96357"
+  ],
+  "evidence": "audit_truncation_exponent.py",
+  "proj": null,
+  "len": 2458
+ },
+ {
+  "key": "rem:signedlevel",
+  "file": "theorem_A.md",
+  "line": 1086,
+  "title": "what the signs across $k$ are worth",
+  "cls": "HSM",
+  "h": [
+   "the error was"
+  ],
+  "s": [
+   "is not"
+  ],
+  "m": [
+   "draws",
+   "factor \\$",
+   "measured",
+   "ratio"
+  ],
+  "nums": [
+   "0.053",
+   "0.1677",
+   "0.2887",
+   "0.2918",
+   "0.6552",
+   "0.6716",
+   "0.7030",
+   "0.7250",
+   "1.793",
+   "2.223",
+   "3.3348"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "lab_signed_level.py",
+  "proj": null,
+  "len": 2704
+ },
+ {
+  "key": "rem:levelmeas",
+  "file": "theorem_A.md",
+  "line": 1137,
+  "title": "a level measurement, and its withdrawal",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "was wrong",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "draws",
+   "measured",
+   "null",
+   "ratio",
+   "reads"
+  ],
+  "nums": [
+   "0.4978",
+   "0.4982",
+   "0.5053",
+   "0.5056",
+   "0.5082",
+   "0.6534",
+   "0.7057",
+   "0.7133",
+   "0.8491",
+   "0.8575",
+   "1.0696",
+   "1.2964"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "lab_level_coin_null.py",
+  "proj": null,
+  "len": 3447
+ },
+ {
+  "key": "rem:trap",
+  "file": "theorem_A.md",
+  "line": 1468,
+  "title": "the false-positive trap",
+  "cls": "S",
+  "h": [],
+  "s": [
+   "is not"
+  ],
+  "m": [],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": "note:trap",
+  "len": 720
+ },
+ {
+  "key": "rem:loadbearing",
+  "file": "theorem_A.md",
+  "line": 1577,
+  "title": "the load-bearing line",
+  "cls": "S",
+  "h": [],
+  "s": [
+   "only"
+  ],
+  "m": [],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": "note:trunc",
+  "len": 524
+ },
+ {
+  "key": "rem:bound",
+  "file": "theorem_A.md",
+  "line": 1683,
+  "title": "",
+  "cls": "HS",
+  "h": [
+   "an earlier version",
+   "earlier version"
+  ],
+  "s": [
+   "is not"
+  ],
+  "m": [],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": null,
+  "len": 364
+ },
+ {
+  "key": "rem:movingswitch",
+  "file": "theorem_A.md",
+  "line": 1813,
+  "title": "the cut has since moved, and the switch survives the move",
+  "cls": "HSM",
+  "h": [
+   "superseded"
+  ],
+  "s": [
+   "does not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "reads"
+  ],
+  "nums": [
+   "0.000015",
+   "0.000026",
+   "0.000045",
+   "0.000059",
+   "0.000461"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.000015"
+  ],
+  "evidence": "audit_moving_switch.py",
+  "proj": null,
+  "len": 4029
+ },
+ {
+  "key": "rem:cutbridge",
+  "file": "theorem_A.md",
+  "line": 1907,
+  "title": "the two cuts are a $\\Delta$ apart",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "superseded"
+  ],
+  "s": [
+   "closed",
+   "does not",
+   "is free",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "reads"
+  ],
+  "nums": [
+   "0.022678",
+   "0.028801",
+   "0.029335",
+   "0.036230",
+   "0.038048",
+   "0.048288",
+   "0.048305",
+   "0.055582",
+   "0.055661",
+   "0.062218",
+   "0.078425",
+   "0.078491",
+   "0.1054",
+   "0.1707",
+   "0.2126",
+   "0.2200",
+   "0.2290",
+   "0.2496",
+   "0.2910",
+   "1.0000",
+   "2.274",
+   "4.547"
+  ],
+  "in_tex": [
+   "1.0000",
+   "2.274",
+   "4.547"
+  ],
+  "in_res": [
+   "0.022678",
+   "0.028801",
+   "0.029335",
+   "0.036230",
+   "0.038048",
+   "0.048288",
+   "0.055582",
+   "0.055661",
+   "0.062218",
+   "0.078425",
+   "1.0000",
+   "2.274",
+   "4.547"
+  ],
+  "evidence": "audit_delta_bridge.py",
+  "proj": "meas:poly",
+  "len": 5008
+ },
+ {
+  "key": "rem:movingcutscope",
+  "file": "theorem_A.md",
+  "line": 2097,
+  "title": "what the proposition does not cover",
+  "cls": "S",
+  "h": [],
+  "s": [
+   "is not",
+   "no longer",
+   "only"
+  ],
+  "m": [],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": "",
+  "len": 666
+ },
+ {
+  "key": "rem:sign",
+  "file": "theorem_A.md",
+  "line": 2179,
+  "title": "the sign, and why it is the whole identity",
+  "cls": "HSM",
+  "h": [
+   "version 3"
+  ],
+  "s": [
+   "is not"
+  ],
+  "m": [
+   "measured"
+  ],
+  "nums": [
+   "1.760250",
+   "1.760432"
+  ],
+  "in_tex": [
+   "1.760250",
+   "1.760432"
+  ],
+  "in_res": [
+   "1.760250",
+   "1.760432"
+  ],
+  "evidence": "audit_E3_constant.py",
+  "proj": null,
+  "len": 936
+ },
+ {
+  "key": "rem:thetasweep",
+  "file": "theorem_A.md",
+  "line": 2199,
+  "title": "the identity cannot be tested numerically, at any $N$",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "closed",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "ratio",
+   "reads"
+  ],
+  "nums": [
+   "0.170167",
+   "0.3108",
+   "0.311",
+   "0.3729",
+   "0.373",
+   "0.4558",
+   "0.456",
+   "0.586",
+   "0.598",
+   "0.723",
+   "0.856",
+   "4.991178"
+  ],
+  "in_tex": [
+   "0.170167",
+   "0.3108",
+   "0.3729",
+   "0.4558",
+   "4.991178"
+  ],
+  "in_res": [
+   "0.170167",
+   "0.3108",
+   "0.311",
+   "0.3729",
+   "0.373",
+   "0.4558",
+   "0.456",
+   "0.586",
+   "0.598",
+   "0.723",
+   "0.856",
+   "4.991178"
+  ],
+  "evidence": "lab_theta_sweep.py",
+  "proj": "note:thetasweep",
+  "len": 3095
+ },
+ {
+  "key": "(none)",
+  "file": "theorem_A.md",
+  "line": 2271,
+  "title": "",
+  "cls": "S",
+  "h": [],
+  "s": [
+   "does not"
+  ],
+  "m": [],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": null,
+  "len": 441
+ },
+ {
+  "key": "rem:extractTw",
+  "file": "theorem_A.md",
+  "line": 2324,
+  "title": "the third term is not a remainder, and it was missing",
+  "cls": "S",
+  "h": [],
+  "s": [
+   "only"
+  ],
+  "m": [],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "analytic",
+  "proj": "note:Tw",
+  "len": 1311
+ },
+ {
+  "key": "rem:identitynull",
+  "file": "theorem_A.md",
+  "line": 2441,
+  "title": "the last declined null, rule by rule",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "the control was owed"
+  ],
+  "s": [
+   "is not"
+  ],
+  "m": [
+   "draws",
+   "measured"
+  ],
+  "nums": [
+   "0.9865",
+   "0.9893",
+   "0.9968",
+   "1.0017",
+   "1.0039",
+   "2.1498",
+   "2.4747",
+   "3.136",
+   "3.294",
+   "4.3412",
+   "4.6951",
+   "4.9641",
+   "4.9835",
+   "5.0055",
+   "5.3075",
+   "5.6291",
+   "6.2827",
+   "6.3027"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.9865",
+   "0.9893",
+   "0.9968",
+   "1.0017",
+   "1.0039",
+   "3.136",
+   "3.294",
+   "4.3412",
+   "4.6951",
+   "5.0055",
+   "5.3075",
+   "5.6291"
+  ],
+  "evidence": "audit_directidentity_null.py",
+  "proj": null,
+  "len": 2172
+ },
+ {
+  "key": "rem:weightgapnull",
+  "file": "theorem_A.md",
+  "line": 2485,
+  "title": "the declined null, run",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "and",
+   "draws",
+   "ratio"
+  ],
+  "nums": [
+   "0.0000",
+   "0.0285",
+   "0.0422",
+   "0.0631",
+   "0.0735",
+   "0.1456",
+   "0.1807",
+   "0.2236",
+   "0.2564",
+   "0.2713",
+   "0.3698",
+   "1.0017",
+   "1.0146",
+   "1.1977",
+   "1.2501",
+   "1.3741",
+   "2.4871",
+   "2217.7429",
+   "3.198",
+   "8.0955"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0000",
+   "0.1456",
+   "0.1807",
+   "0.2564",
+   "1.0017",
+   "1.0146"
+  ],
+  "evidence": "audit_weightgap_null.py",
+  "proj": null,
+  "len": 2086
+ },
+ {
+  "key": "rem:heuristic",
+  "file": "theorem_A.md",
+  "line": 2525,
+  "title": "the heuristic, corrected",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "is not",
+   "only"
+  ],
+  "m": [
+   "measured"
+  ],
+  "nums": [
+   "0.3374",
+   "0.3378",
+   "0.9551",
+   "0.9844",
+   "0.9854",
+   "0.9900",
+   "0.9939",
+   "0.9950",
+   "0.9973",
+   "0.9976",
+   "1.0039",
+   "1.0103",
+   "1.0138",
+   "1.0147",
+   "1.0458",
+   "1.1950",
+   "1.2020",
+   "1.2271",
+   "1.2496",
+   "1.2682",
+   "1.2869",
+   "3.5393",
+   "3.5421",
+   "3.7012",
+   "3.7565",
+   "3.8100"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.3374",
+   "1.0039"
+  ],
+  "evidence": "audit_directlevel_heuristic.py",
+  "proj": null,
+  "len": 2158
+ },
+ {
+  "key": "rem:modeltransfer",
+  "file": "theorem_A.md",
+  "line": 2568,
+  "title": "a model of the exponent, not of the constant",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only",
+   "out of sample",
+   "survives"
+  ],
+  "m": [
+   "factor \\$",
+   "fitted",
+   "measured",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.0516",
+   "0.1084",
+   "0.1532",
+   "0.1635",
+   "0.1677",
+   "0.1688",
+   "0.1706",
+   "0.1824",
+   "0.2920",
+   "0.374487",
+   "0.8905",
+   "0.8998",
+   "0.9467",
+   "0.9514",
+   "0.9786",
+   "0.9856",
+   "0.9898",
+   "0.9912",
+   "1.0024",
+   "1.0025",
+   "1.0027",
+   "1.0050",
+   "1.0062",
+   "1.0136",
+   "1.0157",
+   "1.5587",
+   "1.760432",
+   "2.1814",
+   "4.7009"
+  ],
+  "in_tex": [
+   "1.0157",
+   "1.760432"
+  ],
+  "in_res": [
+   "0.374487",
+   "1.0157",
+   "1.760432"
+  ],
+  "evidence": "audit_model_transfer.py",
+  "proj": null,
+  "len": 3772
+ },
+ {
+  "key": "rem:elemsize",
+  "file": "theorem_A.md",
+  "line": 2635,
+  "title": "the binding half is square-root too",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "does not",
+   "only"
+  ],
+  "m": [
+   "correlation",
+   "fitted",
+   "measured",
+   "octave"
+  ],
+  "nums": [
+   "0.0031",
+   "0.0191",
+   "0.0210",
+   "0.0325",
+   "0.4678",
+   "0.4869",
+   "0.4972",
+   "0.5012",
+   "0.5147",
+   "0.5793",
+   "0.99810",
+   "0.99989"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0031"
+  ],
+  "evidence": "lab_elementary_size.py",
+  "proj": null,
+  "len": 2437
+ },
+ {
+  "key": "rem:elemreach",
+  "file": "theorem_A.md",
+  "line": 2684,
+  "title": "the reach that cannot be bought",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "and",
+   "correlation",
+   "fitted",
+   "median",
+   "octave",
+   "ratio"
+  ],
+  "nums": [
+   "0.0251",
+   "0.0269",
+   "0.0458",
+   "0.0576",
+   "0.0629",
+   "0.1111",
+   "0.3582",
+   "0.3622",
+   "0.3674",
+   "0.4244",
+   "0.4844",
+   "0.5095",
+   "0.5178",
+   "0.5294",
+   "0.6031",
+   "0.928",
+   "0.9364",
+   "0.98087",
+   "0.985",
+   "0.99724",
+   "1.9632",
+   "2.201",
+   "2.2338",
+   "3.1071",
+   "32.2243"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.985"
+  ],
+  "evidence": "lab_elementary_reach.py",
+  "proj": null,
+  "len": 4981
+ },
+ {
+  "key": "rem:muvscoin",
+  "file": "theorem_A.md",
+  "line": 2778,
+  "title": "the elementary sum beats a coin, by a constant",
+  "cls": "HSM",
+  "h": [
+   "the wrong one"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "the range"
+  ],
+  "m": [
+   "correlation",
+   "draws",
+   "fitted",
+   "median",
+   "octave",
+   "ratio",
+   "reads",
+   "slope"
+  ],
+  "nums": [
+   "0.0097",
+   "0.0443",
+   "0.8877",
+   "1.2454",
+   "1.3172",
+   "1.3969",
+   "1.4487",
+   "1.4621",
+   "1.4634",
+   "1.4879",
+   "1.5586"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "lab_mu_vs_coin_size.py",
+  "proj": null,
+  "len": 3096
+ },
+ {
+  "key": "rem:provablehalf",
+  "file": "theorem_A.md",
+  "line": 2839,
+  "title": "size and provability point at opposite halves",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "survives",
+   "the price"
+  ],
+  "m": [
+   "correlation",
+   "measured",
+   "null",
+   "octave",
+   "ratio"
+  ],
+  "nums": [
+   "0.00546",
+   "0.00572",
+   "0.01152",
+   "0.01356",
+   "0.02266",
+   "0.02639",
+   "0.04182",
+   "0.04734",
+   "0.08210",
+   "0.08699",
+   "0.10836",
+   "0.12883",
+   "0.2098",
+   "0.3363",
+   "0.3994",
+   "0.7309",
+   "1.0710",
+   "1.2119",
+   "2.1071"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.00546"
+  ],
+  "evidence": "lab_elementary_provable.py",
+  "proj": null,
+  "len": 4813
+ },
+ {
+  "key": "rem:residuelevel",
+  "file": "theorem_A.md",
+  "line": 2934,
+  "title": "what the conditional reduction actually buys",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "does not",
+   "is not"
+  ],
+  "m": [
+   "factor \\$",
+   "measured",
+   "octave",
+   "slope"
+  ],
+  "nums": [
+   "0.004692",
+   "0.1583",
+   "0.1677",
+   "0.1696",
+   "0.1775",
+   "0.1794",
+   "0.1823",
+   "0.5599",
+   "0.5642",
+   "0.5654",
+   "0.5675",
+   "0.5799",
+   "0.7382",
+   "0.7477",
+   "1.0000",
+   "4.7009"
+  ],
+  "in_tex": [
+   "1.0000"
+  ],
+  "in_res": [
+   "1.0000"
+  ],
+  "evidence": "audit_residue_level.py",
+  "proj": null,
+  "len": 2926
+ },
+ {
+  "key": "rem:residuesigned",
+  "file": "theorem_A.md",
+  "line": 2990,
+  "title": "what the signs cost once the elementary half is gone",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "survives"
+  ],
+  "m": [
+   "and",
+   "draws",
+   "factor \\$",
+   "fitted",
+   "measured",
+   "ratio"
+  ],
+  "nums": [
+   "0.053",
+   "0.2121",
+   "0.2346",
+   "0.2526",
+   "0.2932",
+   "0.4832",
+   "0.5516",
+   "0.7796",
+   "0.7945",
+   "0.8167",
+   "0.8586",
+   "1.793",
+   "2.223"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.7796"
+  ],
+  "evidence": "lab_residue_signed.py",
+  "proj": null,
+  "len": 3156
+ },
+ {
+  "key": "rem:residuearithmetic",
+  "file": "theorem_A.md",
+  "line": 3053,
+  "title": "the knife-edge is a fact about one family",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "does not",
+   "does not survive",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "correlation",
+   "draws",
+   "factor \\$",
+   "measured",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.0049",
+   "0.0134",
+   "0.0516",
+   "0.073312",
+   "0.0928",
+   "0.1084",
+   "0.1436",
+   "0.1510",
+   "0.1677",
+   "0.374487",
+   "0.4747",
+   "0.4808",
+   "0.5294",
+   "0.5422",
+   "0.5424",
+   "0.5591",
+   "0.5654",
+   "0.5675",
+   "0.5799",
+   "0.97565",
+   "4.7009"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0134",
+   "0.073312",
+   "0.374487"
+  ],
+  "evidence": "audit_residue_arithmetic.py",
+  "proj": null,
+  "len": 3275
+ },
+ {
+  "key": "rem:primorialladder",
+  "file": "theorem_A.md",
+  "line": 3118,
+  "title": "the primorial failure is finite-$N$, and nearly reachable",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "is not",
+   "is not the"
+  ],
+  "m": [
+   "and",
+   "correlation",
+   "fitted",
+   "measured",
+   "median",
+   "null",
+   "octave",
+   "reads",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.002914",
+   "0.003700",
+   "0.004692",
+   "0.006623",
+   "0.008310",
+   "0.014290",
+   "0.087306",
+   "0.2758",
+   "0.4550",
+   "0.4595",
+   "0.4633",
+   "0.4682",
+   "0.4688",
+   "0.4746",
+   "0.4747",
+   "0.4876",
+   "0.92378"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "lab_primorial_ladder.py",
+  "proj": null,
+  "len": 3068
+ },
+ {
+  "key": "rem:primorialreach",
+  "file": "theorem_A.md",
+  "line": 3179,
+  "title": "the first bracket to be tested, and it failed",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "closed",
+   "is not"
+  ],
+  "m": [
+   "correlation",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.000195",
+   "0.0006",
+   "0.0007",
+   "0.0016",
+   "0.001827",
+   "0.0027",
+   "0.0039",
+   "0.0041",
+   "0.0046",
+   "0.0047",
+   "0.0048",
+   "0.0053",
+   "0.0057",
+   "0.006623",
+   "0.006643",
+   "0.4824",
+   "0.4941",
+   "0.4965",
+   "0.92378",
+   "0.95981"
+  ],
+  "in_tex": [
+   "0.0041"
+  ],
+  "in_res": [
+   "0.0006",
+   "0.0007",
+   "0.0016",
+   "0.0041",
+   "0.0046",
+   "0.0048"
+  ],
+  "evidence": "audit_primorial_reach.py",
+  "proj": null,
+  "len": 3212
+ },
+ {
+  "key": "rem:primorialshare",
+  "file": "theorem_A.md",
+  "line": 3244,
+  "title": "a better instrument that turned out worse",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "does not survive",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "null",
+   "ratio",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.0243",
+   "0.035113",
+   "0.0524",
+   "0.0618",
+   "0.0689",
+   "0.2146",
+   "0.749",
+   "1.6824",
+   "1.7034",
+   "11.4859",
+   "13.4291",
+   "2.2818",
+   "2.529",
+   "2.829",
+   "3.1336",
+   "7.5007",
+   "8.3524",
+   "9.1856",
+   "9.7957"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0618",
+   "1.7034"
+  ],
+  "evidence": "lab_primorial_share.py",
+  "proj": null,
+  "len": 3624
+ },
+ {
+  "key": "rem:primorialrung10",
+  "file": "theorem_A.md",
+  "line": 3315,
+  "title": "the barrier crossed, at the hard arithmetic",
+  "cls": "HSM",
+  "h": [
+   "withdraw"
+  ],
+  "s": [
+   "cannot",
+   "is not",
+   "is not the",
+   "only"
+  ],
+  "m": [
+   "correlation",
+   "fitted",
+   "measured",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.0000",
+   "0.000227",
+   "0.0020",
+   "0.0023",
+   "0.0037",
+   "0.0039",
+   "0.006650",
+   "0.006780",
+   "0.0099",
+   "0.2146",
+   "0.5004",
+   "0.5023",
+   "0.97008",
+   "11.2680",
+   "7.1866",
+   "7.2133",
+   "7.4249",
+   "7.4684",
+   "7.4879",
+   "7.5618",
+   "7.6394",
+   "7.6631",
+   "7.7189"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0000",
+   "0.0020"
+  ],
+  "evidence": "audit_primorial_rung10.py",
+  "proj": null,
+  "len": 3225
+ },
+ {
+  "key": "rem:laddershape",
+  "file": "theorem_A.md",
+  "line": 3378,
+  "title": "the shape decides, and the data do not fix the shape",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "only"
+  ],
+  "m": [
+   "factor \\$",
+   "fitted",
+   "rung"
+  ],
+  "nums": [
+   "0.0000",
+   "0.00088",
+   "0.00372",
+   "0.00412",
+   "0.00432",
+   "0.00473",
+   "0.03764",
+   "0.2146",
+   "0.2148",
+   "0.3432",
+   "0.4765",
+   "0.5663",
+   "0.5960",
+   "1.1833",
+   "1.4329",
+   "11.2680",
+   "11.2700",
+   "14.6167",
+   "19.6207",
+   "7.4255",
+   "7.4684",
+   "7.5627",
+   "7.6204",
+   "7.6404",
+   "8.3508",
+   "8.9013",
+   "82.5771"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0000"
+  ],
+  "evidence": "audit_ladder_shape.py",
+  "proj": null,
+  "len": 3297
+ },
+ {
+  "key": "rem:laddermodel",
+  "file": "theorem_A.md",
+  "line": 3454,
+  "title": "no derived shape is available either",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "correlation",
+   "fitted",
+   "measured",
+   "rung"
+  ],
+  "nums": [
+   "0.0037",
+   "0.0112",
+   "0.0740",
+   "0.1436",
+   "0.3724",
+   "0.4235",
+   "0.4239",
+   "0.4757",
+   "0.4790",
+   "0.4985",
+   "0.5140",
+   "0.5185",
+   "0.5456",
+   "0.5645",
+   "0.5968",
+   "0.6139",
+   "0.9479",
+   "0.98535",
+   "1.0367",
+   "1.3838",
+   "9.0269"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.3724",
+   "0.4790"
+  ],
+  "evidence": "audit_ladder_model.py",
+  "proj": null,
+  "len": 1778
+ },
+ {
+  "key": "rem:cRwindow",
+  "file": "theorem_A.md",
+  "line": 3497,
+  "title": "the exponent moves, not the constant",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "convention",
+   "is not",
+   "is not the",
+   "only"
+  ],
+  "m": [
+   "correlation",
+   "octave",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.000993",
+   "0.014647",
+   "0.3991",
+   "0.4192",
+   "0.4223",
+   "0.4627",
+   "0.4648",
+   "0.4652",
+   "0.4791",
+   "0.4971",
+   "0.5029",
+   "0.5074",
+   "0.5168",
+   "0.85888",
+   "1.3838",
+   "1.5918",
+   "3.5892"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_cR_window.py",
+  "proj": null,
+  "len": 2001
+ },
+ {
+  "key": "rem:kexponent",
+  "file": "theorem_A.md",
+  "line": 3540,
+  "title": "the k-exponent is too noisy to carry an arithmetic",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "does not survive",
+   "survives"
+  ],
+  "m": [
+   "correlation",
+   "draws",
+   "measured",
+   "ratio",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.0061",
+   "0.006207",
+   "0.0191",
+   "0.0519",
+   "0.0550",
+   "0.0727",
+   "0.46098",
+   "0.4791",
+   "0.52062",
+   "0.5341",
+   "0.97565"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0061"
+  ],
+  "evidence": "audit_residue_kexponent.py",
+  "proj": null,
+  "len": 1925
+ },
+ {
+  "key": "rem:ladderderived",
+  "file": "theorem_A.md",
+  "line": 3578,
+  "title": "repairing the model's constant does not derive the shape",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not"
+  ],
+  "m": [
+   "correlation",
+   "fitted",
+   "measured",
+   "rung"
+  ],
+  "nums": [
+   "0.00370",
+   "0.00395",
+   "0.01024",
+   "0.01419",
+   "0.0167",
+   "0.0169",
+   "0.0194",
+   "0.0196",
+   "0.0200",
+   "0.0201",
+   "0.053849",
+   "0.5023",
+   "0.5099",
+   "0.9068",
+   "0.9479",
+   "0.98535",
+   "0.98651",
+   "0.99883",
+   "1.0367",
+   "1.0643",
+   "1.3518",
+   "1.351815",
+   "1.3838",
+   "11.0762",
+   "13.8607",
+   "2.5790",
+   "4.7036",
+   "5.7691",
+   "6.7141",
+   "7.4879",
+   "7.7889",
+   "8.9794",
+   "9.0269"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.01024"
+  ],
+  "evidence": "audit_ladder_derived.py",
+  "proj": null,
+  "len": 2968
+ },
+ {
+  "key": "rem:shapetrust",
+  "file": "theorem_A.md",
+  "line": 3636,
+  "title": "how far the ladder can be read",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "survives"
+  ],
+  "m": [
+   "factor \\$",
+   "reads",
+   "rung"
+  ],
+  "nums": [
+   "0.00370",
+   "0.0080",
+   "0.0140",
+   "0.0288",
+   "11.0762",
+   "13.8607",
+   "28.6782",
+   "7.3605",
+   "7.4266",
+   "7.7889",
+   "8.1253",
+   "8.6994"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0288"
+  ],
+  "evidence": "audit_shape_trust.py",
+  "proj": null,
+  "len": 1793
+ },
+ {
+  "key": "rem:laddershape12",
+  "file": "theorem_A.md",
+  "line": 3681,
+  "title": "what one more rung buys the shape question",
+  "cls": "M",
+  "h": [],
+  "s": [],
+  "m": [
+   "factor \\$",
+   "measured",
+   "rung"
+  ],
+  "nums": [
+   "0.00370",
+   "0.00372",
+   "0.00433",
+   "0.00464",
+   "0.00519",
+   "0.03934",
+   "11.0762",
+   "13.8607",
+   "17.5614",
+   "2.7845",
+   "41.0798",
+   "7.3605",
+   "7.4266",
+   "7.7105",
+   "8.3508"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.00464"
+  ],
+  "evidence": "audit_ladder_shape12.py",
+  "proj": null,
+  "len": 1650
+ },
+ {
+  "key": "rem:provableuniformity",
+  "file": "theorem_A.md",
+  "line": 3721,
+  "title": "the premise, checked along the axis it is about",
+  "cls": "HSM",
+  "h": [
+   "nobody had"
+  ],
+  "s": [
+   "is not"
+  ],
+  "m": [
+   "factor \\$",
+   "octave",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.00005",
+   "0.023475",
+   "0.039912",
+   "0.0673",
+   "0.167112",
+   "0.227768",
+   "0.302804",
+   "0.3363",
+   "0.555097",
+   "0.7309",
+   "1.0710",
+   "1.0878",
+   "1.2119",
+   "1.2865",
+   "1.3786",
+   "1.5307",
+   "1.6719",
+   "2.0964"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.00005"
+  ],
+  "evidence": "audit_provable_uniformity.py",
+  "proj": null,
+  "len": 2058
+ },
+ {
+  "key": "rem:uniformityreach",
+  "file": "theorem_A.md",
+  "line": 3769,
+  "title": "the drift is real, and nowhere near the bound",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "does not",
+   "is not",
+   "no longer",
+   "not a proof",
+   "only"
+  ],
+  "m": [
+   "factor \\$",
+   "octave",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.000033",
+   "0.001827",
+   "0.004537",
+   "0.005283",
+   "0.006071",
+   "0.0266",
+   "0.0673",
+   "0.0843",
+   "0.137950",
+   "0.212164",
+   "0.446123",
+   "0.9804",
+   "1.024",
+   "1.2119"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "1.024"
+  ],
+  "evidence": "audit_uniformity_reach.py",
+  "proj": null,
+  "len": 2342
+ },
+ {
+  "key": "rem:provableforecast",
+  "file": "theorem_A.md",
+  "line": 3814,
+  "title": "two answers to two questions, 5465 decades apart",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "not a constant"
+  ],
+  "m": [
+   "measured",
+   "ratio"
+  ],
+  "nums": [
+   "0.074485",
+   "0.087846",
+   "0.3487",
+   "0.451786",
+   "1.2119",
+   "6.085957"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_provable_forecast.py",
+  "proj": null,
+  "len": 2039
+ },
+ {
+  "key": "rem:provableshare",
+  "file": "theorem_A.md",
+  "line": 3862,
+  "title": "the overspend worsens only with the constant frozen",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "convention",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "slope"
+  ],
+  "nums": [
+   "0.000653",
+   "0.004248",
+   "0.0043",
+   "0.125950",
+   "0.325836",
+   "0.3487",
+   "1.2119",
+   "1.707104"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0043"
+  ],
+  "evidence": "audit_provable_share.py",
+  "proj": null,
+  "len": 1766
+ },
+ {
+  "key": "rem:provablearithmetic",
+  "file": "theorem_A.md",
+  "line": 3902,
+  "title": "the exposure that remark names, tested",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "convention",
+   "does not"
+  ],
+  "m": [
+   "measured"
+  ],
+  "nums": [
+   "0.0000",
+   "0.00004",
+   "0.0733",
+   "0.1730",
+   "0.1848",
+   "0.2629",
+   "0.3318",
+   "0.3745",
+   "0.3994",
+   "0.4288",
+   "0.4726",
+   "0.9309"
+  ],
+  "in_tex": [
+   "0.3745"
+  ],
+  "in_res": [
+   "0.0000",
+   "0.0733",
+   "0.3318",
+   "0.3745"
+  ],
+  "evidence": "audit_provable_arithmetic.py",
+  "proj": null,
+  "len": 2014
+ },
+ {
+  "key": "rem:budgetgap",
+  "file": "theorem_A.md",
+  "line": 3947,
+  "title": "the budget gap is not a constant, and both halves pay it alike",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "is not the",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "measured",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.001087",
+   "0.005525",
+   "0.008079",
+   "0.0088",
+   "0.009165",
+   "0.0516",
+   "0.1057",
+   "0.1084",
+   "0.1532",
+   "0.1583",
+   "0.1635",
+   "0.1677",
+   "0.1688",
+   "0.1696",
+   "0.1706",
+   "0.1775",
+   "0.1794",
+   "0.1823",
+   "0.1824",
+   "4.7009"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_budget_gap.py",
+  "proj": null,
+  "len": 1667
+ },
+ {
+  "key": "rem:arithmeticonevar",
+  "file": "theorem_A.md",
+  "line": 3980,
+  "title": "one variable, and it explains more as N grows",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "caveat",
+   "does not",
+   "only"
+  ],
+  "m": [
+   "correlation",
+   "factor \\$",
+   "measured",
+   "slope"
+  ],
+  "nums": [
+   "0.00004",
+   "0.0047",
+   "0.0056",
+   "0.0063",
+   "0.0090",
+   "0.0103",
+   "0.0128",
+   "0.0129",
+   "0.0133",
+   "0.0218",
+   "0.0240",
+   "0.0516",
+   "0.97565",
+   "0.99577"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0056",
+   "0.0063",
+   "0.0090",
+   "0.0129",
+   "0.0133"
+  ],
+  "evidence": "audit_arithmetic_onevar.py",
+  "proj": null,
+  "len": 1709
+ },
+ {
+  "key": "rem:arithmeticreach",
+  "file": "theorem_A.md",
+  "line": 4022,
+  "title": "the one-radical caveat does not close",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "caveat",
+   "does not",
+   "survives",
+   "the range"
+  ],
+  "m": [
+   "factor \\$",
+   "measured",
+   "slope"
+  ],
+  "nums": [
+   "0.00004",
+   "0.001535",
+   "0.002239",
+   "0.005112",
+   "0.007013",
+   "0.012871",
+   "0.0134",
+   "0.0928",
+   "0.0981",
+   "0.1011",
+   "0.1063"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0134"
+  ],
+  "evidence": "audit_arithmetic_reach.py",
+  "proj": null,
+  "len": 1882
+ },
+ {
+  "key": "rem:splitvalue",
+  "file": "theorem_A.md",
+  "line": 4063,
+  "title": "both losses decline together",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "survives",
+   "the range"
+  ],
+  "m": [
+   "measured",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.000046",
+   "0.003946",
+   "0.008722",
+   "0.0666",
+   "0.0711",
+   "0.0779",
+   "0.0797",
+   "0.0925",
+   "2.9828",
+   "3.0108",
+   "3.1681",
+   "3.1709",
+   "3.2772"
+  ],
+  "in_tex": [
+   "0.0666"
+  ],
+  "in_res": [
+   "0.0666",
+   "0.0711"
+  ],
+  "evidence": "audit_split_value.py",
+  "proj": null,
+  "len": 1555
+ },
+ {
+  "key": "rem:signedgain",
+  "file": "theorem_A.md",
+  "line": 4100,
+  "title": "the largest loss is a decline, and it is not monotone",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "not a constant",
+   "the range"
+  ],
+  "m": [
+   "factor \\$",
+   "fitted",
+   "measured",
+   "octave",
+   "slope"
+  ],
+  "nums": [
+   "0.014419",
+   "0.0191",
+   "0.027526",
+   "0.040634",
+   "0.0530",
+   "0.2121",
+   "0.2181",
+   "0.2346",
+   "0.2526",
+   "0.2932",
+   "0.7980"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_signed_gain.py",
+  "proj": null,
+  "len": 1922
+ },
+ {
+  "key": "rem:primorialrung11",
+  "file": "theorem_A.md",
+  "line": 4143,
+  "title": "the rung that separates crossed from fluctuated",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.000034",
+   "0.0023",
+   "0.0037",
+   "0.0042",
+   "0.0049",
+   "0.007013",
+   "0.0099",
+   "0.5057",
+   "0.5099"
+  ],
+  "in_tex": [
+   "0.0042"
+  ],
+  "in_res": [
+   "0.0042"
+  ],
+  "evidence": "audit_primorial_rung11.py",
+  "proj": null,
+  "len": 1645
+ },
+ {
+  "key": "rem:rung12",
+  "file": "theorem_A.md",
+  "line": 4182,
+  "title": "the thirteenth rung, out of sample",
+  "cls": "HSM",
+  "h": [
+   "the wrong one"
+  ],
+  "s": [
+   "does not",
+   "does not survive",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "fitted",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.000006",
+   "0.0001",
+   "0.0023",
+   "0.0037",
+   "0.0038",
+   "0.0048",
+   "0.0061",
+   "0.007013",
+   "0.007301",
+   "0.0099",
+   "0.0178",
+   "0.5099",
+   "0.5178",
+   "10.6180",
+   "8.0899"
+  ],
+  "in_tex": [
+   "0.0001"
+  ],
+  "in_res": [
+   "0.0001",
+   "0.0038",
+   "0.0048",
+   "0.0061"
+  ],
+  "evidence": "audit_primorial_rung12.py",
+  "proj": null,
+  "len": 2213
+ },
+ {
+  "key": "rem:rung13",
+  "file": "theorem_A.md",
+  "line": 4227,
+  "title": "the fourteenth rung is above both shapes",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "is not the"
+  ],
+  "m": [
+   "measured",
+   "rung"
+  ],
+  "nums": [
+   "0.000035",
+   "0.0001",
+   "0.0005",
+   "0.0023",
+   "0.0037",
+   "0.0038",
+   "0.003978",
+   "0.004269",
+   "0.0043",
+   "0.0048",
+   "0.004838",
+   "0.008768",
+   "0.0098",
+   "0.0099",
+   "0.013037",
+   "0.0178",
+   "0.0283",
+   "0.515223",
+   "0.5185",
+   "0.519492",
+   "0.5283",
+   "10.6180",
+   "8.3256",
+   "8.3909"
+  ],
+  "in_tex": [
+   "0.0001",
+   "0.0005"
+  ],
+  "in_res": [
+   "0.0001",
+   "0.0005",
+   "0.0038",
+   "0.0043",
+   "0.0048"
+  ],
+  "evidence": "audit_primorial_rung13.py",
+  "proj": null,
+  "len": 2617
+ },
+ {
+  "key": "rem:rung14",
+  "file": "theorem_A.md",
+  "line": 4277,
+  "title": "three rungs above the line, none of them growing",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "null",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.000040",
+   "0.0023",
+   "0.0037",
+   "0.0038",
+   "0.0043",
+   "0.0045",
+   "0.0069",
+   "0.007013",
+   "0.007301",
+   "0.007703",
+   "0.007953",
+   "0.008305",
+   "0.0099",
+   "0.014003",
+   "0.0178",
+   "0.0283",
+   "0.0333",
+   "0.519270",
+   "0.524968",
+   "0.5264",
+   "0.5333",
+   "8.6920"
+  ],
+  "in_tex": [
+   "0.0045"
+  ],
+  "in_res": [
+   "0.0038",
+   "0.0043",
+   "0.0045"
+  ],
+  "evidence": "audit_primorial_rung14.py",
+  "proj": null,
+  "len": 2411
+ },
+ {
+  "key": "rem:laddercurve",
+  "file": "theorem_A.md",
+  "line": 4326,
+  "title": "measured on its own slopes, the ladder curves",
+  "cls": "M",
+  "h": [],
+  "s": [],
+  "m": [
+   "fitted",
+   "measured",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.000035",
+   "0.00038561",
+   "0.001427",
+   "0.0032",
+   "0.003576",
+   "0.0045",
+   "0.006626",
+   "0.008772",
+   "0.010202",
+   "10.6180"
+  ],
+  "in_tex": [
+   "0.0032",
+   "0.0045"
+  ],
+  "in_res": [
+   "0.0032",
+   "0.0045"
+  ],
+  "evidence": "audit_ladder_curve.py",
+  "proj": null,
+  "len": 2385
+ },
+ {
+  "key": "rem:curvereach",
+  "file": "theorem_A.md",
+  "line": 4373,
+  "title": "the shape contest could not have seen it",
+  "cls": "HSM",
+  "h": [
+   "superseded"
+  ],
+  "s": [
+   "does not",
+   "is not"
+  ],
+  "m": [
+   "rung"
+  ],
+  "nums": [
+   "0.00021493",
+   "0.00030034",
+   "0.003240",
+   "0.003605",
+   "0.003718",
+   "0.004119",
+   "0.004465"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_curve_reach.py",
+  "proj": null,
+  "len": 2151
+ },
+ {
+  "key": "rem:curvebound",
+  "file": "theorem_A.md",
+  "line": 4414,
+  "title": "the curvature predicts, and has an expiry",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "expiry",
+   "is not",
+   "out of sample"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "rung"
+  ],
+  "nums": [
+   "0.000088",
+   "0.000110",
+   "0.000126",
+   "0.000152",
+   "0.0023",
+   "0.0046",
+   "0.0054",
+   "0.0063",
+   "0.0097",
+   "0.0098",
+   "0.5237",
+   "0.5283",
+   "0.5310",
+   "0.5333",
+   "0.5688",
+   "10.0373",
+   "10.6180",
+   "16.6790",
+   "18.5824",
+   "2.2830",
+   "22.7350",
+   "9.0380",
+   "9.3291",
+   "9.6068"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0046",
+   "0.0054",
+   "0.0063"
+  ],
+  "evidence": "audit_curve_bound.py",
+  "proj": null,
+  "len": 2178
+ },
+ {
+  "key": "rem:rung15",
+  "file": "theorem_A.md",
+  "line": 4458,
+  "title": "the sixteenth rung, and an extrapolation that settles",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "below its own",
+   "does not",
+   "expiry",
+   "is not",
+   "is not the",
+   "no longer",
+   "survives"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "rung"
+  ],
+  "nums": [
+   "0.000027",
+   "0.0012",
+   "0.0023",
+   "0.0031",
+   "0.0032",
+   "0.0046",
+   "0.0049",
+   "0.0071",
+   "0.0097",
+   "0.0098",
+   "0.0099",
+   "0.0178",
+   "0.0283",
+   "0.0290",
+   "0.0333",
+   "0.0407",
+   "0.0425",
+   "0.512",
+   "0.5407",
+   "0.5419",
+   "0.5688",
+   "0.708",
+   "10.6180",
+   "18.5824",
+   "8.9930",
+   "9.4216",
+   "9.6068",
+   "9.6358",
+   "9.9340"
+  ],
+  "in_tex": [
+   "0.0012",
+   "0.0032"
+  ],
+  "in_res": [
+   "0.0012",
+   "0.0031",
+   "0.0032",
+   "0.0046",
+   "0.0071"
+  ],
+  "evidence": "audit_primorial_rung15.py",
+  "proj": null,
+  "len": 2896
+ },
+ {
+  "key": "rem:rung16",
+  "file": "theorem_A.md",
+  "line": 4512,
+  "title": "the seventeenth rung, and the wall that was named wrong",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "below its own",
+   "closed",
+   "convention",
+   "does not",
+   "only",
+   "the range"
+  ],
+  "m": [
+   "fitted",
+   "reads",
+   "rung"
+  ],
+  "nums": [
+   "0.000005",
+   "0.000027",
+   "0.000824",
+   "0.001157",
+   "0.0012",
+   "0.0023",
+   "0.0037",
+   "0.0046",
+   "0.0068",
+   "0.0071",
+   "0.0091",
+   "0.0097",
+   "0.0098",
+   "0.0099",
+   "0.0178",
+   "0.0283",
+   "0.0290",
+   "0.0333",
+   "0.0407",
+   "0.0425",
+   "0.0476",
+   "0.5408",
+   "0.5476",
+   "0.5499",
+   "9.2940",
+   "9.4216",
+   "9.5061",
+   "9.6358",
+   "9.6783",
+   "9.9014",
+   "9.9340"
+  ],
+  "in_tex": [
+   "0.0012"
+  ],
+  "in_res": [
+   "0.0012",
+   "0.0046",
+   "0.0068",
+   "0.0071"
+  ],
+  "evidence": "audit_primorial_rung16.py",
+  "proj": null,
+  "len": 4632
+ },
+ {
+  "key": "rem:laddercap",
+  "file": "theorem_A.md",
+  "line": 4596,
+  "title": "the whole ladder at one cap, and what survives it",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "rung"
+  ],
+  "nums": [
+   "0.000045",
+   "0.000124",
+   "0.000218",
+   "0.000332",
+   "0.00036885",
+   "0.000406",
+   "0.000461",
+   "0.000824",
+   "0.001157",
+   "0.001563",
+   "0.0031",
+   "0.0037",
+   "0.0106",
+   "0.0183",
+   "0.0288",
+   "0.0343",
+   "0.0423",
+   "0.0488",
+   "0.5476",
+   "0.548808",
+   "9.4216",
+   "9.4574",
+   "9.5951",
+   "9.6200",
+   "9.8277",
+   "9.8961",
+   "9.9340"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0031",
+   "0.0106",
+   "0.0288"
+  ],
+  "evidence": "audit_ladder_cap.py",
+  "proj": null,
+  "len": 3792
+ },
+ {
+  "key": "rem:rung17",
+  "file": "theorem_A.md",
+  "line": 4671,
+  "title": "the eighteenth rung, where the fit could not call it",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "draws",
+   "fitted",
+   "reads",
+   "rung"
+  ],
+  "nums": [
+   "0.00033853",
+   "0.0031",
+   "0.0033",
+   "0.0037",
+   "0.004075",
+   "0.0044",
+   "0.0068",
+   "0.0101",
+   "0.0467",
+   "0.0488",
+   "0.0559",
+   "0.542257",
+   "0.548808",
+   "0.5491",
+   "0.555925",
+   "0.5592",
+   "9.5951",
+   "9.6009",
+   "9.6200",
+   "9.6667",
+   "9.8386",
+   "9.8961"
+  ],
+  "in_tex": [
+   "0.0467"
+  ],
+  "in_res": [
+   "0.0031",
+   "0.0033",
+   "0.0044",
+   "0.0068",
+   "0.0101",
+   "0.0467"
+  ],
+  "evidence": "audit_primorial_rung17.py",
+  "proj": null,
+  "len": 4053
+ },
+ {
+  "key": "rem:rung18",
+  "file": "theorem_A.md",
+  "line": 4746,
+  "title": "the nineteenth rung: 0.56 crossed, and inside the floor",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "closed",
+   "does not",
+   "only"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "null",
+   "rung"
+  ],
+  "nums": [
+   "0.0012",
+   "0.0023",
+   "0.002768",
+   "0.0033",
+   "0.0037",
+   "0.004075",
+   "0.0041",
+   "0.0046",
+   "0.0062",
+   "0.0103",
+   "0.0559",
+   "0.0628",
+   "0.0636",
+   "0.3010",
+   "0.548808",
+   "0.555925",
+   "0.5565",
+   "0.562768",
+   "0.5668",
+   "9.5951",
+   "9.6667",
+   "9.8961"
+  ],
+  "in_tex": [
+   "0.0012",
+   "0.0041"
+  ],
+  "in_res": [
+   "0.0012",
+   "0.0033",
+   "0.0041",
+   "0.0046",
+   "0.0062"
+  ],
+  "evidence": "audit_primorial_rung18.py",
+  "proj": null,
+  "len": 4674
+ },
+ {
+  "key": "rem:signrun",
+  "file": "theorem_A.md",
+  "line": 4831,
+  "title": "the run is real, ordinary, and not growing",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "closed",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "null",
+   "ratio",
+   "reads",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.00051419",
+   "0.0031",
+   "0.0033",
+   "0.0041",
+   "0.0043",
+   "0.0044",
+   "0.0111",
+   "0.0116",
+   "0.0636"
+  ],
+  "in_tex": [
+   "0.0041"
+  ],
+  "in_res": [
+   "0.0031",
+   "0.0033",
+   "0.0041",
+   "0.0043",
+   "0.0044"
+  ],
+  "evidence": "audit_ladder_signrun.py",
+  "proj": null,
+  "len": 3059
+ },
+ {
+  "key": "rem:rung18fill",
+  "file": "theorem_A.md",
+  "line": 4891,
+  "title": "the floor was the wrong one: 0.56 resolved",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "ratio",
+   "reads",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.00000049",
+   "0.000308",
+   "0.002560",
+   "0.002768",
+   "0.003119",
+   "0.003206",
+   "0.003611",
+   "0.0037",
+   "0.005751",
+   "0.0208",
+   "0.0413",
+   "0.087306",
+   "0.548808",
+   "0.562560",
+   "0.562768",
+   "0.563119",
+   "0.563206",
+   "0.563611",
+   "9.5951",
+   "9.8756"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0413"
+  ],
+  "evidence": "audit_rung18_fill.py",
+  "proj": null,
+  "len": 3519
+ },
+ {
+  "key": "rem:localfloor",
+  "file": "theorem_A.md",
+  "line": 4958,
+  "title": "the floor is scale-dependent, and 1/2 is crossed more than once",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "measured",
+   "ratio",
+   "reads",
+   "rung"
+  ],
+  "nums": [
+   "0.000194",
+   "0.000204",
+   "0.000308",
+   "0.000511",
+   "0.000886",
+   "0.001345",
+   "0.001365",
+   "0.001662",
+   "0.001883",
+   "0.002394",
+   "0.002978",
+   "0.0037",
+   "0.004142",
+   "0.0582",
+   "0.087306",
+   "0.494008",
+   "0.4966",
+   "0.4998",
+   "0.502394",
+   "0.5030",
+   "0.5040",
+   "7.2671",
+   "7.3049",
+   "7.4879",
+   "9.5951",
+   "9.8756"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.000204",
+   "0.5030"
+  ],
+  "evidence": "audit_local_floor.py",
+  "proj": null,
+  "len": 3677
+ },
+ {
+  "key": "rem:targetband",
+  "file": "theorem_A.md",
+  "line": 5029,
+  "title": "0.56 is crossed once, and the band says why 1/2 was not",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "and",
+   "fitted",
+   "measured",
+   "reads",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.000264",
+   "0.000308",
+   "0.001662",
+   "0.0107",
+   "0.0190",
+   "0.024973",
+   "0.0429",
+   "0.0578",
+   "0.0582",
+   "0.0641",
+   "0.087306",
+   "0.548808",
+   "0.558602",
+   "0.559068",
+   "0.559720",
+   "0.559837",
+   "0.560247",
+   "0.560264",
+   "0.560576",
+   "9.5951",
+   "9.7417",
+   "9.7521",
+   "9.7632",
+   "9.7846",
+   "9.8756"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0107"
+  ],
+  "evidence": "audit_target_band.py",
+  "proj": null,
+  "len": 4207
+ },
+ {
+  "key": "rem:floorlaw",
+  "file": "theorem_A.md",
+  "line": 5112,
+  "title": "the floor falls like a power, and 1/2 was understated by twelve",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not"
+  ],
+  "m": [
+   "and",
+   "fitted",
+   "measured",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.000264",
+   "0.000308",
+   "0.001662",
+   "0.001883",
+   "0.002394",
+   "0.0037",
+   "0.0559",
+   "0.062800",
+   "0.321639",
+   "6.0098"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_floor_law.py",
+  "proj": null,
+  "len": 3355
+ },
+ {
+  "key": "rem:floormid",
+  "file": "theorem_A.md",
+  "line": 5177,
+  "title": "the floor law predicts a window it was not fitted on",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "no longer",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "and",
+   "fitted",
+   "measured",
+   "ratio",
+   "reads",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.000308",
+   "0.000767",
+   "0.000897",
+   "0.001662",
+   "0.0389",
+   "0.087306",
+   "0.1334",
+   "0.1348",
+   "0.1569",
+   "0.2668",
+   "0.321639",
+   "0.322586",
+   "0.528766",
+   "8.3909",
+   "8.6920"
+  ],
+  "in_tex": [
+   "0.1334"
+  ],
+  "in_res": [
+   "0.1334"
+  ],
+  "evidence": "audit_floor_midband.py",
+  "proj": null,
+  "len": 2957
+ },
+ {
+  "key": "rem:ladderdegree",
+  "file": "theorem_A.md",
+  "line": 5235,
+  "title": "the ladder does not escalate, and that is not a vindication",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "is not the",
+   "out of sample"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "null",
+   "reads",
+   "rung"
+  ],
+  "nums": [
+   "0.0001035913",
+   "0.002878",
+   "0.003070",
+   "0.0625"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_ladder_degree.py",
+  "proj": null,
+  "len": 3123
+ },
+ {
+  "key": "rem:primorialgap",
+  "file": "theorem_A.md",
+  "line": 5293,
+  "title": "the void between two rungs, filled",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "caveat",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "factor \\$",
+   "fitted",
+   "measured",
+   "reads",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.000010",
+   "0.000027",
+   "0.0001",
+   "0.0002",
+   "0.0025",
+   "0.0030",
+   "0.0034",
+   "0.0035",
+   "0.0037",
+   "0.0038",
+   "0.0040",
+   "0.0049",
+   "0.0052",
+   "0.006778",
+   "0.007139",
+   "0.011815",
+   "0.025989",
+   "0.0492",
+   "0.087306",
+   "0.3010",
+   "0.4966",
+   "0.4998",
+   "0.5030",
+   "0.5040",
+   "7.1866",
+   "7.1868",
+   "7.2557",
+   "7.3049",
+   "7.3191",
+   "7.3526",
+   "7.4879",
+   "7.6631"
+  ],
+  "in_tex": [
+   "0.0001",
+   "0.0002"
+  ],
+  "in_res": [
+   "0.0001",
+   "0.0002",
+   "0.0035",
+   "0.0038",
+   "0.0040",
+   "0.0052",
+   "0.5030"
+  ],
+  "evidence": "audit_primorial_gap.py",
+  "proj": null,
+  "len": 4548
+ },
+ {
+  "key": "rem:primorialdense",
+  "file": "theorem_A.md",
+  "line": 5373,
+  "title": "fifty points to a doubling, and what they buy",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "does not",
+   "does not survive",
+   "is dead",
+   "is not",
+   "no longer",
+   "not a constant",
+   "only",
+   "survives",
+   "the range"
+  ],
+  "m": [
+   "correlation",
+   "factor \\$",
+   "fitted",
+   "measured",
+   "octave",
+   "reads",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.000048",
+   "0.000196",
+   "0.000238",
+   "0.000359",
+   "0.000565",
+   "0.000626",
+   "0.000828",
+   "0.001039",
+   "0.003113",
+   "0.0037",
+   "0.003975",
+   "0.003978",
+   "0.003983",
+   "0.004084",
+   "0.004470",
+   "0.006778",
+   "0.006957",
+   "0.007174",
+   "0.008091",
+   "0.008688",
+   "0.087306",
+   "0.3817",
+   "0.5367",
+   "0.86310",
+   "1.724191",
+   "10.3993",
+   "10.6180",
+   "10.8367",
+   "11.0762",
+   "13.8607",
+   "2.7726",
+   "2.7845",
+   "7.3193",
+   "7.7889",
+   "8.3256"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_primorial_dense.py",
+  "proj": null,
+  "len": 5702
+ },
+ {
+  "key": "rem:densenoise",
+  "file": "theorem_A.md",
+  "line": 5472,
+  "title": "the noise is the field's, and both lenses see it",
+  "cls": "HSM",
+  "h": [
+   "nobody had"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "measured",
+   "median",
+   "octave",
+   "ratio",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.000019",
+   "0.000050",
+   "0.000100",
+   "0.0003",
+   "0.000618",
+   "0.0008",
+   "0.0010",
+   "0.0034",
+   "0.0037",
+   "0.003876",
+   "0.006022",
+   "0.012212",
+   "0.0231",
+   "0.037048",
+   "0.038733",
+   "0.039423",
+   "0.0435",
+   "0.0579",
+   "0.063539",
+   "0.0689",
+   "0.091668",
+   "0.1595",
+   "0.2479",
+   "0.280725",
+   "0.6204",
+   "0.6435",
+   "0.9119",
+   "0.9257",
+   "0.9889",
+   "1.2989",
+   "2.829",
+   "8.3256"
+  ],
+  "in_tex": [
+   "0.0003",
+   "0.0008"
+  ],
+  "in_res": [
+   "0.000050",
+   "0.0003",
+   "0.0008",
+   "0.0231"
+  ],
+  "evidence": "audit_dense_noise.py",
+  "proj": null,
+  "len": 4550
+ },
+ {
+  "key": "rem:gainprofile",
+  "file": "theorem_A.md",
+  "line": 5553,
+  "title": "part of the cancellation is between the blocks",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "closed",
+   "does not",
+   "is not",
+   "only",
+   "survives",
+   "the range"
+  ],
+  "m": [
+   "factor \\$",
+   "measured",
+   "reads",
+   "slope"
+  ],
+  "nums": [
+   "0.000046",
+   "0.007716",
+   "0.055525",
+   "0.077963",
+   "0.098386",
+   "0.112199",
+   "0.153911",
+   "0.1867",
+   "0.2064",
+   "0.227835",
+   "0.2318",
+   "0.2452",
+   "0.3216",
+   "0.3400",
+   "0.340006",
+   "0.360763",
+   "0.3608",
+   "0.3684",
+   "0.5466",
+   "0.6033",
+   "1.110",
+   "1.7848",
+   "6.0390",
+   "663.9864"
+  ],
+  "in_tex": [
+   "0.2452"
+  ],
+  "in_res": [
+   "0.2452"
+  ],
+  "evidence": "audit_gain_profile.py",
+  "proj": null,
+  "len": 5416
+ },
+ {
+  "key": "rem:gainopposition",
+  "file": "theorem_A.md",
+  "line": 5651,
+  "title": "the opposition is below chance and chance does not grow",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "does not",
+   "does not grow",
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "draws",
+   "factor \\$",
+   "fitted",
+   "measured",
+   "null",
+   "ratio"
+  ],
+  "nums": [
+   "0.007716",
+   "0.0088",
+   "0.0224",
+   "0.055525",
+   "0.063241",
+   "0.0664",
+   "0.0670",
+   "0.0836",
+   "0.083641",
+   "0.098386",
+   "0.1003",
+   "0.1155",
+   "0.2064",
+   "0.216756",
+   "0.2318",
+   "0.2452",
+   "0.3216",
+   "0.360763",
+   "0.3608",
+   "0.3684",
+   "0.5659",
+   "0.6033",
+   "0.6224",
+   "0.8343",
+   "1.0316",
+   "1.110",
+   "1.1987",
+   "1.3829",
+   "1.6575",
+   "1.776",
+   "1.8296",
+   "3.983"
+  ],
+  "in_tex": [
+   "0.2452"
+  ],
+  "in_res": [
+   "0.2452",
+   "1.776"
+  ],
+  "evidence": "lab_gain_opposition.py",
+  "proj": null,
+  "len": 4763
+ },
+ {
+  "key": "rem:headsign",
+  "file": "theorem_A.md",
+  "line": 5740,
+  "title": "the inner sums already cancel; the sign is what does not",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "no longer",
+   "only"
+  ],
+  "m": [
+   "correlation",
+   "measured",
+   "median",
+   "null",
+   "ratio",
+   "reads"
+  ],
+  "nums": [
+   "0.0000",
+   "0.000046",
+   "0.0023",
+   "0.0074",
+   "0.007812",
+   "0.0082",
+   "0.0126",
+   "0.0129",
+   "0.017828",
+   "0.0185",
+   "0.0191",
+   "0.0240",
+   "0.027147",
+   "0.0273",
+   "0.0291",
+   "0.0295",
+   "0.032100",
+   "0.098386",
+   "0.106299",
+   "0.1537",
+   "0.184058",
+   "0.185280",
+   "0.191871",
+   "0.2590",
+   "0.3284",
+   "0.3389",
+   "0.4989",
+   "0.5128",
+   "0.6169",
+   "0.6339",
+   "0.8274",
+   "0.8547",
+   "1.0000",
+   "1.0310",
+   "1.0995",
+   "1.4707",
+   "2.0992",
+   "2.5633",
+   "4.6521"
+  ],
+  "in_tex": [
+   "1.0000"
+  ],
+  "in_res": [
+   "0.0000",
+   "0.0126",
+   "0.0129",
+   "0.0185",
+   "1.0000"
+  ],
+  "evidence": "audit_head_sign.py",
+  "proj": null,
+  "len": 4789
+ },
+ {
+  "key": "rem:tailasymmetry",
+  "file": "theorem_A.md",
+  "line": 5829,
+  "title": "a null refuted before it could adjudicate",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "correlation",
+   "draws",
+   "measured"
+  ],
+  "nums": [
+   "0.032100",
+   "0.054160",
+   "0.0615",
+   "0.1076",
+   "0.2590",
+   "0.4853",
+   "0.5162",
+   "0.5420",
+   "0.6395",
+   "0.6976",
+   "0.8547",
+   "1.0000",
+   "1.938"
+  ],
+  "in_tex": [
+   "1.0000"
+  ],
+  "in_res": [
+   "1.0000",
+   "1.938"
+  ],
+  "evidence": "lab_tail_asymmetry.py",
+  "proj": null,
+  "len": 3767
+ },
+ {
+  "key": "rem:tailmertens",
+  "file": "theorem_A.md",
+  "line": 5895,
+  "title": "the one candidate, eliminated for being constant",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "convention",
+   "does not",
+   "is not",
+   "only",
+   "survives",
+   "the range"
+  ],
+  "m": [],
+  "nums": [
+   "0.0000",
+   "0.000048",
+   "0.0066",
+   "0.032100",
+   "0.035401",
+   "0.1453",
+   "0.3383",
+   "0.4370",
+   "0.4453",
+   "0.5021",
+   "0.5201",
+   "0.5801",
+   "0.5879",
+   "0.5903",
+   "0.6161",
+   "0.6686",
+   "0.7091",
+   "0.7669",
+   "0.7704",
+   "0.7726",
+   "0.7928",
+   "0.8081",
+   "0.8316",
+   "0.8547",
+   "0.8854",
+   "0.9315",
+   "0.9600",
+   "0.9662",
+   "0.9829",
+   "0.9853",
+   "0.9970",
+   "1.0000"
+  ],
+  "in_tex": [
+   "1.0000"
+  ],
+  "in_res": [
+   "0.0000",
+   "0.9853",
+   "1.0000"
+  ],
+  "evidence": "audit_tail_mertens.py",
+  "proj": null,
+  "len": 4587
+ },
+ {
+  "key": "rem:tailpredictors",
+  "file": "theorem_A.md",
+  "line": 5977,
+  "title": "a bounded modulus does reach the tail",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "convention",
+   "does not",
+   "is not",
+   "only",
+   "the range"
+  ],
+  "m": [
+   "draws",
+   "factor \\$",
+   "measured",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.000050",
+   "0.003755",
+   "0.009494",
+   "0.0147",
+   "0.5170",
+   "0.5801",
+   "0.6255",
+   "0.7726",
+   "0.8484",
+   "0.8547",
+   "0.8820",
+   "0.9224",
+   "0.9309",
+   "0.9315",
+   "0.9595",
+   "0.9600",
+   "0.9706",
+   "0.9851",
+   "0.9853",
+   "1.0000",
+   "1.000000"
+  ],
+  "in_tex": [
+   "1.0000",
+   "1.000000"
+  ],
+  "in_res": [
+   "0.000050",
+   "0.9853",
+   "1.0000",
+   "1.000000"
+  ],
+  "evidence": "audit_tail_predictors.py",
+  "proj": null,
+  "len": 4266
+ },
+ {
+  "key": "rem:levelmagnitude",
+  "file": "theorem_A.md",
+  "line": 6051,
+  "title": "the level's signs, and why swapping them proves nothing",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "correlation",
+   "measured",
+   "ratio"
+  ],
+  "nums": [
+   "0.000046",
+   "0.001658",
+   "0.007798",
+   "0.026809",
+   "0.066210",
+   "0.080011",
+   "0.103219",
+   "0.106820",
+   "0.133887",
+   "0.134019",
+   "0.153911",
+   "0.180978",
+   "0.182432",
+   "0.219441",
+   "0.260989",
+   "0.283586",
+   "0.287798",
+   "0.289456",
+   "0.7367",
+   "0.8129",
+   "1.024",
+   "1.8337",
+   "17.3688",
+   "2.0355",
+   "2.9068",
+   "3.5925",
+   "7.0377",
+   "7.2326",
+   "72.1485"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "1.024"
+  ],
+  "evidence": "audit_level_magnitude.py",
+  "proj": null,
+  "len": 4190
+ },
+ {
+  "key": "rem:flatnessfill",
+  "file": "theorem_A.md",
+  "line": 6126,
+  "title": "the excess over the ceiling was eight points",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "no longer",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "fitted",
+   "octave",
+   "ratio",
+   "reads",
+   "slope"
+  ],
+  "nums": [
+   "0.000014",
+   "0.000046",
+   "0.000050",
+   "0.000072",
+   "0.001022",
+   "0.001803",
+   "0.002472",
+   "0.004748",
+   "0.006479",
+   "0.006772",
+   "0.007445",
+   "0.008713",
+   "0.010021",
+   "0.011050",
+   "0.011916",
+   "0.011929",
+   "0.012620",
+   "0.015638",
+   "0.022751",
+   "0.028360",
+   "0.033937",
+   "0.133887",
+   "0.137879",
+   "0.137951",
+   "0.142121",
+   "0.153911",
+   "0.278278",
+   "0.2800",
+   "0.280072",
+   "0.287798",
+   "0.491612",
+   "0.6622",
+   "0.6986",
+   "0.7388",
+   "24.2459",
+   "28.6782"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.000050",
+   "0.008713",
+   "0.2800"
+  ],
+  "evidence": "audit_flatness_fill.py",
+  "proj": null,
+  "len": 3936
+ },
+ {
+  "key": "rem:fillfield",
+  "file": "theorem_A.md",
+  "line": 6198,
+  "title": "the seventy points were three fields",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "is not the",
+   "only",
+   "the range"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "octave",
+   "reads",
+   "slope"
+  ],
+  "nums": [
+   "0.000041",
+   "0.000602",
+   "0.000874",
+   "0.000880",
+   "0.001798",
+   "0.004166",
+   "0.004380",
+   "0.004813",
+   "0.006251",
+   "0.006479",
+   "0.006480",
+   "0.006520",
+   "0.006673",
+   "0.006741",
+   "0.007445",
+   "0.008411",
+   "0.009468",
+   "0.012181",
+   "0.042144",
+   "0.081546",
+   "0.133511",
+   "0.137891",
+   "0.146489",
+   "0.280207",
+   "0.284380",
+   "0.298478",
+   "0.397647",
+   "0.560174",
+   "0.560414",
+   "0.560714",
+   "1.7228",
+   "12.6968",
+   "28.6782",
+   "3.7589",
+   "3.7926"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.004166"
+  ],
+  "evidence": "audit_fill_field.py",
+  "proj": null,
+  "len": 4253
+ },
+ {
+  "key": "rem:fieldreach",
+  "file": "theorem_A.md",
+  "line": 6278,
+  "title": "two more octaves, and the shape question retires",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only",
+   "survives",
+   "the range"
+  ],
+  "m": [
+   "measured",
+   "octave",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.000015",
+   "0.000050",
+   "0.000506",
+   "0.000576",
+   "0.000578",
+   "0.002492",
+   "0.003408",
+   "0.003586",
+   "0.003872",
+   "0.006279",
+   "0.006366",
+   "0.006380",
+   "0.006633",
+   "0.008112",
+   "0.134019",
+   "0.137891",
+   "0.149567",
+   "0.280178",
+   "0.283586",
+   "0.560357",
+   "0.6622",
+   "0.7017",
+   "1.024",
+   "28.6782",
+   "4.8520",
+   "6.2383"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.000015",
+   "0.000050",
+   "1.024"
+  ],
+  "evidence": "audit_field_reach.py",
+  "proj": null,
+  "len": 3350
+ },
+ {
+  "key": "rem:shapepower",
+  "file": "theorem_A.md",
+  "line": 6340,
+  "title": "the tie was never a measurement",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "fitted",
+   "octave",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.0000",
+   "0.000001",
+   "0.00000812",
+   "0.000036",
+   "0.000050",
+   "0.00047608",
+   "0.001195",
+   "0.0075",
+   "0.1877",
+   "0.7075",
+   "12.2061",
+   "12.9843",
+   "8.0103"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0000",
+   "0.000036",
+   "0.000050",
+   "0.0075",
+   "12.2061"
+  ],
+  "evidence": "audit_shape_power.py",
+  "proj": null,
+  "len": 3681
+ },
+ {
+  "key": "rem:destination",
+  "file": "theorem_A.md",
+  "line": 6410,
+  "title": "asking for the destination instead of the shape",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "only"
+  ],
+  "m": [
+   "fitted",
+   "measured"
+  ],
+  "nums": [
+   "0.0000",
+   "0.042611",
+   "0.061735",
+   "0.073194",
+   "0.134524",
+   "0.1375",
+   "0.151457",
+   "0.177565",
+   "0.185867",
+   "0.320392",
+   "0.425102",
+   "0.462564",
+   "0.500025",
+   "0.557187",
+   "0.578516",
+   "0.629871",
+   "0.640250",
+   "0.652438",
+   "0.672482",
+   "0.692527",
+   "0.743054",
+   "0.774360",
+   "1.094751",
+   "1.651938"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0000"
+  ],
+  "evidence": "audit_power_reach.py",
+  "proj": null,
+  "len": 3012
+ },
+ {
+  "key": "rem:slopes",
+  "file": "theorem_A.md",
+  "line": 6470,
+  "title": "which of these slopes is above its own noise",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "octave",
+   "slope"
+  ],
+  "nums": [
+   "0.0000321",
+   "0.0000433",
+   "0.000289",
+   "0.001169",
+   "0.007892",
+   "0.010489",
+   "0.5654",
+   "0.5799",
+   "2.7726",
+   "6.9315"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_slope_significance.py",
+  "proj": null,
+  "len": 2743
+ },
+ {
+  "key": "rem:slopereach",
+  "file": "theorem_A.md",
+  "line": 6522,
+  "title": "two more octaves settle it",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "does not",
+   "only"
+  ],
+  "m": [
+   "factor \\$",
+   "octave",
+   "slope"
+  ],
+  "nums": [
+   "0.0000",
+   "0.002353",
+   "0.0043",
+   "0.004692",
+   "0.0049",
+   "0.005",
+   "0.005112",
+   "0.007871",
+   "0.4737",
+   "0.5767",
+   "0.5834",
+   "0.5976",
+   "2.7726",
+   "4.1589",
+   "6.9315"
+  ],
+  "in_tex": [
+   "0.005"
+  ],
+  "in_res": [
+   "0.0000",
+   "0.0043",
+   "0.005"
+  ],
+  "evidence": "audit_level_slope_reach.py",
+  "proj": null,
+  "len": 1984
+ },
+ {
+  "key": "rem:betafree",
+  "file": "theorem_A.md",
+  "line": 6562,
+  "title": "the split constant is free and buys nothing",
+  "cls": "HSM",
+  "h": [
+   "nobody had"
+  ],
+  "s": [
+   "cannot",
+   "is free",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "fitted",
+   "ratio"
+  ],
+  "nums": [
+   "0.0016",
+   "0.0018",
+   "0.0022",
+   "0.0024",
+   "0.0026",
+   "0.0092",
+   "0.5599",
+   "0.9829",
+   "1.000"
+  ],
+  "in_tex": [
+   "1.000"
+  ],
+  "in_res": [
+   "0.0016",
+   "0.0018",
+   "0.0024",
+   "0.0026",
+   "1.000"
+  ],
+  "evidence": "audit_beta_optimal.py",
+  "proj": null,
+  "len": 2358
+ },
+ {
+  "key": "rem:splitbudget",
+  "file": "theorem_A.md",
+  "line": 6607,
+  "title": "which half exhausts the budget",
+  "cls": "HSM",
+  "h": [
+   "fails there",
+   "pre-registered"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "is not the",
+   "only"
+  ],
+  "m": [
+   "and",
+   "measured",
+   "reads"
+  ],
+  "nums": [
+   "0.4737",
+   "0.5062",
+   "0.5119",
+   "0.5214",
+   "0.5275",
+   "0.6552",
+   "0.6716",
+   "0.6799",
+   "0.6891",
+   "0.7371",
+   "0.7477",
+   "0.8112",
+   "0.8456",
+   "0.8484",
+   "0.8573",
+   "0.8691",
+   "1.2402",
+   "1.2980",
+   "1.3855",
+   "4.7009"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.8112"
+  ],
+  "evidence": "lab_split_budget.py",
+  "proj": null,
+  "len": 3086
+ },
+ {
+  "key": "rem:pairingnull",
+  "file": "theorem_A.md",
+  "line": 6666,
+  "title": "the control the ratio could take",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "does not",
+   "does not survive",
+   "only"
+  ],
+  "m": [
+   "and",
+   "measured",
+   "median",
+   "ratio"
+  ],
+  "nums": [
+   "0.0000",
+   "0.0244",
+   "0.0670",
+   "0.0881",
+   "0.1386",
+   "0.1389",
+   "0.1456",
+   "0.1481",
+   "0.1547",
+   "0.1624",
+   "0.1695",
+   "0.1740",
+   "0.1790",
+   "0.1807",
+   "1.0033",
+   "1.0036",
+   "1.0052",
+   "1.0053",
+   "1.0054",
+   "1.0099",
+   "1.0132",
+   "1.0146",
+   "1.0201",
+   "1.0220",
+   "2.291",
+   "5.5347",
+   "5.8487",
+   "6.8669",
+   "7.3930",
+   "8.0955"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0000",
+   "0.1389",
+   "0.1456",
+   "0.1624",
+   "0.1740",
+   "0.1807",
+   "1.0099",
+   "1.0132",
+   "1.0146",
+   "1.0201",
+   "1.0220",
+   "5.5347",
+   "6.8669"
+  ],
+  "evidence": "audit_weightgap_pairing.py",
+  "proj": null,
+  "len": 2389
+ },
+ {
+  "key": "rem:weightgap",
+  "file": "theorem_A.md",
+  "line": 6712,
+  "title": "where the weight puts its mass",
+  "cls": "HSM",
+  "h": [
+   "an earlier version",
+   "earlier version",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "only",
+   "the range"
+  ],
+  "m": [
+   "reads"
+  ],
+  "nums": [
+   "0.01492",
+   "0.02545",
+   "0.04335",
+   "0.07379",
+   "0.12565",
+   "0.7959",
+   "0.8814",
+   "0.9368",
+   "1.0018",
+   "1.7034"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.01492",
+   "0.02545",
+   "0.04335",
+   "0.07379",
+   "0.12565",
+   "0.7959",
+   "0.8814",
+   "0.9368",
+   "1.0018",
+   "1.7034"
+  ],
+  "evidence": "lab_weight_gap.py",
+  "proj": null,
+  "len": 1346
+ },
+ {
+  "key": "rem:bombieri",
+  "file": "theorem_A.md",
+  "line": 6813,
+  "title": "relation to Bombieri's asymptotic sieve",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "is not",
+   "is not the",
+   "survives"
+  ],
+  "m": [
+   "ratio"
+  ],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": "note:bombieri",
+  "len": 1837
+ },
+ {
+  "key": "(none)",
+  "file": "theorem_A.md",
+  "line": 6855,
+  "title": "what the obstruction is",
+  "cls": "?",
+  "h": [],
+  "s": [],
+  "m": [],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": null,
+  "len": 447
+ },
+ {
+  "key": "(none)",
+  "file": "theorem_A.md",
+  "line": 6866,
+  "title": "scope, stated honestly",
+  "cls": "S",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "no-go",
+   "only"
+  ],
+  "m": [],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": null,
+  "len": 369
+ },
+ {
+  "key": "(none)",
+  "file": "theorem_A.md",
+  "line": 6911,
+  "title": "",
+  "cls": "S",
+  "h": [],
+  "s": [
+   "closed"
+  ],
+  "m": [],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": null,
+  "len": 384
+ },
+ {
+  "key": "rem:toprdom",
+  "file": "theorem_A.md",
+  "line": 6976,
+  "title": "a prediction of ours that the measurement refuted",
+  "cls": "M",
+  "h": [],
+  "s": [],
+  "m": [
+   "measured",
+   "ratio"
+  ],
+  "nums": [
+   "0.7713",
+   "0.7903",
+   "0.8104",
+   "1.7565",
+   "1.76043",
+   "1.7614",
+   "1.7633",
+   "17.3648",
+   "19.7926",
+   "2.8866",
+   "2.9494",
+   "2.9967",
+   "22.2512",
+   "22.5145",
+   "25.0438",
+   "27.4579"
+  ],
+  "in_tex": [
+   "0.7713",
+   "0.7903",
+   "0.8104",
+   "1.7565",
+   "1.76043",
+   "1.7614",
+   "1.7633",
+   "17.3648",
+   "19.7926",
+   "2.8866",
+   "2.9494",
+   "2.9967",
+   "22.2512",
+   "22.5145",
+   "25.0438",
+   "27.4579"
+  ],
+  "in_res": [
+   "0.7713",
+   "0.7903",
+   "0.8104",
+   "1.7565",
+   "1.76043",
+   "1.7614",
+   "1.7633",
+   "17.3648",
+   "19.7926",
+   "2.8866",
+   "2.9494",
+   "2.9967",
+   "22.2512",
+   "22.5145",
+   "25.0438",
+   "27.4579"
+  ],
+  "evidence": "audit_polyweight.py",
+  "proj": null,
+  "len": 1037
+ },
+ {
+  "key": "rem:trunc",
+  "file": "theorem_A.md",
+  "line": 7004,
+  "title": "the last table was truncated, not rounded",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "version 3"
+  ],
+  "s": [
+   "convention",
+   "is not",
+   "only"
+  ],
+  "m": [],
+  "nums": [
+   "2.886",
+   "2.8866",
+   "2.887",
+   "2.949",
+   "2.997"
+  ],
+  "in_tex": [
+   "2.886",
+   "2.8866",
+   "2.949"
+  ],
+  "in_res": [
+   "2.886",
+   "2.8866",
+   "2.949",
+   "2.997"
+  ],
+  "evidence": "audit_polyweight.py",
+  "proj": "note:trunc",
+  "len": 607
+ },
+ {
+  "key": "(none)",
+  "file": "theorem_A.md",
+  "line": 7018,
+  "title": "the canonical tuning moves the wrong way",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "is not"
+  ],
+  "m": [
+   "correlation",
+   "measured"
+  ],
+  "nums": [
+   "0.0001",
+   "3.1543",
+   "3.1544",
+   "37.8516",
+   "39.8793",
+   "4.3087",
+   "4.3089",
+   "42.8008",
+   "44.8364",
+   "45.4201",
+   "47.6756",
+   "49.7091",
+   "50.3988",
+   "55.2654"
+  ],
+  "in_tex": [
+   "0.0001"
+  ],
+  "in_res": [
+   "0.0001",
+   "3.1543",
+   "3.1544",
+   "37.8516",
+   "39.8793",
+   "4.3087",
+   "4.3089",
+   "42.8008",
+   "44.8364",
+   "45.4201",
+   "47.6756",
+   "49.7091",
+   "50.3988",
+   "55.2654"
+  ],
+  "evidence": "",
+  "proj": null,
+  "len": 1961
+ },
+ {
+  "key": "rem:ratiotable",
+  "file": "theorem_A.md",
+  "line": 7166,
+  "title": "the ratio does not determine the entry",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "version 3"
+  ],
+  "s": [
+   "cannot",
+   "convention",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [],
+  "nums": [
+   "0.066667",
+   "0.250000",
+   "0.500000",
+   "0.566667",
+   "0.750000",
+   "1.000000"
+  ],
+  "in_tex": [
+   "0.066667",
+   "0.250000",
+   "0.500000",
+   "0.566667",
+   "0.750000",
+   "1.000000"
+  ],
+  "in_res": [
+   "0.066667",
+   "0.250000",
+   "0.500000",
+   "0.566667",
+   "0.750000",
+   "1.000000"
+  ],
+  "evidence": "audit_extraction_tradeoff.py",
+  "proj": null,
+  "len": 1697
+ },
+ {
+  "key": "rem:cap",
+  "file": "theorem_A.md",
+  "line": 7205,
+  "title": "a pre-registered threshold of ours that failed",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "is not"
+  ],
+  "m": [
+   "null",
+   "octave"
+  ],
+  "nums": [
+   "0.00053",
+   "0.0014",
+   "0.062792",
+   "0.063",
+   "0.114",
+   "0.511",
+   "0.754",
+   "1.000"
+  ],
+  "in_tex": [
+   "1.000"
+  ],
+  "in_res": [
+   "0.0014",
+   "0.062792",
+   "0.063",
+   "0.114",
+   "0.511",
+   "0.754",
+   "1.000"
+  ],
+  "evidence": "audit_extraction_tradeoff.py",
+  "proj": null,
+  "len": 830
+ },
+ {
+  "key": "rem:band",
+  "file": "theorem_A.md",
+  "line": 7272,
+  "title": "a pre-registered check of ours that failed",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "version 3"
+  ],
+  "s": [
+   "and it fails",
+   "cannot",
+   "does not",
+   "is not"
+  ],
+  "m": [
+   "and",
+   "ratio"
+  ],
+  "nums": [
+   "0.0437",
+   "0.0483",
+   "0.1140",
+   "1.760250",
+   "1.76043",
+   "1.760432",
+   "2.0669",
+   "2.0754",
+   "2.1302",
+   "2.1333",
+   "2.1902",
+   "2.2068",
+   "2.2589",
+   "2.2625",
+   "2.2842",
+   "2.3257"
+  ],
+  "in_tex": [
+   "1.760250",
+   "1.76043",
+   "1.760432"
+  ],
+  "in_res": [
+   "1.760250",
+   "1.76043",
+   "1.760432"
+  ],
+  "evidence": "audit_residual_mainterm.py",
+  "proj": null,
+  "len": 2076
+ },
+ {
+  "key": "rem:e1row",
+  "file": "wall_v3.md",
+  "line": 320,
+  "title": "this row is not reproduced",
+  "cls": "HSM",
+  "h": [
+   "the audit's rule",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "and it fails",
+   "convention",
+   "is not",
+   "survives"
+  ],
+  "m": [
+   "and",
+   "ratio"
+  ],
+  "nums": [
+   "0.3230",
+   "0.3393",
+   "0.3441",
+   "0.3480",
+   "0.3524",
+   "0.3714",
+   "0.4199",
+   "0.4795",
+   "0.4841",
+   "1.0286",
+   "1.0482",
+   "1.4518"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.3230",
+   "0.3393",
+   "0.3441",
+   "0.3480",
+   "0.3524",
+   "0.3714",
+   "0.4199",
+   "0.4795",
+   "0.4841",
+   "1.0286",
+   "1.0482",
+   "1.4518"
+  ],
+  "evidence": "audit_support_density.py",
+  "proj": null,
+  "len": 1378
+ },
+ {
+  "key": "rem:supp",
+  "file": "wall_v3.md",
+  "line": 349,
+  "title": "the support density is not $\\prod_p(1-2/p^2)$",
+  "cls": "HSM",
+  "h": [
+   "the audit's rule"
+  ],
+  "s": [
+   "closed",
+   "convention",
+   "is not",
+   "is not the",
+   "only"
+  ],
+  "m": [
+   "measured"
+  ],
+  "nums": [
+   "0.32263",
+   "0.3226341",
+   "0.3278",
+   "0.3298",
+   "0.3303",
+   "0.3310",
+   "0.3320",
+   "0.3345",
+   "0.594330"
+  ],
+  "in_tex": [
+   "0.32263",
+   "0.3226341",
+   "0.3278",
+   "0.3298",
+   "0.3303",
+   "0.3310",
+   "0.3320",
+   "0.3345",
+   "0.594330"
+  ],
+  "in_res": [
+   "0.32263",
+   "0.3226341",
+   "0.3278",
+   "0.3298",
+   "0.3303",
+   "0.3310",
+   "0.3320",
+   "0.3345",
+   "0.594330"
+  ],
+  "evidence": "audit_support_density.py",
+  "proj": "meas:supp",
+  "len": 1906
+ },
+ {
+  "key": "rem:scale",
+  "file": "wall_v3.md",
+  "line": 387,
+  "title": "the mandatory comparison",
+  "cls": "S",
+  "h": [],
+  "s": [
+   "only",
+   "survives"
+  ],
+  "m": [],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": "note:scale",
+  "len": 454
+ },
+ {
+  "key": "rem:maskstamp",
+  "file": "wall_v3.md",
+  "line": 429,
+  "title": "one of the four stamps re-verified, and what re-verifying it showed",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not"
+  ],
+  "m": [],
+  "nums": [
+   "0.2468"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "verify/pass2/code/verify_conjL_mask_zeros.py",
+  "proj": null,
+  "len": 3061
+ },
+ {
+  "key": "rem:cellstamp",
+  "file": "wall_v3.md",
+  "line": 488,
+  "title": "the second stamp, and the second parameter it does not print",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "and",
+   "ratio"
+  ],
+  "nums": [
+   "0.00016",
+   "0.0008",
+   "0.01522",
+   "0.9674",
+   "0.9750",
+   "0.98179",
+   "0.9844",
+   "0.99701",
+   "0.99781"
+  ],
+  "in_tex": [
+   "0.00016",
+   "0.0008"
+  ],
+  "in_res": [
+   "0.00016",
+   "0.0008"
+  ],
+  "evidence": "verify/pass3/code/verify_conjL_exact_cells.py",
+  "proj": null,
+  "len": 2632
+ },
+ {
+  "key": "rem:fieldpinned",
+  "file": "wall_v3.md",
+  "line": 540,
+  "title": "the same question turned on this repository, and what paying it costs",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "the wrong one"
+  ],
+  "s": [
+   "cannot",
+   "closed",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "measured",
+   "null",
+   "reads",
+   "rung"
+  ],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_field_pinned.py",
+  "proj": null,
+  "len": 3956
+ },
+ {
+  "key": "rem:secondorder",
+  "file": "wall_v3.md",
+  "line": 725,
+  "title": "the second-order form",
+  "cls": "HM",
+  "h": [
+   "the audit's rule"
+  ],
+  "s": [],
+  "m": [
+   "and",
+   "factor \\$",
+   "measured",
+   "ratio",
+   "reads"
+  ],
+  "nums": [
+   "0.927137",
+   "0.933409",
+   "0.939701",
+   "0.939716",
+   "0.999134",
+   "0.999482",
+   "0.999984"
+  ],
+  "in_tex": [
+   "0.927137",
+   "0.933409",
+   "0.939701",
+   "0.939716",
+   "0.999134",
+   "0.999482",
+   "0.999984"
+  ],
+  "in_res": [
+   "0.927137",
+   "0.933409",
+   "0.939701",
+   "0.939716",
+   "0.999134",
+   "0.999482",
+   "0.999984"
+  ],
+  "evidence": "lab_second_moment.py",
+  "proj": "meas:secondorder",
+  "len": 758
+ },
+ {
+  "key": "(none)",
+  "file": "wall_v3.md",
+  "line": 775,
+  "title": "",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not"
+  ],
+  "m": [
+   "ratio"
+  ],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": null,
+  "len": 780
+ },
+ {
+  "key": "rem:cdef",
+  "file": "wall_v3.md",
+  "line": 838,
+  "title": "one symbol, two meanings, in one paragraph",
+  "cls": "HSM",
+  "h": [
+   "the audit's rule",
+   "version 3"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "factor \\$",
+   "measured"
+  ],
+  "nums": [
+   "1.5489",
+   "1.8517",
+   "3.5798"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "1.5489",
+   "1.8517",
+   "3.5798"
+  ],
+  "evidence": "audit_amplification.py",
+  "proj": null,
+  "len": 2518
+ },
+ {
+  "key": "rem:cnlaw",
+  "file": "wall_v3.md",
+  "line": 895,
+  "title": "the withdrawn law, re-measured: one statistic survives the coin",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "is not the"
+  ],
+  "m": [
+   "and",
+   "draws",
+   "reads",
+   "sd"
+  ],
+  "nums": [
+   "0.01825",
+   "0.03957",
+   "0.042",
+   "0.04596",
+   "0.264",
+   "0.26422",
+   "0.92953",
+   "0.93420",
+   "2.6990",
+   "2.8074",
+   "2.9631",
+   "3.1965"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.042"
+  ],
+  "evidence": "audit_cn_law.py",
+  "proj": null,
+  "len": 3427
+ },
+ {
+  "key": "rem:cnkurt",
+  "file": "wall_v3.md",
+  "line": 961,
+  "title": "the non-Gaussianity is real at every scale reached, and it decays slower than independence",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "not a constant"
+  ],
+  "m": [
+   "and",
+   "draws",
+   "fitted",
+   "measured",
+   "null",
+   "octave",
+   "slope"
+  ],
+  "nums": [
+   "0.01376",
+   "0.019",
+   "0.02103",
+   "0.07411",
+   "0.14257",
+   "0.24190",
+   "0.25305",
+   "0.26422",
+   "0.41549",
+   "0.6953",
+   "0.69806",
+   "0.7312",
+   "1.06049",
+   "1.57158"
+  ],
+  "in_tex": [
+   "0.019"
+  ],
+  "in_res": [
+   "0.019"
+  ],
+  "evidence": "audit_cn_kurt_drift.py",
+  "proj": null,
+  "len": 3154
+ },
+ {
+  "key": "rem:cnkurtlimit",
+  "file": "wall_v3.md",
+  "line": 1020,
+  "title": "the forecast held, the floor did not, and this branch has a noise floor",
+  "cls": "HSM",
+  "h": [
+   "superseded",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only",
+   "out of sample",
+   "the range"
+  ],
+  "m": [
+   "and",
+   "correlation",
+   "draws",
+   "fitted",
+   "measured",
+   "null",
+   "octave",
+   "reads"
+  ],
+  "nums": [
+   "0.00848",
+   "0.01019",
+   "0.01376",
+   "0.018",
+   "0.02085",
+   "0.02103",
+   "0.02302",
+   "0.02605",
+   "0.03913",
+   "0.04088",
+   "0.04847",
+   "0.06114",
+   "0.06627",
+   "0.07411",
+   "0.10062"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.018"
+  ],
+  "evidence": "audit_cn_kurt_limit.py",
+  "proj": null,
+  "len": 4297
+ },
+ {
+  "key": "rem:cnskew",
+  "file": "wall_v3.md",
+  "line": 1102,
+  "title": "the control does shrink, and it does not help",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "buys nothing",
+   "cannot",
+   "closed",
+   "does not"
+  ],
+  "m": [
+   "and",
+   "correlation",
+   "measured",
+   "octave",
+   "sd",
+   "slope"
+  ],
+  "nums": [
+   "0.02489",
+   "0.03244",
+   "0.03691",
+   "0.03870",
+   "0.05067",
+   "0.09094",
+   "0.1198",
+   "0.21666",
+   "0.47174",
+   "0.6367"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_cn_skew.py",
+  "proj": null,
+  "len": 3109
+ },
+ {
+  "key": "rem:cnshift",
+  "file": "wall_v3.md",
+  "line": 1163,
+  "title": "the coin reproduces the two-point function too, and the test was the wrong kind",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "is not",
+   "the escape"
+  ],
+  "m": [
+   "correlation",
+   "draws",
+   "measured",
+   "octave"
+  ],
+  "nums": [
+   "1.3608"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_cn_shiftcorr.py",
+  "proj": null,
+  "len": 2922
+ },
+ {
+  "key": "rem:cndilation",
+  "file": "wall_v3.md",
+  "line": 1217,
+  "title": "the multiplicative question, asked properly, closes too",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "closed",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "draws"
+  ],
+  "nums": [
+   "0.003923",
+   "0.004225",
+   "0.006715",
+   "0.012706",
+   "0.035083"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_cn_dilation.py",
+  "proj": null,
+  "len": 3158
+ },
+ {
+  "key": "rem:cnkurtwhere",
+  "file": "wall_v3.md",
+  "line": 1276,
+  "title": "the non-Gaussianity is not made anywhere",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "closed",
+   "is not"
+  ],
+  "m": [
+   "and",
+   "fitted",
+   "measured"
+  ],
+  "nums": [
+   "0.01005",
+   "0.01047",
+   "0.01102",
+   "0.01465",
+   "0.01686",
+   "0.01907",
+   "0.02350",
+   "0.04258",
+   "0.04683",
+   "0.09297",
+   "0.11969",
+   "0.13139",
+   "0.41549",
+   "0.8194",
+   "1.455",
+   "1.5392"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "1.455"
+  ],
+  "evidence": "audit_cn_kurt_where.py",
+  "proj": null,
+  "len": 2924
+ },
+ {
+  "key": "rem:cnwherereach",
+  "file": "wall_v3.md",
+  "line": 1334,
+  "title": "there is no profile in v, only a count — and the coin's own law is not the textbook one",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "does not",
+   "out of sample"
+  ],
+  "m": [
+   "and",
+   "fitted",
+   "measured",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.17584",
+   "0.32369",
+   "0.69806",
+   "0.8194",
+   "1.06049",
+   "1.36790",
+   "1.5392",
+   "1.8784",
+   "2.7662",
+   "6.92713"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_cn_where_reach.py",
+  "proj": null,
+  "len": 2890
+ },
+ {
+  "key": "rem:cnclass",
+  "file": "wall_v3.md",
+  "line": 1391,
+  "title": "the last axis is not closed: C(N) has class structure V does not carry",
+  "cls": "HSM",
+  "h": [
+   "superseded"
+  ],
+  "s": [
+   "cannot",
+   "closed",
+   "does not",
+   "is not",
+   "only",
+   "the escape"
+  ],
+  "m": [
+   "and",
+   "draws",
+   "measured",
+   "median",
+   "null"
+  ],
+  "nums": [
+   "0.80803",
+   "0.83798",
+   "0.875667582379",
+   "0.91322",
+   "0.95176",
+   "1.02249",
+   "1.02257",
+   "1.03152",
+   "1.03594",
+   "1.05787",
+   "1.07534",
+   "1.16445",
+   "4.37497"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.80803",
+   "0.83798",
+   "0.91322",
+   "0.95176",
+   "1.16445",
+   "4.37497"
+  ],
+  "evidence": "audit_cn_class.py",
+  "proj": null,
+  "len": 3642
+ },
+ {
+  "key": "rem:cnclassreach",
+  "file": "wall_v3.md",
+  "line": 1458,
+  "title": "the escape is a shift, it lives at every band, and it fades slowest of all",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "is not",
+   "only",
+   "the escape"
+  ],
+  "m": [
+   "and",
+   "draws",
+   "measured",
+   "null",
+   "octave",
+   "slope"
+  ],
+  "nums": [
+   "0.00273",
+   "0.00332",
+   "0.00400",
+   "0.00695",
+   "0.00739",
+   "0.00852",
+   "0.01131",
+   "0.18183",
+   "0.2402",
+   "0.2623",
+   "0.6173",
+   "1.16347",
+   "1.42183",
+   "1.4602",
+   "1.70728",
+   "10.20413",
+   "2.03591",
+   "2.42550",
+   "2.67490",
+   "2.91115",
+   "2.9148",
+   "3.42435",
+   "4.37497",
+   "5.79633",
+   "7.69269"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "4.37497"
+  ],
+  "evidence": "audit_cn_class_reach.py",
+  "proj": null,
+  "len": 3157
+ },
+ {
+  "key": "rem:cnclassomega",
+  "file": "wall_v3.md",
+  "line": 1519,
+  "title": "the shift is not made anywhere: it is what survives a 198-fold cancellation",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "closed",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "and"
+  ],
+  "nums": [
+   "0.00396",
+   "1.70728",
+   "115.48990",
+   "164.60003",
+   "3.31153",
+   "337.53238",
+   "54.12597",
+   "7.194"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_cn_class_omega.py",
+  "proj": null,
+  "len": 2635
+ },
+ {
+  "key": "rem:cnmultnull",
+  "file": "wall_v3.md",
+  "line": 1574,
+  "title": "a multiplicative null, and three things it showed that were not the question",
+  "cls": "HSM",
+  "h": [
+   "superseded",
+   "the error was",
+   "was wrong"
+  ],
+  "s": [
+   "does not",
+   "only",
+   "the escape"
+  ],
+  "m": [
+   "draws",
+   "null",
+   "percentile",
+   "sd"
+  ],
+  "nums": [
+   "0.01167",
+   "0.012",
+   "0.01376",
+   "0.02068",
+   "0.03422",
+   "0.06086",
+   "0.064",
+   "0.33637",
+   "0.41757",
+   "0.43997",
+   "0.44825",
+   "0.46174",
+   "0.50217",
+   "0.5646",
+   "1.70728"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.012",
+   "0.064"
+  ],
+  "evidence": "audit_cn_multnull.py",
+  "proj": null,
+  "len": 2759
+ },
+ {
+  "key": "rem:cnmultm2",
+  "file": "wall_v3.md",
+  "line": 1626,
+  "title": "mu is outside the multiplicative null — and the same run says not to build on it yet",
+  "cls": "HSM",
+  "h": [
+   "superseded"
+  ],
+  "s": [
+   "cannot",
+   "caveat",
+   "does not",
+   "is not",
+   "the escape"
+  ],
+  "m": [
+   "draws",
+   "measured",
+   "null",
+   "sd",
+   "standard deviation"
+  ],
+  "nums": [
+   "0.14589",
+   "0.16415",
+   "0.29369",
+   "0.29866",
+   "0.80803",
+   "0.85394",
+   "0.90114",
+   "0.90346",
+   "0.93021",
+   "0.95176",
+   "1.16445",
+   "4.37497"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.80803",
+   "0.95176",
+   "1.16445",
+   "4.37497"
+  ],
+  "evidence": "audit_cn_multnull_m2.py",
+  "proj": null,
+  "len": 2954
+ },
+ {
+  "key": "rem:cnmultdeep",
+  "file": "wall_v3.md",
+  "line": 1682,
+  "title": "the escape was the tail: seven routes, none of them open",
+  "cls": "HSM",
+  "h": [
+   "a bug",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "caveat",
+   "is not",
+   "is not the",
+   "the escape"
+  ],
+  "m": [
+   "draws",
+   "measured",
+   "null",
+   "percentile",
+   "sd"
+  ],
+  "nums": [
+   "0.02769",
+   "0.02859",
+   "0.03961",
+   "0.10868",
+   "0.13591",
+   "0.2623",
+   "0.29369",
+   "0.63553",
+   "0.80803",
+   "0.85337",
+   "0.854",
+   "0.930",
+   "1.00290",
+   "1.00609",
+   "1.04262",
+   "1.04608",
+   "1.06459",
+   "1.16445",
+   "1.27572",
+   "1.70728",
+   "4.37497"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.63553",
+   "0.80803",
+   "0.930",
+   "1.16445",
+   "4.37497"
+  ],
+  "evidence": "audit_cn_multnull_deep.py",
+  "proj": null,
+  "len": 3376
+ },
+ {
+  "key": "rem:cncoindeep",
+  "file": "wall_v3.md",
+  "line": 1743,
+  "title": "it was the null, not the depth: the iid coin is narrower than the right one",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "is not the",
+   "only"
+  ],
+  "m": [
+   "and",
+   "draws",
+   "measured",
+   "null"
+  ],
+  "nums": [
+   "0.00409",
+   "0.00638",
+   "0.02300",
+   "0.02551",
+   "0.06330",
+   "0.41025",
+   "0.63553",
+   "0.6455",
+   "0.98707",
+   "1.00609",
+   "1.00642",
+   "1.01534"
+  ],
+  "in_tex": [
+   "0.6455"
+  ],
+  "in_res": [
+   "0.00409",
+   "0.00638",
+   "0.02300",
+   "0.02551",
+   "0.06330",
+   "0.41025",
+   "0.63553",
+   "0.6455",
+   "0.98707",
+   "1.00642",
+   "1.01534"
+  ],
+  "evidence": "audit_cn_coin_deep.py",
+  "proj": null,
+  "len": 2806
+ },
+ {
+  "key": "rem:coinsurface",
+  "file": "wall_v3.md",
+  "line": 1799,
+  "title": "counting what stands on a coin: eleven blocks, and the two that matter sit on eight draws",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "caveat",
+   "does not",
+   "is not",
+   "is not the",
+   "only"
+  ],
+  "m": [
+   "draws",
+   "measured",
+   "null"
+  ],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_coin_surface.py",
+  "proj": null,
+  "len": 2505
+ },
+ {
+  "key": "rem:decaydeep",
+  "file": "wall_v3.md",
+  "line": 1849,
+  "title": "the second branch says the same thing: the control was wrong, not small",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "only"
+  ],
+  "m": [
+   "draws",
+   "measured",
+   "null"
+  ],
+  "nums": [
+   "0.011556",
+   "0.0241",
+   "0.0826",
+   "0.1127",
+   "0.1197",
+   "0.1213",
+   "0.2727",
+   "0.2772",
+   "0.3746",
+   "0.4937",
+   "0.4959",
+   "10.078929",
+   "2.991540"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0826"
+  ],
+  "evidence": "audit_decayfamily_deep.py",
+  "proj": null,
+  "len": 2639
+ },
+ {
+  "key": "rem:decaysweep",
+  "file": "wall_v3.md",
+  "line": 1900,
+  "title": "both halves go the same way, and the cost objection was mine",
+  "cls": "HSM",
+  "h": [
+   "was wrong"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "correlation",
+   "draws",
+   "measured",
+   "null",
+   "percentile",
+   "slope"
+  ],
+  "nums": [
+   "0.000003",
+   "0.011556",
+   "0.089978",
+   "0.1624",
+   "0.1793",
+   "0.2265",
+   "0.2727",
+   "0.4990",
+   "0.5000"
+  ],
+  "in_tex": [
+   "0.5000"
+  ],
+  "in_res": [
+   "0.1624",
+   "0.5000"
+  ],
+  "evidence": "audit_decayfamily_sweepdeep.py",
+  "proj": null,
+  "len": 2866
+ },
+ {
+  "key": "rem:identitydeep",
+  "file": "wall_v3.md",
+  "line": 1955,
+  "title": "the one that survives, and it survives for a reason that can be written down",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "only"
+  ],
+  "m": [
+   "draws",
+   "median",
+   "null",
+   "ratio"
+  ],
+  "nums": [
+   "0.9865",
+   "0.9893",
+   "1.0039",
+   "1.9149",
+   "2.0030",
+   "2.0400",
+   "2.1084",
+   "2.9238",
+   "4.2771",
+   "4.5269",
+   "4.7875",
+   "4.8387",
+   "5.2286",
+   "5.5530",
+   "6.752"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.9865",
+   "0.9893",
+   "1.0039"
+  ],
+  "evidence": "audit_directidentity_deep.py",
+  "proj": null,
+  "len": 2397
+ },
+ {
+  "key": "rem:identityseeds",
+  "file": "wall_v3.md",
+  "line": 2048,
+  "title": "the seed is paid, and the tail is steadier than the bulk",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not"
+  ],
+  "m": [
+   "draws",
+   "median"
+  ],
+  "nums": [
+   "0.0854",
+   "0.1702",
+   "1.1706",
+   "1.9149",
+   "2.0049",
+   "2.0400",
+   "2.0631",
+   "2.1084",
+   "2.1938",
+   "2.2752",
+   "2.3376",
+   "4.2771",
+   "4.4979",
+   "4.7875",
+   "5.0514",
+   "5.3443",
+   "5.9581"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_directidentity_seeds.py",
+  "proj": null,
+  "len": 2443
+ },
+ {
+  "key": "rem:identitybig",
+  "file": "wall_v3.md",
+  "line": 2095,
+  "title": "the last two N, and a floor the draws cannot get under",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "is not the",
+   "only"
+  ],
+  "m": [
+   "draws",
+   "measured",
+   "median",
+   "ratio"
+  ],
+  "nums": [
+   "0.0000",
+   "0.1702",
+   "0.9968",
+   "1.0017",
+   "1.1706",
+   "1.9149",
+   "2.0030",
+   "2.1084",
+   "2.4598",
+   "2.5636",
+   "4.7259",
+   "4.9806"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0000",
+   "0.9968",
+   "1.0017"
+  ],
+  "evidence": "audit_directidentity_bigN.py",
+  "proj": null,
+  "len": 2534
+ },
+ {
+  "key": "rem:identityfloor",
+  "file": "wall_v3.md",
+  "line": 2144,
+  "title": "the mechanism is measured, the word \"floor\" was wrong, and the bound is looser than it looked",
+  "cls": "HSM",
+  "h": [
+   "was wrong"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "draws",
+   "measured",
+   "median",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.15802",
+   "0.6490",
+   "1.2152",
+   "1.8725",
+   "1.9149",
+   "2.0030",
+   "2.0899",
+   "2.2391",
+   "2.5903",
+   "2.7002",
+   "3.0533",
+   "5.2067",
+   "6.7781",
+   "8.3324",
+   "9.4563"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_identity_floor.py",
+  "proj": null,
+  "len": 2855
+ },
+ {
+  "key": "rem:identityforced",
+  "file": "wall_v3.md",
+  "line": 2203,
+  "title": "forced, the mechanism's best still stops short — and a prediction that could be omitted",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "is not",
+   "survives"
+  ],
+  "m": [
+   "draws",
+   "median",
+   "ratio"
+  ],
+  "nums": [
+   "0.9865",
+   "1.0039",
+   "1.6100",
+   "1.6716",
+   "1.6894",
+   "1.7391",
+   "1.8018",
+   "1.8172",
+   "1.9401",
+   "2.1264",
+   "2.4168",
+   "2.6273",
+   "4.5493"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.9865",
+   "1.0039"
+  ],
+  "evidence": "audit_identity_forced.py",
+  "proj": null,
+  "len": 2379
+ },
+ {
+  "key": "rem:filter",
+  "file": "wall_v3.md",
+  "line": 2310,
+  "title": "but the inverse filter is numerically dead",
+  "cls": "HSM",
+  "h": [
+   "the audit's rule"
+  ],
+  "s": [
+   "and it fails",
+   "is not",
+   "only"
+  ],
+  "m": [],
+  "nums": [
+   "1.073",
+   "1.443",
+   "1.535",
+   "1.916413",
+   "2.182",
+   "2.287",
+   "3.146",
+   "3.443",
+   "4.479",
+   "7.018"
+  ],
+  "in_tex": [
+   "1.073",
+   "1.443",
+   "1.535",
+   "2.182",
+   "2.287",
+   "3.146",
+   "3.443"
+  ],
+  "in_res": [
+   "1.073",
+   "1.443",
+   "1.535",
+   "1.916413",
+   "2.182",
+   "2.287",
+   "3.146",
+   "3.443",
+   "4.479",
+   "7.018"
+  ],
+  "evidence": "lab_coin_discriminator.py",
+  "proj": null,
+  "len": 1554
+ },
+ {
+  "key": "rem:whycoinwins",
+  "file": "wall_v3.md",
+  "line": 2390,
+  "title": "why the coin beat $\\mu$ on the level",
+  "cls": "HM",
+  "h": [
+   "withdraw"
+  ],
+  "s": [],
+  "m": [
+   "and",
+   "correlation",
+   "measured",
+   "null",
+   "reads"
+  ],
+  "nums": [
+   "1.0761",
+   "1.1733",
+   "1.2570",
+   "1.2671",
+   "1.4496",
+   "1.4820",
+   "1.4830",
+   "1.5013",
+   "1.5306"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "1.0761",
+   "1.1733",
+   "1.2570",
+   "1.2671",
+   "1.4496",
+   "1.4820",
+   "1.4830",
+   "1.5013",
+   "1.5306"
+  ],
+  "evidence": "lab_dilate_identity.py",
+  "proj": null,
+  "len": 1207
+ },
+ {
+  "key": "rem:nocrossk",
+  "file": "wall_v3.md",
+  "line": 2448,
+  "title": "there is no cancellation across dilations",
+  "cls": "HSM",
+  "h": [
+   "the audit's rule"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "not a constant",
+   "only",
+   "the range"
+  ],
+  "m": [
+   "correlation",
+   "measured",
+   "reads"
+  ],
+  "nums": [
+   "0.3486",
+   "0.3587",
+   "0.3763",
+   "0.4809",
+   "1.804",
+   "1.834",
+   "2.207",
+   "2.588",
+   "2.789"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.3486",
+   "0.3587",
+   "0.3763",
+   "0.4809",
+   "1.804",
+   "1.834",
+   "2.207",
+   "2.588",
+   "2.789"
+  ],
+  "evidence": "lab_positive_weights.py",
+  "proj": null,
+  "len": 2012
+ },
+ {
+  "key": "rem:mertens",
+  "file": "wall_v3.md",
+  "line": 2494,
+  "title": "a Mertens reduction, closed",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "closed",
+   "is not",
+   "not a constant"
+  ],
+  "m": [
+   "correlation",
+   "measured",
+   "reads",
+   "slope"
+  ],
+  "nums": [
+   "0.058",
+   "0.073",
+   "0.2724",
+   "0.3151",
+   "0.3242",
+   "0.5066",
+   "0.5411",
+   "0.5473",
+   "0.7004",
+   "0.7072",
+   "0.7434",
+   "0.8949",
+   "0.9258"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.058",
+   "0.073"
+  ],
+  "evidence": "lab_mertens_reduction.py",
+  "proj": null,
+  "len": 1863
+ },
+ {
+  "key": "rem:signmass",
+  "file": "wall_v3.md",
+  "line": 2533,
+  "title": "the correlation sits in the large terms",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "is not the"
+  ],
+  "m": [
+   "correlation",
+   "draws",
+   "measured",
+   "median",
+   "null"
+  ],
+  "nums": [
+   "0.2228",
+   "0.2273",
+   "0.2735",
+   "0.2900",
+   "0.3033",
+   "0.3068",
+   "0.3141",
+   "0.3196",
+   "0.3207",
+   "0.3773",
+   "0.3785",
+   "0.3831",
+   "0.3841",
+   "0.4121",
+   "0.4296",
+   "0.4392",
+   "0.4544",
+   "0.4762",
+   "0.4808",
+   "0.4977",
+   "0.5000",
+   "0.5012",
+   "0.5085",
+   "0.5096",
+   "0.5165",
+   "0.5222",
+   "0.5254",
+   "0.5396",
+   "0.5774",
+   "1.804",
+   "1.834",
+   "2.207",
+   "2.588",
+   "2.789"
+  ],
+  "in_tex": [
+   "0.5000"
+  ],
+  "in_res": [
+   "0.4121",
+   "0.5000",
+   "1.804",
+   "1.834",
+   "2.207",
+   "2.588",
+   "2.789"
+  ],
+  "evidence": "lab_sign_structure.py",
+  "proj": null,
+  "len": 2311
+ },
+ {
+  "key": "rem:leanmertens",
+  "file": "wall_v3.md",
+  "line": 2584,
+  "title": "the lean is not the Mertens function",
+  "cls": "HSM",
+  "h": [
+   "nobody had",
+   "pre-registered"
+  ],
+  "s": [
+   "closed",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "factor \\$",
+   "octave",
+   "reads"
+  ],
+  "nums": [
+   "0.0769",
+   "0.0936",
+   "0.1446",
+   "0.1667",
+   "0.1897",
+   "0.2196",
+   "0.3849",
+   "0.5472",
+   "0.5483",
+   "0.5513",
+   "0.5522",
+   "0.5535",
+   "0.5610",
+   "0.5630",
+   "0.6297",
+   "0.6343",
+   "0.6371",
+   "0.6607",
+   "0.7325"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "lab_lean_mechanism.py",
+  "proj": null,
+  "len": 2362
+ },
+ {
+  "key": "rem:leanodd",
+  "file": "wall_v3.md",
+  "line": 2634,
+  "title": "it is the Mertens function the parity leaves",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not"
+  ],
+  "m": [
+   "null",
+   "octave"
+  ],
+  "nums": [
+   "0.0000",
+   "0.0175",
+   "0.0298",
+   "0.0535",
+   "0.1352",
+   "0.1686",
+   "0.2262",
+   "0.2699",
+   "0.3333",
+   "0.3407",
+   "0.4756",
+   "0.5563",
+   "0.5610",
+   "0.5738",
+   "0.7657"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0000",
+   "0.0175"
+  ],
+  "evidence": "lab_lean_oddmertens.py",
+  "proj": null,
+  "len": 2214
+ },
+ {
+  "key": "rem:levelweighted",
+  "file": "wall_v3.md",
+  "line": 2676,
+  "title": "the weights are free; the survivor set is everything",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "only"
+  ],
+  "m": [
+   "factor \\$",
+   "measured",
+   "reads"
+  ],
+  "nums": [
+   "0.0064",
+   "0.0070",
+   "0.007108",
+   "0.0079",
+   "0.0080",
+   "0.008981",
+   "0.0090",
+   "0.009755",
+   "0.2271",
+   "0.2525",
+   "0.4592",
+   "0.4866",
+   "0.5858",
+   "0.6022"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0090"
+  ],
+  "evidence": "audit_level_weighted.py",
+  "proj": null,
+  "len": 1865
+ },
+ {
+  "key": "rem:leveldemand",
+  "file": "wall_v3.md",
+  "line": 2717,
+  "title": "holding the sign is not cutting the demand",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "is not the",
+   "only"
+  ],
+  "m": [],
+  "nums": [
+   "0.0760",
+   "0.1261",
+   "0.1288",
+   "0.1383",
+   "0.1475",
+   "0.2271",
+   "0.2525",
+   "0.4866",
+   "0.4986",
+   "0.5147",
+   "0.5307",
+   "0.5526",
+   "0.6022",
+   "0.6310"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.1288"
+  ],
+  "evidence": "audit_level_demand.py",
+  "proj": null,
+  "len": 2042
+ },
+ {
+  "key": "rem:levelthreshold",
+  "file": "wall_v3.md",
+  "line": 2764,
+  "title": "the level at which the sign stops slipping",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "only"
+  ],
+  "m": [
+   "ratio",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.000546",
+   "0.001303",
+   "0.001564",
+   "0.001937",
+   "0.008989",
+   "0.010024",
+   "0.010101",
+   "0.012460",
+   "0.013664",
+   "0.015265",
+   "0.015393",
+   "0.048145",
+   "0.066398",
+   "0.088359"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.000546"
+  ],
+  "evidence": "audit_level_threshold.py",
+  "proj": null,
+  "len": 1867
+ },
+ {
+  "key": "rem:sievedepth",
+  "file": "wall_v3.md",
+  "line": 2809,
+  "title": "the missing piece is sieve depth, and that is the bad news",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "measured",
+   "ratio",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.0001",
+   "0.165946",
+   "0.167260",
+   "0.6571",
+   "0.7367",
+   "0.7579",
+   "0.8129",
+   "0.8676",
+   "0.9884",
+   "0.9885",
+   "0.9942",
+   "0.9969"
+  ],
+  "in_tex": [
+   "0.0001"
+  ],
+  "in_res": [
+   "0.0001",
+   "0.8676"
+  ],
+  "evidence": "audit_sieve_depth.py",
+  "proj": null,
+  "len": 2315
+ },
+ {
+  "key": "rem:logweightpredictor",
+  "file": "wall_v3.md",
+  "line": 2854,
+  "title": "the missing weight is not log(N-mk",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "is not the"
+  ],
+  "m": [
+   "factor \\$",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.004298",
+   "0.167260",
+   "0.230633",
+   "0.231781",
+   "0.6571",
+   "0.7018",
+   "0.7484",
+   "0.7579",
+   "0.7955",
+   "0.8129",
+   "0.8676",
+   "0.9212"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.8676"
+  ],
+  "evidence": "audit_logweight_predictor.py",
+  "proj": null,
+  "len": 1959
+ },
+ {
+  "key": "rem:predictablenull",
+  "file": "wall_v3.md",
+  "line": 2898,
+  "title": "which half of the predictor does the cutting",
+  "cls": "HSM",
+  "h": [
+   "declined null"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "is not the",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "null"
+  ],
+  "nums": [
+   "0.0014",
+   "0.0032",
+   "0.0065",
+   "0.0173",
+   "0.0325",
+   "0.037002",
+   "0.0984",
+   "0.1012",
+   "0.1158",
+   "0.1465",
+   "0.1512",
+   "0.3690",
+   "0.4021",
+   "0.4446",
+   "0.4579",
+   "0.4693",
+   "0.9252",
+   "0.9543"
+  ],
+  "in_tex": [
+   "0.0032"
+  ],
+  "in_res": [
+   "0.0014",
+   "0.0032",
+   "0.0065",
+   "0.0173",
+   "0.3690"
+  ],
+  "evidence": "audit_predictable_null.py",
+  "proj": null,
+  "len": 1861
+ },
+ {
+  "key": "rem:survivorrange",
+  "file": "wall_v3.md",
+  "line": 2942,
+  "title": "the sieve-weighted predictor on the lean's own k",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "the range"
+  ],
+  "m": [
+   "measured",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.004298",
+   "0.005",
+   "0.167260",
+   "0.230633",
+   "0.6571",
+   "0.667",
+   "0.7367",
+   "0.7446",
+   "0.7579",
+   "0.7632",
+   "0.7759",
+   "0.8129",
+   "0.8676",
+   "0.9080",
+   "0.9106",
+   "0.9274"
+  ],
+  "in_tex": [
+   "0.005",
+   "0.9106"
+  ],
+  "in_res": [
+   "0.005",
+   "0.8676",
+   "0.9106"
+  ],
+  "evidence": "audit_survivor_range.py",
+  "proj": null,
+  "len": 2094
+ },
+ {
+  "key": "rem:oddmertensrange",
+  "file": "wall_v3.md",
+  "line": 2991,
+  "title": "the mechanism was shown on the wrong window",
+  "cls": "HM",
+  "h": [
+   "withdraw"
+  ],
+  "s": [],
+  "m": [
+   "factor \\$",
+   "measured",
+   "slope"
+  ],
+  "nums": [
+   "0.004298",
+   "0.126950",
+   "0.167257",
+   "0.289908",
+   "0.5201",
+   "0.5209",
+   "0.5472",
+   "0.5563",
+   "0.5618",
+   "0.5718",
+   "0.5815",
+   "0.6161",
+   "0.7657",
+   "0.7704"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_oddmertens_range.py",
+  "proj": null,
+  "len": 1861
+ },
+ {
+  "key": "rem:survivors",
+  "file": "wall_v3.md",
+  "line": 3027,
+  "title": "which $m$ survive, and why the lean is deeper",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "survives",
+   "the range"
+  ],
+  "m": [
+   "reads"
+  ],
+  "nums": [
+   "0.4550",
+   "0.4601",
+   "0.4670",
+   "0.4678",
+   "0.4710",
+   "0.5159",
+   "0.5209",
+   "0.5268",
+   "0.5286",
+   "0.5290",
+   "0.5293",
+   "0.5298",
+   "0.5305",
+   "0.5372",
+   "0.5381",
+   "0.5414",
+   "0.5420",
+   "0.8238",
+   "0.8377",
+   "0.9080",
+   "0.9154",
+   "0.9204",
+   "0.9224",
+   "0.9274"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "lab_survivor_selection.py",
+  "proj": null,
+  "len": 2076
+ },
+ {
+  "key": "rem:predictable",
+  "file": "wall_v3.md",
+  "line": 3067,
+  "title": "how much of the demand is elementary",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "correlation",
+   "factor \\$",
+   "measured"
+  ],
+  "nums": [
+   "0.0171",
+   "0.0384",
+   "0.5307",
+   "0.5421",
+   "0.5554",
+   "0.5979",
+   "0.6149",
+   "0.6310",
+   "0.7705",
+   "0.7925",
+   "0.8096",
+   "0.8148",
+   "0.8462",
+   "0.8492",
+   "0.8583",
+   "0.8595",
+   "0.8599",
+   "0.8621",
+   "0.8637",
+   "0.8991",
+   "0.9553",
+   "2.6992",
+   "2.8588",
+   "2.9952",
+   "3.0473",
+   "3.1437"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "lab_predictable_part.py",
+  "proj": null,
+  "len": 2346
+ },
+ {
+  "key": "rem:copiedfloor",
+  "file": "wall_v3.md",
+  "line": 3112,
+  "title": "a copied floor, and the control M3 was owed",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "survives"
+  ],
+  "m": [
+   "correlation",
+   "median",
+   "null",
+   "percentile",
+   "reads"
+  ],
+  "nums": [
+   "0.3475",
+   "0.8084",
+   "0.9805"
+  ],
+  "in_tex": [
+   "0.9805"
+  ],
+  "in_res": [
+   "0.3475",
+   "0.8084",
+   "0.9805"
+  ],
+  "evidence": "lab_cell_singular.py",
+  "proj": null,
+  "len": 1665
+ },
+ {
+  "key": "rem:decaynull",
+  "file": "wall_v3.md",
+  "line": 3147,
+  "title": "the decay sweep, controlled",
+  "cls": "HSM",
+  "h": [
+   "superseded"
+  ],
+  "s": [
+   "is not",
+   "only"
+  ],
+  "m": [
+   "and",
+   "draws",
+   "measured",
+   "median",
+   "null",
+   "reads"
+  ],
+  "nums": [
+   "0.000003",
+   "0.011556",
+   "0.0826",
+   "0.1624",
+   "0.1793",
+   "0.1932",
+   "0.2265",
+   "0.2727",
+   "0.2772",
+   "10.078929",
+   "2.991540"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0826",
+   "0.1624"
+  ],
+  "evidence": "audit_decayfamily_null.py",
+  "proj": null,
+  "len": 2696
+ },
+ {
+  "key": "rem:forecastnull",
+  "file": "wall_v3.md",
+  "line": 3196,
+  "title": "a pointer that missed, and the control it owed",
+  "cls": "HSM",
+  "h": [
+   "an earlier version",
+   "earlier version"
+  ],
+  "s": [
+   "cannot",
+   "the range"
+  ],
+  "m": [
+   "draws",
+   "fitted",
+   "measured",
+   "median"
+  ],
+  "nums": [
+   "0.0434",
+   "0.6963",
+   "0.7271",
+   "1.0029",
+   "1.4725",
+   "1.4888",
+   "1.5033",
+   "1.6259",
+   "1.6429",
+   "2.4882",
+   "2.7481",
+   "3.5647",
+   "3.7497"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_forecast_null.py",
+  "proj": null,
+  "len": 2115
+ },
+ {
+  "key": "rem:extendnull",
+  "file": "wall_v3.md",
+  "line": 3236,
+  "title": "the extrapolation's declined null, run",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "only"
+  ],
+  "m": [
+   "draws",
+   "fitted",
+   "median"
+  ],
+  "nums": [
+   "0.0436",
+   "0.1510",
+   "0.3984",
+   "0.5399",
+   "0.5526",
+   "0.8086",
+   "0.8243",
+   "0.91992",
+   "0.98333",
+   "0.99494",
+   "1.3570",
+   "1.5274"
+  ],
+  "in_tex": [
+   "0.8086"
+  ],
+  "in_res": [
+   "0.8086"
+  ],
+  "evidence": "audit_extendrange_null.py",
+  "proj": null,
+  "len": 1890
+ },
+ {
+  "key": "rem:splitnull",
+  "file": "wall_v3.md",
+  "line": 3272,
+  "title": "the control the split never had",
+  "cls": "M",
+  "h": [],
+  "s": [],
+  "m": [
+   "and",
+   "correlation",
+   "median",
+   "octave"
+  ],
+  "nums": [
+   "0.0099",
+   "0.2188",
+   "0.2918",
+   "0.3569",
+   "0.4680",
+   "0.5307",
+   "0.5421",
+   "0.5532",
+   "0.5554",
+   "0.5979",
+   "0.6300",
+   "0.6310",
+   "0.6570",
+   "0.8272",
+   "0.8291",
+   "0.8463",
+   "0.8575",
+   "0.8710",
+   "0.9566",
+   "0.9711",
+   "0.9879",
+   "0.9905",
+   "0.9986"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.9905"
+  ],
+  "evidence": "lab_split_null.py",
+  "proj": null,
+  "len": 1948
+ },
+ {
+  "key": "rem:residue",
+  "file": "wall_v3.md",
+  "line": 3308,
+  "title": "the residue is square-root",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "is not",
+   "the range"
+  ],
+  "m": [
+   "and",
+   "correlation",
+   "draws",
+   "factor \\$",
+   "measured",
+   "octave"
+  ],
+  "nums": [
+   "0.0106",
+   "0.0374",
+   "0.0419",
+   "0.0649",
+   "0.0796",
+   "0.0941",
+   "0.1326",
+   "0.1836",
+   "0.4722",
+   "0.4832",
+   "0.4854",
+   "0.4869",
+   "0.4923",
+   "0.5048",
+   "0.5079",
+   "0.5155",
+   "0.5379",
+   "0.5484",
+   "0.5516",
+   "0.5573",
+   "0.99582",
+   "0.99961"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0106"
+  ],
+  "evidence": "lab_residue_size.py",
+  "proj": null,
+  "len": 3229
+ },
+ {
+  "key": "rem:headidentity",
+  "file": "wall_v3.md",
+  "line": 3372,
+  "title": "the head is not a range, but its sign is the lean",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "the range"
+  ],
+  "m": [
+   "draws",
+   "median"
+  ],
+  "nums": [
+   "0.0421",
+   "0.0626",
+   "0.1853",
+   "0.1868",
+   "0.1882",
+   "0.1924",
+   "0.2010",
+   "0.2078",
+   "0.2097",
+   "0.2174",
+   "0.2273",
+   "0.3263",
+   "0.7794",
+   "0.8863"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.3263"
+  ],
+  "evidence": "audit_head_identity.py",
+  "proj": null,
+  "len": 1927
+ },
+ {
+  "key": "rem:signmasshead",
+  "file": "wall_v3.md",
+  "line": 3416,
+  "title": "half of the lean is in the head, and half is not",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "not a constant",
+   "only"
+  ],
+  "m": [
+   "correlation",
+   "median",
+   "null",
+   "ratio"
+  ],
+  "nums": [
+   "0.0004",
+   "0.0027",
+   "0.0040",
+   "0.0044",
+   "0.0637",
+   "0.0701",
+   "0.0863",
+   "0.0881",
+   "0.0884",
+   "0.1038",
+   "0.1325",
+   "0.1561",
+   "0.1601",
+   "0.1603",
+   "0.1848",
+   "0.2273",
+   "0.2440",
+   "0.2641",
+   "0.2704",
+   "0.2711",
+   "0.3141",
+   "0.3207",
+   "0.3841",
+   "0.4121",
+   "0.4808",
+   "0.4810",
+   "0.5096",
+   "0.5642",
+   "0.5774"
+  ],
+  "in_tex": [
+   "0.0004"
+  ],
+  "in_res": [
+   "0.0004",
+   "0.0040",
+   "0.0044",
+   "0.4121"
+  ],
+  "evidence": "audit_signmass_head.py",
+  "proj": null,
+  "len": 2364
+ },
+ {
+  "key": "rem:gainsplit",
+  "file": "wall_v3.md",
+  "line": 3462,
+  "title": "the tail cancels better than randomly; the head not at all",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "survives"
+  ],
+  "m": [
+   "measured"
+  ],
+  "nums": [
+   "0.009252",
+   "0.011253",
+   "0.025785",
+   "0.077963",
+   "0.153911",
+   "0.154",
+   "0.340006",
+   "0.3486",
+   "0.3587",
+   "0.8274",
+   "0.8545",
+   "0.8716",
+   "0.8721",
+   "0.8800",
+   "0.9118",
+   "0.9783",
+   "1.0000",
+   "1.024",
+   "1.4639"
+  ],
+  "in_tex": [
+   "1.0000"
+  ],
+  "in_res": [
+   "0.3486",
+   "0.3587",
+   "1.0000",
+   "1.024"
+  ],
+  "evidence": "audit_gain_split.py",
+  "proj": null,
+  "len": 2061
+ },
+ {
+  "key": "rem:splitreach",
+  "file": "wall_v3.md",
+  "line": 3513,
+  "title": "the same split on eighty-one points",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "slope",
+   "standard deviation"
+  ],
+  "nums": [
+   "0.000050",
+   "0.006738",
+   "0.015549",
+   "0.027628",
+   "0.040867",
+   "0.0558",
+   "0.072900",
+   "0.077963",
+   "0.0927",
+   "0.134019",
+   "0.149567",
+   "0.153911",
+   "0.177005",
+   "0.1796",
+   "0.207342",
+   "0.283586",
+   "0.310423",
+   "0.3337",
+   "0.340006",
+   "0.3628",
+   "0.457005",
+   "0.7786",
+   "0.7795",
+   "0.8274",
+   "1.0000",
+   "1.024",
+   "1.7957",
+   "6.2383"
+  ],
+  "in_tex": [
+   "1.0000"
+  ],
+  "in_res": [
+   "0.000050",
+   "1.0000",
+   "1.024"
+  ],
+  "evidence": "audit_split_reach.py",
+  "proj": null,
+  "len": 3373
+ },
+ {
+  "key": "rem:headaxis",
+  "file": "wall_v3.md",
+  "line": 3576,
+  "title": "which axis holds the head, and for how long",
+  "cls": "HSM",
+  "h": [
+   "nobody had"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "is not the",
+   "survives"
+  ],
+  "m": [
+   "measured",
+   "octave",
+   "slope"
+  ],
+  "nums": [
+   "0.000047",
+   "0.007297",
+   "0.0077",
+   "0.0126",
+   "0.022001",
+   "0.0280",
+   "0.032884",
+   "0.033468",
+   "0.0383",
+   "0.1302",
+   "0.1537",
+   "0.1654",
+   "0.2673",
+   "0.2752",
+   "0.3182",
+   "0.3389",
+   "0.5854",
+   "0.7703",
+   "0.8903",
+   "1.024"
+  ],
+  "in_tex": [
+   "0.0383"
+  ],
+  "in_res": [
+   "0.0126",
+   "0.0383",
+   "1.024"
+  ],
+  "evidence": "audit_headaxis_reach.py",
+  "proj": null,
+  "len": 2869
+ },
+ {
+  "key": "rem:headbounded",
+  "file": "wall_v3.md",
+  "line": 3629,
+  "title": "no prefix of the inner sum owns the head's sign",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "slope"
+  ],
+  "nums": [
+   "0.0698",
+   "0.221725",
+   "0.238967",
+   "0.5995",
+   "0.6015",
+   "0.7795",
+   "0.8091",
+   "0.8859",
+   "0.9167",
+   "1.0000",
+   "1.024",
+   "5.482"
+  ],
+  "in_tex": [
+   "1.0000"
+  ],
+  "in_res": [
+   "0.0698",
+   "1.0000",
+   "1.024"
+  ],
+  "evidence": "audit_head_bounded.py",
+  "proj": null,
+  "len": 3508
+ },
+ {
+  "key": "rem:coherencenull",
+  "file": "wall_v3.md",
+  "line": 3693,
+  "title": "most of the coherence was the conditioning",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.000016",
+   "0.0724",
+   "0.0916",
+   "0.1086",
+   "0.1182",
+   "0.2924",
+   "0.3335",
+   "0.4106",
+   "0.4985",
+   "0.5901",
+   "0.7440",
+   "0.8859",
+   "5.904067"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_coherence_null.py",
+  "proj": null,
+  "len": 2957
+ },
+ {
+  "key": "rem:denominator",
+  "file": "wall_v3.md",
+  "line": 3747,
+  "title": "the gain's denominator is a truncated Chebyshev correlation",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "survives"
+  ],
+  "m": [
+   "correlation",
+   "fitted",
+   "measured",
+   "ratio"
+  ],
+  "nums": [
+   "0.001906",
+   "0.002084",
+   "0.002376",
+   "0.130433",
+   "0.132517",
+   "0.149567",
+   "0.2800",
+   "0.280178",
+   "0.282084",
+   "0.587483",
+   "0.717916",
+   "0.867483",
+   "4.945"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.2800"
+  ],
+  "evidence": "audit_denominator.py",
+  "proj": null,
+  "len": 3658
+ },
+ {
+  "key": "rem:thetalaw",
+  "file": "wall_v3.md",
+  "line": 3819,
+  "title": "raising the level moves away from the demand",
+  "cls": "HSM",
+  "h": [
+   "misspecified",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "only",
+   "survives"
+  ],
+  "m": [
+   "correlation",
+   "fitted",
+   "measured",
+   "slope"
+  ],
+  "nums": [
+   "0.00000035",
+   "0.00000050",
+   "0.009779",
+   "0.036501",
+   "0.090239",
+   "0.111700",
+   "0.130229",
+   "0.130433",
+   "0.149567",
+   "0.169761",
+   "0.169771",
+   "0.170500",
+   "0.190221",
+   "0.192",
+   "0.193499",
+   "0.200",
+   "0.208300",
+   "0.282084",
+   "0.3017",
+   "0.302835",
+   "0.320",
+   "0.4041",
+   "0.418",
+   "0.473335",
+   "0.5351",
+   "0.581914",
+   "0.609324",
+   "0.625088",
+   "0.670962",
+   "0.717916",
+   "0.764301",
+   "0.808475",
+   "0.853798",
+   "0.978885"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_theta_law.py",
+  "proj": null,
+  "len": 3081
+ },
+ {
+  "key": "rem:thetalawarith",
+  "file": "wall_v3.md",
+  "line": 3880,
+  "title": "the crossing is one family's number, and on another there is nothing to cross",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "closed",
+   "does not",
+   "is not",
+   "survives"
+  ],
+  "m": [
+   "measured"
+  ],
+  "nums": [
+   "0.134019",
+   "0.1467",
+   "0.1499",
+   "0.1614",
+   "0.2301",
+   "0.2404",
+   "0.2581",
+   "0.2966",
+   "0.2986",
+   "0.3017",
+   "0.3363",
+   "0.3472",
+   "0.3648",
+   "0.4014",
+   "0.4041",
+   "0.4121",
+   "0.4195",
+   "0.4371",
+   "0.4514",
+   "0.5158",
+   "0.5351",
+   "0.6434",
+   "0.8392",
+   "0.9035",
+   "1.0000",
+   "1.00000000"
+  ],
+  "in_tex": [
+   "1.0000"
+  ],
+  "in_res": [
+   "0.4121",
+   "1.0000"
+  ],
+  "evidence": "audit_thetalaw_arith.py",
+  "proj": null,
+  "len": 3254
+ },
+ {
+  "key": "rem:support",
+  "file": "wall_v3.md",
+  "line": 3953,
+  "title": "the surviving correlation is a composite-index object",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "is not the",
+   "only"
+  ],
+  "m": [
+   "correlation",
+   "measured"
+  ],
+  "nums": [
+   "0.019228",
+   "0.037934",
+   "0.092817",
+   "0.138688",
+   "0.579228",
+   "0.716454",
+   "0.717916",
+   "5.346"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_support.py",
+  "proj": null,
+  "len": 2640
+ },
+ {
+  "key": "rem:meanonly",
+  "file": "wall_v3.md",
+  "line": 4004,
+  "title": "it is a correlation and not a mean",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "only"
+  ],
+  "m": [
+   "correlation"
+  ],
+  "nums": [
+   "0.002973",
+   "0.049264",
+   "0.714942",
+   "0.717916",
+   "0.739002",
+   "0.8555",
+   "0.8919"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_meanonly.py",
+  "proj": null,
+  "len": 1588
+ },
+ {
+  "key": "rem:sumhead",
+  "file": "wall_v3.md",
+  "line": 4037,
+  "title": "the signed sum is the head's, and increasingly",
+  "cls": "HSM",
+  "h": [
+   "nobody had",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot"
+  ],
+  "m": [
+   "correlation",
+   "measured",
+   "octave",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.053778",
+   "0.134019",
+   "0.3421",
+   "0.414033",
+   "0.5467",
+   "0.583897",
+   "0.717916",
+   "0.787845",
+   "0.9710"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_sum_head.py",
+  "proj": null,
+  "len": 2326
+ },
+ {
+  "key": "rem:headfraction",
+  "file": "wall_v3.md",
+  "line": 4085,
+  "title": "the excess was transient, and the set is not thin",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "convention",
+   "is not",
+   "only",
+   "the range"
+  ],
+  "m": [
+   "fitted",
+   "octave",
+   "slope"
+  ],
+  "nums": [
+   "0.003480",
+   "0.034",
+   "0.053778",
+   "0.069930",
+   "0.0969",
+   "0.134019",
+   "0.2342",
+   "0.5467",
+   "0.664374",
+   "0.667854",
+   "0.717916",
+   "0.737664",
+   "0.764263",
+   "0.787845",
+   "0.796624",
+   "0.805134",
+   "0.806838",
+   "0.8839",
+   "0.9710",
+   "1.1060",
+   "1.1740",
+   "2.1586"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.034"
+  ],
+  "evidence": "audit_head_fraction.py",
+  "proj": null,
+  "len": 2535
+ },
+ {
+  "key": "rem:alphalocal",
+  "file": "wall_v3.md",
+  "line": 4133,
+  "title": "alpha is a constant of the range, and the octaves cannot see",
+  "cls": "HSM",
+  "h": [
+   "misspecified"
+  ],
+  "s": [
+   "cannot",
+   "is not"
+  ],
+  "m": [
+   "measured",
+   "octave",
+   "reads",
+   "slope"
+  ],
+  "nums": [
+   "0.000807",
+   "0.003",
+   "0.003480",
+   "0.005791",
+   "0.012011",
+   "0.013688",
+   "0.014678",
+   "0.033",
+   "0.034",
+   "0.034400",
+   "0.035856",
+   "0.069930",
+   "0.105",
+   "0.134019",
+   "0.196921",
+   "0.250926",
+   "0.626273",
+   "0.664374",
+   "0.717916",
+   "0.823194"
+  ],
+  "in_tex": [
+   "0.003"
+  ],
+  "in_res": [
+   "0.003",
+   "0.033",
+   "0.034",
+   "0.105"
+  ],
+  "evidence": "audit_alpha_local.py",
+  "proj": null,
+  "len": 2528
+ },
+ {
+  "key": "rem:alphareach",
+  "file": "wall_v3.md",
+  "line": 4181,
+  "title": "the sign axis, seven octaves further, and what one octave does to it",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "does not",
+   "is not",
+   "only",
+   "the range"
+  ],
+  "m": [
+   "correlation",
+   "octave",
+   "rung",
+   "slope"
+  ],
+  "nums": [
+   "0.001402",
+   "0.005791",
+   "0.005910",
+   "0.007519",
+   "0.007837",
+   "0.009242",
+   "0.012011",
+   "0.012726",
+   "0.014129",
+   "0.014678",
+   "0.015033",
+   "0.015673",
+   "0.017249",
+   "0.108604",
+   "0.134019",
+   "0.664374",
+   "1.024",
+   "1.916413",
+   "22.7030"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "1.024",
+   "1.916413"
+  ],
+  "evidence": "audit_alpha_reach.py",
+  "proj": null,
+  "len": 3839
+ },
+ {
+  "key": "rem:deficitdirect",
+  "file": "wall_v3.md",
+  "line": 4253,
+  "title": "the deficit is closing, and where it closes is not quotable",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "is not the",
+   "no longer",
+   "not thereby",
+   "only"
+  ],
+  "m": [
+   "draws",
+   "fitted",
+   "measured",
+   "octave",
+   "ratio"
+  ],
+  "nums": [
+   "0.000139",
+   "0.000632",
+   "0.007380",
+   "0.007519",
+   "0.007837",
+   "0.134019",
+   "0.247479",
+   "1.024",
+   "1.376",
+   "13.5846",
+   "14.5635",
+   "15.9638",
+   "45.8908",
+   "60.4543"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "1.024"
+  ],
+  "evidence": "audit_deficit_direct.py",
+  "proj": null,
+  "len": 3385
+ },
+ {
+  "key": "rem:deficitshape",
+  "file": "wall_v3.md",
+  "line": 4318,
+  "title": "the drift steepens, and two of this run's own rules were misspecified",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "draws",
+   "measured",
+   "octave"
+  ],
+  "nums": [
+   "0.00022008",
+   "0.00068284",
+   "0.00201923",
+   "0.00223931",
+   "0.028534",
+   "0.029139",
+   "0.031762",
+   "0.032663",
+   "0.0515",
+   "10.5966",
+   "45.8908"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_deficit_shape.py",
+  "proj": null,
+  "len": 3181
+ },
+ {
+  "key": "rem:deficitregion",
+  "file": "wall_v3.md",
+  "line": 4377,
+  "title": "the never-closes region has a boundary, and the family has none",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "measured",
+   "reads"
+  ],
+  "nums": [
+   "0.00201923",
+   "0.0025976491",
+   "0.02820735",
+   "0.030092",
+   "0.032663",
+   "0.057813",
+   "12.2061",
+   "22.7030"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "12.2061"
+  ],
+  "evidence": "audit_deficit_region.py",
+  "proj": null,
+  "len": 3242
+ },
+ {
+  "key": "rem:targetderived",
+  "file": "wall_v3.md",
+  "line": 4437,
+  "title": "the target of the sign axis is derived, not fitted",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "closed",
+   "does not",
+   "is not",
+   "the range"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "ratio"
+  ],
+  "nums": [
+   "0.00150",
+   "0.002675",
+   "0.006187",
+   "0.008119",
+   "0.01120",
+   "0.277325",
+   "0.2800",
+   "0.282084",
+   "0.283586",
+   "0.284047",
+   "0.285443",
+   "0.288106",
+   "0.289948",
+   "0.290289",
+   "0.370",
+   "0.3773",
+   "0.6622",
+   "0.6760",
+   "0.6857",
+   "0.6986",
+   "1.024",
+   "11.9596",
+   "39.6783",
+   "69.7186"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.2800",
+   "0.370",
+   "1.024"
+  ],
+  "evidence": "audit_target_derived.py",
+  "proj": null,
+  "len": 4381
+ },
+ {
+  "key": "rem:deficitlog",
+  "file": "wall_v3.md",
+  "line": 4517,
+  "title": "this field cannot tell a logarithm from a line",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "correlation",
+   "measured",
+   "reads",
+   "slope"
+  ],
+  "nums": [
+   "0.007380",
+   "0.023586",
+   "0.028534",
+   "0.031762",
+   "0.032663",
+   "0.033651",
+   "0.044911",
+   "0.112471",
+   "0.134019",
+   "0.583897",
+   "0.996737",
+   "12.2061",
+   "18.0518",
+   "2.030302",
+   "2.5019",
+   "22.8027",
+   "3.1269"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "12.2061"
+  ],
+  "evidence": "audit_deficit_log.py",
+  "proj": null,
+  "len": 3152
+ },
+ {
+  "key": "rem:sieveweight",
+  "file": "wall_v3.md",
+  "line": 4579,
+  "title": "the object has a name: a truncated Möbius sieve weight",
+  "cls": "HSM",
+  "h": [
+   "was wrong"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not"
+  ],
+  "m": [
+   "correlation",
+   "measured"
+  ],
+  "nums": [
+   "1.0000",
+   "1.0001",
+   "1.3323",
+   "2.1316",
+   "3.234",
+   "427.979732",
+   "5.513",
+   "6.2172",
+   "87895.3236"
+  ],
+  "in_tex": [
+   "1.0000"
+  ],
+  "in_res": [
+   "1.0000"
+  ],
+  "evidence": "audit_sieve_weight.py",
+  "proj": null,
+  "len": 3742
+ },
+ {
+  "key": "rem:jbarrier",
+  "file": "wall_v3.md",
+  "line": 4648,
+  "title": "the sum has two square-root barriers and they differ by a factor of two",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "closed",
+   "does not",
+   "is not",
+   "is not the",
+   "no longer",
+   "only",
+   "the range"
+  ],
+  "m": [
+   "fitted",
+   "ratio"
+  ],
+  "nums": [
+   "0.000261",
+   "0.003179",
+   "0.005519",
+   "0.009864",
+   "0.138010",
+   "0.138271",
+   "0.485",
+   "0.4853",
+   "0.4900",
+   "0.4933",
+   "0.4942",
+   "0.4959",
+   "0.498823",
+   "0.4998",
+   "0.5090",
+   "0.5106",
+   "0.511",
+   "0.5114",
+   "0.625057",
+   "0.625318",
+   "0.763327",
+   "11.9596",
+   "87895.3236"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.003179",
+   "0.511",
+   "0.5114"
+  ],
+  "evidence": "audit_jbarrier.py",
+  "proj": null,
+  "len": 3538
+ },
+ {
+  "key": "rem:jbarrierreach",
+  "file": "wall_v3.md",
+  "line": 4723,
+  "title": "the half was the radical's, and the barriers do not share a scale",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "is not",
+   "is not the",
+   "not a constant",
+   "survives"
+  ],
+  "m": [
+   "measured",
+   "octave",
+   "ratio"
+  ],
+  "nums": [
+   "0.003313",
+   "0.005736",
+   "0.008699",
+   "0.068713",
+   "0.1549",
+   "0.1555",
+   "0.1577",
+   "0.1642",
+   "0.1711",
+   "0.1753",
+   "0.178268",
+   "0.1899",
+   "0.2055",
+   "0.2303",
+   "0.310330",
+   "0.325173",
+   "0.498823",
+   "0.503442",
+   "0.555556",
+   "1.01065"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_jbarrier_reach.py",
+  "proj": null,
+  "len": 3124
+ },
+ {
+  "key": "rem:whichfloor",
+  "file": "wall_v3.md",
+  "line": 4787,
+  "title": "the deficit carries the radical",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "one family",
+   "only",
+   "the range"
+  ],
+  "m": [
+   "measured",
+   "reads"
+  ],
+  "nums": [
+   "0.001449",
+   "0.005708",
+   "0.005736",
+   "0.005889",
+   "0.134019",
+   "0.138586",
+   "0.141100",
+   "0.143841",
+   "0.146355",
+   "0.218290",
+   "0.284941",
+   "10.3100",
+   "14.233",
+   "15.8551"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_which_floor.py",
+  "proj": null,
+  "len": 3612
+ },
+ {
+  "key": "rem:radicallaw",
+  "file": "wall_v3.md",
+  "line": 4856,
+  "title": "which primes, not how many",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not"
+  ],
+  "m": [
+   "measured"
+  ],
+  "nums": [
+   "0.016756",
+   "0.019112",
+   "0.019289",
+   "0.044185",
+   "0.052354",
+   "0.068281",
+   "0.069729",
+   "0.070333",
+   "0.073163",
+   "0.074374",
+   "0.134019",
+   "0.138010",
+   "0.141444",
+   "0.144102",
+   "0.212384",
+   "0.265357",
+   "0.282112",
+   "0.284941",
+   "0.310330",
+   "0.355275",
+   "0.416667",
+   "0.500000",
+   "0.555556",
+   "0.583333",
+   "0.666667",
+   "14.233"
+  ],
+  "in_tex": [
+   "0.500000"
+  ],
+  "in_res": [
+   "0.416667",
+   "0.500000",
+   "0.666667"
+  ],
+  "evidence": "audit_radical_law.py",
+  "proj": null,
+  "len": 3341
+ },
+ {
+  "key": "rem:primecontrib",
+  "file": "wall_v3.md",
+  "line": 4922,
+  "title": "three is the whole of it, and there is no decay",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not"
+  ],
+  "m": [
+   "slope"
+  ],
+  "nums": [
+   "0.0034",
+   "0.010",
+   "0.019289",
+   "0.054986",
+   "0.0696",
+   "0.1351",
+   "0.234902",
+   "0.317171",
+   "0.3555",
+   "0.642640",
+   "14.233"
+  ],
+  "in_tex": [
+   "0.010"
+  ],
+  "in_res": [
+   "0.010"
+  ],
+  "evidence": "audit_prime_contrib.py",
+  "proj": null,
+  "len": 3442
+ },
+ {
+  "key": "rem:basecontrol",
+  "file": "wall_v3.md",
+  "line": 4984,
+  "title": "the control this branch never ran, and the clause that barred it",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "the range"
+  ],
+  "m": [
+   "measured"
+  ],
+  "nums": [
+   "0.007815",
+   "0.009087",
+   "0.012752",
+   "0.014833",
+   "0.063896",
+   "0.142637",
+   "0.209772",
+   "1.110",
+   "2.512"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_base_control.py",
+  "proj": null,
+  "len": 2872
+ },
+ {
+  "key": "rem:radicalblind",
+  "file": "wall_v3.md",
+  "line": 5042,
+  "title": "the control, blind and registered, and it fails",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not"
+  ],
+  "m": [
+   "measured",
+   "slope"
+  ],
+  "nums": [
+   "0.002093",
+   "0.003599",
+   "0.040",
+   "0.088453",
+   "0.250223",
+   "0.993884",
+   "0.996116",
+   "14.233",
+   "2.688"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.040"
+  ],
+  "evidence": "audit_radical_blind.py",
+  "proj": null,
+  "len": 3211
+ },
+ {
+  "key": "rem:valuation",
+  "file": "wall_v3.md",
+  "line": 5103,
+  "title": "the exponent is not it either, and the slope is not a number",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "one family"
+  ],
+  "m": [
+   "fitted",
+   "slope"
+  ],
+  "nums": [
+   "0.001548",
+   "0.002767",
+   "0.005679",
+   "0.007380",
+   "0.008540",
+   "0.014995",
+   "0.031688",
+   "0.035607",
+   "0.041057",
+   "0.055",
+   "0.074374",
+   "0.104773",
+   "0.114863",
+   "0.126",
+   "0.180851",
+   "0.184332",
+   "1.500",
+   "1.600",
+   "14.233",
+   "2.000",
+   "2.688",
+   "2.837"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.055",
+   "2.000"
+  ],
+  "evidence": "audit_valuation.py",
+  "proj": null,
+  "len": 3285
+ },
+ {
+  "key": "rem:levelmatched",
+  "file": "wall_v3.md",
+  "line": 5167,
+  "title": "the level, at matched N, with no window in it",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "is not the",
+   "the range"
+  ],
+  "m": [
+   "and",
+   "measured"
+  ],
+  "nums": [
+   "0.007878",
+   "0.008931",
+   "0.024960",
+   "0.033561",
+   "0.036365",
+   "0.038049",
+   "0.044840",
+   "0.066632",
+   "0.066885",
+   "0.284941",
+   "1.341935",
+   "1.727299",
+   "1.812152",
+   "1.816345",
+   "1.890177",
+   "2.008906",
+   "2.075538",
+   "2.166023",
+   "2.995958",
+   "3.032323",
+   "3.071761",
+   "3.141281",
+   "3.187272",
+   "3.232112"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_level_matched.py",
+  "proj": null,
+  "len": 3047
+ },
+ {
+  "key": "rem:leveldense",
+  "file": "wall_v3.md",
+  "line": 5226,
+  "title": "packed close: the level carries scatter, and how much",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "does not"
+  ],
+  "m": [
+   "measured",
+   "median",
+   "slope"
+  ],
+  "nums": [
+   "0.002779",
+   "0.003310",
+   "0.0034",
+   "0.003428",
+   "0.017737",
+   "0.018",
+   "0.0237",
+   "0.023717",
+   "0.025490",
+   "0.028794",
+   "0.028850",
+   "0.029924",
+   "0.062849",
+   "0.064590",
+   "0.066632",
+   "0.127948",
+   "0.129861",
+   "0.133531",
+   "0.144537",
+   "0.163956",
+   "1.024",
+   "1.890177"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.018",
+   "1.024"
+  ],
+  "evidence": "audit_level_dense.py",
+  "proj": null,
+  "len": 2909
+ },
+ {
+  "key": "rem:levelfine",
+  "file": "wall_v3.md",
+  "line": 5283,
+  "title": "the scatter is not a scale effect, and it is smaller here",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not"
+  ],
+  "m": [
+   "and",
+   "correlation",
+   "measured",
+   "slope"
+  ],
+  "nums": [
+   "0.000299",
+   "0.001129",
+   "0.004683",
+   "0.005",
+   "0.006131",
+   "0.007363",
+   "0.0074",
+   "0.017552",
+   "0.0237",
+   "0.028850",
+   "0.029924",
+   "0.251027",
+   "0.265357",
+   "0.310186",
+   "0.6931",
+   "1.1632",
+   "1.2528"
+  ],
+  "in_tex": [
+   "0.005"
+  ],
+  "in_res": [
+   "0.005",
+   "0.6931"
+  ],
+  "evidence": "audit_level_fine.py",
+  "proj": null,
+  "len": 2723
+ },
+ {
+  "key": "rem:levelresidual",
+  "file": "wall_v3.md",
+  "line": 5334,
+  "title": "the residual is noise, on a closed list of candidates",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "below its own",
+   "closed",
+   "does not",
+   "is not",
+   "only",
+   "the range"
+  ],
+  "m": [
+   "draws",
+   "measured",
+   "median",
+   "null",
+   "percentile"
+  ],
+  "nums": [
+   "0.006655",
+   "0.006788",
+   "0.007363",
+   "0.007474",
+   "0.011157",
+   "0.037793",
+   "0.0502",
+   "0.071081",
+   "0.1137",
+   "0.153099",
+   "0.8037",
+   "0.8193"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_level_residual.py",
+  "proj": null,
+  "len": 2498
+ },
+ {
+  "key": "rem:bilinear",
+  "file": "wall_v3.md",
+  "line": 5386,
+  "title": "the object is a Type II bilinear form with disjoint ranges",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "does not",
+   "is not",
+   "the range"
+  ],
+  "m": [
+   "measured"
+  ],
+  "nums": [
+   "1.768148",
+   "87895.3236"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_bilinear.py",
+  "proj": null,
+  "len": 2915
+ },
+ {
+  "key": "rem:bilinearcancel",
+  "file": "wall_v3.md",
+  "line": 5447,
+  "title": "the smallness is cancellation between moduli, and better than square-root",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "only",
+   "the range"
+  ],
+  "m": [
+   "measured",
+   "ratio"
+  ],
+  "nums": [
+   "0.587483",
+   "0.717916",
+   "1409338.1646",
+   "15.3979",
+   "2.9633",
+   "21.9558",
+   "3.4715",
+   "36.5215",
+   "4.3041",
+   "5.1962",
+   "6.3246",
+   "8.4853"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_bilinear_cancel.py",
+  "proj": null,
+  "len": 3329
+ },
+ {
+  "key": "rem:maintermremoval",
+  "file": "wall_v3.md",
+  "line": 5513,
+  "title": "the demand is a main term removed to a relative accuracy",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "ratio"
+  ],
+  "nums": [
+   "0.009184",
+   "0.027436",
+   "0.084",
+   "0.282084",
+   "0.342848",
+   "0.583897",
+   "0.874261",
+   "0.936626",
+   "0.959641",
+   "0.976934",
+   "0.977",
+   "1.080429",
+   "1.107864",
+   "5.0350",
+   "5.3385",
+   "5.8927",
+   "6.6274",
+   "8.0213",
+   "8.2110",
+   "8.3955",
+   "9.5118"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.084",
+   "0.977",
+   "8.0213"
+  ],
+  "evidence": "audit_mainterm_removal.py",
+  "proj": null,
+  "len": 2813
+ },
+ {
+  "key": "rem:tworates",
+  "file": "wall_v3.md",
+  "line": 5574,
+  "title": "the two rates, and the deficit reached without fitting the sum",
+  "cls": "M",
+  "h": [],
+  "s": [],
+  "m": [
+   "fitted",
+   "measured"
+  ],
+  "nums": [
+   "0.0017",
+   "0.002425",
+   "0.002950",
+   "0.006482",
+   "0.009184",
+   "0.011771",
+   "0.023066",
+   "0.134019",
+   "0.135730",
+   "0.342848",
+   "0.478577",
+   "0.583897",
+   "0.629287",
+   "0.765016",
+   "0.874261",
+   "0.976934",
+   "1.107864",
+   "5.0350",
+   "9.5118"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_two_rates.py",
+  "proj": null,
+  "len": 2794
+ },
+ {
+  "key": "rem:residuemodel",
+  "file": "wall_v3.md",
+  "line": 5629,
+  "title": "the primes do not drop out",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "closed",
+   "does not",
+   "is not"
+  ],
+  "m": [
+   "correlation",
+   "fitted",
+   "measured",
+   "ratio"
+  ],
+  "nums": [
+   "0.001965",
+   "0.007945",
+   "0.023066",
+   "0.026120",
+   "0.040359",
+   "0.063374",
+   "0.0852",
+   "0.091290",
+   "0.125739",
+   "0.1969",
+   "0.342848",
+   "0.4122",
+   "0.7260",
+   "0.876211",
+   "9.5118"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.4122"
+  ],
+  "evidence": "audit_residue_model.py",
+  "proj": null,
+  "len": 2668
+ },
+ {
+  "key": "rem:weightshape",
+  "file": "wall_v3.md",
+  "line": 5684,
+  "title": "the correction is not a product over the primes of d",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "fitted",
+   "measured"
+  ],
+  "nums": [
+   "0.053187",
+   "0.0987",
+   "0.656835",
+   "0.658776",
+   "0.664015",
+   "0.793053",
+   "0.793825",
+   "0.798162",
+   "0.8559",
+   "0.8780",
+   "0.886",
+   "0.886295",
+   "0.9090",
+   "1.3780",
+   "1.3964",
+   "1.4267",
+   "1.4356",
+   "1.4382",
+   "1.4461",
+   "1.4707",
+   "1.4754",
+   "1.4767"
+  ],
+  "in_tex": [
+   "0.886"
+  ],
+  "in_res": [
+   "0.886"
+  ],
+  "evidence": "audit_weight_shape.py",
+  "proj": null,
+  "len": 2827
+ },
+ {
+  "key": "rem:omegafactor",
+  "file": "wall_v3.md",
+  "line": 5742,
+  "title": "kappa predicts three primes from two, and the transport is real",
+  "cls": "HSM",
+  "h": [
+   "the wrong one"
+  ],
+  "s": [
+   "closed",
+   "does not",
+   "is not",
+   "only",
+   "survives",
+   "the range"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "median"
+  ],
+  "nums": [
+   "0.022543",
+   "0.025290",
+   "0.829575",
+   "0.832904",
+   "1.0448",
+   "1.1085",
+   "1.1175",
+   "1.1226",
+   "1.2096",
+   "1.2743",
+   "1.2747",
+   "1.2853",
+   "1.4754"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_omega_factor.py",
+  "proj": null,
+  "len": 2820
+ },
+ {
+  "key": "rem:localcorrections",
+  "file": "wall_v3.md",
+  "line": 5799,
+  "title": "the corrections drift, most for the smallest primes",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.00001449",
+   "0.001589",
+   "0.005152",
+   "0.010340",
+   "0.011551",
+   "0.034522",
+   "0.055367",
+   "0.7775",
+   "0.9325",
+   "0.9396",
+   "1.0230",
+   "1.0427",
+   "1.0435",
+   "1.0448",
+   "1.0649",
+   "1.0672",
+   "1.0728",
+   "1.2853"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_local_corrections.py",
+  "proj": null,
+  "len": 2974
+ },
+ {
+  "key": "rem:driftbyprime",
+  "file": "wall_v3.md",
+  "line": 5857,
+  "title": "the drift belongs to two primes, not to the family",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "does not survive",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "slope"
+  ],
+  "nums": [
+   "0.001589",
+   "0.004238",
+   "0.005152",
+   "0.011551",
+   "0.018483",
+   "0.019126",
+   "0.952938",
+   "1.000000"
+  ],
+  "in_tex": [
+   "1.000000"
+  ],
+  "in_res": [
+   "1.000000"
+  ],
+  "evidence": "audit_drift_by_prime.py",
+  "proj": null,
+  "len": 2396
+ },
+ {
+  "key": "rem:driftpower",
+  "file": "wall_v3.md",
+  "line": 5905,
+  "title": "power was bought, and the slope is not a slope",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not"
+  ],
+  "m": [
+   "slope"
+  ],
+  "nums": [
+   "0.000587",
+   "0.000977",
+   "0.001154",
+   "0.00130",
+   "0.001391",
+   "0.001589",
+   "0.001948",
+   "0.83298",
+   "0.83429",
+   "0.87551"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_drift_power.py",
+  "proj": null,
+  "len": 2465
+ },
+ {
+  "key": "rem:driftsigns",
+  "file": "wall_v3.md",
+  "line": 5957,
+  "title": "c(3) moves, and only c(3), once the window is gone",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "survives"
+  ],
+  "m": [
+   "measured"
+  ],
+  "nums": [
+   "0.0000",
+   "0.0001",
+   "0.001953",
+   "0.0027",
+   "0.0035",
+   "0.0078",
+   "0.0090",
+   "0.109375",
+   "0.343750",
+   "0.83298",
+   "0.83429",
+   "0.9114",
+   "0.9279",
+   "0.9300",
+   "0.9325",
+   "1.000000"
+  ],
+  "in_tex": [
+   "0.0001",
+   "1.000000"
+  ],
+  "in_res": [
+   "0.0000",
+   "0.0001",
+   "0.0035",
+   "0.0090",
+   "1.000000"
+  ],
+  "evidence": "audit_drift_signs.py",
+  "proj": null,
+  "len": 2283
+ },
+ {
+  "key": "rem:derivedlimit",
+  "file": "wall_v3.md",
+  "line": 6003,
+  "title": "a limit that is derived, and the residual it leaves",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "is not the",
+   "not thereby",
+   "only",
+   "survives",
+   "the range"
+  ],
+  "m": [
+   "factor \\$",
+   "fitted",
+   "measured",
+   "median"
+  ],
+  "nums": [
+   "0.0000",
+   "0.0001",
+   "0.102271",
+   "0.750000",
+   "0.8609",
+   "0.8636",
+   "0.8637",
+   "0.865748",
+   "0.875000",
+   "0.898422",
+   "0.907539",
+   "0.908987",
+   "0.916667",
+   "0.928571",
+   "0.9597",
+   "0.9773",
+   "0.977350",
+   "0.9916",
+   "0.991622",
+   "1.026768",
+   "1.0268",
+   "1.1543",
+   "1.154331",
+   "1.243394"
+  ],
+  "in_tex": [
+   "0.0001",
+   "0.750000"
+  ],
+  "in_res": [
+   "0.0000",
+   "0.0001",
+   "0.750000"
+  ],
+  "evidence": "audit_derived_limit.py",
+  "proj": null,
+  "len": 3505
+ },
+ {
+  "key": "rem:limitdirection",
+  "file": "wall_v3.md",
+  "line": 6069,
+  "title": "the curve compresses, and neither way out was right",
+  "cls": "HSM",
+  "h": [
+   "was wrong"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is dead",
+   "is not"
+  ],
+  "m": [
+   "ratio"
+  ],
+  "nums": [
+   "0.008906",
+   "0.009949",
+   "0.058623",
+   "0.077740",
+   "0.104355",
+   "0.118401",
+   "0.119484",
+   "0.127979",
+   "0.137622",
+   "0.142499",
+   "0.160203",
+   "0.763851",
+   "0.853126",
+   "0.861216",
+   "0.916563",
+   "0.926432",
+   "0.949940",
+   "0.959725",
+   "0.977350",
+   "0.991622",
+   "1.001573",
+   "1.154331",
+   "11.716936"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_limit_direction.py",
+  "proj": null,
+  "len": 2844
+ },
+ {
+  "key": "rem:limitsqueeze",
+  "file": "wall_v3.md",
+  "line": 6125,
+  "title": "the ladder is not square, and three runs stood on its bad end",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "and it fails",
+   "is not"
+  ],
+  "m": [
+   "fitted",
+   "median",
+   "rung"
+  ],
+  "nums": [
+   "0.051640",
+   "0.096586",
+   "0.109375",
+   "0.293399",
+   "0.607612",
+   "0.635782",
+   "0.675048",
+   "0.756055",
+   "0.820505",
+   "0.829234",
+   "0.8858",
+   "0.8884",
+   "0.8900",
+   "0.8907",
+   "0.8913",
+   "0.8979",
+   "0.8980",
+   "0.9018",
+   "0.9034",
+   "0.903414",
+   "0.9333",
+   "0.948360",
+   "0.9484",
+   "0.987645",
+   "0.991622",
+   "1.026768",
+   "1.032921",
+   "1.050517",
+   "1.243394"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.8884"
+  ],
+  "evidence": "audit_limit_squeeze.py",
+  "proj": null,
+  "len": 2934
+ },
+ {
+  "key": "rem:conditionedlimit",
+  "file": "wall_v3.md",
+  "line": 6178,
+  "title": "above a floor that is demanded, and what the floor cost",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not",
+   "is not the",
+   "only"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "median",
+   "rung"
+  ],
+  "nums": [
+   "0.006052",
+   "0.019285",
+   "0.039116",
+   "0.062500",
+   "0.227705",
+   "0.246990",
+   "0.250000",
+   "0.954833",
+   "0.956512",
+   "0.958442",
+   "0.960884"
+  ],
+  "in_tex": [
+   "0.250000"
+  ],
+  "in_res": [
+   "0.250000"
+  ],
+  "evidence": "audit_conditioned_limit.py",
+  "proj": null,
+  "len": 2951
+ },
+ {
+  "key": "rem:logweightsplit",
+  "file": "wall_v3.md",
+  "line": 6233,
+  "title": "the second factor nobody counted",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "median",
+   "rung"
+  ],
+  "nums": [
+   "0.000269",
+   "0.001152",
+   "0.001766",
+   "0.076803",
+   "0.227705",
+   "0.337290",
+   "0.800915",
+   "0.802681",
+   "0.837661",
+   "0.838474",
+   "0.867794",
+   "0.868105",
+   "0.892714",
+   "0.892751",
+   "0.915385",
+   "0.939160",
+   "0.939429",
+   "0.957575",
+   "0.991766",
+   "1.022297",
+   "1.140337",
+   "1.140410",
+   "1.140615",
+   "1.141568",
+   "1.141710",
+   "1.141758",
+   "1.141768",
+   "1.141777",
+   "1.142044",
+   "1.142450",
+   "1.143089",
+   "1.145109",
+   "1.217140"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_logweight_split.py",
+  "proj": null,
+  "len": 2742
+ },
+ {
+  "key": "rem:closedform",
+  "file": "wall_v3.md",
+  "line": 6288,
+  "title": "the form transports, and its level is the Goldbach series",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "closed",
+   "does not",
+   "is not",
+   "only",
+   "the range"
+  ],
+  "m": [
+   "and",
+   "measured",
+   "rung"
+  ],
+  "nums": [
+   "0.001849",
+   "0.002204",
+   "0.003619",
+   "0.003721",
+   "0.004525",
+   "0.006052",
+   "0.007294",
+   "0.015313",
+   "0.039116",
+   "0.071562",
+   "0.071879",
+   "0.072149",
+   "0.072599",
+   "0.072621",
+   "0.073767",
+   "0.134019",
+   "0.996381",
+   "0.999832",
+   "1.003032",
+   "2.228616",
+   "2.230650",
+   "2.233279",
+   "2.233469",
+   "2.236001",
+   "2.243928"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_closed_form.py",
+  "proj": null,
+  "len": 2652
+ },
+ {
+  "key": "rem:maskdmse",
+  "file": "wall_v3.md",
+  "line": 6338,
+  "title": "dm/se, as v1 said to fit and nobody had",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "does not survive",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "factor \\$",
+   "fitted",
+   "measured"
+  ],
+  "nums": [
+   "0.0317",
+   "0.1434",
+   "0.1655",
+   "0.2152",
+   "0.2309",
+   "0.2713",
+   "0.3283",
+   "0.3686",
+   "0.4727",
+   "0.5869",
+   "0.6289",
+   "0.7136",
+   "4.9979",
+   "7.0004"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.3283"
+  ],
+  "evidence": "audit_mask_dmse.py",
+  "proj": null,
+  "len": 2998
+ },
+ {
+  "key": "rem:maskfloornull",
+  "file": "wall_v3.md",
+  "line": 6394,
+  "title": "the floor test and the fit answer different questions",
+  "cls": "HSM",
+  "h": [
+   "v1 said"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "and",
+   "factor \\$",
+   "fitted",
+   "measured",
+   "median",
+   "null"
+  ],
+  "nums": [
+   "0.0003",
+   "0.0043",
+   "0.0052",
+   "0.0121",
+   "0.0411",
+   "0.0437",
+   "0.0512",
+   "0.0632",
+   "0.0847",
+   "0.1005",
+   "0.1281",
+   "0.1298",
+   "0.2076",
+   "0.2945",
+   "0.3686",
+   "0.4755",
+   "0.6289"
+  ],
+  "in_tex": [
+   "0.0003"
+  ],
+  "in_res": [
+   "0.0003",
+   "0.0043",
+   "0.0052",
+   "0.0121",
+   "0.2076"
+  ],
+  "evidence": "audit_mask_floornull.py",
+  "proj": null,
+  "len": 2776
+ },
+ {
+  "key": "rem:maskformreach",
+  "file": "wall_v3.md",
+  "line": 6447,
+  "title": "a design that could not ask its question, and what that shows",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "the range"
+  ],
+  "m": [
+   "and",
+   "draws",
+   "factor \\$",
+   "measured",
+   "reads"
+  ],
+  "nums": [
+   "0.0420",
+   "0.1970",
+   "0.1995",
+   "0.2110",
+   "0.2155",
+   "0.2185",
+   "0.2215",
+   "0.2360",
+   "0.2440",
+   "0.6289"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_mask_formreach.py",
+  "proj": null,
+  "len": 2877
+ },
+ {
+  "key": "rem:maskdeepform",
+  "file": "wall_v3.md",
+  "line": 6502,
+  "title": "where the mask has not sunk, the form is measurable",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "below its own",
+   "buys nothing",
+   "cannot",
+   "is not",
+   "the price",
+   "the range"
+  ],
+  "m": [
+   "and",
+   "draws",
+   "measured",
+   "ratio"
+  ],
+  "nums": [
+   "0.0659",
+   "0.3375",
+   "0.4657",
+   "0.5515",
+   "0.5640",
+   "0.5705",
+   "0.7235",
+   "0.9900",
+   "1.0000"
+  ],
+  "in_tex": [
+   "0.5515",
+   "1.0000"
+  ],
+  "in_res": [
+   "0.5515",
+   "1.0000"
+  ],
+  "evidence": "audit_mask_deepform.py",
+  "proj": null,
+  "len": 2951
+ },
+ {
+  "key": "rem:maskrivals",
+  "file": "wall_v3.md",
+  "line": 6560,
+  "title": "the price was against one rival, and there is no price of the form",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "closed",
+   "is not",
+   "survives",
+   "the price"
+  ],
+  "m": [
+   "draws",
+   "measured"
+  ],
+  "nums": [
+   "0.5005",
+   "0.5265",
+   "0.5560"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_mask_rivals.py",
+  "proj": null,
+  "len": 2643
+ },
+ {
+  "key": "rem:spectrummushare",
+  "file": "wall_v3.md",
+  "line": 6616,
+  "title": "mu's share of the spectrum is structured, and by something Lambda's weights do not contain",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "correlation",
+   "measured",
+   "ratio",
+   "slope"
+  ],
+  "nums": [
+   "0.080",
+   "0.1420",
+   "0.7473",
+   "0.957",
+   "1.149",
+   "1.404",
+   "2.692",
+   "21.627",
+   "3.810",
+   "6.800",
+   "6.951"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "1.404"
+  ],
+  "evidence": "audit_spectrum_mushare.py",
+  "proj": null,
+  "len": 3188
+ },
+ {
+  "key": "rem:flatnessshape",
+  "file": "wall_v3.md",
+  "line": 6681,
+  "title": "the flatness cannot rise forever",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "only"
+  ],
+  "m": [
+   "fitted",
+   "measured"
+  ],
+  "nums": [
+   "0.000163",
+   "0.000853",
+   "0.001870",
+   "0.006479",
+   "0.006641",
+   "0.007445",
+   "0.0349",
+   "0.126442",
+   "0.159294",
+   "0.287798",
+   "0.560706",
+   "0.6622",
+   "0.6854",
+   "0.754",
+   "0.754152"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.754"
+  ],
+  "evidence": "audit_flatness_shape.py",
+  "proj": null,
+  "len": 1739
+ },
+ {
+  "key": "rem:leanidentity",
+  "file": "wall_v3.md",
+  "line": 6723,
+  "title": "three exponents, one identity",
+  "cls": "HSM",
+  "h": [
+   "superseded"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "only"
+  ],
+  "m": [
+   "draws",
+   "factor \\$",
+   "measured",
+   "median",
+   "ratio"
+  ],
+  "nums": [
+   "0.00042",
+   "0.025407",
+   "0.040473",
+   "0.149567",
+   "0.153911",
+   "0.154",
+   "0.159294",
+   "0.219062",
+   "0.237831",
+   "0.283586",
+   "0.287798",
+   "0.288",
+   "0.6622",
+   "0.6760",
+   "0.6764",
+   "0.6802",
+   "0.6854",
+   "0.6872",
+   "0.6909",
+   "0.6986",
+   "1.024"
+  ],
+  "in_tex": [
+   "0.288"
+  ],
+  "in_res": [
+   "0.288",
+   "1.024"
+  ],
+  "evidence": "audit_lean_identity.py",
+  "proj": "lem:MP",
+  "len": 2747
+ },
+ {
+  "key": "rem:leanextended",
+  "file": "wall_v3.md",
+  "line": 6785,
+  "title": "and it holds over a factor 128",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not"
+  ],
+  "m": [
+   "factor \\$",
+   "measured",
+   "median",
+   "null",
+   "octave",
+   "slope"
+  ],
+  "nums": [
+   "0.00002",
+   "0.152263",
+   "0.1539",
+   "0.153911",
+   "0.159294",
+   "0.313205"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_lean_extended.py",
+  "proj": null,
+  "len": 1513
+ },
+ {
+  "key": "rem:leanfloor",
+  "file": "wall_v3.md",
+  "line": 6820,
+  "title": "the floor moved faster than the lean",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "is not the",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "draws",
+   "measured",
+   "median",
+   "percentile",
+   "reads",
+   "slope"
+  ],
+  "nums": [
+   "0.00042",
+   "0.0095",
+   "0.0116",
+   "0.0162",
+   "0.0192",
+   "0.0237",
+   "0.0276",
+   "0.148676",
+   "0.167257",
+   "0.1673",
+   "0.315933"
+  ],
+  "in_tex": [
+   "0.0162"
+  ],
+  "in_res": [
+   "0.0162"
+  ],
+  "evidence": "audit_lean_floor.py",
+  "proj": null,
+  "len": 1912
+ },
+ {
+  "key": "rem:crosskreference",
+  "file": "wall_v3.md",
+  "line": 6863,
+  "title": "what independent signs would actually give",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "convention",
+   "does not"
+  ],
+  "m": [
+   "correlation",
+   "measured",
+   "median"
+  ],
+  "nums": [
+   "0.00042",
+   "0.3486",
+   "0.3587",
+   "0.6622",
+   "0.6854",
+   "1.459",
+   "1.510",
+   "1.834",
+   "2.789"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.3486",
+   "0.3587",
+   "1.459",
+   "1.834",
+   "2.789"
+  ],
+  "evidence": "audit_crossk_reference.py",
+  "proj": null,
+  "len": 1967
+ },
+ {
+  "key": "rem:coinrank",
+  "file": "wall_v3.md",
+  "line": 6912,
+  "title": "mu ranks fourth of seventeen",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "does not survive",
+   "is not",
+   "survives"
+  ],
+  "m": [
+   "and",
+   "median",
+   "null",
+   "octave",
+   "ratio"
+  ],
+  "nums": [
+   "0.00005",
+   "0.033137",
+   "0.8195",
+   "0.9745",
+   "0.9919",
+   "0.9962",
+   "0.9963",
+   "0.9979",
+   "1.2871"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.00005"
+  ],
+  "evidence": "audit_residue_coin_rank.py",
+  "proj": null,
+  "len": 2111
+ },
+ {
+  "key": "rem:residuecancel",
+  "file": "wall_v3.md",
+  "line": 6955,
+  "title": "the residue buys exactly a coin's cancellation",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "fitted",
+   "octave",
+   "ratio"
+  ],
+  "nums": [
+   "0.4883",
+   "0.4915",
+   "0.4997",
+   "0.5024",
+   "0.5109",
+   "0.7979",
+   "0.9745",
+   "0.9919",
+   "0.99610",
+   "0.9962",
+   "0.9963",
+   "0.9979",
+   "0.99970",
+   "1.00000"
+  ],
+  "in_tex": [
+   "1.00000"
+  ],
+  "in_res": [
+   "1.00000"
+  ],
+  "evidence": "lab_residue_cancellation.py",
+  "proj": null,
+  "len": 2490
+ },
+ {
+  "key": "rem:residueconstant",
+  "file": "wall_v3.md",
+  "line": 7006,
+  "title": "the residue has no law, only a fit",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "is not",
+   "survives"
+  ],
+  "m": [
+   "factor \\$",
+   "measured",
+   "reads",
+   "slope"
+  ],
+  "nums": [
+   "0.0047",
+   "0.4558",
+   "0.4818",
+   "0.4958",
+   "0.5263",
+   "0.5273",
+   "0.5599",
+   "0.5604",
+   "0.5642",
+   "0.5652",
+   "0.5654",
+   "0.5671",
+   "0.5675",
+   "0.5799",
+   "0.5800",
+   "0.9844",
+   "0.9854",
+   "0.9939",
+   "0.994",
+   "0.998",
+   "1.000",
+   "1.002",
+   "1.0039",
+   "1.007",
+   "1.0138",
+   "1.5925",
+   "1.7303",
+   "1.9188",
+   "1.9439",
+   "1.9894"
+  ],
+  "in_tex": [
+   "0.4558",
+   "1.000"
+  ],
+  "in_res": [
+   "0.4558",
+   "0.998",
+   "1.000",
+   "1.002",
+   "1.0039"
+  ],
+  "evidence": "audit_residue_constant.py",
+  "proj": null,
+  "len": 2369
+ },
+ {
+  "key": "rem:leandecay",
+  "file": "wall_v3.md",
+  "line": 7057,
+  "title": "the lean is finite-$N$ and decays",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not"
+  ],
+  "m": [
+   "correlation",
+   "factor \\$",
+   "measured",
+   "octave"
+  ],
+  "nums": [
+   "0.1624",
+   "0.1673",
+   "0.1793",
+   "0.1932",
+   "0.2228",
+   "0.2265",
+   "0.2273",
+   "0.2727",
+   "0.2735",
+   "0.2772",
+   "0.3068",
+   "0.3207",
+   "0.3376",
+   "0.4619",
+   "0.4720",
+   "0.4928",
+   "0.5053",
+   "0.5124",
+   "0.5137",
+   "0.97469",
+   "0.97616",
+   "1.804",
+   "1.834",
+   "2.207",
+   "2.3166",
+   "2.588",
+   "2.789",
+   "3.079"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.1624",
+   "1.804",
+   "1.834",
+   "2.207",
+   "2.588",
+   "2.789"
+  ],
+  "evidence": "lab_lean_decay.py",
+  "proj": null,
+  "len": 2079
+ },
+ {
+  "key": "rem:leanbracket",
+  "file": "wall_v3.md",
+  "line": 7104,
+  "title": "the lean, by a second route, and its bracket",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "fitted"
+  ],
+  "nums": [
+   "0.0000",
+   "0.1180",
+   "0.1673",
+   "0.1880",
+   "0.2228",
+   "0.2273",
+   "0.2735",
+   "0.3068",
+   "0.3207",
+   "0.3376"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0000"
+  ],
+  "evidence": "audit_lean_bracket.py",
+  "proj": null,
+  "len": 2456
+ },
+ {
+  "key": "rem:extendrange",
+  "file": "wall_v3.md",
+  "line": 7154,
+  "title": "two more octaves, and what they settle",
+  "cls": "HSM",
+  "h": [
+   "the audit's rule"
+  ],
+  "s": [
+   "is not",
+   "is not the",
+   "no longer",
+   "the range"
+  ],
+  "m": [
+   "correlation",
+   "factor \\$",
+   "fitted"
+  ],
+  "nums": [
+   "0.00185",
+   "0.002",
+   "0.1196",
+   "0.1245",
+   "0.1459",
+   "0.1539",
+   "0.1855",
+   "0.2073",
+   "0.2228",
+   "0.2273",
+   "0.2608",
+   "0.2735",
+   "0.3068",
+   "0.3172",
+   "0.3207",
+   "0.3376",
+   "0.3533",
+   "0.3608",
+   "0.3745",
+   "0.3837",
+   "0.4377",
+   "0.4527",
+   "0.4992",
+   "0.5526",
+   "0.5916",
+   "0.6547",
+   "0.7303",
+   "0.7395",
+   "0.8086",
+   "0.98434",
+   "0.98619",
+   "1.4526",
+   "1.7267",
+   "1.804",
+   "1.834",
+   "2.207",
+   "2.2380",
+   "2.588",
+   "2.789",
+   "3.079",
+   "3.407",
+   "3.592"
+  ],
+  "in_tex": [
+   "0.002",
+   "0.1196",
+   "0.1245",
+   "0.3745",
+   "0.5916",
+   "0.6547",
+   "0.7303",
+   "0.7395",
+   "0.8086"
+  ],
+  "in_res": [
+   "0.002",
+   "0.1196",
+   "0.1245",
+   "0.1459",
+   "0.1855",
+   "0.2073",
+   "0.2608",
+   "0.3172",
+   "0.3745",
+   "0.3837",
+   "0.4377",
+   "0.5916",
+   "0.6547",
+   "0.7303",
+   "0.7395",
+   "0.8086",
+   "1.4526",
+   "1.804",
+   "1.834",
+   "2.207",
+   "2.588",
+   "2.789"
+  ],
+  "evidence": "lab_extend_range.py",
+  "proj": null,
+  "len": 2256
+ },
+ {
+  "key": "rem:decayfamily",
+  "file": "wall_v3.md",
+  "line": 7205,
+  "title": "the decay exponent is not determined, and by how much",
+  "cls": "HSM",
+  "h": [
+   "the audit's rule"
+  ],
+  "s": [
+   "is not",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "and",
+   "factor \\$",
+   "fitted",
+   "null"
+  ],
+  "nums": [
+   "1.0096",
+   "1.0289",
+   "1.0554",
+   "1.0891",
+   "1.1300",
+   "1.1780",
+   "1.2330"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "lab_decay_family.py",
+  "proj": null,
+  "len": 2387
+ },
+ {
+  "key": "rem:dilateprofile",
+  "file": "wall_v3.md",
+  "line": 7255,
+  "title": "the dilated wall obeys a square-root law, and what that would buy",
+  "cls": "HSM",
+  "h": [
+   "the audit's rule"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "is not the",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "correlation",
+   "factor \\$",
+   "fitted",
+   "measured",
+   "median",
+   "octave",
+   "reads"
+  ],
+  "nums": [
+   "0.001234",
+   "0.001268",
+   "0.001357",
+   "0.001376",
+   "0.001512",
+   "0.3833",
+   "0.4431",
+   "0.4528",
+   "0.4686",
+   "0.4962",
+   "0.4968",
+   "0.5081",
+   "0.5210",
+   "0.5284",
+   "0.5826",
+   "0.7057"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "lab_dilate_profile.py",
+  "proj": null,
+  "len": 2680
+ },
+ {
+  "key": "rem:extrap",
+  "file": "wall_v3.md",
+  "line": 7319,
+  "title": "the extrapolation, tested out of sample",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "does not"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "reads"
+  ],
+  "nums": [
+   "0.5619",
+   "0.5861",
+   "0.6010",
+   "0.6034",
+   "0.6065",
+   "1.079"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "lab_dilate_extrapolation.py",
+  "proj": null,
+  "len": 1060
+ },
+ {
+  "key": "rem:artifact",
+  "file": "wall_v3.md",
+  "line": 7347,
+  "title": "that prediction was an artifact; the corrected one is not",
+  "cls": "HSM",
+  "h": [
+   "the audit's rule",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "the range"
+  ],
+  "m": [
+   "fitted",
+   "measured",
+   "median",
+   "ratio",
+   "reads"
+  ],
+  "nums": [
+   "0.6520",
+   "0.936",
+   "0.939",
+   "0.9803",
+   "1.016",
+   "1.031",
+   "1.060",
+   "1.182",
+   "1.379",
+   "1.4473",
+   "1.4501",
+   "1.4712",
+   "1.4832",
+   "1.5899",
+   "1.683",
+   "1.745",
+   "1.767",
+   "1.871",
+   "1.934"
+  ],
+  "in_tex": [
+   "0.939"
+  ],
+  "in_res": [
+   "0.936",
+   "0.939",
+   "1.016",
+   "1.182",
+   "1.767",
+   "1.871"
+  ],
+  "evidence": "lab_level_forecast.py",
+  "proj": null,
+  "len": 2033
+ },
+ {
+  "key": "rem:forecast",
+  "file": "wall_v3.md",
+  "line": 7393,
+  "title": "where the model puts the route's hypothesis",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "does not",
+   "is not",
+   "only",
+   "the range"
+  ],
+  "m": [
+   "factor \\$",
+   "fitted",
+   "measured",
+   "reads",
+   "slope"
+  ],
+  "nums": [
+   "0.4177",
+   "0.4298",
+   "0.5612",
+   "0.5666",
+   "0.6397",
+   "0.7057",
+   "0.8598",
+   "0.9570",
+   "1.1805",
+   "1.299",
+   "1.4190",
+   "1.4904",
+   "2.077",
+   "2.1060",
+   "2.3951",
+   "2.5220",
+   "2.5291",
+   "2.5967",
+   "2.6162",
+   "4.9203",
+   "47.1443",
+   "8.9832"
+  ],
+  "in_tex": [
+   "0.5666"
+  ],
+  "in_res": [
+   "0.5666"
+  ],
+  "evidence": "lab_level_forecast.py",
+  "proj": null,
+  "len": 3009
+ },
+ {
+  "key": "rem:forecastbracket",
+  "file": "wall_v3.md",
+  "line": 7455,
+  "title": "the bracket that forecast has to carry",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "is not the",
+   "only",
+   "survives"
+  ],
+  "m": [
+   "draws",
+   "factor \\$",
+   "measured",
+   "reads"
+  ],
+  "nums": [
+   "0.0001",
+   "0.0295",
+   "0.9803",
+   "0.9844",
+   "0.9854",
+   "0.9939",
+   "1.0039",
+   "1.0138",
+   "1.4641",
+   "1.5370",
+   "1.5422",
+   "2.0600",
+   "2.077",
+   "2.1814",
+   "2.4181",
+   "4.2786",
+   "4.7019",
+   "5.3909",
+   "9.0996"
+  ],
+  "in_tex": [
+   "0.0001"
+  ],
+  "in_res": [
+   "0.0001",
+   "1.0039"
+  ],
+  "evidence": "audit_forecast_bracket.py",
+  "proj": null,
+  "len": 3109
+ },
+ {
+  "key": "rem:mcratios",
+  "file": "wall_v3.md",
+  "line": 7580,
+  "title": "six ratios are one observation",
+  "cls": "HSM",
+  "h": [
+   "the audit's rule",
+   "version 3"
+  ],
+  "s": [
+   "and it fails",
+   "cannot",
+   "is not"
+  ],
+  "m": [
+   "and",
+   "draws",
+   "measured",
+   "octave",
+   "reads"
+  ],
+  "nums": [
+   "0.016302",
+   "0.016303",
+   "0.092057",
+   "0.113118",
+   "0.113119",
+   "0.288567",
+   "0.288571",
+   "0.551516",
+   "0.557654",
+   "1.0192",
+   "1.0647"
+  ],
+  "in_tex": [
+   "0.016302",
+   "0.016303",
+   "0.113118",
+   "0.113119",
+   "0.288567",
+   "0.288571",
+   "0.551516",
+   "0.557654"
+  ],
+  "in_res": [
+   "0.016302",
+   "0.016303",
+   "0.092057",
+   "0.113118",
+   "0.113119",
+   "0.288567",
+   "0.288571",
+   "0.551516",
+   "0.557654",
+   "1.0192",
+   "1.0647"
+  ],
+  "evidence": "lab_cellmom_montecarlo.py",
+  "proj": null,
+  "len": 2032
+ },
+ {
+  "key": "(none)",
+  "file": "wall_v3.md",
+  "line": 7676,
+  "title": "a count is not an error bar",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "is not"
+  ],
+  "m": [
+   "octave",
+   "sd"
+  ],
+  "nums": [
+   "0.036038",
+   "0.0395",
+   "13.8744"
+  ],
+  "in_tex": [
+   "0.036038",
+   "0.0395",
+   "13.8744"
+  ],
+  "in_res": [
+   "0.036038",
+   "0.0395",
+   "13.8744"
+  ],
+  "evidence": "",
+  "proj": null,
+  "len": 994
+ },
+ {
+  "key": "rem:sdzrange",
+  "file": "wall_v3.md",
+  "line": 7695,
+  "title": "the factor does not grow with the cell",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "the range"
+  ],
+  "m": [
+   "factor \\$",
+   "fitted",
+   "measured",
+   "octave",
+   "ratio",
+   "reads",
+   "sd"
+  ],
+  "nums": [
+   "0.118",
+   "0.412",
+   "0.924687",
+   "0.929384"
+  ],
+  "in_tex": [
+   "0.118",
+   "0.412",
+   "0.924687",
+   "0.929384"
+  ],
+  "in_res": [
+   "0.118",
+   "0.412",
+   "0.924687",
+   "0.929384"
+  ],
+  "evidence": "audit_cellfloor_sdz.py",
+  "proj": null,
+  "len": 1436
+ },
+ {
+  "key": "rem:floorsignal",
+  "file": "wall_v3.md",
+  "line": 7765,
+  "title": "the floor is itself signal",
+  "cls": "HSM",
+  "h": [
+   "pre-registered",
+   "the audit's rule"
+  ],
+  "s": [
+   "only"
+  ],
+  "m": [
+   "and",
+   "correlation",
+   "octave"
+  ],
+  "nums": [
+   "0.04662",
+   "0.046766",
+   "0.12400",
+   "0.14834",
+   "0.24178",
+   "0.302138",
+   "0.33253",
+   "0.412504",
+   "0.43685",
+   "0.9805",
+   "1.052129",
+   "1.1794",
+   "1.2400",
+   "1.946109",
+   "3.171298"
+  ],
+  "in_tex": [
+   "0.04662",
+   "0.046766",
+   "0.12400",
+   "0.14834",
+   "0.24178",
+   "0.302138",
+   "0.33253",
+   "0.412504",
+   "0.43685",
+   "0.9805",
+   "1.052129",
+   "1.1794",
+   "1.2400",
+   "1.946109",
+   "3.171298"
+  ],
+  "in_res": [
+   "0.04662",
+   "0.046766",
+   "0.12400",
+   "0.14834",
+   "0.24178",
+   "0.302138",
+   "0.33253",
+   "0.412504",
+   "0.43685",
+   "0.9805",
+   "1.052129",
+   "1.1794",
+   "1.2400",
+   "1.946109",
+   "3.171298"
+  ],
+  "evidence": "lab_mask_placebo.py",
+  "proj": "note:floorsignal",
+  "len": 2651
+ },
+ {
+  "key": "(none)",
+  "file": "wall_v3.md",
+  "line": 7983,
+  "title": "what a null verdict costs",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "does not",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "null"
+  ],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": null,
+  "len": 517
+ },
+ {
+  "key": "rem:r4null",
+  "file": "wall_v3.md",
+  "line": 8102,
+  "title": "a null that is not reproduced",
+  "cls": "HSM",
+  "h": [
+   "the audit's rule",
+   "version 3",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "and it fails",
+   "does not",
+   "is dead",
+   "is not",
+   "only"
+  ],
+  "m": [
+   "null"
+  ],
+  "nums": [
+   "0.0094",
+   "0.010246",
+   "0.010606",
+   "0.010763",
+   "0.0108"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0094",
+   "0.010246",
+   "0.010606",
+   "0.010763",
+   "0.0108"
+  ],
+  "evidence": "audit_r4_blocks.py",
+  "proj": null,
+  "len": 1187
+ },
+ {
+  "key": "rem:hbround",
+  "file": "wall_v3.md",
+  "line": 8177,
+  "title": "the rounding is not a convention",
+  "cls": "HSM",
+  "h": [
+   "version 3"
+  ],
+  "s": [
+   "and it fails",
+   "convention",
+   "is not",
+   "only"
+  ],
+  "m": [],
+  "nums": [
+   "0.004356",
+   "0.017"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.004356",
+   "0.017"
+  ],
+  "evidence": "audit_hb_weight.py",
+  "proj": "",
+  "len": 2187
+ },
+ {
+  "key": "rem:grid",
+  "file": "wall_v3.md",
+  "line": 8307,
+  "title": "the octave grid, and the fitted exponent",
+  "cls": "HSM",
+  "h": [
+   "the audit's rule",
+   "version 3",
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "closed",
+   "is not",
+   "is not the",
+   "only",
+   "the range"
+  ],
+  "m": [
+   "factor \\$",
+   "octave",
+   "reads"
+  ],
+  "nums": [
+   "0.0101",
+   "0.113524",
+   "0.114",
+   "0.169339",
+   "0.440619",
+   "0.477527"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.0101",
+   "0.113524",
+   "0.114",
+   "0.169339",
+   "0.440619",
+   "0.477527"
+  ],
+  "evidence": "audit_margin.py",
+  "proj": null,
+  "len": 1784
+ },
+ {
+  "key": "rem:marginbracket",
+  "file": "wall_v3.md",
+  "line": 8342,
+  "title": "the base checked without the transform, and the bracket",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "does not",
+   "survives"
+  ],
+  "m": [
+   "factor \\$",
+   "measured",
+   "octave"
+  ],
+  "nums": [
+   "0.0295",
+   "0.061628",
+   "0.1339",
+   "0.1436",
+   "0.433213",
+   "0.494841",
+   "1.1196"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_margin_bracket.py",
+  "proj": null,
+  "len": 2655
+ },
+ {
+  "key": "rem:marginoos",
+  "file": "wall_v3.md",
+  "line": 8398,
+  "title": "the bracket, tested on the octave it forecasts",
+  "cls": "HSM",
+  "h": [
+   "withdraw",
+   "withdrawn"
+  ],
+  "s": [
+   "cannot",
+   "caveat",
+   "is not",
+   "only",
+   "out of sample",
+   "the range"
+  ],
+  "m": [
+   "factor \\$",
+   "fitted",
+   "measured",
+   "octave",
+   "slope"
+  ],
+  "nums": [
+   "0.005500",
+   "0.028471",
+   "0.302358",
+   "0.433213",
+   "0.494841",
+   "0.495770",
+   "0.562554",
+   "0.568360",
+   "0.616593",
+   "1.1321",
+   "278.4734"
+  ],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "audit_margin_oos.py",
+  "proj": null,
+  "len": 4133
+ },
+ {
+  "key": "(none)",
+  "file": "wall_v3.md",
+  "line": 8473,
+  "title": "",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "no-go",
+   "only"
+  ],
+  "m": [
+   "measured"
+  ],
+  "nums": [],
+  "in_tex": [],
+  "in_res": [],
+  "evidence": "",
+  "proj": null,
+  "len": 293
+ },
+ {
+  "key": "rem:constants",
+  "file": "wall_v3.md",
+  "line": 8591,
+  "title": "the two constants, and how far they were trusted",
+  "cls": "HSM",
+  "h": [
+   "pre-registered"
+  ],
+  "s": [
+   "is not"
+  ],
+  "m": [
+   "null",
+   "reads"
+  ],
+  "nums": [
+   "0.170167",
+   "0.373955813619",
+   "0.373955815811",
+   "0.374486",
+   "0.374487",
+   "1.320323631694",
+   "1.320323639431",
+   "1.920",
+   "6.204",
+   "6.261"
+  ],
+  "in_tex": [
+   "0.170167"
+  ],
+  "in_res": [
+   "0.170167",
+   "0.373955813619",
+   "0.373955815811",
+   "0.374486",
+   "0.374487",
+   "1.320323631694",
+   "1.320323639431",
+   "1.920",
+   "6.204",
+   "6.261"
+  ],
+  "evidence": "audit_constants.py",
+  "proj": null,
+  "len": 2241
+ },
+ {
+  "key": "rem:sieve",
+  "file": "wall_v3.md",
+  "line": 8633,
+  "title": "the arithmetic underneath, audited",
+  "cls": "SM",
+  "h": [],
+  "s": [
+   "cannot",
+   "is not",
+   "only",
+   "the range"
+  ],
+  "m": [],
+  "nums": [
+   "0.000050",
+   "0.3240",
+   "0.730264309",
+   "0.739493602",
+   "0.808567150",
+   "2.911"
+  ],
+  "in_tex": [],
+  "in_res": [
+   "0.000050",
+   "0.3240",
+   "0.730264309",
+   "0.739493602",
+   "0.808567150",
+   "2.911"
+  ],
+  "evidence": "audit_sieve.py",
+  "proj": null,
+  "len": 2393
+ }
+]

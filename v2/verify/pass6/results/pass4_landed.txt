@@ -1,0 +1,83 @@
+STATISTIC: presence of each pass4 fix-marker, and of the corresponding stale marker, in the projection and in the source
+FIELD:     deploy/papers/*.tex (5 files) and v2/paper/*.md (2)
+CONSTANTS: 19 probes, each a (want, stale) string pair taken from v2_log/verify/pass4/FINDINGS.md and printed below
+NULL:      a fix that was acted on is present in BOTH trees and the stale marker is absent from both; anything else is a divergence between the two trees
+DENOM:     19 probes
+
+  id    want/D   want/S   stale/D  stale/S   subject
+  --------------------------------------------------
+  F1    yes      yes      -        -         P2 eq.(5): the T_w term restored
+  F2    -        -        gone     STALE     P2 Prop 21(ii): binary Goldbach called a classical sieve bound
+  F3    yes      NO       STALE    STALE     P2 meas:direct: the two ratio lists share a numerator
+  F4    yes      NO       -        -         P1 eq.(9): B(N) missing the squarefree restriction
+  F5    yes      yes      -        -         P3 sec.5: Gumbel margin figures assume rho=1
+  F6    yes      yes      gone     STALE     P5: route count (seventeen vs eighteen)
+  F7    NO       NO       STALE    STALE     P4 meas:scaleinv: two sample resolutions in one table
+  F8    -        -        STALE    STALE     P4: 'conservative by about two orders of magnitude'
+  F9    yes      yes      gone     STALE     P4: the floor/sd ratio range (5.8-160 -> 7.3-158)
+  F10   yes      yes      gone     gone      P4: the factor in N (140 -> 128)
+  F11   -        -        gone     STALE     P3: 'about 430 standard deviations'
+  F14   yes      yes      -        -         P3: 0.6455 comes from a file not in the packet
+  F15   yes      NO       gone     STALE     P5 sec.6(2): the middle HB share (0.833180 -> 0.840039)
+  F17   -        -        STALE    STALE     P1: the comparison quoted as asymp 10^{-3}N
+  F18   yes      yes      STALE    gone      P3: A=0.787275 called the generic even-N value
+  F19a  -        -        STALE    STALE     P4 meas:mc: 'agree to six digits'
+  F19b  -        -        STALE    STALE     P4: 'the same 0.0013 throughout'
+  F19c  -        -        gone     STALE     P2 meas:direct: '2% of S' vs 2% of N
+  F19d  yes      yes      -        -         P2: sqrt(6/pi^2)=0.7797 reproduced 'exactly'
+
+  probe strings:
+    F1    want='T_w'                                          stale=None
+    F2    want=None                                           stale='by classical sieve bounds'
+    F3    want='2.1519'                                       stale='2.1591'
+    F4    want='\\mu^2(k)\\,(\\log k)\\,\\bigl|\\Emu(N;k)\\bigr|' stale=None
+    F5    want='10^{22.842}'                                  stale=None
+    F6    want='eighteen'                                     stale='seventeen'
+    F7    want='+0.012633'                                    stale='-0.000879'
+    F8    want=None                                           stale='two orders of magnitude'
+    F9    want='158'                                          stale='5.8$ to $160'
+    F10   want='=128'                                         stale='factor $140$'
+    F11   want=None                                           stale='430'
+    F14   want='0.6455'                                       stale=None
+    F15   want='0.840039'                                     stale='0.833180'
+    F17   want=None                                           stale='10^{-3}N'
+    F18   want='0.787275'                                     stale='generic even $N'
+    F19a  want=None                                           stale='six digits'
+    F19b  want=None                                           stale='same $0.0013$ throughout'
+    F19c  want=None                                           stale='$2\\%$ of $\\SS$'
+    F19d  want='0.7798'                                       stale=None
+
+==========================================================================
+DIVERGENCES (fix in one tree only, or stale marker surviving)
+==========================================================================
+  F2    P2 Prop 21(ii): binary Goldbach called a classical sieve bound
+         -> stale text survives in the SOURCE only
+  F3    P2 meas:direct: the two ratio lists share a numerator
+         -> corrected in the PROJECTION only
+         -> stale text survives in BOTH trees
+  F4    P1 eq.(9): B(N) missing the squarefree restriction
+         -> corrected in the PROJECTION only
+  F6    P5: route count (seventeen vs eighteen)
+         -> stale text survives in the SOURCE only
+  F7    P4 meas:scaleinv: two sample resolutions in one table
+         -> stale text survives in BOTH trees
+  F8    P4: 'conservative by about two orders of magnitude'
+         -> stale text survives in BOTH trees
+  F9    P4: the floor/sd ratio range (5.8-160 -> 7.3-158)
+         -> stale text survives in the SOURCE only
+  F11   P3: 'about 430 standard deviations'
+         -> stale text survives in the SOURCE only
+  F15   P5 sec.6(2): the middle HB share (0.833180 -> 0.840039)
+         -> corrected in the PROJECTION only
+         -> stale text survives in the SOURCE only
+  F17   P1: the comparison quoted as asymp 10^{-3}N
+         -> stale text survives in BOTH trees
+  F18   P3: A=0.787275 called the generic even-N value
+         -> stale text survives in the PROJECTION only
+  F19a  P4 meas:mc: 'agree to six digits'
+         -> stale text survives in BOTH trees
+  F19b  P4: 'the same 0.0013 throughout'
+         -> stale text survives in BOTH trees
+  F19c  P2 meas:direct: '2% of S' vs 2% of N
+         -> stale text survives in the SOURCE only
+  total probes showing a divergence or a surviving marker: 14

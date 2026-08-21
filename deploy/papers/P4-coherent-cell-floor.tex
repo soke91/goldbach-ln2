@@ -69,7 +69,8 @@ label permutation that preserves every cell size while destroying the
 correspondence between cells and arithmetic (Lemma~\ref{lem:placebo}),
 the floor \emph{collapses} by factors from $3.8$ to $105$: it is
 itself a second measurement of that correspondence, and quoting
-against it is conservative by about two orders of magnitude. What
+against it is conservative --- by $3.8$ at the cell that carries the
+effect, and by $105$ at the cell that carries none. What
 predicts its size is the excess of the shift's singular series over
 same-cell pairs, a quantity that is scale-invariant by construction
 (Proposition~\ref{prop:scaleinv}) --- so whatever produces the decay
@@ -369,9 +370,14 @@ leaving only the fluctuation around proportionality. An arithmetic
 cell breaks that proportionality, and the floor is what is left over.
 \textbf{The exact floor is therefore not a noise level but a second
 measurement of the same correspondence}, and quoting $z_c$ against it
-is conservative by about two orders of magnitude: with the permuted
-floor in the denominator the depth-$5$ cell would read $z\approx-42$
-rather than $-11$. The conservative figure is the one kept throughout.
+is conservative --- but by how much depends on the cell, and the
+figure worth quoting is the one at the cell that carries the effect.
+At depth~$5$ the floor collapses by $3.8$ under the permutation, so
+with the permuted floor in the denominator that cell would read
+$z\approx-42$ rather than $-11$: half an order of magnitude, not two.
+Two orders is depth~$0$, where the collapse is $105$ and $z=+0.11$ ---
+a cell with no effect to be conservative about. The conservative figure
+is the one kept throughout.
 \end{note}
 
 % =====================================================================
@@ -442,21 +448,31 @@ cell, and its scale exponent is $0$.
 
 \begin{measurement}[the exponent, measured]\label{meas:scaleinv}
 Measured over $(10^6,2\cdot10^6]$, $(2\cdot10^6,4\cdot10^6]$ and
-$(4\cdot10^6,8\cdot10^6]$, the fitted exponents are
+$(4\cdot10^6,8\cdot10^6]$ at $400000$ sampled pairs per cell, the
+fitted exponents are
 \[
 \begin{array}{r|cccccc}
  \text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\\hline
- e & -0.000879 & -0.016226 & +0.000936 & +0.002904 & +0.000241
+ e & +0.012633 & +0.065546 & +0.000936 & +0.002904 & +0.000241
    & -0.008428
 \end{array}
 \]
---- zero to three decimals at every depth but one. The exception is
-depth~$1$, and it is the depth at which $D_c=0.046766$ is six times
-smaller than any other while the sampling error of the pair average is
-the same $0.0013$ throughout; its fitted exponent flips sign from
-$+0.065546$ to $-0.016226$ when the sample is taken ten times larger,
-which is the signature of noise rather than of a trend. Depth~$1$ is
-also the cell that carries no effect ($z=+1.11$ in
+--- zero to three decimals at depths $2$ to $5$, and not at depths
+$0$ and $1$. Both exceptions are where $D_c$ is small: the spread
+across the three octaves is about $0.004$ at every depth while $D_c$
+itself runs from $0.045$ to $3.17$, so the relative spread the exponent
+reads is large only where $D_c$ is. At ten times the sample the two
+move to $-0.000879$ and $-0.016226$, so depth~$0$ resolves to zero and
+depth~$1$ flips sign --- the signature of noise rather than of a trend.
+The declared field's figures are the ones printed above; the
+ten-times-harder figures are a separate resolution and are not mixed
+into the table.
+
+The sampling error of the pair average is $0.001358$ at depths $0$ to
+$4$ and $0.000162$ at depth~$5$, so at depth~$1$, where
+$D_c=0.046766$ is six times smaller than any other, that error is the
+largest fraction of $D_c$ anywhere in the table. Depth~$1$ is also the
+cell that carries no effect ($z=+1.11$ in
 Measurement~\ref{meas:placebo}), so nothing rests on it
 (\texttt{lab\_cell\_singular.py}).
 \end{measurement}
@@ -487,7 +503,8 @@ the top octave, the largest of them at the shallowest cell.
 \item Lemma~\ref{lem:placebo} and Measurement~\ref{meas:placebo}: the
 cell effect survives label permutation; the floor does not. The floor
 is a second measurement of the same correspondence, and quoting
-against it is conservative by two orders of magnitude.
+against it is conservative by $3.8$ at the depth that carries the
+effect --- two orders is the depth that carries none.
 
 \item Proposition~\ref{prop:scaleinv}: the quantity that predicts the
 floor's size is scale-invariant, so it is not what makes the effect

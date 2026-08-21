@@ -1,0 +1,21 @@
+STATISTIC: whether every verify-pass script pointer printed in v2/paper/*.md resolves to a file in this repository
+FIELD:     v2/paper/theorem_A.md and wall_v3.md; candidate roots are v2_log/, v2/ and the repository root
+CONSTANTS: none
+NULL:      a citable pointer resolves; a pointer to a path that holds no file is a reproducibility gap
+DENOM:     every such pointer in the two source papers
+
+  theorem_A.md :2437  verify/pass5/code/c02_flatsum_k1.py                RESOLVES
+  wall_v3.md   :430   verify/pass2/code/verify_conjL_mask_zeros.py       RESOLVES
+  wall_v3.md   :431   verify/pass2/code/verify_conjL_gap_resolve.py      RESOLVES
+  wall_v3.md   :432   verify/pass2/code/verify_conjL_mask_branch.py      RESOLVES
+  wall_v3.md   :489   verify/pass3/code/verify_conjL_exact_cells.py      RESOLVES
+  wall_v3.md   :490   verify/pass3/code/verify_conjL_cells_range.py      RESOLVES
+
+  pointers found: 6
+
+  v2_log/verify/ contents:
+    pass1    ['FINDINGS.md']
+    pass2    ['FINDINGS.md']
+    pass3    ['FINDINGS.md']
+    pass4    ['FINDINGS.md']
+    pass5    ['FINDINGS.md']

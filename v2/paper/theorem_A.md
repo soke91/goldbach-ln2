@@ -341,9 +341,12 @@ Put
 
 $$
 \begin{equation}\label{eq:Bsum}
-  B(N) \;:=\; \sum_{\substack{k<K\\ (k,N)=1}} (\log k)\,
+  B(N) \;:=\; \sum_{\substack{k<K\\ (k,N)=1}} \mu^2(k)\,(\log k)\,
   \bigl|\Emu(N;k)\bigr| ,
 \end{equation}
+
+the restriction to squarefree $k$ being what the triangle inequality
+on [eq:E3] leaves, since $\mu(k)=0$ elsewhere.
 $$
 
 the quantity Huang–Li reach by the triangle inequality before appealing
@@ -518,8 +521,14 @@ Measured at $\theta'=0.56$ over $N=2\cdot10^5$ to $3.2\cdot10^6$,
 $B_H(N)/(\SS(N)N)$ with
 $B_H=\sum_{k<K}\mu^2(k)(\log k)|H(N;k)|$ reads
 $0.4578,\,0.4064,\,0.4079,\,0.3769,\,0.3338$ — under $1$ throughout
-and falling — against $2.1591,\,1.9747,\,1.9500,\,1.7483,\,1.5798$ for
-the old ratio, which is above $1$ throughout. So [eq:directcond] is
+and falling — against $2.1519,\,1.9105,\,1.9175,\,1.7720,\,1.5691$ for
+**the same numerator** against the old threshold
+$\SS(N)(1-\AAA(N))N$, which is above $1$ throughout. Only the
+threshold constant moves between the two lists, which is the whole of
+the comparison. (For the numerator of [eq:nolog], which keeps the
+subtracted mean inside the absolute value and so is a different sum,
+the old ratio reads $2.1591,\,1.9747,\,1.9500,\,1.7483,\,1.5798$ —
+the same conclusion, a different quantity.) So [eq:directcond] is
 *already satisfied* at every accessible $N$ where [eq:nolog] is not.
 
 The gain is largest exactly where Remark [rem:threshfam] found the
@@ -558,7 +567,7 @@ unspecified $O_A$ term of Theorem [thm:C] is numerically the very
 quantity [eq:directcond] must bound. That is a sharper form of the
 known fact that [thm:C] cannot be checked numerically here: the
 residual decays as $N^{-0.2794}$ with correlation $0.99930$ and
-reaches $2\%$ of $\SS$ only near $N=10^{10.16}$, so no computation
+reaches $2\%$ of $N$ only near $N=10^{10.16}$, so no computation
 below that separates the identity from its error term. [eq:directcond]
 is therefore offered as a *weaker sufficient condition*, proved from
 two identities, and not as something these measurements confirm.
@@ -913,7 +922,8 @@ Remark [rem:whycoinwins] showed the coin wins here by construction,
 and Remarks [rem:tolerance] and [rem:budget] established that a
 crossing of a *monotone* sum survives a sweep of its free parameter
 where a crossing of an alternating tail does not.
-$B(N;K)=\sum_{k<K}(\log k)|\Emu(N;k)|$ is a sum of nonnegative terms,
+$B(N;K)=\sum_{k<K}\mu^2(k)(\log k)|\Emu(N;k)|$ is a sum of
+nonnegative terms,
 so this crossing is in the surviving class.
 
 It survives. Scaling the budget to $c\,\SS(N)(1-A(N))N$ and refitting
@@ -952,7 +962,8 @@ cancellation and not by the size of the terms.
 So Remark [rem:levelmeas]'s numbers stand and its verdict does not.
 The withdrawal was right to demand a null and wrong to accept one that
 had to win. What is claimed is narrow: at accessible $N$, and against
-a control that cannot cancel, $\sum_{k<K}(\log k)|\Emu(N;k)|$ stays
+a control that cannot cancel, $\sum_{k<K}\mu^2(k)(\log k)|\Emu(N;k)|$
+stays
 under the Goldbach budget out to $K$ past $\sqrt N$, at a level whose
 exponent is stable in the budget. Nothing about $\theta'$ asymptotic
 follows; five values of $N$ cannot supply that, and Remark
@@ -1143,7 +1154,7 @@ becomes a *measurable* quantity rather than a hypothesis. Define
 $$
 \begin{equation}\label{eq:Kstar}
   K^*(N) \;:=\; \max\Bigl\{K \;:\;
-    \sum_{\substack{k<K\\(k,N)=1}} (\log k)\bigl|\Emu(N;k)\bigr|
+    \sum_{\substack{k<K\\(k,N)=1}} \mu^2(k)(\log k)\bigl|\Emu(N;k)\bigr|
     \;\le\; \SS(N)\bigl(1-A(N)\bigr)N \Bigr\},
 \end{equation}
 $$
@@ -1196,7 +1207,8 @@ $k^{-1/2}$ scaling, holds. The refutation is of this note's own
 previous claim and it is total: **no level statement is claimed
 here.** What survives is negative and worth keeping: whatever
 carries the Huang–Li route past $\sqrt N$, it is not visible in
-$\sum_{k<K}(\log k)|\Emu(N;k)|$ at accessible $N$, because that sum
+$\sum_{k<K}\mu^2(k)(\log k)|\Emu(N;k)|$ at accessible $N$, because
+that sum
 does not distinguish $\mu$ from a coin.
 
 Remark [rem:levelaudit] revisits that verdict. The withdrawal was
@@ -6958,9 +6970,13 @@ Let $w_k = f(\log k)$ with $f=\sum_{j\le D}c_jx^j$ real.
 
 - **(ii)**  If $f$ is a single monomial $x^D$, $D\ge1$, then every
   term of $\mathrm{CP}_D$ is nonnegative, since $\Lambda\ge0$ and
-  $\Lambda_D\ge0$; by classical sieve bounds
-  $\mathrm{CP}_D \asymp N(\log N)^{D-1}$, with a fixed sign. It is
-  never $o(N)$.
+  $\Lambda_D\ge0$; so $\mathrm{CP}_D\ge0$ and *no cancellation is
+  available inside it*. Classical sieve upper bounds give
+  $\mathrm{CP}_D \ll N(\log N)^{D-1}$. **A matching lower bound is not
+  available**: at $D=1$ the sum is exactly the binary Goldbach sum
+  $\sum_{p<N}\Lambda(N-p)\log p$, whose order is the assertion to be
+  proved. So $\mathrm{CP}_D$ is not known to be $o(N)$, and at $D=1$
+  deciding whether it is would settle Goldbach.
 
 - **(iii)**  Cancellation therefore requires coefficients of opposite
   sign, i.e. tuning $c_1$ against $c_2,\dots$; but the ratio that

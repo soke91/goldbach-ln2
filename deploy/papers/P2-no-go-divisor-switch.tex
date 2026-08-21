@@ -433,6 +433,25 @@ Bombieri--Vinogradov object of modulus $q=md^2$.
 Finite exchange, and $(k,m)=1$ splits as $(d,m)=(j,m)=1$.
 \end{proof}
 
+\begin{measurement}[how large that modulus has to be]\label{meas:combmod}
+Being an ordinary Bombieri--Vinogradov object is a statement about
+shape, not about level, and the level is the whole question. Verified
+over $N=2\cdot10^5$ to $1.6\cdot10^6$ --- $166384$ to $1331048$ pairs
+--- \eqref{eq:combined} holds to a worst relative error of
+$4.525\cdot10^{-15}$. Truncating it to $q<Q$ and letting $Q^*(N)$ be
+the least $Q$ past which the deficit stays under $0.01N$,
+\[
+  Q^*=160112,\ 200848,\ 482589,\ 589203,
+  \qquad
+  Q^*/\sqrt N=358.0213,\ 317.5686,\ 539.5509,\ 465.8059,
+\]
+so $Q^*$ exceeds $\sqrt N$ by two orders at every $N$ tested.
+Expanding the squarefree condition buys the ordinary modulus and costs
+one to two orders in its size --- which is the barrier again, in the
+one place the identity had made it measurable
+(\texttt{lab\_combined\_modulus.py}).
+\end{measurement}
+
 \begin{proposition}[the wall cancels out of the count]%
 \label{prop:direct}
 Substituting \eqref{eq:posweights} into the identity of \cite[Thm.~3]{P1},
@@ -494,7 +513,11 @@ $|C(N)(B_{\log}+\SS)|/N$ never exceeds $3.315\cdot10^{-4}$, four
 orders below $\SS(N)$. The residual of \eqref{eq:direct} decays as
 $N^{-0.2794}$ with correlation $0.99930$ and falls to $2\%$ of $N$
 only near $N=10^{10.16}$
-(\texttt{lab\_direct\_route.py}, \texttt{lab\_direct\_identity.py}).
+(\texttt{lab\_direct\_route.py}, \texttt{lab\_direct\_identity.py};
+the two lists held to one numerator, and the third quantity in the
+parenthesis, are recomputed side by side in
+\texttt{a1\_bh\_vs\_b.py} --- \texttt{lab\_direct\_route.py} prints
+the parenthetical list, not the two above it).
 \end{measurement}
 
 % =====================================================================
@@ -982,7 +1005,9 @@ Script & Result file & Supports\\
 \texttt{lab\_combined\_modulus.py} & \texttt{lab\_combined\_modulus.txt}
  & Proposition~\ref{prop:combined}\\
 \texttt{lab\_direct\_route.py} & \texttt{lab\_direct\_route.txt}
- & Measurement~\ref{meas:direct}\\
+ & Measurement~\ref{meas:direct}, residual and parenthetical list\\
+\texttt{a1\_bh\_vs\_b.py} & \texttt{a1\_bh\_vs\_b.txt}
+ & Measurement~\ref{meas:direct}, the two lists\\
 \texttt{audit\_extraction\_tradeoff.py} &
  \texttt{audit\_extraction\_tradeoff.txt} & Measurement~\ref{meas:extract}\\
 \texttt{audit\_polyweight.py} & \texttt{audit\_polyweight.txt}

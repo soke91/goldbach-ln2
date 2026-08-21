@@ -927,6 +927,39 @@ what is needed, and no computation supplies that
 (\texttt{lab\_onesided\_demand.py}).
 \end{measurement}
 
+\begin{note}[the threshold is not a constant, and this sweep held it
+fixed]\label{note:threshfam}
+The $0.3745$ above is $\SS(N)(1-\AAA(N))$, and both factors depend on
+which primes divide $N$. The $N$ of the sweep are
+$2\cdot10^5\cdot2^{\,j}$ with $2\cdot10^5=2^6\cdot5^5$, so all of them
+have odd radical $5$ and \emph{one} threshold: the sweep moves the size
+of $N$ by a factor $128$ and its arithmetic not at all.
+
+Changing the arithmetic changes the verdict. At seven $N$ in
+$[1.40\cdot10^6,1.63\cdot10^6]$ chosen for their odd radicals the
+threshold runs from $0.073312$ to $0.374487$ --- a factor of five, with
+the swept family sitting at the \emph{maximum} rather than above the
+median $0.270682$ --- while $|E_3|/N$ moves the other way, from
+$0.1289$ to $2.7763$. The two compound: \eqref{eq:onesided} holds at
+three of the seven and fails at four. The mechanism is visible: when
+$N$ carries several small odd primes, $k$ and $m$ must both avoid them,
+so the surviving $m$ are almost all prime and $\mu(m)=-1$ dominates. At
+$N=2\cdot3^2\cdot5\cdot7\cdot11\cdot13\cdot17$ all $513$ terms of $E_3$
+are negative and $|E_3|=B(N)$ exactly --- no cancellation across $k$ at
+all, against $442$ of $562$ at the swept $N$.
+
+The damage is not where it looks. Proposition~\ref{prop:onesided}
+reaches its threshold through $|C(N)|\le\AAA(N)N$, and that bound is
+slack: $|C|/(\AAA N)$ measures $0.0012$ to $0.0208$ across the seven.
+With the measured wall in its place, Theorem~\ref{thm:C} asks for
+$|E_3|/N<\SS(N)(1-|C(N)|/N)$, and \emph{all seven} satisfy it
+($2.7763$ against $5.3505$ at the worst). The arithmetic dependence of
+the verdict therefore lives entirely in the slack of $|C|\le\AAA N$
+and not in $E_3$. This is a measurement, not a proof --- $C(N)=o(N)$ is
+the open problem and nothing here supplies it
+(\texttt{audit\_threshold\_arithmetic.py}).
+\end{note}
+
 Proposition~\ref{prop:onesided} does not reopen the divisor switch.
 The no-go of \cite{P2} costs a factor
 $\exp(c_1\sqrt{\tfrac12\log N})$, which exceeds $\log N\log\log N$ as
@@ -1271,6 +1304,8 @@ Script & Result file & Supports\\
  \texttt{audit\_switch\_identity.txt} & \eqref{eq:switch}\\
 \texttt{audit\_delta\_bridge.py} &
  \texttt{audit\_delta\_bridge.txt} & \S\ref{sec:movingcut}\\
+\texttt{audit\_threshold\_arithmetic.py} &
+ \texttt{audit\_threshold\_arithmetic.txt} & Note~\ref{note:threshfam}\\
 \texttt{audit\_density\_identity.py} &
  \texttt{audit\_density\_identity.txt} & Lemma~\ref{lem:density}\\
 \texttt{audit\_E3\_constant.py} &

@@ -1,0 +1,304 @@
+STATISTIC: for each source statement carried into the projection, the source remarks attached to it in situ and whether each reached the projection
+FIELD:     v2/paper/*.md ordered by line; 'attached' = every Remark between the statement and the next non-Remark statement
+CONSTANTS: none
+NULL:      a faithful projection carries a statement together with the remarks that narrow it; a survivor with all attached remarks dropped is the signal
+DENOM:     the 38 numbered source statements
+
+==========================================================================
+A. SURVIVING STATEMENTS WITH ATTACHED REMARKS, NONE OF WHICH SURVIVED
+==========================================================================
+  prop:flatsum     Proposition  theorem_A.md:2373  ->  prop:flatsum in P2-no-go-divisor-switch.tex
+        dropped  rem:identitynull         the last declined null, rule by rule
+        dropped  rem:weightgapnull        the declined null, run
+        dropped  rem:heuristic            the heuristic, corrected
+        dropped  rem:modeltransfer        a model of the exponent, not of the constant
+        dropped  rem:elemsize             the binding half is square-root too
+        dropped  rem:elemreach            the reach that cannot be bought
+        dropped  rem:muvscoin             the elementary sum beats a coin, by a consta
+        dropped  rem:provablehalf         size and provability point at opposite halve
+        dropped  rem:residuelevel         what the conditional reduction actually buys
+        dropped  rem:residuesigned        what the signs cost once the elementary half
+        dropped  rem:residuearithmetic    the knife-edge is a fact about one family
+        dropped  rem:primorialladder      the primorial failure is finite-$N$, and nea
+        dropped  rem:primorialreach       the first bracket to be tested, and it faile
+        dropped  rem:primorialshare       a better instrument that turned out worse
+        dropped  rem:primorialrung10      the barrier crossed, at the hard arithmetic
+        dropped  rem:laddershape          the shape decides, and the data do not fix t
+        dropped  rem:laddermodel          no derived shape is available either
+        dropped  rem:cRwindow             the exponent moves, not the constant
+        dropped  rem:kexponent            the k-exponent is too noisy to carry an arit
+        dropped  rem:ladderderived        repairing the model's constant does not deri
+        dropped  rem:shapetrust           how far the ladder can be read
+        dropped  rem:laddershape12        what one more rung buys the shape question
+        dropped  rem:provableuniformity   the premise, checked along the axis it is ab
+        dropped  rem:uniformityreach      the drift is real, and nowhere near the boun
+        dropped  rem:provableforecast     two answers to two questions, 5465 decades a
+        dropped  rem:provableshare        the overspend worsens only with the constant
+        dropped  rem:provablearithmetic   the exposure that remark names, tested
+        dropped  rem:budgetgap            the budget gap is not a constant, and both h
+        dropped  rem:arithmeticonevar     one variable, and it explains more as N grow
+        dropped  rem:arithmeticreach      the one-radical caveat does not close
+        dropped  rem:splitvalue           both losses decline together
+        dropped  rem:signedgain           the largest loss is a decline, and it is not
+        dropped  rem:primorialrung11      the rung that separates crossed from fluctua
+        dropped  rem:rung12               the thirteenth rung, out of sample
+        dropped  rem:rung13               the fourteenth rung is above both shapes
+        dropped  rem:rung14               three rungs above the line, none of them gro
+        dropped  rem:laddercurve          measured on its own slopes, the ladder curve
+        dropped  rem:curvereach           the shape contest could not have seen it
+        dropped  rem:curvebound           the curvature predicts, and has an expiry
+        dropped  rem:rung15               the sixteenth rung, and an extrapolation tha
+        dropped  rem:rung16               the seventeenth rung, and the wall that was 
+        dropped  rem:laddercap            the whole ladder at one cap, and what surviv
+        dropped  rem:rung17               the eighteenth rung, where the fit could not
+        dropped  rem:rung18               the nineteenth rung: 0.56 crossed, and insid
+        dropped  rem:signrun              the run is real, ordinary, and not growing
+        dropped  rem:rung18fill           the floor was the wrong one: 0.56 resolved
+        dropped  rem:localfloor           the floor is scale-dependent, and 1/2 is cro
+        dropped  rem:targetband           0.56 is crossed once, and the band says why 
+        dropped  rem:floorlaw             the floor falls like a power, and 1/2 was un
+        dropped  rem:floormid             the floor law predicts a window it was not f
+        dropped  rem:ladderdegree         the ladder does not escalate, and that is no
+        dropped  rem:primorialgap         the void between two rungs, filled
+        dropped  rem:primorialdense       fifty points to a doubling, and what they bu
+        dropped  rem:densenoise           the noise is the field's, and both lenses se
+        dropped  rem:gainprofile          part of the cancellation is between the bloc
+        dropped  rem:gainopposition       the opposition is below chance and chance do
+        dropped  rem:headsign             the inner sums already cancel; the sign is w
+        dropped  rem:tailasymmetry        a null refuted before it could adjudicate
+        dropped  rem:tailmertens          the one candidate, eliminated for being cons
+        dropped  rem:tailpredictors       a bounded modulus does reach the tail
+        dropped  rem:levelmagnitude       the level's signs, and why swapping them pro
+        dropped  rem:flatnessfill         the excess over the ceiling was eight points
+        dropped  rem:fillfield            the seventy points were three fields
+        dropped  rem:fieldreach           two more octaves, and the shape question ret
+        dropped  rem:shapepower           the tie was never a measurement
+        dropped  rem:destination          asking for the destination instead of the sh
+        dropped  rem:slopes               which of these slopes is above its own noise
+        dropped  rem:slopereach           two more octaves settle it
+        dropped  rem:betafree             the split constant is free and buys nothing
+        dropped  rem:splitbudget          which half exhausts the budget
+        dropped  rem:pairingnull          the control the ratio could take
+        dropped  rem:weightgap            where the weight puts its mass
+  prop:W           Proposition  wall_v3.md:816  ->  prop:W in P3-wall-second-moment.tex
+        dropped  rem:cdef                 one symbol, two meanings, in one paragraph
+        dropped  rem:cnlaw                the withdrawn law, re-measured: one statisti
+        dropped  rem:cnkurt               the non-Gaussianity is real at every scale r
+        dropped  rem:cnkurtlimit          the forecast held, the floor did not, and th
+        dropped  rem:cnskew               the control does shrink, and it does not hel
+        dropped  rem:cnshift              the coin reproduces the two-point function t
+        dropped  rem:cndilation           the multiplicative question, asked properly,
+        dropped  rem:cnkurtwhere          the non-Gaussianity is not made anywhere
+        dropped  rem:cnwherereach         there is no profile in v, only a count — and
+        dropped  rem:cnclass              the last axis is not closed: C(N) has class 
+        dropped  rem:cnclassreach         the escape is a shift, it lives at every ban
+        dropped  rem:cnclassomega         the shift is not made anywhere: it is what s
+        dropped  rem:cnmultnull           a multiplicative null, and three things it s
+        dropped  rem:cnmultm2             mu is outside the multiplicative null — and 
+        dropped  rem:cnmultdeep           the escape was the tail: seven routes, none 
+        dropped  rem:cncoindeep           it was the null, not the depth: the iid coin
+        dropped  rem:coinsurface          counting what stands on a coin: eleven block
+        dropped  rem:decaydeep            the second branch says the same thing: the c
+        dropped  rem:decaysweep           both halves go the same way, and the cost ob
+        dropped  rem:identitydeep         the one that survives, and it survives for a
+  prop:scaleinv    Proposition  wall_v3.md:7820  ->  prop:scaleinv in P4-coherent-cell-floor.tex
+        dropped  (no anchor)              what a null verdict costs
+        dropped  rem:r4null               a null that is not reproduced
+        dropped  rem:hbround              the rounding is not a convention
+        dropped  rem:grid                 the octave grid, and the fitted exponent
+        dropped  rem:marginbracket        the base checked without the transform, and 
+        dropped  rem:marginoos            the bracket, tested on the octave it forecas
+        dropped  (no anchor)              
+        dropped  rem:constants            the two constants, and how far they were tru
+        dropped  rem:sieve                the arithmetic underneath, audited
+  lem:coin         Lemma        wall_v3.md:2003  ->  lem:coin in P3-wall-second-moment.tex
+        dropped  rem:identityseeds        the seed is paid, and the tail is steadier t
+        dropped  rem:identitybig          the last two N, and a floor the draws cannot
+        dropped  rem:identityfloor        the mechanism is measured, the word "floor" 
+        dropped  rem:identityforced       forced, the mechanism's best still stops sho
+  prop:E           Proposition  theorem_A.md:7075  ->  prop:E in P2-no-go-divisor-switch.tex
+        dropped  rem:ratiotable           the ratio does not determine the entry
+        dropped  rem:cap                  a pre-registered threshold of ours that fail
+        dropped  rem:band                 a pre-registered check of ours that failed
+  conj:L           Conjecture   wall_v3.md:401  ->  conj:L in P5-negative-map.tex
+        dropped  rem:maskstamp            one of the four stamps re-verified, and what
+        dropped  rem:cellstamp            the second stamp, and the second parameter i
+        dropped  rem:fieldpinned          the same question turned on this repository,
+  prop:direct      Proposition  theorem_A.md:472  ->  prop:direct in P2-no-go-divisor-switch.tex
+        dropped  rem:directmargin         what the cancellation buys
+        dropped  rem:directlevel          where the direct condition's level actually 
+  prop:layers      Proposition  theorem_A.md:689  ->  prop:layers in P2-no-go-divisor-switch.tex
+        dropped  rem:layerdecay           what the layers weigh
+        dropped  rem:layertail            the truncation in $m$ is cheap, and where th
+  prop:coh         Proposition  wall_v3.md:7622  ->  obs:coh in P4-coherent-cell-floor.tex
+        dropped  (no anchor)              a count is not an error bar
+        dropped  rem:sdzrange             the factor does not grow with the cell
+  thm:A            Theorem      theorem_A.md:158  ->  thm:A in P1-mobius-fixed-class.tex
+        dropped  (no anchor)              
+  prop:untrunc     Proposition  theorem_A.md:622  ->  prop:untrunc in P2-no-go-divisor-switch.tex
+        dropped  rem:whereitlives         where the count actually lives
+  prop:movingcut   Proposition  theorem_A.md:2014  ->  prop:movingcut in P1-mobius-fixed-class.tex
+        dropped  rem:movingcutscope       what the proposition does not cover
+  thm:Dprime       Theorem      theorem_A.md:6885  ->  thm:Dprime in P2-no-go-divisor-switch.tex
+        dropped  (no anchor)              
+  lem:MP           Lemma        wall_v3.md:745  ->  lem:MP in P3-wall-second-moment.tex
+        dropped  (no anchor)              
+  prop:coindisc    Proposition  wall_v3.md:2273  ->  prop:coindisc in P3-wall-second-moment.tex
+        dropped  rem:filter               but the inverse filter is numerically dead
+  prop:dilate      Proposition  wall_v3.md:2342  ->  prop:dilate in P2-no-go-divisor-switch.tex
+        dropped  rem:whycoinwins          why the coin beat $\mu$ on the level
+  lem:cellmom      Lemma        wall_v3.md:7525  ->  lem:cellmom in P4-coherent-cell-floor.tex
+        dropped  rem:mcratios             six ratios are one observation
+  count: 17
+
+==========================================================================
+B. SURVIVING STATEMENTS, SOME ATTACHED REMARKS KEPT
+==========================================================================
+  prop:posweights  -> prop:posweights   kept 1 of 95
+        dropped  rem:nocrossk             there is no cancellation across dilations
+        dropped  rem:mertens              a Mertens reduction, closed
+        dropped  rem:signmass             the correlation sits in the large terms
+        dropped  rem:leanmertens          the lean is not the Mertens function
+        dropped  rem:leanodd              it is the Mertens function the parity leav
+        dropped  rem:levelweighted        the weights are free; the survivor set is 
+        dropped  rem:leveldemand          holding the sign is not cutting the demand
+        dropped  rem:levelthreshold       the level at which the sign stops slipping
+        dropped  rem:sievedepth           the missing piece is sieve depth, and that
+        dropped  rem:logweightpredictor   the missing weight is not log(N-mk
+        dropped  rem:predictablenull      which half of the predictor does the cutti
+        dropped  rem:survivorrange        the sieve-weighted predictor on the lean's
+        dropped  rem:oddmertensrange      the mechanism was shown on the wrong windo
+        dropped  rem:survivors            which $m$ survive, and why the lean is dee
+        dropped  rem:predictable          how much of the demand is elementary
+        dropped  rem:copiedfloor          a copied floor, and the control M3 was owe
+        dropped  rem:decaynull            the decay sweep, controlled
+        dropped  rem:forecastnull         a pointer that missed, and the control it 
+        dropped  rem:extendnull           the extrapolation's declined null, run
+        dropped  rem:splitnull            the control the split never had
+        dropped  rem:residue              the residue is square-root
+        dropped  rem:headidentity         the head is not a range, but its sign is t
+        dropped  rem:signmasshead         half of the lean is in the head, and half 
+        dropped  rem:gainsplit            the tail cancels better than randomly; the
+        dropped  rem:splitreach           the same split on eighty-one points
+        dropped  rem:headaxis             which axis holds the head, and for how lon
+        dropped  rem:headbounded          no prefix of the inner sum owns the head's
+        dropped  rem:coherencenull        most of the coherence was the conditioning
+        dropped  rem:denominator          the gain's denominator is a truncated Cheb
+        dropped  rem:thetalaw             raising the level moves away from the dema
+        dropped  rem:thetalawarith        the crossing is one family's number, and o
+        dropped  rem:support              the surviving correlation is a composite-i
+        dropped  rem:meanonly             it is a correlation and not a mean
+        dropped  rem:sumhead              the signed sum is the head's, and increasi
+        dropped  rem:headfraction         the excess was transient, and the set is n
+        dropped  rem:alphalocal           alpha is a constant of the range, and the 
+        dropped  rem:alphareach           the sign axis, seven octaves further, and 
+        dropped  rem:deficitdirect        the deficit is closing, and where it close
+        dropped  rem:deficitshape         the drift steepens, and two of this run's 
+        dropped  rem:deficitregion        the never-closes region has a boundary, an
+        dropped  rem:targetderived        the target of the sign axis is derived, no
+        dropped  rem:deficitlog           this field cannot tell a logarithm from a 
+        dropped  rem:sieveweight          the object has a name: a truncated Möbius 
+        dropped  rem:jbarrier             the sum has two square-root barriers and t
+        dropped  rem:jbarrierreach        the half was the radical's, and the barrie
+        dropped  rem:whichfloor           the deficit carries the radical
+        dropped  rem:radicallaw           which primes, not how many
+        dropped  rem:primecontrib         three is the whole of it, and there is no 
+        dropped  rem:basecontrol          the control this branch never ran, and the
+        dropped  rem:radicalblind         the control, blind and registered, and it 
+        dropped  rem:valuation            the exponent is not it either, and the slo
+        dropped  rem:levelmatched         the level, at matched N, with no window in
+        dropped  rem:leveldense           packed close: the level carries scatter, a
+        dropped  rem:levelfine            the scatter is not a scale effect, and it 
+        dropped  rem:levelresidual        the residual is noise, on a closed list of
+        dropped  rem:bilinear             the object is a Type II bilinear form with
+        dropped  rem:bilinearcancel       the smallness is cancellation between modu
+        dropped  rem:maintermremoval      the demand is a main term removed to a rel
+        dropped  rem:tworates             the two rates, and the deficit reached wit
+        dropped  rem:residuemodel         the primes do not drop out
+        dropped  rem:weightshape          the correction is not a product over the p
+        dropped  rem:omegafactor          kappa predicts three primes from two, and 
+        dropped  rem:localcorrections     the corrections drift, most for the smalle
+        dropped  rem:driftbyprime         the drift belongs to two primes, not to th
+        dropped  rem:driftpower           power was bought, and the slope is not a s
+        dropped  rem:driftsigns           c(3) moves, and only c(3), once the window
+        dropped  rem:derivedlimit         a limit that is derived, and the residual 
+        dropped  rem:limitdirection       the curve compresses, and neither way out 
+        dropped  rem:limitsqueeze         the ladder is not square, and three runs s
+        dropped  rem:conditionedlimit     above a floor that is demanded, and what t
+        dropped  rem:logweightsplit       the second factor nobody counted
+        dropped  rem:closedform           the form transports, and its level is the 
+        dropped  rem:maskdmse             dm/se, as v1 said to fit and nobody had
+        dropped  rem:maskfloornull        the floor test and the fit answer differen
+        dropped  rem:maskformreach        a design that could not ask its question, 
+        dropped  rem:maskdeepform         where the mask has not sunk, the form is m
+        dropped  rem:maskrivals           the price was against one rival, and there
+        dropped  rem:spectrummushare      mu's share of the spectrum is structured, 
+        dropped  rem:flatnessshape        the flatness cannot rise forever
+        kept     rem:leanidentity         three exponents, one identity
+        dropped  rem:leanextended         and it holds over a factor 128
+        dropped  rem:leanfloor            the floor moved faster than the lean
+        dropped  rem:crosskreference      what independent signs would actually give
+        dropped  rem:coinrank             mu ranks fourth of seventeen
+        dropped  rem:residuecancel        the residue buys exactly a coin's cancella
+        dropped  rem:residueconstant      the residue has no law, only a fit
+        dropped  rem:leandecay            the lean is finite-$N$ and decays
+        dropped  rem:leanbracket          the lean, by a second route, and its brack
+        dropped  rem:extendrange          two more octaves, and what they settle
+        dropped  rem:decayfamily          the decay exponent is not determined, and 
+        dropped  rem:dilateprofile        the dilated wall obeys a square-root law, 
+        dropped  rem:extrap               the extrapolation, tested out of sample
+        dropped  rem:artifact             that prediction was an artifact; the corre
+        dropped  rem:forecast             where the model puts the route's hypothesi
+        dropped  rem:forecastbracket      the bracket that forecast has to carry
+  prop:MT          -> prop:MT           kept 1 of 3
+        dropped  rem:bound                
+        dropped  rem:movingswitch         the cut has since moved, and the switch su
+        kept     rem:cutbridge            the two cuts are a $\Delta$ apart
+  thm:D            -> thm:D             kept 1 of 3
+        kept     rem:bombieri             relation to Bombieri's asymptotic sieve
+        dropped  (no anchor)              what the obstruction is
+        dropped  (no anchor)              scope, stated honestly
+  prop:Dpp         -> prop:Dpp          kept 1 of 3
+        dropped  rem:toprdom              a prediction of ours that the measurement 
+        kept     rem:trunc                the last table was truncated, not rounded
+        dropped  (no anchor)              the canonical tuning moves the wrong way
+  prop:nolog       -> prop:nolog        kept 1 of 2
+        kept     rem:relocate             what the weakening relocates
+        dropped  rem:threshfam            the threshold is not a constant, and the s
+  thm:C            -> thm:C             kept 1 of 1
+        kept     rem:threeway             three statements, not two
+  prop:onesided    -> prop:onesided     kept 1 of 1
+        kept     rem:onesided             what this does and does not open
+  lem:degen        -> lem:degen         kept 1 of 1
+        kept     rem:trap                 the false-positive trap
+  lem:density      -> lem:density       kept 1 of 1
+        kept     rem:loadbearing          the load-bearing line
+  prop:V           -> prop:V            kept 1 of 1
+        kept     rem:secondorder          the second-order form
+  prop:placebo     -> lem:placebo       kept 1 of 1
+        kept     rem:floorsignal          the floor is itself signal
+  prop:combined    -> prop:combined     kept 2 of 7
+        dropped  rem:combmod              the modulus the demand really needs
+        dropped  rem:levelaudit           the withdrawn level measurement, re-examin
+        kept     rem:allswept             every exponent, swept
+        kept     rem:budget               the surviving exponent, audited
+        dropped  rem:tolerance            the exponents were the tolerance, not the 
+        dropped  rem:signedlevel          what the signs across $k$ are worth
+        dropped  rem:levelmeas            a level measurement, and its withdrawal
+  lem:completelog  -> lem:completelog   kept 2 of 4
+        dropped  rem:sign                 the sign, and why it is the whole identity
+        kept     rem:thetasweep           the identity cannot be tested numerically,
+        dropped  (no anchor)              
+        kept     rem:extractTw            the third term is not a remainder, and it 
+
+==========================================================================
+C. SURVIVING STATEMENTS WITH NO ATTACHED REMARKS IN THE SOURCE
+==========================================================================
+  cor:B            Corollary    -> cor:B
+  lem:complete     Lemma        -> lem:complete
+  lem:BV           Lemma        -> lem:BV
+  lem:mu           Lemma        -> lem:mu
+  lem:Gb           Lemma        -> lem:Gb
+  lem:extract      Lemma        -> lem:extract
+  lem:bv           Lemma        -> lem:BV
+  lem:placebo      Lemma        -> lem:placebo

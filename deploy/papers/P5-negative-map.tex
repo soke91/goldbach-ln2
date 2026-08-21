@@ -180,10 +180,40 @@ so has the blind mask prediction: it asserts a set equality --- the
 field's support is empty on exactly the pairs the mask names --- so a
 second implementation either reproduces it exactly or does not, and it
 does. The exact $(v_2,v_3)$ cell predictions were attempted next and
-the attempt did not reach them. The remaining two supporting
-measurements, pair statistics and the Wishart pair spectrum, are
-single-witness: they are the reason the conjecture is stated, not
-measurements this report vouches for.
+the attempt did not reach them --- because the stamp prints neither its
+cell index nor its prime range, so there was nothing to land on; a
+measurement one fails to locate is not a measurement one has found
+false. The remaining two supporting measurements, pair statistics and
+the Wishart pair spectrum, are single-witness: they are the reason the
+conjecture is stated, not measurements this report vouches for.
+
+Two things re-verification established about the mask arm belong with
+its grade, because they are about form rather than truth and the grade
+is about form.
+
+\emph{The number cannot be checked.} The stamp reports $115950$
+annihilated pairs; the independent re-derivation got $116000$. The
+disagreement is about the grid, not the rule: the stamp publishes two
+facts about its own grid and those do not fix the offsets. Of the
+$4160$ grids consistent with them the counts run $115950$ to $116101$,
+and $100$ of them give exactly $115950$. The stamp is right and
+unreconstructible.
+
+\emph{And its grid cannot see part of the rule it stamps.} There is a
+$2$-adic branch: if $v_2(N)=v_2(k)=a\ge1$ the support is empty for
+every odd $p$, and at $a=1$ that is not of the form
+$q^2\mid\gcd(N,k)$. Every $N$ on the stamp's grid is divisible by $4$,
+which folds the branch into the $q^2$ rule --- the two agree on all
+$401000$ pairs there. On a grid with $2\,\|\,N$ they separate sharply:
+with the branch $25.94\%$ of pairs are annihilated and the field
+disagrees on $0$ of $101000$; without it, $1.26\%$ and $24930$ of
+$101000$. So the single witness is a witness to less than the whole
+rule.
+
+What re-verification establishes is therefore about \emph{form}: the
+substance survived independent re-derivation, and the stamp's form ---
+a number without the grid that produced it --- is what made
+re-verification cost three implementations instead of one.
 \end{note}
 
 % =====================================================================

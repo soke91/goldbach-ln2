@@ -1,0 +1,618 @@
+[
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 178,
+  "env": "theorem",
+  "title": "",
+  "key": "thm:A",
+  "body": "\\begin{theorem}\\label{thm:A}\nFix $\\theta'\\in(1/2,1)$ and put $K=N^{\\theta'}$. Then for every $A>0$,\n\\[\n  \\sup_{1\\le t<N}\\bigl|T_1(t)\\bigr|\n  \\;=\\;\\sup_{1\\le t<N}\n  \\Bigl|\\sum_{\\substack{k<K\\\\(k,N)=1}}\\mu(k)\\,\\Emu(t;k)\\Bigr|\n  \\;\\ll_{A,\\theta'}\\;\\frac{N}{(\\log N)^{A}}.\n\\]\nMoreover every ingredient of the proof except Bombieri--Vinogradov\ncontributes only $O\\!\\left(Ne^{-c\\sqrt{\\log N}}\\right)$: the power of\n$\\log$ in the statement is imposed by Bombieri--Vinogradov alone.\n\\end{theorem}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 203,
+  "env": "corollary",
+  "title": "",
+  "key": "cor:B",
+  "body": "\\begin{corollary}\\label{cor:B}\nIn the Corollary-1 regime, $E_4(\\alpha)\\ll_A N(\\log N)^{-A}$ for every\n$A>0$, unconditionally. Consequently Huang--Li's estimate\n$S_4(\\alpha)=O(N(\\log N)^{-A})$ requires no hypothesis, their Lemma~4\nis not needed, and the entire $EH_\\mu$ demand of their argument\ncollapses to the single scalar $E_3(\\alpha)$ --- together with the\nterm $\\Delta$ of Section~\\ref{sec:delta} where the published form of\n(18) is used, which is likewise unconditional there, and which does not\narise on the corrected form.\n\\end{corollary}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 214,
+  "env": "theorem",
+  "title": "",
+  "key": "thm:C",
+  "body": "\\begin{theorem}\\label{thm:C}\nIn the Corollary-1 regime one has the unconditional identity\n\\[\n  E_3(\\alpha)\\;=\\;\\sum_{n<N}\\Lambda(n)\\Lambda(N-n)\n     \\;-\\;\\SS(N)\\Bigl(N-\\sum_{n<N}\\Lambda(n)\\mu(N-n)\\Bigr)\n     \\;+\\;O_A\\!\\left(\\frac{N}{(\\log N)^{A}}\\right).\n\\]\nIn particular the bound $E_3(\\alpha)\\ll_A N(\\log N)^{-A}$ --- the form\nof $EH_\\mu$ that the Huang--Li argument consumes, though not the\nweakest that suffices; see Proposition~\\ref{prop:onesided} --- is\n\\emph{equivalent} to Huang--Li's equation~(22). It therefore yields\nbinary Goldbach for large even $N$ through their Theorem~1; and,\ngranted it, the asymptotic $\\tilde r(N)\\sim\\SS(N)N$ holds if and only\nif $C(N)=o(N)$.\n\\end{theorem}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 230,
+  "env": "note",
+  "title": "three statements, not two",
+  "key": "note:threeway",
+  "body": "\\begin{note}[three statements, not two]\\label{note:threeway}\nThe identity says that the displayed difference \\emph{is}\n$E_3(\\alpha)$, so the hypothesis $E_3\\ll_A N(\\log N)^{-A}$ and\nHuang--Li's~(22) are the same assertion. What \\cite{HL} record\nimmediately after their~(22) is a different equivalence, between\n$\\tilde r(N)\\sim\\SS(N)N$ and $C(N)=o(N)$. Chaining the two,\n$E_3\\ll_A N(\\log N)^{-A}$ delivers binary Goldbach --- Huang--Li's\nTheorem~1 supplies $|C(N)|\\le\\AAA(N)N(1+o(1))$ by the triangle\ninequality, and $\\AAA(N)<1$ --- but it does not on its own deliver the\nasymptotic, which needs $C(N)=o(N)$ in addition. The three statements\nmust be kept apart.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 258,
+  "env": "proposition",
+  "title": "the demand is one-sided, and its threshold is not a log power",
+  "key": "prop:onesided",
+  "body": "\\begin{proposition}[the demand is one-sided, and its threshold is not\na log power]\\label{prop:onesided}\nIn the Corollary-1 regime, binary Goldbach for all sufficiently large\neven $N$ follows from\n\\begin{equation}\\label{eq:onesided}\n  E_3(\\alpha)\\;>\\;-\\,\\SS(N)\\bigl(1-\\AAA(N)\\bigr)N\\,\\bigl(1+o(1)\\bigr),\n\\end{equation}\nwith $\\AAA(N)$ as in \\eqref{eq:AN}. This is strictly weaker than\n$E_3\\ll_A N(\\log N)^{-A}$ in two independent ways: it constrains $E_3$\nfrom one side only, and its threshold is $\\SS(N)(1-\\AAA(N))N$, which\nis $\\asymp N$ for almost all even $N$ and never smaller than\n$c\\,N/(\\log N\\log\\log N)$ for an absolute constant $c>0$.\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 272,
+  "env": "proposition",
+  "title": "the demand needs no saving in $\\log N$",
+  "key": "prop:nolog",
+  "body": "\\begin{proposition}[the demand needs no saving in $\\log N$]%\n\\label{prop:nolog}\nPut\n\\begin{equation}\\label{eq:Bsum}\n  B(N)\\;:=\\;\\sum_{\\substack{k<K\\\\ (k,N)=1}}\n     \\mu^2(k)\\,(\\log k)\\,\\bigl|\\Emu(N;k)\\bigr|,\n\\end{equation}\nthe restriction to squarefree $k$ being what the triangle inequality\non \\eqref{eq:E3} leaves, since $\\mu(k)=0$ elsewhere. This is sharper than the quantity\n\\cite{HL} actually reach before appealing to $EH_\\mu$, namely\n$\\log N\\sum_{k<K,(k,N)=1}|\\Emu(N;k)|$, in which $\\log k$ has been\nraised to $\\log N$; the proposition below holds for either, and a\nfortiori for theirs. Then binary Goldbach for all sufficiently large\neven $N$ follows from\n\\begin{equation}\\label{eq:nolog}\n  B(N)\\;\\le\\;(1-\\varepsilon)\\,\\SS(N)\\bigl(1-\\AAA(N)\\bigr)N\n\\end{equation}\nfor a single fixed $\\varepsilon>0$. Since $\\SS(N)(1-\\AAA(N))\\asymp1$\nfor almost all even $N$, \\eqref{eq:nolog} is a \\emph{constant-factor}\nbound on exactly the object $EH_\\mu$ bounds --- absolute values kept,\nand no saving in $\\log N$ whatsoever --- where $EH_\\mu(N^{\\theta'})$\nasks for $\\ll_A N(\\log N)^{-A}$ for every $A$.\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 413,
+  "env": "lemma",
+  "title": "",
+  "key": "lem:complete",
+  "body": "\\begin{lemma}\\label{lem:complete}\nFor squarefree $u\\ge1$,\n$\\displaystyle\\sum_{k\\mid u,\\ (k,N)=1}\\mu(k)=\\mathbf 1_{\\rad(u)\\mid N}$.\n\\end{lemma}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 449,
+  "env": "lemma",
+  "title": "degeneracy",
+  "key": "lem:degen",
+  "body": "\\begin{lemma}[degeneracy]\\label{lem:degen}\nThe contribution to \\eqref{eq:R1} of the terms with $(k,N)>1$ is\n$O(N^{o(1)})$. The same bound holds for the terms in which the modulus\nconstructed in Step~4 is not coprime to $N$.\n\\end{lemma}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 514,
+  "env": "note",
+  "title": "the false-positive trap",
+  "key": "note:trap",
+  "body": "\\begin{note}[the false-positive trap]\\label{note:trap}\nRestricting the \\emph{main terms} to classes with $(q,N)=1$ is not\ncosmetic. Assigning a main term $\\Tcut_m/\\varphi(q)$ to a degenerate class\nshifts the density of the whole computation by the factor\n$N/\\varphi(N)$. Carried into the $\\log k$ branch of\nSection~\\ref{sec:C}, that error produces an apparent \\emph{refutation}\nof $EH_\\mu$. It is recorded here because it is the most plausible\nfalse positive in this circle of ideas.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 535,
+  "env": "lemma",
+  "title": "$\\tau$-weighted Bombieri--Vinogradov",
+  "key": "lem:BV",
+  "body": "\\begin{lemma}[$\\tau$-weighted Bombieri--Vinogradov]\\label{lem:BV}\nFor all $A,B>0$ there is $C=C(A,B)$ such that for\n$Q\\le N^{1/2}(\\log N)^{-C}$,\n\\[\n  \\sum_{q\\le Q}\\tau_3(q)^{B}\\ \\max_{y\\le N}\\ \\max_{(a,q)=1}\n  \\Bigl|\\psi(y;q,a)-\\frac{y}{\\varphi(q)}\\Bigr|\n  \\;\\ll_{A,B}\\;\\frac{N}{(\\log N)^{A}}.\n\\]\n\\end{lemma}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 576,
+  "env": "lemma",
+  "title": "",
+  "key": "lem:density",
+  "body": "\\begin{lemma}\\label{lem:density}\nLet $m$ be squarefree with $(m,N)=1$ and put\n\\[\n  c(m):=\\sum_{d\\ge1}\\ \\sum_{e\\mid m}\n     \\frac{\\mu(d)\\mu(e)\\mathbf 1_{(d,N)=1}}{\\varphi(m\\lcm(d^2,e))}.\n\\]\nThen $c(m)=\\AAA(N)\\lambda(m)/m$ with $\\AAA(N)$ as in \\eqref{eq:AN} and\n$\\lambda(m)=\\prod_{p\\mid m}\\bigl(1-\\tfrac{1}{p(p-1)}\\bigr)^{-1}$.\nMoreover $c_{D_0,E_0}(m)=c(m)+O(1/(mD_0))$.\n\\end{lemma}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 617,
+  "env": "lemma",
+  "title": "",
+  "key": "lem:mu",
+  "body": "\\begin{lemma}\\label{lem:mu}\nLet $f(m):=\\mu(m)\\lambda(m)\\mathbf 1_{(m,N)=1}$ and\n$G(x):=\\sum_{m\\le x}f(m)/m$. Then\n\\[\n  G(x)\\;\\ll\\;\\frac{N}{\\varphi(N)}\\,e^{-c\\sqrt{\\log x}}\n   +x^{-1/4}e^{C\\sqrt{\\log N}}\n   \\qquad(x\\ge2).\n\\]\n\\end{lemma}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 649,
+  "env": "proposition",
+  "title": "",
+  "key": "prop:MT",
+  "body": "\\begin{proposition}\\label{prop:MT}\n$\\displaystyle\\sup_{1\\le t<N}|\\mathrm{MT}(t)|\\ll Ne^{-c\\sqrt{\\log N}}$.\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 734,
+  "env": "lemma",
+  "title": "",
+  "key": "lem:completelog",
+  "body": "\\begin{lemma}\\label{lem:completelog}\nFor squarefree $u$, write $u=u_Nu'$ where $u_N$ is the largest divisor\nof $u$ composed of primes dividing $N$. Then\n$\\sum_{k\\mid u,\\ (k,N)=1}\\mu(k)\\log k=-\\Lambda(u')$.\n\\end{lemma}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 828,
+  "env": "note",
+  "title": "the identity is not accessible to computation",
+  "key": "note:thetasweep",
+  "body": "\\begin{note}[the identity is not accessible to computation]%\n\\label{note:thetasweep}\nThe finite-$N$ residual\n$R(N,\\theta')=\\bigl|E_3(N;\\theta')-(\\tilde r(N)-\\SS(N)(N-C(N)))\\bigr|/N$\ndoes not become small in any accessible range, and it cannot be made\nsmall by either free parameter. Over\n$N=2\\cdot10^5,\\,4\\cdot10^5,\\,8\\cdot10^5$ at $\\theta'=0.56$ it reads\n$0.4558,\\,0.3729,\\,0.3108$, while the right-hand side it is compared\nagainst is $\\asymp10^{-3}N$. Swept over $\\theta'\\in[0.51,0.95]$, $R$\nis essentially monotone \\emph{increasing} --- at $N=8\\cdot10^5$ from\n$0.170167$ at $\\theta'=0.51$ to $4.991178$ at $\\theta'=0.90$ ---\nbecause the finite-$N$ error is dominated by the main-term\ncancellation over $m<M=N^{1-\\theta'}$, which $\\theta'\\to1$ destroys.\nThe best $\\theta'$ is the smallest admissible one, just above $1/2$.\nIncreasing $N$ points the wrong way as well: at the best $\\theta'$ the\nratio of error to signal reads $15.19,\\,18.38,\\,26.84$ at the three\n$N$ above, because $C(N)=o(N)$ being true kills the right-hand side\nfast while the finite-$N$ error dies only at a slow power of $\\log$.\nSo Theorem~\\ref{thm:C} is a statement no computation confirms, at any\n$N$; the proof is the only access to it\n(\\texttt{lab\\_theta\\_sweep.py}).\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 851,
+  "env": "note",
+  "title": "",
+  "key": "",
+  "body": "\\begin{note}\nThe mechanism is structural, not accidental. The identity\n$\\mu*\\log=\\Lambda$ is the starting point of the Huang--Li argument\n(their~(10)); it is therefore also what any divisor switch inside\ntheir $\\log k$-weighted functional must return. No choice of\n$\\theta'$, truncation, or smoothing can circumvent an identity. What\nthe identity does not fix is the \\emph{strength} at which $E_3$ must\nbe bounded, and that is Section~\\ref{sec:strength}.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 892,
+  "env": "measurement",
+  "title": "the threshold, and the margin",
+  "key": "meas:margin",
+  "body": "\\begin{measurement}[the threshold, and the margin]\\label{meas:margin}\nOver even $N\\le1.6\\cdot10^7$ the threshold constant\n$\\SS(N)(1-\\AAA(N))$ has median $0.333459$ and $0.1$-percentile\n$0.119639$; its minimum is $0.060890$, attained at\n$N=9\\,699\\,690=2\\cdot3\\cdots19$, the largest primorial in range, and\nthe ten smallest values are all primorial-like. Multiplied by\n$\\log N\\log\\log N$ the minimum over $N\\ge10^5$ is $2.482019$, attained\nat $N=510\\,510$; over $N\\ge10^3$ it is $1.737799$ at $N=2310$; over\n$N\\ge16$ it is $0.810202$ at $N=30$. Every argmin is a primorial,\nwhich is the mechanism of Proposition~\\ref{prop:onesided} made\nvisible; the constant $c$ there is therefore stated as a constant and\nnot as $1$. The step that produces the margin is exact to five\ndecimals: $U(N)/(\\AAA(N)N)$ has mean $0.999996$ with standard\ndeviation $0.000170$ over the top octave. Checked against the truth,\nno even $N\\in[10^5,1.6\\cdot10^7]$ has\n$\\tilde r(N)<\\SS(N)(1-\\AAA(N))N$; the slack between them has minimum\n$3.7038$, median $4.2902$ and maximum $95.0889$, the maximum at\n$N=9\\,699\\,690$ --- so the margin is thinnest exactly where the\nGoldbach count is largest\n(\\texttt{lab\\_onesided\\_margin.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 914,
+  "env": "measurement",
+  "title": "what the weakening relocates",
+  "key": "meas:relocate",
+  "body": "\\begin{measurement}[what the weakening relocates]\\label{meas:relocate}\nAt $\\theta'=0.56$ and $N=2\\cdot10^5$ through $3.2\\cdot10^6$, the\nquantity $B(N)$ of \\eqref{eq:Bsum} satisfies\n\\[\n  B(N)/N\\;=\\;0.8086,\\ 0.7395,\\ 0.7303,\\ 0.6547,\\ 0.5916\n\\]\nagainst a threshold of $0.3745N$, so the ratio\n$B(N)/(\\SS(N)(1-\\AAA(N))N)$ falls\n$2.159$, $1.975$, $1.950$, $1.748$, $1.580$. The object\nProposition~\\ref{prop:nolog} constrains is therefore already within a\nfactor $1.6$ of the threshold at the top of the accessible range, and\nfalling; but a constant-factor bound valid for \\emph{all} large $N$ is\nwhat is needed, and no computation supplies that\n(\\texttt{lab\\_onesided\\_demand.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 1041,
+  "env": "proposition",
+  "title": "the bound survives the corrected cut",
+  "key": "prop:movingcut",
+  "body": "\\begin{proposition}[the bound survives the corrected cut]%\n\\label{prop:movingcut}\nFix $\\theta'\\in(1/2,1)$, put $\\alpha=N^{1-\\theta'}$ and\n$K=(N-1)/\\alpha$. Then for every $A>0$,\n$T_1^\\ast\\ll_{A,\\theta'}N(\\log N)^{-A}$, unconditionally.\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P1-mobius-fixed-class.tex",
+  "line": 1086,
+  "env": "note",
+  "title": "what the proposition does not cover",
+  "key": "",
+  "body": "\\begin{note}[what the proposition does not cover]\nIt is stated in the Corollary-1 regime only. In the general Theorem-1\nregime $\\alpha\\asymp N^{\\theta}$ the outer truncation is\n$K\\asymp N^{1-\\theta}$, which drops below $N^{1/2}$ as soon as\n$\\theta>1/2$, and Theorem~\\ref{thm:A} is stated for $K=N^{\\theta'}$\nwith $\\theta'\\in(1/2,1)$. The exchange and the estimate of\n$\\Xi_{\\mathrm{main}}$ are unaffected --- the latter closes under the\n$EH$ assumed there, as $\\Delta$ does --- but the fixed-cut input is not\navailable, so no claim is made outside $\\theta'>1/2$. That is the same\nthreshold the no-go of \\cite{P2} turns on, and not by accident: below\nit the cofactor left by the completion is no longer short.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 152,
+  "env": "note",
+  "title": "the third term is not a remainder",
+  "key": "note:Tw",
+  "body": "\\begin{note}[the third term is not a remainder]\\label{note:Tw}\nThe term $T_w$ in \\eqref{eq:extract} is \\eqref{eq:Tw} itself, and it is\nof size $N$: at $w=\\log$ it \\emph{is} $E_3(\\alpha)$, which\n\\cite[Thm.~3]{P1} evaluates as\n$\\tilde r(N)-\\SS(N)(N-C(N))+O_A(N(\\log N)^{-A})$. It cannot be absorbed\ninto the $O(N^{o(1)})$, and writing \\eqref{eq:extract} without it turns\na rearrangement into a false statement --- the two sides then differ by\n$0.44N$, $0.38N$, $0.32N$ at $N=2\\cdot10^5,\\,4\\cdot10^5,\\,8\\cdot10^5$\nwith $\\theta'=0.56$, which are exactly the measured values of\n$|T_{\\log}|/N$ at those $N$ (Measurement~\\ref{meas:flatsum}). With\n$T_w$ restored the identity holds to $10^{-16}$ relative.\n\nKeeping it explicit is what makes Theorem~\\ref{thm:D} say something.\nThe identity by itself yields nothing about $C(N)$: an unconditional\nbound on $T_w$ is exactly what the whole problem asks for, and the only\nweight for which one is known is $w=1$, by \\cite[Thm.~1]{P1}. The\ntheorem below therefore \\emph{grants} the bound on $T_w$ and shows the\nextraction fails anyway.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 172,
+  "env": "lemma",
+  "title": "",
+  "key": "lem:Gb",
+  "body": "\\begin{lemma}\\label{lem:Gb}\nFor squarefree $u$, $\\sum_{k\\mid u}\\mu(k)w_k=\\mu(u)\\,b_u$.\n\\end{lemma}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 239,
+  "env": "proposition",
+  "title": "the discrepancy is a dilate",
+  "key": "prop:dilate",
+  "body": "\\begin{proposition}[the discrepancy is a dilate]\\label{prop:dilate}\nUnconditionally,\n\\begin{equation}\\label{eq:dilate}\n  A(N;k)\\;=\\;\\mu(k)\\,H(N;k),\n  \\qquad\n  H(N;k)\\;=\\;\\sum_{\\substack{m<N/k\\\\ (m,k)=1}}\\Lambda(N-mk)\\,\\mu(m).\n\\end{equation}\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 266,
+  "env": "proposition",
+  "title": "the weights are nonnegative",
+  "key": "prop:posweights",
+  "body": "\\begin{proposition}[the weights are nonnegative]\\label{prop:posweights}\nSubstituting \\eqref{eq:dilate} into $T_{\\log}$ and using $\\mu(k)^2=1$\non squarefree $k$,\n\\begin{equation}\\label{eq:posweights}\n  T_{\\log}\\;=\\;\\sum_{\\substack{k<K\\\\(k,N)=1}}\n    \\mu^2(k)\\,(\\log k)\\,H(N;k)\\;-\\;C(N)\\,B_{\\log}(K),\n  \\qquad\n  B_{\\log}(K)=\\!\\!\\sum_{\\substack{k<K\\\\(k,N)=1}}\\!\\!\n     \\frac{\\mu(k)\\log k}{\\varphi(k)} .\n\\end{equation}\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 292,
+  "env": "proposition",
+  "title": "both ends are the same sum of dilated walls",
+  "key": "prop:flatsum",
+  "body": "\\begin{proposition}[both ends are the same sum of dilated walls]%\n\\label{prop:flatsum}\nFor any weight $w$ that is a function of $k$ alone,\n\\begin{equation}\\label{eq:flatsum}\n  T_w\\;=\\;\\sum_{\\substack{k<K\\\\(k,N)=1}}\\mu^2(k)\\,w_k\\,H(N;k)\n   \\;-\\;B_w\\,C(N).\n\\end{equation}\nIn particular\n\\[\n  T_1=\\!\\!\\sum_{\\substack{k<K\\\\(k,N)=1}}\\!\\!\\mu^2(k)H(N;k)-B_1C(N),\n  \\qquad\n  T_{\\log}=\\!\\!\\sum_{\\substack{k<K\\\\(k,N)=1}}\\!\\!\\mu^2(k)(\\log k)H(N;k)\n   -B_{\\log}C(N),\n\\]\nand both weights are nonnegative on the range.\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 317,
+  "env": "note",
+  "title": "the restriction is not decoration",
+  "key": "",
+  "body": "\\begin{note}[the restriction is not decoration]\nDropping $\\mu^2(k)$ from \\eqref{eq:flatsum} does not weaken it, it\nfalsifies it: $H(N;k)$ does not vanish at squarefull $k$, while the\nleft-hand side does. The terms so admitted are of the size of $T_w$\nitself --- at $\\theta'=0.56$ they add $5.4\\cdot10^{-2}N$ at $w=1$ and\n$2.9\\cdot10^{-1}N$ at $w=\\log$, the latter being two thirds of\n$|T_{\\log}|$.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 334,
+  "env": "measurement",
+  "title": "the two ends, measured",
+  "key": "meas:flatsum",
+  "body": "\\begin{measurement}[the two ends, measured]\\label{meas:flatsum}\nOver $N=2\\cdot10^5$ to $2.56\\cdot10^7$ by doubling, at\n$\\theta'=0.56$, \\eqref{eq:flatsum} holds to a worst relative error of\n$1.875\\cdot10^{-16}$, and\n\\[\n  \\frac{\\bigl|\\sum_k\\mu^2(k)H(N;k)\\bigr|}{\\bigl|\\sum_k\\mu^2(k)(\\log k)H(N;k)\\bigr|}\n  \\;=\\;0.1785,\\ 0.1559,\\ 0.1484,\\ 0.1483,\\ 0.1367,\\ 0.1334,\\\n       0.1241,\\ 0.1135,\n\\]\nfalling on average; at the top $|T_1|/N=0.01425$ against\n$|T_{\\log}|/N=0.1245$. Fitted against $\\log N$ the flat sum decays as\n$N^{-0.3505}$ and $|T_{\\log}|/N$ as $N^{-0.2658}$: the gap widens, as\nit must if one side is $\\ll_AN(\\log N)^{-A}$ and the other is\n$\\asymp N$. The index set here runs from $k=1$, as \\eqref{eq:Tw} and\n\\eqref{eq:flatsum} require; note that $H(N;1)=C(N)$ exactly, so\ndropping that one term removes $C(N)$ from the flat sum --- which\nchanges the ratios above by up to $10.4\\%$ and the fitted exponent to\n$-0.3620$, while leaving $|T_1|$ untouched to $10^{-18}$, since the\n$k=1$ term of $T_1$ is $A(N;1)-C(N)/\\varphi(1)=0$. The two columns are\ncomputed side by side, from a sieve built independently of the one\n\\texttt{lab\\_weight\\_gap.py} uses, in\n\\texttt{c02\\_flatsum\\_k1.py}; that script's loop is the $k\\ge1$ one,\nand \\texttt{lab\\_weight\\_gap.py}'s starts at $k=2$. Identity~\\eqref{eq:dilate} itself is verified over every\nsquarefree $k<N^{0.56}$ coprime to $N$ at\n$N=2\\cdot10^5,\\,4\\cdot10^5,\\,8\\cdot10^5$ with worst relative error\n$2.294\\cdot10^{-14}$, $1.197\\cdot10^{-13}$, $4.591\\cdot10^{-14}$, and\n\\eqref{eq:posweights} against a direct evaluation of $T_{\\log}$ to at\nmost $1.8\\cdot10^{-16}$ over $N=2\\cdot10^5$ to $3.2\\cdot10^6$\n(\\texttt{lab\\_weight\\_gap.py}, \\texttt{lab\\_dilate\\_identity.py},\n\\texttt{lab\\_positive\\_weights.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 366,
+  "env": "proposition",
+  "title": "the untruncated sum is the count",
+  "key": "prop:untrunc",
+  "body": "\\begin{proposition}[the untruncated sum is the count]%\n\\label{prop:untrunc}\nSumming over \\emph{all} $k$, with no truncation and no coprimality\nrestriction,\n\\begin{equation}\\label{eq:untrunc}\n  \\sum_{k\\ge1}(\\log k)\\,\\mu(k)\\,A(N;k)\n   \\;=\\;-\\sum_{n<N}\\Lambda(n)\\,\\mu(N-n)\\Lambda(N-n)\n   \\;=\\;\\sum_{p<N}\\Lambda(N-p)\\log p .\n\\end{equation}\nSo the untruncated object \\emph{is} $\\tilde r(N)$, up to its\nprime-power part.\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 393,
+  "env": "proposition",
+  "title": "the count as signed layers",
+  "key": "prop:layers",
+  "body": "\\begin{proposition}[the count as signed layers]\\label{prop:layers}\nCutting the same double sum along the inner variable of\n\\eqref{eq:dilate},\n\\begin{equation}\\label{eq:layers}\n  \\sum_{k}\\mu^2(k)(\\log k)H(N;k)\\;=\\;\\sum_{m}\\mu(m)\\,L(N;m),\n  \\qquad\n  L(N;m):=\\!\\!\\sum_{\\substack{k<N/m,\\ (k,m)=1\\\\ \\mu(k)\\neq0}}\\!\\!\n            (\\log k)\\,\\Lambda(N-mk),\n\\end{equation}\nand every $L(N;m)$ is nonnegative. With\nProposition~\\ref{prop:untrunc}, the Goldbach count is therefore an\nalternating sum, signed by $\\mu$, of nonnegative layers.\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 413,
+  "env": "proposition",
+  "title": "the count over a combined modulus",
+  "key": "prop:combined",
+  "body": "\\begin{proposition}[the count over a combined modulus]%\n\\label{prop:combined}\nExpanding the squarefree condition inside \\eqref{eq:layers} by\n$\\mu^2(k)=\\sum_{d^2\\mid k}\\mu(d)$ and writing $k=d^2j$,\n\\begin{equation}\\label{eq:combined}\n  \\sum_{p<N}\\Lambda(N-p)\\log p\n   \\;=\\!\\!\\sum_{\\substack{m,d\\ \\text{squarefree}\\\\ (d,m)=1,\\ md^2<N}}\\!\\!\n     \\mu(m)\\mu(d)\\,L_2(N;m,d),\n\\end{equation}\nwhere\n\\[\n  L_2(N;m,d)=\\!\\!\\sum_{\\substack{j<N/(md^2)\\\\ (j,m)=1}}\\!\\!\n   \\log(d^2j)\\,\\Lambda\\bigl(N-md^2j\\bigr),\n\\]\nand $L_2$ carries no squarefree condition: it is a prime count in the\nprogression $p\\equiv N\\pmod{md^2}$, an unadorned\nBombieri--Vinogradov object of modulus $q=md^2$.\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 436,
+  "env": "proposition",
+  "title": "the wall cancels out of the count",
+  "key": "prop:direct",
+  "body": "\\begin{proposition}[the wall cancels out of the count]%\n\\label{prop:direct}\nSubstituting \\eqref{eq:posweights} into the identity of \\cite[Thm.~3]{P1},\nthe two occurrences of $C(N)$ carry opposite signs and cancel:\n\\begin{equation}\\label{eq:direct}\n  \\tilde r(N)\\;=\\;\\SS(N)N\n   \\;+\\!\\!\\sum_{\\substack{k<K\\\\(k,N)=1}}\\!\\!\\mu^2(k)(\\log k)H(N;k)\n   \\;-\\;C(N)\\bigl(B_{\\log}(K)+\\SS(N)\\bigr)\n   \\;+\\;O_A\\!\\left(\\frac{N}{(\\log N)^{A}}\\right).\n\\end{equation}\nSince $B_{\\log}(K)\\to-\\SS(N)$, the quantity $C(N)$ enters the Goldbach\ncount only through the vanishing factor $B_{\\log}(K)+\\SS(N)$.\nConsequently\n\\begin{equation}\\label{eq:directcond}\n  \\sum_{\\substack{k<K\\\\(k,N)=1}}\\mu^2(k)(\\log k)\\bigl|H(N;k)\\bigr|\n   \\;\\le\\;(1-\\varepsilon)\\,\\SS(N)\\,N\n\\end{equation}\nsuffices for $\\tilde r(N)>0$, for all large even $N$.\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 462,
+  "env": "note",
+  "title": "what the cancellation buys, and what it does not",
+  "key": "",
+  "body": "\\begin{note}[what the cancellation buys, and what it does not]\nCondition~\\eqref{eq:directcond} has the same shape as the\nconstant-factor condition of \\cite[Prop.~6]{P1}: a bound at level\n$N^{\\theta'}$, with no saving in $\\log N$. Nothing has moved off the\nlevel axis. What has changed is the threshold constant, from\n$\\SS(N)(1-\\AAA(N))$ to $\\SS(N)$, and the change removes the arithmetic\nsensitivity along with the slack, because the two were the same thing:\n$1-\\AAA(N)$ collapses at primorials, and $\\SS(N)$ does not. This is\noffered as a weaker sufficient condition, proved from two identities.\nIt is not offered as something computation confirms: at accessible $N$\nthe unspecified $O_A$ term of \\eqref{eq:direct} is numerically the\nvery quantity \\eqref{eq:directcond} must bound.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 476,
+  "env": "measurement",
+  "title": "the two thresholds, compared",
+  "key": "meas:direct",
+  "body": "\\begin{measurement}[the two thresholds, compared]\\label{meas:direct}\nAt $\\theta'=0.56$ over $N=2\\cdot10^5$ to $3.2\\cdot10^6$, with\n$B_H(N)=\\sum_{k<K}\\mu^2(k)(\\log k)|H(N;k)|$, the new ratio\n$B_H(N)/(\\SS(N)N)$ reads\n$0.4578,\\,0.4064,\\,0.4079,\\,0.3769,\\,0.3338$ --- under $1$ throughout\nand falling --- against\n$2.1519,\\,1.9105,\\,1.9175,\\,1.7720,\\,1.5691$ for the same numerator\nagainst the old threshold, $B_H(N)/(\\SS(N)(1-\\AAA(N))N)$, which is\nabove $1$ throughout. \\emph{The numerator is held fixed across the two\nlists}; only the threshold constant moves, which is the whole of the\ncomparison. (For the numerator of \\cite[eq.~(9)]{P1}, which keeps the\nsubtracted mean inside the absolute value and so is a different sum,\nthe old ratio reads $2.1591,\\,1.9747,\\,1.9500,\\,1.7483,\\,1.5798$ ---\nthe same conclusion, a different quantity.) Across a\nseven-point family of arithmetically diverse $N$ the new ratio spans a\nfactor $2.00$ where the old spans $23.25$. The residual coupling is\nnegligible at these $N$: $|B_{\\log}+\\SS|/\\SS$ stays under $0.0383$ and\n$|C(N)(B_{\\log}+\\SS)|/N$ never exceeds $3.315\\cdot10^{-4}$, four\norders below $\\SS(N)$. The residual of \\eqref{eq:direct} decays as\n$N^{-0.2794}$ with correlation $0.99930$ and falls to $2\\%$ of $N$\nonly near $N=10^{10.16}$\n(\\texttt{lab\\_direct\\_route.py}, \\texttt{lab\\_direct\\_identity.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 505,
+  "env": "lemma",
+  "title": "extraction",
+  "key": "lem:extract",
+  "body": "\\begin{lemma}[extraction]\\label{lem:extract}\n\\[\n  B_w=\\sum_{\\substack{d<K\\\\(d,N)=1}}b_d\\,\n   \\frac{\\mu(d)}{\\varphi(d)}\\,\\rho_{dN}\\!\\left(\\frac{K}{d}\\right),\n  \\qquad\n  \\rho_{n}(x)=\\!\\!\\sum_{j<x,\\,(j,n)=1}\\!\\!\\frac{\\mu(j)}{\\varphi(j)},\n\\]\nand $\\rho_n(x)\\ll e^{-c_1\\sqrt{\\log x}}$ whenever $\\log n\\ll\\log x$.\n\\end{lemma}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 523,
+  "env": "note",
+  "title": "the hypothesis is load-bearing, and it is met where it is used",
+  "key": "",
+  "body": "\\begin{note}[the hypothesis is load-bearing, and it is met where it is used]\nWithout $\\log n\\ll\\log x$ the bound is false: at $\\lfloor K/d_0\\rfloor=1$\nMeasurement~\\ref{meas:extract} prints $|B_w|\\varphi(d_0)=1.000000$, no\nsaving at all, and that is exactly the corner where $\\log n\\asymp\\log N$\nwhile $\\log x=O(1)$. Theorem~\\ref{thm:D} is unaffected: it maximises\nonly over $d\\le N^{\\theta'-1/2-\\delta}$, where $x=K/d\\ge N^{1/2+\\delta}$\nand $n=dN\\le N^{3/2}$, so $\\log n\\asymp\\log x$ holds throughout the\nrange it uses. The same applies to Theorem~\\ref{thm:Dprime}.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 533,
+  "env": "lemma",
+  "title": "BV-accessibility",
+  "key": "lem:bv",
+  "body": "\\begin{lemma}[BV-accessibility]\\label{lem:bv}\nExpanding $w_k=\\sum_{d\\mid k}b_d$ inside the residual gives\n$\\mathcal R_w=\\sum_db_d\\,\\mathcal R^{(d)}$, where $\\mathcal R^{(d)}$\nis a sum of $\\Lambda$ over progressions to moduli $md$ with\n$m<N^{1-\\theta'}$. Bombieri--Vinogradov bounds each\n$\\mathcal R^{(d)}\\ll_AN(\\log N)^{-A}$ provided\n$d\\le N^{1/2-\\delta}/N^{1-\\theta'}=N^{\\theta'-1/2-\\delta}$; hence, on\nthat support, $\\mathcal R_w\\ll_A\\|b\\|_1\\,N(\\log N)^{-A}$.\n\\end{lemma}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 564,
+  "env": "theorem",
+  "title": "no weight extracts $C(N)$",
+  "key": "thm:D",
+  "body": "\\begin{theorem}[no weight extracts $C(N)$]\\label{thm:D}\nFix $\\theta'\\in(1/2,1)$ and $\\delta>0$, and let $w$ be any weight\nwhose transform $b=\\mu*w$ is supported in\n$[1,\\,N^{\\theta'-1/2-\\delta}]$ --- the range in which the residual is\naccessible to Bombieri--Vinogradov. Then\n\\begin{equation}\\label{eq:loss}\n  \\frac{\\|b\\|_1}{|B_w|}\\;\\gg\\;\n   \\exp\\!\\left(c_1\\sqrt{(\\tfrac12+\\delta)\\log N}\\right).\n\\end{equation}\nConsequently, \\emph{even granted} $T_w\\ll_A N(\\log N)^{-A}$ for every\n$A>0$ --- which is what \\cite[Thm.~1]{P1} supplies unconditionally at\n$w=1$, and the most that $EH_\\mu$ would supply for a general $w$ ---\nidentity \\eqref{eq:extract} yields at best\n\\[\n  |C(N)|\\;\\ll_A\\;\\exp\\!\\left(c_1\\sqrt{\\tfrac12\\log N}\\right)\n   \\cdot\\frac{N}{(\\log N)^{A}},\n\\]\nwhich is not a saving of any power of $\\log N$. No weight in the\ndesign space extracts $C(N)$ by divisor switching, not even when the\nhard input is given for free.\n\\end{theorem}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 614,
+  "env": "note",
+  "title": "why granting $T_w$ is the right form",
+  "key": "note:granting",
+  "body": "\\begin{note}[why granting $T_w$ is the right form]\\label{note:granting}\nWithout the granted hypothesis the theorem would be vacuous rather than\nstrong: \\eqref{eq:extract} could then be satisfied by $T_w$ alone being\nlarge, and it says nothing about $C(N)$ at all. Granting it isolates\nwhat the design space actually fails at. The failure is not a shortage\nof input --- the input is handed over --- but the arithmetic of two\nthresholds that lie a factor $N^{1/2}$ apart. That is why raising the\nlevel does not help either (Theorem~\\ref{thm:Dprime}).\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 632,
+  "env": "note",
+  "title": "relation to Bombieri's asymptotic sieve",
+  "key": "note:bombieri",
+  "body": "\\begin{note}[relation to Bombieri's asymptotic sieve]\\label{note:bombieri}\nThe genre of Theorem~\\ref{thm:D} is classical. Bombieri's asymptotic\nsieve \\cite{Bom76} shows that sieve weights alone cannot detect\nprimes, however the weights are chosen, and the parity obstruction it\nisolates is the reason one expects a statement of this shape. What\nTheorem~\\ref{thm:D} adds is not the phenomenon but its precise form\nhere: the obstruction is quantified as a separation of $N^{1/2}$\nbetween two thresholds, it is specific to the divisor-switch route,\nand it survives granting the full Elliott--Halberstam conjecture\nrather than merely Bombieri--Vinogradov. The reason the statement is\nworth making is narrow but real: without it, the $\\log k$ weight looks\nlike one member of a family of candidate consumptions, and the\nidentity of \\cite[Thm.~3]{P1} then looks like an accident of one\nchoice of weight rather than a property of the route.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 655,
+  "env": "theorem",
+  "title": "",
+  "key": "thm:Dprime",
+  "body": "\\begin{theorem}\\label{thm:Dprime}\nSuppose $\\Lambda$ has level of distribution $\\theta_E\\in(0,1)$, i.e.\n$EH(N^{\\theta_E})$ holds. Then the residual is accessible only for $b$\nsupported on $d\\le N^{\\theta_E-(1-\\theta')}$, while extraction still\nrequires mass at $d\\asymp K=N^{\\theta'}$; the two thresholds are\nseparated by $N^{1-\\theta_E}$, and\n\\[\n  \\frac{\\|b\\|_1}{|B_w|}\\;\\gg\\;\n  \\exp\\!\\left(c_1\\sqrt{(1-\\theta_E)\\log N}\\right),\n\\]\nwhich exceeds every power of $\\log N$ for each fixed $\\theta_E<1$.\n\\end{theorem}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 683,
+  "env": "measurement",
+  "title": "the load-bearing lemma, checked as an identity",
+  "key": "meas:extract",
+  "body": "\\begin{measurement}[the load-bearing lemma, checked as an identity]%\n\\label{meas:extract}\nLemma~\\ref{lem:extract} carries the theorem, so it is checked\ndirectly at $N=99\\,999\\,998$, $\\theta'=0.56$,\n$K=\\lfloor N^{\\theta'}\\rfloor=30199$. For the single-divisor weights\n$w_k=[\\,d_0\\mid k\\,]$, i.e. $b=\\delta_{d_0}$, the lemma is an identity\nand is verified as one: over all $10\\,262$ squarefree $d_0<K$ coprime\nto $N$, the brute-force $B_w$ over $k<K$ and the factorised\n$\\mu(d_0)\\varphi(d_0)^{-1}\\rho_{d_0N}(K/d_0)$ agree to\n$6.5\\cdot10^{-18}$.\n\nThe size behaves as the lemma predicts. The quantity\n$|B_w|\\varphi(d_0)$ is of order $1$ only when $K/d_0=O(1)$, i.e. only\nwhen the weight's transform sits at the truncation point, and is\ndamped throughout the range Bombieri--Vinogradov admits: for these\nparameters $N^{\\theta'-1/2}=3$, and over $d_0\\le3$ the largest value\nattained is $0.004145$. The value is not a function of $K/d_0$ alone\n--- $\\rho_{d_0N}$ carries the condition $(j,d_0N)=1$, so it depends on\nwhich small primes divide $d_0$. At $\\lfloor K/d_0\\rfloor=7$ the $184$\nadmissible $d_0$ produce exactly four values, split by $\\gcd(d_0,15)$:\n\\[\n\\begin{array}{r|cccc}\n \\gcd(d_0,15) & 1 & 3 & 5 & 15\\\\\\hline\n |B_w|\\,\\varphi(d_0) & 0.250000 & 0.750000 & 0.500000 & 1.000000\n\\end{array}\n\\]\nand at $\\lfloor K/d_0\\rfloor=13$ the $55$ admissible $d_0$ produce six\nvalues spanning $0.066667$ to $0.566667$\n(\\texttt{audit\\_extraction\\_tradeoff.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 741,
+  "env": "proposition",
+  "title": "polynomial weights",
+  "key": "prop:Dpp",
+  "body": "\\begin{proposition}[polynomial weights]\\label{prop:Dpp}\nLet $w_k=f(\\log k)$ with $f=\\sum_{j\\le D}c_jx^j$ real.\n\\begin{enumerate}\n\\item[(i)] If $D=0$ then $B_w\\ll e^{-c\\sqrt{\\log K}}$ (Huang--Li's\nLemma~1): no extraction.\n\\item[(ii)] If $f$ is a single monomial $x^D$, $D\\ge1$, then every\nterm of $\\mathrm{CP}_D$ is nonnegative, since $\\Lambda\\ge0$ and\n$\\Lambda_D\\ge0$; so $\\mathrm{CP}_D\\ge0$ and \\emph{no cancellation is\navailable inside it}. Classical sieve upper bounds give\n$\\mathrm{CP}_D\\ll N(\\log N)^{D-1}$. A matching lower bound is not\navailable: at $D=1$ the sum is exactly the binary Goldbach sum\n$\\sum_{p<N}\\Lambda(N-p)\\log p$, whose order is the assertion to be\nproved. So $\\mathrm{CP}_D$ is not known to be $o(N)$, and at $D=1$\ndeciding whether it is would settle Goldbach.\n\\item[(iii)] Cancellation therefore requires coefficients of opposite\nsign, i.e. tuning $c_1$ against $c_2,\\dots$; but the ratio that would\nhave to be matched involves the asymptotics of the $r=1$ piece, which\nfor $D=1$ \\emph{is} the binary Goldbach sum. The tuning is circular.\n\\end{enumerate}\nConsequently no polynomial weight makes the complete part a\nclassically known object.\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 783,
+  "env": "note",
+  "title": "the canonical tuning moves the wrong way",
+  "key": "",
+  "body": "\\begin{note}[the canonical tuning moves the wrong way]\nSince $b=\\mu*w$ we have $w=\\mathbf 1*b$ and hence\n$B(s)=W(s)/\\zeta(s)$. That series has a \\emph{double} pole at $s=1$\nfor every degree-$2$ $f$, so no such $f$ removes it and $b$ cannot be\nmade mean-zero; the most a degree-$2$ tuning can do is kill the\nsecond-order term. With $f=x^2+cx$ one has $W=\\zeta''-c\\zeta'$, and\nneither $\\zeta''$ nor $\\zeta'$ carries a $(s-1)^{-1}$ term.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 792,
+  "env": "measurement",
+  "title": "the two pieces are the same order",
+  "key": "meas:poly",
+  "body": "\\begin{measurement}[the two pieces are the same order]\\label{meas:poly}\nNonnegativity, and not a separation of scales, is what closes (ii).\nAt $N=10^6,\\,4\\cdot10^6,\\,1.6\\cdot10^7$ the two pieces of\n$\\mathrm{CP}_2$ are the same order:\n\\[\n\\begin{array}{r|ccc}\n N & 10^6 & 4\\cdot10^6 & 1.6\\cdot10^7\\\\\\hline\n r=1:\\ \\sum_p\\Lambda(N-p)\\log^2p\\,/\\,N & 22.5145 & 25.0438 & 27.4579\\\\\n r=2:\\ 2\\sum_{pq}\\Lambda(N-pq)\\log p\\log q\\,/\\,N\n   & 17.3648 & 19.7926 & 22.2512\\\\\n \\text{ratio } r_2/r_1 & 0.7713 & 0.7903 & 0.8104\\\\\n \\mathrm{CP}_2/(N\\log N) & 2.8866 & 2.9494 & 2.9967\n\\end{array}\n\\]\nThe ratio drifts toward $1$, not toward $0$ or $\\infty$. Calibration:\nthe $D=1$ column reproduces the Goldbach sum\n$\\sum_p\\Lambda(N-p)\\log p=1.7565N,\\,1.7633N,\\,1.7614N$ against\n$\\SS(N)=1.76043$, which is the same at all three $N$ because\n$N$ has the same prime support $\\{2,5\\}$ in each case\n(\\texttt{audit\\_polyweight.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 830,
+  "env": "proposition",
+  "title": "zero margin",
+  "key": "prop:E",
+  "body": "\\begin{proposition}[zero margin]\\label{prop:E}\nBoth standard ways of estimating this integral lie at or above the\ntrivial bound $|C(N)|\\le\\psi(N)\\sim N$:\n\\begin{enumerate}\n\\item[(i)] $\\|S_\\Lambda\\|_2\\|S_\\mu\\|_2\n   =\\bigl(\\sum_{n\\le N}\\Lambda(n)^2\\bigr)^{1/2}\n     \\bigl(\\sum_{m\\le N}\\mu^2(m)\\bigr)^{1/2}\n   \\sim(6/\\pi^2)^{1/2}\\,N(\\log N)^{1/2}$, exceeding the trivial bound\n   by a factor $\\asymp(\\log N)^{1/2}$, which \\emph{grows};\n\\item[(ii)] any bound of the shape\n  $\\sup_\\alpha|S_\\mu(\\alpha)|\\cdot\\|S_\\Lambda\\|_1$ is at least\n  $\\|S_\\mu\\|_2\\|S_\\Lambda\\|_1\\gg N^{1/2}\\cdot N^{1/2}=N$.\n\\end{enumerate}\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P2-no-go-divisor-switch.tex",
+  "line": 870,
+  "env": "measurement",
+  "title": "the constants",
+  "key": "meas:circle",
+  "body": "\\begin{measurement}[the constants]\\label{meas:circle}\nComputed by exact FFT on a $4N$-point grid at\n$N=2^{14},\\dots,2^{20}$:\n\\[\n\\begin{array}{r|cccc}\n N & 2^{14} & 2^{16} & 2^{18} & 2^{20}\\\\\\hline\n \\|S_\\mu\\|_2/\\sqrt N & 0.7798 & 0.7797 & 0.7797 & 0.7797\\\\\n \\sup|S_\\mu|/\\sqrt N & 3.058 & 2.742 & 2.853 & 2.801\\\\\n \\|S_\\Lambda\\|_1/\\sqrt N & 1.946 & 2.084 & 2.219 & 2.346\\\\\n \\text{(i) bound}/N & 2.297 & 2.473 & 2.639 & 2.795\\\\\n N/\\bigl(\\sup|S_\\mu|\\,\\|S_\\Lambda\\|_1\\bigr) & 0.168 & 0.175 & 0.158\n  & 0.152\n\\end{array}\n\\]\nThe first row reproduces $\\sqrt{6/\\pi^2}=0.7797$ exactly, confirming\nthe computation; the last row --- the margin that route~(ii) would\nneed to exceed $1$ --- sits near $0.16$ and falls over the last three\nabscissae. Route~(i) diverges from the trivial bound like\n$(\\log N)^{1/2}$, as predicted. For reference the object itself is\nsmall: $C(N)/N=-0.0105,\\,0.0001,\\,0.0059,\\,0.0032$ at these $N$\n(\\texttt{audit\\_circle\\_margin.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P3-wall-second-moment.tex",
+  "line": 161,
+  "env": "proposition",
+  "title": "the exact scale",
+  "key": "prop:V",
+  "body": "\\begin{proposition}[the exact scale]\\label{prop:V}\nLet\n\\[\n  V(N)=\\sum_{v<N}\\mu^2(v)\\,\\Lambda(N-v)^2,\n  \\qquad\n  W(N)=\\sum_{w<N}\\Lambda(w)^2 .\n\\]\nThen $V(N)=W(N)\\,\\AAA(N)\\,(1+o(1))$, and consequently\n$V(N)\\sim\\AAA(N)\\,N\\log N$.\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P3-wall-second-moment.tex",
+  "line": 188,
+  "env": "note",
+  "title": "the local factor is $\\AAA$, not $\\SS$",
+  "key": "note:AvsS",
+  "body": "\\begin{note}[the local factor is $\\AAA$, not $\\SS$]\\label{note:AvsS}\nThe singular series $\\SS(N)$ is Hardy--Littlewood's and is correct for\nthe Goldbach \\emph{count}; the right object for the second moment of\n$C(N)$ is $\\AAA(N)$. Both depend on $N$ only through the set of primes\ndividing $N$ --- though in opposite ways, $\\SS$ through a product\n\\emph{over} those primes and $\\AAA$ through a product over the primes\n\\emph{not} among them --- which is why the substitution is easy to\nmake and hard to see. One reconstruction error of exactly this kind\ndivides by $W(N)$ where the definition calls for $V(N)$; the two\ndiffer by exactly $\\AAA(N)$.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P3-wall-second-moment.tex",
+  "line": 200,
+  "env": "measurement",
+  "title": "the local factor, discriminated",
+  "key": "meas:V",
+  "body": "\\begin{measurement}[the local factor, discriminated]\\label{meas:V}\nThe statistic, stated: for a candidate $c\\in\\{\\AAA,\\SS\\}$ put\n$z_c(N)=\\bigl(V(N)/W(N)\\bigr)/c(N)$; the figure quoted is\n$\\mathrm{sd}\\bigl(z_c/\\overline{z_c}\\bigr)$, i.e. the candidate is\nrescaled to the measured mean so that only its shape in $N$ is judged.\nOver even $N\\in[10^5,\\,1.6\\cdot10^7]$ it is $0.000323$ for $\\AAA$\nagainst $0.245235$ for $\\SS$, a factor of $759.3$. The reading has to\nbe stated: subtracting a least-mean multiple rather than dividing\ngives $0.000317$ and $0.299040$ instead. The lower cutoff is not\ncosmetic --- the figure for $\\AAA$ rises as the cutoff falls, reading\n$0.000346,\\,0.000398,\\,0.000470,\\,0.000529$ at cutoffs\n$5\\cdot10^4,\\,10^4,\\,10^3,\\,10^2$, while the figure for $\\SS$ is\nunaffected, being dominated by $\\SS$'s wrong shape rather than by\nnoise.\n\nDividing through by $W(N)$ removes the analytic factor exactly, so no\nasymptotic for $\\sum(\\log p)^2$ is assumed: the ratio $V(N)/W(N)$\nagainst $\\AAA(N)$ has mean $1.0000002$ with standard deviation\n$0.0001659$ in the top octave, and at $N=4\\cdot10^6$ the ratio $W/V$\nis $1.270800$ against the predicted $1/\\AAA(N)=1.270204$. By cells,\nwith cell $j$ the even $N$ divisible by $2$ and by the first $j-1$ of\n$3,5,7,11,13$:\n\\[\n\\setlength{\\arraycolsep}{3pt}\n\\begin{array}{r|cccccc}\n \\text{modulus} & 2 & 6 & 30 & 210 & 2310 & 30030\\\\\n \\text{count} & 7950000 & 2650000 & 530000 & 75714 & 6883 & 529\\\\\\hline\n \\overline{V/(W\\AAA)} & 1.000000475 & 1.000000147 & 1.000000010\n   & 0.999999570 & 0.999999037 & 0.999999646\n\\end{array}\n\\]\n(\\texttt{lab\\_second\\_moment.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P3-wall-second-moment.tex",
+  "line": 234,
+  "env": "measurement",
+  "title": "the second-order form",
+  "key": "meas:secondorder",
+  "body": "\\begin{measurement}[the second-order form]\\label{meas:secondorder}\nThe asymptotic $V\\sim\\AAA N\\log N$ converges slowly and should be\nquoted in its second-order form. The measured ratio\n$V/(\\AAA N\\log N)$ is $0.927137,\\,0.933409,\\,0.939701$ at\n$N=10^6,\\,4\\cdot10^6,\\,1.6\\cdot10^7$. Partial summation from\n$\\theta(x)\\sim x$ gives $\\sum_{p\\le x}(\\log p)^2\\sim x\\log x-x$, so\nthe second-order form is $\\AAA(N)\\,(N\\log N-N)$, a factor\n$1-1/\\log N$ smaller --- $0.939716$ at the top, against the measured\n$0.939701$. Against that form the ratio reads\n$0.999482,\\,0.999134,\\,0.999984$ at the same three $N$\n(\\texttt{lab\\_second\\_moment.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P3-wall-second-moment.tex",
+  "line": 249,
+  "env": "lemma",
+  "title": "the second-moment identity",
+  "key": "lem:MP",
+  "body": "\\begin{lemma}[the second-moment identity]\\label{lem:MP}\nFix $X$ and let\n\\[\n  \\widehat C(N)\\;=\\;\\sum_{\\substack{n+v=N\\\\ n\\le X,\\ v\\le X}}\n    \\Lambda(n)\\,\\mu(v)\n\\]\nbe the truncated convolution, whose support runs to $2X$. Then\n\\[\n  \\sum_{N\\le2X}\\widehat C(N)^2\\;=\\;\\sum_{|h|<X}M(h)\\,P(h),\n\\]\nwhere\n\\[\n  M(h)=\\sum_{v,\\,v+h\\le X}\\mu(v)\\mu(v+h),\n  \\qquad\n  P(h)=\\sum_{w,\\,w+h\\le X}\\Lambda(w)\\Lambda(w+h).\n\\]\n\\end{lemma}"
+ },
+ {
+  "file": "deploy/papers/P3-wall-second-moment.tex",
+  "line": 275,
+  "env": "note",
+  "title": "the truncation is load-bearing",
+  "key": "note:trunc",
+  "body": "\\begin{note}[the truncation is load-bearing]\\label{note:trunc}\nThe truncation on the left is necessary and it is easy to lose. If one\nwrites instead $\\sum_{N\\le X}C(N)^2$ with $C$ the untruncated\nconvolution, the three surviving indices $(n,v,h)$ are constrained by\n$n+v\\le X$ --- a \\emph{simplex} --- while $M(h)P(h)$ ranges them over\nthe \\emph{box} $[1,X]^2$ and so also counts every pair with\n$X<n+v\\le2X$. The two sides then differ by a factor near $1.57$ at $X$\nfrom $800$ to $3200$, and the ratio does not tend to $1$. The form of\nLemma~\\ref{lem:MP} is exact to machine precision at every $X$ tested,\nto $X=1.6\\cdot10^7$.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P3-wall-second-moment.tex",
+  "line": 320,
+  "env": "proposition",
+  "title": "the amplification",
+  "key": "prop:W",
+  "body": "\\begin{proposition}[the amplification]\\label{prop:W}\nLet $\\Gamma(N)=\\bigl(\\sum_{h\\ne0}c(h)\\bigr)/V(N)$ with $c$ as in\n\\eqref{eq:cdef} and $X=N$. Then\n\\[\n  \\Gamma(N)\\;\\sim\\;\\frac{N}{\\AAA(N)\\log N},\n\\]\nand consequently a hypothesis $|S(h)|\\le\\varepsilon$ yields nothing\nbetter than $|\\rho-1|\\le\\varepsilon\\,\\Gamma(N)$. Because $c(h)\\ge0$\nthat inequality is sharp, so such a hypothesis can give $\\rho\\to1$\nonly for $\\varepsilon=o(1/\\Gamma(N))=o(\\log N/N)$.\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P3-wall-second-moment.tex",
+  "line": 360,
+  "env": "measurement",
+  "title": "the budget is already overspent",
+  "key": "meas:budget",
+  "body": "\\begin{measurement}[the budget is already overspent]\\label{meas:budget}\nMeasured, $\\mathcal B(X)=13.3,\\,17.3,\\,23.1,\\,30.5$ at\n$X=2\\cdot10^4,\\ 4\\cdot10^4,\\ 8\\cdot10^4,\\ 1.6\\cdot10^5$: above $1$ by\nan order of magnitude, and growing. Normalising $S$ by $X$ rather than\nby the number $X-|h|$ of terms gives $7.9,\\,10.3,\\,13.8,\\,18.2$ ---\nsmaller, same conclusion. Both are reported because the phrase\n``binary Chowla sum'' does not fix the normalisation, and a budget is\nnot interpretable until it does. The amplification itself measures\n$\\Gamma=1.5128\\cdot10^{3},\\ 1.8412\\cdot10^{4},\\ 3.5759\\cdot10^{5}$ at\n$N=10^4,\\,1.6\\cdot10^5,\\,4\\cdot10^6$, with\n$\\Gamma\\log N/N=1.3933,\\,1.3789,\\,1.3590$ against the predicted\n$1/\\AAA(N)=1.270204$\n(\\texttt{audit\\_amplification.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P3-wall-second-moment.tex",
+  "line": 384,
+  "env": "lemma",
+  "title": "the coin control",
+  "key": "lem:coin",
+  "body": "\\begin{lemma}[the coin control]\\label{lem:coin}\nLet $\\varepsilon(v)=\\pm1$ be arbitrary signs on\n$\\{v:\\mu(v)\\neq0\\}$ and zero elsewhere. Then $\\varepsilon^2=\\mu^2$\npointwise, so $V(N)$ is unchanged, and the field\n$C_\\varepsilon(N)=\\sum_v\\varepsilon(v)\\Lambda(N-v)$ has the same exact\nsecond moment as $C(N)$ for every $N$. Consequently any estimator\nwhose output is reproduced when $\\mu$ is replaced by $\\varepsilon$ is\nnot measuring $\\mu$.\n\\end{lemma}"
+ },
+ {
+  "file": "deploy/papers/P3-wall-second-moment.tex",
+  "line": 398,
+  "env": "note",
+  "title": "what the lemma licenses, and what it does not",
+  "key": "note:coinscope",
+  "body": "\\begin{note}[what the lemma licenses, and what it does not]%\n\\label{note:coinscope}\nThe implication runs one way: \\emph{reproduced under $\\varepsilon$}\n$\\Rightarrow$ \\emph{not measuring $\\mu$}. The converse does not follow\nand is not proved anywhere here, so a statistic that a sign ensemble\nfails to reach has not thereby been shown to measure $\\mu$; it has\nbeen shown not to be killed by this particular control. The\ndistinction is quantitatively large. An i.i.d. sign ensemble is\n\\emph{narrower} than a random multiplicative one wherever the object\nis multiplicative --- resolved to $512$ draws on one statistic, the\ni.i.d. spread was $0.6455$ of the multiplicative\n(\\texttt{audit\\_cn\\_coin\\_deep.py}) --- so significance\nread against an i.i.d. ensemble is larger than it should be. Because\nnarrowness is conservative for killing, every claim this lemma kills\nstays killed; it is the other direction that fails. An estimator that\nescapes an i.i.d. ensemble has cleared the weakest available control,\nand until it has been put against an ensemble sharing $\\mu$'s\nmultiplicativity, the escape is a fact about the control.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P3-wall-second-moment.tex",
+  "line": 425,
+  "env": "proposition",
+  "title": "the coin obstruction is arithmetic, not informational",
+  "key": "prop:coindisc",
+  "body": "\\begin{proposition}[the coin obstruction is arithmetic, not\ninformational]\\label{prop:coindisc}\n\\begin{enumerate}\n\\item[(i)] Estimators separating $\\mu$ from a sign pattern exist and\nare cheap, provided they read \\emph{multiplicativity} rather than\nvariability. Since $\\mu(2v)=-\\mu(v)$ for odd $v$ is an exact identity\nwhile $\\varepsilon(2v)$ and $\\varepsilon(v)$ are independent signs,\n\\[\n  T(x)\\;=\\;\\frac1x\\sum_{v\\le x}\\mu(v)\\mu(2v)\n  \\;\\longrightarrow\\;-\\frac{4}{\\pi^2},\n\\]\nminus the density of odd squarefree integers, while its analogue for\nindependent signs is $O(x^{-1/2})$.\n\\item[(ii)] The field determines $\\mu$. Writing $M=N-2$ and\n$\\widehat\\Lambda(m)=\\Lambda(m+2)$, one has\n$C(N)=(\\widehat\\Lambda*\\mu)(M)$ as an additive convolution with\n$\\widehat\\Lambda(0)=\\Lambda(2)=\\log2\\neq0$, so $\\widehat\\Lambda$ is\ninvertible and $\\mu(M)=\\sum_{m<M}a(m)\\,C(M-m+2)$ for the inverse\nfilter $a$.\n\\end{enumerate}\nHence Lemma~\\ref{lem:coin} is not an information-theoretic\nobstruction: two different sign patterns give two different fields.\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P3-wall-second-moment.tex",
+  "line": 460,
+  "env": "measurement",
+  "title": "the discriminator, and the price of inverting",
+  "key": "meas:disc",
+  "body": "\\begin{measurement}[the discriminator, and the price of inverting]%\n\\label{meas:disc}\nAt $x=10^4,\\,10^5,\\,10^6,\\,2\\cdot10^6$, against\n$-4/\\pi^2=-0.405285$,\n\\[\n  T(x)\\;=\\;-0.405600,\\ -0.405270,\\ -0.405286,\\ -0.405295,\n\\]\nwhile the worst of twenty independent-sign draws on the same support\nis\n\\[\n  0.020600,\\ 0.004570,\\ 0.001214,\\ 0.000935 .\n\\]\nAt the top the measured value is a factor $434$ above the worst of\nthose twenty draws. That factor is not a number of standard\ndeviations: no standard deviation of the sign ensemble is computed\nanywhere here, and the worst of twenty draws from a half-normal is\nabout $2\\sigma$, so the separation in units of $\\sigma$ is larger than\n$434$ rather than smaller. The factor is quoted because it is what was\nmeasured.\n\nThe constructive route of (ii) is killed by amplification, not by\ninformation. The inverse filter grows geometrically: $|a(m)|$ runs\n$1.443,\\,2.287,\\,2.182,\\,20.91,\\,512.3,\\,3.443\\cdot10^{5},\\,\n1.073\\cdot10^{14},\\,1.535\\cdot10^{28},\\,3.146\\cdot10^{56}$ at\n$m=0,1,2,5,10,20,50,100,200$, a growth of about $1.92^{m}$. Any\nnumerical use of the inversion is therefore dead at once\n(\\texttt{lab\\_coin\\_discriminator.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P4-coherent-cell-floor.tex",
+  "line": 152,
+  "env": "lemma",
+  "title": "exact cell moments",
+  "key": "lem:cellmom",
+  "body": "\\begin{lemma}[exact cell moments]\\label{lem:cellmom}\nLet a band of even $N$ be partitioned into cells, let $c$ be a cell of\nsize $n_c$ inside a band of size $n$, let $m_c$ and $\\overline m$ be\nthe means of $Z$ over $c$ and over the band, and set\n\\[\n  u_c(v)\\;=\\;\\sum_{N\\in c}\\frac{\\Lambda(N-v)}{\\sqrt{V(N)}},\n  \\qquad\n  Q_{cd}\\;=\\;\\sum_v\\mu^2(v)\\,u_c(v)\\,u_d(v).\n\\]\nThen, when the $\\mu(v)$ on the surviving support are replaced by\nindependent signs,\n\\begin{equation}\\label{eq:cellmom}\n  \\mathrm{Var}\\bigl(m_c-\\overline m\\bigr)\n  \\;=\\;\\frac{Q_{cc}}{n_c^{2}}\n  \\;-\\;\\frac{2\\,Q_{ca}}{n_c\\,n}\n  \\;+\\;\\frac{Q_{aa}}{n^{2}},\n\\end{equation}\nwhere $a$ denotes the whole band. Every term is computable exactly by\none convolution; no simulation is involved.\n\\end{lemma}"
+ },
+ {
+  "file": "deploy/papers/P4-coherent-cell-floor.tex",
+  "line": 180,
+  "env": "note",
+  "title": "all three terms are needed",
+  "key": "note:threeterms",
+  "body": "\\begin{note}[all three terms are needed]\\label{note:threeterms}\nThe substitution $u_c(v)\\approx n_c/\\sqrt V$, which gives the right\nscale for $Q_{cc}/n_c^2$, is not specific to $c$; applied to all three\nterms it returns the same value $S$ for each and hence $S-2S+S=0$. So\nit cannot be used to estimate the variance of the difference. Exactly,\nthe variance is smaller than $Q_{cc}/n_c^2$ by a factor that is a\nstructural constant rather than noise.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P4-coherent-cell-floor.tex",
+  "line": 189,
+  "env": "measurement",
+  "title": "the closed form, checked against simulation",
+  "key": "meas:mc",
+  "body": "\\begin{measurement}[the closed form, checked against simulation]%\n\\label{meas:mc}\nThe lemma does not need simulation, but simulation is the only thing\nthat would catch an error in the formula, and every normalised cell\nmean below is divided by it. Run in the band $(10^5,2\\cdot10^5]$ with\n$2000$ draws:\n\\[\n\\begin{array}{r|cccccc}\n \\text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\\\\n n_c & 19181 & 21097 & 8183 & 1421 & 115 & 3\\\\\\hline\n \\text{closed form} & 0.140080 & 0.052724 & 0.167579 & 0.273630\n   & 0.378073 & 0.639330\\\\\n \\text{MC}/\\text{closed} & 0.9920 & 0.9993\n   & 0.9918 & 1.0044 & 1.0157 & 1.0320\n\\end{array}\n\\]\n--- worst deviation $0.0320$, at the depth whose cell holds three\nelements, and the six ratios straddle $1$ three and three.\n\nThe six ratios are estimated from the \\emph{same} draws, so their\ndeviations are strongly correlated and their common sign would be one\nobservation, not six; that is why the check is run at $2000$ draws\nrather than at a number where the Monte-Carlo precision, here\n$1/\\sqrt{2\\cdot1999}$, is comparable to the deviation being judged.\n\nThe structural constant of Note~\\ref{note:threeterms} is visible\ndirectly: at the top octave of $1.6\\cdot10^7$,\n$\\mathrm{Var}/(Q_{cc}/n_c^2)$ is\n$0.113119,\\,0.016302,\\,0.288567,\\,0.551516$ at depths $0,1,3,5$, and\nat a quarter of that $N$ the three shallow ratios agree to six digits\n--- $0.113118,\\,0.016303,\\,0.288571$. Depth $5$ does not: it reads\n$0.557654$ there against $0.551516$ at the top, differing in the third\ndigit, and it is much the smallest cell --- $266$ values of $N$ in the\ntop octave against $1\\,687\\,911$ at depth $1$\n(\\texttt{lab\\_cellmom\\_montecarlo.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P4-coherent-cell-floor.tex",
+  "line": 230,
+  "env": "observation",
+  "title": "coherent sums",
+  "key": "obs:coh",
+  "body": "\\begin{observation}[coherent sums]\\label{obs:coh}\nThe error bar of Lemma~\\ref{lem:cellmom} does \\emph{not} decay like\n$n_c^{-1/2}$. For fixed $v$, about $n_c/\\log N$ of the terms of\n$u_c(v)$ are nonzero, each of size $\\log N/\\sqrt V$, so\n$u_c(v)\\approx n_c/\\sqrt V$ and\n\\[\n  \\frac{Q_{cc}}{n_c^2}\n  \\;\\approx\\;\\frac{\\sum_v\\mu^2(v)}{V}\n  \\;\\asymp\\;\\frac{1}{\\log N},\n\\]\nindependently of $n_c$; and by Note~\\ref{note:threeterms} the variance\nitself is a fixed fraction of this. So the standard error falls like\n$(\\log N)^{-1/2}$.\n\\end{observation}"
+ },
+ {
+  "file": "deploy/papers/P4-coherent-cell-floor.tex",
+  "line": 258,
+  "env": "measurement",
+  "title": "the exponent, fitted",
+  "key": "meas:exponent",
+  "body": "\\begin{measurement}[the exponent, fitted]\\label{meas:exponent}\nThe form is confirmed directly. Fitting $\\mathrm{se}\\propto N^{-b}$ to\nthe exact floor across eight octaves gives\n$b=0.039451,\\,0.039671,\\,0.039388$ at depths $2,1,0$, against the\n$0.5$ that a count would give and against $0.036038$, the value of\n$1/(2\\langle\\log N\\rangle)$ with $\\langle\\log N\\rangle$ the mean of\n$\\log N$ over the eight octave midpoints. Nothing turns on the third\ndecimal: the point is that $0.039$ is near $0.036$ and nowhere near\n$0.5$ (\\texttt{lab\\_cell\\_floor.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P4-coherent-cell-floor.tex",
+  "line": 269,
+  "env": "note",
+  "title": "a count is not an error bar",
+  "key": "note:notanerrorbar",
+  "body": "\\begin{note}[a count is not an error bar]\\label{note:notanerrorbar}\nThe consequence is not confined to this field. The fit runs over the\neight octaves from $(6.25\\cdot10^4,\\,1.25\\cdot10^5]$ to\n$(8\\cdot10^6,\\,1.6\\cdot10^7]$, and the abscissa is the octave midpoint\n--- which is what makes $1/(2\\langle\\log N\\rangle)=0.036038$ come out,\nwith $\\langle\\log N\\rangle=13.8744$. The factor in $N$ is therefore\n$1.2\\cdot10^7/93750=128$. Over it, $n_c^{-1/2}$ says the error\nbar shrinks by $\\sqrt{128}=11.3$; it shrinks by $128^{0.0395}=1.21$,\nagainst the $1.19$ that $(\\log N)^{-1/2}$ predicts over the same\nfactor. \\textbf{An interval built from a count is therefore a factor\n$11.3/1.21=9.3$ too narrow at the top of this range relative to the\nbottom}, and in absolute terms the\ndiscrepancy is larger still: at the top octave the exact floor exceeds\n$\\mathrm{sd}(Z)/\\sqrt{n_c}$ by factors of $7.3$ to $158$, with\n$\\mathrm{sd}(Z)=0.924687$ over that octave --- and $0.929384$ over the\nwhole fitted field, so the reading of $\\mathrm{sd}$ barely moves the\nfigures. The factor does \\emph{not} grow with the cell. What grows with\nthe cell is the floor itself, $0.118$ to $0.412$ from depth $0$ to\ndepth $5$, exactly as $Q_{cc}/n_c^2\\asymp1/\\log N$ predicts; the factor\nalso carries $\\sqrt{n_c}$, and $n_c$ falls from $1.53\\cdot10^6$ to\n$266$ across those depths, which is the larger movement. By depth the\nfactor reads $158$, $62$, $124$, $84$, $33$, $7$\n(\\texttt{audit\\_cellfloor\\_sdz.py}). The cause\nis that $u_c(v)$ is a coherent sum, not a self-averaging one, and the\nsame is true of any cell mean of a field whose summands share a common\narithmetic input.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P4-coherent-cell-floor.tex",
+  "line": 300,
+  "env": "lemma",
+  "title": "the placebo key",
+  "key": "lem:placebo",
+  "body": "\\begin{lemma}[the placebo key]\\label{lem:placebo}\nLet the cells be indexed by a labelling $\\ell(N)$, and let $\\pi$ be a\npermutation of the even integers in the band. Replacing $\\ell$ by\n$\\ell\\circ\\pi$ preserves every cell size and leaves the field $Z$\npointwise unchanged, while destroying the correspondence between cells\nand arithmetic. Any cell-indexed statistic that survives this\nreplacement is a property of the cell sizes and not of that\ncorrespondence.\n\\end{lemma}"
+ },
+ {
+  "file": "deploy/papers/P4-coherent-cell-floor.tex",
+  "line": 317,
+  "env": "measurement",
+  "title": "the cell means are not zero",
+  "key": "meas:notzero",
+  "body": "\\begin{measurement}[the cell means are not zero]\\label{meas:notzero}\nAgainst the exactly computed floor of Lemma~\\ref{lem:cellmom}, the\ncell means of the field \\eqref{eq:field} are not zero. Over the eight\noctaves from $(6.25\\cdot10^4,\\,1.25\\cdot10^5]$ to\n$(8\\cdot10^6,\\,1.6\\cdot10^7]$, $\\max_c|z_c|$ reads\n\\[\n  10.099,\\ 10.954,\\ 11.179,\\ 12.968,\\ 11.885,\\ 11.026,\\ 10.019,\\ 9.064,\n\\]\nclearing Bonferroni in each. The signal is carried by the deep cells:\nat the top octave depths $3,4,5$ sit at $z=-1.55,\\,-4.46,\\,-9.06$\nwhile depths $0,1,2$ sit at $+0.04,\\,+0.69,\\,-0.06$\n(\\texttt{lab\\_cell\\_floor.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P4-coherent-cell-floor.tex",
+  "line": 331,
+  "env": "measurement",
+  "title": "the effect survives the placebo; the floor does not",
+  "key": "meas:placebo",
+  "body": "\\begin{measurement}[the effect survives the placebo; the floor does\nnot]\\label{meas:placebo}\nRun on the octave $(2\\cdot10^6,\\,4\\cdot10^6]$, with cell sizes\npreserved exactly and the floor recomputed from scratch for each\npermutation:\n\\[\n\\begin{array}{r|cccccc}\n \\text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\\\\n n_c & 383617 & 421978 & 163568 & 28507 & 2263 & 67\\\\\\hline\n z_c\\ \\text{(true)} & +0.1069 & +1.1133 & -0.2314 & -2.3990\n   & -5.9997 & -11.0258\n\\end{array}\n\\]\nagainst $\\max_c|z_c|$ over ten label permutations reading\n\\[\n  0.9359,\\ 1.6073,\\ 1.9921,\\ 1.5687,\\ 2.1392,\\\n  1.1216,\\ 1.7178,\\ 1.1348,\\ 3.2040,\\ 1.3192,\n\\]\nmean $1.6741$, never above $3.3$. The\ncorrelation between depth and $z_c$ is $-0.9106$ for the true\nlabelling and $+0.0042$ on average under permutation. So what is\ndetected is the correspondence between cells and divisibility, not the\ncell sizes.\n\nThe same run corrects a natural reading of Lemma~\\ref{lem:cellmom}.\nOne expects the floor $\\mathrm{se}_c$ to be a property of the cell\nsizes, hence nearly invariant under permutation. It is not: the floor\n\\textbf{collapses}, by factors from $3.8$ at depth $5$ to $105$ at\ndepth $0$ --- $1.2400\\cdot10^{-1}$ against $1.1794\\cdot10^{-3}$ there\n(\\texttt{lab\\_mask\\_placebo.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P4-coherent-cell-floor.tex",
+  "line": 363,
+  "env": "note",
+  "title": "the floor is itself signal",
+  "key": "note:floorsignal",
+  "body": "\\begin{note}[the floor is itself signal]\\label{note:floorsignal}\nThe mechanism of that collapse is the three-term structure of\n\\eqref{eq:cellmom}. For a random subset of the band,\n$u_c(v)\\approx(n_c/n)\\,u_a(v)$, and then\n$Q_{cc}/n_c^2-2Q_{ca}/(n_cn)+Q_{aa}/n^2$ cancels to leading order,\nleaving only the fluctuation around proportionality. An arithmetic\ncell breaks that proportionality, and the floor is what is left over.\n\\textbf{The exact floor is therefore not a noise level but a second\nmeasurement of the same correspondence}, and quoting $z_c$ against it\nis conservative by about two orders of magnitude: with the permuted\nfloor in the denominator the depth-$5$ cell would read $z\\approx-42$\nrather than $-11$. The conservative figure is the one kept throughout.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P4-coherent-cell-floor.tex",
+  "line": 390,
+  "env": "measurement",
+  "title": "the floor tracks $D_c$, including its shape",
+  "key": "meas:Dc",
+  "body": "\\begin{measurement}[the floor tracks $D_c$, including its shape]%\n\\label{meas:Dc}\nAt the octave $(2\\cdot10^6,\\,4\\cdot10^6]$:\n\\[\n\\begin{array}{r|cccccc}\n \\text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\\\\\hline\n D_c & 0.302138 & 0.046766 & 0.412504 & 1.052129 & 1.946109\n   & 3.171298\\\\\n \\mathrm{se}_c & 0.12400 & 0.04662 & 0.14834 & 0.24178 & 0.33253\n   & 0.43685\n\\end{array}\n\\]\nwith correlation $0.9805$ across depths. Neither row is monotone: both\ndip at depth $1$, and that is the mechanism made visible. Depth $0$ is\nthe cell on which \\emph{none} of $3,5,7,11,13$ divides $N$, and\nexcluding a class concentrates the shift just as fixing one does ---\nif $3\\nmid N$ and $3\\nmid N'$ then both lie in $\\{1,2\\}\\bmod3$ and\n$3\\mid h$ with probability $\\tfrac12$ against $\\tfrac13$ for a random\npair. Both ends of the depth index concentrate $h$; depth $1$ mixes\nthe patterns and washes out. Depth is therefore a coarse index for\n$D_c$, and the floor follows the same coarse index\n(\\texttt{lab\\_mask\\_placebo.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P4-coherent-cell-floor.tex",
+  "line": 414,
+  "env": "proposition",
+  "title": "the size mechanism is scale-invariant",
+  "key": "prop:scaleinv",
+  "body": "\\begin{proposition}[the size mechanism is scale-invariant]%\n\\label{prop:scaleinv}\n$D_c$ depends only on the distribution of the shift $h$ in the residue\nclasses mod $3,5,7,11,13$ that the cell fixes. That distribution is\nthe same at every scale, so $D_c$ is scale-invariant and predicts a\nfitted exponent of zero at every depth.\n\\end{proposition}"
+ },
+ {
+  "file": "deploy/papers/P4-coherent-cell-floor.tex",
+  "line": 443,
+  "env": "measurement",
+  "title": "the exponent, measured",
+  "key": "meas:scaleinv",
+  "body": "\\begin{measurement}[the exponent, measured]\\label{meas:scaleinv}\nMeasured over $(10^6,2\\cdot10^6]$, $(2\\cdot10^6,4\\cdot10^6]$ and\n$(4\\cdot10^6,8\\cdot10^6]$, the fitted exponents are\n\\[\n\\begin{array}{r|cccccc}\n \\text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\\\\\hline\n e & -0.000879 & -0.016226 & +0.000936 & +0.002904 & +0.000241\n   & -0.008428\n\\end{array}\n\\]\n--- zero to three decimals at every depth but one. The exception is\ndepth~$1$, and it is the depth at which $D_c=0.046766$ is six times\nsmaller than any other while the sampling error of the pair average is\nthe same $0.0013$ throughout; its fitted exponent flips sign from\n$+0.065546$ to $-0.016226$ when the sample is taken ten times larger,\nwhich is the signature of noise rather than of a trend. Depth~$1$ is\nalso the cell that carries no effect ($z=+1.11$ in\nMeasurement~\\ref{meas:placebo}), so nothing rests on it\n(\\texttt{lab\\_cell\\_singular.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P5-negative-map.tex",
+  "line": 106,
+  "env": "note",
+  "title": "the normalisation is load-bearing",
+  "key": "note:scale",
+  "body": "\\begin{note}[the normalisation is load-bearing]\\label{note:scale}\nThe normalisation in \\eqref{eq:E1} is $M_k^2$, the \\emph{trivial}\nbound, not $M_k$, the square-root scale. The wall is\n$T_{II}=\\sum_{k\\sim K}b_kD(k)$ with $|b_k|\\ll\\log N$, needed at\n$N(\\log N)^{-A}$, and Cauchy--Schwarz in $k$ gives\n$\\sum_k|D(k)|^2\\ll N^2/(K(\\log N)^{2A+2})$ with\n$\\sum_{k\\sim K}M_k^2\\asymp N^2/K$. The distinction changes every\nbudget by a power of $N$: at the square-root normalisation the demand\nat $N=10^8$, $A=1$ would be $\\sum|D|^2/\\sum M_k\\ll8.8\\cdot10^{-6}$,\nwhereas the measured ratio is of order the density of the surviving\nsupport, four orders of magnitude larger. A target must be checked\nagainst one's own measurement of the same quantity before it is used\nto adjudicate anything.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P5-negative-map.tex",
+  "line": 121,
+  "env": "measurement",
+  "title": "the surviving support, and its density",
+  "key": "meas:supp",
+  "body": "\\begin{measurement}[the surviving support, and its density]%\n\\label{meas:supp}\nThe three bands are $K<k\\le2K$ for $K=58,116,232$, i.e.\n$[59,116],\\,[117,232],\\,[233,464]$ with\n$464=\\lfloor N^{1/3}\\rfloor$ at $N=10^8$. The convention has to be\nstated: the other reading of ``dyadic'', $K\\le k<2K$, holds the same\n$58$, $116$, $232$ values of $k$ and so is not excluded by the counts,\nbut it gives $0.3345,\\,0.3278,\\,0.3310$ for the support density below\ninstead of $0.3303,\\,0.3298,\\,0.3320$ --- a shift larger than the\neffect the paragraph is about.\n\nIt is tempting to read that density as $\\prod_p(1-2/p^2)=0.3226341$,\nthe value obtained by assuming $p^2\\mid m$ and $p^2\\mid N-mk$ cut out\ntwo distinct classes mod $p^2$. At $N=10^8=2^8\\cdot5^8$ that\nassumption fails at $p=2$ and $p=5$, where $p^2\\mid N$ collapses the\nsecond condition onto the first, and the true density depends on\n$v_p(k)$: measured exactly over all $k$ in the three bands it ranges\nfrom $0$ to $0.594330$, and lands within $0.01$ of $0.32263$ for only\n$1$, $1$ and $3$ of the $58$, $116$ and $232$ values of $k$. In\nparticular $D(k)$ vanishes identically whenever $4\\mid k$ or\n$25\\mid k$ --- $2799$ of the $9999$ values $k<\\sqrt N$, or $28.0\\%$,\nand that set is exactly the vanishing set, with no other $k$ in the\nbands giving $D(k)=0$. Aggregated, the coincidence is close but not\nexact: $\\sum_k\\mathrm{supp}(k)/\\sum_kM_k$ is\n$0.3303,\\,0.3298,\\,0.3320$ on the three bands, high by $2.2$ to\n$2.9\\%$ against the closed form, which is therefore not the right one\n(\\texttt{audit\\_support\\_density.py}).\n\\end{measurement}"
+ },
+ {
+  "file": "deploy/papers/P5-negative-map.tex",
+  "line": 162,
+  "env": "conjecture",
+  "title": "the factorization law",
+  "key": "conj:L",
+  "body": "\\begin{conjecture}[the factorization law]\\label{conj:L}\nEach M\\\"obius family of the following kinds --- prime-indexed dilate\npairs $C_{k,k'}=\\sum_{p\\sim P}\\mu(N-pk)\\mu(N-pk')$, integer-indexed\ndilates and their pairs, and M\\\"obius sums over thin progressions ---\nfactorizes as\n\\[\n  \\text{field}\\;=\\;\\mathbf M\\times\\mathbf G,\n\\]\nwhere $\\mathbf M$ is the deterministic local mask, computed exactly by\nfinite modular enumeration from the $v_q$-data of $(N,k,k')$, and\n$\\mathbf G$ is, on the surviving support, a fluctuation with no mean\nfield and no class structure.\n\\end{conjecture}"
+ },
+ {
+  "file": "deploy/papers/P5-negative-map.tex",
+  "line": 176,
+  "env": "note",
+  "title": "the grade of the evidence",
+  "key": "note:Lgrade",
+  "body": "\\begin{note}[the grade of the evidence]\\label{note:Lgrade}\nThe evidence is of two kinds and they are kept apart. The E1 arm\n(Measurement~\\ref{meas:supp}) has been reproduced independently, and\nso has the blind mask prediction: it asserts a set equality --- the\nfield's support is empty on exactly the pairs the mask names --- so a\nsecond implementation either reproduces it exactly or does not, and it\ndoes. The exact $(v_2,v_3)$ cell predictions were attempted next and\nthe attempt did not reach them. The remaining two supporting\nmeasurements, pair statistics and the Wishart pair spectrum, are\nsingle-witness: they are the reason the conjecture is stated, not\nmeasurements this report vouches for.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P5-negative-map.tex",
+  "line": 286,
+  "env": "note",
+  "title": "what a null verdict costs",
+  "key": "note:nullcost",
+  "body": "\\begin{note}[what a null verdict costs]\\label{note:nullcost}\nA kill-test that does not fire is evidence of absence only against a\nstated floor, and a threshold chosen as an effect size is not a\nthreshold. Every DEAD verdict above rests on the measurement --- the\nstatistic never sits systematically above its null --- and not on a\ncount of flagged levels; where the null's own precision could not be\nestablished, the verdict is retained but no exclusion interval is\nquoted. K1 is listed as open rather than closed because its design was\nnot computable on the field it was run on, which is a defect of the\nrun and not a result.\n\\end{note}"
+ },
+ {
+  "file": "deploy/papers/P5-negative-map.tex",
+  "line": 326,
+  "env": "proposition",
+  "title": "perfect cancellation, untruncated",
+  "key": "prop:R4",
+  "body": "\\begin{proposition}[perfect cancellation, untruncated]\\label{prop:R4}\nOver its full ranges the divisor switch gives the exact identity\n\\[\n  \\sum_{k\\ge1}\\ \\sum_{m:\\,mk\\le N-1}\\mu(m)\\mu(N-mk)\n  \\;=\\;\\sum_{u<N}\\mu(N-u)\\sum_{m\\mid u}\\mu(m)\n  \\;=\\;\\mu(N-1).\n\\]\n\\end{proposition}"
+ }
+]

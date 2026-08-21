@@ -1,0 +1,24 @@
+STATISTIC: sha256 agreement, file by file, between the deployed evidence tree and the working evidence tree it was copied from
+FIELD:     deploy/code vs v2/code; deploy/results vs v2/results
+CONSTANTS: none
+NULL:      the deployed tree is a byte-identical subset of the working tree; any file present on both sides with different content means the two papers quote different runs
+DENOM:     every file in the deployed tree
+
+======================================================================
+deploy/code  (34 files)   vs   v2/code  (235 files)
+======================================================================
+  identical            : 32
+  DIFFERENT content    : 0
+  in deploy only       : 2
+     ONLY  c02_flatsum_k1.py                  v2/verify/pass5/code (identical)
+     ONLY  indep.py                           v2/verify/pass5/code (identical)
+
+======================================================================
+deploy/results  (33 files)   vs   v2/results  (235 files)
+======================================================================
+  identical            : 32
+  DIFFERENT content    : 0
+  in deploy only       : 1
+     ONLY  c02_flatsum_k1.txt                 v2/verify/pass5/results (identical)
+
+total files differing or unaccounted for: 0

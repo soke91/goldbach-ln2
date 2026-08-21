@@ -2292,8 +2292,13 @@ analogue is $O(x^{-1/2})$. Measured, $T(x)$ reads
 $-0.405600,\,-0.405270,\,-0.405286,\,-0.405295$ at
 $x=10^4,10^5,10^6,2\cdot10^6$ against $-4/\pi^2=-0.405285$, while the
 worst of twenty coin draws on the same support is
-$0.020600,\,0.004570,\,0.001214,\,0.000935$. At the top the separation
-is about $430$ coin standard deviations.
+$0.020600,\,0.004570,\,0.001214,\,0.000935$. At the top the measured
+value is a factor $434$ above the worst of those twenty draws. **That
+factor is not a number of standard deviations** — no standard
+deviation of the sign ensemble is computed anywhere here, and the
+worst of twenty half-normal draws is about $2\sigma$, so the
+separation in units of $\sigma$ is larger than $434$ rather than
+smaller. The factor is quoted because it is what was measured.
 
 **(ii)** The field itself determines $\mu$. Writing $M=N-2$ and
 $\widehat\Lambda(m)=\Lambda(m+2)$, one has
@@ -7779,9 +7784,14 @@ leaving only the fluctuation around proportionality. An arithmetic
 cell breaks that proportionality, and the floor is what is left over.
 **The exact floor is therefore not a noise level but a second
 measurement of the same correspondence**, and quoting $z_c$ against it
-is conservative by about two orders of magnitude: with the permuted
-floor in the denominator the depth-$5$ cell would read $z\approx-42$
-rather than $-11$. The figure kept is the conservative one.
+is conservative --- but by how much depends on the cell, and the
+figure worth quoting is the one at the cell that carries the effect.
+At depth $5$ the floor collapses by $3.8$ under the permutation, so
+with the permuted floor in the denominator that cell would read
+$z\approx-42$ rather than $-11$: half an order of magnitude, not two.
+Two orders is depth $0$, where the collapse is $105$ and $z=+0.11$ —
+a cell with no effect to be conservative about. The figure kept is the
+conservative one.
 
 What predicts the floor's *size* is the excess of the shift's
 singular series over same-cell pairs. Write $\SS_2(h)$ for the
@@ -7827,24 +7837,32 @@ every scale, so $D_c$ is scale-invariant and predicts an exponent of
 zero at every depth.
 
 Measured over $(10^6,2\cdot10^6]$, $(2\cdot10^6,4\cdot10^6]$ and
-$(4\cdot10^6,8\cdot10^6]$, the fitted exponents are
+$(4\cdot10^6,8\cdot10^6]$ at $400000$ sampled pairs per cell, the
+fitted exponents are
 
 $$
 \begin{array}{r|cccccc}
  \text{depth} & 0 & 1 & 2 & 3 & 4 & 5\\\hline
- e & -0.000879 & -0.016226 & +0.000936 & +0.002904 & +0.000241
+ e & +0.012633 & +0.065546 & +0.000936 & +0.002904 & +0.000241
    & -0.008428
 \end{array}
 $$
 
-— zero to three decimals at every depth but one. The exception is
-depth $1$, and it is the depth at which $D_c=0.046766$ is six times
-smaller than any other while the sampling error of the pair average is
-the same $0.0013$ throughout; its fitted exponent flips sign from
-$+0.065546$ to $-0.016226$ when the sample is taken ten times larger,
-which is the signature of noise rather than of a trend. Depth $1$ is
-also the cell that carries no mask ($z=+1.11$), so nothing rests on
-it.
+— zero to three decimals at depths $2$ to $5$, and not at depths $0$
+and $1$. Both exceptions are where $D_c$ is small: the spread across
+the three octaves is about $0.004$ at every depth while $D_c$ itself
+runs from $0.045$ to $3.17$, so the relative spread the exponent reads
+is large only where $D_c$ is. **The table above is the declared field
+throughout**; the ten-times-harder resample is a different resolution
+and is reported below rather than mixed into it.
+
+The sampling error of the pair average is $0.001358$ at depths $0$ to
+$4$ and $0.000162$ at depth $5$ — it is *not* the same throughout, and
+the factor $8$ matters for depth $5$. What it does establish is
+depth $1$: there $D_c=0.046766$ is six times smaller than any other
+while its sampling error is the full $0.001358$, so that error is the
+largest fraction of $D_c$ anywhere in the table. Depth $1$ is also the
+cell that carries no mask ($z=+1.11$), so nothing rests on it.
 
 The audit pre-registered a $2\%$ band on the spread across octaves and
 $|e|<0.01$, as rules M2 and M4, and both fail at depths $0$ and $1$ at
@@ -8156,7 +8174,10 @@ $z = M^{1/J}$, the overwhelming majority of it sits outside any region
 of the form $a \le M^{\eta}$ with $\eta$ small, and the fraction
 increases with $M$: measured at $M=10^4,\,10^5,\,10^6$ the
 $j\in\{6,7,8\}$ share at $J=8$ reads
-$0.772590,\,0.833180,\,0.886081$.
+$0.772590,\,0.840039,\,0.886081$. The middle value was $0.833180$ in
+an earlier reading that rounded $z^J$ downward; downward rounding
+breaks $z^J\ge x$ and is therefore not an admissible convention here,
+and $0.840039$ is the value under the one that is.
 
 The statistic has to be stated, because the section's own point is that
 it is convention-dependent. Take the absolute weight of the $j$-th term

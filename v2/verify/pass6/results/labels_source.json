@@ -1,0 +1,893 @@
+{
+ "thm:A": [
+  "v2/paper/theorem_A.md"
+ ],
+ "cor:B": [
+  "v2/paper/theorem_A.md"
+ ],
+ "thm:C": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:threeway": [
+  "v2/paper/theorem_A.md"
+ ],
+ "prop:onesided": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:onesided": [
+  "v2/paper/theorem_A.md"
+ ],
+ "prop:nolog": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:relocate": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:threshfam": [
+  "v2/paper/theorem_A.md"
+ ],
+ "prop:direct": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:directmargin": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:directlevel": [
+  "v2/paper/theorem_A.md"
+ ],
+ "prop:untrunc": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:whereitlives": [
+  "v2/paper/theorem_A.md"
+ ],
+ "prop:layers": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:layerdecay": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:layertail": [
+  "v2/paper/theorem_A.md"
+ ],
+ "prop:combined": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:combmod": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:levelaudit": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:allswept": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:budget": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:tolerance": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:signedlevel": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:levelmeas": [
+  "v2/paper/theorem_A.md"
+ ],
+ "sec:mechanism": [
+  "v2/paper/theorem_A.md"
+ ],
+ "sec:proof": [
+  "v2/paper/theorem_A.md"
+ ],
+ "lem:complete": [
+  "v2/paper/theorem_A.md"
+ ],
+ "lem:degen": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:trap": [
+  "v2/paper/theorem_A.md"
+ ],
+ "lem:BV": [
+  "v2/paper/theorem_A.md"
+ ],
+ "lem:density": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:loadbearing": [
+  "v2/paper/theorem_A.md"
+ ],
+ "lem:mu": [
+  "v2/paper/theorem_A.md"
+ ],
+ "prop:MT": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:bound": [
+  "v2/paper/theorem_A.md"
+ ],
+ "sec:delta": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:movingswitch": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:cutbridge": [
+  "v2/paper/theorem_A.md"
+ ],
+ "prop:movingcut": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:movingcutscope": [
+  "v2/paper/theorem_A.md"
+ ],
+ "sec:C": [
+  "v2/paper/theorem_A.md"
+ ],
+ "lem:completelog": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:sign": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:thetasweep": [
+  "v2/paper/theorem_A.md"
+ ],
+ "sec:D": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:extractTw": [
+  "v2/paper/theorem_A.md"
+ ],
+ "lem:Gb": [
+  "v2/paper/theorem_A.md"
+ ],
+ "prop:flatsum": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:identitynull": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:weightgapnull": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:heuristic": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:modeltransfer": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:elemsize": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:elemreach": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:muvscoin": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:provablehalf": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:residuelevel": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:residuesigned": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:residuearithmetic": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:primorialladder": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:primorialreach": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:primorialshare": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:primorialrung10": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:laddershape": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:laddermodel": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:cRwindow": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:kexponent": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:ladderderived": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:shapetrust": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:laddershape12": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:provableuniformity": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:uniformityreach": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:provableforecast": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:provableshare": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:provablearithmetic": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:budgetgap": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:arithmeticonevar": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:arithmeticreach": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:splitvalue": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:signedgain": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:primorialrung11": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:rung12": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:rung13": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:rung14": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:laddercurve": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:curvereach": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:curvebound": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:rung15": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:rung16": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:laddercap": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:rung17": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:rung18": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:signrun": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:rung18fill": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:localfloor": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:targetband": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:floorlaw": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:floormid": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:ladderdegree": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:primorialgap": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:primorialdense": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:densenoise": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:gainprofile": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:gainopposition": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:headsign": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:tailasymmetry": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:tailmertens": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:tailpredictors": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:levelmagnitude": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:flatnessfill": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:fillfield": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:fieldreach": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:shapepower": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:destination": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:slopes": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:slopereach": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:betafree": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:splitbudget": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:pairingnull": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:weightgap": [
+  "v2/paper/theorem_A.md"
+ ],
+ "lem:extract": [
+  "v2/paper/theorem_A.md"
+ ],
+ "lem:bv": [
+  "v2/paper/theorem_A.md"
+ ],
+ "thm:D": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:bombieri": [
+  "v2/paper/theorem_A.md"
+ ],
+ "thm:Dprime": [
+  "v2/paper/theorem_A.md"
+ ],
+ "sec:Dpp": [
+  "v2/paper/theorem_A.md"
+ ],
+ "prop:Dpp": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:toprdom": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:trunc": [
+  "v2/paper/theorem_A.md"
+ ],
+ "sec:circle": [
+  "v2/paper/theorem_A.md"
+ ],
+ "prop:E": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:ratiotable": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:cap": [
+  "v2/paper/theorem_A.md"
+ ],
+ "rem:band": [
+  "v2/paper/theorem_A.md"
+ ],
+ "sec:lit": [
+  "v2/paper/theorem_A.md"
+ ],
+ "sec:claims": [
+  "v2/paper/wall_v3.md"
+ ],
+ "sec:demand": [
+  "v2/paper/wall_v3.md"
+ ],
+ "sec:imported": [
+  "v2/paper/wall_v3.md"
+ ],
+ "sec:supply": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:e1row": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:supp": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:scale": [
+  "v2/paper/wall_v3.md"
+ ],
+ "conj:L": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:maskstamp": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cellstamp": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:fieldpinned": [
+  "v2/paper/wall_v3.md"
+ ],
+ "sec:wall": [
+  "v2/paper/wall_v3.md"
+ ],
+ "prop:V": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:secondorder": [
+  "v2/paper/wall_v3.md"
+ ],
+ "lem:MP": [
+  "v2/paper/wall_v3.md"
+ ],
+ "prop:W": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cdef": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cnlaw": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cnkurt": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cnkurtlimit": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cnskew": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cnshift": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cndilation": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cnkurtwhere": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cnwherereach": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cnclass": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cnclassreach": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cnclassomega": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cnmultnull": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cnmultm2": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cnmultdeep": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:cncoindeep": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:coinsurface": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:decaydeep": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:decaysweep": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:identitydeep": [
+  "v2/paper/wall_v3.md"
+ ],
+ "lem:coin": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:identityseeds": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:identitybig": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:identityfloor": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:identityforced": [
+  "v2/paper/wall_v3.md"
+ ],
+ "lem:placebo": [
+  "v2/paper/wall_v3.md"
+ ],
+ "prop:coindisc": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:filter": [
+  "v2/paper/wall_v3.md"
+ ],
+ "prop:dilate": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:whycoinwins": [
+  "v2/paper/wall_v3.md"
+ ],
+ "prop:posweights": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:nocrossk": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:mertens": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:signmass": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:leanmertens": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:leanodd": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:levelweighted": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:leveldemand": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:levelthreshold": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:sievedepth": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:logweightpredictor": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:predictablenull": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:survivorrange": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:oddmertensrange": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:survivors": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:predictable": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:copiedfloor": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:decaynull": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:forecastnull": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:extendnull": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:splitnull": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:residue": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:headidentity": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:signmasshead": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:gainsplit": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:splitreach": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:headaxis": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:headbounded": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:coherencenull": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:denominator": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:thetalaw": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:thetalawarith": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:support": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:meanonly": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:sumhead": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:headfraction": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:alphalocal": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:alphareach": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:deficitdirect": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:deficitshape": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:deficitregion": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:targetderived": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:deficitlog": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:sieveweight": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:jbarrier": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:jbarrierreach": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:whichfloor": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:radicallaw": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:primecontrib": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:basecontrol": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:radicalblind": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:valuation": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:levelmatched": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:leveldense": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:levelfine": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:levelresidual": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:bilinear": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:bilinearcancel": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:maintermremoval": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:tworates": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:residuemodel": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:weightshape": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:omegafactor": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:localcorrections": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:driftbyprime": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:driftpower": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:driftsigns": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:derivedlimit": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:limitdirection": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:limitsqueeze": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:conditionedlimit": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:logweightsplit": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:closedform": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:maskdmse": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:maskfloornull": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:maskformreach": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:maskdeepform": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:maskrivals": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:spectrummushare": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:flatnessshape": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:leanidentity": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:leanextended": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:leanfloor": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:crosskreference": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:coinrank": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:residuecancel": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:residueconstant": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:leandecay": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:leanbracket": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:extendrange": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:decayfamily": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:dilateprofile": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:extrap": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:artifact": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:forecast": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:forecastbracket": [
+  "v2/paper/wall_v3.md"
+ ],
+ "sec:floor": [
+  "v2/paper/wall_v3.md"
+ ],
+ "lem:cellmom": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:mcratios": [
+  "v2/paper/wall_v3.md"
+ ],
+ "prop:coh": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:sdzrange": [
+  "v2/paper/wall_v3.md"
+ ],
+ "prop:placebo": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:floorsignal": [
+  "v2/paper/wall_v3.md"
+ ],
+ "prop:scaleinv": [
+  "v2/paper/wall_v3.md"
+ ],
+ "sec:closures": [
+  "v2/paper/wall_v3.md"
+ ],
+ "sec:R4": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:r4null": [
+  "v2/paper/wall_v3.md"
+ ],
+ "sec:c3": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:hbround": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:grid": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:marginbracket": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:marginoos": [
+  "v2/paper/wall_v3.md"
+ ],
+ "sec:notclaimed": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:constants": [
+  "v2/paper/wall_v3.md"
+ ],
+ "rem:sieve": [
+  "v2/paper/wall_v3.md"
+ ]
+}

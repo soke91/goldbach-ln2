@@ -1,0 +1,101 @@
+STATISTIC: presence and grade of every numbered source statement in the projection
+FIELD:     the 38 non-Remark numbered statements of v2/paper/*.md, and all 77 numbered environments of deploy/papers/*.tex
+CONSTANTS: grade ladder Theorem=5 Corollary=Proposition=4 Lemma=3 Conjecture=2 Definition=Observation=Measurement=1 Remark=Note=0
+NULL:      a faithful projection carries every source label at the same grade; deviations are the signal
+DENOM:     38 source statements; 77 projection environments
+
+========================================================================
+A. SOURCE NUMBERED STATEMENTS (38)
+========================================================================
+  theorem_A Theorem      158   thm:A                  -> theorem     P1-mobius-fixed-class.tex    same
+  theorem_A Corollary    189   cor:B                  -> corollary   P1-mobius-fixed-class.tex    same
+  theorem_A Theorem      201   thm:C                  -> theorem     P1-mobius-fixed-class.tex    same
+  theorem_A Proposition  252   prop:onesided          -> proposition P1-mobius-fixed-class.tex    same
+  theorem_A Proposition  337   prop:nolog             -> proposition P1-mobius-fixed-class.tex    same
+  theorem_A Proposition  472   prop:direct            -> proposition P2-no-go-divisor-switch.tex  same
+  theorem_A Proposition  622   prop:untrunc           -> proposition P2-no-go-divisor-switch.tex  same
+  theorem_A Proposition  689   prop:layers            -> proposition P2-no-go-divisor-switch.tex  same
+  theorem_A Proposition  824   prop:combined          -> proposition P2-no-go-divisor-switch.tex  same
+  theorem_A Lemma        1334  lem:complete           -> lemma       P1-mobius-fixed-class.tex    same
+  theorem_A Lemma        1386  lem:degen              -> lemma       P1-mobius-fixed-class.tex    same
+  theorem_A Lemma        1496  lem:BV                 -> lemma       P1-mobius-fixed-class.tex    same
+  theorem_A Lemma        1543  lem:density            -> lemma       P1-mobius-fixed-class.tex    same
+  theorem_A Lemma        1590  lem:mu                 -> lemma       P1-mobius-fixed-class.tex    same
+  theorem_A Proposition  1625  prop:MT                -> proposition P1-mobius-fixed-class.tex    same
+  theorem_A Proposition  2014  prop:movingcut         -> proposition P1-mobius-fixed-class.tex    same
+  theorem_A Lemma        2120  lem:completelog        -> lemma       P1-mobius-fixed-class.tex    same
+  theorem_A Lemma        2351  lem:Gb                 -> lemma       P2-no-go-divisor-switch.tex  same
+  theorem_A Proposition  2373  prop:flatsum           -> proposition P2-no-go-divisor-switch.tex  same
+  theorem_A Lemma        6742  lem:extract            -> lemma       P2-no-go-divisor-switch.tex  same
+  theorem_A Lemma        6765  lem:bv                 -> lemma       P2-no-go-divisor-switch.tex  same
+  theorem_A Theorem      6785  thm:D                  -> theorem     P2-no-go-divisor-switch.tex  same
+  theorem_A Theorem      6885  thm:Dprime             -> theorem     P2-no-go-divisor-switch.tex  same
+  theorem_A Proposition  6950  prop:Dpp               -> proposition P2-no-go-divisor-switch.tex  same
+  theorem_A Proposition  7075  prop:E                 -> proposition P2-no-go-divisor-switch.tex  same
+  wall_v3.m Conjecture   401   conj:L                 -> conjecture  P5-negative-map.tex          same
+  wall_v3.m Proposition  632   prop:V                 -> proposition P3-wall-second-moment.tex    same
+  wall_v3.m Lemma        745   lem:MP                 -> lemma       P3-wall-second-moment.tex    same
+  wall_v3.m Proposition  816   prop:W                 -> proposition P3-wall-second-moment.tex    same
+  wall_v3.m Lemma        2003  lem:coin               -> lemma       P3-wall-second-moment.tex    same
+  wall_v3.m Lemma        2250  lem:placebo            -> lemma       P4-coherent-cell-floor.tex   same
+  wall_v3.m Proposition  2273  prop:coindisc          -> proposition P3-wall-second-moment.tex    same
+  wall_v3.m Proposition  2342  prop:dilate            -> proposition P2-no-go-divisor-switch.tex  same
+  wall_v3.m Proposition  2421  prop:posweights        -> proposition P2-no-go-divisor-switch.tex  same
+  wall_v3.m Lemma        7525  lem:cellmom            -> lemma       P4-coherent-cell-floor.tex   same
+  wall_v3.m Proposition  7622  prop:coh               -> ABSENT
+  wall_v3.m Proposition  7739  prop:placebo           -> ABSENT
+  wall_v3.m Proposition  7820  prop:scaleinv          -> proposition P4-coherent-cell-floor.tex   same
+
+  present at same grade : 36
+  regraded              : 0
+  absent from projection: 2
+
+========================================================================
+B. REGRADES (detail)
+========================================================================
+
+========================================================================
+C. PROJECTION ENVIRONMENTS WITH NO SOURCE ANCHOR OF THAT NAME
+========================================================================
+  P1-mobius-fixed-class.tex      230   note         note:threeway            three statements, not two
+  P1-mobius-fixed-class.tex      514   note         note:trap                the false-positive trap
+  P1-mobius-fixed-class.tex      828   note         note:thetasweep          the identity is not accessible to 
+  P1-mobius-fixed-class.tex      892   measurement  meas:margin              the threshold, and the margin
+  P1-mobius-fixed-class.tex      914   measurement  meas:relocate            what the weakening relocates
+  P2-no-go-divisor-switch.tex    152   note         note:Tw                  the third term is not a remainder
+  P2-no-go-divisor-switch.tex    334   measurement  meas:flatsum             the two ends, measured
+  P2-no-go-divisor-switch.tex    476   measurement  meas:direct              the two thresholds, compared
+  P2-no-go-divisor-switch.tex    614   note         note:granting            why granting $T_w$ is the right fo
+  P2-no-go-divisor-switch.tex    632   note         note:bombieri            relation to Bombieri's asymptotic 
+  P2-no-go-divisor-switch.tex    683   measurement  meas:extract             the load-bearing lemma, checked as
+  P2-no-go-divisor-switch.tex    792   measurement  meas:poly                the two pieces are the same order
+  P2-no-go-divisor-switch.tex    870   measurement  meas:circle              the constants
+  P3-wall-second-moment.tex      188   note         note:AvsS                the local factor is $\AAA$, not $\
+  P3-wall-second-moment.tex      200   measurement  meas:V                   the local factor, discriminated
+  P3-wall-second-moment.tex      234   measurement  meas:secondorder         the second-order form
+  P3-wall-second-moment.tex      275   note         note:trunc               the truncation is load-bearing
+  P3-wall-second-moment.tex      360   measurement  meas:budget              the budget is already overspent
+  P3-wall-second-moment.tex      398   note         note:coinscope           what the lemma licenses, and what 
+  P3-wall-second-moment.tex      460   measurement  meas:disc                the discriminator, and the price o
+  P4-coherent-cell-floor.tex     180   note         note:threeterms          all three terms are needed
+  P4-coherent-cell-floor.tex     189   measurement  meas:mc                  the closed form, checked against s
+  P4-coherent-cell-floor.tex     230   observation  obs:coh                  coherent sums
+  P4-coherent-cell-floor.tex     258   measurement  meas:exponent            the exponent, fitted
+  P4-coherent-cell-floor.tex     269   note         note:notanerrorbar       a count is not an error bar
+  P4-coherent-cell-floor.tex     317   measurement  meas:notzero             the cell means are not zero
+  P4-coherent-cell-floor.tex     331   measurement  meas:placebo             the effect survives the placebo; t
+  P4-coherent-cell-floor.tex     363   note         note:floorsignal         the floor is itself signal
+  P4-coherent-cell-floor.tex     390   measurement  meas:Dc                  the floor tracks $D_c$, including 
+  P4-coherent-cell-floor.tex     443   measurement  meas:scaleinv            the exponent, measured
+  P5-negative-map.tex            106   note         note:scale               the normalisation is load-bearing
+  P5-negative-map.tex            121   measurement  meas:supp                the surviving support, and its den
+  P5-negative-map.tex            176   note         note:Lgrade              the grade of the evidence
+  P5-negative-map.tex            286   note         note:nullcost            what a null verdict costs
+  P5-negative-map.tex            326   proposition  prop:R4                  perfect cancellation, untruncated
+  total: 35
+
+========================================================================
+D. SOURCE REMARK ANCHORS PRESENT IN THE PROJECTION AS LABELS
+========================================================================
+  source remarks carrying an anchor: 241 of 251
+  of those, anchor survives as a projection label: 0
