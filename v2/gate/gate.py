@@ -4368,6 +4368,181 @@ def g79_one_finding_both_trees():
 
 
 
+# ----------------------------------------------------------------- G80
+MEAS_TEX = re.compile(
+    r"\\begin\{(measurement|observation)\}(.*?)\\end\{\1\}", re.S)
+MEAS_MD = re.compile(
+    r"^#### (?:Measurement|Observation)\b[^\n]*\n(.*?)(?=^#{2,4} |\Z)",
+    re.S | re.M)
+SCRIPT_IN = re.compile(r"([A-Za-z0-9_\\]+\.py)")
+
+
+def _result_text(base, tree):
+    """그 스크립트의 결과 파일 본문. 없으면 None."""
+    stem = os.path.splitext(base)[0] + ".txt"
+    for cand in (os.path.join(tree, "results", stem),
+                 os.path.join(RESULTS, stem)):
+        if os.path.exists(cand):
+            return read(cand)
+    for pas in range(1, 10):
+        cand = os.path.join(VERIFY, "pass%d" % pas, "results", stem)
+        if os.path.exists(cand):
+            return read(cand)
+    return None
+
+
+def g80_cited_script_produces_its_numbers():
+    """측정이 인쇄한 수는 그 측정이 이름 부른 스크립트에서 나와야 한다.
+
+    G11 은 인쇄된 소수가 results/ 어딘가에 있는지만 본다. 어딘가에
+    있으면서 **가리킨 곳에는 없는** 경우가 남고, pass6 이 그것을 찾았다:
+    한 measurement 가 다섯 자리 유효숫자 다섯 개를 인쇄하면서 그 수를
+    내지 못하는 스크립트 둘을 가리킨다. 배포 패킷만 받은 독자가 인용된
+    스크립트를 돌리면 다른 목록을 얻는다.
+
+    규칙: measurement 나 observation 이 스크립트를 하나 이상 이름으로
+    부르면, 그 블록이 인쇄한 소수점 아래 세 자리 이상 리터럴은 전부
+    그 스크립트들 중 하나의 결과 파일에 있어야 한다. 스크립트를 아무도
+    안 부르면 이 검사는 발동하지 않는다 -- 그때는 G11 이 본다.
+    """
+    n = 0
+    jobs = [(PAPER, MEAS_MD, ROOT, "paper")]
+    if os.path.isdir(DEPLOY):
+        jobs.append((DEPLOY, MEAS_TEX, os.path.dirname(DEPLOY),
+                     "deploy/papers"))
+    for base, pat, tree, tag in jobs:
+        for b, _, fs in os.walk(base):
+            for f in sorted(fs):
+                if not f.endswith((".md", ".tex")):
+                    continue
+                src = read(os.path.join(b, f))
+                for m in pat.finditer(src):
+                    body = m.group(m.lastindex)
+                    names = set()
+                    for sm in SCRIPT_IN.finditer(body):
+                        names.add(os.path.basename(
+                            sm.group(1).replace("\\", "")))
+                    if not names:
+                        continue
+                    texts = [t for t in (_result_text(x, tree)
+                                         for x in sorted(names))
+                             if t is not None]
+                    if not texts:
+                        continue
+                    blob = "\n".join(texts)
+                    # 논문은 결과 파일보다 적은 자리로 인쇄해도 된다.
+                    # 그러니 문자열 일치만 보면 옳게 반올림한 자리까지
+                    # 걸린다 -- 자기 자릿수로 반올림해 맞는지도 본다.
+                    vals = []
+                    for tok in re.findall(
+                            r"[-+]?\d+\.\d+(?:[eE][-+]?\d+)?", blob):
+                        try:
+                            vals.append(float(tok))
+                        except ValueError:
+                            pass
+                    missing = []
+                    for d in sorted(set(DEC.findall(body))):
+                        if d in blob:
+                            continue
+                        k = len(d.split(".")[1])
+                        if any(("%.*f" % (k, v)) == d for v in vals):
+                            continue
+                        missing.append(d)
+                    if missing:
+                        fails.append(
+                            f"G80 {tag}/{f}: a measurement citing "
+                            f"{', '.join(sorted(names))} prints "
+                            f"{len(missing)} decimals none of those "
+                            f"scripts produce, e.g. "
+                            f"{', '.join(missing[:3])}")
+                        n += 1
+    return n
+
+
+
+# ----------------------------------------------------------------- G81
+DEPLOY_ROOT = os.path.dirname(DEPLOY)
+
+
+def _sha(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as fh:
+        for chunk in iter(lambda: fh.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _repo_evidence_index():
+    """저장소가 아는 증거 파일 전부: 이름 -> 해시 집합."""
+    idx = {}
+    roots = [CODE, RESULTS]
+    for pas in sorted(os.listdir(VERIFY)) if os.path.isdir(VERIFY) else []:
+        for sub in ("code", "results"):
+            d = os.path.join(VERIFY, pas, sub)
+            if os.path.isdir(d):
+                roots.append(d)
+    for r in roots:
+        for b, _, fs in os.walk(r):
+            if "__pycache__" in b:
+                continue
+            for f in fs:
+                idx.setdefault(f, set()).add(_sha(os.path.join(b, f)))
+    return idx
+
+
+def g81_deployed_evidence_is_accounted_for():
+    """배포된 증거는 저장소의 어느 파일이고, 인용된 것은 배포돼 있어야 한다.
+
+    배포 패킷은 저장소에서 잘라 낸 것이므로, 그 안의 모든 코드와 결과는
+    저장소 어딘가에 **같은 바이트로** 있어야 한다. 그렇지 않은 파일은
+    패킷에서만 자라난 것이고, 저장소가 그것을 재현할 수 없다. 반대
+    방향도 본다: 배포본 논문이 이름 부른 스크립트가 패킷 안에 없으면
+    패킷만 받은 독자는 그 수를 확인할 길이 없다 -- pass6 이 그 자리를
+    하나 찾았다.
+    """
+    n = 0
+    if not os.path.isdir(DEPLOY_ROOT):
+        return 0
+    idx = _repo_evidence_index()
+    for sub in ("code", "results"):
+        d = os.path.join(DEPLOY_ROOT, sub)
+        if not os.path.isdir(d):
+            continue
+        for f in sorted(os.listdir(d)):
+            p = os.path.join(d, f)
+            if not os.path.isfile(p) or f.endswith(".pyc"):
+                continue
+            if _sha(p) not in idx.get(f, set()):
+                fails.append(
+                    f"G81 deploy/{sub}/{f} is not in the repository with "
+                    f"the same bytes; the packet cannot be regenerated "
+                    f"from what the repository keeps")
+                n += 1
+    named = set()
+    for b, _, fs in os.walk(DEPLOY):
+        for f in sorted(fs):
+            if not f.endswith(".tex"):
+                continue
+            for m in re.finditer(r"\\texttt\{([A-Za-z0-9_\\]+\.py)\}",
+                                 read(os.path.join(b, f))):
+                named.add((f, os.path.basename(
+                    m.group(1).replace("\\", ""))))
+    for tex, base in sorted(named):
+        s = os.path.join(DEPLOY_ROOT, "code", base)
+        r = os.path.join(DEPLOY_ROOT, "results",
+                         os.path.splitext(base)[0] + ".txt")
+        if not os.path.exists(s):
+            fails.append(f"G81 deploy/papers/{tex} names {base}, which is "
+                         f"not in the packet")
+            n += 1
+        elif not os.path.exists(r) and base != "indep.py":
+            fails.append(f"G81 deploy/papers/{tex} names {base} but its "
+                         f"result file is not in the packet")
+            n += 1
+    return n
+
+
+
 def main():
     docs = [(p, read(p)) for p in paper_files()]
     print("gate")
@@ -4516,6 +4691,10 @@ def main():
          g78_constants_reach_their_result()),
         ("G79 one finding, both trees",
          g79_one_finding_both_trees()),
+        ("G80 a cited script produces its numbers",
+         g80_cited_script_produces_its_numbers()),
+        ("G81 deployed evidence is accounted for",
+         g81_deployed_evidence_is_accounted_for()),
     ]
     print()
     for name, c in counts:
