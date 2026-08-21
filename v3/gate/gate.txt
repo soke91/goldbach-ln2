@@ -1,7 +1,7 @@
 gate
 paper: 1 document(s)
 ==============================================================
-    prose 71 / paper 1971 = 0.04  (cap 1.50)
+    prose 71 / paper 1993 = 0.04  (cap 1.50)
 
   G1 evidence exists                     ok
   G2 no hand-written numbers             ok

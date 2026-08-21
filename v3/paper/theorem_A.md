@@ -223,6 +223,28 @@ Section [sec:delta] where the published form of (18) is used; it is
 likewise unconditional here, and on the corrected form it is absent).
 
 
+#### Remark (what the collapse is and is not) {#rem:collapse}
+<!-- evidence: analytic -->
+
+It is not a weakening of the hypothesis. Huang–Li's Corollary 1 assumes
+a single $EH_\mu(N^{1-\theta})$ and spends it at two places;
+Corollary [cor:B] says one of the two did not need spending, and the
+level demanded is unchanged, because $E_3$ still demands it.
+
+What the collapse buys is a statement about the *shape* of the
+reduction rather than its strength, and it is only visible together
+with Theorem [thm:C]. After Theorem [thm:A] there is exactly one place
+where the hypothesis is consumed, and by Theorem [thm:C] that one place
+is not an equidistribution statement one might hope to establish
+separately: it is, by an unconditional identity, Huang–Li's own
+equation (22). **So the reduction does not decompose.** There is no
+half of $EH_\mu$ that can be discharged to make partial progress —
+after the half that can be discharged has been, what is left is the
+conclusion. A reader deciding whether to spend effort on this route
+should read the two statements together, and that is what they are
+for.
+
+
 #### Theorem {#thm:C}
 <!-- evidence: audit_E3_constant.py -->
 
