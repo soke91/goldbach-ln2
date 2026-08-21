@@ -14,3 +14,12 @@ correspondence/
 
 __pycache__/
 *.pyc
+
+# LaTeX build leavings. The compiled papers are distributed from
+# deploy/pdf/; what pdflatex writes beside the source is not a
+# deliverable and differs on every run.
+deploy/papers/*.aux
+deploy/papers/*.log
+deploy/papers/*.out
+deploy/papers/*.pdf
+deploy/papers/*.toc

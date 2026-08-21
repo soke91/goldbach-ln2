@@ -29,6 +29,9 @@
 \renewcommand{\SS}{\mathfrak{S}}
 \newcommand{\AAA}{\mathfrak{A}}
 \newcommand{\Emu}{E_\mu}
+% T_m is the endpoint of the inner sum, not the weighted sum T_w;
+% at m = 1 the two symbols would otherwise collide.
+\newcommand{\Tcut}{\mathcal T}
 \DeclareMathOperator{\rad}{rad}
 \DeclareMathOperator{\lcm}{lcm}
 
@@ -486,15 +489,15 @@ $n\equiv N\pmod{me}$, and
 Both are $\ll N(\log N)^{-A}$. In the remaining range put
 $L:=\lcm(d^2,e)$ and $q:=mL$; the conditions $d^2\mid k$, $e\mid k$
 and $n=N-mk$ give $n\equiv N\pmod q$, and $mk<N$,
-$mk\ge\max(N-t,mK)$ give $1\le n\le T_m(t)$ where
+$mk\ge\max(N-t,mK)$ give $1\le n\le\Tcut_m(t)$ where
 \begin{equation}\label{eq:Tm}
-  T_m(t):=\min\bigl(t,\ N-mK\bigr).
+  \Tcut_m(t):=\min\bigl(t,\ N-mK\bigr).
 \end{equation}
 Therefore, with $\psi(y;q,a)=\sum_{n\le y,\,n\equiv a\,(q)}\Lambda(n)$,
 \begin{equation}\label{eq:R2}
   R(t)=\sum_{m<M}\mu(m)\sum_{d\le D_0}\mu(d)
          \sum_{\substack{e\mid m\\ e\le E_0}}\mu(e)\,
-         \psi\bigl(T_m(t);\,q,\,N\bigr)
+         \psi\bigl(\Tcut_m(t);\,q,\,N\bigr)
          \;+\;O\!\left(\frac{N}{(\log N)^{A}}\right).
 \end{equation}
 By Lemma~\ref{lem:degen} we may further restrict to $(q,N)=1$: if
@@ -504,7 +507,7 @@ $\ll N^{1-\theta'+o(1)}$.
 
 \begin{note}[the false-positive trap]\label{note:trap}
 Restricting the \emph{main terms} to classes with $(q,N)=1$ is not
-cosmetic. Assigning a main term $T_m/\varphi(q)$ to a degenerate class
+cosmetic. Assigning a main term $\Tcut_m/\varphi(q)$ to a degenerate class
 shifts the density of the whole computation by the factor
 $N/\varphi(N)$. Carried into the $\log k$ branch of
 Section~\ref{sec:C}, that error produces an apparent \emph{refutation}
@@ -550,13 +553,13 @@ A modulus $q$ arises in \eqref{eq:R2} from at most
 $\sum_{m\mid q}\tau(q/m)^2\le\tau(q)^3\le\tau_3(q)^3$ triples
 $(m,d,e)$: given $m\mid q$ there are at most $\tau(q/m)$ choices of
 $d$ with $d^2\mid q/m$ and at most $\tau(q/m)$ of $e$ with
-$\lcm(d^2,e)=q/m$. Writing $\psi(T_m;q,N)=T_m/\varphi(q)+\mathcal E$
+$\lcm(d^2,e)=q/m$. Writing $\psi(\Tcut_m;q,N)=\Tcut_m/\varphi(q)+\mathcal E$
 and applying Lemma~\ref{lem:BV} with $B=3$ and \eqref{eq:level},
 \begin{equation}\label{eq:R3}
   R(t)\;=\;\mathrm{MT}(t)\;+\;O\!\left(\frac{N}{(\log N)^{A}}\right),
   \qquad
   \mathrm{MT}(t)=\sum_{\substack{m<M\\ (m,N)=1}}
-       \mu(m)\,T_m(t)\,c_{D_0,E_0}(m),
+       \mu(m)\,\Tcut_m(t)\,c_{D_0,E_0}(m),
 \end{equation}
 where
 $c_{D_0,E_0}(m)=\sum_{d\le D_0}\sum_{e\mid m,\,e\le E_0}
@@ -643,20 +646,21 @@ $\displaystyle\sup_{1\le t<N}|\mathrm{MT}(t)|\ll Ne^{-c\sqrt{\log N}}$.
 
 \begin{proof}
 By Lemma~\ref{lem:density},
-$\mathrm{MT}(t)=\AAA(N)\sum_{m<M}\frac{f(m)}{m}T_m(t)
-+O(M\log N/D_0)$ with $T_m(t)$ as in \eqref{eq:Tm}. Put
-$m_0:=(N-t)/K$, so $T_m(t)=t$ for $m\le m_0$ and $T_m(t)=N-mK$ for
+$\mathrm{MT}(t)=\AAA(N)\sum_{m<M}\frac{f(m)}{m}\Tcut_m(t)
++O(M\log N/D_0)$ with $\Tcut_m(t)$ as in \eqref{eq:Tm}. Put
+$m_0:=(N-t)/K$, so $\Tcut_m(t)=t$ for $m\le m_0$ and
+$\Tcut_m(t)=N-mK$ for
 $m>m_0$; in particular $x\mapsto T_x(t)$ is non-increasing, is
 constant on $[1,m_0]$, has derivative $-K$ on $(m_0,M)$, and
 $T_M(t)=0$. Abel summation against $G$ of Lemma~\ref{lem:mu} gives
 \[
-  \sum_{m<M}\frac{f(m)}{m}T_m(t)
+  \sum_{m<M}\frac{f(m)}{m}\Tcut_m(t)
   = G(M)\,T_M(t)+K\!\int_{m_0}^{M}\!G(x)\,dx
   = K\!\int_{m_0}^{M}\!G(x)\,dx .
 \]
 Hence, uniformly in $t$,
 \[
-  \Bigl|\sum_{m<M}\frac{f(m)}{m}T_m(t)\Bigr|
+  \Bigl|\sum_{m<M}\frac{f(m)}{m}\Tcut_m(t)\Bigr|
   \le K\int_{1}^{M}|G(x)|\,dx
   \ll K\int_1^M e^{-c\sqrt{\log x}}dx
   \ll KMe^{-c'\sqrt{\log M}}\ll Ne^{-c''\sqrt{\log N}},
@@ -666,7 +670,9 @@ $\ll M\log N/D_0=o(N(\log N)^{-A})$.
 \end{proof}
 
 The cancellation is genuine and global: the term $m=1$ alone
-contributes $T_1(t)\asymp N$, so the smallness of $\mathrm{MT}$ is
+contributes $\Tcut_1(t)\asymp N$ --- the endpoint of \eqref{eq:Tm}, not
+the weighted sum of Theorem~\ref{thm:A} --- so the smallness of
+$\mathrm{MT}$ is
 entirely due to the cancellation in $\sum f(m)/m$.
 
 \subsection{Conclusion}
@@ -979,7 +985,7 @@ and expanding $\mu^2(mk)=\sum_{b^2\mid mk}\mu(b)$ with the truncation
 $b\le B:=(\log N)^{A+4}$ --- the same one Huang--Li use in their \S3.1
 --- reduces $\Delta$ to sums of $\Lambda$ over progressions to moduli
 $[m,b^2]\le\alpha B^2=\alpha(\log N)^{2A+8}$, plus a main term
-$\AAA(N)\sum_{m\le\alpha}\mu(m)\lambda(m)(\log m)\,T_m/m$ which is
+$\AAA(N)\sum_{m\le\alpha}\mu(m)\lambda(m)(\log m)\,\Tcut_m/m$ which is
 $O(Ne^{-c\sqrt{\log N}})$ by Lemma~\ref{lem:mu} and partial summation.
 The level is then exactly the one their hypothesis supplies, with no
 enlargement of $A$. Hence:
@@ -1039,7 +1045,7 @@ be measured.
 
 A level of distribution $3/5$ for the M\"obius function with triply
 well-factorable weights belongs to the earlier part of that line of
-work, \cite{Li20}; we cite it here as the object the question below
+work, \cite{LiWF}; we cite it here as the object the question below
 refers to rather than as a result we have checked against the
 published version. It is \emph{not} in \cite{Li23}, which does not
 treat the M\"obius function at all --- the $3/5$ appearing there is
@@ -1111,7 +1117,7 @@ published in a Springer volume,
 arXiv version, which we have read, and not to the published version,
 which we have not.
 
-\bibitem{Li20} J.~D.~Lichtman, \emph{Primes in arithmetic
+\bibitem{LiWF} J.~D.~Lichtman, \emph{Primes in arithmetic
 progressions to large moduli, II: well-factorable estimates},
 arXiv:2006.07088 [math.NT], 2020.
 

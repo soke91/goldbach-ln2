@@ -110,11 +110,13 @@ and for a weight $w:\mathbb N\to\mathbb R$,
   T_w \;=\;\sum_{\substack{k<K\\ (k,N)=1}}\mu(k)\,w_k
      \Bigl[A(N;k)-\frac{C(N)}{\varphi(k)}\Bigr].
 \end{equation}
-The functionals $E_4$ and $E_3$ of \cite{HL} are $T_w$ with $w_k=1$
-and $w_k=\log k$ respectively. The first is unconditionally
-$\ll_A N(\log N)^{-A}$; the second is, by an unconditional identity,
-equivalent to Huang--Li's equation~(22) and hence already gives binary
-Goldbach \cite{P1}. This paper closes the space between them.
+The functional $E_3$ of \cite{HL} is $T_w$ at $w_k=\log k$; $E_4$ is
+not $T_w$ at $w_k=1$ but is obtained from it by partial summation, an
+inner factor $\log(N-n)$ separating the two \cite[Cor.~2]{P1}. $E_4$ is
+unconditionally $\ll_A N(\log N)^{-A}$, and $E_3$ is, by an
+unconditional identity, equivalent to Huang--Li's equation~(22) and
+hence already gives binary Goldbach \cite{P1}. This paper closes the
+space between the two weights.
 
 Throughout, $\varphi$ is Euler's function, $\rad(u)=\prod_{p\mid u}p$,
 $c,c_1,\dots$ are positive absolute constants, and
@@ -291,22 +293,35 @@ $k$.
 \label{prop:flatsum}
 For any weight $w$ that is a function of $k$ alone,
 \begin{equation}\label{eq:flatsum}
-  T_w\;=\;\sum_{\substack{k<K\\(k,N)=1}}w_k\,H(N;k)\;-\;B_w\,C(N).
+  T_w\;=\;\sum_{\substack{k<K\\(k,N)=1}}\mu^2(k)\,w_k\,H(N;k)
+   \;-\;B_w\,C(N).
 \end{equation}
 In particular
 \[
-  T_1=\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!H(N;k)-B_1C(N),
+  T_1=\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!\mu^2(k)H(N;k)-B_1C(N),
   \qquad
-  T_{\log}=\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!(\log k)H(N;k)-B_{\log}C(N),
+  T_{\log}=\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!\mu^2(k)(\log k)H(N;k)
+   -B_{\log}C(N),
 \]
 and both weights are nonnegative on the range.
 \end{proposition}
 
 \begin{proof}
-Put \eqref{eq:dilate} into \eqref{eq:Tw}: for squarefree $k$,
-$\mu(k)A(N;k)=\mu(k)^2H(N;k)=H(N;k)$, and the subtracted mean term
-assembles into $B_wC(N)$ by \eqref{eq:Bw}.
+Put \eqref{eq:dilate} into \eqref{eq:Tw}. The transform carries
+$\mu(k)$, so terms with $\mu(k)=0$ contribute nothing on the left; on
+the remaining $k$, $\mu(k)A(N;k)=\mu(k)^2H(N;k)$. The restriction is
+therefore carried on the right, and the subtracted mean term assembles
+into $B_wC(N)$ by \eqref{eq:Bw}.
 \end{proof}
+
+\begin{note}[the restriction is not decoration]
+Dropping $\mu^2(k)$ from \eqref{eq:flatsum} does not weaken it, it
+falsifies it: $H(N;k)$ does not vanish at squarefull $k$, while the
+left-hand side does. The terms so admitted are of the size of $T_w$
+itself --- at $\theta'=0.56$ they add $5.4\cdot10^{-2}N$ at $w=1$ and
+$2.9\cdot10^{-1}N$ at $w=\log$, the latter being two thirds of
+$|T_{\log}|$.
+\end{note}
 
 Since $B_1\ll e^{-c\sqrt{\log K}}$ kills the second term while
 $B_{\log}\to-\SS(N)$ does not, the unconditional theorem of \cite{P1}
@@ -321,7 +336,7 @@ Over $N=2\cdot10^5$ to $2.56\cdot10^7$ by doubling, at
 $\theta'=0.56$, \eqref{eq:flatsum} holds to a worst relative error of
 $1.875\cdot10^{-16}$, and
 \[
-  \frac{\bigl|\sum_kH(N;k)\bigr|}{\bigl|\sum_k(\log k)H(N;k)\bigr|}
+  \frac{\bigl|\sum_k\mu^2(k)H(N;k)\bigr|}{\bigl|\sum_k\mu^2(k)(\log k)H(N;k)\bigr|}
   \;=\;0.1785,\ 0.1559,\ 0.1484,\ 0.1483,\ 0.1367,\ 0.1334,\
        0.1241,\ 0.1135,
 \]
@@ -334,7 +349,11 @@ $\asymp N$. The index set here runs from $k=1$, as \eqref{eq:Tw} and
 dropping that one term removes $C(N)$ from the flat sum --- which
 changes the ratios above by up to $10.4\%$ and the fitted exponent to
 $-0.3620$, while leaving $|T_1|$ untouched to $10^{-18}$, since the
-$k=1$ term of $T_1$ is $A(N;1)-C(N)/\varphi(1)=0$. Identity~\eqref{eq:dilate} itself is verified over every
+$k=1$ term of $T_1$ is $A(N;1)-C(N)/\varphi(1)=0$. The two columns are
+computed side by side, from a sieve built independently of the one
+\texttt{lab\_weight\_gap.py} uses, in
+\texttt{c02\_flatsum\_k1.py}; that script's loop is the $k\ge1$ one,
+and \texttt{lab\_weight\_gap.py}'s starts at $k=2$. Identity~\eqref{eq:dilate} itself is verified over every
 squarefree $k<N^{0.56}$ coprime to $N$ at
 $N=2\cdot10^5,\,4\cdot10^5,\,8\cdot10^5$ with worst relative error
 $2.294\cdot10^{-14}$, $1.197\cdot10^{-13}$, $4.591\cdot10^{-14}$, and
@@ -375,7 +394,7 @@ so all of its content is in the truncation at $K$.
 Cutting the same double sum along the inner variable of
 \eqref{eq:dilate},
 \begin{equation}\label{eq:layers}
-  \sum_{k}(\log k)H(N;k)\;=\;\sum_{m}\mu(m)\,L(N;m),
+  \sum_{k}\mu^2(k)(\log k)H(N;k)\;=\;\sum_{m}\mu(m)\,L(N;m),
   \qquad
   L(N;m):=\!\!\sum_{\substack{k<N/m,\ (k,m)=1\\ \mu(k)\neq0}}\!\!
             (\log k)\,\Lambda(N-mk),
@@ -416,11 +435,11 @@ Finite exchange, and $(k,m)=1$ splits as $(d,m)=(j,m)=1$.
 
 \begin{proposition}[the wall cancels out of the count]%
 \label{prop:direct}
-Substituting \eqref{eq:posweights} into the identity of \cite[Thm.~C]{P1},
+Substituting \eqref{eq:posweights} into the identity of \cite[Thm.~3]{P1},
 the two occurrences of $C(N)$ carry opposite signs and cancel:
 \begin{equation}\label{eq:direct}
   \tilde r(N)\;=\;\SS(N)N
-   \;+\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!(\log k)H(N;k)
+   \;+\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!\mu^2(k)(\log k)H(N;k)
    \;-\;C(N)\bigl(B_{\log}(K)+\SS(N)\bigr)
    \;+\;O_A\!\left(\frac{N}{(\log N)^{A}}\right).
 \end{equation}
@@ -428,7 +447,7 @@ Since $B_{\log}(K)\to-\SS(N)$, the quantity $C(N)$ enters the Goldbach
 count only through the vanishing factor $B_{\log}(K)+\SS(N)$.
 Consequently
 \begin{equation}\label{eq:directcond}
-  \sum_{\substack{k<K\\(k,N)=1}}(\log k)\bigl|H(N;k)\bigr|
+  \sum_{\substack{k<K\\(k,N)=1}}\mu^2(k)(\log k)\bigl|H(N;k)\bigr|
    \;\le\;(1-\varepsilon)\,\SS(N)\,N
 \end{equation}
 suffices for $\tilde r(N)>0$, for all large even $N$.
@@ -442,7 +461,7 @@ $\SS(N)$.
 
 \begin{note}[what the cancellation buys, and what it does not]
 Condition~\eqref{eq:directcond} has the same shape as the
-constant-factor condition of \cite[Prop.~5]{P1}: a bound at level
+constant-factor condition of \cite[Prop.~6]{P1}: a bound at level
 $N^{\theta'}$, with no saving in $\log N$. Nothing has moved off the
 level axis. What has changed is the threshold constant, from
 $\SS(N)(1-\AAA(N))$ to $\SS(N)$, and the change removes the arithmetic
@@ -456,7 +475,7 @@ very quantity \eqref{eq:directcond} must bound.
 
 \begin{measurement}[the two thresholds, compared]\label{meas:direct}
 At $\theta'=0.56$ over $N=2\cdot10^5$ to $3.2\cdot10^6$, with
-$B_H(N)=\sum_{k<K}(\log k)|H(N;k)|$, the new ratio
+$B_H(N)=\sum_{k<K}\mu^2(k)(\log k)|H(N;k)|$, the new ratio
 $B_H(N)/(\SS(N)N)$ reads
 $0.4578,\,0.4064,\,0.4079,\,0.3769,\,0.3338$ --- under $1$ throughout
 and falling --- against
@@ -488,17 +507,28 @@ only near $N=10^{10.16}$
   B_w=\sum_{\substack{d<K\\(d,N)=1}}b_d\,
    \frac{\mu(d)}{\varphi(d)}\,\rho_{dN}\!\left(\frac{K}{d}\right),
   \qquad
-  \rho_{n}(x)=\!\!\sum_{j<x,\,(j,n)=1}\!\!\frac{\mu(j)}{\varphi(j)}
-   \;\ll\;e^{-c_1\sqrt{\log x}}.
+  \rho_{n}(x)=\!\!\sum_{j<x,\,(j,n)=1}\!\!\frac{\mu(j)}{\varphi(j)},
 \]
+and $\rho_n(x)\ll e^{-c_1\sqrt{\log x}}$ whenever $\log n\ll\log x$.
 \end{lemma}
 
 \begin{proof}
 Write $k=dj$; for squarefree $k$ one has $(d,j)=1$,
 $\mu(k)=\mu(d)\mu(j)$ and $\varphi(k)=\varphi(d)\varphi(j)$. The bound
 on $\rho$ is Huang--Li's Lemma~1, a form of
-Goldston--Y{\i}ld{\i}r{\i}m \cite{GY}.
+Goldston--Y{\i}ld{\i}r{\i}m \cite{GY}, and the hypothesis
+$\log n\ll\log x$ is theirs.
 \end{proof}
+
+\begin{note}[the hypothesis is load-bearing, and it is met where it is used]
+Without $\log n\ll\log x$ the bound is false: at $\lfloor K/d_0\rfloor=1$
+Measurement~\ref{meas:extract} prints $|B_w|\varphi(d_0)=1.000000$, no
+saving at all, and that is exactly the corner where $\log n\asymp\log N$
+while $\log x=O(1)$. Theorem~\ref{thm:D} is unaffected: it maximises
+only over $d\le N^{\theta'-1/2-\delta}$, where $x=K/d\ge N^{1/2+\delta}$
+and $n=dN\le N^{3/2}$, so $\log n\asymp\log x$ holds throughout the
+range it uses. The same applies to Theorem~\ref{thm:Dprime}.
+\end{note}
 
 \begin{lemma}[BV-accessibility]\label{lem:bv}
 Expanding $w_k=\sum_{d\mid k}b_d$ inside the residual gives
@@ -511,7 +541,7 @@ that support, $\mathcal R_w\ll_A\|b\|_1\,N(\log N)^{-A}$.
 \end{lemma}
 
 \begin{proof}
-The residual of the switch is \cite[eq.~(R1)]{P1}: after unfolding
+The residual of the switch is \cite[eq.~(16)]{P1}, which after unfolding
 $\mu^2$ and the coprimality condition, every term is a sum of
 $\Lambda$ over a progression to modulus $q=m\lcm(d^2,e)$ with
 $m<N^{1-\theta'}$ and $d,e$ at most a fixed power of $\log N$;
@@ -611,7 +641,7 @@ and it survives granting the full Elliott--Halberstam conjecture
 rather than merely Bombieri--Vinogradov. The reason the statement is
 worth making is narrow but real: without it, the $\log k$ weight looks
 like one member of a family of candidate consumptions, and the
-identity of \cite[Thm.~C]{P1} then looks like an accident of one
+identity of \cite[Thm.~3]{P1} then looks like an accident of one
 choice of weight rather than a property of the route.
 \end{note}
 
@@ -942,7 +972,9 @@ Script & Result file & Supports\\
 \texttt{lab\_positive\_weights.py} & \texttt{lab\_positive\_weights.txt}
  & Proposition~\ref{prop:posweights}\\
 \texttt{lab\_weight\_gap.py} & \texttt{lab\_weight\_gap.txt}
- & Measurement~\ref{meas:flatsum}\\
+ & Measurement~\ref{meas:flatsum}, $k\ge2$ column\\
+\texttt{c02\_flatsum\_k1.py} & \texttt{c02\_flatsum\_k1.txt}
+ & Measurement~\ref{meas:flatsum}, $k\ge1$ column\\
 \texttt{lab\_direct\_identity.py} & \texttt{lab\_direct\_identity.txt}
  & Proposition~\ref{prop:untrunc}\\
 \texttt{lab\_layer\_decomposition.py} &

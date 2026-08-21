@@ -289,7 +289,11 @@ def main():
         "unconditional bound" if ok else "REFUTED")
 
     head = [
-        "STATISTIC: B(N) = sum_{k<K,(k,N)=1} (log k)|E_mu(N;k)|, the",
+        "STATISTIC: B(N) = sum_{k<K,(k,N)=1} mu^2(k)(log k)|E_mu(N;k)|,",
+        "           the squarefree restriction being what the triangle",
+        "           inequality leaves, since mu(k) = 0 elsewhere; it is",
+        "           imposed in the loop and was missing from this line;",
+        "           the quantity is unchanged. This is the",
         "           triangle bound Huang-Li take before appealing to",
         "           EH_mu; B/(N (log N)^2), which Brun-Titchmarsh predicts",
         "           to be bounded; |E_3(N)|/B(N), the gain from keeping",

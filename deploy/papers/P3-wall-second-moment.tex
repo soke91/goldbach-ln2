@@ -406,7 +406,7 @@ distinction is quantitatively large. An i.i.d. sign ensemble is
 \emph{narrower} than a random multiplicative one wherever the object
 is multiplicative --- resolved to $512$ draws on one statistic, the
 i.i.d. spread was $0.6455$ of the multiplicative
-(	exttt{audit\_cn\_coin\_deep.py}) --- so significance
+(\texttt{audit\_cn\_coin\_deep.py}) --- so significance
 read against an i.i.d. ensemble is larger than it should be. Because
 narrowness is conservative for killing, every claim this lemma kills
 stays killed; it is the other direction that fails. An estimator that
@@ -469,8 +469,13 @@ is
 \[
   0.020600,\ 0.004570,\ 0.001214,\ 0.000935 .
 \]
-At the top the separation is about $430$ standard deviations of the
-sign ensemble.
+At the top the measured value is a factor $434$ above the worst of
+those twenty draws. That factor is not a number of standard
+deviations: no standard deviation of the sign ensemble is computed
+anywhere here, and the worst of twenty draws from a half-normal is
+about $2\sigma$, so the separation in units of $\sigma$ is larger than
+$434$ rather than smaller. The factor is quoted because it is what was
+measured.
 
 The constructive route of (ii) is killed by amplification, not by
 information. The inverse filter grows geometrically: $|a(m)|$ runs
@@ -485,9 +490,15 @@ numerical use of the inversion is therefore dead at once
 \section{The margin the problem demands}\label{sec:margin}
 
 The requirement $C(N)=o(N)$ constrains every $N$, so the figure to
-quote is the one at the extreme rather than at a typical $N$. With
-$\max|C|\approx a_n\sqrt{V(N)}$ and $a_n$ the Gumbel location for the
-number of even $N$ below the point,
+quote is the one at the extreme rather than at a typical $N$. At the
+extreme a size has to be borrowed rather than measured, and the loan
+is worth naming. \emph{Suppose} $C(N)=\sqrt{V(N)}\,G(N)$ with $G$
+behaving across $N$ like independent standard Gaussians. That is
+precisely the distributional statement \S\ref{sec:notclaimed} declines
+to assert; it is admitted here, in this section only, and nothing in
+this paper rests on what follows. Then
+$\max|C|\approx a_n\sqrt{V(N)}$ with $a_n$ the Gumbel location for the
+number of even $N$ below the point, and
 \[
   \frac{N}{\max_{N\le X}|C(N)|}\;\approx\;
   \frac{\sqrt N}{a_n\sqrt{\AAA\log N}},
@@ -495,8 +506,11 @@ number of even $N$ below the point,
 which is $10^{4.466}$ at $N=10^{12}$ and $10^{22.842}$ at $N=10^{50}$
 with $a_n=\sqrt{2\log(N/2)}$ and $\AAA=0.787275$, the value of
 \eqref{eq:constants} at a generic even $N$
-(	exttt{audit\_margin.py}, 	exttt{audit\_constants.py}). The quantity is
-therefore expected to be small by a wide margin and to be provably
+(\texttt{audit\_margin.py}, \texttt{audit\_constants.py}). Those two
+$N$ lie five and thirty-eight orders of magnitude beyond anything
+measured here, and the digits are the arithmetic of the display under
+the supposition, not a measurement. Under it the quantity is
+expected to be small by a wide margin and is provably
 small by none: the gap between what is expected and what is reachable
 is the whole problem.
 
@@ -586,6 +600,12 @@ Script & Result file & Supports\\
  & Measurement~\ref{meas:budget}\\
 \texttt{lab\_coin\_discriminator.py} &
  \texttt{lab\_coin\_discriminator.txt} & Measurement~\ref{meas:disc}\\
+\texttt{audit\_cn\_coin\_deep.py} & \texttt{audit\_cn\_coin\_deep.txt}
+ & the $0.6455$ of \S\ref{sec:controls}\\
+\texttt{audit\_margin.py} & \texttt{audit\_margin.txt}
+ & the extrapolation of \S\ref{sec:margin}\\
+\texttt{audit\_constants.py} & \texttt{audit\_constants.txt}
+ & $\AAA=0.787275$, \S\ref{sec:margin}\\
 \hline
 \end{tabular}
 \end{center}

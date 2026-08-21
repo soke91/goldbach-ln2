@@ -57,12 +57,12 @@ then show that this quantity does not decay like $n_c^{-1/2}$ but like
 $(\log N)^{-1/2}$ (Observation~\ref{obs:coh}), because the summand
 $u_c(v)$ is a \emph{coherent} sum rather than a self-averaging one:
 every $N$ in the cell reads the same arithmetic input at the same
-$v$. Over a factor $140$ in $N$, a count-based interval predicts the
-error bar shrinks by $11.8$; it shrinks by $1.21$, against the $1.19$
+$v$. Over a factor $128$ in $N$, a count-based interval predicts the
+error bar shrinks by $11.3$; it shrinks by $1.21$, against the $1.19$
 that $(\log N)^{-1/2}$ predicts. An interval built from a count is
-therefore about ten times too narrow at the top of that range relative
+therefore a factor $9.3$ too narrow at the top of that range relative
 to the bottom, and in absolute terms the exact floor exceeds
-$\mathrm{sd}(Z)/\sqrt{n_c}$ by factors of $5.8$ to $160$.
+$\mathrm{sd}(Z)/\sqrt{n_c}$ by factors of $7.3$ to $158$.
 
 The exact floor is not merely a corrected noise level. Under the
 label permutation that preserves every cell size while destroying the
@@ -136,12 +136,14 @@ three shallowest depths the amplitude does not clear the exact floor
 at any scale measured, so nothing can be fitted there, and whether the
 exponents differ by depth is not decided by the accessible range.
 \item \textbf{No distributional law for $Z$ is asserted.}
-\item \textbf{No consequence for the Goldbach problem.} The effect
-measured here is lower order under every parameterisation considered
-and does not threaten $C(N)=o(N)$.
+\item \textbf{No consequence for the Goldbach problem.} Nothing
+measured here bounds $C(N)$ in either direction. No sweep over
+parameterisations is carried out, and none is claimed.
 \item \textbf{Observation~\ref{obs:coh} is offered for its form, not
-its constant.} Its heuristic is quantitatively loose by a factor of
-about $2.5$; the exponent is confirmed directly instead.
+its constant.} Its heuristic is quantitatively loose by factors
+running from $2.49$ at depth $0$ to $6.20$ at depth $5$ --- the $2.5$
+is the shallowest cell, not the range; the exponent is confirmed
+directly instead.
 \end{itemize}
 
 % =====================================================================
@@ -265,16 +267,28 @@ $0.5$ (\texttt{lab\_cell\_floor.py}).
 \end{measurement}
 
 \begin{note}[a count is not an error bar]\label{note:notanerrorbar}
-The consequence is not confined to this field. Over a factor $140$ in
-$N$ --- the sub-range of $10^5<N\le1.6\cdot10^7$ on which the exact
-floor was fitted --- $n_c^{-1/2}$ says the error bar shrinks by
-$11.8$; it shrinks by $1.21$, against the $1.19$ that
-$(\log N)^{-1/2}$ predicts over the same factor. \textbf{An interval
-built from a count is therefore about ten times too narrow at the top
-of this range relative to the bottom}, and in absolute terms the
+The consequence is not confined to this field. The fit runs over the
+eight octaves from $(6.25\cdot10^4,\,1.25\cdot10^5]$ to
+$(8\cdot10^6,\,1.6\cdot10^7]$, and the abscissa is the octave midpoint
+--- which is what makes $1/(2\langle\log N\rangle)=0.036038$ come out,
+with $\langle\log N\rangle=13.8744$. The factor in $N$ is therefore
+$1.2\cdot10^7/93750=128$. Over it, $n_c^{-1/2}$ says the error
+bar shrinks by $\sqrt{128}=11.3$; it shrinks by $128^{0.0395}=1.21$,
+against the $1.19$ that $(\log N)^{-1/2}$ predicts over the same
+factor. \textbf{An interval built from a count is therefore a factor
+$11.3/1.21=9.3$ too narrow at the top of this range relative to the
+bottom}, and in absolute terms the
 discrepancy is larger still: at the top octave the exact floor exceeds
-$\mathrm{sd}(Z)/\sqrt{n_c}$ by factors of $5.8$ to $160$, growing with
-the cell, exactly as $Q_{cc}/n_c^2\asymp1/\log N$ predicts. The cause
+$\mathrm{sd}(Z)/\sqrt{n_c}$ by factors of $7.3$ to $158$, with
+$\mathrm{sd}(Z)=0.924687$ over that octave --- and $0.929384$ over the
+whole fitted field, so the reading of $\mathrm{sd}$ barely moves the
+figures. The factor does \emph{not} grow with the cell. What grows with
+the cell is the floor itself, $0.118$ to $0.412$ from depth $0$ to
+depth $5$, exactly as $Q_{cc}/n_c^2\asymp1/\log N$ predicts; the factor
+also carries $\sqrt{n_c}$, and $n_c$ falls from $1.53\cdot10^6$ to
+$266$ across those depths, which is the larger movement. By depth the
+factor reads $158$, $62$, $124$, $84$, $33$, $7$
+(\texttt{audit\_cellfloor\_sdz.py}). The cause
 is that $u_c(v)$ is a coherent sum, not a self-averaging one, and the
 same is true of any cell mean of a field whose summands share a common
 arithmetic input.
@@ -300,12 +314,19 @@ both invariant, and the joint distribution of $(\ell\circ\pi,Z)$ is
 that of independent labels.
 \end{proof}
 
+\begin{measurement}[the cell means are not zero]\label{meas:notzero}
 Against the exactly computed floor of Lemma~\ref{lem:cellmom}, the
-cell means of the field \eqref{eq:field} are not zero. Over every
-octave from $6.25\cdot10^4$ to $1.6\cdot10^7$, $\max_c|z_c|$ runs
-$9.1$ to $13.0$ and clears Bonferroni in each; the signal is carried
-by the deep cells, with depths $3,4,5$ at $z=-1.6,\,-4.5,\,-9.1$ at
-the top octave while depths $0,1,2$ sit at $+0.0,\,+0.7,\,-0.1$.
+cell means of the field \eqref{eq:field} are not zero. Over the eight
+octaves from $(6.25\cdot10^4,\,1.25\cdot10^5]$ to
+$(8\cdot10^6,\,1.6\cdot10^7]$, $\max_c|z_c|$ reads
+\[
+  10.099,\ 10.954,\ 11.179,\ 12.968,\ 11.885,\ 11.026,\ 10.019,\ 9.064,
+\]
+clearing Bonferroni in each. The signal is carried by the deep cells:
+at the top octave depths $3,4,5$ sit at $z=-1.55,\,-4.46,\,-9.06$
+while depths $0,1,2$ sit at $+0.04,\,+0.69,\,-0.06$
+(\texttt{lab\_cell\_floor.py}).
+\end{measurement}
 
 \begin{measurement}[the effect survives the placebo; the floor does
 not]\label{meas:placebo}
@@ -400,10 +421,18 @@ fitted exponent of zero at every depth.
 
 \begin{proof}
 For $N,N'$ in a band, $\SS_2(N-N')$ depends on $N-N'$ only through the
-local factors at primes dividing $h=N-N'$, and the conditioning that
-defines the cell fixes the residue of $N$ modulo each of
-$3,5,7,11,13$. The induced law of $h$ modulo each of those primes is
-therefore determined by the cell alone, and the band enters only
+local factors at primes dividing $h=N-N'$. Depth does \emph{not} fix
+the residue of $N$ modulo each of $3,5,7,11,13$ --- it fixes only how
+many of them divide $N$, so a depth-$d$ cell is the union of the
+$\binom{5}{d}$ divisibility patterns of that size, and
+Measurement~\ref{meas:Dc} records the mixing this causes. What the
+argument needs is weaker and does hold: each pattern fixes those five
+residue classes, so within a pattern the law of $h$ modulo each of the
+five primes is determined; and the weights with which the patterns
+enter a depth cell are their densities among the even $N$ of the band,
+which are the same at every scale. The induced law of $h$ modulo those
+primes is therefore determined by the cell alone, and the band enters
+only
 through the residues of $h$ at primes larger than $13$, whose joint
 law over a band is the uniform one to $O(1/B)$, $B$ the band length.
 Hence the
@@ -451,8 +480,9 @@ and all three are one convolution each.
 
 \item Observation~\ref{obs:coh} and Note~\ref{note:notanerrorbar}:
 that quantity decays like $(\log N)^{-1/2}$, not $n_c^{-1/2}$. A
-count-based interval is about ten times too narrow across a factor
-$140$ in $N$, and absolutely too narrow by factors of $5.8$ to $160$.
+count-based interval is a factor $9.3$ too narrow across a factor
+$128$ in $N$, and absolutely too narrow by factors of $7$ to $158$ at
+the top octave, the largest of them at the shallowest cell.
 
 \item Lemma~\ref{lem:placebo} and Measurement~\ref{meas:placebo}: the
 cell effect survives label permutation; the floor does not. The floor

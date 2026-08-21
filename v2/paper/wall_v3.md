@@ -7675,20 +7675,54 @@ against.
 
 #### Remark (a count is not an error bar)
 
-The consequence is not confined to this paper. Over a factor $140$ in
-$N$ — the sub-range of the field $10^5<N\le1.6\cdot10^7$ on which the
-exact floor was fitted, and not that field itself, whose factor is
-$160$ — $n_c^{-1/2}$ says the error bar shrinks by $11.8$; it shrinks
-by $1.21$, against the $1.19$ that $(\log N)^{-1/2}$ predicts over the
-same factor. **An interval built from a count is
-therefore about ten times too narrow at the top of this range relative
-to the bottom**, and in absolute terms the discrepancy is larger still:
-at the top octave the exact floor exceeds
-$\mathrm{sd}(Z)/\sqrt{n_c}$ by factors of $5.8$ to $160$, growing with
-the cell, exactly as $Q_{cc}/n_c^2 \asymp 1/\log N$ predicts. The cause
+The consequence is not confined to this paper. The fit runs over the
+eight octaves from $(6.25\cdot10^4,\,1.25\cdot10^5]$ to
+$(8\cdot10^6,\,1.6\cdot10^7]$, and its abscissa is the octave midpoint
+— which is what makes $1/(2\langle\log N\rangle)=0.036038$ come out,
+with $\langle\log N\rangle=13.8744$. The factor in $N$ is therefore
+$1.2\cdot10^7/93750=128$. Over it, $n_c^{-1/2}$ says the error
+bar shrinks by $\sqrt{128}=11.3$; it shrinks by $128^{0.0395}=1.21$,
+against the $1.19$ that $(\log N)^{-1/2}$ predicts over the same
+factor. **An interval built from a count is therefore a factor
+$11.3/1.21=9.3$ too narrow at the top of this range relative to the
+bottom**, and in absolute terms the discrepancy is larger still: at the
+top octave the exact floor exceeds $\mathrm{sd}(Z)/\sqrt{n_c}$ by
+factors of $7.3$ to $158$. The cause
 is that $u_c(v)$ is a coherent sum, not a self-averaging one, and the
 same is true of any cell mean of a field whose summands share a common
 arithmetic input.
+
+#### Remark (the factor does not grow with the cell) {#rem:sdzrange}
+<!-- evidence: audit_cellfloor_sdz.py -->
+
+The pair just quoted was written as $5.8$ to $160$ and said to grow
+with the cell. Neither half was measured: no result file carried
+either number, and the statement did not say over what range
+$\mathrm{sd}(Z)$ was taken — **W1 is refuted**, in that neither reading
+of $\mathrm{sd}$ reproduces the printed pair. Measured
+(`code/audit\_cellfloor\_sdz.py`),
+with $\mathrm{sd}(Z)=0.924687$ over the top octave — and $0.929384$
+over the whole fitted field, so the choice of range barely moves
+anything — the factor $\mathrm{se}_c\sqrt{n_c}/\mathrm{sd}(Z)$ reads,
+by depth,
+
+$$
+158.4,\quad 62.5,\quad 123.7,\quad 84.2,\quad 32.6,\quad 7.3 .
+$$
+
+So the range is $7.3$ to $158$, and **W2 is refuted: the factor does
+not grow with the cell.** What grows with the cell is the floor
+itself, $\mathrm{se}_c$ running $0.118$ to $0.412$, exactly as
+$Q_{cc}/n_c^2\asymp1/\log N$ predicts; but the factor also carries
+$\sqrt{n_c}$, and $n_c$ falls from $1.53\cdot10^6$ to $266$ across
+those depths, which is the larger movement. The direction claim
+confused a property of the floor with a property of the ratio.
+
+The control W4 holds: the reimplementation reproduces every published
+$\mathrm{se}_c$ of the top octave to six digits, from its own sieve and
+its own convolution. So the measurement is of the same floor, and the
+$160$ was the field's factor in $N$, which the same paragraph named a
+line earlier.
 
 
 ### The mask exists
@@ -8229,9 +8263,14 @@ kill-testing can reach.
 
 
 The requirement constrains every $N$, so the figure to quote is the one
-at the extreme, not at a typical $N$. With $\max|C|\approx
-a_n\sqrt{V(N)}$ and $a_n$ the Gumbel location for the number of even
-$N$ below the point,
+at the extreme, not at a typical $N$. The extreme is where a size has
+to be borrowed rather than measured, and the borrowing is worth naming.
+*Suppose* $C(N)=\sqrt{V(N)}\,G(N)$ with $G$ behaving over $N$ like
+independent standard Gaussians — the statement this note declines to
+assert anywhere it makes a claim, admitted here and nowhere else, for
+the sole purpose of producing a number to compare against. Then
+$\max|C|\approx a_n\sqrt{V(N)}$ with $a_n$ the Gumbel location for the
+number of even $N$ below the point, and
 
 $$
 \frac{N}{\max_{N\le X}|C(N)|}\;\approx\;
@@ -8239,7 +8278,10 @@ $$
 $$
 
 which is $10^{4.466}$ at $N=10^{12}$ and $10^{22.842}$ at $N=10^{50}$
-with $a_n=\sqrt{2\log(N/2)}$ and $\AAA=0.787275$.
+with $a_n=\sqrt{2\log(N/2)}$ and $\AAA=0.787275$. Those two $N$ are
+five and thirty-eight orders of magnitude beyond anything measured
+here; the digits are the arithmetic of the display, not a measurement,
+and nothing below rests on them.
 
 Measured on the octave grid anchored at $1.6\cdot10^7$ and halving —
 the grid \S[sec:floor] uses — $\max|C|/N$ falls from $0.113524$ on
