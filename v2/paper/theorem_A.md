@@ -473,14 +473,14 @@ measuring.
 <!-- evidence: lab_direct_route.py -->
 
 Substitute Proposition [prop:posweights],
-$E_3=\sum_{k<K}(\log k)H(N;k)-C(N)B_{\log}(K)$, into the identity of
+$E_3=\sum_{k<K}\mu^2(k)(\log k)H(N;k)-C(N)B_{\log}(K)$, into the identity of
 Theorem [thm:C]. The two occurrences of $C(N)$ carry opposite signs
 and cancel:
 
 $$
 \begin{equation}\label{eq:direct}
   \tilde r(N) \;=\; \SS(N)N
-   \;+\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!(\log k)H(N;k)
+   \;+\!\!\sum_{\substack{k<K\\(k,N)=1}}\!\!\mu^2(k)(\log k)H(N;k)
    \;-\; C(N)\bigl(B_{\log}(K)+\SS(N)\bigr)
    \;+\; O_A\!\left(\frac{N}{(\log N)^{A}}\right).
 \end{equation}
@@ -491,7 +491,7 @@ through the vanishing factor $B_{\log}(K)+\SS(N)$. Consequently
 
 $$
 \begin{equation}\label{eq:directcond}
-  \sum_{\substack{k<K\\(k,N)=1}}(\log k)\bigl|H(N;k)\bigr|
+  \sum_{\substack{k<K\\(k,N)=1}}\mu^2(k)(\log k)\bigl|H(N;k)\bigr|
    \;\le\;(1-\varepsilon)\,\SS(N)\,N
 \end{equation}
 $$
@@ -516,7 +516,7 @@ the constant, and it has changed by more than a constant's worth.
 The old threshold is $\SS(N)(1-A(N))$ and the new one is $\SS(N)$.
 Measured at $\theta'=0.56$ over $N=2\cdot10^5$ to $3.2\cdot10^6$,
 $B_H(N)/(\SS(N)N)$ with
-$B_H=\sum_{k<K}(\log k)|H(N;k)|$ reads
+$B_H=\sum_{k<K}\mu^2(k)(\log k)|H(N;k)|$ reads
 $0.4578,\,0.4064,\,0.4079,\,0.3769,\,0.3338$ — under $1$ throughout
 and falling — against $2.1591,\,1.9747,\,1.9500,\,1.7483,\,1.5798$ for
 the old ratio, which is above $1$ throughout. So [eq:directcond] is
@@ -569,7 +569,7 @@ two identities, and not as something these measurements confirm.
 
 [eq:directcond] is a demand at level $K$, so the question it leaves is
 the only one the reduction cares about: where does
-$B_H(N;K)=\sum_{k<K}(\log k)|H(N;k)|$ cross $\SS(N)N$? Write
+$B_H(N;K)=\sum_{k<K}\mu^2(k)(\log k)|H(N;k)|$ cross $\SS(N)N$? Write
 $K^*_H(N)$ for that crossing and measure it in units of $\sqrt N$.
 
 Over $N=2\cdot10^5$ to $3.2\cdot10^6$, walking $k$ upward until the
@@ -691,12 +691,12 @@ Goldbach at $K=N$; at $K=N$ it *is* binary Goldbach.
 
 Cut the same double sum along the inner variable of [eq:dilate]
 instead. Exchanging the order in
-$\sum_k(\log k)H(N;k)=\sum_k(\log k)\sum_{m<N/k,(m,k)=1}
+$\sum_k\mu^2(k)(\log k)H(N;k)=\sum_k\mu^2(k)(\log k)\sum_{m<N/k,(m,k)=1}
 \Lambda(N-mk)\mu(m)$,
 
 $$
 \begin{equation}\label{eq:layers}
-  \sum_{k}(\log k)H(N;k) \;=\; \sum_{m}\mu(m)\,L(N;m),
+  \sum_{k}\mu^2(k)(\log k)H(N;k) \;=\; \sum_{m}\mu(m)\,L(N;m),
   \qquad
   L(N;m) := \!\!\sum_{\substack{k<N/m,\ (k,m)=1\\ \mu(k)\neq0}}\!\!
             (\log k)\,\Lambda(N-mk) .
@@ -1003,7 +1003,7 @@ of the $N$-range — agree on which exponents are worth quoting.
 
 Remark [rem:tolerance] withdrew two exponents by sweeping the free
 parameter that defined them. The same audit is owed to the third.
-$K^*_H$ is the crossing of $B_H(N;K)=\sum_{k<K}(\log k)|H(N;k)|$ above
+$K^*_H$ is the crossing of $B_H(N;K)=\sum_{k<K}\mu^2(k)(\log k)|H(N;k)|$ above
 $\SS(N)N$, and [eq:directcond] actually asks for
 $B_H\le(1-\varepsilon)\SS(N)N$, so the budget is a free parameter that
 was set to $\varepsilon=0$ and never moved. Scaling it to $c\,\SS(N)N$
@@ -2078,8 +2078,10 @@ Section [sec:delta].
 *The mean term.* Since $n>Y_k$ iff $k>R_n:=\lceil (N-n)/\alpha\rceil-1$,
 exchanging gives
 $\Xi_{\mathrm{mean}}=\sum_{n<N}a_n\bigl(\rho_N(K)-\rho_N(R_n+1)\bigr)$
-with $\rho_N$ as in Lemma [lem:extract], so
-$\rho_N(x)\ll e^{-c_1\sqrt{\log x}}$. Split at $N-n=H$ with
+with $\rho_N$ as in Lemma [lem:extract]. Its hypothesis is met at both
+arguments used below — $K=N^{\theta'}$ and, on the bulk,
+$R_n\ge N^{\theta'/2}$, against $n=N$ — so
+$\rho_N(x)\ll e^{-c_1\sqrt{\log x}}$ applies there. Split at $N-n=H$ with
 $H:=2N^{1-\theta'/2}$. On $N-n\le H$ use
 $|\rho_N|\ll1$ and $\sum_{N-H\le n<N}|a_n|\ll H\log N$; since
 $1-\theta'/2<1$ this is $\ll_A N(\log N)^{-A}$. On $N-n>H$ one has
@@ -2371,23 +2373,30 @@ sum — and $B_w\to-\SS(N)\asymp1$.
 #### Proposition (both ends are the same sum of dilated walls) {#prop:flatsum}
 <!-- evidence: lab_weight_gap.py -->
 
-Put [eq:dilate] into $T_w$. For squarefree $k$,
-$\mu(k)A(N;k)=\mu(k)^2H(N;k)=H(N;k)$, so
+Put [eq:dilate] into $T_w$. The transform carries $\mu(k)$, so terms
+with $\mu(k)=0$ contribute nothing on the left; on the remaining $k$,
+$\mu(k)A(N;k)=\mu(k)^2H(N;k)$. The restriction must therefore be
+carried on the right, and
 
 $$
 \begin{equation}\label{eq:flatsum}
-  T_w(N) \;=\; \sum_{\substack{k<K\\(k,N)=1}} w_k\,H(N;k)
+  T_w(N) \;=\; \sum_{\substack{k<K\\(k,N)=1}} \mu^2(k)\,w_k\,H(N;k)
            \;-\; B_w\,C(N) .
 \end{equation}
 $$
 
+Dropping $\mu^2(k)$ does not give a weaker identity but a false one:
+$H(N;k)$ does not vanish at squarefull $k$, and the terms it would add
+are of the size of $T_w$ itself.
+
 The two known cases are therefore
 
 $$
-T_1(N) = \!\!\sum_{\substack{k<K\\(k,N)=1}}\!\! H(N;k) \;-\; B_1 C(N),
+T_1(N) = \!\!\sum_{\substack{k<K\\(k,N)=1}}\!\! \mu^2(k)H(N;k)
+  \;-\; B_1 C(N),
 \qquad
-E_3(N) = \!\!\sum_{\substack{k<K\\(k,N)=1}}\!\! (\log k)H(N;k) \;-\;
-B_{\log}C(N),
+E_3(N) = \!\!\sum_{\substack{k<K\\(k,N)=1}}\!\! \mu^2(k)(\log k)H(N;k)
+  \;-\; B_{\log}C(N),
 $$
 
 and both weights are nonnegative on the range. Since
@@ -2405,16 +2414,28 @@ $N=2\cdot10^5$ to $2.56\cdot10^7$ by doubling at $\theta'=0.56$,
 $1.875\cdot10^{-16}$, and
 
 $$
-\frac{\bigl|\sum_k H(N;k)\bigr|}{\bigl|\sum_k(\log k)H(N;k)\bigr|}
-  \;=\; 0.1807,\ 0.1740,\ 0.1624,\ 0.1389,\ 0.1456,\ 0.1216,\
-        0.1258,\ 0.1188 ,
+\frac{\bigl|\sum_k \mu^2(k)H(N;k)\bigr|}
+     {\bigl|\sum_k \mu^2(k)(\log k)H(N;k)\bigr|}
+  \;=\; 0.1785,\ 0.1559,\ 0.1484,\ 0.1483,\ 0.1367,\ 0.1334,\
+        0.1241,\ 0.1135 ,
 $$
 
 falling throughout; at the top $|T_1|/N=0.01425$ against
 $|E_3|/N=0.1245$. Fitted against $\log N$ the flat sum decays as
-$N^{-0.3620}$ and $|E_3|/N$ as $N^{-0.2658}$: the gap is widening, as
+$N^{-0.3505}$ and $|E_3|/N$ as $N^{-0.2658}$: the gap is widening, as
 it must if one side is $\ll_A N(\log N)^{-A}$ and the other is
 $\asymp N$.
+
+The index set here runs from $k=1$, as [eq:flatsum] does. Dropping that
+one term changes the ratios to
+$0.1807,\ 0.1740,\ 0.1624,\ 0.1389,\ 0.1456,\ 0.1216,\ 0.1258,\ 0.1188$
+and the exponent to $N^{-0.3620}$, and it is the second of these that
+`lab\_weight\_gap.py` computes — its loop starts at $k=2$. The
+difference is exactly $C(N)$, since $H(N;1)=C(N)$, so it moves the flat
+sum and not $T_1$, whose $k=1$ term is $A(N;1)-C(N)/\varphi(1)=0$. The
+figures printed above are from
+`verify/pass5/code/c02\_flatsum\_k1.py`, which
+recomputes both index sets from an independent sieve.
 
 
 #### Remark (the last declined null, rule by rule) {#rem:identitynull}
@@ -2549,7 +2570,7 @@ corrected form is a model or a fit.
 
 A prediction that reproduces the crossing it was calibrated on to
 $1.5\%$ has shown nothing yet. The repository holds a second crossing
-of the *same* sum $B_H(N;K)=\sum_{k<K}(\log k)|H(N;k)|$ against a
+of the *same* sum $B_H(N;K)=\sum_{k<K}\mu^2(k)(\log k)|H(N;k)|$ against a
 different budget: [eq:nolog] asks it against $\SS(N)(1-A(N))N$, a
 factor $4.70$ smaller, and that crossing sits an order of magnitude
 lower. Calibrating $c(N)$ **only below the $\SS N$ crossing** and then
@@ -6723,14 +6744,21 @@ one by a factor near $8$ — not any statement about concentration.
 
 $\displaystyle B_w=\sum_{\substack{d<K\\(d,N)=1}}b_d\,
  \frac{\mu(d)}{\varphi(d)}\,\rho_{dN}\!\left(\frac{K}{d}\right)$,
-where $\rho_{n}(x)=\sum_{j<x,\,(j,n)=1}\mu(j)/\varphi(j)
- \ll e^{-c_1\sqrt{\log x}}$.
+where $\rho_{n}(x)=\sum_{j<x,\,(j,n)=1}\mu(j)/\varphi(j)$ satisfies
+$\rho_n(x)\ll e^{-c_1\sqrt{\log x}}$ **whenever $\log n\ll\log x$**.
 
 
 **Proof.** 
 Write $k=dj$; for squarefree $k$ one has $(d,j)=1$,
 $\mu(k)=\mu(d)\mu(j)$ and $\varphi(k)=\varphi(d)\varphi(j)$. The bound
-on $\rho_{HL}$ is Huang–Li's Lemma 1.
+on $\rho$ is Huang–Li's Lemma 1, whose hypothesis $\log n\ll\log x$ is
+carried above rather than dropped. It is not decoration: the table of
+§"Numerical confirmation of the load-bearing quantity" prints
+$|B_w|\varphi(d_0)=1.000000$ at $\lfloor K/d_0\rfloor=1$ — no saving at
+all — and that is the corner where $\log n\asymp\log N$ while
+$\log x=O(1)$. Theorem [thm:D] is unaffected, because it maximises only
+over $d\le N^{\theta'-1/2-\delta}$, where $x=K/d\ge N^{1/2+\delta}$ and
+$n=dN\le N^{3/2}$, so $\log n\asymp\log x$ holds automatically.
  ∎
 
 

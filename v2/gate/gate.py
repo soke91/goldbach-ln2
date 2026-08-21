@@ -500,15 +500,23 @@ def g10_named_scripts(docs):
         for m in re.finditer(r"`([A-Za-z0-9_\\/]+\.py)`", src):
             name = m.group(1).replace("\\", "")
             base = os.path.basename(name)
-            s = os.path.join(CODE, base)
-            r = os.path.join(RESULTS, os.path.splitext(base)[0] + ".txt")
+            # 이름이 재검증 트리를 가리키면 거기서 찾는다. evidence_paths 는
+            # 이미 그렇게 하는데 G10 만 code/ 를 봤다 -- G1 과 G70 이 고친
+            # 것과 같은 맹점이고, 실재하는 인용이 없다고 보고됐다.
+            if name.replace(os.sep, "/").startswith("verify/"):
+                s, r = evidence_paths(name)
+                where = name
+            else:
+                s = os.path.join(CODE, base)
+                r = os.path.join(RESULTS, os.path.splitext(base)[0] + ".txt")
+                where = "code/" + base
             if not os.path.exists(s):
-                fails.append(f"G10 {rel(path)} names code/{base}, "
+                fails.append(f"G10 {rel(path)} names {where}, "
                              f"which does not exist")
                 n += 1
             elif not os.path.exists(r):
-                fails.append(f"G10 {rel(path)} names code/{base} but "
-                             f"results/{os.path.basename(r)} is missing")
+                fails.append(f"G10 {rel(path)} names {where} but "
+                             f"{rel(r)} is missing")
                 n += 1
     return n
 
