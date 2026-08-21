@@ -264,6 +264,13 @@ hypotheses already assumed: unconditionally by Bombieri–Vinogradov in
 the Corollary-1 regime, and under the assumed $EH$ in the Theorem-1
 regime. [HL]'s Theorem 1 and their Corollary 1 stand as stated.
 
+The omission is S. Zheleznov's observation, and the authors have
+corrected the manuscript by keeping the $n$-dependent constraint rather
+than repairing its loss, so that $\Delta$ does not arise. Under that
+moving cut the exchanged divisor sum is cut by the cofactor and the
+completion leaves the tail on the short variable directly — the same
+configuration, reached one step earlier.
+
 
 ## The supply side {#sec:supply}
 

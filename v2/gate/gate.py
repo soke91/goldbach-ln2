@@ -359,6 +359,10 @@ def g13_lab_nulls():
 
 
 # ----------------------------------------------------------------- G12
+VERDICT_TAIL = re.compile(
+    r"^\s*(\b[A-Z]{1,2}\d+\b\s+(hold|REFUTED)\s*)*$")
+
+
 def g12_refutations_disclosed(docs):
     """근거 파일 안에서 죽은 사전등록 검사는 논문이 이름으로 불러야 한다.
 
@@ -369,6 +373,7 @@ def g12_refutations_disclosed(docs):
     문서 안에 그 태그가 있어야 한다.
     """
     n = 0
+    # (VERDICT_TAIL 은 아래 루프에서 판정줄과 사전등록 규칙을 가른다)
     for path, src in docs:
         named = set()
         for m in re.finditer(r"`([A-Za-z0-9_\\/]+\.py)`", src):
@@ -382,6 +387,11 @@ def g12_refutations_disclosed(docs):
             dead = set()
             for line in read(r).splitlines():
                 for m in re.finditer(r"REFUTED", line):
+                    # 사전등록 절은 "X1 REFUTED if ..." 로 쓴다. 그것은 규칙이지
+                    # 판정이 아니다. 판정줄은 REFUTED 뒤에 아무것도 없거나 다른
+                    # 태그의 판정만 잇는다 -- 그 형태일 때만 죽은 것으로 센다.
+                    if not VERDICT_TAIL.match(line[m.end():]):
+                        continue
                     tags = re.findall(r"\b[A-Z]{1,2}\d+\b", line[:m.start()])
                     if tags:
                         dead.add(tags[-1])

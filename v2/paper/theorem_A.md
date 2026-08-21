@@ -28,11 +28,13 @@ unconditional identity, *equivalent* to Huang–Li's own
 equation (22): it therefore already yields binary Goldbach for large
 even $N$, and yields the asymptotic $\tilde r(N)\sim\SS(N)N$ exactly
 when $\sum_{n<N}\Lambda(n)\mu(N-n) = o(N)$. The root cause is
-$\mu * \log = \Lambda$. Finally we record a genuine defect in
-the published paper: equation (18) drops an $n$-dependent constraint
-present in the definition of $S_2(\alpha)$; we give the missing term and
-show it is harmless under the hypotheses already assumed
-(Section [sec:delta]).
+$\mu * \log = \Lambda$. Finally we record a defect in the published
+paper, first observed by S. Zheleznov: equation (18) drops an
+$n$-dependent constraint present in the definition of $S_2(\alpha)$.
+The missing term is exhibited and shown harmless under the hypotheses
+already assumed (Section [sec:delta]); the authors' own correction
+takes a different route, on which that term does not arise
+([rem:movingswitch]).
 
 We state plainly what is *not* claimed: Theorem [thm:A] removes
 only the part of the demand that carries no Goldbach content, and the
@@ -189,9 +191,9 @@ In the Corollary-1 regime, $E_4(\alpha)\ll_A N(\log N)^{-A}$ for every
 $A>0$, unconditionally. Consequently Huang–Li's estimate
 $S_4(\alpha)=O(N(\log N)^{-A})$ requires no hypothesis, their Lemma 4 is
 not needed, and the entire $EH_\mu$ demand of their argument collapses
-to the single scalar $E_3(\alpha)$ (together with the correction
-$\Delta$ of Section [sec:delta], which is likewise unconditional
-here).
+to the single scalar $E_3(\alpha)$ (together with the term $\Delta$ of
+Section [sec:delta] where the published form of (18) is used; it is
+likewise unconditional here, and on the corrected form it is absent).
 
 
 #### Theorem {#thm:C}
@@ -1714,11 +1716,16 @@ $E_4$; with the above it is not needed, and the only remaining
 appearance of $EH_\mu$ in their §3 is through $E_3(\alpha)$. \qed
 
 
-## The correction $\Delta$ to equation (18) {#sec:delta}
+## Equation (18) as published, and the range it drops {#sec:delta}
 
 
-We record a genuine defect in the published paper, together with its
-repair.
+The published form of equation (18) drops a range. What follows
+records the defect and one way of closing it. Neither is claimed as
+new: the observation is S. Zheleznov's, and the authors have since
+corrected the manuscript by a different route, in which the dropped
+range never appears — see [rem:movingswitch]. What is set down here is
+kept because the mechanism it uses is the one Theorem [thm:A] rests on,
+and because the two routes meet at the same configuration.
 
 Huang–Li define
 $S_2(\alpha)=\sum_{n<N}\Lambda(n)\,\mu^2(N-n)\,\tilde\Lambda_\alpha(N-n)$
@@ -1793,9 +1800,106 @@ enlargement of $A$. Hence:
       $EH(N^{\theta}(\log N)^{2A+8})$ which is assumed there.
 
 
-So [HL]'s Theorem 1 and their Corollary 1 stand as stated; what is
-missing is the treatment of $\Delta$.
+So [HL]'s Theorem 1 and their Corollary 1 stand as stated. In the
+published text the treatment of $\Delta$ is missing; in the corrected
+text $\Delta$ does not arise, because the truncation is not moved off
+the inner variable in the first place.
 
+
+
+
+#### Remark (the cut has since moved, and the switch survives the move) {#rem:movingswitch}
+<!-- evidence: audit_moving_switch.py -->
+
+The omission recorded above was reported to the authors by
+S. Zheleznov, and they have prepared a corrected version of the
+manuscript in which the moving truncation is kept throughout. The
+correction does not restore the missing range; it removes the need for
+one. Writing $Y_k=\lceil N-\alpha k\rceil-1$ and
+$R_n=\lceil (N-n)/\alpha\rceil-1$, so that
+
+$$
+n\le Y_k \iff n<N-\alpha k \iff k\le R_n ,
+$$
+
+their (18) becomes a sum over $k<K$ whose *inner* range stops at
+$Y_k$. The terms with $m\le\alpha$ never enter, and $\Delta$ does not
+arise. The corrected argument also carries $EH_\mu$ at the endpoint
+$y=Y_k$, so the maximum over $y$ in [eq:EHmu] becomes load-bearing
+where it was not before.
+
+**Every statement here was proved against the fixed cut**, and is
+therefore a statement about the superseded formulation unless the
+mechanism survives the move. It does, and it arrives one step earlier.
+Exchanging under the moving cut gives
+
+$$
+D^\ast=\sum_{u<N}\Lambda(N-u)\mu(u)\,\sigma^\ast(u),
+\qquad
+\sigma^\ast(u)=\!\!\sum_{\substack{k\mid u,\ (k,N)=1\\ u/k>\alpha}}\!\!\mu(k),
+$$
+
+the outer bound $k<K$ being implied by $u<N$. So the incomplete divisor
+sum is now cut by the **cofactor**. Completing it by
+Lemma [lem:complete] leaves
+
+$$
+D^\ast=P^\ast-R^\ast,\qquad
+R^\ast=\sum_{m\le\alpha}\mu(m)\!\!\sum_{\substack{(k,mN)=1\\ mk<N}}\!\!
+       \mu^2(k)\,\Lambda(N-mk),
+$$
+
+with $P^\ast\ll N^{o(1)}$ exactly as in [eq:P]. Under the fixed cut the
+completion had to *produce* a short variable, and did so only because
+$k\ge K$ forced $m<N/K$; under the moving cut the tail is indexed by
+$m\le\alpha$ from the start. The favourable configuration — $\mu$ on
+the short variable, $\mu^2\ge0$ on the long one — is reached without
+that step.
+
+$R^\ast$ is the shape of [eq:Delta], and it closes the same way: by
+[eq:mu2mk] the two conditions on $k$ collapse to $\mu^2(mk)$, and
+expanding with the truncation $b\le(\log N)^{A+4}$ gives moduli
+$[m,b^2]\le\alpha(\log N)^{2A+8}$. In the Corollary-1 regime
+$\alpha=N^{1-\theta'}<N^{1/2}$, so Bombieri--Vinogradov closes it
+unconditionally.
+
+The subtracted mean term moves the same way. Exchanging endpoints,
+
+$$
+M^\ast=\sum_{\substack{k<K\\(k,N)=1}}\frac{\mu(k)}{\varphi(k)}\,C(Y_k)
+      =\sum_{n<N}\Lambda(n)\mu(N-n)\,\rho_N(R_n+1),
+$$
+
+with $\rho_N$ as in Lemma [lem:extract]. Splitting at $N-n=H$ with
+$H=2\alpha N^{(1-\theta)/2}$ gives $R_n\ge N^{(1-\theta)/2}$ on the bulk,
+where Huang--Li's Lemma 1 supplies $e^{-c\sqrt{\log N}}$, and $O(H\log N)$
+on the boundary; since $H=2N^{(1+\theta)/2}$ and $\theta<1/2$ there, both
+are below $N(\log N)^{-A}$.
+
+**Verified as identities, not as estimates**
+(`code/audit\_moving\_switch.py`; X1--X4 hold, X5 reported not judged).
+Over $N=2\cdot10^5$ to $3.2\cdot10^6$ at $\alpha=N^{0.44}$, each
+rearrangement is accumulated in two genuinely different index orders
+and the pairs agree to $6.4\cdot10^{-17}$ (X1, the switch),
+$2.5\cdot10^{-16}$ (X2, the completion) and $2.1\cdot10^{-18}$ (X4, the
+mean term) relative to $N$; the largest $m$ carrying a surviving term
+is $213$, $291$, $393$, $533$, $727$ against $\alpha=215$, $292$,
+$396$, $537$, $728$, so the tail is on the short variable at every $N$
+(X3); and $|M^\ast|/N$ reads $0.000461$, $0.000059$, $0.000026$,
+$0.000045$, $0.000015$.
+
+One of the four checks first failed at a tolerance of $10^{-12}$
+relative to $N$ and passed at $10^{-19}$ once the two accumulations
+were made exactly rounded rather than running float. Nothing in the
+formulas changed. $M^\ast$ is a sum whose cancellation reaches
+$10^{-5}$ of its own mass, so a tolerance set against $N$ was below
+what the arithmetic could deliver — the same defect this repository
+records as `TOL BELOW PRINT`.
+
+**What this does not do.** It does not restate Theorem [thm:A] or
+Theorem [thm:C] against the corrected formulation; it establishes that
+the mechanism they rest on transfers. The statements are still written
+for the fixed cut, and the endpoint $Y_k$ appears in none of them.
 
 ## Proof of Theorem [thm:C
 : the permanent closure]{#sec:C}
@@ -6999,8 +7103,11 @@ $cN/(\log N\log\log N)$ — weaker than the consumed bound by a factor
 $(\log N)^A$ for every $A$. It does not reopen Theorem [thm:D].
 
 - Section [sec:delta]: equation (18) of [HL] omits an
-$n$-dependent constraint; the missing term $\Delta$ is exhibited and
-closes under hypotheses already assumed.
+$n$-dependent constraint — S. Zheleznov's observation; the missing term
+$\Delta$ is exhibited and closes under hypotheses already assumed. The
+authors' correction keeps the constraint instead, and
+[rem:movingswitch] shows the switch of Theorem [thm:A] survives that
+move, reaching the favourable configuration one step earlier.
 
 - Section [sec:notclaimed]: the net progress toward Goldbach is
 zero.
