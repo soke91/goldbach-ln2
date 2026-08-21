@@ -1901,6 +1901,117 @@ Theorem [thm:C] against the corrected formulation; it establishes that
 the mechanism they rest on transfers. The statements are still written
 for the fixed cut, and the endpoint $Y_k$ appears in none of them.
 
+
+#### Remark (the two cuts are a $\Delta$ apart) {#rem:cutbridge}
+<!-- evidence: audit_delta_bridge.py -->
+<!-- evidence: audit_cut_bridge.py -->
+
+[rem:movingswitch] shows the mechanism transfers, which leaves open the
+question it does not answer: is the fixed-cut statement *superseded* by
+the corrected formulation, or is it the stronger of the two? The answer
+is the second, and the term that separates them is the one this section
+is about.
+
+**The fixed-cut object is the larger.** Write
+$J=T_1(N-1)=\sum_{k<K,(k,N)=1}\mu(k)\Emu(N-1;k)$ for the fixed cut at
+its extreme endpoint and $T_1^\ast=\sum_k\mu(k)\Emu(Y_k;k)$ for the
+moving cut. Over $N=2\cdot10^5$ to $3.2\cdot10^6$ at $\alpha=N^{0.44}$,
+$|T_1^\ast|$ is $0.2910$, $0.1054$, $0.2496$, $0.2290$, $0.2126$ of
+$\sup_{t<N}|T_1(t)|$ — the supremum taken over every $t$, not a grid.
+Moreover $|J|/N$ reads $0.078425$, $0.062218$, $0.048288$, $0.038048$,
+$0.028801$ against a supremum of $0.078491$, $0.062218$, $0.048305$,
+$0.038048$, $0.028801$: the supremum is essentially attained at the
+extreme endpoint, so nothing below starts from a convenient point of
+Theorem [thm:A].
+
+Uniformity in the outer truncation is free where the mechanism works.
+Maximising $|T_1(t;K')|$ over both $t$ and $K'\in[N^{1/2},K]$ returns
+$1.0000$ times the value at $K'=K$ at every $N$ — the maximum is
+attained at the full truncation. ($K'<N^{1/2}$ is printed and not
+judged: there the completion leaves a cofactor that is not short, and
+no computation at these $N$ can show that.)
+
+**The bridge is not a telescoping.** Since $Y_k$ decreases in $k$,
+
+$$
+T_1^\ast=T_1(Y_J;K)+\sum_{j<J}\bigl[T_1(Y_j;j+1)-T_1(Y_{j+1};j+1)\bigr]
+$$
+
+is an exact identity in the two-parameter family (verified to $0$ and
+$2.3\cdot10^{-18}$ relative to $N$), but its increments live on
+intervals of length about $\alpha$ and there are $K$ of them. Their
+total $\sum_j|\cdot|$ falls like $N^{-0.1707}$, against the
+$N^{-0.2200}$ that square-root cancellation over an interval of length
+$\alpha$ would give. **That agreement is the reason the route is
+useless.** A power saving here *is* a short-interval estimate for
+$\Lambda$ on intervals of length $N^{1-\theta'}$, which no
+unconditional argument supplies. The numbers say the bridge is cheap
+and no proof follows. The pre-registered rule Y3 of
+`code/audit\_cut\_bridge.py` asked instead whether the cost exceeded
+$N$; it does not, so **Y3 is refuted as registered**, and the rule is
+left standing with its verdict because the question it asked was the
+wrong one and the record should show what was asked before the numbers
+were seen. Y5, added afterward and disclosed as such in that script,
+carries the question Y3 meant to ask.
+
+**The bridge is $\Delta$.** The difference between the two cuts is
+carried by the $n$ the moving cut drops, and there
+
+$$
+n>Y_k \iff N-n\le\alpha k \iff m\le\alpha,
+\qquad m=\frac{N-n}{k},
+$$
+
+so on exactly those terms $\mu(k)\mu(N-n)=\mu(k)\mu(mk)
+=\mu(m)\mu^2(k)$ — the Möbius factor on the *short* variable, the long
+one carrying only $\mu^2\ge0$. That is [eq:Delta]'s shape with weight
+$1$ in place of $\log m$. Hence
+
+$$
+\begin{equation}\label{eq:cutbridge}
+  T_1^\ast=J-\Xi,\qquad \Xi=\Xi_{\mathrm{main}}-\Xi_{\mathrm{mean}},
+\end{equation}
+$$
+
+$$
+\Xi_{\mathrm{main}}=\sum_{m\le\alpha}\mu(m)\!\!
+  \sum_{\substack{k<K\\ (k,mN)=1}}\!\!\mu^2(k)\,\Lambda(N-mk),
+\qquad
+\Xi_{\mathrm{mean}}=\!\!\sum_{\substack{k<K\\ (k,N)=1}}\!\!
+  \frac{\mu(k)}{\varphi(k)}\bigl(C(N-1)-C(Y_k)\bigr).
+$$
+
+$\Xi_{\mathrm{main}}$ closes by [eq:mu2mk] and the $b\le(\log N)^{A+4}$
+expansion exactly as $\Delta$ does, and more easily, there being no
+$\log m$ to remove by partial summation; $\Xi_{\mathrm{mean}}$ is
+$W_K\,C(N-1)$ less the term treated in [rem:movingswitch], and
+$W_K=\sum_{k<K,(k,N)=1}\mu(k)/\varphi(k)\ll e^{-c\sqrt{\log N}}$ by
+Lemma [lem:mu], which absorbs the trivial $C(N-1)\ll N\log N$.
+
+**So the fixed cut is not superseded — it is one of two ingredients,
+and the omitted term is the other.** [eq:cutbridge] was verified as an
+identity, not as an estimate (`code/audit\_delta\_bridge.py`; Z1--Z3
+hold): the two sides share no index order, $T_1^\ast$ being built from
+the cofactor cut and $J$ from the full truncation, and they agree to
+$2.274\cdot10^{-18}$ relative to $N$; $\Xi$ accumulated over residue
+classes agrees with $\Xi_{\mathrm{main}}-\Xi_{\mathrm{mean}}$
+accumulated over $m$ to $4.547\cdot10^{-18}$; and the largest $m$
+carrying a surviving term is $213$, $291$, $393$, $533$, $727$ against
+$\alpha=215$, $292$, $396$, $537$, $728$. The bridge is not a small
+correction to be waved through: $|\Xi|/N$ reads $0.055582$,
+$0.055661$, $0.036230$, $0.029335$, $0.022678$, the same order as
+$|J|/N$. It needs $\Delta$'s estimate, not a triangle inequality.
+
+**What this does not do.** It does not make the deduction a numbered
+statement. Doing so means restating Theorem [thm:A] against the
+corrected formulation, and the statements here are still phrased for
+the fixed cut. What is established is the shape of that restatement:
+Theorem [thm:A] at $t=N-1$, plus the estimate of Section [sec:delta]
+with weight $1$, gives the moving-cut bound — so the correction the
+published equation needed and the formulation that removes the need for
+it are two readings of one identity.
+
+
 ## Proof of Theorem [thm:C
 : the permanent closure]{#sec:C}
 

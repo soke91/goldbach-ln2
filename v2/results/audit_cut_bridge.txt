@@ -1,0 +1,221 @@
+STATISTIC: T1(t;K') = sum_{n<=t} a_n d_{K'}(n) - W_{K'} C(t),
+           a_n = Lambda(n) mu(N-n), regrouped by divisor count;
+           its exact supremum over t, its two-parameter maximum
+           over K', the moving-cut value T1*, the telescoping
+           cost of passing from one to the other, and the split
+           of T1* at the cofactor threshold R_n = N^(1/2).
+FIELD: N even in 200000,400000,800000,1600000,3200000; alpha = N^theta; k < K = (N-1)/alpha with
+       (k,N) = 1 and k squarefree; n < N; R_n = ceil((N-n)/alpha)-1;
+       Y_k = ceil(N - alpha k) - 1. Lambda, mu from one sieve.
+CONSTANTS: THETA = 0.44, TOL_ID = 1e-12, TOL_CTL = 1e-08,
+           Y2_CAP = 3.0, N_CHECKPOINTS = 24, PRIOR from
+           code/audit_moving_switch.py (8 decimals as printed).
+NULL: none applies -- deterministic finite sums, no sampling, no
+      sign input. Controls: Y0 against an independently written
+      script; the decomposition groups by divisor count, not by
+      residue class.
+DENOM: every ratio printed as .../N is divided by N; the Y1 and
+      Y2 ratios are divided by sup_t |T1(t;K)| at the same N.
+
+Does the fixed-cut theorem reach the moving-cut object by summation?
+
+Supports {#rem:cutbridge}.
+
+WHAT IS AT STAKE
+
+Two formulations of the same double sum are in play.  The fixed cut
+gives every k the same endpoint t, and the theorem of this note bounds
+
+    T1(t; K) = sum_{k<K, (k,N)=1} mu(k) Emu(t;k)     uniformly in t.
+
+The corrected formulation gives k its own endpoint Y_k = ceil(N-alpha k)-1
+and asks about
+
+    T1* = sum_{k<K, (k,N)=1} mu(k) Emu(Y_k; k).
+
+Neither is formally a consequence of the other: the supremum in the
+first sits OUTSIDE the k-sum, so using it on the second requires
+absolute values inside, which destroys the cancellation in k that the
+whole statement is about.  There is, however, an exact bridge.  Since
+Y_k decreases in k,
+
+    T1* = T1(Y_J; K) + sum_{j<J} [ T1(Y_j; j+1) - T1(Y_{j+1}; j+1) ],
+
+J the largest index -- a telescoping identity in the two-parameter
+family T1(t; K').  So the fixed-cut statement reaches the moving-cut
+object if (a) it is uniform in the outer truncation K' as well as in t,
+and (b) the telescoping sum can be bounded term by term.  This run
+measures whether either is true, and which of the two objects is the
+larger.
+
+The reason to ask: if the fixed cut is the harder object and the bridge
+is cheap, then the fixed-cut statement is the stronger one and the
+corrected formulation is a corollary of it.  If the bridge is not
+cheap, the direct re-derivation under the moving cut is not a
+convenience but a necessity, and the two statements are separate
+results.
+
+WHAT IS MEASURED
+
+For N even, alpha = N^theta, K = (N-1)/alpha, a_n = Lambda(n) mu(N-n),
+C(t) = sum_{n<=t} a_n, and
+
+    d_{K'}(n) = sum_{k | N-n, (k,N)=1, k < K'} mu(k),
+    W_{K'}    = sum_{k<K', (k,N)=1} mu(k)/phi(k),
+    T1(t; K') = sum_{n<=t} a_n d_{K'}(n) - W_{K'} C(t),
+
+which is the same T1 regrouped by divisor count instead of by residue
+class -- a different decomposition, computed here from scratch.
+
+  Y0  control.  |T1*|/N against the value an independently written
+      script produced for the same N and alpha.
+
+  Y1  which object is larger: |T1*| against sup_{1<=t<N} |T1(t;K)|,
+      the supremum taken over every t, not a grid.
+
+  Y2  what the outer truncation costs inside the admissible band:
+      max over K' in [N^(1/2), K] and over t of |T1(t;K')|, against
+      sup_t |T1(t;K)|.  Values of K' below N^(1/2) are printed but not
+      judged -- there the completion has no proof at any N, and a
+      finite computation cannot see that.
+
+  Y3  the price of the bridge: sum_j |T1(Y_j;j+1) - T1(Y_{j+1};j+1)|
+      against N.  The telescoping identity is itself checked first:
+      the decomposition must reproduce T1*.
+
+  Y4  the share carried by the range where the completion has no
+      proof: T1* split at R_n = ceil((N-n)/alpha)-1 = N^(1/2), the
+      cofactor threshold, into bulk (R_n >= N^(1/2)) and boundary.
+
+  Y5  the rate at which the bridge's cost falls: the least-squares
+      slope of log(cost/N) against log N.  See the disclosure below --
+      this check was added after Y3's threshold was seen to be the
+      wrong question.
+
+DISCLOSURE
+
+A code smoke test was run at N = 20000 and 40000 -- outside the field
+registered here -- to check that the program runs.  Its numbers were
+visible, and they showed that Y3's registered threshold asks the wrong
+question: the target is not N but N(log N)^(-A) for every A, so a cost
+below N settles nothing.  Y3's rule is left exactly as registered and
+whatever it returns is reported as it stands.  Y5 was added afterward,
+and its threshold is a prediction about the mechanism rather than about
+the size: if the cost falls because each increment enjoys square-root
+cancellation over its interval of length alpha, then summing K = N/alpha
+of them gives cost/N ~ N^(-theta/2), a slope of -theta/2 = -0.22.  The
+five N below are a different field from the two the smoke test used, so
+the exponent is being tested out of sample.
+
+FALSIFICATION, registered before the run
+
+  Y0  REFUTED if |T1*|/N differs from the earlier value by more than
+      1e-8, which is the precision that value was printed to.  Then the
+      two implementations disagree and nothing below is interpretable.
+  Y1  REFUTED if |T1*| exceeds sup_t |T1(t;K)| at any N.  Then the
+      moving-cut object is the larger one, the fixed-cut statement is
+      weaker than what the corrected formulation needs, and no amount
+      of uniformity recovers it.
+  Y2  REFUTED if the two-parameter maximum over the admissible band
+      exceeds 3 times sup_t |T1(t;K)|.  Then uniformity in the outer
+      truncation is not free even where the mechanism is supposed to
+      work.
+  Y3  REFUTED if sum_j |increment_j| / N falls below 1 at any N, or if
+      the telescoping identity fails to reproduce T1* to 1e-12
+      relative to N.  The first would mean the bridge is cheap -- the
+      fixed-cut family reaches the moving-cut object term by term, and
+      re-deriving under the moving cut was unnecessary.  The second
+      would mean the identity above is misstated.
+  Y4  REFUTED if |T1*_boundary|/N at the largest N is not below its
+      value at the smallest N.
+  Y5  REFUTED if the fitted slope differs from -theta/2 by more than
+      0.10.  Then the cost is not falling at the rate square-root
+      cancellation over an interval of length alpha would give, and
+      that explanation of Y3's outcome is wrong.
+
+  PREDICTION.  Y0, Y1, Y2, Y4, Y5 hold.  Y3 was predicted to hold when
+  it was registered; the smoke test disclosed above makes that
+  prediction obsolete rather than confirmed, and it is left standing so
+  the record shows what was asked before the numbers were seen.
+
+  Expect the admissible band R_n in [N^(1/2), N^(theta')] to be thin at
+  these N, so Y4's decrease should be slow.
+
+  WHAT A CHEAP BRIDGE WOULD AND WOULD NOT SETTLE.  If Y5 holds, the
+  cost falls like a power, far below the target N(log N)^(-A) -- and
+  that is exactly the point at which the computation stops being
+  evidence.  A power saving here IS square-root cancellation for
+  Lambda over an interval of length alpha = N^(1-theta'), which is a
+  short-interval prime estimate no unconditional argument supplies.
+  The numerics would say the bridge is cheap and no proof would follow.
+  That is the reason the moving cut was re-derived directly rather than
+  bridged, and Y5 is the check that says so in numbers.
+
+NULL.  None applies: every quantity is a deterministic finite sum with
+no sampling and no sign input.  The controls are Y0, which re-derives a
+quantity from an independently written script, and the decomposition
+itself, which groups the same sum by divisor count rather than by
+residue class.
+
+========================================================================
+sieving to 3200000 ...
+
+  N         alpha  K      sup|T1|/N   |T1*|/N     Y1 ratio  Y2 ratio 
+  -------------------------------------------------------------------
+  200000    215    930    0.078491    0.022843    0.2910    1.0000   
+  400000    292    1371   0.062218    0.006557    0.1054    1.0000   
+  800000    396    2021   0.048305    0.012058    0.2496    1.0000   
+  1600000   537    2980   0.038048    0.008713    0.2290    1.0000   
+  3200000   728    4394   0.028801    0.006123    0.2126    1.0000   
+
+  N         Y0 diff     Y3 id       Y3 cost/N   small K'    bulk/N      bdry/N     
+  ----------------------------------------------------------------------------------
+  200000    2.690e-09   0.000e+00   0.11        0.4861      0.013485    0.009358   
+  400000    2.884e-10   0.000e+00   0.10        0.4543      0.004747    0.001809   
+  800000    5.001e-10   2.274e-18   0.08        0.4410      0.006338    0.005720   
+  1600000   4.320e-09   0.000e+00   0.08        0.4526      0.004532    0.004182   
+  3200000   1.647e-09   1.137e-18   0.07        0.4014      0.004054    0.002069   
+
+  admissible band for the outer truncation, K' in [N^(1/2), K]:
+    N = 200000     [447, 930]   width in log: 0.732
+    N = 400000     [632, 1371]   width in log: 0.774
+    N = 800000     [894, 2021]   width in log: 0.815
+    N = 1600000    [1265, 2980]   width in log: 0.857
+    N = 3200000    [1789, 4394]   width in log: 0.899
+
+  Y5  cost/N against N, least squares in logs:
+      fitted slope   -0.1707
+      square-root cancellation over alpha predicts  -0.2200
+      residuals:
+        N = 200000     log(cost/N) = -2.2011   fitted -2.2163
+        N = 400000     log(cost/N) = -2.3434   fitted -2.3347
+        N = 800000     log(cost/N) = -2.4717   fitted -2.4530
+        N = 1600000    log(cost/N) = -2.5687   fitted -2.5713
+        N = 3200000    log(cost/N) = -2.6800   fitted -2.6896
+
+Y0  the moving-cut value reproduces the earlier one
+    Y0 hold
+Y1  the fixed-cut supremum is the larger object
+    Y1 hold
+Y2  uniformity in the outer truncation is cheap in the band
+    Y2 hold
+Y3  the telescoping bridge is exact, and costs more than the target
+    Y3 REFUTED
+Y4  the unproved boundary carries a shrinking share
+    Y4 hold
+Y5  the cost falls at the rate short-interval cancellation gives
+    Y5 hold
+
+  Y3 does not enter the exit status. Its threshold was shown to
+  ask the wrong question before this field was run (see
+  DISCLOSURE), so passing or failing it decides nothing. The
+  rule and its verdict are printed unchanged; Y5 carries the
+  question Y3 meant to ask.
+
+  K' below N^(1/2) is printed, not judged: there the completion
+  leaves a cofactor that is not short, and no computation at these
+  N can show that. The column is there so the claim is checkable
+  in the only sense it can be -- as a size, not as a proof.
+
+========================================================================
+Y0 hold  Y1 hold  Y2 hold  Y3 REFUTED  Y4 hold  Y5 hold
