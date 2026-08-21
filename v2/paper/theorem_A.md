@@ -29,11 +29,13 @@ equation (22): it therefore already yields binary Goldbach for large
 even $N$, and yields the asymptotic $\tilde r(N)\sim\SS(N)N$ exactly
 when $\sum_{n<N}\Lambda(n)\mu(N-n) = o(N)$. The root cause is
 $\mu * \log = \Lambda$. Finally we record a defect in the published
-paper, first observed by S. Zheleznov: equation (18) drops an
-$n$-dependent constraint present in the definition of $S_2(\alpha)$.
-The missing term is exhibited and shown harmless under the hypotheses
-already assumed (Section [sec:delta]); the authors' own correction
-takes a different route, on which that term does not arise
+paper — reported to the authors independently, and before this note,
+by S. Zheleznov: equation (18) drops an $n$-dependent constraint
+present in the definition of $S_2(\alpha)$.
+The defect itself had been reported to them independently before this
+note. The missing term is exhibited here and shown harmless under the
+hypotheses already assumed (Section [sec:delta]); the authors' own
+correction takes a different route, on which that term does not arise
 ([rem:movingswitch]). The two routes differ by exactly that term, and
 Theorem [thm:A] together with it gives the bound against the corrected
 formulation (Proposition [prop:movingcut]).
@@ -1913,13 +1915,22 @@ appearance of $EH_\mu$ in their §3 is through $E_3(\alpha)$. \qed
 ## Equation (18) as published, and the range it drops {#sec:delta}
 
 
-The published form of equation (18) drops a range. What follows
-records the defect and one way of closing it. Neither is claimed as
-new: the observation is S. Zheleznov's, and the authors have since
-corrected the manuscript by a different route, in which the dropped
-range never appears — see [rem:movingswitch]. What is set down here is
-kept because the mechanism it uses is the one Theorem [thm:A] rests on,
-and because the two routes meet at the same configuration.
+The published form of equation (18) drops a range. Two separate things
+follow and they carry different credit. **The defect is not claimed as
+new**: that the $n$-dependent restriction had been replaced by a fixed
+outer range was reported to the authors by S. Zheleznov before this
+note was written, and they have since prepared a corrected manuscript
+— see [rem:movingswitch]. **The missing term and its treatment are what
+this section sets down**, and nothing on record attributes them
+elsewhere. The two are different kinds of work and neither replaces the
+other. A correction that keeps the moving truncation repairs the
+derivation *from the inside*: the range $m\le\alpha$ never appears, so
+there is no term to bound. What follows is the *outside* version — the
+published form is taken as it stands, the discrepancy is named, and it
+is bounded. The second is not the first done again: the term **is** the
+difference between the two formulations, and that is what lets a
+theorem proved against the fixed cut transfer to the corrected one
+([prop:movingcut]).
 
 Huang–Li define
 $S_2(\alpha)=\sum_{n<N}\Lambda(n)\,\mu^2(N-n)\,\tilde\Lambda_\alpha(N-n)$
@@ -2005,8 +2016,9 @@ the inner variable in the first place.
 #### Remark (the cut has since moved, and the switch survives the move) {#rem:movingswitch}
 <!-- evidence: audit_moving_switch.py -->
 
-The omission recorded above was reported to the authors by
-S. Zheleznov, and they have prepared a corrected version of the
+The omission recorded above had been reported to the authors by
+S. Zheleznov before this note, and they have prepared a corrected
+version of the
 manuscript in which the moving truncation is kept throughout. The
 correction does not restore the missing range; it removes the need for
 one. Writing $Y_k=\lceil N-\alpha k\rceil-1$ and
@@ -7533,8 +7545,9 @@ $cN/(\log N\log\log N)$ — weaker than the consumed bound by a factor
 $(\log N)^A$ for every $A$. It does not reopen Theorem [thm:D].
 
 - Section [sec:delta]: equation (18) of [HL] omits an
-$n$-dependent constraint — S. Zheleznov's observation; the missing term
-$\Delta$ is exhibited and closes under hypotheses already assumed. The
+$n$-dependent constraint — reported independently by S. Zheleznov
+before this note; the missing term $\Delta$ is exhibited here and
+closes under hypotheses already assumed. The
 authors' correction keeps the constraint instead, and
 [rem:movingswitch] shows the switch of Theorem [thm:A] survives that
 move, reaching the favourable configuration one step earlier.
