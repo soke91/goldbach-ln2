@@ -7915,7 +7915,11 @@ MRT \cite{MRT15} / Lichtman \cite{Li20}, shift $\to$ dilate & Blocked &
  constraint ($h = m-n$); the dilate constraint
  $m'u - mu' = N(m'-m)$ is bilinear. The $h$-average is a translation;
  the $k$-average is a dilation, with no diagonalizing character
- family.\\
+ family. The shift side is where the hypothesis was born ---
+ Murty--Vatwani \cite{MV17} posed the shifted-M\"obius
+ Elliott--Halberstam conjecture for $n\mapsto n+h$ and \cite{HL}
+ transposed it to $n\mapsto N-n$ --- so the linearity that is lost here
+ is the one the original hypothesis was built on.\\
 Tao 2016 \cite{Tao} entropy decrement, $k$-averaged & Blocked $\times 3$ &
  (i) no $k$-analog of approximate affine invariance; (ii) the sampling
  prime enters the phase multiplicatively, so the sparsification fails

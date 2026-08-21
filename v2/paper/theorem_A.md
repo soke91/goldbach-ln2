@@ -234,12 +234,52 @@ hypothesis is exactly the quantity the companion paper's
 Sections 4–5 are about.
 
 
-Theorem [thm:C] is the more consequential half. It says that the
-demand side is closed at the level of *identities* rather than of
-estimates: no choice of $\theta'$, of truncation, or of smoothing can
-evade it, because the root cause is the identity $\mu*\log=\Lambda$
-from which Huang–Li start. The weight $\log k$ is the carrier of the
-Goldbach content, so every divisor switch must hand it back.
+Theorem [thm:C] says that the demand side is closed at the level of
+*identities* rather than of estimates: no choice of $\theta'$, of
+truncation, or of smoothing can evade it, because the root cause is the
+identity $\mu*\log=\Lambda$ from which Huang–Li start. The weight
+$\log k$ is the carrier of the Goldbach content, so every divisor
+switch must hand it back.
+
+
+#### Remark (whose chain this is) {#rem:thmCprior}
+<!-- evidence: analytic -->
+
+The chain behind Theorem [thm:C] is not ours, and this note was
+carrying it without attribution until the literature was checked.
+Murty and Vatwani **[MV17]** run it for the shift $n\mapsto n+h$:
+$\Lambda=\mu*\log$, split at $y$, the factor $\mu^2(n+h)$ carried
+throughout, and a reduction to sums they call $S_3$ and $S_4$ — where
+$S_3$ is exactly the $\log$-weighted Möbius correlation sum in the
+fixed class, which is $E_3$. Granting $EH_\Lambda$ and their
+shifted-Möbius $EH_{\mu_h}$ they reach
+
+$$
+\sum_{n\le x}\Lambda(n)\Lambda(n+h)\;\sim\;
+  \bigl(\SS(h)+o(1)\bigr)\Bigl(x-\sum_{n\le x}\Lambda(n)\mu(n+h)\Bigr),
+$$
+
+which is the right-hand side of Theorem [thm:C] with $E_3$ absorbed
+into the $o(1)$; and their $A_h=\prod_{p\nmid h,\,p>2}(1-1/(p(p-1)))$
+is [eq:AN]. [HL] transpose the chain to the Goldbach shift and their
+(22) is its endpoint. Their own reference list carries **[MV17]**,
+Vatwani's **[Vat19]**, and Pan's Goldbach-side attempt **[Pan]**;
+this note carried **[MV17]** in its bibliography and cited it nowhere.
+
+Three things are added here and the chain is not among them. The
+residual is *named* instead of absorbed, so the statement is an
+equality with an explicit error term rather than an asymptotic. It is
+*unconditional* in the Corollary-1 regime — possible only because
+Theorem [thm:A] discharges the other consumption of $EH_\mu$, which
+**[MV17]** spend on $S_4$ by partial summation and [HL] spend on $E_4$
+through their Lemma 4. And the three-way distinction of
+[rem:threeway] is visible only once the $o(1)$ is a named object.
+
+Theorem [thm:A] itself has no counterpart in either: both papers assume
+their hypothesis on the flat branch, and the claim here is that the
+branch does not need one. Nothing found in **[MV17]**, **[Vat19]**,
+**[Pan]** or [HL]'s reference list bears on it. That is a negative
+search over four items and not a survey.
 
 Closure at the level of identities is not closure at the level of
 *strength*, and the next proposition separates the two. Every
@@ -7596,6 +7636,13 @@ Elliott–Halberstam conjecture*, arXiv:2005.03811v2 [math.NT], 2022.
 
 - **[Pan]**  Cheng-Dong Pan, *A new attempt on Goldbach
 conjecture*, Chinese Ann. Math. **3** (1982), 555–560.
+
+- **[MV17]**  M. Ram Murty and Akshaa Vatwani, *Twin primes and
+the parity problem*, J. Number Theory **180** (2017), 643-659.
+
+- **[Vat19]**  Akshaa Vatwani, *Variants of equidistribution in
+arithmetic progression and the twin prime conjecture*, Math. Z.
+**293** (2019), 285-317.
 
 - **[MV]**  Hugh Montgomery and Robert Vaughan,
 *Multiplicative number theory I: classical theory*, CUP, 2007.

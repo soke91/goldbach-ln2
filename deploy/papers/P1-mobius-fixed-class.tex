@@ -240,13 +240,40 @@ asymptotic, which needs $C(N)=o(N)$ in addition. The three statements
 must be kept apart.
 \end{note}
 
-Theorem~\ref{thm:C} is the more consequential half. It says that the
-demand side is closed at the level of \emph{identities} rather than of
-\emph{estimates}: no choice of $\theta'$, of truncation, or of
-smoothing can evade it, because the root cause is the identity
-$\mu*\log=\Lambda$ from which Huang--Li start. The weight $\log k$ is
-the carrier of the Goldbach content, so every divisor switch must hand
-it back.
+Theorem~\ref{thm:C} says that the demand side is closed at the level
+of \emph{identities} rather than of \emph{estimates}: no choice of
+$\theta'$, of truncation, or of smoothing can evade it, because the
+root cause is the identity $\mu*\log=\Lambda$ from which Huang--Li
+start. The weight $\log k$ is the carrier of the Goldbach content, so
+every divisor switch must hand it back.
+
+\begin{note}[what is new in Theorem~\ref{thm:C}, and what is
+not]\label{note:thmCprior}
+The chain behind it is not ours. Murty and Vatwani \cite{MV17} run it
+for the shift $n\mapsto n+h$: they decompose $\Lambda=\mu*\log$, split
+at $y$, carry the factor $\mu^2(n+h)$, and reduce to sums they call
+$S_3$ and $S_4$ --- $S_3$ being exactly the $\log$-weighted M\"obius
+correlation sum in the fixed class, that is $E_3$. Assuming
+$EH_\Lambda$ and their shifted-M\"obius $EH_{\mu_h}$ they obtain
+$\sum_{n\le x}\Lambda(n)\Lambda(n+h)\sim(\mathfrak S(h)+o(1))
+\bigl(x-\sum_{n\le x}\Lambda(n)\mu(n+h)\bigr)$, which is the
+right-hand side of Theorem~\ref{thm:C} with $E_3$ absorbed into the
+$o(1)$. Their constant $A_h=\prod_{p\nmid h,\,p>2}(1-1/(p(p-1)))$ is
+\eqref{eq:AN}. Huang--Li \cite{HL} transpose that chain to the Goldbach
+shift, and their~(22) is its endpoint; the Goldbach-side precursor is
+Pan \cite{Pan82}, and \cite{Vat19} develops the equidistribution side.
+
+Three things are added here and none of them is the chain. The residual
+is \emph{named} rather than absorbed, so the statement is an equality
+with an explicit error term instead of an asymptotic. It is
+\emph{unconditional} in the Corollary-1 regime, which is possible only
+because Theorem~\ref{thm:A} discharges the other consumption of
+$EH_\mu$ --- \cite{MV17} spend their hypothesis on $S_4$ by partial
+summation and \cite{HL} spend it on $E_4$ through their Lemma~4, and
+neither step is needed. And the three-way distinction of
+Note~\ref{note:threeway} is visible only once the $o(1)$ is replaced by
+a named object.
+\end{note}
 
 Closure at the level of identities is not closure at the level of
 \emph{strength}, and the next two propositions separate the two. Every
@@ -551,7 +578,7 @@ Write $\mathcal E_q$ for the inner maximum. By Cauchy--Schwarz,
 \]
 For the first factor use the trivial bound
 $\mathcal E_q\ll(N/\varphi(q))\log N$, giving $\ll N(\log N)^{C_1(B)}$;
-for the second use Bombieri--Vinogradov \cite{MV} with exponent
+for the second use Bombieri--Vinogradov \cite{MoV} with exponent
 $2A+C_1(B)$.
 \end{proof}
 
@@ -1150,7 +1177,7 @@ divisor switch the M\"obius on the long variable squares away and the
 surviving M\"obius sits on a variable of length at most
 $N^{1/2-\delta}$, which is the classical configuration in which
 Bombieri--Vinogradov applies. Every ingredient
-(Bombieri--Vinogradov \cite{MV}; the Goldston--Y{\i}ld{\i}r{\i}m
+(Bombieri--Vinogradov \cite{MoV}; the Goldston--Y{\i}ld{\i}r{\i}m
 estimate \cite{GY} as used in \cite{HL}; the elementary density
 identity of Lemma~\ref{lem:density}) is off the shelf. The statement
 is offered as a \emph{lemma about the Huang--Li reduction}, not as a
@@ -1275,7 +1302,17 @@ beyond the square-root barrier}, arXiv:2309.08522 [math.NT], 2023.
 integer as the sum of a prime and a $k$-th power free integer},
 Amer. Math. Monthly \textbf{56} (1949), 17--19.
 
-\bibitem{MV} H.~Montgomery and R.~Vaughan, \emph{Multiplicative number
+\bibitem{MV17} M.~R.~Murty and A.~Vatwani, \emph{Twin primes and
+the parity problem}, J. Number Theory \textbf{180} (2017), 643--659.
+
+\bibitem{Vat19} A.~Vatwani, \emph{Variants of equidistribution in
+arithmetic progression and the twin prime conjecture}, Math. Z.
+\textbf{293} (2019), 285--317.
+
+\bibitem{Pan82} C.-D.~Pan, \emph{A new attempt on Goldbach conjecture},
+Chinese Ann. Math. \textbf{3} (1982), 555--560.
+
+\bibitem{MoV} H.~Montgomery and R.~Vaughan, \emph{Multiplicative number
 theory~I: classical theory}, Cambridge University Press, 2007.
 
 \bibitem{P2} \emph{No weight extracts $\sum_{n<N}\Lambda(n)\mu(N-n)$:
