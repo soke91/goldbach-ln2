@@ -1,0 +1,132 @@
+STATISTIC: the locked fraction #{k: H(N;k)<0}/#{k: H(N;k)!=0};
+           the cancellation ratio rho = |sum_k (log k)H| /
+           sum_k |(log k)H|; |E_3|/B(N); and the fraction of the
+           m carrying a term that are themselves prime.
+FIELD: two families at matched sizes -- N = 30030*j with
+       j = 1,2,4,...,128, whose radical contains 2,3,5,7,11,13
+       at every point, and N = 2e5*2^j, j = 0..7, the family
+       every sweep in this program used; k squarefree,
+       2 <= k < N^THETA, (k,N) = 1; m < N/k with (m,k) = 1;
+       Lambda, mu, and the primality flag from one sieve.
+CONSTANTS: THETA = 0.56, CORE = 30030, LOCK_TOL = 1e-09,
+           CTRL_TOL = 1e-03, PRIME_FLOOR = 0.50
+NULL: none applies -- deterministic sums over one sieve, no
+      sampling and no sign input. The control is the second
+      family, run through identical code.
+DENOM: rho and |E_3|/B are ratios of the same sum's signed and
+      absolute totals; the prime fraction is over the m that
+      carry a term.
+
+Does the sign of H(N;k) stay locked as N grows, or is it a small-N thing?
+
+Supports {#rem:signlock}.
+
+WHAT IS AT STAKE
+
+Two measurements in this repository, taken for different reasons, found
+the same thing: at N carrying several small odd primes the terms of
+E_3 do not cancel at all.  {#rem:thetalawarith} reports
+|sum a| / l1 = 1.00000000 at every swept theta' on a primorial-like
+family, and {#rem:threshfam} reports that at
+N = 2*3^2*5*7*11*13*17 all 513 terms are negative and |E_3| = B(N)
+exactly.  Neither asked whether this survives N growing.
+
+It matters because of where it sits.  Proposition onesided reaches its
+threshold through |C(N)| <= A(N) N, and at N with many small prime
+factors 1 - A(N) collapses -- the threshold is thinnest exactly there.
+If the sign of H(N;k) is locked on that family for all large N, then
+|E_3| = B(N) there, the one-sided condition has no cancellation left to
+save it, and the failure is structural rather than numerical.  That
+would be a no-go about the THRESHOLD rather than about the weight,
+which is a different statement from the one this program already has.
+
+But the repository has been burned by exactly this shape once already:
+a crossing quoted as decisive turned out to be one arithmetic family's
+number.  So the phenomenon is probed before it is believed, and the
+probe is registered before it is run.
+
+WHAT IS MEASURED
+
+For squarefree k < N^theta' coprime to N, with
+H(N;k) = sum_{m < N/k, (m,k)=1} Lambda(N-mk) mu(m):
+
+  S1  the locked fraction: #{k : H(N;k) < 0} / #{k : H(N;k) != 0}, on a
+      family whose radical contains 2,3,5,7,11,13 and on the swept
+      family 2^a 5^b, at matched sizes.
+
+  S2  the cancellation ratio rho = |sum_k (log k) H| / sum_k |(log k) H|
+      on both families.  rho = 1 means no cancellation whatsoever.
+
+  S3  the stated mechanism: the fraction of the m that carry a term
+      (that is, N - mk prime) which are themselves prime.  The
+      explanation on record is that those m "are almost all primes, so
+      mu(m) = -1 dominates".
+
+  S4  reported, not judged: |E_3|/B(N) on both families, which is 1
+      exactly when the sign is locked.
+
+FALSIFICATION, registered before the run
+
+  S1  REFUTED if the locked fraction on the many-prime family is below
+      1 at any N tested.  Then the sign is not locked and the two
+      earlier measurements were about the sizes they were taken at.
+  S2  REFUTED if rho on the many-prime family is below 1 - 1e-9 at any
+      N, or if rho on the control family 2^a 5^b is above 1 - 1e-3 at
+      every N.  The second half is the control: if the swept family
+      also fails to cancel, this statistic is not measuring what it is
+      being read as.
+  S3  REFUTED if the prime fraction among contributing m falls below
+      1/2 at the largest N while S1 still holds.  That would leave the
+      phenomenon standing and its stated explanation dead, which is the
+      outcome worth knowing.
+  S4  reported, not judged.
+
+  PREDICTION.  S1 and S2 hold across the tested range.  S3 is refuted:
+  the contributing m run up to N/k, and the density of primes there is
+  1/log(N/k), so "almost all primes" cannot survive N growing even if
+  the sign lock does.  If that is how it comes out, the phenomenon is
+  real and the explanation on record is wrong, and the mechanism has to
+  be found before anything is claimed.
+
+NULL.  None applies: deterministic sums over one integer sieve, no
+sampling and no sign input.  The control is the second family, which is
+run through identical code.
+
+==========================================================================
+sieving to 3843840 ...
+
+  family 2,3,5,7,11,13 | N
+  N           #k      locked     rho           |E3|/B     prime frac
+  ------------------------------------------------------------------
+  30030       60      1.000000   1.0000000000  1.000000   0.898907  
+  60060       88      1.000000   1.0000000000  1.000000   0.856926  
+  120120      129     1.000000   1.0000000000  1.000000   0.809884  
+  240240      190     1.000000   1.0000000000  1.000000   0.767039  
+  480480      284     1.000000   1.0000000000  1.000000   0.721740  
+  960960      419     1.000000   1.0000000000  1.000000   0.683812  
+  1921920     622     1.000000   1.0000000000  1.000000   0.650484  
+  3843840     921     1.000000   1.0000000000  1.000000   0.617012  
+
+  family N = 2^a 5^b (the swept one)
+  N           #k      locked     rho           |E3|/B     prime frac
+  ------------------------------------------------------------------
+  200000      313     0.587859   0.5453396828  0.545340   0.343380  
+  400000      462     0.616883   0.5544362482  0.554436   0.322585  
+  800000      682     0.570381   0.4530171920  0.453017   0.303998  
+  1600000     1004    0.560757   0.3864526017  0.386453   0.286478  
+  3200000     1485    0.519192   0.3585187969  0.358519   0.271530  
+
+  the control family's rho: 0.545340, 0.554436, 0.453017, 0.386453, 0.358519
+  the many-prime family's prime fraction, first to last:
+    0.898907, 0.856926, 0.809884, 0.767039, 0.721740, 0.683812, 0.650484, 0.617012
+
+S1  the sign of H(N;k) is locked on the many-prime family
+    S1 hold
+S2  no cancellation there, and the control family does cancel
+    S2 hold
+S3  the stated mechanism -- the contributing m are almost all prime
+    S3 hold
+S4  |E_3|/B(N) is in the tables above, reported not judged.
+
+==========================================================================
+S1 hold  S2 hold  S3 hold

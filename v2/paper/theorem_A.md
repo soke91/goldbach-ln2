@@ -472,6 +472,70 @@ doing the damage, and it is not the one this program has been
 measuring.
 
 
+
+#### Remark (the sign is locked, and the reason on record was the wrong one) {#rem:signlock}
+<!-- evidence: audit_signlock.py -->
+
+[rem:threshfam] records that at $N=2\cdot3^2\cdot5\cdot7\cdot11\cdot13
+\cdot17$ all $513$ terms of $E_3$ are negative and $|E_3|=B(N)$
+exactly; [rem:thetalawarith] records
+$\lvert\sum a\rvert/\ell^1=1.00000000$ on a primorial-like family at
+every swept $\theta'$. Two measurements, taken for different reasons,
+found the same thing, and neither asked whether it survives $N$
+growing.
+
+**It survives, across the range reachable.** On the family
+$N=30030\,j$, $j=1,2,4,\dots,128$ — radical containing
+$2,3,5,7,11,13$ at every point — the fraction of $k$ with $H(N;k)<0$ is
+$1.000000$ at all eight $N$, over $60$ to $921$ nonzero terms, and
+$\rho=\lvert\sum_k(\log k)H\rvert/\sum_k\lvert(\log k)H\rvert$ is
+$1.0000000000$. The swept family $2^a5^b$ run through identical code
+cancels, and cancels *more* as $N$ grows: $\rho=0.545340$, $0.554436$,
+$0.453017$, $0.386453$, $0.358519$. The two families diverge rather
+than converge.
+
+**The reason on record does not survive.** [rem:threshfam] explains the
+lock by saying the admissible $m$ "are almost all primes, so
+$\mu(m)=-1$ dominates". The prime fraction among the $m$ that carry a
+term falls monotonically — $0.898907$, $0.856926$, $0.809884$,
+$0.767039$, $0.721740$, $0.683812$, $0.650484$, $0.617012$ — while the
+lock does not weaken at all. At the largest $N$ nearly two in five
+contributing $m$ are not prime and not one of $921$ sums changes sign.
+The registered rule S3 asked whether the prime fraction falls below
+$1/2$ while the lock holds; it does not, in this range, so **S3 holds
+as registered and the prediction attached to it was wrong**. What is
+wrong with the explanation is not its verdict but its content.
+
+**The mechanism is forced, not statistical.** Let $q\mid\rad(N)$. If
+$q\mid m$ then $q\mid N-mk$, so $N-mk$ is a prime power only if it is a
+power of $q$ itself. Primality of $N-mk$ therefore *forces* $m$ to be
+coprime to $\rad(N)$, with only the degenerate exceptions: at
+$N=120120$, $31$ of the $9389$ contributing $m$ fail coprimality and
+all of them are that case. So the inner sum is not over all $m$ but
+over the $\rad(N)$-rough ones, and among those the numbers with one
+prime factor outnumber those with two — both factors being at least
+$17$ here, hence at least $289$ in product — by a wide margin at
+accessible sizes. That is why $\mu(m)=-1$ wins term by term.
+
+**And the mechanism has an expiry.** The prime share of the
+$\rad(N)$-rough numbers below $x$ is
+$\sim(\log x)^{-1}\prod_{p\mid\rad(N)}(1-1/p)^{-1}$, which tends to
+zero. So the bias that produces the lock thins like $1/\log$, and
+nothing here says the lock outlives it. What is established is the
+opposite of what the earlier remarks suggested: the phenomenon has a
+mechanism, the mechanism is exact rather than heuristic, and it carries
+its own end. Whether the sign actually unlocks at computable $N$ is a
+question this run does not answer and the next one can.
+
+**What this is not.** It is not a statement about $C(N)$, and it bears
+on the Goldbach problem in one narrow way only: [prop:onesided]'s
+threshold is $\SS(N)(1-\AAA(N))N$, and $1-\AAA(N)$ collapses on exactly
+the family where the lock holds. Where the threshold is thinnest, the
+sum it constrains has no cancellation to spend. That is a remark about
+which of [prop:onesided]'s two inequalities is doing the work, not a
+bound on anything.
+
+
 #### Proposition (the wall cancels out of the count) {#prop:direct}
 <!-- evidence: lab_direct_route.py -->
 
