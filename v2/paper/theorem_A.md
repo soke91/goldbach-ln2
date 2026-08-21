@@ -517,15 +517,15 @@ prime factor outnumber those with two — both factors being at least
 $17$ here, hence at least $289$ in product — by a wide margin at
 accessible sizes. That is why $\mu(m)=-1$ wins term by term.
 
-**And the mechanism has an expiry.** The prime share of the
+**And the mechanism was claimed here to have an expiry. It does not** —
+see [rem:signlockmargin], which measured the margin and corrects this
+paragraph. The argument made here was that the prime share of the
 $\rad(N)$-rough numbers below $x$ is
-$\sim(\log x)^{-1}\prod_{p\mid\rad(N)}(1-1/p)^{-1}$, which tends to
-zero. So the bias that produces the lock thins like $1/\log$, and
-nothing here says the lock outlives it. What is established is the
-opposite of what the earlier remarks suggested: the phenomenon has a
-mechanism, the mechanism is exact rather than heuristic, and it carries
-its own end. Whether the sign actually unlocks at computable $N$ is a
-question this run does not answer and the next one can.
+$\sim(\log x)^{-1}\prod_{p\mid\rad(N)}(1-1/p)^{-1}$ and tends to zero,
+so the bias producing the lock thins like $1/\log$. The share does
+thin; the sign does not follow it. What decides the sign is the parity
+of $\omega$, and the two are different quantities. The paragraph is
+kept as written because the next remark is a correction of it.
 
 **What this is not.** It is not a statement about $C(N)$, and it bears
 on the Goldbach problem in one narrow way only: [prop:onesided]'s
@@ -534,6 +534,82 @@ the family where the lock holds. Where the threshold is thinnest, the
 sum it constrains has no cancellation to spend. That is a remark about
 which of [prop:onesided]'s two inequalities is doing the work, not a
 bound on anything.
+
+
+
+#### Remark (the margin saturates, and the lock is about rough integers) {#rem:signlockmargin}
+<!-- evidence: audit_signlock_margin.py -->
+<!-- evidence: audit_signlock_why.py -->
+
+[rem:signlock] closed by saying the mechanism "has an expiry" — that
+the prime share among rough numbers thins like $1/\log$, so the lock
+should end. **That reasoning is wrong, and the correction is the point
+of this remark.** What thins like $1/\log$ is the share of the
+contributing $m$ that are prime. What decides the sign is the parity of
+$\omega$, and those are not the same quantity.
+
+**The margin saturates rather than crosses.** Split $H(N;k)$ by the
+sign of $\mu(m)$ and write $r_k$ for the positive $\Lambda$-mass over
+the negative one, so that the lock is $\max_k r_k<1$. On
+$N=30030\cdot2^{\,j}$, $j=0,\dots,9$,
+
+$$
+\max_k r_k = 0.191113,\ 0.289221,\ 0.428727,\ 0.523536,\ 0.662493,\
+0.772145,\ 0.809604,\ 0.871314,\ 0.914678,\ 0.938479 ,
+$$
+
+over $60$ to $1999$ terms. The increments run
+$0.098,\,0.140,\,0.095,\,0.139,\,0.110,\,0.038,\,0.061,\,0.043,\,0.024$:
+the rise decelerates by a factor of five across the range. A straight
+line in $\log N$ fitted to these ten points reaches $1$ at $N=10^{7.08}$
+— and the lock still holds at $N=1.5\cdot10^7$, so that model is
+refuted by the data it was fitted to. It is printed in the result file
+for exactly that reason. The control family $2^a5^b$, run through the
+same code, is not locked at any $N$: $\max_k r_k$ reads $2.279886$,
+$2.406981$, $2.342519$, $2.698008$, $1.935344$, $1.882319$.
+
+**Why it saturates.** Landau's count of squarefree $m\le x$ free of
+prime factors below $z$ with $\omega(m)=j$ is
+$\sim(x/\log x)\lambda^{j-1}/(j-1)!$ with
+$\lambda=\log\log x-\log\log z$. The index starts at $j=1$, so the odd
+$j$ — where $\mu=-1$ — carry $\cosh\lambda$ and the even $j$ carry
+$\sinh\lambda$, and the ratio is $\tanh\lambda<1$ for every $\lambda$.
+The bias is not a shortage of composites; it is that the first term of
+the distribution is a prime. As $\lambda\to\infty$ the ratio approaches
+$1$ and never reaches it, which is what the ten points do. Since
+$\lambda$ moves like $\log\log$, the approach is as slow as the table
+shows. This is a heuristic, not a proof: Landau's asymptotic is poor at
+the sizes where $x=N/k$ is a few hundred, which is most of the range.
+
+**And the primes contribute the roughness and little else.** Primality
+of $N-mk$ enters twice — it forces $m$ coprime to $\rad(N)$, and it
+selects which rough $m$ carry a term at all. Discarding the second and
+counting the same index set by parity alone gives $q_k$, and $q_k$
+tracks $r_k$ closely: across $k$ the correlation is $0.9135$, $0.9596$,
+$0.9779$, $0.9785$, $0.9804$, $0.9781$, $0.9746$, $0.9720$ at
+$N=60060$ upward, and the medians differ by at most $0.025$. The
+unweighted ratio is locked too, at every $N$ ($\max_k q_k=0.899701$
+against $\max_k r_k=0.914682$ at the top). **So the lock is, to within
+a few per cent, the parity of $\omega$ on rough integers below $N/k$**,
+and the selection by primality nudges it upward without unlocking it.
+
+The registered rule W2 asked for correlation $\ge0.8$ at *every* $N$
+and the median gap $\le0.15$. At the smallest point, $N=30030$ with
+only $60$ terms, the correlation is $0.7423$. **W2 is refuted as
+registered.** The refutation is confined to that point and the
+threshold was too tight for a correlation over $60$ values; the
+conclusion it was testing is supported at the other eight. That is
+stated rather than repaired.
+
+**What this settles.** The two earlier measurements found something
+real and it is not about the Goldbach problem. It is an elementary
+fact about short rough ranges, visible in $E_3$ because
+$\rad(N)$-roughness is forced there. The one thing it leaves standing
+is the coincidence of position recorded in [rem:signlock]:
+[prop:onesided]'s threshold $\SS(N)(1-\AAA(N))N$ collapses on exactly
+the family where the terms do not cancel. That remains a statement
+about which of that proposition's two inequalities does the work, and
+it is not a route to anything.
 
 
 #### Proposition (the wall cancels out of the count) {#prop:direct}
