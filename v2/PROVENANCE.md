@@ -28,6 +28,7 @@ from what the gate sees.
 | Lemma (`lem:density`) | the local factor is exactly $p^{-1}$; $1/\zeta$ to the first power | `audit_density_identity.py` | `results/audit_density_identity.txt` |
 | Lemma (`lem:mu`) | $G(x)\ll e^{-c\sqrt{\log x}}$ in the relevant range | analytic | — |
 | Proposition (`prop:MT`) | the main term dies uniformly in $t$ | analytic | — |
+| Proposition (`prop:movingcut`) | the bound survives the corrected cut, unconditionally for $\theta'>1/2$ | analytic | — |
 | Lemma (`lem:completelog`) | the $\log k$ branch returns $-\Lambda(u')$ | analytic | — |
 | Lemma (`lem:Gb`) | $b=\mu*w$ is exactly the complete divisor transform | analytic | — |
 | Proposition (`prop:flatsum`) | both ends are the same sum of dilated walls | `lab_weight_gap.py` | `results/lab_weight_gap.txt` |
@@ -58,6 +59,6 @@ from what the gate sees.
 
 ---
 
-37 numbered statements. Remarks carry their own evidence markers and are
+38 numbered statements. Remarks carry their own evidence markers and are
 reachable the same way; they are not listed here because they are not claims the
 papers stand on.

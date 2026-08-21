@@ -34,7 +34,9 @@ $n$-dependent constraint present in the definition of $S_2(\alpha)$.
 The missing term is exhibited and shown harmless under the hypotheses
 already assumed (Section [sec:delta]); the authors' own correction
 takes a different route, on which that term does not arise
-([rem:movingswitch]).
+([rem:movingswitch]). The two routes differ by exactly that term, and
+Theorem [thm:A] together with it gives the bound against the corrected
+formulation (Proposition [prop:movingcut]).
 
 We state plainly what is *not* claimed: Theorem [thm:A] removes
 only the part of the demand that carries no Goldbach content, and the
@@ -2002,14 +2004,107 @@ correction to be waved through: $|\Xi|/N$ reads $0.055582$,
 $0.055661$, $0.036230$, $0.029335$, $0.022678$, the same order as
 $|J|/N$. It needs $\Delta$'s estimate, not a triangle inequality.
 
-**What this does not do.** It does not make the deduction a numbered
-statement. Doing so means restating Theorem [thm:A] against the
-corrected formulation, and the statements here are still phrased for
-the fixed cut. What is established is the shape of that restatement:
+[eq:cutbridge] is what Proposition [prop:movingcut] is built on:
 Theorem [thm:A] at $t=N-1$, plus the estimate of Section [sec:delta]
-with weight $1$, gives the moving-cut bound — so the correction the
+with weight $1$, gives the moving-cut bound. The correction the
 published equation needed and the formulation that removes the need for
 it are two readings of one identity.
+
+
+#### Proposition (the bound survives the corrected cut) {#prop:movingcut}
+<!-- evidence: analytic -->
+
+Fix $\theta'\in(1/2,1)$, put $\alpha=N^{1-\theta'}$ and
+$K=(N-1)/\alpha$, and let $Y_k=\lceil N-\alpha k\rceil-1$. Then for
+every $A>0$,
+
+$$
+\begin{equation}\label{eq:movingcut}
+  T_1^\ast \;:=\; \sum_{\substack{k<K\\(k,N)=1}}\mu(k)\,\Emu(Y_k;k)
+  \;\ll_{A,\theta'}\; \frac{N}{(\log N)^{A}},
+\end{equation}
+$$
+
+unconditionally.
+
+
+**Proof.** 
+Write $J=T_1(N-1)$ and $a_n=\Lambda(n)\mu(N-n)$. Since
+$\Emu(N-1;k)-\Emu(Y_k;k)$ is carried by $Y_k<n<N$,
+
+$$
+J-T_1^\ast=\Xi_{\mathrm{main}}-\Xi_{\mathrm{mean}},
+\qquad
+\Xi_{\mathrm{main}}=\sum_{\substack{k<K\\(k,N)=1}}\mu(k)
+  \!\!\sum_{\substack{Y_k<n<N\\ n\equiv N\ (k)}}\!\! a_n ,
+$$
+
+$\Xi_{\mathrm{mean}}=\sum_{k<K,(k,N)=1}\frac{\mu(k)}{\varphi(k)}
+\bigl(C(N-1)-C(Y_k)\bigr)$. We bound the three pieces.
+
+*The fixed-cut term.* $J\ll_{A,\theta'}N(\log N)^{-A}$ is
+Theorem [thm:A] at $t=N-1$, which lies in the range $1\le t<N$ of its
+supremum. This is the only place $\theta'>1/2$ is used, and it is used
+exactly where Theorem [thm:A] needs it.
+
+*The bridge term.* Put $N-n=mk$. Then $n>Y_k$ iff $n\ge N-\alpha k$
+iff $m\le\alpha$, and $m\le\alpha$ together with $k<K=(N-1)/\alpha$
+forces $mk<N-1$, so the constraint $n\ge1$ is automatic. On these
+terms $\mu(k)\mu(N-n)=\mu(k)\mu(mk)$, which vanishes unless $mk$ is
+squarefree, in which case it equals $\mu(m)\mu^2(k)$. Hence
+
+$$
+\Xi_{\mathrm{main}}=\sum_{m\le\alpha}\mu(m)
+  \!\!\sum_{\substack{k<K\\ (k,mN)=1}}\!\!\mu^2(k)\,\Lambda(N-mk).
+$$
+
+The term $m=1$ is $\sum_{k<K,(k,N)=1}\mu^2(k)\Lambda(N-k)\le
+\sum_{N-K<j<N}\Lambda(j)\ll K\log N=N^{\theta'}\log N$, which is
+$\ll_A N(\log N)^{-A}$ because $\theta'<1$. The terms $2\le m\le\alpha$
+are [eq:Delta] with the weight $\log m$ replaced by $1$ and are closed
+by the argument of Section [sec:delta] verbatim: by [eq:mu2mk] the two
+conditions on $k$ collapse to $\mu^2(mk)$, expanding
+$\mu^2(mk)=\sum_{b^2\mid mk}\mu(b)$ with the truncation
+$b\le B:=(\log N)^{A+4}$ leaves sums of $\Lambda$ over progressions to
+moduli $[m,b^2]\le\alpha B^2=N^{1-\theta'}(\log N)^{2A+8}$, and
+$\alpha<N^{1/2}$ since $\theta'>1/2$, so Bombieri–Vinogradov closes
+them. The main term is
+$A(N)\sum_{m\le\alpha}\mu(m)\lambda(m)T_m/m$, which is
+$O\!\left(Ne^{-c\sqrt{\log N}}\right)$ by Lemma [lem:mu] applied
+directly — the weight being $1$, no partial summation is needed to
+remove a $\log m$, so this step is strictly shorter here than in
+Section [sec:delta].
+
+*The mean term.* Since $n>Y_k$ iff $k>R_n:=\lceil (N-n)/\alpha\rceil-1$,
+exchanging gives
+$\Xi_{\mathrm{mean}}=\sum_{n<N}a_n\bigl(\rho_N(K)-\rho_N(R_n+1)\bigr)$
+with $\rho_N$ as in Lemma [lem:extract], so
+$\rho_N(x)\ll e^{-c_1\sqrt{\log x}}$. Split at $N-n=H$ with
+$H:=2N^{1-\theta'/2}$. On $N-n\le H$ use
+$|\rho_N|\ll1$ and $\sum_{N-H\le n<N}|a_n|\ll H\log N$; since
+$1-\theta'/2<1$ this is $\ll_A N(\log N)^{-A}$. On $N-n>H$ one has
+$R_n\ge H/(2\alpha)=N^{\theta'/2}$, so both $\rho$ terms are
+$\ll e^{-c_2\sqrt{\theta'\log N}}$, and $\sum_{n<N}|a_n|\ll N$ gives
+$\ll N e^{-c_2\sqrt{\theta'\log N}}\ll_A N(\log N)^{-A}$.
+
+Collecting, $T_1^\ast=J-\Xi_{\mathrm{main}}+\Xi_{\mathrm{mean}}
+\ll_{A,\theta'}N(\log N)^{-A}$.
+ ∎
+
+
+#### Remark (what the proposition does not cover) {#rem:movingcutscope}
+
+Proposition [prop:movingcut] is stated in the Corollary-1 regime only.
+In the general Theorem-1 regime $\alpha\asymp N^{\theta}$ the outer
+truncation is $K\asymp N^{1-\theta}$, which drops below $N^{1/2}$ as
+soon as $\theta>1/2$, and Theorem [thm:A] is stated for
+$K=N^{\theta'}$ with $\theta'\in(1/2,1)$. The bridge and the estimate
+of $\Xi_{\mathrm{main}}$ are unaffected — the latter closes under the
+$EH$ assumed there, as $\Delta$ does — but the fixed-cut input is not
+available, so no claim is made outside $\theta'>1/2$. That is the same
+threshold [thm:D] turns on, and it is not a coincidence: below it the
+cofactor left by the completion is no longer short.
+
 
 
 ## Proof of Theorem [thm:C
@@ -7219,6 +7314,12 @@ $\Delta$ is exhibited and closes under hypotheses already assumed. The
 authors' correction keeps the constraint instead, and
 [rem:movingswitch] shows the switch of Theorem [thm:A] survives that
 move, reaching the favourable configuration one step earlier.
+
+- Proposition [prop:movingcut]: the bound of Theorem [thm:A] holds
+against the corrected formulation, unconditionally for $\theta'>1/2$.
+The two formulations differ by a term of $\Delta$'s shape
+([eq:cutbridge]), so the fixed cut is not superseded: it is one of the
+two ingredients and the omitted term is the other.
 
 - Section [sec:notclaimed]: the net progress toward Goldbach is
 zero.

@@ -271,6 +271,16 @@ moving cut the exchanged divisor sum is cut by the cofactor and the
 completion leaves the tail on the short variable directly — the same
 configuration, reached one step earlier.
 
+The two formulations are not rivals. They differ by exactly the term
+displayed above: on the $n$ the moving cut drops, $N-n\le\alpha k$, so
+$\mu(k)\mu(N-n)=\mu(m)\mu^2(k)$ with $m=(N-n)/k\le\alpha$ — the shape
+of $\Delta$, with weight $1$. Theorem [thm:A] at the extreme endpoint
+together with that estimate gives the bound against the corrected
+formulation, unconditionally for $\theta'>1/2$
+(Proposition [prop:movingcut]). The correction the published equation
+needed and the formulation that removes the need for it are two
+readings of one identity.
+
 
 ## The supply side {#sec:supply}
 
